@@ -1,0 +1,19 @@
+# dependencies
+node_modules
+# logs
+coverage
+npm-debug.log
+
+# generated
+dist
+out/
+.next/
+.vscode/
+bundle/
+
+# hidden
+.env
+.env-config.js
+.eslintcache
+
+s3/
