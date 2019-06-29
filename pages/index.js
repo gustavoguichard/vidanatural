@@ -1,15 +1,15 @@
 import React from 'react'
 import { Paper, Container, Typography, Box } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
+import PaperContent from 'src/components/PaperContent'
 
 export default function Index() {
   return (
     <Layout>
-      <Container maxWidth="lg" css={{ zIndex: 3, position: 'relative' }}>
-        <Paper css={{ marginBottom: '-3rem' }} elevation={20}>
-          <Box my={4} css={{ minHeight: '200vh' }} />
-        </Paper>
-      </Container>
+      <PaperContent>
+        <h1>Foooooooo</h1>
+        <h2>Baaaaaaar</h2>
+      </PaperContent>
     </Layout>
   )
 }

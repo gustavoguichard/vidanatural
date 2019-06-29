@@ -17,7 +17,7 @@ const Layout = ({ children, stickBar }) => {
         }}
       >
         <Header stick={stickBar} />
-        <main>{children}</main>
+        <main css={{ marginTop: stickBar ? 48 : -119.3 }}>{children}</main>
         <Footer />
       </div>
     </Providers>
