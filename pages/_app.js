@@ -5,7 +5,7 @@ import Router from 'next/router'
 import { ThemeProvider } from '@material-ui/styles'
 import { initGA, logPageView } from 'utils/analytics'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import theme from '../src/theme'
+import theme from 'src/ui/theme'
 
 class VidaNatural extends App {
   static async getInitialProps({ Component, ctx }) {

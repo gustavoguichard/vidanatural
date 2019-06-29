@@ -14,10 +14,12 @@ module.exports = {
       {
         root: ['./'],
         alias: {
+          data: './data',
           components: './components',
           pages: './pages',
           static: './static',
           utils: './utils',
+          src: './src',
         },
       },
     ],

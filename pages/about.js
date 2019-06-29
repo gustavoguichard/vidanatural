@@ -3,9 +3,9 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import MuiLink from '@material-ui/core/Link'
-import Layout from '../src/Layout'
-import ProTip from '../src/ProTip'
-import Link from '../src/Link'
+import Layout from 'src/ui/Layout'
+import ProTip from 'src/ProTip'
+import Link from 'src/components/Link'
 
 function MadeWithLove() {
   return (
