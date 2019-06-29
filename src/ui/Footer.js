@@ -1,8 +1,9 @@
 import { useContext, useRef, useEffect } from 'react'
-import { Box } from '@material-ui/core'
-import Link from 'next/link'
+import { Box, Container } from '@material-ui/core'
+import NextLink from 'next/link'
 import { FaWhatsapp, FaFacebookSquare, FaInstagram } from 'react-icons/fa'
 import theme from 'src/ui/theme'
+import Link from 'src/components/Link'
 import { usePrevious, useOnScreen } from 'utils/hooks'
 import { Context } from 'utils/CustomerChat'
 import sloganImg from 'static/images/slogan.svg'
@@ -27,53 +28,59 @@ const Footer = () => {
     wasOnScreen === false && isOnScreen && chat.initConversation()
   }, [isOnScreen])
   return (
-    <Box
-      ref={ref}
-      p={2}
-      pt={5}
-      display="flex"
-      alignItems="center"
-      bgcolor="background.default"
-    >
-      <Link href="/eu-uso-cosmetica-consciente">
-        <a title="Ir para a homepage">
-          <img
-            css={{
-              width: 150,
-              margin: theme.spacing(),
-              transition: 'all .3s',
-            }}
-            src={sloganImg}
-            alt="Vida Natural"
-          />
-        </a>
-      </Link>
-      <a
-        href="https://wa.me/5548991039557"
-        title="Fale conosco por whatsapp"
-        target="blank"
+    <Box ref={ref} pb={2} pt={5} bgcolor="background.default">
+      <Container
+        css={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          [theme.breakpoints.down('xs')]: { justifyContent: 'center' },
+        }}
       >
-        <FaWhatsapp {...iconProps} color={theme.palette.secondary.light} />
-      </a>
-      <a
-        href="https://instagram.com/vidanatural.eco"
-        title="Ir para nosso Instagram"
-        target="blank"
-      >
-        <FaInstagram {...iconProps} color="#B05CFE" />
-      </a>
-      <a
-        href="http://facebook.com/vidanatural.eco"
-        title="Ir para nosso Facebook"
-        target="blank"
-      >
-        <FaFacebookSquare {...iconProps} color="#0082FB" />
-      </a>
-      <Box flex={1} ml={2}>
-        Vida Natural Cosmética Consciente LTDA
-        <br />
-        Antolino E. Martins, 106 • Imbituba/SC • CEP: 88780-000
-      </Box>
+        <NextLink href="/eu-uso-cosmetica-consciente">
+          <a title="Ir para a homepage">
+            <img
+              css={{
+                width: 150,
+                margin: theme.spacing(),
+                transition: 'all .3s',
+              }}
+              src={sloganImg}
+              alt="Vida Natural"
+            />
+          </a>
+        </NextLink>
+        <div>
+          <a
+            href="https://wa.me/5548991039557"
+            title="Fale conosco por whatsapp"
+            target="blank"
+          >
+            <FaWhatsapp {...iconProps} color={theme.palette.secondary.light} />
+          </a>
+          <a
+            href="https://instagram.com/vidanatural.eco"
+            title="Ir para nosso Instagram"
+            target="blank"
+          >
+            <FaInstagram {...iconProps} color="#B05CFE" />
+          </a>
+          <a
+            href="http://facebook.com/vidanatural.eco"
+            title="Ir para nosso Facebook"
+            target="blank"
+          >
+            <FaFacebookSquare {...iconProps} color="#0082FB" />
+          </a>
+        </div>
+        <Box flex={1} ml={2} css={{ minWidth: '60%' }}>
+          &copy; Vida Natural • {new Date().getFullYear()} • Imbituba / SC
+          <br />
+          <Link href="mailto:falecom@vidanatural.eco.br">
+            falecom@vidanatural.eco.br
+          </Link>
+        </Box>
+      </Container>
     </Box>
   )
 }

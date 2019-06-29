@@ -31,6 +31,7 @@ function Link(props) {
     className: classNameProps,
     innerRef,
     naked,
+    color = 'secondary',
     ...other
   } = props
 
@@ -44,6 +45,7 @@ function Link(props) {
 
   return (
     <MuiLink
+      color={color}
       component={NextComposed}
       className={className}
       ref={innerRef}
@@ -55,6 +57,7 @@ function Link(props) {
 Link.propTypes = {
   activeClassName: PropTypes.string,
   as: PropTypes.string,
+  color: PropTypes.string,
   className: PropTypes.string,
   href: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
