@@ -3,6 +3,7 @@ import get from 'lodash/get'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
 import isEqual from 'lodash/isEqual'
+import { isClient } from 'utils/helpers'
 
 export const useWindowDimensions = (delay = 300) => {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 })
@@ -19,7 +20,6 @@ export const useWindowDimensions = (delay = 300) => {
 
 export const useScroll = () => {
   const frame = useRef(0)
-  const isClient = typeof window === 'object'
   const [state, setState] = useState({
     x: isClient ? window.scrollX : 0,
     y: isClient ? window.scrollY : 0,

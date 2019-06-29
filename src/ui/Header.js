@@ -1,13 +1,17 @@
 import { AppBar, Button, Toolbar, useScrollTrigger } from '@material-ui/core'
 import Logo from 'src/ui/header/Logo'
-import HeaderMenu from 'src/ui/header/HeaderMenu'
+import DesktopMenu from 'src/ui/header/DesktopMenu'
+import MobileMenu from 'src/ui/header/MobileMenu'
+import { useIsMobile } from 'utils/responsive'
 
-const Header = () => {
-  const sticky = useScrollTrigger({
+const Header = ({ stick }) => {
+  const isMobile = useIsMobile()
+  const hasScrolled = useScrollTrigger({
     disableHysteresis: true,
     threshold: 50,
     target: process.env.browser ? window() : undefined,
   })
+  const sticky = stick || isMobile || hasScrolled
   const elevation = sticky ? 4 : 0
   return (
     <AppBar
@@ -21,7 +25,7 @@ const Header = () => {
       <Toolbar variant="dense">
         <Logo sticky={sticky} />
         <div css={{ flexGrow: 1 }} />
-        <HeaderMenu />
+        {isMobile ? <MobileMenu /> : <DesktopMenu />}
       </Toolbar>
     </AppBar>
   )

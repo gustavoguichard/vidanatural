@@ -28,7 +28,7 @@ const Footer = () => {
     wasOnScreen === false && isOnScreen && chat.initConversation()
   }, [isOnScreen])
   return (
-    <Box ref={ref} pb={2} pt={5} bgcolor="background.default">
+    <Box id="contato" ref={ref} pb={2} pt={5} bgcolor="background.default">
       <Container
         css={{
           display: 'flex',

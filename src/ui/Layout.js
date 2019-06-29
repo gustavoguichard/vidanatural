@@ -5,7 +5,7 @@ import Providers from 'src/core/Providers'
 
 import homeBgImg from 'static/images/vn_capa.png'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, stickBar }) => {
   return (
     <Providers>
       <div
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
           backgroundSize: 'cover',
         }}
       >
-        <Header />
+        <Header stick={stickBar} />
         <main>{children}</main>
         <Footer />
       </div>

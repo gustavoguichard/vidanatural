@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import Link from 'next/link'
-import { Context } from 'utils/CustomerChat'
+import { interceptHash } from 'utils/helpers'
 import menu from 'data/menu'
 
 const SubMenu = ({ name, links }) => {
@@ -44,20 +44,13 @@ const SubMenu = ({ name, links }) => {
 }
 
 const HeaderMenu = () => {
-  const chat = useContext(Context)
-  const doAction = ({ action }) => event => {
-    if (action === 'chat') {
-      event.preventDefault()
-      chat.initConversation()
-    }
-  }
   return menu.links.map(item => {
-    const isSubmenu = !!item.links
-    return isSubmenu ? (
+    const hasSubmenu = !!item.links
+    return hasSubmenu ? (
       <SubMenu key={item.name} {...item} />
     ) : (
       <Link key={item.name} href={item.path}>
-        <Button onClick={doAction(item)} color="inherit">
+        <Button data-hash={item.path} onClick={interceptHash} color="inherit">
           {item.name}
         </Button>
       </Link>

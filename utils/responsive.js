@@ -1,16 +1,22 @@
-export const isRetina = () => window.devicePixelRatio > 1.3
+import { useMediaQuery } from '@material-ui/core'
+import theme from 'src/ui/theme'
 
-export const isMobile = () =>
-  !!(
-    (process.browser && navigator.userAgent.match(/Android/i)) ||
-    navigator.userAgent.match(/webOS/i) ||
-    navigator.userAgent.match(/iPhone/i) ||
-    navigator.userAgent.match(/iPod/i) ||
-    navigator.userAgent.match(/BlackBerry/i) ||
-    navigator.userAgent.match(/Windows Phone/i)
-  )
+// export const isRetina = () => window.devicePixelRatio > 1.3
 
-export const isTablet = () =>
-  !!(process.browser && (isMobile() || navigator.userAgent.match(/iPad/i)))
+export const iOS =
+  process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
-export const isDesktop = () => !isTablet()
+export const useIsMobile = () => {
+  const matches = useMediaQuery(theme.breakpoints.down('xs'))
+  return matches
+}
+
+export const useIsTablet = () => {
+  const matches = useMediaQuery(theme.breakpoints.down('sm'))
+  return matches
+}
+
+export const useIsDesktop = () => {
+  const isTablet = useIsTablet()
+  return !isTablet
+}

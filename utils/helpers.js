@@ -1,5 +1,38 @@
 import get from 'lodash/get'
+import startsWith from 'lodash/startsWith'
 import isFunction from 'lodash/isFunction'
+
+export const isClient = typeof window === 'object'
+
+export const getElByHash = hash => {
+  const id = hash.substr(1)
+  return document.getElementById(id)
+}
+
+export const scroolTo = el => {
+  const scroll = top => {
+    isClient && window.scrollTo({ top, behavior: 'smooth' })
+  }
+  if (el) {
+    const { top } = el.getBoundingClientRect()
+    scroll(top)
+  } else {
+    scroll(0)
+  }
+}
+
+export const scroolToHash = hash => {
+  const el = getElByHash(hash)
+  scroolTo(el)
+}
+
+export const interceptHash = event => {
+  const hash = get(event, 'currentTarget.dataset.hash')
+  if (startsWith(hash, '#')) {
+    event.preventDefault()
+    scroolToHash(hash)
+  }
+}
 
 export const nl2Br = content => content.replace(/(?:\r\n|\r|\n)/g, '<br />')
 

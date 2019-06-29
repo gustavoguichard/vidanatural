@@ -69,7 +69,6 @@ export default {
     {
       name: 'Contato',
       path: '#contato',
-      action: 'chat',
     },
   ],
 }

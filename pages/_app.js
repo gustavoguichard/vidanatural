@@ -7,6 +7,8 @@ import { initGA, logPageView } from 'utils/analytics'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from 'src/ui/theme'
 
+import 'src/ui/app.scss'
+
 class VidaNatural extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
