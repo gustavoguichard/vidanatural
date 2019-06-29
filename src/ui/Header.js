@@ -18,7 +18,7 @@ const Header = () => {
       position="sticky"
       elevation={elevation}
     >
-      <Toolbar>
+      <Toolbar variant="dense">
         <Logo sticky={sticky} />
         <div css={{ flexGrow: 1 }} />
         <HeaderMenu />
