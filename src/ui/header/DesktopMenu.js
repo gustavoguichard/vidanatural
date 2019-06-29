@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
-import Link from 'next/link'
+import Link from 'src/components/Link'
 import { interceptHash } from 'utils/helpers'
 import menu from 'data/menu'
 
@@ -34,7 +34,7 @@ const SubMenu = ({ name, links }) => {
         onClose={() => setAnchorEl(null)}
       >
         {links.map(subItem => (
-          <Link key={subItem.path} href={subItem.path}>
+          <Link color="inherit" key={subItem.path} href={subItem.path}>
             <MenuItem>{subItem.name}</MenuItem>
           </Link>
         ))}
@@ -49,7 +49,7 @@ const HeaderMenu = () => {
     return hasSubmenu ? (
       <SubMenu key={item.name} {...item} />
     ) : (
-      <Link key={item.name} href={item.path}>
+      <Link color="inherit" key={item.name} href={item.path}>
         <Button data-hash={item.path} onClick={interceptHash} color="inherit">
           {item.name}
         </Button>
