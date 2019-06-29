@@ -5,6 +5,7 @@ import { FaWhatsapp, FaFacebookSquare, FaInstagram } from 'react-icons/fa'
 import theme from 'src/ui/theme'
 import Link from 'src/components/Link'
 import { usePrevious, useOnScreen } from 'utils/hooks'
+import { useIsMobile } from 'utils/responsive'
 import { Context } from 'utils/CustomerChat'
 import sloganImg from 'static/images/slogan.svg'
 
@@ -21,11 +22,12 @@ const iconProps = {
 
 const Footer = () => {
   const chat = useContext(Context)
+  const isMobile = useIsMobile()
   const ref = useRef()
   const isOnScreen = useOnScreen(ref, '0px', true)
   const wasOnScreen = usePrevious(isOnScreen)
   useEffect(() => {
-    wasOnScreen === false && isOnScreen && chat.initConversation()
+    !isMobile && wasOnScreen === false && isOnScreen && chat.initConversation()
   }, [isOnScreen])
   return (
     <Box id="contato" ref={ref} pb={2} pt={5} bgcolor="background.default">
