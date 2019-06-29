@@ -22,18 +22,11 @@ function MadeWithLove() {
 export default function Index() {
   return (
     <Layout>
-      <Container maxWidth="sm">
-        <Box my={4} css={{ minHeight: '200vh' }}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            Next.js v4-beta example
-          </Typography>
-          <Link href="/about" color="secondary">
-            Go to the about page
-          </Link>
-          <ProTip />
-          <MadeWithLove />
-        </Box>
-      </Container>
+      {
+        <Container maxWidth="sm">
+          <Box my={4} css={{ minHeight: '200vh' }} />
+        </Container>
+      }
     </Layout>
   )
 }

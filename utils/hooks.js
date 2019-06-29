@@ -1,19 +1,53 @@
-import { useState, useRef, useEffect, useReducer } from 'react'
+import { useCallback, useState, useRef, useEffect, useReducer } from 'react'
 import get from 'lodash/get'
 import debounce from 'lodash/debounce'
+import throttle from 'lodash/throttle'
 import isEqual from 'lodash/isEqual'
 
-export const useWindowDimensions = (throttle = 300) => {
+export const useWindowDimensions = (delay = 300) => {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 })
   useEffect(() => {
     const update = () =>
       setDimensions({ height: window.innerHeight, width: window.innerWidth })
-    const handleResize = debounce(update, throttle)
+    const handleResize = debounce(update, delay)
     window.addEventListener('resize', handleResize)
     update()
     return () => window.removeEventListener('resize', handleResize)
-  }, [throttle])
+  }, [delay])
   return dimensions
+}
+
+export const useScroll = () => {
+  const frame = useRef(0)
+  const isClient = process.env.browser
+  const [state, setState] = useState({
+    x: isClient ? window.scrollX : 0,
+    y: isClient ? window.scrollY : 0,
+  })
+
+  useEffect(() => {
+    const handler = () => {
+      cancelAnimationFrame(frame.current)
+      frame.current = requestAnimationFrame(() => {
+        setState({
+          x: window.scrollX,
+          y: window.scrollY,
+        })
+      })
+    }
+
+    window.addEventListener('scroll', handler, {
+      capture: false,
+      passive: true,
+    })
+
+    return () => {
+      cancelAnimationFrame(frame.current)
+      window.removeEventListener('scroll', handler)
+    }
+  }, [])
+
+  return state
 }
 
 export const useColumns = (splitFactor = 365) => {
