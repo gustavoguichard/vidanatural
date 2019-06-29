@@ -1,8 +1,5 @@
 import React from 'react'
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
-import MuiLink from '@material-ui/core/Link'
+import { Paper, Container, Typography, Box, MuiLink } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import ProTip from 'src/ProTip'
 import Link from 'src/components/Link'
@@ -22,11 +19,11 @@ function MadeWithLove() {
 export default function Index() {
   return (
     <Layout>
-      {
-        <Container maxWidth="sm">
+      <Container maxWidth="lg" css={{ zIndex: 3, position: 'relative' }}>
+        <Paper css={{ marginBottom: '-3rem' }} elevation={20}>
           <Box my={4} css={{ minHeight: '200vh' }} />
-        </Container>
-      }
+        </Paper>
+      </Container>
     </Layout>
   )
 }

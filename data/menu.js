@@ -63,13 +63,13 @@ export default {
       path: '/onde-encontrar',
     },
     {
+      name: 'Eu Uso!',
+      path: '/eu-uso-cosmetica-consciente',
+    },
+    {
       name: 'Contato',
       path: '#contato',
       action: 'chat',
-    },
-    {
-      name: 'Eu Uso!',
-      path: '/eu-uso-cosmetica-consciente',
     },
   ],
 }

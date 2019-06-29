@@ -19,7 +19,7 @@ export const useWindowDimensions = (delay = 300) => {
 
 export const useScroll = () => {
   const frame = useRef(0)
-  const isClient = process.env.browser
+  const isClient = typeof window === 'object'
   const [state, setState] = useState({
     x: isClient ? window.scrollX : 0,
     y: isClient ? window.scrollY : 0,

@@ -1,11 +1,13 @@
 import { AppBar, Button, Toolbar, useScrollTrigger } from '@material-ui/core'
 import Logo from 'src/ui/header/Logo'
 import HeaderMenu from 'src/ui/header/HeaderMenu'
-import { useScroll } from 'utils/hooks'
 
 const Header = () => {
-  const scroll = useScroll()
-  const sticky = scroll.y >= 50
+  const sticky = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 50,
+    target: process.env.browser ? window() : undefined,
+  })
   const elevation = sticky ? 4 : 0
   return (
     <AppBar

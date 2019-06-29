@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import Header from 'src/ui/Header'
+import Footer from 'src/ui/Footer'
 import Providers from 'src/core/Providers'
 
 import homeBgImg from 'static/images/vn_capa.png'
@@ -17,6 +18,7 @@ const Layout = ({ children }) => {
       >
         <Header />
         {children}
+        <Footer />
       </div>
     </Providers>
   )
