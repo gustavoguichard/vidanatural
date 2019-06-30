@@ -10,16 +10,13 @@ import {
 } from '@material-ui/core'
 import NextLink from 'next/link'
 import { Menu } from '@material-ui/icons'
-import { interceptHash } from 'utils/helpers'
 import menu from 'data/menu'
 
 const MenuButton = ({ name, path, onClose }) => (
   <NextLink href={path}>
     <ListItem
-      data-hash={path}
-      onClick={event => {
-        onClose(event)
-        interceptHash(event)
+      onClick={() => {
+        onClose()
       }}
       button
     >
@@ -35,7 +32,7 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
       {hasSubmenu ? (
         <List subheader={<ListSubheader disableSticky>{name}</ListSubheader>}>
           {links.map(item => (
-            <MenuButton onClose={onClose} {...item} />
+            <MenuButton key={item.path} onClose={onClose} {...item} />
           ))}
         </List>
       ) : (
@@ -68,7 +65,7 @@ const MobileMenu = () => {
         <List css={{ minWidth: '80vw' }}>
           {menu.links.map((item, index) => (
             <MenuItem
-              key={item.path}
+              key={item.name}
               onClose={toggleDrawer(false)}
               last={index >= menu.links.length - 1}
               {...item}

@@ -1,27 +1,6 @@
 export default {
   links: [
     {
-      name: 'Home',
-      path: '/',
-    },
-    {
-      name: 'Sobre',
-      links: [
-        {
-          name: 'A Vida Natural',
-          path: '/sobre-a-vida-natural',
-        },
-        {
-          name: 'Você sabia?',
-          path: '/sobre-a-vida-natural#voce-sabia',
-        },
-        {
-          name: 'Nossos ingredientes',
-          path: '/sobre-a-vida-natural#ingredientes',
-        },
-      ],
-    },
-    {
       name: 'Cosméticos',
       links: [
         {
@@ -52,10 +31,6 @@ export default {
           name: 'Pó Dental',
           path: '/po-dental',
         },
-        {
-          name: 'Intruções de compra',
-          path: '/instrucoes-de-compra',
-        },
       ],
     },
     {
@@ -65,6 +40,23 @@ export default {
     {
       name: 'Eu Uso!',
       path: '/eu-uso-cosmetica-consciente',
+    },
+    {
+      name: 'Sobre',
+      links: [
+        {
+          name: 'A Vida Natural',
+          path: '/sobre-a-vida-natural',
+        },
+        {
+          name: 'Você sabia?',
+          path: '/sobre-a-vida-natural#voce-sabia',
+        },
+        {
+          name: 'Nossos ingredientes',
+          path: '/sobre-a-vida-natural#ingredientes',
+        },
+      ],
     },
     {
       name: 'Contato',

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import Link from 'src/components/Link'
-import { interceptHash } from 'utils/helpers'
 import menu from 'data/menu'
 
 const SubMenu = ({ name, links }) => {
@@ -50,9 +49,7 @@ const HeaderMenu = () => {
       <SubMenu key={item.name} {...item} />
     ) : (
       <Link color="inherit" key={item.name} href={item.path}>
-        <Button data-hash={item.path} onClick={interceptHash} color="inherit">
-          {item.name}
-        </Button>
+        <Button color="inherit">{item.name}</Button>
       </Link>
     )
   })

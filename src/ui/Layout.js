@@ -12,7 +12,7 @@ const Layout = ({ children, stickBar }) => {
     threshold: 50,
     target: process.env.browser ? window() : undefined,
   })
-  const sticky = stickBar || isMobile || hasScrolled
+  const sticky = stickBar || hasScrolled
   return (
     <Providers>
       <Header sticky={sticky} />
