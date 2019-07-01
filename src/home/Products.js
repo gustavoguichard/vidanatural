@@ -1,7 +1,9 @@
-import Link from 'src/components/Link'
-import { Grid, Typography, Box } from '@material-ui/core'
+import NextLink from 'next/link'
+import { Button, Box, Grid, Typography } from '@material-ui/core'
+import { LocationOn } from '@material-ui/icons'
 import PaperContent from 'src/ui/PaperContent'
 import Emoji from 'src/components/Emoji'
+import theme from 'src/ui/theme'
 import products from 'data/products'
 import Product from './Product'
 
@@ -39,6 +41,21 @@ const Products = () => {
           ))}
         </Grid>
       </Grid>
+      <NextLink href="/onde-encontrar">
+        <Button
+          color="primary"
+          size="large"
+          variant="contained"
+          css={{
+            display: 'flex !important',
+            margin: 'auto !important',
+            marginTop: `${theme.spacing(4)}px !important`,
+          }}
+        >
+          Onde encontrar?
+          <LocationOn css={{ marginLeft: theme.spacing() }} />
+        </Button>
+      </NextLink>
     </PaperContent>
   )
 }

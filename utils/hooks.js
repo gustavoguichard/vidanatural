@@ -177,7 +177,7 @@ export const useOnScreen = (ref, rootMargin = '0px', once) => {
       observer.observe(ref.current)
     }
     return () => {
-      observer.unobserve(ref.current)
+      ref.current && observer.unobserve(ref.current)
     }
   }, [loaded, once, ref, rootMargin])
 

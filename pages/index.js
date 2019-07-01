@@ -19,6 +19,15 @@ function Index() {
         <Typography variant="h5">Nós nos importamos!</Typography>
       </Hero>
       <Products />
+      <Hero
+        filter="brightness(0.4) saturate(1.8)"
+        // background="/static/images/plants.jpg"
+      >
+        <Typography variant="h3">
+          Você se importa com o que sua pele absorve todos os dias?
+        </Typography>
+        <Typography variant="h5">Nós nos importamos!</Typography>
+      </Hero>
     </Layout>
   )
 }
