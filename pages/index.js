@@ -9,7 +9,7 @@ function Index() {
   return (
     <Layout>
       <Hero
-        size={isMobile ? 'medium' : 'small'}
+        size={isMobile ? 'full' : 'small'}
         filter="brightness(0.4) saturate(1.8)"
         background="/static/images/plants.jpg"
       >

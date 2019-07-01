@@ -11,6 +11,7 @@ const Products = () => {
       <Box textAlign="center" mb={2}>
         <Grid spacing={3} justify="center" container>
           <Grid item md={6}>
+            <Typography variant="h6">Nossos produtos</Typography>
             <Typography variant="h4">
               <strong>
                 Não basta ser natural e sustentável, tem que ser eficiente{' '}
@@ -19,7 +20,7 @@ const Products = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid spacing={3} justify="center" container>
+        <Grid spacing={5} justify="center" container>
           <Grid item md={6}>
             <Typography variant="body1">
               Nossos cosméticos são <strong>feitos a mão</strong>, produzidos em
@@ -33,8 +34,8 @@ const Products = () => {
       </Box>
       <Grid container justify="center">
         <Grid spacing={2} md={10} item container justify="center">
-          {products.map(product => (
-            <Product key={product.path} {...product} />
+          {products.map((product, index) => (
+            <Product key={product.path} index={index} {...product} />
           ))}
         </Grid>
       </Grid>
