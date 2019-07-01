@@ -13,6 +13,7 @@ const Hero = ({
   size = 'medium',
   variant = 'primary',
   textShadow = true,
+  maxWidth = 'md',
   background,
   ...props
 }) => (
@@ -39,7 +40,7 @@ const Hero = ({
         zIndex: 2,
         ...style,
       }}
-      maxWidth="md"
+      maxWidth={maxWidth}
     >
       {children}
     </Container>
