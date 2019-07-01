@@ -27,6 +27,8 @@ const Slogan = ({ secondary }) => (
   </NextLink>
 )
 
+const date = new Date()
+
 const Footer = ({ variant = 'secondary' }) => {
   const secondary = variant === 'secondary'
   // const chat = useContext(Context)
@@ -57,7 +59,7 @@ const Footer = ({ variant = 'secondary' }) => {
         <SocialList />
         <Box flex={1} ml={2} css={{ minWidth: '60%' }}>
           <Typography variant="body2" color="textSecondary">
-            &copy; Vida Natural • {new Date().getFullYear()} • Imbituba / SC
+            {date.getFullYear()} Vida Natural&reg; • Imbituba / SC
             <br />
             <Link href="mailto:falecom@vidanatural.eco.br">
               falecom@vidanatural.eco.br

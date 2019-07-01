@@ -30,7 +30,13 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
   return (
     <>
       {hasSubmenu ? (
-        <List subheader={<ListSubheader disableSticky>{name}</ListSubheader>}>
+        <List
+          subheader={
+            <ListSubheader color="primary" disableSticky>
+              {name}
+            </ListSubheader>
+          }
+        >
           {links.map(item => (
             <MenuButton key={item.path} onClose={onClose} {...item} />
           ))}
