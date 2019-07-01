@@ -22,18 +22,22 @@ const Products = () => {
         <Grid spacing={3} justify="center" container>
           <Grid item md={6}>
             <Typography variant="body1">
-              Nossos cosméticos são feitos a mão, produzidos em pequenos lotes,
-              com ingredientes naturais, biodegradáveis e sustentáveis, com
-              fórmulas minimalistas e livre de crueldade contra animais.
+              Nossos cosméticos são <strong>feitos a mão</strong>, produzidos em
+              pequenos lotes, com <strong>ingredientes naturais</strong>,{' '}
+              <strong>biodegradáveis</strong> e sustentáveis, com fórmulas
+              minimalistas e <strong>livres de crueldade</strong> contra
+              animais.
             </Typography>
           </Grid>
         </Grid>
       </Box>
-      <Box display="flex" flexWrap="wrap" justifyContent="center">
-        {products.map(product => (
-          <Product key={product.path} {...product} />
-        ))}
-      </Box>
+      <Grid container justify="center">
+        <Grid spacing={2} md={10} item container justify="center">
+          {products.map(product => (
+            <Product key={product.path} {...product} />
+          ))}
+        </Grid>
+      </Grid>
     </PaperContent>
   )
 }

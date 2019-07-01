@@ -3,7 +3,7 @@ export default [
     name: 'Desodorante Pasta',
     path: 'desodorante-em-pasta',
     tone: '#e4e13e',
-    size: 2,
+    size: 6,
     showHome: true,
     slogan: 'Você sem Parabeno',
     ingredients:
@@ -24,7 +24,7 @@ export default [
     name: 'Desodorante Rollon',
     path: 'desodorante-rollon',
     tone: '#0082FB',
-    size: 2,
+    size: 6,
     showHome: true,
     slogan: 'Você sem Alumínio',
     ingredients:
@@ -45,7 +45,7 @@ export default [
     name: 'Desodorante Bisnaga',
     path: 'desodorante-bisnaga',
     tone: '#78B496',
-    size: 1,
+    size: true,
     showHome: false,
     slogan: 'Você sem Parabeno',
     ingredients:
@@ -66,7 +66,7 @@ export default [
     name: 'Hidratante Facial',
     path: 'hidratante-facial',
     tone: '#fe5c5c',
-    size: 1,
+    size: true,
     showHome: true,
     slogan: 'Você sem Ácido Sulfônico',
     ingredients:
@@ -82,7 +82,7 @@ export default [
     name: 'Pó Dental',
     path: 'po-dental',
     tone: '#6CBB3D',
-    size: 1,
+    size: true,
     showHome: true,
     slogan: 'Você sem Microplásticos',
     ingredients: 'MELALEUCA ALTERNIFOLIA OIL (Óleo Essencial de Tea Tree)',
@@ -97,7 +97,7 @@ export default [
     name: 'Óleo Hidratante',
     path: 'oleo-hidratante',
     tone: '#da8235',
-    size: 2,
+    size: true,
     showHome: true,
     slogan: 'Você sem Fragrâncias Sintéticas',
     ingredients:
@@ -115,7 +115,7 @@ export default [
     name: 'Rosa Mosqueta',
     path: 'rosa-mosqueta',
     tone: '#A938FF',
-    size: 2,
+    size: true,
     showHome: true,
     slogan: 'Você sem Óleos Minerais',
     ingredients:
