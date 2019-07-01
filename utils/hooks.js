@@ -158,30 +158,3 @@ export const useDeepDiffEffect = (callback, values) => {
   })
   const previousValues = usePrevious(values)
 }
-
-export const useOnScreen = (ref, rootMargin = '0px', once) => {
-  const [loaded, setLoaded] = useState(false)
-  const [isIntersecting, setIntersecting] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (once && !loaded && entry.isIntersecting) {
-          setLoaded(true)
-        }
-        setIntersecting(loaded || entry.isIntersecting)
-      },
-      {
-        rootMargin,
-      },
-    )
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-    return () => {
-      ref.current && observer.unobserve(ref.current)
-    }
-  }, [loaded, once, ref, rootMargin])
-
-  return isIntersecting
-}

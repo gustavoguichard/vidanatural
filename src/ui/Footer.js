@@ -1,11 +1,11 @@
-// import { useContext, useRef, useEffect } from 'react'
-import { useRef } from 'react'
+// import { useContext, useEffect } from 'react'
+// import { useInView } from 'react-intersection-observer'
 import { Box, Container, Typography } from '@material-ui/core'
 import NextLink from 'next/link'
 import theme from 'src/ui/theme'
 import Link from 'src/components/Link'
 import SocialList from 'src/components/SocialList'
-// import { usePrevious, useOnScreen } from 'utils/hooks'
+// import { usePrevious } from 'utils/hooks'
 // import { useIsMobile } from 'utils/responsive'
 // import { Context } from 'utils/CustomerChat'
 import sloganImg from 'static/images/slogan.svg'
@@ -33,16 +33,17 @@ const Footer = ({ variant = 'secondary' }) => {
   const secondary = variant === 'secondary'
   // const chat = useContext(Context)
   // const isMobile = useIsMobile()
-  const ref = useRef()
-  // const isOnScreen = useOnScreen(ref, '0px', true)
-  // const wasOnScreen = usePrevious(isOnScreen)
+  // const [ref, visible] = useInView({
+  //   threshold: 0,
+  //   triggerOnce: true,
+  // })
+  // const wasVisible = usePrevious(visible)
   // useEffect(() => {
-  //   !isMobile && wasOnScreen === false && isOnScreen && chat.initConversation()
-  // }, [isOnScreen])
+  //   !isMobile && wasVisible === false && visible && chat.initConversation()
+  // }, [visible])
   return (
     <Box
       id="contato"
-      ref={ref}
       pb={2}
       pt={5}
       bgcolor={secondary ? 'primary.dark' : 'background.default'}

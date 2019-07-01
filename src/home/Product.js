@@ -1,13 +1,14 @@
-import { useRef } from 'react'
+import { useInView } from 'react-intersection-observer'
 import Link from 'src/components/Link'
 import { Grid, Paper, Typography, Zoom } from '@material-ui/core'
 import theme from 'src/ui/theme'
-import { useOnScreen } from 'utils/hooks'
 import PlantDecoration from './PlantDecoration'
 
 const Product = ({ index, name, showHome, path, tone, size }) => {
-  const ref = useRef()
-  const visible = useOnScreen(ref, '-50px', true)
+  const [ref, visible] = useInView({
+    threshold: -50,
+    triggerOnce: true,
+  })
   return showHome ? (
     <Grid ref={ref} item xs md={size}>
       <Link href={path}>
