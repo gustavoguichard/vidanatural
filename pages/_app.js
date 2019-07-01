@@ -8,6 +8,7 @@ import { CssBaseline } from '@material-ui/core'
 import { StylesProvider } from '@material-ui/styles'
 import NProgress from 'next-nprogress/component'
 import Providers from 'src/core/Providers'
+import { isClient } from 'utils/helpers'
 import theme from 'src/ui/theme'
 
 import 'src/ui/app.scss'
@@ -23,10 +24,17 @@ class VidaNatural extends App {
     return { pageProps }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    await this.polyfill()
     this.removeServerStyles()
     process.browser && register()
     this.initGATracking()
+  }
+
+  async polyfill() {
+    if (isClient && typeof window.IntersectionObserver === 'undefined') {
+      await import('intersection-observer')
+    }
   }
 
   initGATracking() {
