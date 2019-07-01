@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import find from 'lodash/find'
 import { Grid, Paper, Container, Typography, Box } from '@material-ui/core'
 import { LocationOn } from '@material-ui/icons'
@@ -63,25 +64,12 @@ const Page = () => {
                 Onde encontrar?
               </CTAButton>
               <Typography variant="h5">
-                Sem alumínio.
-                <br />
-                Sem parabenos.
-                <br />
-                Sem triclosan.
-                <br />
-                Sem fragrâncias sintéticas .
-                <br />
-                Protege do mau cheiro sem agredir sua saúde.
-                <br />
-                Para alto nível de atividade.
-                <br />
-                Não entope os poros.
-                <br />
-                Não impede seu suor.
-                <br />
-                Não intoxica.
-                <br />
-                Não polui o ambiente.
+                {product.benefits.map(benefit => (
+                  <Fragment key={benefit}>
+                    <span>{benefit}</span>
+                    <br />
+                  </Fragment>
+                ))}
               </Typography>
             </Grid>
             <Grid item xs={12} md={4}>

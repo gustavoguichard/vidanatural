@@ -63,6 +63,16 @@ export default [
     ],
   },
   {
+    name: 'Xampú em Barra',
+    path: 'xampu-em-barra',
+    tone: '#0b0c17',
+    size: 6,
+    showHome: false,
+    slogan: 'Você sem Parabeno',
+    ingredients: '',
+    benefits: [],
+  },
+  {
     name: 'Hidratante Facial',
     path: 'hidratante-facial',
     tone: '#fe5c5c',
