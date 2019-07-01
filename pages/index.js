@@ -20,7 +20,7 @@ function Index() {
         <Typography variant="h5">Nós nos importamos!</Typography>
       </Hero>
       <Products />
-      <Testimonials />
+      <Testimonials isMobile={isMobile} />
     </Layout>
   )
 }

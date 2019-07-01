@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import shuffle from 'lodash/shuffle'
 import take from 'lodash/take'
-import { Grid, Typography } from '@material-ui/core'
+import { Box, Grid, Typography } from '@material-ui/core'
 import { useProcessOnce } from 'utils/hooks'
 import Hero from 'src/components/Hero'
 import CTAButton from 'src/components/CTAButton'
@@ -11,32 +11,30 @@ import testimonials from 'data/testimonials'
 
 import Testimonial from './Testimonial'
 
-const Testimonials = () => {
+const Testimonials = ({ isMobile }) => {
   const shuffled = useProcessOnce(shuffle, testimonials)
   const items = take(shuffled, 3)
   return (
     <Hero
       filter="brightness(0.4) saturate(1.4)"
-      background="/static/images/testimonials.jpg"
+      background={isMobile ? null : `/static/images/testimonials.jpg`}
       maxWidth="lg"
       textShadow={false}
     >
-      <img
-        css={{
-          maxWidth: 400,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          filter: 'invert(1)',
-        }}
-        src={sloganImg}
-        alt="Eu use cosmética consciente"
-      />
-      <Typography
-        css={{ margin: `${theme.spacing(3)}px !important` }}
-        variant="body1"
-      >
-        Descubra o que motiva as pessoas a usarem os nossos produtos:
-      </Typography>
+      <Box mb={2} p={3}>
+        <img
+          css={{
+            maxWidth: 400,
+            marginBottom: theme.spacing(2),
+            filter: 'invert(1)',
+          }}
+          src={sloganImg}
+          alt="Eu use cosmética consciente"
+        />
+        <Typography variant="body1">
+          Descubra o que motiva as pessoas a usarem os nossos produtos:
+        </Typography>
+      </Box>
       <Grid container spacing={4} justify="center" alignItems="stretch">
         {items.map(testimonial => (
           <Testimonial key={testimonial.picture} {...testimonial} />

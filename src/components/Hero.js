@@ -20,7 +20,11 @@ const Hero = ({
   <Box
     color={`${variant}.contrastText`}
     position="relative"
-    bgcolor={theme.palette[variant].light}
+    bgcolor={
+      variant === 'secondary'
+        ? theme.palette.secondary.light
+        : theme.palette.primary.main
+    }
   >
     {background && <BackgroundImg filter={filter} src={background} />}
     <Container
