@@ -33,7 +33,7 @@ class VidaNatural extends App {
 
   async polyfill() {
     if (isClient && typeof window.IntersectionObserver === 'undefined') {
-      await import('intersection-observer')
+      await require('intersection-observer')
     }
   }
 
