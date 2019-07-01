@@ -30,7 +30,11 @@ const Product = ({ name, showHome, path, tone, size }) =>
       >
         <img src={`/static/images/products/small/${path}.png`} alt={name} />
         <PlantDecoration />
-        <Typography color="textPrimary" variant="caption">
+        <Typography
+          css={{ position: 'absolute', bottom: 5, fontWeight: 'bold' }}
+          color="textPrimary"
+          variant="caption"
+        >
           {name}
         </Typography>
       </Paper>
