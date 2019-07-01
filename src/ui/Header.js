@@ -18,8 +18,8 @@ const Header = ({ stick, variant }) => {
   return (
     <AppBar
       css={{
-        backgroundColor: sticky ? null : 'transparent !important',
-        transition: 'all .3s !important',
+        backgroundColor: sticky ? null : 'transparent',
+        transition: 'all .3s',
       }}
       position="fixed"
       elevation={elevation}

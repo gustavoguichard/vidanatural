@@ -4,8 +4,10 @@ import Head from 'next/head'
 import Router from 'next/router'
 import { ThemeProvider } from '@material-ui/styles'
 import { initGA, logPageView } from 'utils/analytics'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { CssBaseline } from '@material-ui/core'
+import { StylesProvider } from '@material-ui/styles'
 import NProgress from 'next-nprogress/component'
+import Providers from 'src/core/Providers'
 import theme from 'src/ui/theme'
 
 import 'src/ui/app.scss'
@@ -55,10 +57,14 @@ class VidaNatural extends App {
         <Head>
           <title>{title}</title>
         </Head>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <StylesProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Providers>
+              <Component {...pageProps} />
+            </Providers>
+          </ThemeProvider>
+        </StylesProvider>
       </Container>
     )
   }

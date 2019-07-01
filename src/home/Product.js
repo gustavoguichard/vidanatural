@@ -17,7 +17,7 @@ const Product = ({ index, name, showHome, path, tone, size }) => {
             elevation={10}
             css={{
               alignItems: 'center',
-              backgroundColor: `${theme.palette.secondary.light} !important`,
+              backgroundColor: theme.palette.secondary.light,
               display: 'flex',
               filter: 'saturate(.8)',
               justifyContent: 'center',
@@ -27,7 +27,7 @@ const Product = ({ index, name, showHome, path, tone, size }) => {
               position: 'relative',
               transition: 'all .3s',
               '&:hover': {
-                backgroundColor: `${tone} !important`,
+                backgroundColor: tone,
                 filter: 'saturate(1.2)',
               },
             }}

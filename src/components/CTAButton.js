@@ -16,10 +16,10 @@ const CTAButton = ({
       size={size}
       variant={variant}
       css={{
-        display: 'flex !important',
-        margin: center ? 'auto !important' : null,
-        marginTop: `${theme.spacing(4)}px !important`,
-        marginBottom: `${theme.spacing(4)}px !important`,
+        display: 'flex',
+        margin: center ? 'auto' : null,
+        marginTop: `${theme.spacing(4)}px`,
+        marginBottom: `${theme.spacing(4)}px`,
         color: theme.palette.primary,
       }}
       {...props}

@@ -15,7 +15,7 @@ const Icon = ({
         css={{
           transition: 'all .3s',
           '&:hover': {
-            color: `${theme.palette.secondary.main} !important`,
+            color: theme.palette.secondary.main,
           },
         }}
         size={size}

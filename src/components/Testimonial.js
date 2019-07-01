@@ -15,7 +15,7 @@ const Testimonial = ({ name, role, picture, location, content }) => (
         position: 'relative',
         padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`,
         marginBottom: theme.spacing(5),
-        textShadow: 'none !important',
+        textShadow: 'none',
       }}
     >
       <FormatQuote css={{ fontSize: 60 }} color="primary" />
