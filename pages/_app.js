@@ -5,6 +5,7 @@ import Router from 'next/router'
 import { ThemeProvider } from '@material-ui/styles'
 import { initGA, logPageView } from 'utils/analytics'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import NProgress from 'next-nprogress/component'
 import theme from 'src/ui/theme'
 
 import 'src/ui/app.scss'
@@ -50,6 +51,7 @@ class VidaNatural extends App {
     const title = 'Vida Natural | Cosmética Consciente'
     return (
       <Container>
+        <NProgress color={theme.palette.secondary.main} />
         <Head>
           <title>{title}</title>
         </Head>
