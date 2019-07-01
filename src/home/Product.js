@@ -6,7 +6,7 @@ import PlantDecoration from './PlantDecoration'
 
 const Product = ({ index, name, showHome, path, tone, size }) => {
   const [ref, visible] = useInView({
-    threshold: -50,
+    threshold: 0.2,
     triggerOnce: true,
   })
   return showHome ? (
