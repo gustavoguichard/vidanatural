@@ -6,7 +6,7 @@ import { nl2Br } from 'utils/helpers'
 import theme from 'src/ui/theme'
 
 const Testimonial = ({ name, role, picture, location, content }) => (
-  <Grid xs item>
+  <Grid sm={6} md={4} item>
     <Paper
       css={{
         alignItems: 'center',
