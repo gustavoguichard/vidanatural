@@ -19,6 +19,7 @@ const Testimonials = () => {
       filter="brightness(0.4) saturate(1.4)"
       background="/static/images/testimonials.jpg"
       maxWidth="lg"
+      textShadow={false}
     >
       <img
         css={{

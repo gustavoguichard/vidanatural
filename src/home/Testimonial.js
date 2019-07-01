@@ -22,7 +22,7 @@ const Testimonial = ({ name, role, picture, location, content }) => (
         css={{
           color: theme.palette.primary.light,
           fontStyle: 'italic',
-          marginBottom: theme.spacing(5),
+          marginBottom: theme.spacing(3),
         }}
         component="div"
         variant="body2"
