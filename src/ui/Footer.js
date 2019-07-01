@@ -56,7 +56,7 @@ const Footer = ({ variant = 'secondary' }) => {
         }}
       >
         <Slogan secondary={secondary} />
-        <SocialList />
+        <SocialList color="white" />
         <Box flex={1} ml={2} css={{ minWidth: '60%' }}>
           <Typography variant="body2" color="textSecondary">
             {date.getFullYear()} Vida Natural&reg; • Imbituba / SC

@@ -2,10 +2,10 @@ import { Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import Products from 'src/home/Products'
-import Testimonials from 'src/home/Testimonials'
+import Testimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
 
-function Index() {
+const Index = () => {
   const isMobile = useIsMobile()
   return (
     <Layout>

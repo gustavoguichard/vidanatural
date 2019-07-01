@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'Desodorante Pasta',
+    name: 'Desodorante em Pasta',
     path: 'desodorante-em-pasta',
     tone: '#e4e13e',
     size: 6,

@@ -5,6 +5,7 @@ const CTAButton = ({
   color = 'primary',
   size = 'large',
   variant = 'contained',
+  center = true,
   children,
   IconComponent,
   ...props
@@ -16,8 +17,9 @@ const CTAButton = ({
       variant={variant}
       css={{
         display: 'flex !important',
-        margin: 'auto !important',
+        margin: center ? 'auto !important' : null,
         marginTop: `${theme.spacing(4)}px !important`,
+        marginBottom: `${theme.spacing(4)}px !important`,
         color: theme.palette.primary,
       }}
       {...props}
