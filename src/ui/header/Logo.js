@@ -5,9 +5,10 @@ import { Button } from '@material-ui/core'
 import logoImg from 'static/images/logo.svg'
 import brandImg from 'static/images/brand.svg'
 
-const Logo = ({ sticky }) => {
+const Logo = ({ sticky, variant }) => {
+  const secondary = variant === 'secondary'
   return (
-    <Link href="/" color="secondary" title="Ir para a página inicial">
+    <Link href="/" title="Ir para a página inicial">
       <Button>
         {sticky ? (
           <img
@@ -22,11 +23,12 @@ const Logo = ({ sticky }) => {
         ) : (
           <img
             css={{
-              width: sticky ? 40 : 80,
+              filter: secondary ? 'invert(0.95)' : null,
               margin: sticky ? theme.spacing() : theme.spacing(2),
               opacity: sticky ? 0 : 1,
               transform: sticky ? 'translateX(14px)' : null,
               transition: 'all .3s',
+              width: sticky ? 40 : 80,
             }}
             src={logoImg}
             alt="Vida Natural Logo"

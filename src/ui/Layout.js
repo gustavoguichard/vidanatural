@@ -1,25 +1,14 @@
 import { memo } from 'react'
-import { useScrollTrigger } from '@material-ui/core'
 import Header from 'src/ui/Header'
 import Footer from 'src/ui/Footer'
 import Providers from 'src/core/Providers'
-import { useIsMobile } from 'utils/responsive'
 
-const Layout = ({ children, stickBar }) => {
-  const isMobile = useIsMobile()
-  const hasScrolled = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 50,
-    target: process.env.browser ? window() : undefined,
-  })
-  const sticky = stickBar || hasScrolled
-  return (
-    <Providers>
-      <Header sticky={sticky} />
-      <main css={{ marginTop: sticky ? 0 : -119.3 }}>{children}</main>
-      <Footer />
-    </Providers>
-  )
-}
+const Layout = ({ children, variant = 'primary', stickBar }) => (
+  <Providers>
+    <Header variant={variant} stick={stickBar} />
+    <main css={{ flex: 1 }}>{children}</main>
+    <Footer varian={variant} />
+  </Providers>
+)
 
 export default memo(Layout)

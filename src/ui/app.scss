@@ -5,3 +5,9 @@ html {
 .fc-widget-small {
     z-index: 1150 !important;
 }
+
+#__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

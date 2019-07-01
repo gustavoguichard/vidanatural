@@ -1,16 +1,26 @@
-import React from 'react'
-import { Paper, Container, Typography, Box } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/ui/Hero'
-import PaperContent from 'src/ui/PaperContent'
+import Products from 'src/home/Products'
+import { useIsMobile } from 'utils/responsive'
 
-export default function Index() {
+function Index() {
+  const isMobile = useIsMobile()
   return (
     <Layout>
-      <Hero background="/static/images/gota.png">
-        <Typography variant="h3">Vida Natural</Typography>
+      <Hero
+        size={isMobile ? 'full' : 'small'}
+        filter="brightness(0.4) saturate(1.8)"
+        background="/static/images/plants.jpg"
+      >
+        <Typography variant="h3">
+          Você se importa com o que sua pele absorve todos os dias?
+        </Typography>
+        <Typography variant="h5">Nós nos importamos!</Typography>
       </Hero>
-      <PaperContent />
+      <Products />
     </Layout>
   )
 }
+
+export default Index

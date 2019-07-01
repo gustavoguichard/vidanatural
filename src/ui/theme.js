@@ -1,8 +1,11 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { red } from '@material-ui/core/colors'
 
 // Create a theme instance.
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: ['DM Sans', 'sans-serif'],
+  },
   palette: {
     common: {
       black: '#0b0c17',
@@ -10,7 +13,7 @@ const theme = createMuiTheme({
     primary: {
       main: '#32333d',
       light: '#5b5c67',
-      dark: '#0b0c17',
+      dark: '#25282F',
       contrastText: '#fff',
     },
     secondary: {
@@ -22,7 +25,13 @@ const theme = createMuiTheme({
     error: {
       main: red.A400,
     },
+    text: {
+      primary: '#25282F',
+      secondary: '#fff',
+      hint: '#32333d',
+      disabled: '#5b5c67',
+    },
   },
 })
 
-export default theme
+export default responsiveFontSizes(theme)
