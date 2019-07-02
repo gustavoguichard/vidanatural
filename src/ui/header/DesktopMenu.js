@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Router from 'next/Router'
+import Router from 'next/router'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import ButtonLink from 'src/components/ButtonLink'

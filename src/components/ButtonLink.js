@@ -1,8 +1,7 @@
 import React from 'react'
-import Router from 'next/router'
+import Router, { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import { withRouter } from 'next/router'
 import NextLink from 'next/link'
 import { Button } from '@material-ui/core'
 
