@@ -7,7 +7,7 @@ import PaperContent from 'src/ui/PaperContent'
 export default function Index() {
   return (
     <Layout>
-      <Hero background="/static/images/gota.png">
+      <Hero background="/static/images/gota.jpg">
         <Typography variant="h3">Onde Encontrar</Typography>
       </Hero>
       <PaperContent />

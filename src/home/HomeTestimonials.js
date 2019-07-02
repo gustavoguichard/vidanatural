@@ -24,7 +24,7 @@ const HomeTestimonials = ({ isMobile }) => {
             filter: 'invert(1)',
           }}
           src={sloganImg}
-          alt="Eu use cosmética consciente"
+          alt="Eu uso cosmética consciente"
         />
         <Typography variant="body1">
           Descubra o que motiva as pessoas a usarem os nossos produtos:

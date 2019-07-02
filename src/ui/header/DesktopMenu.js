@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
+import Router from 'next/Router'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
+import ButtonLink from 'src/components/ButtonLink'
 import Link from 'src/components/Link'
+import theme from 'src/ui/theme'
 import menu from 'data/menu'
 
 const SubMenu = ({ name, links }) => {
@@ -11,6 +14,7 @@ const SubMenu = ({ name, links }) => {
     <>
       <Button
         aria-label={name}
+        aria-haspopup="true"
         aria-controls={id}
         onClick={event => setAnchorEl(event.currentTarget)}
         color="inherit"
@@ -19,11 +23,8 @@ const SubMenu = ({ name, links }) => {
       </Button>
       <Menu
         id={id}
+        autoFocus
         anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
         transformOrigin={{
           vertical: 'top',
           horizontal: 'center',
@@ -33,9 +34,12 @@ const SubMenu = ({ name, links }) => {
         onClose={() => setAnchorEl(null)}
       >
         {links.map(subItem => (
-          <Link color="inherit" key={subItem.path} href={subItem.path}>
-            <MenuItem>{subItem.name}</MenuItem>
-          </Link>
+          <MenuItem
+            onClick={() => Router.push(subItem.path)}
+            key={subItem.path}
+          >
+            {subItem.name}
+          </MenuItem>
         ))}
       </Menu>
     </>
@@ -48,9 +52,18 @@ const HeaderMenu = () => {
     return hasSubmenu ? (
       <SubMenu key={item.name} {...item} />
     ) : (
-      <Link color="inherit" key={item.name} href={item.path}>
-        <Button color="inherit">{item.name}</Button>
-      </Link>
+      <ButtonLink
+        css={{
+          '&.active': {
+            color: theme.palette.secondary.main,
+          },
+        }}
+        color="inherit"
+        key={item.name}
+        href={item.path}
+      >
+        {item.name}
+      </ButtonLink>
     )
   })
 }

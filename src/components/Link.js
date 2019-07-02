@@ -22,25 +22,21 @@ NextComposed.propTypes = {
   prefetch: PropTypes.bool,
 }
 
-// A styled version of the Next.js Link component:
-// https://nextjs.org/docs/#with-link
-function Link(props) {
-  const {
-    activeClassName,
-    router,
-    className: classNameProps,
-    innerRef,
-    naked,
-    color = 'secondary',
-    ...other
-  } = props
-
+function Link({
+  activeClassName,
+  router,
+  className: classNameProps,
+  innerRef,
+  naked,
+  color = 'secondary',
+  ...props
+}) {
   const className = clsx(classNameProps, {
     [activeClassName]: router.pathname === props.href && activeClassName,
   })
 
   if (naked) {
-    return <NextComposed className={className} ref={innerRef} {...other} />
+    return <NextComposed className={className} ref={innerRef} {...props} />
   }
 
   return (
@@ -49,7 +45,7 @@ function Link(props) {
       component={NextComposed}
       className={className}
       ref={innerRef}
-      {...other}
+      {...props}
     />
   )
 }
