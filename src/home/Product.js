@@ -1,8 +1,8 @@
 import { useInView } from 'react-intersection-observer'
 import Link from 'src/components/Link'
 import { Grid, Paper, Typography, Zoom } from '@material-ui/core'
+import BackgroundImg from 'src/components/BackgroundImg'
 import theme from 'src/ui/theme'
-import PlantDecoration from './PlantDecoration'
 
 const Product = ({ index, name, showHome, path, tone, size }) => {
   const [ref, visible] = useInView({
@@ -20,21 +20,38 @@ const Product = ({ index, name, showHome, path, tone, size }) => {
               alignItems: 'center',
               backgroundColor: theme.palette.secondary.light,
               display: 'flex',
-              filter: 'saturate(.8)',
               justifyContent: 'center',
               minHeight: 300,
               overflow: 'hidden',
               padding: theme.spacing(2),
               position: 'relative',
-              transition: 'all .3s',
+              transition: 'all .6s ease-in-out',
               '&:hover': {
                 backgroundColor: tone,
-                filter: 'saturate(1.2)',
               },
             }}
           >
-            <img src={`/static/images/products/small/${path}.png`} alt={name} />
-            <PlantDecoration />
+            <BackgroundImg
+              css={{
+                opacity: 0,
+                transition: 'all .75s ease-in-out',
+                '.product-card:hover &': {
+                  opacity: 0.2,
+                },
+              }}
+              src="/static/images/plants-pattern.jpg"
+            />
+            <img
+              css={{
+                filter: 'saturate(.6)',
+                transition: 'all .6s ease-in-out',
+                '&:hover': {
+                  filter: 'saturate(1.2)',
+                },
+              }}
+              src={`/static/images/products/small/${path}.png`}
+              alt={name}
+            />
             <Typography
               css={{ position: 'absolute', bottom: 5, fontWeight: 'bold' }}
               color="textPrimary"

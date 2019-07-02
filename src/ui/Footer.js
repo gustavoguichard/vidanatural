@@ -10,7 +10,7 @@ import SocialList from 'src/components/SocialList'
 // import { Context } from 'utils/CustomerChat'
 import sloganImg from 'static/images/slogan.svg'
 
-const Slogan = ({ secondary }) => (
+const Slogan = ({ variant }) => (
   <NextLink href="/eu-uso-cosmetica-consciente">
     <a title="Ir para a homepage">
       <img
@@ -18,7 +18,7 @@ const Slogan = ({ secondary }) => (
           width: 150,
           margin: theme.spacing(),
           transition: 'all .3s',
-          filter: secondary ? 'invert(0.95)' : null,
+          filter: variant === 'primary' ? 'invert(0.95)' : null,
         }}
         src={sloganImg}
         alt="Vida Natural"
@@ -27,10 +27,10 @@ const Slogan = ({ secondary }) => (
   </NextLink>
 )
 
-const date = new Date()
+const year = new Date().getFullYear()
 
-const Footer = ({ variant = 'secondary' }) => {
-  const secondary = variant === 'secondary'
+const Footer = ({ variant = 'primary' }) => {
+  const primary = variant === 'primary'
   // const chat = useContext(Context)
   // const isMobile = useIsMobile()
   // const [ref, visible] = useInView({
@@ -41,12 +41,14 @@ const Footer = ({ variant = 'secondary' }) => {
   // useEffect(() => {
   //   !isMobile && wasVisible === false && visible && chat.initConversation()
   // }, [visible])
+  const color = theme.palette[variant].contrastText
   return (
     <Box
       id="contato"
       pb={2}
-      pt={5}
-      bgcolor={secondary ? 'primary.dark' : 'background.default'}
+      pt={3}
+      bgcolor={primary ? 'primary.dark' : 'background.default'}
+      color={color}
     >
       <Container
         css={{
@@ -56,13 +58,16 @@ const Footer = ({ variant = 'secondary' }) => {
           [theme.breakpoints.down('xs')]: { justifyContent: 'center' },
         }}
       >
-        <Slogan secondary={secondary} />
-        <SocialList color="white" />
+        <Slogan variant={variant} />
+        <SocialList color={color} />
         <Box flex={1} ml={2} css={{ minWidth: '60%' }}>
-          <Typography variant="body2" color="textSecondary">
-            {date.getFullYear()} Vida Natural&reg; • Imbituba / SC
+          <Typography variant="body2" color="inherit">
+            Vida Natural&reg; {year} • Imbituba / SC
             <br />
-            <Link href="mailto:falecom@vidanatural.eco.br">
+            <Link
+              color={primary ? 'inherit' : 'secondary'}
+              href="mailto:falecom@vidanatural.eco.br"
+            >
               falecom@vidanatural.eco.br
             </Link>
           </Typography>

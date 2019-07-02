@@ -4,9 +4,11 @@ const BackgroundImg = ({
   alt = 'Background',
   objectFit = 'cover',
   position = 'center',
+  ...props
 }) => {
   return (
     <img
+      {...props}
       src={src}
       alt={alt}
       css={{

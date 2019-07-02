@@ -19,18 +19,14 @@ const Page = () => {
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/peto.jpg"
       >
-        <Typography variant="h3" css={{ fontWeight: 'bold' }}>
-          {product.name}
-        </Typography>
+        <Typography variant="h3">{product.name}</Typography>
         <Typography variant="h5">{product.slogan}</Typography>
       </Hero>
       <Box bgcolor={product.tone}>
         <PaperContent>
           <Grid container alignItems="center" justify="space-between">
             <Grid item xs={12} md={6}>
-              <Typography variant="h3" css={{ fontWeight: 'bold' }}>
-                {product.name}
-              </Typography>
+              <Typography variant="h3">{product.name}</Typography>
               <Typography
                 css={{
                   marginTop: theme.spacing(2),

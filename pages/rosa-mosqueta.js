@@ -19,18 +19,14 @@ const Page = () => {
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/rosa.jpg"
       >
-        <Typography variant="h3" css={{ fontWeight: 'bold' }}>
-          {product.name}
-        </Typography>
+        <Typography variant="h3">{product.name}</Typography>
         <Typography variant="h5">{product.slogan}</Typography>
       </Hero>
       <Box bgcolor={product.tone}>
         <PaperContent>
           <Grid container alignItems="center">
             <Grid item xs={12} md={8}>
-              <Typography variant="h3" css={{ fontWeight: 'bold' }}>
-                {product.name}
-              </Typography>
+              <Typography variant="h3">{product.name}</Typography>
               <CTAButton IconComponent={LocationOn} center={false}>
                 Onde encontrar?
               </CTAButton>

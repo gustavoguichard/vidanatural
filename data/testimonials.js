@@ -1,6 +1,7 @@
 export default [
   {
     name: 'Cristina Scudeler',
+    size: 1,
     role: 'Empresária',
     tags: ['desodorante-em-pasta'],
     location: 'São Paulo / SP',
@@ -12,6 +13,7 @@ export default [
   },
   {
     name: 'Maia Silva',
+    size: 1,
     role: 'Psicóloga Social',
     tags: ['all'],
     location: 'Argentina',
@@ -22,6 +24,7 @@ export default [
   },
   {
     name: 'Juliana Eichenberg',
+    size: 2,
     role: 'Professora de Yoga',
     tags: ['all'],
     location: 'Garopaba / SC',
@@ -34,6 +37,7 @@ export default [
   },
   {
     name: 'Thais e Bruno Padoveze',
+    size: 1,
     tags: ['all'],
     location: 'Goiânia',
     picture: 'thais-e-bruno',
@@ -43,6 +47,7 @@ export default [
   },
   {
     name: 'Samira Abdalah',
+    size: 1,
     role: 'Mestra em Educação',
     tags: ['all'],
     location: 'Montenegro / RS',
@@ -52,6 +57,7 @@ export default [
   },
   {
     name: 'Maurício Frighetto',
+    size: 1,
     role: 'Jornalista',
     tags: ['all'],
     location: 'Florianópolis / SC',
@@ -63,6 +69,7 @@ export default [
   },
   {
     name: 'Dircéia',
+    size: 2,
     role: 'Nutricionista',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Garopaba / SC',
@@ -75,6 +82,7 @@ export default [
   },
   {
     name: 'Aline Blasius',
+    size: 1,
     role: 'Dançarina',
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'po-dental'],
     location: 'Florianópolis / SC',
@@ -84,6 +92,7 @@ export default [
   },
   {
     name: 'Zilda Gama',
+    size: 2,
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Belém / PA',
     picture: 'zilda-gama',
@@ -97,6 +106,7 @@ export default [
   },
   {
     name: 'Rafael Pieruccini',
+    size: 1,
     role: 'Empresário',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Porto Alegre / RS',
@@ -105,6 +115,7 @@ export default [
   },
   {
     name: 'Monica Auga',
+    size: 1,
     role: 'Agrônoma',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Florianópolis / SC',
@@ -113,6 +124,7 @@ export default [
   },
   {
     name: 'Mayara',
+    size: 1,
     tags: ['all'],
     location: 'Foz do Iguaçu / PR',
     picture: 'mayara',
@@ -122,6 +134,7 @@ export default [
   },
   {
     name: 'Andrea Freire',
+    size: 1,
     role: 'Bióloga',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Florianópolis / SC',
@@ -132,6 +145,7 @@ export default [
   },
   {
     name: 'Denise Franco',
+    size: 2,
     role: 'Vendedora',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Canoas / RS',
@@ -148,6 +162,7 @@ export default [
   },
   {
     name: 'Samira Kohn',
+    size: 2,
     role: 'Empreendedora',
     tags: ['hidratante'],
     location: 'Florianópolis / SC',
@@ -164,6 +179,7 @@ export default [
   },
   {
     name: 'Diuly Venson',
+    size: 1,
     role: 'Fotógrafa',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Curitiba / PR',
@@ -173,6 +189,7 @@ export default [
   },
   {
     name: 'Gisele de Menezes',
+    size: 2,
     role: 'Escritora e terapeuta ayurveda',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Porto Alegre / RS',
@@ -185,6 +202,7 @@ export default [
   },
   {
     name: 'Samantha Linsmeyer',
+    size: 1,
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     picture: 'samantha-linsmeyer',
     ratio: '2by3',
@@ -194,6 +212,7 @@ export default [
   },
   {
     name: 'Gabriela de Lucca',
+    size: 1,
     role: 'Pesquisadora',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Canada',
@@ -202,6 +221,7 @@ export default [
   },
   {
     name: 'Fabiula Zimmer',
+    size: 1,
     role: 'Empresária',
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'hidratante'],
     location: 'São Leopoldo / RS',
@@ -211,6 +231,7 @@ export default [
   },
   {
     name: 'Carol Carida',
+    size: 1,
     role: 'Professora socióloga',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Florianópolis / SC',
@@ -219,6 +240,7 @@ export default [
   },
   {
     name: 'Francisco Camolesi',
+    size: 1,
     role: 'Engenheiro de Produção',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Imbituba / SC',
@@ -227,6 +249,7 @@ export default [
   },
   {
     name: 'Gabriel de Menezes',
+    size: 1,
     role: 'Empresário',
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'hidratante'],
     location: 'São Leopoldo / RS',
@@ -235,6 +258,7 @@ export default [
   },
   {
     name: 'Lúcia do Valle',
+    size: 1,
     role: 'Cozinheira e Artesã',
     tags: ['all'],
     location: 'Florianópolis / SC',
@@ -243,6 +267,7 @@ export default [
   },
   {
     name: 'Sebastian Bisbal',
+    size: 1,
     role: 'Salva Vidas',
     tags: ['all'],
     location: 'Argentina',
@@ -251,6 +276,7 @@ export default [
   },
   {
     name: 'Luise Rabelo',
+    size: 1,
     role: 'Arquiteta',
     tags: ['desodorante-em-pasta'],
     location: 'Porto Alegre / RS',
@@ -259,6 +285,7 @@ export default [
   },
   {
     name: 'Camila de Lucca',
+    size: 1,
     role: 'Professora de Yoga',
     tags: ['all', 'hidratante'],
     location: 'Florianópolis / SC',
@@ -267,6 +294,7 @@ export default [
   },
   {
     name: 'Aline Niehues',
+    size: 2,
     role: 'Professora de Yoga',
     tags: ['all'],
     location: 'Joinville / SC',
@@ -282,6 +310,7 @@ export default [
   },
   {
     name: 'Priscila Pittel',
+    size: 1,
     role: 'Produtora de filmes',
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'hidratante'],
     location: 'Rio de Janeiro / RJ',
@@ -290,6 +319,7 @@ export default [
   },
   {
     name: 'Daniela Caniçali',
+    size: 2,
     role: 'Jornalista',
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'po-dental'],
     location: 'Florianópolis / SC',
@@ -302,6 +332,7 @@ export default [
   },
   {
     name: 'Merilyn Nossol da Silva',
+    size: 1,
     role: 'Educadora',
     tags: ['rosa mosqueta'],
     location: 'Florianópolis / SC',
@@ -313,6 +344,7 @@ export default [
   },
   {
     name: 'Renata Santanayanna',
+    size: 1,
     role: 'Relações Públicas',
     tags: ['all'],
     location: 'Joinville / SC',
@@ -323,6 +355,7 @@ export default [
   },
   {
     name: 'Bruno Pasti',
+    size: 1,
     role: 'Bacharel em Física',
     tags: ['hidratante'],
     location: 'Florianópolis / SC',
@@ -331,6 +364,7 @@ export default [
   },
   {
     name: 'Karla Scherer',
+    size: 1,
     role: 'Professora de Dança Indiana',
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'hidratante'],
     location: 'Florianópolis / SC',

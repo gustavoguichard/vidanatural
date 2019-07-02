@@ -13,12 +13,10 @@ const Products = () => {
     <PaperContent>
       <Box textAlign="center" mb={2}>
         <Grid spacing={3} justify="center" container>
-          <Grid item md={6}>
-            <Typography variant="h6">Nossos produtos</Typography>
+          <Grid item md={7}>
             <Typography variant="h4">
               <strong>
-                Não basta ser natural e sustentável, tem que ser eficiente{' '}
-                <Emoji symbol="😉" label="piscada" />
+                Não basta ser natural e sustentável, tem que ser eficiente!
               </strong>
             </Typography>
           </Grid>

@@ -1,5 +1,4 @@
 import shuffle from 'lodash/shuffle'
-import take from 'lodash/take'
 import { Box, Typography } from '@material-ui/core'
 import { useProcessOnce } from 'utils/hooks'
 import theme from 'src/ui/theme'
@@ -8,12 +7,11 @@ import testimonials from 'data/testimonials'
 import Testimonials from 'src/components/Testimonials'
 
 const HomeTestimonials = ({ isMobile }) => {
-  const shuffled = useProcessOnce(shuffle, testimonials)
-  const items = take(shuffled, 3)
+  const items = useProcessOnce(shuffle, testimonials)
   return (
     <Testimonials
       showCTA
-      testimonials={items}
+      testimonials={items || []}
       background={isMobile ? null : `/static/images/testimonials.jpg`}
     >
       <Box mb={2} p={3}>

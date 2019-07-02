@@ -7,12 +7,13 @@ const Icon = ({
   Component,
   children,
   color = theme.pallete.primary.contrastText,
-  size = 25,
+  size = 20,
   ...props
 }) => (
-  <ButtonLink icon {...props} title={children} target="blank">
+  <ButtonLink size="small" icon {...props} title={children} target="blank">
     <Component
       css={{
+        margin: theme.spacing(),
         transition: 'all .3s',
         '&:hover': {
           color: theme.palette.secondary.main,

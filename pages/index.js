@@ -17,7 +17,6 @@ const Index = () => {
         <Typography variant="h3">
           Você se importa com o que sua pele absorve todos os dias?
         </Typography>
-        <Typography variant="h5">Nós nos importamos!</Typography>
       </Hero>
       <Products />
       <Testimonials isMobile={isMobile} />

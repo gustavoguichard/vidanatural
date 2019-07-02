@@ -5,8 +5,8 @@ import { FormatQuote } from '@material-ui/icons'
 import { nl2Br } from 'utils/helpers'
 import theme from 'src/ui/theme'
 
-const Testimonial = ({ name, role, picture, location, content }) => (
-  <Grid sm={6} md={4} item>
+const Testimonial = ({ name, size, role, picture, location, content }) => (
+  <Grid sm={6 * size} md={4 * size} item>
     <Paper
       css={{
         alignItems: 'center',

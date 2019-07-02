@@ -5,6 +5,24 @@ import { red } from '@material-ui/core/colors'
 const theme = createMuiTheme({
   typography: {
     fontFamily: ['DM Sans', 'sans-serif'],
+    htmlFontSize: 17,
+    fontSize: 16,
+    h3: {
+      fontWeight: 600,
+      letterSpacing: '-0.035rem',
+      lineHeight: 1.0667,
+    },
+    h5: {
+      lineHeight: 1.38105,
+      fontWeight: 400,
+      letterSpacing: '0.011rem',
+    },
+    body1: {
+      fontSize: '1.0667rem',
+      lineHeight: 1.47059,
+      fontWeight: 400,
+      letterSpacing: '-0.022rem',
+    },
   },
   palette: {
     common: {
