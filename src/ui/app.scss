@@ -15,3 +15,7 @@ p {
     display: flex;
     flex-direction: column;
 }
+
+.MuiPaper-root img {
+    max-width: 100% !important;
+}
