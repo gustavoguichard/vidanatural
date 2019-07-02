@@ -3,13 +3,14 @@ import Router, { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import NextLink from 'next/link'
-import { Button } from '@material-ui/core'
+import { Button, IconButton } from '@material-ui/core'
 
 function ButtonLink({
   activeClassName = 'active',
   router,
   className: classNameProps,
   innerRef,
+  icon,
   href,
   ...props
 }) {
@@ -19,7 +20,11 @@ function ButtonLink({
 
   return (
     <NextLink href={href}>
-      <Button className={className} ref={innerRef} {...props} />
+      {icon ? (
+        <IconButton className={className} ref={innerRef} {...props} />
+      ) : (
+        <Button className={className} ref={innerRef} {...props} />
+      )}
     </NextLink>
   )
 }

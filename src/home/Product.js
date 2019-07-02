@@ -11,7 +11,7 @@ const Product = ({ index, name, showHome, path, tone, size }) => {
   })
   return showHome ? (
     <Grid ref={ref} item xs md={size}>
-      <Link href={path}>
+      <Link href={path} title={name}>
         <Zoom in={visible} timeout={index * 300}>
           <Paper
             className="product-card"

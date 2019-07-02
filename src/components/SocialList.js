@@ -1,28 +1,27 @@
-import { IconButton } from '@material-ui/core'
-import { FaWhatsapp, FaFacebookSquare, FaInstagram } from 'react-icons/fa'
+import { FaWhatsapp } from 'react-icons/fa'
+import { FiFacebook, FiInstagram } from 'react-icons/fi'
+import ButtonLink from 'src/components/ButtonLink'
 import theme from 'src/ui/theme'
 
 const Icon = ({
   Component,
   children,
   color = theme.pallete.primary.contrastText,
-  size = 30,
+  size = 25,
   ...props
 }) => (
-  <IconButton>
-    <a {...props} title={children} target="blank">
-      <Component
-        css={{
-          transition: 'all .3s',
-          '&:hover': {
-            color: theme.palette.secondary.main,
-          },
-        }}
-        size={size}
-        color={color}
-      />
-    </a>
-  </IconButton>
+  <ButtonLink icon {...props} title={children} target="blank">
+    <Component
+      css={{
+        transition: 'all .3s',
+        '&:hover': {
+          color: theme.palette.secondary.main,
+        },
+      }}
+      size={size}
+      color={color}
+    />
+  </ButtonLink>
 )
 
 const SocialList = props => {
@@ -37,7 +36,7 @@ const SocialList = props => {
         Fale conosco por whatsapp
       </Icon>
       <Icon
-        Component={FaInstagram}
+        Component={FiInstagram}
         href="https://instagram.com/vidanatural.eco"
         color="#B05CFE"
         {...props}
@@ -45,7 +44,7 @@ const SocialList = props => {
         Ir para nosso Instagram
       </Icon>
       <Icon
-        Component={FaFacebookSquare}
+        Component={FiFacebook}
         href="http://facebook.com/vidanatural.eco"
         color="#0082FB"
         {...props}
