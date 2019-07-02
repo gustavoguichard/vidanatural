@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import PaperContent from 'src/ui/PaperContent'
-import sloganImg from 'static/images/slogan.svg'
+import sloganImg from 'static/svgs/slogan.svg'
 import theme from 'src/ui/theme'
 
 const Page = () => {

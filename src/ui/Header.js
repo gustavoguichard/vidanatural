@@ -5,7 +5,7 @@ import MobileMenu from 'src/ui/header/MobileMenu'
 import theme from 'src/ui/theme'
 import { useIsMobile } from 'utils/responsive'
 
-const Header = ({ stick, variant }) => {
+const Header = ({ stick, logoCompanion, variant }) => {
   const secondary = variant === 'secondary'
   const isMobile = useIsMobile()
   const hasScrolled = useScrollTrigger({
@@ -15,6 +15,7 @@ const Header = ({ stick, variant }) => {
   })
   const sticky = stick || hasScrolled
   const elevation = sticky ? 4 : 0
+  const companionSize = sticky ? 35 : 60
   return (
     <AppBar
       css={{
@@ -35,6 +36,19 @@ const Header = ({ stick, variant }) => {
         variant="dense"
       >
         <Logo sticky={sticky} variant={variant} />
+        {logoCompanion && (
+          <img
+            css={{
+              maxWidth: companionSize,
+              maxHeight: companionSize,
+              position: 'relative',
+              left: sticky ? 0 : -20,
+              transition: 'all .4s ease-in-out',
+            }}
+            src={logoCompanion}
+            alt="Embalagem"
+          />
+        )}
         <div css={{ flexGrow: 1 }} />
         {isMobile ? <MobileMenu /> : <DesktopMenu />}
       </Toolbar>

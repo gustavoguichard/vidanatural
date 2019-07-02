@@ -9,12 +9,13 @@ import CTAButton from 'src/components/CTAButton'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 import products from 'data/products'
+import bisnaga from 'static/svgs/bisnaga.svg'
 
 const product = find(products, p => p.path === 'po-dental')
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout logoCompanion={bisnaga}>
       <Hero
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/peta.jpg"

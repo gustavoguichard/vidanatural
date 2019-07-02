@@ -9,12 +9,13 @@ import CTAButton from 'src/components/CTAButton'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 import products from 'data/products'
+import frasco from 'static/svgs/frasco.svg'
 
 const product = find(products, p => p.path === 'oleo-hidratante')
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout logoCompanion={frasco}>
       <Hero
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/ruiva.jpg"

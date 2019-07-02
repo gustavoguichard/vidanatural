@@ -2,8 +2,8 @@ import Link from 'src/components/Link'
 import theme from 'src/ui/theme'
 import ButtonLink from 'src/components/ButtonLink'
 
-import logoImg from 'static/images/logo.svg'
-import brandImg from 'static/images/brand.svg'
+import logoImg from 'static/svgs/logo.svg'
+import brandImg from 'static/svgs/brand.svg'
 
 const Logo = ({ sticky, variant }) => {
   const secondary = variant === 'secondary'

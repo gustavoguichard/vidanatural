@@ -8,7 +8,7 @@ import SocialList from 'src/components/SocialList'
 // import { usePrevious } from 'utils/hooks'
 // import { useIsMobile } from 'utils/responsive'
 // import { Context } from 'utils/CustomerChat'
-import sloganImg from 'static/images/slogan.svg'
+import sloganImg from 'static/svgs/slogan.svg'
 
 const Slogan = ({ variant }) => (
   <NextLink href="/eu-uso-cosmetica-consciente">

@@ -9,12 +9,13 @@ import CTAButton from 'src/components/CTAButton'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 import products from 'data/products'
+import rollon from 'static/svgs/rollon.svg'
 
 const product = find(products, p => p.path === 'desodorante-rollon')
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout logoCompanion={rollon}>
       <Hero
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/axila.jpg"

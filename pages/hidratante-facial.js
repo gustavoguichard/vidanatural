@@ -9,12 +9,13 @@ import CTAButton from 'src/components/CTAButton'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 import products from 'data/products'
+import pote from 'static/svgs/pote.svg'
 
 const product = find(products, p => p.path === 'hidratante-facial')
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout logoCompanion={pote}>
       <Hero
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/morena.jpg"

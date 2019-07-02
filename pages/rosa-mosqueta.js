@@ -9,12 +9,13 @@ import CTAButton from 'src/components/CTAButton'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 import products from 'data/products'
+import pipeta from 'static/svgs/pipeta.svg'
 
 const product = find(products, p => p.path === 'rosa-mosqueta')
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout logoCompanion={pipeta}>
       <Hero
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/rosa.jpg"
