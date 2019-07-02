@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { FaChevronRight } from 'react-icons/fa'
 import NextLink from 'next/link'
 import { Grid } from '@material-ui/core'
 import reduce from 'lodash/reduce'
@@ -7,7 +8,7 @@ import CTAButton from 'src/components/CTAButton'
 import theme from 'src/ui/theme'
 import Testimonial from './Testimonial'
 
-const Testimonials = ({ showCTA, testimonials, children, ...props }) => {
+const Testimonials = ({ testimonials, showCTA, children, ...props }) => {
   const [testimonialsToShow] = reduce(
     testimonials,
     (all, test) => {
@@ -32,7 +33,14 @@ const Testimonials = ({ showCTA, testimonials, children, ...props }) => {
       </Grid>
       {showCTA && (
         <NextLink href="/eu-uso-cosmetica-consciente">
-          <CTAButton>Ver todos os depoimentos</CTAButton>
+          <CTAButton
+            size="small"
+            IconComponent={FaChevronRight}
+            color="secondary"
+            variant="text"
+          >
+            Mais depoimentos
+          </CTAButton>
         </NextLink>
       )}
     </Hero>

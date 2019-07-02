@@ -20,6 +20,7 @@ const Product = ({ index, name, showHome, path, tone, size }) => {
               alignItems: 'center',
               backgroundColor: theme.palette.secondary.light,
               display: 'flex',
+              filter: 'saturate(.5)',
               justifyContent: 'center',
               minHeight: 300,
               overflow: 'hidden',
@@ -28,6 +29,7 @@ const Product = ({ index, name, showHome, path, tone, size }) => {
               transition: 'all .6s ease-in-out',
               '&:hover': {
                 backgroundColor: tone,
+                filter: 'saturate(1.2)',
               },
             }}
           >
@@ -43,11 +45,7 @@ const Product = ({ index, name, showHome, path, tone, size }) => {
             />
             <img
               css={{
-                filter: 'saturate(.6)',
-                transition: 'all .6s ease-in-out',
-                '&:hover': {
-                  filter: 'saturate(1.2)',
-                },
+                zIndex: 1,
               }}
               src={`/static/images/products/small/${path}.png`}
               alt={name}

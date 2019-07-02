@@ -41,7 +41,9 @@ const Products = () => {
         </Grid>
       </Grid>
       <NextLink href="/onde-encontrar">
-        <CTAButton IconComponent={LocationOn}>Onde encontrar?</CTAButton>
+        <CTAButton IconComponent={LocationOn} variant="text">
+          Onde encontrar?
+        </CTAButton>
       </NextLink>
     </PaperContent>
   )
