@@ -13,6 +13,7 @@ const ProductTitle = ({ product, showCta = true, dark }) => (
       css={{
         marginTop: theme.spacing(3),
         marginBottom: theme.spacing(2),
+        fontWeight: dark ? 500 : 400,
         color: dark
           ? theme.palette.text.secondary
           : theme.palette.text.disabled,
