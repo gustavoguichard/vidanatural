@@ -14,11 +14,11 @@ const Index = () => {
         filter="brightness(0.4) saturate(1.8)"
         background="/static/images/plants.jpg"
       >
-        <Typography variant="h3">
+        <Typography variant="h2">
           Você se importa com o que sua pele absorve todos os dias?
         </Typography>
       </Hero>
-      <Products />
+      <Products isMobile={isMobile} />
       <Testimonials isMobile={isMobile} />
     </Layout>
   )

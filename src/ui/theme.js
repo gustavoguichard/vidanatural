@@ -7,15 +7,35 @@ const theme = createMuiTheme({
     fontFamily: ['DM Sans', 'sans-serif'],
     htmlFontSize: 17,
     fontSize: 16,
-    h3: {
+    h2: {
+      fontSize: '3rem',
       fontWeight: 600,
       letterSpacing: '-0.035rem',
       lineHeight: 1.0667,
     },
+    h3: {
+      fontSize: '2,125rem',
+      fontWeight: 600,
+      lineHeight: 1.0667,
+      letterSpacing: '-0.035rem',
+    },
+    h4: {
+      fontSize: '1.425rem',
+      fontWeight: 400,
+      lineHeight: 1.0667,
+      letterSpacing: '-0.035rem',
+    },
     h5: {
+      fontSize: '1.25rem',
       lineHeight: 1.38105,
       fontWeight: 400,
-      letterSpacing: '0.011rem',
+      letterSpacing: '-0.022rem',
+    },
+    h6: {
+      fontSize: '1.12rem',
+      lineHeight: 1.38105,
+      fontWeight: 600,
+      letterSpacing: '-0.022rem',
     },
     body1: {
       fontSize: '1.0667rem',

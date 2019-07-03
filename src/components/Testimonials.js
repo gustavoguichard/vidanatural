@@ -38,6 +38,7 @@ const Testimonials = ({ testimonials, showCTA, children, ...props }) => {
             IconComponent={FaChevronRight}
             color="secondary"
             variant="text"
+            css={{ margin: theme.spacing(4) }}
           >
             Mais depoimentos
           </CTAButton>

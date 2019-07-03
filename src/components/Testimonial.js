@@ -30,7 +30,7 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
       >
         <ReactMarkdown escapeHtml={false} source={nl2Br(content)} />
       </Typography>
-      <Typography variant="h6">{name}</Typography>
+      <Typography variant="h5">{name}</Typography>
       <Typography variant="caption">
         {compact([role, location]).join(' • ')}
       </Typography>

@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <Layout>
       <Hero size="small" background="/static/images/gota.jpg">
-        <Typography variant="h3">Onde Encontrar</Typography>
+        <Typography variant="h2">Onde Encontrar</Typography>
       </Hero>
       <PaperContent />
     </Layout>

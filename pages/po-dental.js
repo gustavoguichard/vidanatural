@@ -20,18 +20,18 @@ const Page = () => {
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/peta.jpg"
       >
-        <Typography variant="h3">{product.name}</Typography>
-        <Typography variant="h5">{product.slogan}</Typography>
+        <Typography variant="h2">{product.name}</Typography>
+        <Typography variant="h4">{product.slogan}</Typography>
       </Hero>
       <Box bgcolor={product.tone}>
         <PaperContent>
           <Grid container alignItems="center">
             <Grid item xs={12} md={8}>
-              <Typography variant="h3">{product.name}</Typography>
+              <Typography variant="h2">{product.name}</Typography>
               <CTAButton IconComponent={LocationOn} center={false}>
                 Onde encontrar?
               </CTAButton>
-              <Typography variant="h5">
+              <Typography variant="h4">
                 {product.benefits.map(benefit => (
                   <Fragment key={benefit}>
                     <span>{benefit}</span>

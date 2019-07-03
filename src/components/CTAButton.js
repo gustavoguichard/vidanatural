@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core'
+import ButtonLink from 'src/components/ButtonLink'
 import theme from 'src/ui/theme'
 
 const CTAButton = ({
@@ -11,22 +11,20 @@ const CTAButton = ({
   ...props
 }) => {
   return (
-    <Button
+    <ButtonLink
       color={color}
       size={size}
       variant={variant}
       css={{
         display: 'flex',
         margin: center ? 'auto' : null,
-        marginTop: `${theme.spacing(4)}px`,
-        marginBottom: `${theme.spacing(4)}px`,
         color: theme.palette.primary,
       }}
       {...props}
     >
       {children}
       {IconComponent && <IconComponent css={{ marginLeft: theme.spacing() }} />}
-    </Button>
+    </ButtonLink>
   )
 }
 

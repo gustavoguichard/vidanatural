@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <Layout>
       <Hero size="small" background="/static/images/capa-pb.jpg">
-        <Typography variant="h3">Sobre a Vida Natural</Typography>
+        <Typography variant="h2">Sobre a Vida Natural</Typography>
       </Hero>
       <PaperContent />
     </Layout>
