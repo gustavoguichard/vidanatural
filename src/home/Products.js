@@ -1,3 +1,4 @@
+import Link from 'src/components/Link'
 import find from 'lodash/find'
 import { Box, Container, Grid, Typography } from '@material-ui/core'
 import { FaAngleRight } from 'react-icons/fa'
@@ -14,7 +15,7 @@ import {
 import { FaHandHoldingUsd } from 'react-icons/fa'
 import PaperContent from 'src/ui/PaperContent'
 import CTAButton from 'src/components/CTAButton'
-import Emoji from 'src/components/Emoji'
+import BackgroundImg from 'src/components/BackgroundImg'
 import theme from 'src/ui/theme'
 import products from 'data/products'
 import Product from './Product'
@@ -23,6 +24,8 @@ const getProduct = path => find(products, p => p.path === path)
 const desodorantePasta = getProduct('desodorante-em-pasta')
 const desodoranteRollon = getProduct('desodorante-rollon')
 const poDental = getProduct('po-dental')
+const hidratante = getProduct('oleo-hidratante')
+const rosa = getProduct('rosa-mosqueta')
 const iconSize = 32
 
 const Feature = ({ Icon, title, children }) => (
@@ -124,16 +127,20 @@ const Products = ({ isMobile }) => {
                     },
                   }}
                 >
-                  <img
-                    className="responsive"
-                    css={{
-                      width: 440,
-                      marginTop: theme.spacing(2),
-                      marginBottom: theme.spacing(2),
-                    }}
-                    src={`/static/images/products/${desodorantePasta.path}.png`}
-                    alt={desodorantePasta.name}
-                  />
+                  <Link href="/desodorante-em-pasta">
+                    <img
+                      className="responsive"
+                      css={{
+                        width: 440,
+                        marginTop: theme.spacing(2),
+                        marginBottom: theme.spacing(2),
+                      }}
+                      src={`/static/images/products/${
+                        desodorantePasta.path
+                      }.png`}
+                      alt={desodorantePasta.name}
+                    />
+                  </Link>
                 </Grid>
                 <Grid css={{ display: 'flex' }} item xs={12} sm={6} lg={4}>
                   <Box
@@ -226,18 +233,20 @@ const Products = ({ isMobile }) => {
                     },
                   }}
                 >
-                  <img
-                    className="responsive"
-                    css={{
-                      maxHeight: 500,
-                      marginTop: theme.spacing(2),
-                      marginBottom: theme.spacing(2),
-                    }}
-                    src={`/static/images/products/${
-                      desodoranteRollon.path
-                    }.png`}
-                    alt={desodoranteRollon.name}
-                  />
+                  <Link href="/desodorante-rollon">
+                    <img
+                      className="responsive"
+                      css={{
+                        maxHeight: 500,
+                        marginTop: theme.spacing(2),
+                        marginBottom: theme.spacing(2),
+                      }}
+                      src={`/static/images/products/${
+                        desodoranteRollon.path
+                      }.png`}
+                      alt={desodoranteRollon.name}
+                    />
+                  </Link>
                 </Grid>
                 <Grid css={{ display: 'flex' }} item xs={12} sm={6} lg={4}>
                   <Box
@@ -303,16 +312,18 @@ const Products = ({ isMobile }) => {
                     },
                   }}
                 >
-                  <img
-                    className="responsive"
-                    css={{
-                      maxHeight: 500,
-                      marginTop: theme.spacing(2),
-                      marginBottom: theme.spacing(2),
-                    }}
-                    src={`/static/images/products/${poDental.path}.png`}
-                    alt={poDental.name}
-                  />
+                  <Link href="/po-dental">
+                    <img
+                      className="responsive"
+                      css={{
+                        maxHeight: 500,
+                        marginTop: theme.spacing(2),
+                        marginBottom: theme.spacing(2),
+                      }}
+                      src={`/static/images/products/${poDental.path}.png`}
+                      alt={poDental.name}
+                    />
+                  </Link>
                 </Grid>
                 <Grid
                   css={{ display: 'flex', justifyContent: 'center' }}
@@ -360,6 +371,133 @@ const Products = ({ isMobile }) => {
           </Grid>
         </Box>
       </Container>
+      <PaperContent overflow="hidden" noPadding css={{ marginTop: 0 }}>
+        <Grid css={{ minHeight: '60vh' }} container>
+          <Grid
+            item
+            css={{
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'center',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+            xs={12}
+            md={6}
+          >
+            <BackgroundImg
+              css={{ filter: 'brightness(0.3) saturate(1.3)' }}
+              src="/static/images/ruiva.jpg"
+            />
+            <div
+              css={{
+                position: 'relative',
+                zIndex: 2,
+                padding: theme.spacing(5),
+                color: 'white',
+                maxWidth: 500,
+              }}
+            >
+              <Typography variant="h3" color="textSecondary">
+                Óleo Hidratante 150ml
+              </Typography>
+              <Typography
+                css={{
+                  marginTop: theme.spacing(3),
+                  marginBottom: theme.spacing(2),
+                }}
+                variant="body1"
+                color="textSecondary"
+              >
+                Óleo 100% vegetal extraído a frio, o que preserva as
+                características naturais. Hidrata e nutre a pele.
+              </Typography>
+              <CTAButton
+                href="/desodorante-rollon"
+                IconComponent={FaAngleRight}
+                color="inherit"
+                variant="text"
+              >
+                Saiba mais
+              </CTAButton>
+              <Link href="/oleo-hidratante">
+                <img
+                  className="responsive"
+                  css={{
+                    maxHeight: 400,
+                    marginTop: theme.spacing(4),
+                    marginBottom: theme.spacing(4),
+                  }}
+                  src={`/static/images/products/${hidratante.path}.png`}
+                  alt={hidratante.name}
+                />
+              </Link>
+            </div>
+          </Grid>
+          <Grid
+            item
+            css={{
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'center',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+            xs={12}
+            md={6}
+          >
+            <BackgroundImg
+              css={{ filter: 'brightness(0.3) saturate(1.3)' }}
+              src="/static/images/rosa.jpg"
+            />
+            <div
+              css={{
+                position: 'relative',
+                zIndex: 2,
+                padding: theme.spacing(5),
+                color: 'white',
+              }}
+            >
+              <Typography variant="h3" color="textSecondary">
+                Rosa Mosqueta 30ml
+              </Typography>
+              <Typography
+                css={{
+                  marginTop: theme.spacing(3),
+                  marginBottom: theme.spacing(2),
+                }}
+                variant="body1"
+                color="textSecondary"
+              >
+                Cuidado e reparo para a pele. Conhecido por sua ação
+                regeneradora. Óleo 100% vegetal, extraído a frio.
+              </Typography>
+              <CTAButton
+                href="/desodorante-rollon"
+                IconComponent={FaAngleRight}
+                color="inherit"
+                variant="text"
+              >
+                Saiba Mais
+              </CTAButton>
+              <Link href="/rosa-mosqueta">
+                <img
+                  className="responsive"
+                  css={{
+                    maxHeight: 400,
+                    marginTop: theme.spacing(4),
+                    marginBottom: theme.spacing(4),
+                  }}
+                  src={`/static/images/products/${rosa.path}.png`}
+                  alt={rosa.name}
+                />
+              </Link>
+            </div>
+          </Grid>
+        </Grid>
+      </PaperContent>
     </>
   )
 }

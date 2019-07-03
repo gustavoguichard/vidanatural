@@ -9,6 +9,9 @@ const PaperContent = ({
   full,
   overlap = true,
   maxWidth = 'lg',
+  noPadding,
+  paperCss,
+  overflow,
   ...props
 }) => {
   const isMobile = useIsMobile()
@@ -29,10 +32,17 @@ const PaperContent = ({
           marginBottom,
           marginTop,
           minHeight: full ? '100vh' : null,
+          overflow,
+          ...paperCss,
         }}
         elevation={20}
       >
-        <Box css={styles} my={4} py={5} px={isMobile ? 2 : 5}>
+        <Box
+          css={styles}
+          my={noPadding ? 0 : 4}
+          py={noPadding ? 0 : 5}
+          px={noPadding ? 0 : isMobile ? 2 : 5}
+        >
           {children}
         </Box>
       </Paper>
