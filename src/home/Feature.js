@@ -1,6 +1,14 @@
 import { Box, Typography } from '@material-ui/core'
 import theme from 'src/ui/theme'
 
+export const featureWrapper = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  alignSelf: 'stretch',
+}
+
 const Feature = ({ Icon, iconSize = 32, title, children }) => (
   <Box
     alignItems="flex-start"

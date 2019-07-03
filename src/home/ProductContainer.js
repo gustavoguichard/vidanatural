@@ -1,7 +1,7 @@
 import Link from 'src/components/Link'
-import { Box, Container, Grid, Paper, Typography } from '@material-ui/core'
+import { Box, Container, Grid } from '@material-ui/core'
+import ProductTitle from 'src/home/ProductTitle'
 import PaperContent from 'src/ui/PaperContent'
-import CTAButton from 'src/components/CTAButton'
 import { useIsMobile } from 'utils/responsive'
 import theme from 'src/ui/theme'
 
@@ -28,18 +28,7 @@ const ProductContainer = ({ paper, product, children }) => (
   <Wrapper paper={paper}>
     <Grid spacing={3} justify="center" container>
       <Grid item xs={12} md={6} css={{ textAlign: 'center' }}>
-        <Typography variant="h3">{product.name}</Typography>
-        <Typography
-          css={{
-            marginTop: theme.spacing(3),
-            marginBottom: theme.spacing(2),
-            color: theme.palette.text.disabled,
-          }}
-          variant="body1"
-        >
-          {product.subtitle}
-        </Typography>
-        <CTAButton href={`/${product.path}`}>Saiba mais</CTAButton>
+        <ProductTitle product={product} />
       </Grid>
       <Grid item xs={12} md={10} css={{ textAlign: 'center' }}>
         <Grid spacing={6} justify="center" container>

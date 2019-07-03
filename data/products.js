@@ -3,6 +3,7 @@ export default [
     name: 'Desodorante em Pasta',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     path: 'desodorante-em-pasta',
+    packing: 'pote',
     tone: '#e4e13e',
     size: 6,
     showHome: true,
@@ -25,6 +26,7 @@ export default [
     name: 'Desodorante Rollon',
     subtitle: 'Indicado para o dia-a-dia.',
     path: 'desodorante-rollon',
+    packing: 'rollon',
     tone: '#0082FB',
     size: 6,
     showHome: true,
@@ -45,6 +47,7 @@ export default [
   },
   {
     name: 'Desodorante Bisnaga',
+    subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     path: 'desodorante-bisnaga',
     tone: '#78B496',
     size: true,
@@ -67,6 +70,7 @@ export default [
   {
     name: 'Xampú em Barra',
     path: 'xampu-em-barra',
+    packing: 'barra',
     tone: '#0b0c17',
     size: 6,
     showHome: false,
@@ -77,6 +81,7 @@ export default [
   {
     name: 'Hidratante Facial',
     path: 'hidratante-facial',
+    packing: 'pote',
     tone: '#fe5c5c',
     size: true,
     showHome: true,
@@ -94,6 +99,7 @@ export default [
     name: 'Pó Dental',
     subtitle: 'Diferente por ser o mais natural.',
     path: 'po-dental',
+    packing: 'bisnaga',
     tone: '#6CBB3D',
     size: true,
     showHome: true,
@@ -111,6 +117,7 @@ export default [
     subtitle:
       'Óleo 100% vegetal extraído a frio, o que preserva as características naturais. Hidrata e nutre a pele.',
     path: 'oleo-hidratante',
+    packing: 'frasco',
     tone: '#da8235',
     size: true,
     showHome: true,
@@ -128,9 +135,10 @@ export default [
   },
   {
     name: 'Rosa Mosqueta',
-    subtitle:
-      'Cuidado e reparo para a pele. Conhecido por sua ação regeneradora. Óleo 100% vegetal, extraído a frio.',
+    subtitle: `Cuidado e reparo para a pele.
+    Óleo 100% vegetal, extraído a frio, conhecido por sua ação regeneradora.`,
     path: 'rosa-mosqueta',
+    packing: 'pipeta',
     tone: '#A938FF',
     size: true,
     showHome: true,

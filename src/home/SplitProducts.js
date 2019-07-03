@@ -1,7 +1,8 @@
 import Link from 'src/components/Link'
-import { Box, Container, Grid, Paper, Typography } from '@material-ui/core'
+import { Box, Container, Grid, Paper } from '@material-ui/core'
 import BackgroundImg from 'src/components/BackgroundImg'
-import CTAButton from 'src/components/CTAButton'
+import ProductTitle from 'src/home/ProductTitle'
+import ProductImg from 'src/home/ProductImg'
 import theme from 'src/ui/theme'
 
 const ProductWrapper = ({ product }) => (
@@ -28,34 +29,8 @@ const ProductWrapper = ({ product }) => (
       maxWidth={500}
       css={{ color: 'white' }}
     >
-      <Typography variant="h3" color="textSecondary">
-        {product.name}
-      </Typography>
-      <Typography
-        css={{
-          marginTop: theme.spacing(3),
-          marginBottom: theme.spacing(2),
-        }}
-        variant="body1"
-        color="textSecondary"
-      >
-        {product.subtitle}
-      </Typography>
-      <CTAButton href={`/${product.path}`} color="inherit">
-        Saiba mais
-      </CTAButton>
-      <Link href={`/${product.path}`}>
-        <img
-          className="responsive"
-          css={{
-            maxHeight: 400,
-            marginTop: theme.spacing(4),
-            marginBottom: theme.spacing(4),
-          }}
-          src={`/static/images/products/${product.path}.png`}
-          alt={product.name}
-        />
-      </Link>
+      <ProductTitle product={product} dark />
+      <ProductImg product={product} height={400} />
     </Box>
   </Grid>
 )
