@@ -35,12 +35,12 @@ const PaperContent = ({
           overflow,
           ...paperCss,
         }}
-        elevation={20}
+        elevation={5}
       >
         <Box
           css={styles}
           my={noPadding ? 0 : 4}
-          py={noPadding ? 0 : 5}
+          py={noPadding ? 0 : 8}
           px={noPadding ? 0 : isMobile ? 2 : 5}
         >
           {children}

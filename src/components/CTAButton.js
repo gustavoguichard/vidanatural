@@ -1,13 +1,15 @@
 import ButtonLink from 'src/components/ButtonLink'
+import { FaAngleRight } from 'react-icons/fa'
 import theme from 'src/ui/theme'
 
 const CTAButton = ({
-  color = 'primary',
+  color = 'secondary',
   size = 'large',
-  variant = 'contained',
+  variant = 'text',
   center = true,
   children,
-  IconComponent,
+  disableIcon,
+  IconComponent = FaAngleRight,
   ...props
 }) => {
   return (
@@ -23,7 +25,7 @@ const CTAButton = ({
       {...props}
     >
       {children}
-      {IconComponent && <IconComponent css={{ marginLeft: theme.spacing() }} />}
+      {disableIcon || <IconComponent css={{ marginLeft: theme.spacing() }} />}
     </ButtonLink>
   )
 }

@@ -1,6 +1,4 @@
 import { memo } from 'react'
-import { FaChevronRight } from 'react-icons/fa'
-import NextLink from 'next/link'
 import { Grid } from '@material-ui/core'
 import reduce from 'lodash/reduce'
 import Hero from 'src/components/Hero'
@@ -19,12 +17,7 @@ const Testimonials = ({ testimonials, showCTA, children, ...props }) => {
     [[], 0],
   )
   return (
-    <Hero
-      color={theme.palette.primary.dark}
-      filter="brightness(0.4) saturate(1.4)"
-      maxWidth="lg"
-      {...props}
-    >
+    <Hero color={theme.palette.primary.dark} maxWidth="lg" {...props}>
       {children}
       <Grid container spacing={4} justify="center" alignItems="stretch">
         {testimonialsToShow.map(testimonial => (
@@ -32,17 +25,15 @@ const Testimonials = ({ testimonials, showCTA, children, ...props }) => {
         ))}
       </Grid>
       {showCTA && (
-        <NextLink href="/eu-uso-cosmetica-consciente">
-          <CTAButton
-            size="small"
-            IconComponent={FaChevronRight}
-            color="secondary"
-            variant="text"
-            css={{ margin: theme.spacing(4) }}
-          >
-            Mais depoimentos
-          </CTAButton>
-        </NextLink>
+        <CTAButton
+          href="/eu-uso-cosmetica-consciente"
+          css={{
+            color: theme.palette.text.secondary,
+            margin: theme.spacing(4),
+          }}
+        >
+          Mais depoimentos
+        </CTAButton>
       )}
     </Hero>
   )

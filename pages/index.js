@@ -10,8 +10,7 @@ const Index = () => {
   return (
     <Layout>
       <Hero
-        size={isMobile ? 'full' : 'small'}
-        filter="brightness(0.4) saturate(1.8)"
+        size={isMobile ? 'full' : 'medium'}
         background="/static/images/plants.jpg"
       >
         <Typography variant="h2">

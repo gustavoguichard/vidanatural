@@ -25,9 +25,9 @@ const Icon = ({
   </ButtonLink>
 )
 
-const SocialList = props => {
+const SocialList = ({ className, ...props }) => {
   return (
-    <div className="social-list">
+    <div className={`social-list ${className}`}>
       <Icon
         Component={FaWhatsapp}
         href="https://wa.me/5548991039557"

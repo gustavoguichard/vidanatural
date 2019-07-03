@@ -7,12 +7,12 @@ export const iOS =
   process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
 export const useIsMobile = () => {
-  const matches = useMediaQuery(theme.breakpoints.down('xs'))
-  return matches
+  const matches = useMediaQuery(theme.breakpoints.up('sm'))
+  return !matches
 }
 
 export const useIsTablet = () => {
-  const matches = useMediaQuery(theme.breakpoints.down('sm'))
+  const matches = useMediaQuery(theme.breakpoints.down('md'))
   return matches
 }
 

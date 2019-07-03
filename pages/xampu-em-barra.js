@@ -9,12 +9,13 @@ import CTAButton from 'src/components/CTAButton'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 import products from 'data/products'
+import barra from 'static/svgs/barra.svg'
 
 const product = find(products, p => p.path === 'xampu-em-barra')
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout logoCompanion={barra}>
       <Hero
         filter="brightness(0.4) saturate(1.3)"
         background="/static/images/xampu.jpg"

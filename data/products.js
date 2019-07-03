@@ -1,6 +1,7 @@
 export default [
   {
     name: 'Desodorante em Pasta',
+    subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     path: 'desodorante-em-pasta',
     tone: '#e4e13e',
     size: 6,
@@ -22,6 +23,7 @@ export default [
   },
   {
     name: 'Desodorante Rollon',
+    subtitle: 'Indicado para o dia-a-dia.',
     path: 'desodorante-rollon',
     tone: '#0082FB',
     size: 6,
@@ -90,6 +92,7 @@ export default [
   },
   {
     name: 'Pó Dental',
+    subtitle: 'Diferente por ser o mais natural.',
     path: 'po-dental',
     tone: '#6CBB3D',
     size: true,
@@ -105,6 +108,8 @@ export default [
   },
   {
     name: 'Óleo Hidratante',
+    subtitle:
+      'Óleo 100% vegetal extraído a frio, o que preserva as características naturais. Hidrata e nutre a pele.',
     path: 'oleo-hidratante',
     tone: '#da8235',
     size: true,
@@ -123,6 +128,8 @@ export default [
   },
   {
     name: 'Rosa Mosqueta',
+    subtitle:
+      'Cuidado e reparo para a pele. Conhecido por sua ação regeneradora. Óleo 100% vegetal, extraído a frio.',
     path: 'rosa-mosqueta',
     tone: '#A938FF',
     size: true,

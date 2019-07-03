@@ -59,8 +59,8 @@ const Footer = ({ variant = 'primary' }) => {
         }}
       >
         <Slogan variant={variant} />
-        <SocialList color={color} />
-        <Box flex={1} ml={2} css={{ minWidth: '60%' }}>
+        <SocialList color={color} css={{ marginRight: theme.spacing(2) }} />
+        <Box flex={1} css={{ minWidth: '60%' }}>
           <Typography variant="body2" color="inherit">
             Vida Natural&reg; {year} • Imbituba / SC
             <br />
