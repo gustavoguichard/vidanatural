@@ -29,7 +29,7 @@ class VidaNatural extends Document {
           <link
             rel="shortcut icon"
             type="image/x-icon"
-            href="/static/favicon.ico"
+            href="/static/favicon.png"
           />
           <link
             async
