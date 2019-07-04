@@ -12,6 +12,7 @@ export const featureWrapper = {
 
 const Feature = ({ Icon, iconSize = 32, title, children }) => (
   <Box
+    maxWidth={350}
     alignItems="flex-start"
     className="feature-item"
     display="flex"
@@ -26,7 +27,7 @@ const Feature = ({ Icon, iconSize = 32, title, children }) => (
         marginRight: theme.spacing(1.5),
       }}
     />
-    <Box flex={1} maxWidth={350}>
+    <Box flex={1}>
       <Typography variant="h6">{title}</Typography>
       <Typography
         variant="body1"
