@@ -26,7 +26,7 @@ const Wrapper = ({ paper, children, ...props }) => {
 }
 
 const ProductContainer = ({ paper, product, children }) => (
-  <Wrapper css={{ scrollSnapAlign: 'start' }} paper={paper}>
+  <Wrapper paper={paper}>
     <Grid spacing={3} justify="center" container>
       <Grid item xs={12} md={6} css={{ textAlign: 'center' }}>
         <ProductTitle product={product} />

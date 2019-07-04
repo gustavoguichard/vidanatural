@@ -51,7 +51,8 @@ const Products = ({ isMobile }) => (
             Um potinho rende quase quatro meses.
           </Feature>
           <Feature Icon={GiHeartBottle} title="Você sem Parabenos">
-            alumínio, sem triclosan, sem fragrâncias sintéticas, sem sem sem!
+            Sem alumínio, sem triclosan, sem fragrâncias sintéticas, sem sem
+            sem!
           </Feature>
         </Box>
       </Grid>
