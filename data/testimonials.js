@@ -338,7 +338,7 @@ export default [
     location: 'Florianópolis / SC',
     picture: 'merilyn-da-silva',
     ratio: '2by3',
-    content: `“A mamãe e o papai sempre usam o **óleo de rosa mosqueta** da Vida Natural na minha pele. Ela fica **macia** e sem assaduras!”
+    content: `A mamãe e o papai sempre usam o **óleo de rosa mosqueta** da Vida Natural na minha pele. Ela fica **macia** e sem assaduras!
 
     Toda a **nossa familia** usa os produtos da Vida Natural. Desorante, óleo hidratante, óleo de rosa mosqueta e adoramos. Produtos feitos com **consciência e amor**!`,
   },

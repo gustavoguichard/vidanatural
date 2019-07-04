@@ -40,7 +40,9 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
       </Typography>
       <Box display="flex">
         <Box flex={1} mr={2}>
-          <Typography variant="h5">{name}</Typography>
+          <Typography variant="body2">
+            <strong>{name}</strong>
+          </Typography>
           <Typography variant="body2">
             {role}
             {role && <br />}
