@@ -51,12 +51,7 @@ const Footer = ({ variant = 'primary' }) => {
       color={color}
     >
       <Container
-        css={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          [theme.breakpoints.down('xs')]: { justifyContent: 'center' },
-        }}
+        css={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}
       >
         <Slogan variant={variant} />
         <SocialList color={color} css={{ marginRight: theme.spacing(2) }} />

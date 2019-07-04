@@ -7,6 +7,7 @@ export const featureWrapper = {
   justifyContent: 'space-between',
   alignItems: 'center',
   alignSelf: 'stretch',
+  margin: 'auto',
 }
 
 const Feature = ({ Icon, iconSize = 32, title, children }) => (

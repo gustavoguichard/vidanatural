@@ -3,6 +3,7 @@ import { Box, Container, Grid, Paper } from '@material-ui/core'
 import BackgroundImg from 'src/components/BackgroundImg'
 import ProductTitle from 'src/home/ProductTitle'
 import ProductImg from 'src/home/ProductImg'
+import { useIsMobile } from 'utils/responsive'
 import theme from 'src/ui/theme'
 
 const ProductWrapper = ({ product }) => (
@@ -35,23 +36,34 @@ const ProductWrapper = ({ product }) => (
   </Grid>
 )
 
+const Wrapper = ({ paper, children, ...props }) => {
+  const isMobile = useIsMobile()
+  return isMobile || !paper ? (
+    <div {...props}>{children}</div>
+  ) : (
+    <Container maxWidth="lg">
+      <Paper
+        css={{
+          overflow: 'hidden',
+          marginBottom: '-3rem',
+          marginTop: '-1rem',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        {children}
+      </Paper>
+    </Container>
+  )
+}
+
 const SplitProduct = ({ product1, product2 }) => (
-  <Container maxWidth="lg">
-    <Paper
-      css={{
-        overflow: 'hidden',
-        marginBottom: '-3rem',
-        marginTop: '-1rem',
-        position: 'relative',
-        zIndex: 1,
-      }}
-    >
-      <Grid css={{ minHeight: '60vh' }} container>
-        <ProductWrapper product={product1} />
-        <ProductWrapper product={product2} />
-      </Grid>
-    </Paper>
-  </Container>
+  <Wrapper paper>
+    <Grid css={{ minHeight: '60vh' }} container>
+      <ProductWrapper product={product1} />
+      <ProductWrapper product={product2} />
+    </Grid>
+  </Wrapper>
 )
 
 export default SplitProduct

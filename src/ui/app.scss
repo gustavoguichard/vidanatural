@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    scroll-snap-type: y proximity;
+}
+
 .fc-widget-small {
     z-index: 1150 !important;
 }

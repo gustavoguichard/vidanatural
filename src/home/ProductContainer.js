@@ -5,10 +5,11 @@ import PaperContent from 'src/ui/PaperContent'
 import { useIsMobile } from 'utils/responsive'
 import theme from 'src/ui/theme'
 
-const Wrapper = ({ paper, children }) => {
+const Wrapper = ({ paper, children, ...props }) => {
   const isMobile = useIsMobile()
   return isMobile || !paper ? (
     <Container
+      {...props}
       maxWidth="lg"
       css={{
         borderBottom: '10px solid white',
@@ -20,12 +21,12 @@ const Wrapper = ({ paper, children }) => {
       <Box py={isMobile ? 7 : 10}>{children}</Box>
     </Container>
   ) : (
-    <PaperContent>{children}</PaperContent>
+    <PaperContent {...props}>{children}</PaperContent>
   )
 }
 
 const ProductContainer = ({ paper, product, children }) => (
-  <Wrapper paper={paper}>
+  <Wrapper css={{ scrollSnapAlign: 'start' }} paper={paper}>
     <Grid spacing={3} justify="center" container>
       <Grid item xs={12} md={6} css={{ textAlign: 'center' }}>
         <ProductTitle product={product} />
