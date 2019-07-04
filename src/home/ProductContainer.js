@@ -25,11 +25,14 @@ const Wrapper = ({ paper, children, ...props }) => {
   )
 }
 
-const ProductContainer = ({ paper, product, children }) => (
-  <Wrapper paper={paper}>
+const ProductContainer = ({ paper, dark, product, children }) => (
+  <Wrapper
+    css={{ color: dark ? theme.palette.text.secondary : null }}
+    paper={paper}
+  >
     <Grid spacing={3} justify="center" container>
       <Grid item xs={12} md={6} css={{ textAlign: 'center' }}>
-        <ProductTitle product={product} />
+        <ProductTitle dark={dark} product={product} />
       </Grid>
       <Grid item xs={12} md={10} css={{ textAlign: 'center' }}>
         <Grid spacing={6} justify="center" container>

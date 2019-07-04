@@ -1,5 +1,6 @@
 import { Box, Card, Container, Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
+import About from 'src/home/About'
 import Hero from 'src/components/Hero'
 import Products from 'src/home/Products'
 import HomeTestimonials from 'src/home/HomeTestimonials'
@@ -19,6 +20,7 @@ const Index = () => {
         </Typography>
       </Hero>
       <Products isMobile={isMobile} />
+      <About isMobile={isMobile} />
       <HomeTestimonials isMobile={isMobile} />
     </Layout>
   )
