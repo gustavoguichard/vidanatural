@@ -21,10 +21,7 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
       }}
     >
       <Typography
-        css={{
-          color: theme.palette.primary.light,
-          marginBottom: theme.spacing(2),
-        }}
+        css={{ color: theme.palette.primary.light }}
         align="left"
         component="div"
         variant="body2"
@@ -44,14 +41,16 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
       <Box display="flex">
         <Box flex={1} mr={2}>
           <Typography variant="h5">{name}</Typography>
-          <Typography variant="caption">
-            {compact([role, location]).join(' • ')}
+          <Typography variant="body2">
+            {role}
+            {role && <br />}
+            {location}
           </Typography>
         </Box>
         <Avatar
-          className="MuiPaper-elevation15"
           css={{
             alignSelf: 'flex-end',
+            border: '4px solid white',
             width: 100,
             right: -10,
             height: 100,
