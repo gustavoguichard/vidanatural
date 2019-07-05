@@ -8,24 +8,7 @@ import SocialList from 'src/components/SocialList'
 // import { usePrevious } from 'utils/hooks'
 // import { useIsMobile } from 'utils/responsive'
 // import { Context } from 'utils/CustomerChat'
-import sloganImg from 'static/svgs/slogan.svg'
-
-const Slogan = ({ variant }) => (
-  <NextLink href="/eu-uso-cosmetica-consciente">
-    <a title="Ir para a homepage">
-      <img
-        css={{
-          width: 150,
-          margin: theme.spacing(),
-          transition: 'all .3s',
-          filter: variant === 'primary' ? 'invert(0.95)' : null,
-        }}
-        src={sloganImg}
-        alt="Vida Natural"
-      />
-    </a>
-  </NextLink>
-)
+import logoImg from 'static/svgs/logo.svg'
 
 const year = new Date().getFullYear()
 
@@ -47,15 +30,30 @@ const Footer = ({ variant = 'primary' }) => {
       id="contato"
       pb={2}
       pt={3}
-      bgcolor={primary ? 'primary.dark' : 'background.default'}
+      bgcolor={primary ? 'common.black' : 'background.default'}
       color={color}
     >
       <Container
-        css={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}
+        css={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
       >
-        <Slogan variant={variant} />
         <SocialList color={color} css={{ marginRight: theme.spacing(2) }} />
-        <Box flex={1} css={{ minWidth: '60%' }}>
+        <img
+          src={logoImg}
+          alt="Vida Natural"
+          width={55}
+          css={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            [theme.breakpoints.down('xs')]: { display: 'none' },
+          }}
+        />
+        <Box>
           <Typography variant="body2" color="inherit">
             Vida Natural&reg; {year} • Imbituba / SC
             <br />

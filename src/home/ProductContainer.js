@@ -18,7 +18,9 @@ const Wrapper = ({ paper, children, ...props }) => {
         alignItems: 'center',
       }}
     >
-      <Box py={isMobile ? 7 : 10}>{children}</Box>
+      <Box flex={1} py={isMobile ? 7 : 10}>
+        {children}
+      </Box>
     </Container>
   ) : (
     <PaperContent {...props}>{children}</PaperContent>

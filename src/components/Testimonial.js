@@ -12,9 +12,8 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
-        padding: `${theme.spacing(4)}px ${theme.spacing(4)}px ${theme.spacing(
-          2,
-        )}px`,
+        padding: theme.spacing(4),
+        paddingBottom: theme.spacing(2.5),
         marginBottom: theme.spacing(5),
         textAlign: 'left',
         textShadow: 'none',
@@ -26,10 +25,10 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
         component="div"
         variant="body2"
       >
-        <GoQuote css={{ position: 'absolute', fontSize: '1.25rem' }} />
+        <GoQuote css={{ position: 'absolute', fontSize: '0.8rem' }} />
         <ReactMarkdown
           css={{
-            textIndent: '1.5rem',
+            textIndent: '1.15rem',
             '&::first-letter': {
               fontSize: '1.25rem',
             },
@@ -40,10 +39,12 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
       </Typography>
       <Box display="flex">
         <Box flex={1} mr={2}>
-          <Typography variant="body2">
+          <Typography
+            variant="body2"
+            css={{ lineHeight: 1.35, fontSize: '.85rem' }}
+          >
             <strong>{name}</strong>
-          </Typography>
-          <Typography variant="body2">
+            <br />
             {role}
             {role && <br />}
             {location}
@@ -53,9 +54,9 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
           css={{
             alignSelf: 'flex-end',
             border: '4px solid white',
-            width: 100,
+            width: 80,
             right: -10,
-            height: 100,
+            height: 80,
             marginBottom: -50,
           }}
           alt={name}

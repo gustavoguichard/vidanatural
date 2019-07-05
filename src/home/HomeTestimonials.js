@@ -17,17 +17,16 @@ const HomeTestimonials = ({ isMobile }) => {
     >
       <Box mb={2} p={3}>
         <img
+          className="responsive"
           css={{
-            maxWidth: 400,
+            height: 70,
+            width: 350,
             marginBottom: theme.spacing(2),
             filter: 'invert(1)',
           }}
           src={sloganImg}
           alt="Eu uso cosmética consciente"
         />
-        <Typography variant="body1">
-          Descubra o que motiva as pessoas a usarem os nossos produtos:
-        </Typography>
       </Box>
     </Testimonials>
   )
