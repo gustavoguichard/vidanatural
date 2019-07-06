@@ -20,7 +20,7 @@ const Testimonial = ({ name, size, role, picture, location, content }) =>
       }}
     >
       <Typography
-        css={{ color: theme.palette.primary.light }}
+        css={{ color: theme.palette.primary.light, overflowY: 'auto' }}
         align="left"
         component="div"
         variant="body2"

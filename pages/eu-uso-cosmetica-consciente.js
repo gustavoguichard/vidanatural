@@ -41,7 +41,18 @@ const Page = () => {
         color={theme.palette.primary.dark}
       >
         <People onOpen={onOpen} testimonials={shuffled} />
-        <Dialog PaperComponent={'div'} onClose={handleClose} open={isOpen}>
+        <Dialog
+          scroll="body"
+          PaperComponent={'div'}
+          PaperProps={{
+            style: {
+              margin: 20,
+              maxWidth: 600,
+            },
+          }}
+          onClose={handleClose}
+          open={isOpen}
+        >
           <Testimonial {...current} />
         </Dialog>
       </PaperContent>
