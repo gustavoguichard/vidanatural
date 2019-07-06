@@ -80,13 +80,13 @@ export const useMedia = (media, defaultState = false) => {
 }
 
 export const useProcessOnce = (fn, value) => {
-  const [result, setResult] = useState(value)
+  const [result, setResult] = useState()
   useEffect(() => {
     if (!result) {
       setResult(fn(value))
     }
   }, [])
-  return result
+  return result || value
 }
 
 export const useOnMount = callback => {
