@@ -13,7 +13,7 @@ const HomeTestimonials = ({ isMobile }) => {
       showCTA
       testimonials={items || []}
       color={theme.palette.primary.main}
-      background={isMobile ? null : `/static/images/testimonials.jpg`}
+      background="/static/images/plants.jpg"
     >
       <Box mb={2} p={3}>
         <img

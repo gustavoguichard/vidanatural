@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import shuffle from 'lodash/shuffle'
-import { Box, Dialog } from '@material-ui/core'
+import { Box, Dialog, Typography } from '@material-ui/core'
 import { useProcessOnce } from 'utils/hooks'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
@@ -22,7 +22,7 @@ const Page = () => {
   const isOpen = !!current
   return (
     <Layout overlapped>
-      <Hero size="small" background="/static/images/testimonials.jpg">
+      <Hero size="small" background="/static/images/capa-pb.jpg">
         <Box mb={2} p={3}>
           <img
             css={{
@@ -34,6 +34,9 @@ const Page = () => {
             alt="Eu uso cosmética consciente"
           />
         </Box>
+        <Typography variant="body1">
+          Descubra o que motiva as pessoas a usarem os produtos da VN
+        </Typography>
       </Hero>
       <PaperContent
         overflow="hidden"
