@@ -41,13 +41,15 @@ const Testimonial = ({ name, size, role, picture, location, content }) =>
         <Box flex={1} mr={2}>
           <Typography
             variant="body2"
-            css={{ lineHeight: 1.35, fontSize: '.85rem' }}
+            css={{ lineHeight: 1.4, fontSize: '.85rem' }}
           >
             <strong>{name}</strong>
             <br />
-            {role}
-            {role && <br />}
-            {location}
+            <span css={{ color: theme.palette.text.hint }}>
+              {role}
+              {role && <br />}
+              {location}
+            </span>
           </Typography>
         </Box>
         <Avatar
