@@ -3,6 +3,32 @@ import { red } from '@material-ui/core/colors'
 
 // Create a theme instance.
 const theme = createMuiTheme({
+  palette: {
+    common: {
+      black: '#070707',
+    },
+    primary: {
+      main: '#32333d',
+      light: '#5b5c67',
+      dark: '#25282F',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#1db980',
+      light: '#62ecb0',
+      dark: '#008853',
+      contrastText: '#000',
+    },
+    error: {
+      main: red.A400,
+    },
+    text: {
+      primary: '#25282F',
+      secondary: '#fff',
+      hint: '#5b5c67',
+      disabled: '#9e9fb3',
+    },
+  },
   typography: {
     fontFamily: ['DM Sans', 'sans-serif'],
     htmlFontSize: 17,
@@ -42,32 +68,6 @@ const theme = createMuiTheme({
       lineHeight: 1.47059,
       fontWeight: 400,
       letterSpacing: '-0.022rem',
-    },
-  },
-  palette: {
-    common: {
-      black: '#070707',
-    },
-    primary: {
-      main: '#32333d',
-      light: '#5b5c67',
-      dark: '#25282F',
-      contrastText: '#fff',
-    },
-    secondary: {
-      main: '#1db980',
-      light: '#62ecb0',
-      dark: '#008853',
-      contrastText: '#000',
-    },
-    error: {
-      main: red.A400,
-    },
-    text: {
-      primary: '#25282F',
-      secondary: '#fff',
-      hint: '#32333d',
-      disabled: '#5b5c67',
     },
   },
 })

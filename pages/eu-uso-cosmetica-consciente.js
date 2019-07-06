@@ -1,22 +1,31 @@
-import React from 'react'
-import { Box } from '@material-ui/core'
+import React, { useState } from 'react'
+import shuffle from 'lodash/shuffle'
+import { Box, Dialog } from '@material-ui/core'
+import { useProcessOnce } from 'utils/hooks'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
+import Testimonial from 'src/components/Testimonial'
 import PaperContent from 'src/ui/PaperContent'
+import People from 'src/eu-uso/People'
 import sloganImg from 'static/svgs/slogan.svg'
+import testimonials from 'data/testimonials'
 import theme from 'src/ui/theme'
 
 const Page = () => {
+  const [current, setCurrent] = useState(null)
+  const shuffled = useProcessOnce(shuffle, testimonials)
+  const onOpen = index => {
+    const testimonial = (shuffled || testimonials)[index]
+    setCurrent(testimonial)
+  }
+  const handleClose = () => setCurrent(null)
+  const isOpen = !!current
   return (
-    <Layout>
-      <Hero
-        filter="brightness(0.4) saturate(1.3)"
-        background="/static/images/testimonials.jpg"
-      >
+    <Layout overlapped>
+      <Hero size="small" background="/static/images/testimonials.jpg">
         <Box mb={2} p={3}>
           <img
             css={{
-              filter: 'invert(1)',
               marginBottom: theme.spacing(2),
               maxWidth: 600,
               width: '80vw',
@@ -26,7 +35,16 @@ const Page = () => {
           />
         </Box>
       </Hero>
-      <PaperContent />
+      <PaperContent
+        overflow="hidden"
+        noPadding
+        color={theme.palette.primary.dark}
+      >
+        <People onOpen={onOpen} testimonials={shuffled} />
+        <Dialog PaperComponent={'div'} onClose={handleClose} open={isOpen}>
+          <Testimonial {...current} />
+        </Dialog>
+      </PaperContent>
     </Layout>
   )
 }

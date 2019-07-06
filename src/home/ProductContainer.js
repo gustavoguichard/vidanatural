@@ -7,7 +7,9 @@ import theme from 'src/ui/theme'
 
 const Wrapper = ({ paper, children, ...props }) => {
   const isMobile = useIsMobile()
-  return isMobile || !paper ? (
+  return paper && !isMobile ? (
+    <PaperContent {...props}>{children}</PaperContent>
+  ) : (
     <Container
       {...props}
       maxWidth="lg"
@@ -22,8 +24,6 @@ const Wrapper = ({ paper, children, ...props }) => {
         {children}
       </Box>
     </Container>
-  ) : (
-    <PaperContent {...props}>{children}</PaperContent>
   )
 }
 

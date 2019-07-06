@@ -1,12 +1,12 @@
 import ReactMarkdown from 'react-markdown'
 import compact from 'lodash/compact'
-import { Avatar, Box, Paper, Grid, Typography } from '@material-ui/core'
+import { Avatar, Box, Paper, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
 import { nl2Br } from 'utils/helpers'
 import theme from 'src/ui/theme'
 
-const Testimonial = ({ name, size, role, picture, location, content }) => (
-  <Grid sm={6 * size} md={4 * size} item>
+const Testimonial = ({ name, size, role, picture, location, content }) =>
+  name ? (
     <Paper
       css={{
         display: 'flex',
@@ -64,7 +64,6 @@ const Testimonial = ({ name, size, role, picture, location, content }) => (
         />
       </Box>
     </Paper>
-  </Grid>
-)
+  ) : null
 
 export default Testimonial

@@ -21,7 +21,14 @@ const Testimonials = ({ testimonials, showCTA, children, ...props }) => {
       {children}
       <Grid container spacing={4} justify="center" alignItems="stretch">
         {testimonialsToShow.map(testimonial => (
-          <Testimonial key={testimonial.picture} {...testimonial} />
+          <Grid
+            key={testimonial.picture}
+            sm={6 * testimonial.size}
+            md={4 * testimonial.size}
+            item
+          >
+            <Testimonial {...testimonial} />
+          </Grid>
         ))}
       </Grid>
       {showCTA && (

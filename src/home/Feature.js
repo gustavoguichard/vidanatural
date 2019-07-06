@@ -32,7 +32,7 @@ const Feature = ({ Icon, iconSize = 32, title, children }) => (
       <Typography
         variant="body1"
         css={{
-          color: theme.palette.text.disabled,
+          color: theme.palette.text.hint,
           marginTop: theme.spacing(2),
           marginBottom: 0,
           '.feature-item:not(:last-child) &': {

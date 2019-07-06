@@ -22,7 +22,6 @@ const HomeTestimonials = ({ isMobile }) => {
             height: 70,
             width: 350,
             marginBottom: theme.spacing(2),
-            filter: 'invert(1)',
           }}
           src={sloganImg}
           alt="Eu uso cosmética consciente"

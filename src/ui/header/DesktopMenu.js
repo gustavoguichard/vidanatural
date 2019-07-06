@@ -25,6 +25,11 @@ const SubMenu = ({ name, links }) => {
         id={id}
         autoFocus
         anchorEl={anchorEl}
+        getContentAnchorEl={null}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
         transformOrigin={{
           vertical: 'top',
           horizontal: 'center',

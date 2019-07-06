@@ -12,7 +12,7 @@ import logoImg from 'static/svgs/logo.svg'
 
 const year = new Date().getFullYear()
 
-const Footer = ({ variant = 'primary' }) => {
+const Footer = ({ variant = 'primary', overlapped }) => {
   const primary = variant === 'primary'
   // const chat = useContext(Context)
   // const isMobile = useIsMobile()
@@ -29,7 +29,7 @@ const Footer = ({ variant = 'primary' }) => {
     <Box
       id="contato"
       pb={2}
-      pt={3}
+      pt={overlapped ? 10 : 3}
       bgcolor={primary ? 'common.black' : 'background.default'}
       color={color}
     >

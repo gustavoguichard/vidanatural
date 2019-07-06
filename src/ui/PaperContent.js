@@ -3,20 +3,16 @@ import { Paper, Container, Box } from '@material-ui/core'
 import { useIsMobile } from 'utils/responsive'
 import theme from 'src/ui/theme'
 
-const PaperContent = ({
-  children,
+const Wrapper = ({
   color = 'white',
   full,
-  overlap = true,
-  maxWidth = 'lg',
-  noPadding,
   paperCss,
   overflow,
-  ...props
+  overlap = true,
+  isMobile,
+  noPadding,
+  children,
 }) => {
-  const isMobile = useIsMobile()
-  const marginBottom = overlap ? '-3rem' : 0
-  const marginTop = overlap ? '-5rem' : 0
   const styles = full
     ? {
         minHeight: '100vh',
@@ -24,28 +20,51 @@ const PaperContent = ({
         alignItems: 'center',
       }
     : {}
-  return (
-    <Container maxWidth={maxWidth} css={{ zIndex: 3, position: 'relative' }}>
-      <Paper
-        css={{
-          backgroundColor: color,
-          marginBottom,
-          marginTop,
-          minHeight: full ? '100vh' : null,
-          overflow,
-          ...paperCss,
-        }}
-        elevation={5}
+  const marginBottom = overlap ? '-3rem' : 0
+  const marginTop = overlap ? '-5rem' : 0
+  return isMobile ? (
+    <Box css={styles} py={noPadding ? 0 : 8} px={noPadding ? 0 : 5}>
+      {children}
+    </Box>
+  ) : (
+    <Paper
+      css={{
+        zIndex: 3,
+        position: 'relative',
+        backgroundColor: color,
+        marginBottom,
+        marginTop,
+        minHeight: full ? '100vh' : null,
+        overflow,
+        ...paperCss,
+      }}
+      elevation={5}
+    >
+      <Box
+        css={styles}
+        my={noPadding ? 0 : 4}
+        py={noPadding ? 0 : 8}
+        px={noPadding ? 0 : 5}
       >
-        <Box
-          css={styles}
-          my={noPadding ? 0 : 4}
-          py={noPadding ? 0 : 8}
-          px={noPadding ? 0 : isMobile ? 2 : 5}
-        >
-          {children}
-        </Box>
-      </Paper>
+        {children}
+      </Box>
+    </Paper>
+  )
+}
+
+const PaperContent = ({ children, style = {}, maxWidth = 'lg', ...props }) => {
+  const isMobile = useIsMobile()
+  return (
+    <Container
+      css={{
+        backgroundColor: (isMobile && props.color) || 'white',
+        padding: isMobile ? 0 : undefined,
+      }}
+      maxWidth={maxWidth}
+    >
+      <Wrapper css={style} {...props} isMobile={isMobile}>
+        {children}
+      </Wrapper>
     </Container>
   )
 }

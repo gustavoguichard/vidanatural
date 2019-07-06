@@ -12,10 +12,7 @@ const Index = () => {
   const isMobile = useIsMobile()
   return (
     <Layout>
-      <Hero
-        size={isMobile ? 'full' : 'medium'}
-        background="/static/images/plants.jpg"
-      >
+      <Hero background="/static/images/plants.jpg">
         <Typography variant="h2">
           Você se importa com o que sua pele absorve todos os dias?
         </Typography>

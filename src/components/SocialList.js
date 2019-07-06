@@ -1,6 +1,5 @@
 import { FaWhatsapp } from 'react-icons/fa'
 import { FiFacebook, FiInstagram } from 'react-icons/fi'
-import ButtonLink from 'src/components/ButtonLink'
 import theme from 'src/ui/theme'
 
 const icons = {
@@ -24,9 +23,14 @@ const Icon = ({
   size = 20,
   ...props
 }) => (
-  <ButtonLink size="small" icon {...props} title={children} target="blank">
+  <a
+    css={{ display: 'inline-block' }}
+    {...props}
+    title={children}
+    target="blank"
+  >
     {icons[site]({ css, size, color })}
-  </ButtonLink>
+  </a>
 )
 
 const SocialList = ({ className, ...props }) => {

@@ -10,7 +10,9 @@ import {
 } from '@material-ui/core'
 import NextLink from 'next/link'
 import { Menu } from '@material-ui/icons'
+import brandImg from 'static/svgs/brand.svg'
 import menu from 'data/menu'
+import theme from 'src/ui/theme'
 
 const MenuButton = ({ name, path, onClose }) => (
   <NextLink href={path}>
@@ -32,7 +34,12 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
       {hasSubmenu ? (
         <List
           subheader={
-            <ListSubheader color="primary" disableSticky>
+            <ListSubheader
+              css={{
+                color: theme.palette.text.disabled,
+                background: theme.palette.common.white,
+              }}
+            >
               {name}
             </ListSubheader>
           }
@@ -68,6 +75,20 @@ const MobileMenu = () => {
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
       >
+        <NextLink href="/">
+          <img
+            css={{
+              filter: 'invert(0.95)',
+              width: 140,
+              margin: 'auto',
+              marginBottom: theme.spacing(2),
+              marginTop: theme.spacing(3),
+            }}
+            src={brandImg}
+            alt="Home | Vida Natural"
+          />
+        </NextLink>
+        <Divider />
         <List css={{ minWidth: '80vw' }}>
           {menu.links.map((item, index) => (
             <MenuItem
