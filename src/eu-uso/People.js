@@ -1,25 +1,50 @@
-import { useState, useRef, memo, useEffect } from 'react'
+import { useState, memo } from 'react'
+import shuffle from 'lodash/shuffle'
+import { Box, Dialog } from '@material-ui/core'
+import { useProcessOnce } from 'utils/hooks'
+import Testimonial from 'src/components/Testimonial'
+import PaperContent from 'src/ui/PaperContent'
+import testimonials from 'data/testimonials'
+import theme from 'src/ui/theme'
 import Masonry from 'src/components/Masonry'
-import { useWindowDimensions } from 'utils/hooks'
 import Person from 'src/eu-uso/Person'
 
-const People = ({ children, onOpen, testimonials = [] }) => {
-  const wrapper = useRef(null)
-  const [wrapperWidth, setWrapperWidth] = useState(0)
-  const { width } = useWindowDimensions()
-  useEffect(() => {
-    if (wrapper.current) {
-      setWrapperWidth(wrapper.current.getBoundingClientRect().width)
-    }
-  }, [width])
-  const columns = wrapperWidth ? Math.round(wrapperWidth / 300) : 2
+const People = () => {
+  const [current, setCurrent] = useState(null)
+  const shuffled = useProcessOnce(shuffle, testimonials)
+  const onOpen = index => {
+    const testimonial = shuffled[index]
+    setCurrent(testimonial)
+  }
+  const handleClose = () => setCurrent(null)
+  const isOpen = !!current
 
   return (
-    <Masonry columns={columns} ref={wrapper}>
-      {testimonials.map((testimonial, index) => (
-        <Person onOpen={onOpen} index={index} key={index} {...testimonial} />
-      ))}
-    </Masonry>
+    <PaperContent
+      overflow="hidden"
+      noPadding
+      color={theme.palette.primary.dark}
+    >
+      <Masonry>
+        {shuffled.map((testimonial, index) => (
+          <Person onOpen={onOpen} index={index} key={index} {...testimonial} />
+        ))}
+      </Masonry>
+      <Dialog
+        scroll="body"
+        PaperComponent={'div'}
+        PaperProps={{
+          style: {
+            margin: 20,
+            maxWidth: 600,
+          },
+        }}
+        onClose={handleClose}
+        open={isOpen}
+      >
+        <Testimonial {...current} />
+      </Dialog>
+    </PaperContent>
   )
 }
 

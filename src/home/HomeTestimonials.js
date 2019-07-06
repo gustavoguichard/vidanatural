@@ -10,8 +10,7 @@ const HomeTestimonials = ({ isMobile }) => {
   const items = useProcessOnce(shuffle, testimonials)
   return (
     <Testimonials
-      showCTA
-      testimonials={items || []}
+      testimonials={items}
       color={theme.palette.primary.main}
       background="/static/images/plants.jpg"
     >

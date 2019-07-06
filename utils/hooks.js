@@ -79,11 +79,11 @@ export const useMedia = (media, defaultState = false) => {
   return state
 }
 
-export const useProcessOnce = (fn, ...args) => {
-  const [result, setResult] = useState()
+export const useProcessOnce = (fn, value) => {
+  const [result, setResult] = useState(value)
   useEffect(() => {
     if (!result) {
-      setResult(fn(...args))
+      setResult(fn(value))
     }
   }, [])
   return result

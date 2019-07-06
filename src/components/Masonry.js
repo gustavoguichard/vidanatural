@@ -1,4 +1,5 @@
-import React, { cloneElement, forwardRef, memo } from 'react'
+import { useState, useRef, memo, useEffect, cloneElement } from 'react'
+import { useWindowDimensions } from 'utils/hooks'
 import times from 'lodash/times'
 
 const boxStyles = {
@@ -10,31 +11,51 @@ const boxStyles = {
   minHeight: 'min-content',
 }
 
-const Masonry = ({ columns, children, adjust = 1, ...props }, ref) => (
-  <div {...props} style={boxStyles} ref={ref}>
-    {times(columns, index => {
-      const isLast = index === columns - 1
-      return (
-        <div
-          css={{
-            ...boxStyles,
-            flexDirection: 'column',
-            marginRight: isLast ? -1 : 0,
-          }}
-          key={`tile-${index}`}
-        >
-          {React.Children.toArray(children)
-            .filter(
-              (child, filterIndex) =>
-                (filterIndex + index + (columns - adjust)) % columns === 0,
-            )
-            .map((child, idx) =>
-              cloneElement(child, { ...child.props, key: idx }),
-            )}
-        </div>
-      )
-    })}
-  </div>
-)
+const Masonry = ({
+  children,
+  fallback = 2,
+  adjust = 1,
+  minColumnWidth = 300,
+  ...props
+}) => {
+  const wrapper = useRef(null)
+  const [wrapperWidth, setWrapperWidth] = useState(0)
+  const { width } = useWindowDimensions()
+  useEffect(() => {
+    if (wrapper.current) {
+      setWrapperWidth(wrapper.current.getBoundingClientRect().width)
+    }
+  }, [width])
+  const columns = wrapperWidth
+    ? Math.round(wrapperWidth / minColumnWidth)
+    : fallback
 
-export default memo(forwardRef(Masonry))
+  return (
+    <div {...props} style={boxStyles} ref={wrapper}>
+      {times(columns, index => {
+        const isLast = index === columns - 1
+        return (
+          <div
+            css={{
+              ...boxStyles,
+              flexDirection: 'column',
+              marginRight: isLast ? -1 : 0,
+            }}
+            key={`tile-${index}`}
+          >
+            {React.Children.toArray(children)
+              .filter(
+                (child, filterIndex) =>
+                  (filterIndex + index + (columns - adjust)) % columns === 0,
+              )
+              .map((child, idx) =>
+                cloneElement(child, { ...child.props, key: idx }),
+              )}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+export default memo(Masonry)

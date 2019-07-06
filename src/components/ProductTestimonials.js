@@ -15,11 +15,7 @@ const ProductTestimonials = ({ product }) => {
   const genericTestimonials = filter(shuffled, filterByTag('all'))
   const items = [...filteredTestimonials, ...genericTestimonials]
   return (
-    <Testimonials
-      showCTA
-      testimonials={items}
-      background="/static/images/plants.jpg"
-    />
+    <Testimonials testimonials={items} background="/static/images/plants.jpg" />
   )
 }
 

@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { useToggle } from 'utils/hooks'
 import { saturateOnHover } from 'utils/styles'
 import { Typography } from '@material-ui/core'
-import { Info } from '@material-ui/icons'
+import { RemoveRedEye } from '@material-ui/icons'
 import theme from 'src/ui/theme'
 
 const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
@@ -17,7 +17,7 @@ const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
           ...saturateOnHover(),
           cursor: 'pointer',
           margin: 0,
-          marginBottom: -5,
+          marginBottom: 1,
           width: '100%',
           display: 'flex',
           position: 'relative',
@@ -28,7 +28,7 @@ const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
       >
         <img
           {...props}
-          css={{ width: '100%', objectFix: 'cover' }}
+          css={{ width: '100%', objectFit: 'cover' }}
           src={`/static/images/testimonials/${picture}.jpg`}
           alt={name}
         />
@@ -37,7 +37,7 @@ const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
             backgroundColor: 'rgba(0,0,0,.5)',
             bottom: 0,
             left: 0,
-            padding: 10,
+            padding: 12,
             display: 'flex',
             position: 'absolute',
             right: 0,
@@ -50,7 +50,7 @@ const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
           >
             {name}
           </Typography>
-          <Info css={{ color: theme.palette.text.secondary }} />
+          <RemoveRedEye css={{ color: theme.palette.text.secondary }} />
         </div>
       </figure>
     </a>

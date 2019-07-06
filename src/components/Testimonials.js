@@ -6,7 +6,7 @@ import CTAButton from 'src/components/CTAButton'
 import theme from 'src/ui/theme'
 import Testimonial from './Testimonial'
 
-const Testimonials = ({ testimonials, showCTA, children, ...props }) => {
+const Testimonials = ({ testimonials, showCTA = true, children, ...props }) => {
   const [testimonialsToShow] = reduce(
     testimonials,
     (all, test) => {
@@ -17,7 +17,12 @@ const Testimonials = ({ testimonials, showCTA, children, ...props }) => {
     [[], 0],
   )
   return (
-    <Hero color={theme.palette.primary.dark} maxWidth="lg" {...props}>
+    <Hero
+      color={theme.palette.primary.dark}
+      size="small"
+      maxWidth="lg"
+      {...props}
+    >
       {children}
       <Grid container spacing={4} justify="center" alignItems="stretch">
         {testimonialsToShow.map(testimonial => (
