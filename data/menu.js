@@ -16,8 +16,8 @@ export default {
           path: '/xampu-em-barra',
         },
         {
-          name: 'Hidratante Facial',
-          path: '/hidratante-facial',
+          name: 'Pó Dental',
+          path: '/po-dental',
         },
         {
           name: 'Óleo Hidratante',
@@ -28,8 +28,8 @@ export default {
           path: '/rosa-mosqueta',
         },
         {
-          name: 'Pó Dental',
-          path: '/po-dental',
+          name: 'Hidratante Facial',
+          path: '/hidratante-facial',
         },
       ],
     },
