@@ -1,7 +1,7 @@
 import { useState, useRef, memo, useEffect } from 'react'
 import Masonry from 'src/components/Masonry'
 import { useWindowDimensions } from 'utils/hooks'
-import Testimonial from 'src/eu-uso/Testimonial'
+import Person from 'src/eu-uso/Person'
 
 const People = ({ children, onOpen, testimonials = [] }) => {
   const wrapper = useRef(null)
@@ -17,12 +17,7 @@ const People = ({ children, onOpen, testimonials = [] }) => {
   return (
     <Masonry columns={columns} ref={wrapper}>
       {testimonials.map((testimonial, index) => (
-        <Testimonial
-          onOpen={onOpen}
-          index={index}
-          key={index}
-          {...testimonial}
-        />
+        <Person onOpen={onOpen} index={index} key={index} {...testimonial} />
       ))}
     </Masonry>
   )

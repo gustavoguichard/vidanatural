@@ -87,7 +87,7 @@ const Products = ({ isMobile }) => (
     </ProductContainer>
     <ProductContainer product={poDental}>
       <Grid item xs={12} sm={6} md={4} css={wrapperCss}>
-        <ProductImg product={poDental} height={440} />
+        <ProductImg product={poDental} height={400} />
       </Grid>
       <Grid
         css={{ display: 'flex', justifyContent: 'center' }}
