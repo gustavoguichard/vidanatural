@@ -26,7 +26,6 @@ const Page = () => {
         <Box mb={2} p={3}>
           <img
             css={{
-              marginBottom: theme.spacing(2),
               maxWidth: 600,
               width: '80vw',
             }}
@@ -34,7 +33,7 @@ const Page = () => {
             alt="Eu uso cosmética consciente"
           />
         </Box>
-        <Typography variant="body1">
+        <Typography variant="body1" css={{ marginBottom: theme.spacing(5) }}>
           Descubra o que motiva as pessoas a usarem os produtos da VN
         </Typography>
       </Hero>
