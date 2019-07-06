@@ -6,6 +6,7 @@ export const wrapperCss = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  flexDirection: 'column',
   [theme.breakpoints.down('md')]: {
     order: -1,
   },

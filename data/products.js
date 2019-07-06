@@ -1,6 +1,7 @@
 export default [
   {
     name: 'Desodorante em Pasta',
+    fullName: 'Desodorante Pasta 40g',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     path: 'desodorante-em-pasta',
     packing: 'pote',
@@ -24,7 +25,11 @@ export default [
   },
   {
     name: 'Desodorante Rollon',
+    fullName: 'Desodorante Rollon 70ml',
     subtitle: 'Indicado para o dia-a-dia.',
+    fullSubtitle: `Desodorante suave, Indicado para peles sensíveis e uso diário.
+    Fácil aplicação, protege do mau cheiro sem agredir sua saúde.
+    Também não entope os poros e nunca impede o suor.`,
     path: 'desodorante-rollon',
     packing: 'rollon',
     tone: '#0082FB',
@@ -47,6 +52,7 @@ export default [
   },
   {
     name: 'Desodorante Bisnaga',
+    fullName: 'Desodorante Bisnaga 30g',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     path: 'desodorante-bisnaga',
     tone: '#78B496',
@@ -69,6 +75,8 @@ export default [
   },
   {
     name: 'Xampú em Barra',
+    fullName: 'Xampú Capim Limão e Lavanda 100g',
+    subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     path: 'xampu-em-barra',
     packing: 'barra',
     tone: '#0b0c17',
@@ -80,6 +88,7 @@ export default [
   },
   {
     name: 'Hidratante Facial',
+    fullName: 'Hidratante Facial 40g',
     path: 'hidratante-facial',
     packing: 'pote',
     tone: '#fe5c5c',
@@ -97,6 +106,7 @@ export default [
   },
   {
     name: 'Pó Dental',
+    fullName: 'Pó Dental 20g',
     subtitle: 'Diferente por ser o mais natural.',
     path: 'po-dental',
     packing: 'bisnaga',
@@ -114,6 +124,7 @@ export default [
   },
   {
     name: 'Óleo Hidratante',
+    fullName: 'Óleo Hidratante 150ml',
     subtitle:
       'Óleo 100% vegetal extraído a frio, o que preserva as características naturais. Hidrata e nutre a pele.',
     path: 'oleo-hidratante',
@@ -135,6 +146,7 @@ export default [
   },
   {
     name: 'Rosa Mosqueta',
+    fullName: 'Óleo Rosa Mosqueta 30ml',
     subtitle: `Cuidado e reparo para a pele.
     Óleo 100% vegetal, extraído a frio, conhecido por sua ação regeneradora.`,
     path: 'rosa-mosqueta',
