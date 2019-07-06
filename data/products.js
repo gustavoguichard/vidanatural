@@ -89,6 +89,7 @@ export default [
   {
     name: 'Hidratante Facial',
     fullName: 'Hidratante Facial 40g',
+    subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     path: 'hidratante-facial',
     packing: 'pote',
     tone: '#fe5c5c',
