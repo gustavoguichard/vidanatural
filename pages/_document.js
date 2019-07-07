@@ -31,6 +31,8 @@ class VidaNatural extends Document {
             type="image/x-icon"
             href="/static/favicon.png"
           />
+          <link rel="icon" sizes="192x192" href="/static/icon.png" />
+          <link rel="apple-touch-icon" href="/static/icon.png" />
         </Head>
         <body>
           <Main />
