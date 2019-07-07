@@ -26,6 +26,7 @@ class VidaNatural extends Document {
             property="og:title"
             content="Vida Natural | Cosmética Consciente"
           />
+          <link rel="manifest" href="/static/manifest.json" />
           <link
             rel="shortcut icon"
             type="image/x-icon"
