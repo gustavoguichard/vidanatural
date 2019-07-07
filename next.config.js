@@ -18,7 +18,7 @@ const nextConfig = {
 module.exports = withPlugins(
   [
     nextEnv,
-    [offline, { dontAutoRegisterSw: true }],
+    [offline, { registerSwPrefix: '/static' }],
     [optimizedImages, { optimizeImagesInDev: true }],
     sass,
     purgeCss,

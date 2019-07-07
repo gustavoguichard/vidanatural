@@ -60,7 +60,7 @@ export default {
     },
     {
       name: 'Contato',
-      path: '#contato',
+      path: '/entre-em-contato',
     },
   ],
 }

@@ -1,4 +1,3 @@
-import { register, unregister } from 'next-offline/runtime'
 import App, { Container } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
@@ -27,7 +26,6 @@ class VidaNatural extends App {
   async componentDidMount() {
     await this.polyfill()
     this.removeServerStyles()
-    process.browser && register()
     this.initGATracking()
   }
 
@@ -47,12 +45,6 @@ class VidaNatural extends App {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles) {
       jssStyles.parentNode.removeChild(jssStyles)
-    }
-  }
-
-  componentWillMount() {
-    if (process.browser) {
-      unregister()
     }
   }
 
