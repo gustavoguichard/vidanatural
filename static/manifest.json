@@ -3,7 +3,7 @@
   "name": "Vida Natural",
   "icons": [
     {
-      "src": "/static/icons.png",
+      "src": "/static/icon.png",
       "type": "image/png",
       "sizes": "192x192"
     }
