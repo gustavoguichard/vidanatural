@@ -27,7 +27,6 @@ const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
         }}
       >
         <img
-          {...props}
           css={{ width: '100%', objectFit: 'cover' }}
           src={`/static/images/testimonials/${picture}.jpg`}
           alt={name}
