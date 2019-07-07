@@ -1,36 +1,21 @@
-// import { useContext, useEffect } from 'react'
-// import { useInView } from 'react-intersection-observer'
 import { Box, Container, Typography } from '@material-ui/core'
 import NextLink from 'next/link'
 import theme from 'src/ui/theme'
 import Link from 'src/components/Link'
 import Img from 'src/components/Img'
 import SocialList from 'src/components/SocialList'
-// import { usePrevious } from 'utils/hooks'
-// import { useIsMobile } from 'utils/responsive'
-// import { Context } from 'utils/CustomerChat'
 import logoImg from 'static/svgs/logo.svg'
 
 const year = new Date().getFullYear()
 
-const Footer = ({ variant = 'primary', overlapped }) => {
+const Footer = ({ variant = 'primary' }) => {
   const primary = variant === 'primary'
-  // const chat = useContext(Context)
-  // const isMobile = useIsMobile()
-  // const [ref, visible] = useInView({
-  //   threshold: 0,
-  //   triggerOnce: true,
-  // })
-  // const wasVisible = usePrevious(visible)
-  // useEffect(() => {
-  //   !isMobile && wasVisible === false && visible && chat.initConversation()
-  // }, [visible])
   const color = theme.palette[variant].contrastText
   return (
     <Box
       id="contato"
-      pb={2}
-      pt={overlapped ? 10 : 3}
+      pb={12}
+      pt={10}
       bgcolor={primary ? 'common.black' : 'background.default'}
       color={color}
     >

@@ -7,18 +7,12 @@ const Layout = ({
   logoCompanion,
   variant = 'primary',
   footerVariant = variant,
-  overlapped,
   stickBar,
 }) => (
   <>
-    <Header
-      overlapped={overlapped}
-      logoCompanion={logoCompanion}
-      variant={variant}
-      stick={stickBar}
-    />
+    <Header logoCompanion={logoCompanion} variant={variant} stick={stickBar} />
     <main css={{ flex: 1 }}>{children}</main>
-    <Footer overlapped={overlapped} variant={footerVariant} />
+    <Footer variant={footerVariant} />
   </>
 )
 
