@@ -3,6 +3,7 @@ import compact from 'lodash/compact'
 import { Avatar, Box, Paper, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
 import { nl2Br } from 'utils/helpers'
+import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
 const Testimonial = ({ name, size, role, picture, location, content }) =>
@@ -52,7 +53,8 @@ const Testimonial = ({ name, size, role, picture, location, content }) =>
             </span>
           </Typography>
         </Box>
-        <Avatar
+        <Img
+          Component={Avatar}
           css={{
             alignSelf: 'flex-end',
             border: '4px solid white',

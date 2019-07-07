@@ -11,6 +11,7 @@ import {
 import NextLink from 'next/link'
 import { Menu } from '@material-ui/icons'
 import brandImg from 'static/svgs/brand.svg'
+import Img from 'src/components/Img'
 import menu from 'data/menu'
 import theme from 'src/ui/theme'
 
@@ -76,7 +77,7 @@ const MobileMenu = () => {
         onOpen={toggleDrawer(true)}
       >
         <NextLink href="/">
-          <img
+          <Img
             css={{
               filter: 'invert(0.95)',
               width: 140,

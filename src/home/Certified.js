@@ -1,10 +1,11 @@
 import { Box, Container, Grid, Typography } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
 import BackgroundImg from 'src/components/BackgroundImg'
+import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
 const Icon = ({ path, title, size = 30 }) => (
-  <img
+  <Img
     css={{ marginRight: '2rem' }}
     width={size}
     src={require(`../../static/svgs/${path}.svg`)}

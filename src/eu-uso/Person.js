@@ -1,8 +1,9 @@
 import { memo } from 'react'
-import { useToggle } from 'utils/hooks'
-import { saturateOnHover } from 'utils/styles'
 import { Typography } from '@material-ui/core'
 import { RemoveRedEye } from '@material-ui/icons'
+import Img from 'src/components/Img'
+import { useToggle } from 'utils/hooks'
+import { saturateOnHover } from 'utils/styles'
 import theme from 'src/ui/theme'
 
 const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
@@ -26,7 +27,7 @@ const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
           paddingRight: 1,
         }}
       >
-        <img
+        <Img
           css={{ width: '100%', objectFit: 'cover' }}
           src={`/static/images/testimonials/${picture}.jpg`}
           alt={name}

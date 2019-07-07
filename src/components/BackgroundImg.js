@@ -1,3 +1,5 @@
+import Img from 'src/components/Img'
+
 const BackgroundImg = ({
   src,
   filter,
@@ -7,7 +9,7 @@ const BackgroundImg = ({
   ...props
 }) => {
   return (
-    <img
+    <Img
       {...props}
       src={src}
       alt={alt}

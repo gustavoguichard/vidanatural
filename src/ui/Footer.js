@@ -4,6 +4,7 @@ import { Box, Container, Typography } from '@material-ui/core'
 import NextLink from 'next/link'
 import theme from 'src/ui/theme'
 import Link from 'src/components/Link'
+import Img from 'src/components/Img'
 import SocialList from 'src/components/SocialList'
 // import { usePrevious } from 'utils/hooks'
 // import { useIsMobile } from 'utils/responsive'
@@ -42,7 +43,7 @@ const Footer = ({ variant = 'primary', overlapped }) => {
         }}
       >
         <SocialList color={color} css={{ marginRight: theme.spacing(2) }} />
-        <img
+        <Img
           src={logoImg}
           alt="Vida Natural"
           width={55}
