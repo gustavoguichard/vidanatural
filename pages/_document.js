@@ -31,16 +31,16 @@ class VidaNatural extends Document {
             type="image/x-icon"
             href="/static/favicon.png"
           />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
           <link
             async
             href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap"
             rel="stylesheet"
           />
           <script async src="https://wchat.freshchat.com/js/widget.js" />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
         </body>
       </html>
     )
