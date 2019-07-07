@@ -1,2 +1,3 @@
+/service-worker.js          /static/service-worker.js
 # Redirect default Netlify subdomain to primary domain
 http://vidanatural.netlify.com/* http://vidanatural.eco.br/:splat 301!

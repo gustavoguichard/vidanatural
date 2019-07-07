@@ -1,0 +1,16 @@
+{
+  "short_name": "Vida Natural",
+  "name": "Vida Natural",
+  "icons": [
+    {
+      "src": "/static/icons.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#32333d",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#32333d"
+}
