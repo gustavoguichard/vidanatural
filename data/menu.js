@@ -43,6 +43,7 @@ export default {
     },
     {
       name: 'Sobre',
+      path: '/sobre-a-vida-natural',
       links: [
         {
           name: 'A Vida Natural',
