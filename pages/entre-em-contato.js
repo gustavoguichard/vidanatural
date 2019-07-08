@@ -1,21 +1,11 @@
-import { Button, Grid, Paper, Typography, TextField } from '@material-ui/core'
+import { Grid, Paper, Typography } from '@material-ui/core'
 import { FaWhatsapp } from 'react-icons/fa'
 import Layout from 'src/ui/Layout'
 import Link from 'src/components/Link'
 import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'
 import PaperContent from 'src/ui/PaperContent'
-
-const Input = ({ id, ...props }) => (
-  <TextField
-    id={id}
-    name={props.name || id}
-    {...props}
-    css={{ marginBottom: theme.spacing(2) }}
-    variant="outlined"
-    fullWidth
-  />
-)
+import Form from 'src/contato/Form'
 
 const Page = () => (
   <Layout>
@@ -41,21 +31,7 @@ const Page = () => (
       </Grid>
       <Grid container justify="space-between">
         <Grid item xs={12} md={7} css={{ marginBottom: theme.spacing(4) }}>
-          <form
-            name="contact"
-            action="/gratos"
-            netlify-honeypot="mel"
-            data-netilify="true"
-          >
-            <TextField name="mel" type="hidden" />
-            <Input id="name" required label="Seu nome" />
-            <Input required type="email" id="email" label="Seu e-mail" />
-            <Input id="phone" label="Seu telefone / whatsapp" />
-            <Input id="message" multiline required rows="4" label="Mensagem" />
-            <Button type="submit" variant="contained" color="secondary">
-              Enviar mensagem
-            </Button>
-          </form>
+          <Form />
         </Grid>
         <Grid item xs={12} md={4}>
           <Typography component="div" variant="body2">
