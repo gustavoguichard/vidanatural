@@ -16,8 +16,8 @@ export default class CustomerChat {
     })
   }
 
-  initConversation = () => {
-    this.chat && this.chat.open({ replyText: 'Olá, ' })
+  initConversation = (replyText = 'Olá, ') => {
+    this.chat && this.chat.open({ replyText })
   }
 
   onWindowLoad = callback => {
