@@ -35,28 +35,25 @@ const Certified = ({ isMobile }) => (
         py={isMobile ? 10 : 14}
       >
         <Container maxWidth="xs">
-          <Typography variant="h2">
-            Nosso compromisso é com a transparência
-          </Typography>
+          <Typography variant="h2">Transparência</Typography>
           <Typography
             variant="body1"
+            component="div"
             css={{
               marginTop: theme.spacing(5),
               marginBottom: theme.spacing(3),
             }}
           >
-            <strong>
-              Somos humanos, artesãos, cuidamos de toda a cadeia de produção.
-            </strong>
-            <br />
-            Assim, garantimos que nossos produtos são livres de químicos danosos
-            ao corpo, veganos, livres de testes em animais, livres de
-            transgênicos entre outros problemas das grandes corporações.
-            <br />
-            <br />
-            Por outro lado, somos fiscalizados, registrados, temos um trabalho
-            sério de pesquisa e, o que é melhor, somos nós mesmos os nossos
-            maiores consumidores e fãs.
+            <p>
+              Somos fiscalizados e registrados pela ANVISA, mas ao mesmo tempo
+              seguimos com um processo de produção artesanal.
+            </p>
+            <p>
+              Todo o nosso esforço e cuidado está voltado para uma produção
+              livre de químicos danosos, vegana, sem crueldade ou testes em
+              animais.
+            </p>
+            <p>Só usamos ingredientes seguros para o corpo e para o planeta.</p>
           </Typography>
           <CTAButton
             href="/sobre-a-vida-natural"

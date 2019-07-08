@@ -1,6 +1,7 @@
 import { Grid, Paper, Typography } from '@material-ui/core'
 import { FaWhatsapp } from 'react-icons/fa'
 import Layout from 'src/ui/Layout'
+import Img from 'src/components/Img'
 import Link from 'src/components/Link'
 import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'
@@ -16,7 +17,7 @@ const Page = () => {
         <Typography variant="h2">Entre em contato</Typography>
       </Hero>
       <PaperContent>
-        <Grid container>
+        <Grid container justify="space-between">
           <Grid item xs={12} md={7}>
             <Typography variant="h3">Envie-nos uma mensagem</Typography>
             <Typography

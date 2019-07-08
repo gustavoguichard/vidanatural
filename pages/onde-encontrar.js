@@ -29,7 +29,7 @@ const Page = () => {
             >
               <p>
                 Estamos preparando uma listagem de todas as lojas que tem nossos
-                produtos no Brasil.Em breve atualizaremos esta página.
+                produtos no Brasil. Em breve atualizaremos esta página.
               </p>
               <p>
                 Enquanto isso,{' '}

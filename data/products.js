@@ -76,7 +76,7 @@ export default [
   {
     name: 'Xampú em Barra',
     fullName: 'Xampú Capim Limão e Lavanda 100g',
-    subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
+    subtitle: 'Limpa sem remover a hidratação natural.',
     path: 'xampu-em-barra',
     packing: 'barra',
     tone: '#0b0c17',
