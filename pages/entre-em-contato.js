@@ -43,7 +43,7 @@ export default function Index() {
           <Grid item xs={12} md={7} css={{ marginBottom: theme.spacing(4) }}>
             <form name="contact" method="POST" data-netilify="true">
               <Input id="name" required label="Seu nome" />
-              <Input required id="email" label="Seu e-mail" />
+              <Input required type="email" id="email" label="Seu e-mail" />
               <Input id="phone" label="Seu telefone / whatsapp" />
               <Input
                 id="message"
@@ -52,7 +52,7 @@ export default function Index() {
                 rows="4"
                 label="Mensagem"
               />
-              <Button variant="contained" color="secondary">
+              <Button type="submit" variant="contained" color="secondary">
                 Enviar mensagem
               </Button>
             </form>
