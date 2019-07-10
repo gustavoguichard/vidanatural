@@ -3,15 +3,16 @@ import { CircularProgress } from '@material-ui/core'
 import { useInView } from 'react-intersection-observer'
 
 const Img = ({ src, Component = 'img', className, ...props }) => {
-  // const [ref, visible] = useInView({
-  //   threshold: 0,
-  //   triggerOnce: true,
-  // })
-  const visible = true
+  const [ref, visible] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  })
   return (
     <Fragment>
-      {visible || <CircularProgress className={className} />}
-      {visible && <Component className={className} src={src} {...props} />}
+      {visible || <CircularProgress ref={ref} className={className} />}
+      {visible && (
+        <Component ref={ref} className={className} src={src} {...props} />
+      )}
     </Fragment>
   )
 }

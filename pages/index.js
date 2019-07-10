@@ -24,6 +24,4 @@ const Page = () => {
   )
 }
 
-export const config = { amp: true }
-
 export default Page
