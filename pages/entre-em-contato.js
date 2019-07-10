@@ -55,7 +55,7 @@ const Page = () => {
                   css={{ position: 'relative', bottom: -2 }}
                   href="https://wa.me/5548991039557"
                   title="Enviar mensagem de whatsapp"
-                  target="blank"
+                  target="_blank"
                 >
                   <FaWhatsapp />
                 </Link>{' '}

@@ -5,7 +5,6 @@ const offline = require('next-offline')
 const optimizedImages = require('next-optimized-images')
 const nextEnv = require('next-env')
 const dotenvLoad = require('dotenv-load')
-const typescript = require('@zeit/next-typescript')
 const sourceMaps = require('@zeit/next-source-maps')
 
 dotenvLoad()
@@ -28,7 +27,6 @@ module.exports = withPlugins(
     sass,
     purgeCss,
     sourceMaps,
-    typescript,
   ],
   nextConfig,
 )

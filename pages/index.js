@@ -1,14 +1,13 @@
-import { Box, Card, Container, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import About from 'src/home/About'
 import Certified from 'src/home/Certified'
 import Hero from 'src/components/Hero'
 import Products from 'src/home/Products'
 import HomeTestimonials from 'src/home/HomeTestimonials'
-import theme from 'src/ui/theme'
 import { useIsMobile } from 'utils/responsive'
 
-const Index = () => {
+const Page = () => {
   const isMobile = useIsMobile()
   return (
     <Layout>
@@ -25,4 +24,6 @@ const Index = () => {
   )
 }
 
-export default Index
+export const config = { amp: true }
+
+export default Page

@@ -27,9 +27,9 @@ const Icon = ({
     css={{ display: 'inline-block' }}
     {...props}
     title={children}
-    target="blank"
+    target="_blank"
   >
-    {icons[site]({ css, size, color })}
+    {icons[site]({ css, color })}
   </a>
 )
 
