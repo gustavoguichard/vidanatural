@@ -4,10 +4,9 @@ import { useProcessOnce } from 'utils/hooks'
 import sloganImg from 'static/svgs/slogan.svg'
 import Testimonials from 'src/components/Testimonials'
 import Img from 'src/components/Img'
-import testimonials from 'data/testimonials'
 import theme from 'src/ui/theme'
 
-const HomeTestimonials = ({ isMobile }) => {
+const HomeTestimonials = ({ testimonials }) => {
   const items = useProcessOnce(shuffle, testimonials)
   return (
     <Testimonials
