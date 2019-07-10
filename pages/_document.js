@@ -43,6 +43,7 @@ class VidaNatural extends Document {
             href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap"
             rel="stylesheet"
           />
+          <script async src="https://wchat.freshchat.com/js/widget.js" />
         </body>
       </html>
     )

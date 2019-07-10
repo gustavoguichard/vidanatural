@@ -1,6 +1,7 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Paper, Typography } from '@material-ui/core'
 import { FaWhatsapp } from 'react-icons/fa'
 import Layout from 'src/ui/Layout'
+import Img from 'src/components/Img'
 import Link from 'src/components/Link'
 import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'

@@ -7,7 +7,7 @@ import Products from 'src/home/Products'
 import HomeTestimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
 
-const Page = ({ testimonials }) => {
+const Page = () => {
   const isMobile = useIsMobile()
   return (
     <Layout>
@@ -19,15 +19,9 @@ const Page = ({ testimonials }) => {
       <Products isMobile={isMobile} />
       <About isMobile={isMobile} />
       <Certified isMobile={isMobile} />
-      <HomeTestimonials testimonials={testimonials} isMobile={isMobile} />
+      <HomeTestimonials isMobile={isMobile} />
     </Layout>
   )
-}
-
-Page.getInitialProps = async ({ req }) => {
-  const res = await fetch(`http://${req.headers.host}/api/testimonials`)
-  const { data } = await res.json()
-  return { testimonials: data }
 }
 
 export default Page
