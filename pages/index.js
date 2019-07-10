@@ -7,7 +7,8 @@ import Products from 'src/home/Products'
 import HomeTestimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
 
-const Page = () => {
+const Page = ({ stars }) => {
+  console.log(stars)
   const isMobile = useIsMobile()
   return (
     <Layout>
@@ -22,6 +23,12 @@ const Page = () => {
       <HomeTestimonials isMobile={isMobile} />
     </Layout>
   )
+}
+
+Page.getInitialProps = async ({ req }) => {
+  const res = await fetch('https://api.github.com/repos/zeit/next.js')
+  const json = await res.json()
+  return { stars: json.stargazers_count }
 }
 
 export default Page
