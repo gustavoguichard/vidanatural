@@ -9,9 +9,10 @@ const Img = ({ src, Component = 'img', className, ...props }) => {
   })
   return (
     <Fragment>
-      {visible || <CircularProgress ref={ref} className={className} />}
-      {visible && (
+      {visible ? (
         <Component ref={ref} className={className} src={src} {...props} />
+      ) : (
+        <CircularProgress ref={ref} className={className} />
       )}
     </Fragment>
   )

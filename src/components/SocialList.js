@@ -29,7 +29,7 @@ const Icon = ({
     title={children}
     target="_blank"
   >
-    {icons[site]({ css, color })}
+    {icons[site]({ css, color, size })}
   </a>
 )
 
