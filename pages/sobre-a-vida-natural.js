@@ -1,20 +1,26 @@
-import { Grid, Paper, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
-import Img from 'src/components/Img'
 import PaperContent from 'src/ui/PaperContent'
+import Member from 'src/about/Member'
 import theme from 'src/ui/theme'
+import team from 'data/team'
 
 export default function Index() {
   return (
     <Layout>
       <Hero size="small" background="/static/images/capa-pb.jpg">
         <Typography variant="h2">Sobre a Vida Natural</Typography>
+        <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
+          Uma empresa feita por <strong>amigos</strong>, unidos pelo propósito
+          da <strong>transparência</strong>, que se importam com aquilo que
+          colocamos todos os dias no nosso maior orgão de absorção - a pele.
+        </Typography>
       </Hero>
       <PaperContent>
-        <Grid container justify="space-between">
-          <Grid item xs={12} md={7}>
-            <Typography variant="h3" css={{ marginBottom: theme.spacing(4) }}>
+        <Grid container justify="center">
+          <Grid item xs={11} sm={8}>
+            <Typography variant="h4" css={{ marginBottom: theme.spacing(4) }}>
               Por que fazemos o que fazemos?
             </Typography>
             <Typography component="div" variant="body1">
@@ -39,12 +45,34 @@ export default function Index() {
               </p>
             </Typography>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Img
-              className="responsive"
-              src="/static/svgs/care.svg"
-              alt="Cuidado"
-            />
+          <Grid id="quem-somos" item xs={12}>
+            <Typography
+              variant="h4"
+              align="center"
+              css={{
+                marginBottom: theme.spacing(2),
+                marginTop: theme.spacing(4),
+              }}
+            >
+              Quem somos?
+            </Typography>
+            <Grid container justify="center" spacing={3}>
+              {team.map(member => (
+                <Member key={member.picture} {...member} />
+              ))}
+            </Grid>
+          </Grid>
+          <Grid item xs={11} sm={8}>
+            <Typography
+              variant="h4"
+              css={{
+                marginBottom: theme.spacing(2),
+                marginTop: theme.spacing(4),
+              }}
+            >
+              Ingredientes que usamos
+            </Typography>
+            <Typography variant="body1">Em breve...</Typography>
           </Grid>
         </Grid>
       </PaperContent>

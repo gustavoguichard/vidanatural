@@ -1,8 +1,6 @@
-import ReactMarkdown from 'react-markdown'
-import compact from 'lodash/compact'
 import { Avatar, Box, Paper, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
-import { nl2Br } from 'utils/helpers'
+import MdContent from 'src/components/MdContent'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
@@ -27,15 +25,14 @@ const Testimonial = ({ name, size, role, picture, location, content }) =>
         variant="body2"
       >
         <GoQuote css={{ position: 'absolute', fontSize: '0.8rem' }} />
-        <ReactMarkdown
+        <MdContent
           css={{
             textIndent: '1.15rem',
             '&::first-letter': {
               fontSize: '1.25rem',
             },
           }}
-          escapeHtml={false}
-          source={nl2Br(content)}
+          content={content}
         />
       </Typography>
       <Box display="flex">

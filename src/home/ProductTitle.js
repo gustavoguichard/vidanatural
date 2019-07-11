@@ -1,7 +1,6 @@
-import ReactMarkdown from 'react-markdown'
 import { Typography } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
-import { nl2Br } from 'utils/helpers'
+import MdContent from 'src/components/MdContent'
 import theme from 'src/ui/theme'
 
 const ProductTitle = ({ product, showCta = true, dark }) => (
@@ -9,7 +8,7 @@ const ProductTitle = ({ product, showCta = true, dark }) => (
     <Typography variant="h3" color={dark ? 'textSecondary' : undefined}>
       {product.name}
     </Typography>
-    <ReactMarkdown
+    <MdContent
       css={{
         marginTop: theme.spacing(3),
         marginBottom: theme.spacing(2),
@@ -17,8 +16,7 @@ const ProductTitle = ({ product, showCta = true, dark }) => (
         color: dark ? theme.palette.text.secondary : theme.palette.text.hint,
       }}
       className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
-      escapeHtml={false}
-      source={nl2Br(product.subtitle)}
+      content={product.subtitle}
     />
     {showCta && (
       <CTAButton

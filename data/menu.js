@@ -50,8 +50,8 @@ export default {
           path: '/sobre-a-vida-natural',
         },
         {
-          name: 'Você sabia?',
-          path: '/sobre-a-vida-natural#voce-sabia',
+          name: 'Quem somos?',
+          path: '/sobre-a-vida-natural#quem-somos',
         },
         {
           name: 'Nossos ingredientes',
