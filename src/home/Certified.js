@@ -50,7 +50,7 @@ const Certified = ({ isMobile }) => (
             </p>
             <p>
               Todo o nosso esforço e cuidado está voltado para uma produção
-              livre de químicos danosos, vegana, sem crueldade ou testes em
+              livre de químicos danosos, com o mínimo de impacto ambiental, vegana, sem crueldade ou testes em
               animais.
             </p>
             <p>Só usamos ingredientes seguros para o corpo e para o planeta.</p>
@@ -63,11 +63,10 @@ const Certified = ({ isMobile }) => (
             Saiba mais
           </CTAButton>
           <Box display="flex" mt={5}>
-            <Icon title="Certificados pela ANVISA" path="anvisa" size={50} />
+            <Icon title="Investimos na compensação ambiental das embalagens que produzimos" path="eureciclo" size={100} />
+            <Icon title="Certificados pela ANVISA" path="anvisa" size={90} />
             <Icon title="Produtos veganos" path="vegan" />
             <Icon title="Livres de crueldade animal" path="rabbit" />
-            <Icon title="Livres de transgênicos" path="transgenic" />
-            <Icon title="Livres de químicos danosos" path="hazard" />
           </Box>
         </Container>
       </Box>
