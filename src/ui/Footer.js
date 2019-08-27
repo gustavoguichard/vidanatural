@@ -43,12 +43,12 @@ const Footer = ({ variant = 'primary' }) => {
           <Typography variant="body2" color="inherit">
             Vida Natural&reg; {year} • Imbituba / SC
             <br />
-            <Link
-              color={primary ? 'inherit' : 'secondary'}
+            <a
+              css={{ color: 'inherit' }}
               href="mailto:falecom@vidanatural.eco.br"
             >
               falecom@vidanatural.eco.br
-            </Link>
+            </a>
           </Typography>
         </Box>
       </Container>

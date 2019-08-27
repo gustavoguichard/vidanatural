@@ -1,4 +1,5 @@
-import App, { Container } from 'next/app'
+import { Fragment } from 'react'
+import App from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 import { ThemeProvider } from '@material-ui/styles'
@@ -52,7 +53,7 @@ class VidaNatural extends App {
     const { Component, pageProps } = this.props
     const title = 'Vida Natural | Cosmética Consciente'
     return (
-      <Container>
+      <Fragment>
         <NProgress color={theme.palette.secondary.main} />
         <Head>
           <title>{title}</title>
@@ -65,7 +66,7 @@ class VidaNatural extends App {
             </Providers>
           </ThemeProvider>
         </StylesProvider>
-      </Container>
+      </Fragment>
     )
   }
 }
