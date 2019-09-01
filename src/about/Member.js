@@ -38,7 +38,7 @@ const Member = ({
   >
     <Card>
       <CardMedia
-        css={{ height: 180 }}
+        css={{ height: 240, backgroundPositionY: 'top' }}
         image={`/static/images/team/${picture}`}
         title={name}
       />
