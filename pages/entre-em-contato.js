@@ -38,7 +38,7 @@ const Page = () => (
             <p>
               <strong>Nossa sede</strong>
               <br />
-              Antolino E.martins, 106
+              Antolino E. Martins, 106
               <br />
               Vila Esperança, Imbituba / SC
               <br />
