@@ -1,5 +1,6 @@
 import { memo, useEffect } from 'react'
 import loadScripts from 'simple-load-script'
+import Chat from 'src/ui/Chat'
 import Header from 'src/ui/Header'
 import Footer from 'src/ui/Footer'
 
@@ -22,6 +23,7 @@ const Layout = ({
       />
       <main css={{ flex: 1 }}>{children}</main>
       <Footer variant={footerVariant} />
+      <Chat />
     </>
   )
 }

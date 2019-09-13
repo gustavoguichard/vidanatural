@@ -11,12 +11,7 @@ dotenvLoad()
 
 const nextConfig = {
   purgeCss: {
-    whitelist: () => [
-      'fc-widget-small',
-      'MuiPaper-root',
-      'MuiPaper-rounded',
-      'MuiFormLabel-root',
-    ],
+    whitelist: () => ['MuiPaper-root', 'MuiPaper-rounded', 'MuiFormLabel-root'],
   },
 }
 module.exports = withPlugins(

@@ -1,11 +1,9 @@
-import { FaWhatsapp } from 'react-icons/fa'
 import { FiFacebook, FiInstagram } from 'react-icons/fi'
 import theme from 'src/ui/theme'
 
 const icons = {
   facebook: props => <FiFacebook {...props} />,
   instagram: props => <FiInstagram {...props} />,
-  whatsapp: props => <FaWhatsapp {...props} />,
 }
 
 const css = {
@@ -36,9 +34,6 @@ const Icon = ({
 const SocialList = ({ className, ...props }) => {
   return (
     <div className={`social-list ${className}`}>
-      <Icon site="whatsapp" href="https://wa.me/5548991039557" {...props}>
-        Fale conosco por whatsapp
-      </Icon>
       <Icon
         site="instagram"
         href="https://instagram.com/vidanatural.eco"

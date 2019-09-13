@@ -1,18 +1,13 @@
 import {
-  useCallback,
   useState,
   useRef,
   useEffect,
   useReducer,
-  useContext,
 } from 'react'
-import { Context } from 'utils/CustomerChat'
 import get from 'lodash/get'
 import debounce from 'lodash/debounce'
-import throttle from 'lodash/throttle'
 import isEqual from 'lodash/isEqual'
 import { isClient } from 'utils/helpers'
-import { useIsMobile } from 'utils/responsive'
 
 export const useWindowDimensions = (delay = 300) => {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 })
@@ -57,14 +52,6 @@ export const useScroll = () => {
   }, [])
 
   return state
-}
-
-export const useChat = message => {
-  const chat = useContext(Context)
-  const isMobile = useIsMobile()
-  useEffect(() => {
-    isMobile || chat.initConversation(message)
-  }, [])
 }
 
 export const useColumns = (splitFactor = 365) => {
