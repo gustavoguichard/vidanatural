@@ -4,9 +4,9 @@ import BackgroundImg from 'src/components/BackgroundImg'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
-const Icon = ({ path, title, size = 30 }) => (
+const Icon = ({ path, title, size = 100 }) => (
   <Img
-    css={{ marginRight: '2rem' }}
+    css={{ margin: 10 }}
     width={size}
     src={require(`../../static/svgs/${path}.svg`)}
     alt={title}
@@ -50,8 +50,8 @@ const Certified = ({ isMobile }) => (
             </p>
             <p>
               Todo o nosso esforço e cuidado está voltado para uma produção
-              livre de químicos danosos, com o mínimo de impacto ambiental, vegana, sem crueldade ou testes em
-              animais.
+              livre de químicos danosos, com o mínimo de impacto ambiental,
+              vegana, sem crueldade ou testes em animais.
             </p>
             <p>Só usamos ingredientes seguros para o corpo e para o planeta.</p>
           </Typography>
@@ -62,11 +62,25 @@ const Certified = ({ isMobile }) => (
           >
             Saiba mais
           </CTAButton>
-          <Box display="flex" mt={5}>
-            <Icon title="Investimos na compensação ambiental das embalagens que produzimos" path="eureciclo" size={100} />
+          <Box
+            display="flex"
+            justifyContent="space-around"
+            flexWrap="wrap"
+            mt={5}
+          >
+            <Icon
+              title="Investimos na compensação ambiental das embalagens que produzimos"
+              path="eureciclo"
+            />
             <Icon title="Certificados pela ANVISA" path="anvisa" size={90} />
-            <Icon title="Produtos veganos" path="vegan" />
-            <Icon title="Livres de crueldade animal" path="rabbit" />
+            <Icon title="Produtos Veganos" path="vegano" />
+            <Icon title="Produtos artesanais" path="artesanal" />
+            <Icon title="Livres de crueldade animal" path="cruelty-free" />
+            <Icon title="Sem fragrâncias sintéticas" path="fragrancias" />
+            <Icon
+              title="Livre de parabenos e outros absurdos sintéticos"
+              path="parabenos"
+            />
           </Box>
         </Container>
       </Box>
