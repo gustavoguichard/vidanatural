@@ -34,8 +34,7 @@
     "react-ga": "^2.6.0",
     "react-icons": "^3.7.0",
     "react-intersection-observer": "^8.24.1",
-    "react-netlify-form": "^2.1.5",
-    "simple-load-script": "^1.0.2"
+    "react-netlify-form": "^2.1.5"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.14",
