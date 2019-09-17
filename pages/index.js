@@ -11,7 +11,7 @@ const Page = () => {
   const isMobile = useIsMobile()
   return (
     <Layout>
-      <Hero background="/static/images/plants.jpg">
+      <Hero size="small" background="/static/images/plants.jpg">
         <Typography variant="h2">
           Você se importa com o que sua pele absorve todos os dias?
         </Typography>
