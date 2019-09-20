@@ -12,6 +12,7 @@ import NextLink from 'next/link'
 import { Menu } from '@material-ui/icons'
 import brandImg from 'static/svgs/brand.svg'
 import Img from 'src/components/Img'
+import CartIcon from 'src/ui/header/CartIcon'
 import menu from 'data/menu'
 import theme from 'src/ui/theme'
 
@@ -62,6 +63,7 @@ const MobileMenu = () => {
   const toggleDrawer = nextOpen => () => setOpen(nextOpen)
   return (
     <>
+      <CartIcon />
       <IconButton
         onClick={toggleDrawer(true)}
         edge="start"
