@@ -31,19 +31,35 @@ const search = (params?: object) => fetchApi('busca', params)
 
 const textSearch = (text: string) => fetchApi('busca', { q: text })
 
-const listCart = () => fetchApi('carrinho/popup')
+const listCart = async () => {
+  const response = await fetchApi('carrinho/popup')
+  return response.data
+}
 
 const listProduct = async (slug: string) => {
   const response = await fetchApi(`produto/${slug}`)
   return response.data
 }
 
-const addToCart = (sku: 'string', quantity = 1) =>
+const addToCart = (sku: string, quantity = 1) =>
   post('carrinho/adicionar', { sku, quantity })
 
+const getUrlObject = (url: string) => {
+  const formattedUrl = url.startsWith('http')
+    ? url
+    : `${window.location.protocol}${url}`
+  const urlObject = new URL(formattedUrl)
+  return urlObject
+}
+
 export const getResizedImg = (url: string, w = 200, h = w) => {
-  const imgUrl = new URL(url)
+  const imgUrl = getUrlObject(url)
   return `${imgUrl.origin}/${w}x${h}${imgUrl.pathname}${imgUrl.search}`
+}
+
+export const getOwnPath = (url: string) => {
+  const urlObj = getUrlObject(url)
+  return `${urlObj.pathname}${urlObj.search}`
 }
 
 export default {
