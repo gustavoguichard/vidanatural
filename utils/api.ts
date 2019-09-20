@@ -3,28 +3,28 @@ import { buildQuery } from 'utils/helpers'
 
 const headers = { Accept: 'application/json' }
 
-const getUrl = (path: string) => {
+const getUrl = (path: string, params?: object) => {
   const base = process.env.API_BASE
-  return path.startsWith('/') ? `${base}${path}` : `${base}/${path}`
+  const query = buildQuery(params)
+  const url = path.startsWith('/') ? `${base}${path}` : `${base}/${path}`
+  return query ? `${url}?${query}` : url
 }
 
-const doRequest = async (path: string, params = {}) => {
-  const url = getUrl(path)
+const doRequest = async (url: string, params = {}) => {
   const requestParams = { headers, method: 'GET', ...params }
   const res = await fetch(url, requestParams)
   const data = res.status >= 400 ? [] : await res.json()
   return { data }
 }
 
-const fetchApi = (url = '', params?: object) => {
-  const query = buildQuery(params)
-  const fullPath = query ? `${url}?${query}` : url
-  return doRequest(fullPath)
+const fetchApi = (path = '', query?: object) => {
+  const url = getUrl(path, query)
+  return doRequest(url)
 }
 
-const post = (url = '', params?: object) => {
-  const body = buildQuery(params)
-  return doRequest(url, { body, method: 'POST' })
+const post = (path = '', query?: object, params?: object) => {
+  const url = getUrl(path, query)
+  return doRequest(url, { ...params, method: 'POST' })
 }
 
 const search = (params?: object) => fetchApi('busca', params)
