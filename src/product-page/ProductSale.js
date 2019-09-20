@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { featureWrapper } from 'src/home/Feature'
 import { wrapperCss } from 'src/home/ProductImg'
 import { Button, Grid, Box } from '@material-ui/core'
 import PaperContent from 'src/ui/PaperContent'
-import api from 'utils/api'
+import useGlobal from 'utils/useGlobal'
 
 const ProductFeature = ({ product }) => {
+  const [adding, setAdding] = useState(false)
+  const [, { addToCart }] = useGlobal()
   const [variant] = product.variants
   return (
     <PaperContent>
@@ -23,10 +26,15 @@ const ProductFeature = ({ product }) => {
             >
               <Box {...featureWrapper}>
                 <Button
-                  color="primary"
-                  onClick={() => api.addToCart(variant.sku)}
+                  variant="contained"
+                  color="secondary"
+                  onClick={async () => {
+                    setAdding(true)
+                    await addToCart(variant.sku)
+                    setAdding(false)
+                  }}
                 >
-                  Adicionar ao carrinho
+                  {adding ? 'Boa escolha =)' : 'Adicionar ao carrinho'}
                 </Button>
               </Box>
             </Grid>
