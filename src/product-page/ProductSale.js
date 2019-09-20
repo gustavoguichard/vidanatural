@@ -12,7 +12,7 @@ const ProductFeature = ({ product }) => {
         <Grid item xs={12} md={10} css={{ textAlign: 'center' }}>
           <Grid spacing={6} justify="center" container>
             <Grid item xs={12} sm={6} md={4} css={wrapperCss}>
-              <img src={product.image_url} />
+              <img width="400" src={product.image_url} />
             </Grid>
             <Grid
               css={{ display: 'flex', justifyContent: 'center' }}

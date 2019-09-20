@@ -68,19 +68,18 @@ const Certified = ({ isMobile }) => (
             flexWrap="wrap"
             mt={5}
           >
+            <Icon title="Certificados pela ANVISA" path="anvisa" size={90} />
             <Icon
               title="Investimos na compensação ambiental das embalagens que produzimos"
               path="eureciclo"
             />
-            <Icon title="Certificados pela ANVISA" path="anvisa" size={90} />
-            <Icon title="Produtos Veganos" path="vegano" />
-            <Icon title="Produtos artesanais" path="artesanal" />
-            <Icon title="Livres de crueldade animal" path="cruelty-free" />
-            <Icon title="Sem fragrâncias sintéticas" path="fragrancias" />
             <Icon
               title="Livre de parabenos e outros absurdos sintéticos"
               path="parabenos"
             />
+            <Icon title="Produtos artesanais" path="artesanal" />
+            <Icon title="Livres de crueldade animal" path="cruelty-free" />
+            <Icon title="Sem fragrâncias sintéticas" path="fragrancias" />
           </Box>
         </Container>
       </Box>
