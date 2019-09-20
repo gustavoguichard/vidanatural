@@ -1,4 +1,3 @@
-import Link from 'src/components/Link'
 import { Box, Container, Grid } from '@material-ui/core'
 import ProductTitle from 'src/home/ProductTitle'
 import PaperContent from 'src/ui/PaperContent'

@@ -14,7 +14,10 @@ export const wrapperCss = {
 }
 
 const ProductImg = ({ product, height, width, ...props }) => (
-  <Link href={`/${product.path}`} title={product.name}>
+  <Link
+    href={product.slug ? `/produtos/${product.slug}` : `/${product.path}`}
+    title={product.name}
+  >
     <Img
       className="responsive"
       css={{

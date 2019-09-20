@@ -21,7 +21,7 @@ const ProductTitle = ({ product, showCta = true, dark }) => (
     {showCta && (
       <CTAButton
         color={dark ? 'inherit' : 'secondary'}
-        href={`/${product.path}`}
+        href={product.slug ? `/produtos/${product.slug}` : `/${product.path}`}
       >
         Saiba mais
       </CTAButton>

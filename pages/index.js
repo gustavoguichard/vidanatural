@@ -6,14 +6,15 @@ import Hero from 'src/components/Hero'
 import Products from 'src/home/Products'
 import HomeTestimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
+import api from 'utils/api'
 
-const Page = () => {
+const Home = ({ data }) => {
   const isMobile = useIsMobile()
   return (
     <Layout>
       <Hero size="small" background="/static/images/plants.jpg">
         <Typography variant="h2">
-          Você se importa com o que sua pele absorve todos os dias?
+          O que sua pele absorve todos os dias?
         </Typography>
       </Hero>
       <Products isMobile={isMobile} />
@@ -24,4 +25,9 @@ const Page = () => {
   )
 }
 
-export default Page
+Home.getInitialProps = async () => {
+  const data = await api.search({ tag: 'desodorante-natural' })
+  return data
+}
+
+export default Home

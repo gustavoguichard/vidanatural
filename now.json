@@ -1,0 +1,10 @@
+{
+  "public": true,
+  "version": 2,
+  "build": {
+    "env": {
+      "API_BASE": "@api-base",
+      "ANALYTICS_ID": "@analytics-uid"
+    }
+  }
+}

@@ -15,7 +15,6 @@ import Feature, { featureWrapper } from 'src/home/Feature'
 import ProductContainer from 'src/home/ProductContainer'
 import ProductImg, { wrapperCss } from 'src/home/ProductImg'
 import SplitProducts from 'src/home/SplitProducts'
-import theme from 'src/ui/theme'
 import products from 'data/products'
 
 const getProduct = path => find(products, p => p.path === path)
@@ -25,7 +24,7 @@ const poDental = getProduct('po-dental')
 const hidratante = getProduct('oleo-hidratante')
 const rosa = getProduct('rosa-mosqueta')
 
-const Products = ({ isMobile }) => (
+const Products = () => (
   <>
     <ProductContainer paper product={desodorantePasta}>
       <Grid css={{ display: 'flex' }} item xs={12} sm={6} lg={4}>

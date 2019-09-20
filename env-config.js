@@ -2,4 +2,5 @@
 
 module.exports = {
   'process.env.ANALYTICS_ID': process.env.ANALYTICS_ID,
+  'process.env.API_BASE': process.env.API_BASE,
 }
