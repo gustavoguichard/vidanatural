@@ -34,7 +34,7 @@ const ProductFeature = ({ product }) => {
                     setAdding(false)
                   }}
                 >
-                  {adding ? 'Boa escolha =)' : 'Adicionar ao carrinho'}
+                  {adding ? 'Boa escolha 😉' : 'Adicionar ao carrinho'}
                 </Button>
               </Box>
             </Grid>
