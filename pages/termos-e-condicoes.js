@@ -20,7 +20,12 @@ export default function Index() {
         <Grid container justify="center">
           <Grid item xs={12} md={7}>
             <Img
-              css={{ width: 320, margin: '10px auto', display: 'block' }}
+              css={{
+                maxWidth: '100%',
+                width: 320,
+                margin: '10px auto',
+                display: 'block',
+              }}
               src="/static/svgs/delivery.svg"
               alt="Entregas"
             />
@@ -51,7 +56,12 @@ export default function Index() {
               </p>
             </Typography>
             <Img
-              css={{ width: 340, margin: '80px auto 10px', display: 'block' }}
+              css={{
+                maxWidth: '100%',
+                width: 340,
+                margin: '80px auto 10px',
+                display: 'block',
+              }}
               src="/static/svgs/security.svg"
               alt="Segurança"
             />
@@ -113,7 +123,12 @@ export default function Index() {
               </p>
             </Typography>
             <Img
-              css={{ width: 320, margin: '80px auto 10px', display: 'block' }}
+              css={{
+                maxWidth: '100%',
+                width: 320,
+                margin: '80px auto 10px',
+                display: 'block',
+              }}
               src="/static/svgs/terms.svg"
               alt="Termos de uso"
             />
@@ -148,7 +163,12 @@ export default function Index() {
               </p>
             </Typography>
             <Img
-              css={{ width: 320, margin: '80px auto 10px', display: 'block' }}
+              css={{
+                maxWidth: '100%',
+                width: 320,
+                margin: '80px auto 10px',
+                display: 'block',
+              }}
               src="/static/svgs/returns.svg"
               alt="Trocas e devoluções"
             />
@@ -281,7 +301,12 @@ export default function Index() {
               </p>
             </Typography>
             <Img
-              css={{ width: 200, margin: '80px auto 10px', display: 'block' }}
+              css={{
+                maxWidth: '100%',
+                width: 200,
+                margin: '80px auto 10px',
+                display: 'block',
+              }}
               src="/static/svgs/terms-end.svg"
               alt="Fim dos termos"
             />
