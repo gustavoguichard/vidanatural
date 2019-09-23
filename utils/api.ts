@@ -14,7 +14,7 @@ const doRequest = async (url: string, params = {}) => {
   const requestParams = { headers, method: 'GET', ...params }
   const res = await fetch(url, requestParams)
   const data = res.status >= 400 ? [] : await res.json()
-  return { data }
+  return data
 }
 
 const fetchApi = (path = '', query?: object) => {
@@ -31,23 +31,19 @@ const search = (params?: object) => fetchApi('busca', params)
 
 const textSearch = (text: string) => fetchApi('busca', { q: text })
 
-const listCart = async () => {
-  const response = await fetchApi('carrinho/popup')
-  return response.data
-}
+const listCart = () => fetchApi('carrinho/popup')
 
-const listProduct = async (slug: string) => {
-  const response = await fetchApi(`produto/${slug}`)
-  return response.data
-}
+const listProduct = (slug: string) => fetchApi(`produto/${slug}`)
 
 const addToCart = (sku: string, quantity = 1) =>
   post('carrinho/adicionar', { sku, quantity })
 
 const getUrlObject = (url: string) => {
-  const formattedUrl = url.startsWith('http')
+  const formattedUrl = url.startsWith('//')
+    ? `${window.location.protocol}${url}`
+    : url.startsWith('http')
     ? url
-    : `${window.location.protocol}${url}`
+    : `${window.location.origin}${url}`
   const urlObject = new URL(formattedUrl)
   return urlObject
 }

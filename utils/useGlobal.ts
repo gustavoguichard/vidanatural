@@ -7,6 +7,7 @@ import api from 'utils/api'
 const initialState = {
   cart: [],
   showCart: false,
+  searchOpen: false,
 }
 
 export default useStore(
@@ -34,6 +35,12 @@ export default useStore(
     },
     hideCart: async (store: Store) => {
       store.setState({ showCart: false })
+    },
+    openSearch: (store: Store) => {
+      store.setState({ searchOpen: true })
+    },
+    closeSearch: (store: Store) => {
+      store.setState({ searchOpen: false })
     },
   },
   initialState,

@@ -3,7 +3,6 @@ import Router, { withRouter } from 'next/router'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import ButtonLink from 'src/components/ButtonLink'
-import CartIcon from 'src/ui/header/CartIcon'
 import theme from 'src/ui/theme'
 import menu from 'data/menu'
 
@@ -54,7 +53,7 @@ const SubMenu = ({ name, path, links, router }) => {
 
 const SubMenuRouter = withRouter(SubMenu)
 
-const HeaderMenu = () => {
+const DesktopMenu = ({ children }) => {
   return (
     <>
       {menu.links.map(item => {
@@ -76,9 +75,9 @@ const HeaderMenu = () => {
           </ButtonLink>
         )
       })}
-      <CartIcon />
+      {children}
     </>
   )
 }
 
-export default HeaderMenu
+export default DesktopMenu

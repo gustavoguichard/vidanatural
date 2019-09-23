@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Button,
   Toolbar,
   useScrollTrigger,
   useMediaQuery,
@@ -8,6 +7,10 @@ import {
 import Logo from 'src/ui/header/Logo'
 import DesktopMenu from 'src/ui/header/DesktopMenu'
 import MobileMenu from 'src/ui/header/MobileMenu'
+import CartIcon from 'src/ui/header/CartIcon'
+import SearchBar from 'src/ui/header/SearchBar'
+import SearchIcon from 'src/ui/header/SearchIcon'
+import useGlobal from 'utils/useGlobal'
 import theme from 'src/ui/theme'
 
 const Header = ({ stick, logoCompanion, variant }) => {
@@ -22,42 +25,55 @@ const Header = ({ stick, logoCompanion, variant }) => {
   const elevation = sticky ? 4 : 0
   const companionSize = sticky ? 35 : 60
   return (
-    <AppBar
-      css={{
-        backgroundColor: sticky ? null : 'transparent',
-        transition: 'all .3s',
-      }}
-      position="fixed"
-      elevation={elevation}
-    >
-      <Toolbar
+    <>
+      <AppBar
         css={{
-          color:
-            secondary && !sticky
-              ? theme.palette.secondary.contrastText
-              : theme.palette.primary.contrastText,
+          backgroundColor: sticky ? null : 'transparent',
           transition: 'all .3s',
         }}
-        variant="dense"
+        position="fixed"
+        elevation={elevation}
       >
-        <Logo sticky={sticky} variant={variant} />
-        {logoCompanion && (
-          <img
-            css={{
-              maxWidth: companionSize,
-              maxHeight: companionSize,
-              position: 'relative',
-              left: sticky ? 0 : -20,
-              transition: 'all .4s ease-in-out',
-            }}
-            src={logoCompanion}
-            alt="Embalagem"
-          />
-        )}
-        <div css={{ flexGrow: 1 }} />
-        {isDesktop ? <DesktopMenu /> : <MobileMenu />}
-      </Toolbar>
-    </AppBar>
+        <Toolbar
+          css={{
+            color:
+              secondary && !sticky
+                ? theme.palette.secondary.contrastText
+                : theme.palette.primary.contrastText,
+            transition: 'all .3s',
+          }}
+          variant="dense"
+        >
+          <Logo sticky={sticky} variant={variant} />
+          {logoCompanion && isDesktop && (
+            <img
+              css={{
+                maxWidth: companionSize,
+                maxHeight: companionSize,
+                position: 'relative',
+                left: sticky ? 0 : -20,
+                transition: 'all .4s ease-in-out',
+              }}
+              src={logoCompanion}
+              alt="Embalagem"
+            />
+          )}
+          <div css={{ flexGrow: 1 }} />
+          {isDesktop ? (
+            <DesktopMenu>
+              <SearchIcon />
+              <CartIcon />
+            </DesktopMenu>
+          ) : (
+            <MobileMenu>
+              <SearchIcon />
+              <CartIcon />
+            </MobileMenu>
+          )}
+        </Toolbar>
+      </AppBar>
+      <SearchBar />
+    </>
   )
 }
 

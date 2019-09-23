@@ -12,7 +12,6 @@ import NextLink from 'next/link'
 import { Menu } from '@material-ui/icons'
 import brandImg from 'static/svgs/brand.svg'
 import Img from 'src/components/Img'
-import CartIcon from 'src/ui/header/CartIcon'
 import menu from 'data/menu'
 import theme from 'src/ui/theme'
 
@@ -58,14 +57,15 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
   )
 }
 
-const MobileMenu = () => {
+const MobileMenu = ({ children }) => {
   const [open, setOpen] = useState(false)
   const toggleDrawer = nextOpen => () => setOpen(nextOpen)
   return (
     <>
-      <CartIcon />
+      {children}
       <IconButton
         onClick={toggleDrawer(true)}
+        css={{ marginLeft: 0 }}
         edge="start"
         color="inherit"
         aria-label="Menu"

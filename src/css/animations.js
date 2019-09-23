@@ -44,3 +44,12 @@ export const ripple = keyframes`
     opacity: 0;
   }
 `
+export const descend = keyframes`
+  0% {
+    top: -100px;
+  }
+
+  100% {
+    top: 0;
+  }
+`
