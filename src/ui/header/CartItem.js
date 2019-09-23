@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { withRouter } from 'next/router'
 import {
   ListItem,
@@ -8,7 +7,7 @@ import {
 } from '@material-ui/core'
 import { getResizedImg } from 'utils/api'
 import { getOwnPath } from 'utils/api'
-import theme from 'src/ui/theme'
+import { toCurrency } from 'utils/helpers'
 
 const CartItem = ({ router, product_name, image_url, product_url, total }) => {
   return (
@@ -19,7 +18,7 @@ const CartItem = ({ router, product_name, image_url, product_url, total }) => {
       <ListItemText>
         <Typography variant="body2">{product_name}</Typography>
         <Typography component="span" variant="caption">
-          R$ {total}
+          {toCurrency(total)}
         </Typography>
       </ListItemText>
     </ListItem>
