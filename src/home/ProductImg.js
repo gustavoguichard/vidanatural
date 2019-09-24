@@ -1,6 +1,5 @@
 import Link from 'src/components/Link'
 import Img from 'src/components/Img'
-import { Box, Grid } from '@material-ui/core'
 import theme from 'src/ui/theme'
 
 export const wrapperCss = {
@@ -17,6 +16,7 @@ const ProductImg = ({ product, height, width, ...props }) => (
   <Link
     href={product.slug ? `/produto/${product.slug}` : `/${product.path}`}
     title={product.name}
+    prefetch={false}
   >
     <Img
       className="responsive"
