@@ -19,11 +19,6 @@ import useGlobal from 'utils/useGlobal'
 const CartIcon = () => {
   const [{ cart, showCart }, actions] = useGlobal()
   const cartRef = useRef(null)
-  const goToCart = () => {
-    if (typeof window !== 'undefined') {
-      window.location = api.CART_URL
-    }
-  }
   const hideCart = async () => {
     await sleep(8000)
     actions.hideCart()
@@ -41,7 +36,7 @@ const CartIcon = () => {
         aria-label="Carrinho"
         aria-haspopup="true"
         aria-controls="cart-popover"
-        onClick={goToCart}
+        href={api.CART_URL}
       >
         <Badge
           overlap="circle"
@@ -96,7 +91,7 @@ const CartIcon = () => {
           css={{ display: 'flex', width: '100%', borderRadius: 0 }}
           variant="contained"
           color="secondary"
-          onClick={goToCart}
+          href={api.CART_URL}
         >
           Ver carrinho
         </Button>
