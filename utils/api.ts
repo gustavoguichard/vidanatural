@@ -50,13 +50,13 @@ const post = (path = '', query?: object, params?: object, proxy = false) => {
   return doRequest(url, { ...params, method: 'POST' }, proxy)
 }
 
-const search = (params?: object) => fetchApi('busca', params)
+const search = (params?: object) => fetchApi('busca', params, true)
 
-const textSearch = (text: string) => fetchApi('busca', { q: text })
+const textSearch = (text: string) => fetchApi('busca', { q: text }, true)
 
 const listCart = () => fetchApi('carrinho/popup', {}, true)
 
-const listProduct = (slug: string) => fetchApi(`produto/${slug}`)
+const listProduct = (slug: string) => fetchApi(`produto/${slug}`, {}, true)
 
 const addToCart = (sku: string, quantity = 1) =>
   post('carrinho/adicionar', { sku, quantity }, {}, true)
