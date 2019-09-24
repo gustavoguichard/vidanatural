@@ -2,6 +2,7 @@ import useStore from 'utils/useStore'
 import { Store } from 'utils/typeDeclarations'
 import find from 'lodash/find'
 import api from 'utils/api'
+import { parseCookies } from 'utils/helpers'
 
 const initialState = {
   cart: [],
@@ -25,14 +26,17 @@ export default useStore(
       return true
     },
     getCartItems: (store: Store) => {
-      api
-        .listCart()
-        .then(result => {
-          store.setState({
-            cart: result,
+      const cookies = parseCookies(document.cookie)
+      if (cookies.hasOwnProperty('cart_id')) {
+        api
+          .listCart()
+          .then(result => {
+            store.setState({
+              cart: result,
+            })
           })
-        })
-        .catch(() => console.warn('Not able to get cart'))
+          .catch(() => console.warn('Not able to get cart'))
+      }
     },
     hideCart: async (store: Store) => {
       store.setState({ showCart: false })

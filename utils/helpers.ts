@@ -42,7 +42,7 @@ export const nl2Br = (content: string) =>
 export const sleep = (time: number) =>
   new Promise(resolve => setTimeout(resolve, time))
 
-export const parseCookies = (cookieString = '') => {
+export const parseCookies = (cookieString = ''): object => {
   return cookieString.split(';').reduce((res, c) => {
     const [key, val] = c
       .trim()
