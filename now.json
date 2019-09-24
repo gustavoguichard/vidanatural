@@ -4,6 +4,8 @@
   "build": {
     "env": {
       "API_URL": "@api-base",
+      "API_IP": "@api-ip",
+      "API_DOMAIN": "@api-domain",
       "API_PROXY": "@api-proxy",
       "ANALYTICS_ID": "@analytics-uid"
     }

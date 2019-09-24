@@ -16,11 +16,12 @@ export default async (req: any, res: Http2ServerResponse) => {
   try {
     if (endpoint) {
       const encodedCookies = omitCookies(req.headers.cookie, keysWithLodash)
-      const url = `${process.env.API_URL}${endpoint}`
+      const url = `${process.env.API_IP}${endpoint}`
       const response = await fetch(url, {
         headers: {
           Accept: 'application/json',
           cookie: encodedCookies,
+          Host: process.env.API_DOMAIN || 'localhost',
         },
         method: req.method,
         credentials: 'include',

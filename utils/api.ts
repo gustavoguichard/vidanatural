@@ -15,7 +15,9 @@ const saveCookie = (headers: Headers) => {
 }
 
 const getUrl = (path: string, params?: object, proxy?: boolean) => {
-  const base = proxy ? process.env.API_PROXY : process.env.API_URL
+  const base = proxy
+    ? process.env.API_PROXY
+    : `https://${process.env.API_DOMAIN}/`
   const formattedPath = proxy ? path.replace('/', '::') : path
   const query = buildQuery(params)
   const url = joinWith([base, formattedPath])
