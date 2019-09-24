@@ -29,9 +29,6 @@ const CartIcon = () => {
     actions.hideCart()
   }
   useEffect(() => {
-    actions.getCartItems()
-  }, [])
-  useEffect(() => {
     if (showCart) {
       hideCart()
     }

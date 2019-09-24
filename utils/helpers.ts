@@ -1,6 +1,8 @@
+import compact from 'lodash/compact'
 import isArray from 'lodash/isArray'
 import isEmpty from 'lodash/isEmpty'
 import map from 'lodash/map'
+import toPairs from 'lodash/toPairs'
 import accounting from 'accounting'
 
 accounting.settings = {
@@ -30,6 +32,8 @@ export const buildQuery = (query?: object) => {
   return queryString.join('&')
 }
 
+export const joinWith = (args: any[], mark = '') => compact(args).join(mark)
+
 export const isClient = typeof window === 'object'
 
 export const nl2Br = (content: string) =>
@@ -37,3 +41,28 @@ export const nl2Br = (content: string) =>
 
 export const sleep = (time: number) =>
   new Promise(resolve => setTimeout(resolve, time))
+
+export const parseCookies = (cookieString = '') => {
+  return cookieString.split(';').reduce((res, c) => {
+    const [key, val] = c
+      .trim()
+      .split('=')
+      .map(decodeURIComponent)
+    const allNumbers = (str: string) => /^\d+$/.test(str)
+    try {
+      return Object.assign(res, {
+        [key]: allNumbers(val) ? val : JSON.parse(val),
+      })
+    } catch (e) {
+      return Object.assign(res, { [key]: val })
+    }
+  }, {})
+}
+
+export const encodeCookies = (obj: object): string => {
+  const pairs = map(toPairs(obj), pair => {
+    const encoded = encodeURIComponent(pair[1])
+    return [pair[0], encoded].join('=')
+  })
+  return pairs.join('; ')
+}

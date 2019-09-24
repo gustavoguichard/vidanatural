@@ -1,49 +1,70 @@
+import get from 'lodash/get'
 import fetch from 'isomorphic-unfetch'
-import { buildQuery } from 'utils/helpers'
+import { buildQuery, joinWith } from 'utils/helpers'
+import Cookies from 'js-cookie'
 
-const headers = { Accept: 'application/json' }
-
-const getUrl = (path: string, params?: object) => {
-  const base = process.env.API_BASE
-  const query = buildQuery(params)
-  const url = path.startsWith('/') ? `${base}${path}` : `${base}/${path}`
-  return query ? `${url}?${query}` : url
+const saveCookie = (headers: Headers) => {
+  const cookie = headers.get('Biscuit')
+  if (cookie && typeof window !== 'undefined') {
+    const [id, tail] = cookie.split('=')
+    const value = tail.substring(0, tail.indexOf(';'))
+    if (!!value) {
+      Cookies.set(id, value)
+    }
+  }
 }
 
-const doRequest = async (url: string, params = {}) => {
-  const requestParams = { headers, method: 'GET', ...params }
+const getUrl = (path: string, params?: object, proxy?: boolean) => {
+  const base = proxy ? process.env.API_PROXY : process.env.API_URL
+  const formattedPath = proxy ? path.replace('/', '::') : path
+  const query = buildQuery(params)
+  const url = joinWith([base, formattedPath])
+  return joinWith([url, query], '?')
+}
+
+const doRequest = async (url: string, params = {}, proxy?: boolean) => {
+  const requestParams = {
+    method: 'GET',
+    headers: {
+      ...get(params, 'headers'),
+      Accept: 'application/json',
+    },
+    ...params,
+    credentials: proxy ? 'include' : undefined,
+  } as any
   const res = await fetch(url, requestParams)
   const data = res.status >= 400 ? [] : await res.json()
+  saveCookie(res.headers)
   return data
 }
 
-const fetchApi = (path = '', query?: object) => {
-  const url = getUrl(path, query)
-  return doRequest(url)
+const fetchApi = (path = '', query?: object, proxy = false) => {
+  const url = getUrl(path, query, proxy)
+  return doRequest(url, {}, proxy)
 }
 
-const post = (path = '', query?: object, params?: object) => {
-  const url = getUrl(path, query)
-  return doRequest(url, { ...params, method: 'POST' })
+const post = (path = '', query?: object, params?: object, proxy = false) => {
+  const url = getUrl(path, query, proxy)
+  return doRequest(url, { ...params, method: 'POST' }, proxy)
 }
 
 const search = (params?: object) => fetchApi('busca', params)
 
 const textSearch = (text: string) => fetchApi('busca', { q: text })
 
-const listCart = () => fetchApi('carrinho/popup')
+const listCart = () => fetchApi('carrinho/popup', {}, true)
 
 const listProduct = (slug: string) => fetchApi(`produto/${slug}`)
 
 const addToCart = (sku: string, quantity = 1) =>
-  post('carrinho/adicionar', { sku, quantity })
+  post('carrinho/adicionar', { sku, quantity }, {}, true)
 
 const getUrlObject = (url: string) => {
   const formattedUrl = url.startsWith('//')
-    ? `${window.location.protocol}${url}`
+    ? joinWith([window.location.protocol, url])
     : url.startsWith('http')
     ? url
-    : `${window.location.origin}${url}`
+    : joinWith([window.location.origin, url])
   const urlObject = new URL(formattedUrl)
   return urlObject
 }
@@ -55,7 +76,7 @@ export const getResizedImg = (url: string, w = 200, h = w) => {
 
 export const getOwnPath = (url: string) => {
   const urlObj = getUrlObject(url)
-  return `${urlObj.pathname}${urlObj.search}`
+  return joinWith([urlObj.pathname, urlObj.search])
 }
 
 export default {

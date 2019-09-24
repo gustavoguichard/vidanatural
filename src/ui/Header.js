@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   AppBar,
   Toolbar,
@@ -24,6 +25,9 @@ const Header = ({ stick, logoCompanion, variant }) => {
   const sticky = stick || hasScrolled
   const elevation = sticky ? 4 : 0
   const companionSize = sticky ? 35 : 60
+
+  const [, actions] = useGlobal()
+  useEffect(actions.getCartItems, [])
   return (
     <>
       <AppBar

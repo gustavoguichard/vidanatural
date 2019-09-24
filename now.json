@@ -3,7 +3,8 @@
   "version": 2,
   "build": {
     "env": {
-      "API_BASE": "@api-base",
+      "API_URL": "@api-base",
+      "API_PROXY": "@api-proxy",
       "ANALYTICS_ID": "@analytics-uid"
     }
   }
