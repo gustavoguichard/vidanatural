@@ -9,6 +9,7 @@ export default [
   {
     name: 'Manteiga de Karité',
     inci: 'Butyrospermum Parkii',
+    showHome: true,
     description: 'Ingrediente orgânico',
     url: '700875/BUTYROSPERMUM_PARKII_%28SHEA_BUTTER%29/',
   },
@@ -22,6 +23,7 @@ export default [
   {
     name: 'Óleo de Palma',
     inci: 'Elaeis Guineensis (Palm) Oil',
+    showHome: true,
     description:
       'Ingrediente orgânico de origem brasileira, proveniente do dendezeiro.',
     url: '702238/ELAEIS_GUINEENSIS_%28AFRICAN_OIL_PALM%29_OIL/',
@@ -35,6 +37,7 @@ export default [
   {
     name: 'Fécula de Mandioca',
     inci: 'Tapioca Starch',
+    showHome: true,
     description:
       'Da série: se você ama comer, sabe que não há perigo em passar na pele!',
     url: '724361/TAPIOCA_STARCH/',
@@ -60,12 +63,14 @@ export default [
   {
     name: 'Óleo Essencial de Tea Tree',
     inci: 'Melaleuca Alternifolia Leaf Extract',
+    showHome: true,
     description: 'Ingrediente orgânico',
     url: '720554/MELALEUCA_ALTERNIFOLIA_%28TEA_TREE%29_LEAF_EXTRACT/',
   },
   {
     name: 'Óleo Essencial de Lavanda',
     inci: 'Lavandula Angustifolia Extract',
+    showHome: true,
     description: '',
     url: '703484/LAVANDULA_ANGUSTIFOLIA_%28LAVENDER%29_EXTRACT/',
   },
@@ -120,6 +125,7 @@ export default [
   {
     name: 'Óleo de Rosa Mosqueta',
     inci: 'Rosa Canina Fruit Oil',
+    showHome: true,
     description: '',
     url: '705579/ROSA_CANINA_%28DOG_ROSE%29_FRUIT_OIL/',
   },
@@ -144,6 +150,7 @@ export default [
   {
     name: 'Óleo de Oliva',
     inci: 'Olea Europaea',
+    showHome: true,
     description: '',
     url: '704248/OLEA_EUROPAEA_%28OLIVE%29/',
   },
@@ -156,12 +163,14 @@ export default [
   {
     name: 'Argila Verde',
     inci: 'Montmorillonite',
+    showHome: true,
     description: '',
     url: '704015/MONTMORILLONITE/',
   },
   {
     name: 'Juá em Pó',
     inci: 'Zizyphus Joazeiro Bark Extract',
+    showHome: true,
     description: '',
     url: '724946/ZIZYPHUS_JOAZEIRO_BARK_EXTRACT/',
   },

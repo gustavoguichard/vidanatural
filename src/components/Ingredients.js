@@ -11,10 +11,12 @@ import ingredientData, { EWG_URL } from 'data/ingredients'
 import find from 'lodash/find'
 
 const Ingredients = ({ product }) => {
-  console.log('Foo')
-  const ingredients = product.ingredients.map(ing =>
-    find(ingredientData, data => data.inci === ing),
-  )
+  const ingredients = product
+    ? product.ingredients.map(ing =>
+        find(ingredientData, data => data.inci === ing),
+      )
+    : ingredientData.filter(ing => ing.showHome)
+
   return (
     <div css={{ overflowX: 'auto' }}>
       <Table>

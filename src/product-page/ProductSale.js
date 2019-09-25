@@ -46,13 +46,12 @@ const ProductFeature = ({ product }) => {
           css={{
             backgroundColor: '#fdfdfd',
             width: '100%',
-            marginBottom: theme.spacing(4),
           }}
         >
           <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
         </Box>
         <Grid item xs={12} md={10}>
-          <Box>
+          <Box pt={8} pb={8}>
             <Typography variant="h3">Ingredientes</Typography>
             <Typography
               variant="body1"

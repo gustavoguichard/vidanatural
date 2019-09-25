@@ -4,11 +4,11 @@ import About from 'src/home/About'
 import Certified from 'src/home/Certified'
 import Hero from 'src/components/Hero'
 import Products from 'src/home/Products'
+import HomeIngredients from 'src/home/HomeIngredients'
 import HomeTestimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
-import api from 'utils/api'
 
-const Home = ({ data }) => {
+const Home = () => {
   const isMobile = useIsMobile()
   return (
     <Layout>
@@ -21,13 +21,9 @@ const Home = ({ data }) => {
       <About isMobile={isMobile} />
       <Certified isMobile={isMobile} />
       <HomeTestimonials isMobile={isMobile} />
+      <HomeIngredients />
     </Layout>
   )
-}
-
-Home.getInitialProps = async () => {
-  const data = await api.search({ tag: 'desodorante-natural' })
-  return data
 }
 
 export default Home
