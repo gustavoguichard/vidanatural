@@ -5,15 +5,18 @@ import ProductSale from 'src/product-page/ProductSale'
 import products from 'data/products'
 import api from 'utils/api'
 
-const ProductPage = ({ product }) => (
-  <ProductLayout product={product}>
-    {product.id ? (
-      <ProductSale product={product} />
-    ) : (
-      <ProductFeature product={product} />
-    )}
-  </ProductLayout>
-)
+const ProductPage = ({ product }) => {
+  console.log(product)
+  return (
+    <ProductLayout product={product}>
+      {product.id ? (
+        <ProductSale product={product} />
+      ) : (
+        <ProductFeature product={product} />
+      )}
+    </ProductLayout>
+  )
+}
 
 ProductPage.getInitialProps = async ({ query }) => {
   const { slug } = query

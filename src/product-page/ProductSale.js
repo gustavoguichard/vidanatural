@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { featureWrapper } from 'src/home/Feature'
 import { wrapperCss } from 'src/home/ProductImg'
-import { Button, Grid, Box } from '@material-ui/core'
+import Ingredients from 'src/components/Ingredients'
+import { Button, Grid, Box, Divider, Typography } from '@material-ui/core'
 import PaperContent from 'src/ui/PaperContent'
 import useGlobal from 'utils/useGlobal'
+import theme from 'src/ui/theme'
 
 const ProductFeature = ({ product }) => {
   const [adding, setAdding] = useState(false)
@@ -39,6 +41,23 @@ const ProductFeature = ({ product }) => {
               </Box>
             </Grid>
           </Grid>
+          <Divider css={{ margin: theme.spacing(3) }} />
+          <Box textAlign="left">
+            <Typography variant="h3">Ingredientes</Typography>
+            <Typography
+              variant="body1"
+              css={{
+                marginTop: theme.spacing(1),
+                marginBottom: theme.spacing(2),
+              }}
+            >
+              Esse produto é feito de ingredientes seguros que você conhece, se
+              tiver alguma dúvida, clique no link de cada um para obter
+              informações sobre o nível de segurança no site da EWG
+              (Environmental Working Group - em inglês)
+            </Typography>
+            <Ingredients product={product} />
+          </Box>
         </Grid>
       </Grid>
     </PaperContent>
