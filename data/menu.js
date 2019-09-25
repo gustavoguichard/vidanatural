@@ -55,7 +55,11 @@ export default {
         },
         {
           name: 'Nossos ingredientes',
-          path: '/sobre-a-vida-natural#ingredientes',
+          path: '/#ingredientes',
+        },
+        {
+          name: 'Termos e Condições',
+          path: '/termos-e-condicoes',
         },
       ],
     },

@@ -58,6 +58,8 @@ const listCart = () => fetchApi('carrinho/popup', {}, true)
 
 const listProduct = (slug: string) => fetchApi(`produto/${slug}`, {}, true)
 
+const listPage = (slug: string) => fetchApi(`p/${slug}`, {}, true)
+
 const addToCart = (sku: string, quantity = 1) =>
   post('carrinho/adicionar', { sku, quantity }, {}, true)
 
@@ -87,6 +89,7 @@ export default {
   addToCart,
   listCart,
   listProduct,
+  listPage,
   search,
   textSearch,
   CART_URL: getUrl('carrinho'),

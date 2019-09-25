@@ -61,7 +61,7 @@ const CartIcon = () => {
           }}
           variant="dot"
         >
-          <ShoppingBasket />
+          <ShoppingBasket fontSize="inherit" css={{ fontSize: '1.35rem' }} />
         </Badge>
       </IconButton>
       <Menu

@@ -18,7 +18,7 @@ const Ingredients = ({ product }) => {
     : ingredientData.filter(ing => ing.showHome)
 
   return (
-    <div css={{ overflowX: 'auto' }}>
+    <div css={{ overflowX: 'auto' }} id="ingredientes">
       <Table css={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>

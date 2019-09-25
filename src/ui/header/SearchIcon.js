@@ -13,7 +13,7 @@ const SearchIcon = () => {
       aria-controls="search-field"
       onClick={openSearch}
     >
-      <Search />
+      <Search fontSize="inherit" css={{ fontSize: '1.35rem' }} />
     </IconButton>
   )
 }

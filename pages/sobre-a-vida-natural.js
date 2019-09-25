@@ -62,18 +62,6 @@ export default function Index() {
               ))}
             </Grid>
           </Grid>
-          <Grid item xs={11} sm={8}>
-            <Typography
-              variant="h4"
-              css={{
-                marginBottom: theme.spacing(2),
-                marginTop: theme.spacing(4),
-              }}
-            >
-              Ingredientes que usamos
-            </Typography>
-            <Typography variant="body1">Em breve...</Typography>
-          </Grid>
         </Grid>
       </PaperContent>
     </Layout>

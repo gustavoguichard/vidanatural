@@ -12,7 +12,7 @@ const omitCookies = (cookies = '', fn: (v: string, k: string) => boolean) => {
 const keysWithLodash = (_: string, k: string) => k.startsWith('_')
 
 export default async (req: any, res: Http2ServerResponse) => {
-  const endpoint = req.url.replace('/api/proxy', '').replace('::', '/')
+  const endpoint = req.url.replace('/api/proxy/', '').replace('::', '/')
   try {
     if (endpoint) {
       const encodedCookies = omitCookies(req.headers.cookie, keysWithLodash)
