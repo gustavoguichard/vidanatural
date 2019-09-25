@@ -7,7 +7,7 @@ import Img from 'src/components/Img'
 import testimonials from 'data/testimonials'
 import theme from 'src/ui/theme'
 
-const HomeTestimonials = ({ isMobile }) => {
+const HomeTestimonials = () => {
   const items = useProcessOnce(shuffle, testimonials)
   return (
     <Testimonials

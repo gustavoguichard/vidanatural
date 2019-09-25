@@ -17,10 +17,10 @@ const Home = () => {
           O que sua pele absorve todos os dias?
         </Typography>
       </Hero>
-      <Products isMobile={isMobile} />
+      <Products />
       <About isMobile={isMobile} />
       <Certified isMobile={isMobile} />
-      <HomeTestimonials isMobile={isMobile} />
+      <HomeTestimonials />
       <HomeIngredients />
     </Layout>
   )

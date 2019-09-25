@@ -1,19 +1,15 @@
 import find from 'lodash/find'
 import ProductLayout from 'src/product-page/ProductLayout'
-import ProductFeature from 'src/product-page/ProductFeature'
 import ProductSale from 'src/product-page/ProductSale'
 import products from 'data/products'
 import api from 'utils/api'
+import { useIsMobile } from 'utils/responsive'
 
 const ProductPage = ({ product }) => {
-  console.log(product)
+  const isMobile = useIsMobile()
   return (
     <ProductLayout product={product}>
-      {product.id ? (
-        <ProductSale product={product} />
-      ) : (
-        <ProductFeature product={product} />
-      )}
+      <ProductSale isMobile={isMobile} product={product} />
     </ProductLayout>
   )
 }
