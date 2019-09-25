@@ -51,10 +51,11 @@ const ProductFeature = ({ product }) => {
                 marginBottom: theme.spacing(2),
               }}
             >
-              Esse produto é feito de ingredientes seguros que você conhece, se
-              tiver alguma dúvida, clique no link de cada um para obter
-              informações sobre o nível de segurança no site da EWG
-              (Environmental Working Group - em inglês)
+              Esse produto é feito de{' '}
+              <strong>ingredientes seguros que você conhece</strong>, se tiver
+              alguma dúvida, clique no link de cada um para obter informações
+              sobre o nível de segurança no site da EWG (Environmental Working
+              Group - em inglês).
             </Typography>
             <Ingredients product={product} />
           </Box>
