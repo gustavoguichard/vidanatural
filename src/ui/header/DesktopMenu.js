@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Router, { withRouter } from 'next/router'
+import { withRouter } from 'next/router'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import ButtonLink from 'src/components/ButtonLink'
@@ -40,7 +40,7 @@ const SubMenu = ({ name, path, links, router }) => {
       >
         {links.map(subItem => (
           <MenuItem
-            onClick={() => Router.push(subItem.path)}
+            onClick={() => router.push(subItem.path)}
             key={subItem.path}
           >
             {subItem.name}

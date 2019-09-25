@@ -5,6 +5,7 @@ import {
   useScrollTrigger,
   useMediaQuery,
 } from '@material-ui/core'
+import Router from 'next/router'
 import Logo from 'src/ui/header/Logo'
 import DesktopMenu from 'src/ui/header/DesktopMenu'
 import MobileMenu from 'src/ui/header/MobileMenu'
@@ -13,6 +14,10 @@ import SearchBar from 'src/ui/header/SearchBar'
 import SearchIcon from 'src/ui/header/SearchIcon'
 import useGlobal from 'utils/useGlobal'
 import theme from 'src/ui/theme'
+
+Router.events.on('routeChangeComplete', () => {
+  window.scrollTo(0, 0)
+})
 
 const Header = ({ stick, logoCompanion, variant }) => {
   const secondary = variant === 'secondary'

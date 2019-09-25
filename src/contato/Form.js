@@ -1,14 +1,14 @@
 import { Button, CircularProgress, SnackbarContent } from '@material-ui/core'
 import { TextField } from '@material-ui/core'
 import NetlifyForm from 'react-netlify-form'
-import Router from 'next/router'
+import { withRouter } from 'next/router'
 import Input from 'src/contato/Input'
 import theme from 'src/ui/theme'
 
-const Form = () => (
+const Form = ({ router }) => (
   <NetlifyForm
     name="Formulário de Contato"
-    onSuccess={() => Router.push({ pathname: '/gratos' })}
+    onSuccess={() => router.push({ pathname: '/gratos' })}
     action="/gratos"
     honeypotName="mel"
   >
@@ -36,4 +36,4 @@ const Form = () => (
   </NetlifyForm>
 )
 
-export default Form
+export default withRouter(Form)
