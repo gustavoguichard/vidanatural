@@ -16,43 +16,45 @@ const Ingredients = ({ product }) => {
     find(ingredientData, data => data.inci === ing),
   )
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
-            Nome
-          </TableCell>
-          <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
-            INCI
-          </TableCell>
-          <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
-            O que significa?
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {ingredients.map((ingredient, i) => (
-          <TableRow key={`ingredient-${i}`}>
-            {ingredient.name && <TableCell>{ingredient.name}</TableCell>}
-            <TableCell colSpan={ingredient.name ? 1 : 2}>
-              {ingredient.url ? (
-                <Link
-                  href={EWG_URL + ingredient.url}
-                  target="_blank"
-                  color="secondary"
-                  title="Obter mais informações"
-                >
-                  {ingredient.inci}
-                </Link>
-              ) : (
-                ingredient.inci
-              )}
+    <div css={{ overflowX: 'auto' }}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
+              Nome
             </TableCell>
-            <TableCell>{ingredient.description || '--'}</TableCell>
+            <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
+              INCI
+            </TableCell>
+            <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
+              O que significa?
+            </TableCell>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {ingredients.map((ingredient, i) => (
+            <TableRow key={`ingredient-${i}`}>
+              {ingredient.name && <TableCell>{ingredient.name}</TableCell>}
+              <TableCell colSpan={ingredient.name ? 1 : 2}>
+                {ingredient.url ? (
+                  <Link
+                    href={EWG_URL + ingredient.url}
+                    target="_blank"
+                    color="secondary"
+                    title="Obter mais informações"
+                  >
+                    {ingredient.inci}
+                  </Link>
+                ) : (
+                  ingredient.inci
+                )}
+              </TableCell>
+              <TableCell>{ingredient.description || '--'}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   )
 }
 
