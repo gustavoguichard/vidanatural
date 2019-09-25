@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { featureWrapper } from 'src/home/Feature'
 import { wrapperCss } from 'src/home/ProductImg'
+import Certifications from 'src/components/Certifications'
 import Ingredients from 'src/components/Ingredients'
-import { Button, Grid, Box, Divider, Typography } from '@material-ui/core'
-import PaperContent from 'src/ui/PaperContent'
+import { Button, Grid, Box, Typography } from '@material-ui/core'
 import useGlobal from 'utils/useGlobal'
 import theme from 'src/ui/theme'
 
@@ -12,9 +12,9 @@ const ProductFeature = ({ product }) => {
   const [, { addToCart }] = useGlobal()
   const [variant] = product.variants
   return (
-    <PaperContent>
+    <>
       <Grid container justify="center">
-        <Grid item xs={12} md={10} css={{ textAlign: 'center' }}>
+        <Grid item xs={12} md={10}>
           <Grid spacing={6} justify="center" container>
             <Grid item xs={12} sm={6} md={4} css={wrapperCss}>
               <img width="400" src={product.image_url} />
@@ -41,8 +41,18 @@ const ProductFeature = ({ product }) => {
               </Box>
             </Grid>
           </Grid>
-          <Divider css={{ margin: theme.spacing(3) }} />
-          <Box textAlign="left">
+        </Grid>
+        <Box
+          css={{
+            backgroundColor: '#fdfdfd',
+            width: '100%',
+            marginBottom: theme.spacing(4),
+          }}
+        >
+          <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
+        </Box>
+        <Grid item xs={12} md={10}>
+          <Box>
             <Typography variant="h3">Ingredientes</Typography>
             <Typography
               variant="body1"
@@ -61,7 +71,7 @@ const ProductFeature = ({ product }) => {
           </Box>
         </Grid>
       </Grid>
-    </PaperContent>
+    </>
   )
 }
 

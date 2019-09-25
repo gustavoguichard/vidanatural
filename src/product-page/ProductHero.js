@@ -4,7 +4,10 @@ import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'
 
 const ProductHero = ({ product }) => (
-  <Hero background={`/static/images/product-images/${product.path}.jpg`}>
+  <Hero
+    size="small"
+    background={`/static/images/product-images/${product.path}.jpg`}
+  >
     <Typography variant="h2">{product.fullName}</Typography>
     <MdContent
       css={{ margin: theme.spacing(3), fontWeight: 500 }}

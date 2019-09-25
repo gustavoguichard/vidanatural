@@ -1,18 +1,9 @@
 import { Box, Container, Grid, Typography } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
 import BackgroundImg from 'src/components/BackgroundImg'
+import Certifications from 'src/components/Certifications'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
-
-const Icon = ({ path, title, size = 100 }) => (
-  <Img
-    css={{ margin: 10 }}
-    width={size}
-    src={require(`../../static/svgs/${path}.svg`)}
-    alt={title}
-    title={title}
-  />
-)
 
 const Certified = ({ isMobile }) => (
   <Grid container>
@@ -62,25 +53,7 @@ const Certified = ({ isMobile }) => (
           >
             Saiba mais
           </CTAButton>
-          <Box
-            display="flex"
-            justifyContent="space-around"
-            flexWrap="wrap"
-            mt={5}
-          >
-            <Icon title="Certificados pela ANVISA" path="anvisa" size={90} />
-            <Icon
-              title="Investimos na compensação ambiental das embalagens que produzimos"
-              path="eureciclo"
-            />
-            <Icon
-              title="Livre de parabenos e outros absurdos sintéticos"
-              path="parabenos"
-            />
-            <Icon title="Produtos artesanais" path="artesanal" />
-            <Icon title="Livres de crueldade animal" path="cruelty-free" />
-            <Icon title="Sem fragrâncias sintéticas" path="fragrancias" />
-          </Box>
+          <Certifications />
         </Container>
       </Box>
     </Grid>

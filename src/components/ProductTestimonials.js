@@ -1,9 +1,6 @@
 import filter from 'lodash/filter'
 import shuffle from 'lodash/shuffle'
-import { Box, Typography } from '@material-ui/core'
 import { useProcessOnce } from 'utils/hooks'
-import theme from 'src/ui/theme'
-import sloganImg from 'static/svgs/slogan.svg'
 import testimonials from 'data/testimonials'
 import Testimonials from 'src/components/Testimonials'
 
