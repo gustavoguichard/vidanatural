@@ -42,14 +42,15 @@ const ProductFeature = ({ product }) => {
             </Grid>
           </Grid>
         </Grid>
-        <Box
-          css={{
-            backgroundColor: '#fdfdfd',
-            width: '100%',
-          }}
-        >
-          <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
-        </Box>
+      </Grid>
+      <Box css={{ width: '100%' }}>
+        <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
+      </Box>
+      <Grid
+        container
+        justify="center"
+        css={{ backgroundColor: theme.palette.common.white }}
+      >
         <Grid item xs={12} md={10}>
           <Box pt={8} pb={8}>
             <Typography variant="h3">Ingredientes</Typography>
