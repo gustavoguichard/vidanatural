@@ -16,7 +16,7 @@ import theme from 'src/ui/theme'
 
 const Header = ({ stick, logoCompanion, variant }) => {
   const secondary = variant === 'secondary'
-  const isDesktop = useMediaQuery('(min-width: 760px)')
+  const isDesktop = useMediaQuery('(min-width: 790px)')
   const hasScrolled = useScrollTrigger({
     disableHysteresis: true,
     threshold: isDesktop ? 80 : 20,

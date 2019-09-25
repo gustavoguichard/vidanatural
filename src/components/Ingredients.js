@@ -19,7 +19,7 @@ const Ingredients = ({ product }) => {
 
   return (
     <div css={{ overflowX: 'auto' }}>
-      <Table>
+      <Table css={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
             <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
