@@ -6,7 +6,8 @@
       "API_IP": "@api-ip",
       "API_DOMAIN": "@api-domain",
       "API_PROXY": "@api-proxy",
-      "ANALYTICS_ID": "@analytics-uid"
+      "ANALYTICS_ID": "@analytics-uid",
+      "GTM_ID": "@gtm-id"
     }
   }
 }

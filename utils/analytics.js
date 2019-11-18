@@ -1,7 +1,9 @@
 import ReactGA from 'react-ga'
+import TagManager from 'react-gtm-module'
 
 export const initGA = () => {
   ReactGA.initialize(process.env.ANALYTICS_ID)
+  TagManager.initialize(process.env.GTM_ID)
 }
 
 export const logPageView = () => {
