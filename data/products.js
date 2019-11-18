@@ -50,6 +50,7 @@ export default [
       'Magnesium Hydroxide',
       'Melaleuca Alternifolia Leaf Extract',
       'Lavandula Angustifolia Extract',
+      'Ethylhexylglycerin',
     ],
     benefits: [
       'Desodorante suave',

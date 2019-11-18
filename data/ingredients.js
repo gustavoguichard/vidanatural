@@ -187,6 +187,12 @@ export default [
     url: '701067/CAPRYLYL_GLYCOL/',
   },
   {
+    name: 'Etilhexilglicerina',
+    inci: 'Ethylhexylglycerin',
+    description: '',
+    url: '702352/ETHYLHEXYLGLYCERIN/',
+  },
+  {
     name: '',
     inci: 'Aminomethyl Propanol',
     description: '',
