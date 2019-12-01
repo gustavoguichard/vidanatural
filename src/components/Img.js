@@ -12,7 +12,11 @@ const Img = ({ src, Component = 'img', className, ...props }) => {
       {visible ? (
         <Component ref={ref} className={className} src={src} {...props} />
       ) : (
-        <CircularProgress ref={ref} className={className} />
+        <CircularProgress
+          ref={ref}
+          css={{ margin: 'auto' }}
+          className={className}
+        />
       )}
     </Fragment>
   )

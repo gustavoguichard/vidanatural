@@ -21,19 +21,24 @@ const Ingredients = ({ product }) => {
     <div css={{ overflowX: 'auto' }} id="ingredientes">
       <Table css={{ minWidth: 650 }}>
         <TableHead>
-          <TableRow>
-            <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
-              Nome
-            </TableCell>
-            <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
-              INCI
-            </TableCell>
-            <TableCell css={{ color: 'inherit', fontWeight: 'bold' }}>
-              O que significa?
-            </TableCell>
+          <TableRow
+            css={{
+              '& th': {
+                color: 'inherit',
+                fontWeight: 'bold',
+              },
+            }}
+          >
+            <TableCell>Nome</TableCell>
+            <TableCell>INCI</TableCell>
+            <TableCell>O que significa?</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody
+          css={{
+            '& td': { minWidth: 230 },
+          }}
+        >
           {ingredients.map((ingredient, i) => (
             <TableRow key={`ingredient-${i}`}>
               {ingredient.name && <TableCell>{ingredient.name}</TableCell>}

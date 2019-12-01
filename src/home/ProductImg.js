@@ -23,10 +23,9 @@ const ProductImg = ({ product, height, width, ...props }) => (
       css={{
         width,
         maxHeight: height,
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(2),
+        marginTop: theme.spacing(4),
       }}
-      src={`/static/images/products/${product.path}.png`}
+      src={`/static/images/products/big/${product.path}.png`}
       alt={product.name}
       {...props}
     />

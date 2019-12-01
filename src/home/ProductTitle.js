@@ -1,10 +1,17 @@
-import { Typography } from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
 import MdContent from 'src/components/MdContent'
 import theme from 'src/ui/theme'
 
 const ProductTitle = ({ product, showCta = true, dark }) => (
-  <>
+  <Paper
+    elevation={3}
+    css={{
+      backgroundColor: 'rgba(255, 255, 255, .85)',
+      paddingBottom: theme.spacing(4),
+      paddingTop: theme.spacing(4),
+    }}
+  >
     <Typography variant="h3" color={dark ? 'textSecondary' : undefined}>
       {product.name}
     </Typography>
@@ -27,7 +34,7 @@ const ProductTitle = ({ product, showCta = true, dark }) => (
         Saiba mais
       </CTAButton>
     )}
-  </>
+  </Paper>
 )
 
 export default ProductTitle
