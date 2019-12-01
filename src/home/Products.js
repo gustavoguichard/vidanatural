@@ -1,35 +1,55 @@
+import { useState } from 'react'
+import { Box, Container } from '@material-ui/core'
 import find from 'lodash/find'
-import ProductContainer from 'src/home/ProductContainer'
-import ProductImg from 'src/home/ProductImg'
+import ProductSlide from 'src/home/ProductSlide'
 import products from 'data/products'
+import { useIsMobile } from 'utils/responsive'
 
 const getProduct = path => find(products, p => p.path === path)
-const desodorantePasta = getProduct('desodorante-em-pasta')
-const desodoranteRollon = getProduct('desodorante-rollon')
-const poDental = getProduct('po-dental')
-// const oleo = getProduct('oleo-hidratante')
-// const facial = getProduct('hidratante-facial')
-const rosa = getProduct('rosa-mosqueta')
-const xampu = getProduct('xampu-em-barra')
+const productsArray = [
+  getProduct('desodorante-em-pasta'),
+  getProduct('rosa-mosqueta'),
+  getProduct('desodorante-rollon'),
+  getProduct('xampu-em-barra'),
+  getProduct('po-dental'),
+]
 
-const Products = () => (
-  <>
-    <ProductContainer product={desodorantePasta}>
-      <ProductImg product={desodorantePasta} width={460} />
-    </ProductContainer>
-    <ProductContainer product={rosa}>
-      <ProductImg product={rosa} height={440} />
-    </ProductContainer>
-    <ProductContainer product={desodoranteRollon}>
-      <ProductImg product={desodoranteRollon} height={500} />
-    </ProductContainer>
-    <ProductContainer product={xampu}>
-      <ProductImg product={xampu} width={420} />
-    </ProductContainer>
-    <ProductContainer product={poDental}>
-      <ProductImg product={poDental} height={400} />
-    </ProductContainer>
-  </>
-)
+const Products = () => {
+  const [value, setValue] = useState(0)
+
+  const handleChange = () => setValue((value + 1) % productsArray.length)
+  const isMobile = useIsMobile()
+
+  return (
+    <Container
+      maxWidth="lg"
+      css={{
+        borderBottom: '10px solid white',
+        borderTop: '10px solid white',
+        minHeight: '80vh',
+        display: 'flex',
+        alignItems: 'center',
+        position: 'relative',
+      }}
+    >
+      <Box flex={1} py={isMobile ? 7 : 10}>
+        <ProductSlide
+          key={`product---1`}
+          hidden
+          product={productsArray[value]}
+        />
+        {productsArray.map((product, index) => (
+          <ProductSlide
+            isMobile={isMobile}
+            key={`product-${index}`}
+            show={value === index}
+            product={product}
+          />
+        ))}
+      </Box>
+      <button onClick={handleChange}>Next</button>
+    </Container>
+  )
+}
 
 export default Products

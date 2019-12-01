@@ -1,11 +1,19 @@
 import { useInView } from 'react-intersection-observer'
-import { featureWrapper } from 'src/home/Feature'
-import { wrapperCss } from 'src/home/ProductImg'
 import Certifications from 'src/components/Certifications'
 import Ingredients from 'src/components/Ingredients'
 import ProductCTA from 'src/product-page/ProductCTA'
 import { Paper, Container, Grid, Box, Typography } from '@material-ui/core'
 import theme from 'src/ui/theme'
+
+const wrapperCss = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  [theme.breakpoints.down('md')]: {
+    order: -1,
+  },
+}
 
 const ProductSale = ({ product, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
@@ -42,7 +50,7 @@ const ProductSale = ({ product, isMobile }) => {
               sm={6}
               md={6}
             >
-              <Box {...featureWrapper}>
+              <Box>
                 <ProductCTA ref={ref} product={product} />
               </Box>
             </Grid>
