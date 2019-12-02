@@ -36,6 +36,8 @@ export const joinWith = (args: any[], mark = '') => compact(args).join(mark)
 
 export const isClient = typeof window === 'object'
 
+export const isOdd = (num: number) => num % 2
+
 export const nl2Br = (content: string) =>
   content.replace(/(?:\r\n|\r|\n)/g, '<br />')
 

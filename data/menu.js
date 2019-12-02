@@ -1,36 +1,18 @@
+import products from 'data/products'
+
 export default {
   links: [
     {
-      name: 'Cosméticos',
+      name: 'Produtos',
       links: [
         {
-          name: 'Desodorante Rollon',
-          path: '/desodorante-rollon',
+          name: 'Todos os produtos',
+          path: '/produtos',
         },
-        {
-          name: 'Desodorante em Pasta',
-          path: '/desodorante-em-pasta',
-        },
-        {
-          name: 'Xampú em Barra',
-          path: '/xampu-em-barra',
-        },
-        {
-          name: 'Pó Dental',
-          path: '/po-dental',
-        },
-        {
-          name: 'Óleo Hidratante',
-          path: '/oleo-hidratante',
-        },
-        {
-          name: 'Rosa Mosqueta',
-          path: '/rosa-mosqueta',
-        },
-        {
-          name: 'Hidratante Facial',
-          path: '/hidratante-facial',
-        },
+        ...products.map(product => ({
+          ...product,
+          path: `/${product.slug || product.path}`,
+        })),
       ],
     },
     {
