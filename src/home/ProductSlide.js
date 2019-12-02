@@ -118,9 +118,7 @@ const ProductSlide = ({
           />
           <CTAButton
             color="secondary"
-            href={
-              product.slug ? `/produto/${product.slug}` : `/${product.path}`
-            }
+            href={`/produto/${product.slug}`}
             prefetch={false}
           >
             Saiba mais

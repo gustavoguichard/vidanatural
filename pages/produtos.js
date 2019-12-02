@@ -1,11 +1,13 @@
+import find from 'lodash/find'
 import { Container, Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import ProductPreview from 'src/produtos/ProductPreview'
 import theme from 'src/ui/theme'
-import products from 'data/products'
+import localProducts from 'data/products'
+import api from 'utils/api'
 
-const Page = () => (
+const ProductsPage = ({ products }) => (
   <Layout>
     <Hero size="small" background="/static/images/plants.jpg">
       <Typography variant="h2">Produtos</Typography>
@@ -34,4 +36,13 @@ const Page = () => (
   </Layout>
 )
 
-export default Page
+ProductsPage.getInitialProps = async () => {
+  const serverData = await api.search()
+  const products = localProducts.map(p => {
+    const data = find(serverData, servP => p.slug.startsWith(servP.slug))
+    return { ...p, ...data }
+  })
+  return { products }
+}
+
+export default ProductsPage

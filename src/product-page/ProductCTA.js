@@ -2,7 +2,7 @@ import { useState, forwardRef } from 'react'
 import { Button } from '@material-ui/core'
 import useGlobal from 'utils/useGlobal'
 
-const ProductCTA = ({ product, size, innerRef }) => {
+const ProductCTA = ({ product, size, innerRef, quantity }) => {
   const [adding, setAdding] = useState(false)
   const [, { addToCart }] = useGlobal()
   const [variant] = product.variants ? product.variants : []
@@ -14,7 +14,7 @@ const ProductCTA = ({ product, size, innerRef }) => {
       color="secondary"
       onClick={async () => {
         setAdding(true)
-        await addToCart(variant.sku)
+        await addToCart(variant.sku, quantity)
         setAdding(false)
       }}
     >

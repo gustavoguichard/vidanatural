@@ -1,13 +1,28 @@
-import { Grid, Paper, Typography, useMediaQuery } from '@material-ui/core'
-import CTAButton from 'src/components/CTAButton'
+import { useState } from 'react'
+import {
+  Box,
+  FormControl,
+  MenuItem,
+  Grid,
+  Paper,
+  Typography,
+  Select,
+  useMediaQuery,
+} from '@material-ui/core'
 import MdContent from 'src/components/MdContent'
 import Link from 'src/components/Link'
 import Img from 'src/components/Img'
+import ProductCTA from 'src/product-page/ProductCTA'
 import theme from 'src/ui/theme'
-import { isOdd } from 'utils/helpers'
+import { isOdd, toCurrency } from 'utils/helpers'
 
 const ProductPreview = ({ product, index }) => {
   const matches = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)
+  const [value, setValue] = useState(1)
+  const handleChange = ({ target }) => setValue(target.value)
+
+  const [variant] = product.variants || [{}]
+
   return (
     <Grid justify="center" container>
       <Img
@@ -53,7 +68,10 @@ const ProductPreview = ({ product, index }) => {
             padding: theme.spacing(4),
           }}
         >
-          <Typography variant="h3">{product.name}</Typography>
+          <Typography variant="h3" css={{ marginBottom: theme.spacing() }}>
+            {product.fullName || product.name}
+          </Typography>
+          <Typography variant="h4">{toCurrency(variant.price || 0)}</Typography>
           <MdContent
             css={{
               marginTop: theme.spacing(3),
@@ -64,15 +82,21 @@ const ProductPreview = ({ product, index }) => {
             className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
             content={product.subtitle}
           />
-          <CTAButton
-            color="secondary"
-            center={false}
-            href={
-              product.slug ? `/produto/${product.slug}` : `/${product.path}`
-            }
-          >
-            Saiba mais
-          </CTAButton>
+          <p>
+            <Link href={`/produto/${product.slug}`}>Saiba mais</Link>
+          </p>
+          <Box display="flex">
+            <FormControl css={{ marginRight: 4 }} variant="outlined">
+              <Select value={value} onChange={handleChange}>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => (
+                  <MenuItem key={n} value={n}>
+                    {n}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <ProductCTA size="large" quantity={value} product={product} />
+          </Box>
         </Paper>
       </Grid>
     </Grid>
