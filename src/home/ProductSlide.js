@@ -80,7 +80,7 @@ const ProductSlide = ({
           />
         </Link>
       </Grid>
-      <Grid item xs={12} md={10} css={{ zIndex: 10 }}>
+      <Grid item xs={12} md={10} css={{ zIndex: 10, padding: '0 !important' }}>
         {children}
       </Grid>
       <Grid
@@ -89,6 +89,7 @@ const ProductSlide = ({
         xs={12}
         md={6}
         css={{
+          paddingTop: '0 !important',
           textAlign: 'center',
           pointerEvents: hidden ? 'none' : null,
           opacity: hidden ? 0 : 1,
