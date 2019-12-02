@@ -1,4 +1,5 @@
 import find from 'lodash/find'
+import isArray from 'lodash/isArray'
 import ProductLayout from 'src/product-page/ProductLayout'
 import ProductSale from 'src/product-page/ProductSale'
 import products from 'data/products'
@@ -22,7 +23,7 @@ ProductPage.getInitialProps = async ({ query }) => {
   return {
     product: {
       ...rescueData,
-      ...serverData,
+      ...(isArray(serverData) ? serverData[0] : serverData),
     },
   }
 }
