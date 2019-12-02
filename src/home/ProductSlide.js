@@ -5,15 +5,7 @@ import Link from 'src/components/Link'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
-const ProductSlide = ({
-  product,
-  children,
-  index,
-  handleChange,
-  hidden,
-  isMobile,
-  show,
-}) => (
+const ProductSlide = ({ product, children, hidden, isMobile, show }) => (
   <Grid
     spacing={3}
     justify="center"
@@ -29,6 +21,7 @@ const ProductSlide = ({
   >
     <Img
       className="responsive"
+      hideSpinner
       css={{
         zIndex: -1,
         position: 'absolute',
@@ -71,7 +64,19 @@ const ProductSlide = ({
         />
       </Link>
     </Grid>
-    {children}
+    <Grid
+      item
+      xs={12}
+      md={10}
+      css={{
+        textAlign: 'center',
+        pointerEvents: hidden ? null : 'none',
+        opacity: hidden ? 1 : 0,
+        zIndex: 10,
+      }}
+    >
+      {children}
+    </Grid>
     <Grid
       item
       xs={12}

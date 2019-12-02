@@ -1,20 +1,13 @@
 import { useState } from 'react'
-import { Box, Container, Grid, Tabs, Tab } from '@material-ui/core'
-import find from 'lodash/find'
+import { Box, Container, Tabs, Tab } from '@material-ui/core'
+import filter from 'lodash/filter'
 import times from 'lodash/times'
 import ProductSlide from 'src/home/ProductSlide'
 import products from 'data/products'
 import { useIsMobile } from 'utils/responsive'
 import theme from 'src/ui/theme'
 
-const getProduct = path => find(products, p => p.path === path)
-const productsArray = [
-  getProduct('desodorante-em-pasta'),
-  getProduct('rosa-mosqueta'),
-  getProduct('desodorante-rollon'),
-  getProduct('xampu-em-barra'),
-  getProduct('po-dental'),
-]
+const productsArray = filter(products, 'showHome')
 
 const Products = () => {
   const [value, setValue] = useState(0)
@@ -25,36 +18,24 @@ const Products = () => {
   const isMobile = useIsMobile()
 
   const Stepper = ({ hidden }) => (
-    <Grid
-      item
-      xs={12}
-      md={10}
+    <Tabs
+      centered
+      value={value}
+      onChange={handleChange}
+      textColor="secondary"
+      indicatorColor="secondary"
       css={{
-        textAlign: 'center',
-        pointerEvents: hidden ? null : 'none',
-        opacity: hidden ? 1 : 0,
-        zIndex: 10,
+        a: {
+          color: theme.palette.secondary.main,
+          fontWeight: 'bold',
+          minWidth: 50,
+        },
       }}
     >
-      <Tabs
-        centered
-        value={value}
-        onChange={handleChange}
-        textColor="secondary"
-        indicatorColor="secondary"
-        css={{
-          a: {
-            color: theme.palette.secondary.main,
-            fontWeight: 'bold',
-            minWidth: null,
-          },
-        }}
-      >
-        {times(productsArray.length, ind => (
-          <Tab key={`index-${ind}`} component="a" label={ind + 1} />
-        ))}
-      </Tabs>
-    </Grid>
+      {times(productsArray.length, ind => (
+        <Tab key={`index-${ind}`} component="a" label={ind + 1} />
+      ))}
+    </Tabs>
   )
 
   return (
