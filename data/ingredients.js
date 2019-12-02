@@ -178,14 +178,6 @@ export default [
     url: '706084/SODIUM_LACTATE/',
   },
   {
-    name: 'Argila Verde',
-    inci: 'Montmorillonite',
-    showHome: true,
-    description:
-      'A argila é famosa pelos seus benefícios no cuidado com a pele, sendo comumente usada em tratamentos há milhares de anos. Os egípcios, por exemplo, já usavam esse componente nas suas mumificações.',
-    url: '704015/MONTMORILLONITE/',
-  },
-  {
     name: 'Juá em Pó',
     inci: 'Zizyphus Joazeiro Bark Extract',
     showHome: true,

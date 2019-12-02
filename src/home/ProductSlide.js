@@ -5,25 +5,51 @@ import Link from 'src/components/Link'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
-const ProductSlide = ({ product, hidden, isMobile, show }) => (
+const ProductSlide = ({
+  product,
+  children,
+  index,
+  handleChange,
+  hidden,
+  isMobile,
+  show,
+}) => (
   <Grid
     spacing={3}
     justify="center"
     container
     css={{
-      background: `url(/static/images/products/big/${product.path}-bg.png) no-repeat`,
-      backgroundPosition: 'top center',
-      backgroundSize: 'contain',
       position: hidden ? 'static' : 'absolute',
       top: theme.spacing(isMobile ? 7 : 10),
       left: 0,
       zIndex: show ? 0 : -1,
       transition: 'all .3s',
       opacity: show ? 1 : 0,
-      pointerEvents: hidden ? 'none' : null,
     }}
   >
-    <Grid item xs={12} md={10} css={{ textAlign: 'center' }}>
+    <Img
+      className="responsive"
+      css={{
+        zIndex: -1,
+        position: 'absolute',
+        marginTop: 40,
+        transition: 'all .6s',
+        opacity: show && !hidden ? 1 : 0,
+        pointerEvents: hidden ? 'none' : null,
+      }}
+      src={`/static/images/products/big/${product.path}-bg.png`}
+      alt="decorative"
+    />
+    <Grid
+      item
+      xs={12}
+      md={10}
+      css={{
+        textAlign: 'center',
+        opacity: hidden ? 0 : 1,
+        pointerEvents: hidden ? 'none' : null,
+      }}
+    >
       <Link
         href={product.slug ? `/produto/${product.slug}` : `/${product.path}`}
         title={product.name}
@@ -34,18 +60,36 @@ const ProductSlide = ({ product, hidden, isMobile, show }) => (
           css={{
             width: 520,
             marginTop: theme.spacing(4),
+            transition: 'all .6s',
+            position: 'relative',
+            transitionDelay: '.3s',
+            top: show ? 0 : -15,
+            opacity: show ? 1 : 0,
           }}
           src={`/static/images/products/big/${product.path}.png`}
           alt={product.name}
         />
       </Link>
     </Grid>
-    <Grid item xs={12} md={6} css={{ textAlign: 'center' }}>
+    {children}
+    <Grid
+      item
+      xs={12}
+      md={6}
+      css={{
+        textAlign: 'center',
+        pointerEvents: hidden ? 'none' : null,
+        opacity: hidden ? 0 : 1,
+      }}
+    >
       <Paper
         elevation={3}
         css={{
           backgroundColor: 'rgba(255, 255, 255, .9)',
           padding: theme.spacing(4),
+          transition: 'all .6s',
+          position: 'relative',
+          bottom: show ? 0 : -15,
         }}
       >
         <Typography variant="h3">{product.name}</Typography>

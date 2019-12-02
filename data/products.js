@@ -114,7 +114,6 @@ export default [
       'Lavandula Hybrida Oil',
       'Sodium Lactate',
       'Rosmarinus Officinalis',
-      'Montmorillonite',
     ],
     benefits: [],
   },

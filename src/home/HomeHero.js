@@ -30,7 +30,7 @@ const Hero = () => (
             css={{ margin: '2rem 0' }}
             color="secondary"
             variant="contained"
-            href="/products"
+            href="/produtos"
           >
             Comprar produtos
           </CTAButton>

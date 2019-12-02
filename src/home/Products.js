@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import { Box, Container } from '@material-ui/core'
+import { Box, Container, Grid, Tabs, Tab } from '@material-ui/core'
 import find from 'lodash/find'
+import times from 'lodash/times'
 import ProductSlide from 'src/home/ProductSlide'
 import products from 'data/products'
 import { useIsMobile } from 'utils/responsive'
+import theme from 'src/ui/theme'
 
 const getProduct = path => find(products, p => p.path === path)
 const productsArray = [
@@ -17,8 +19,43 @@ const productsArray = [
 const Products = () => {
   const [value, setValue] = useState(0)
 
-  const handleChange = () => setValue((value + 1) % productsArray.length)
+  const handleChange = (event, value) => {
+    setValue(value)
+  }
   const isMobile = useIsMobile()
+
+  const Stepper = ({ hidden }) => (
+    <Grid
+      item
+      xs={12}
+      md={10}
+      css={{
+        textAlign: 'center',
+        pointerEvents: hidden ? null : 'none',
+        opacity: hidden ? 1 : 0,
+        zIndex: 10,
+      }}
+    >
+      <Tabs
+        centered
+        value={value}
+        onChange={handleChange}
+        textColor="secondary"
+        indicatorColor="secondary"
+        css={{
+          a: {
+            color: theme.palette.secondary.main,
+            fontWeight: 'bold',
+            minWidth: null,
+          },
+        }}
+      >
+        {times(productsArray.length, ind => (
+          <Tab key={`index-${ind}`} component="a" label={ind + 1} />
+        ))}
+      </Tabs>
+    </Grid>
+  )
 
   return (
     <Container
@@ -36,18 +73,24 @@ const Products = () => {
         <ProductSlide
           key={`product---1`}
           hidden
+          show
           product={productsArray[value]}
-        />
+        >
+          <Stepper hidden />
+        </ProductSlide>
         {productsArray.map((product, index) => (
           <ProductSlide
             isMobile={isMobile}
             key={`product-${index}`}
             show={value === index}
+            handleChange={handleChange}
+            index={index}
             product={product}
-          />
+          >
+            <Stepper />
+          </ProductSlide>
         ))}
       </Box>
-      <button onClick={handleChange}>Next</button>
     </Container>
   )
 }
