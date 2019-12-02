@@ -39,7 +39,8 @@
     "react-gtm-module": "^2.0.8",
     "react-icons": "^3.8.0",
     "react-intersection-observer": "^8.25.2",
-    "react-netlify-form": "^2.1.5"
+    "react-netlify-form": "^2.1.5",
+    "react-swipeable": "^5.5.0"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.23",

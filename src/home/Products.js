@@ -12,12 +12,13 @@ const productsArray = filter(products, 'showHome')
 const Products = () => {
   const [value, setValue] = useState(0)
 
-  const handleChange = (event, value) => {
-    setValue(value)
+  const handleChange = (event, newValue) => {
+    const safeVal = newValue < 0 ? productsArray.length - 1 : newValue
+    setValue(safeVal % productsArray.length)
   }
   const isMobile = useIsMobile()
 
-  const Stepper = ({ hidden }) => (
+  const Stepper = () => (
     <Tabs
       centered
       value={value}
@@ -55,9 +56,11 @@ const Products = () => {
           key={`product---1`}
           hidden
           show
+          index={value}
           product={productsArray[value]}
+          handleChange={handleChange}
         >
-          <Stepper hidden />
+          <Stepper />
         </ProductSlide>
         {productsArray.map((product, index) => (
           <ProductSlide
