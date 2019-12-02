@@ -17,10 +17,11 @@ const ProductPage = ({ product }) => {
 ProductPage.getInitialProps = async ({ query }) => {
   const { slug } = query
   const serverData = await api.listProduct(slug)
-  const localData = find(products, p => p.slug === slug)
+  const localData = find(products, p => slug.startsWith(p.slug))
+  const rescueData = localData || find(products, p => slug.includes(p.path))
   return {
     product: {
-      ...localData,
+      ...rescueData,
       ...serverData,
     },
   }
