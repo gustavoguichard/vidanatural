@@ -26,6 +26,7 @@ const Products = () => {
       textColor="secondary"
       indicatorColor="secondary"
       css={{
+        padding: 0,
         a: {
           color: theme.palette.secondary.main,
           fontWeight: 'bold',
@@ -59,9 +60,7 @@ const Products = () => {
           index={value}
           product={productsArray[value]}
           handleChange={handleChange}
-        >
-          <Stepper />
-        </ProductSlide>
+        />
         {productsArray.map((product, index) => (
           <ProductSlide
             isMobile={isMobile}

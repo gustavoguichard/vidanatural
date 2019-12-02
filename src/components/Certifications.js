@@ -1,7 +1,7 @@
 import { Box } from '@material-ui/core'
 import Img from 'src/components/Img'
 
-const Icon = ({ path, title, size = 100 }) => (
+const Icon = ({ path, title, size = 75 }) => (
   <Img
     css={{ margin: 10 }}
     width={size}
@@ -16,11 +16,11 @@ const Certifications = props => (
     display="flex"
     justifyContent="space-around"
     flexWrap="wrap"
-    mb={5}
-    mt={5}
+    mb={3}
+    mt={3}
     {...props}
   >
-    <Icon title="Certificados pela ANVISA" path="anvisa" size={90} />
+    <Icon title="Certificados pela ANVISA" path="anvisa" size={68} />
     <Icon
       title="Investimos na compensação ambiental das embalagens que produzimos"
       path="eureciclo"

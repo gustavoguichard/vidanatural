@@ -15,10 +15,11 @@ const ProductSlide = ({
   isMobile,
   show,
 }) => {
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => handleChange({}, index + 1),
-    onSwipedRight: () => handleChange({}, index - 1),
-  })
+  const onSwiping = ({ first, deltaX, absX }) => {
+    first && absX > 10 && handleChange({}, deltaX < 0 ? index - 1 : index + 1)
+  }
+  const swipeHandlers = useSwipeable({ onSwiping })
+  const swipeHandlers2 = useSwipeable({ onSwiping })
   return (
     <Grid
       spacing={3}
@@ -28,7 +29,7 @@ const ProductSlide = ({
         position: hidden ? 'static' : 'absolute',
         top: theme.spacing(isMobile ? 7 : 10),
         left: 0,
-        zIndex: show ? 0 : -1,
+        zIndex: show && !hidden ? 0 : -1,
         transition: 'all .3s',
         opacity: show ? 1 : 0,
       }}
@@ -48,7 +49,6 @@ const ProductSlide = ({
         alt="decorative"
       />
       <Grid
-        {...swipeHandlers}
         item
         xs={12}
         md={10}
@@ -59,6 +59,7 @@ const ProductSlide = ({
         }}
       >
         <Link
+          {...swipeHandlers}
           href={product.slug ? `/produto/${product.slug}` : `/${product.path}`}
           title={product.name}
           prefetch={false}
@@ -79,22 +80,11 @@ const ProductSlide = ({
           />
         </Link>
       </Grid>
-      <Grid
-        {...swipeHandlers}
-        item
-        xs={12}
-        md={10}
-        css={{
-          textAlign: 'center',
-          pointerEvents: hidden ? null : 'none',
-          opacity: hidden ? 1 : 0,
-          zIndex: 10,
-        }}
-      >
+      <Grid item xs={12} md={10} css={{ zIndex: 10 }}>
         {children}
       </Grid>
       <Grid
-        {...swipeHandlers}
+        {...swipeHandlers2}
         item
         xs={12}
         md={6}
