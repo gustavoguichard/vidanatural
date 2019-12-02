@@ -45,7 +45,7 @@ const ProductSlide = ({
           opacity: show && !hidden ? 1 : 0,
           pointerEvents: hidden ? 'none' : null,
         }}
-        src={`/static/images/products/big/${product.path}-bg.png`}
+        src={`/static/images/products/${product.path}-bg.png`}
         alt="decorative"
       />
       <Grid
@@ -75,7 +75,7 @@ const ProductSlide = ({
               top: show ? 0 : -15,
               opacity: show ? 1 : 0,
             }}
-            src={`/static/images/products/big/${product.path}.png`}
+            src={`/static/images/products/${product.path}.png`}
             alt={product.name}
           />
         </Link>

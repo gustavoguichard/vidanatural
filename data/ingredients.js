@@ -135,7 +135,7 @@ export default [
   },
   {
     name: 'Óleo de Rosa Mosqueta',
-    inci: 'Rosa Canina Fruit Oil',
+    inci: 'Rosa Aff Rubiginosa Oil',
     showHome: true,
     description:
       'Reverenciada pelos egípcios, maias e norte-americanos nativos por suas propriedades terapêuticas, o óleo de Rosa Mosqueta oferece uma forma natural de combater rugas, desacelerar o envelhecimento e se atingir uma pele saudável. Estudos clínicos demonstram que ela também tem qualidades antibacterianas, antivirais e antifúngicas.',

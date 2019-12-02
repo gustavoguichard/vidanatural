@@ -19,7 +19,7 @@ const ProductPreview = ({ product, index }) => {
           marginTop: 40,
           transition: 'all .6s',
         }}
-        src={`/static/images/products/big/${product.path}-bg.png`}
+        src={`/static/images/products/${product.path}-bg.png`}
         alt="decorative"
       />
       <Grid item xs={12} md={6} css={{ textAlign: 'center' }}>
@@ -30,7 +30,7 @@ const ProductPreview = ({ product, index }) => {
           <Img
             className="responsive"
             css={{ width: 520, marginTop: theme.spacing(4) }}
-            src={`/static/images/products/big/${product.path}.png`}
+            src={`/static/images/products/${product.path}.png`}
             alt={product.name}
           />
         </Link>

@@ -3,7 +3,7 @@ export default [
     name: 'Desodorante em Pasta',
     fullName: 'Desodorante Pasta 40g',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
-    slug: 'desodorante-em-pasta-maior-protecao-40g-1',
+    slug: 'desodorante-em-pasta-maior-protecao-40g-3',
     path: 'desodorante-em-pasta',
     packing: 'pote',
     tone: '#e4e13e',
@@ -36,7 +36,7 @@ export default [
     name: 'Desodorante Rollon',
     fullName: 'Desodorante Rollon 70ml',
     subtitle: 'Indicado para o dia-a-dia.',
-    slug: 'desodorante-rollon',
+    slug: 'desodorante-roll-on-suave-70ml-1',
     fullSubtitle: `Desodorante suave, Indicado para peles sensíveis e uso diário.
     Fácil aplicação, protege do mau cheiro sem agredir sua saúde.
     Também não entope os poros e nunca impede o suor.`,
@@ -116,7 +116,7 @@ export default [
     ],
   },
   {
-    name: 'Xampú de Barra',
+    name: 'Xampú em Barra',
     fullName: 'Xampú Capim Limão e Lavanda 100g',
     subtitle: 'Limpa sem remover a hidratação natural.',
     slug: 'xampu-em-barra',
@@ -142,7 +142,7 @@ export default [
     name: 'Hidratante Facial',
     fullName: 'Hidratante Facial 40g',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
-    slug: 'hidratante-facial',
+    slug: 'hidratante-facial-30g-4',
     path: 'hidratante-facial',
     packing: 'pote',
     tone: '#fe5c5c',

@@ -57,9 +57,6 @@ const ProductSale = ({ product, isMobile }) => {
           </Grid>
         </Grid>
       </Grid>
-      <Box css={{ width: '100%' }}>
-        <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
-      </Box>
       <Grid
         container
         justify="center"
@@ -87,6 +84,9 @@ const ProductSale = ({ product, isMobile }) => {
           </Grid>
         </Container>
       </Grid>
+      <Box css={{ width: '100%' }}>
+        <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
+      </Box>
     </>
   )
 }
