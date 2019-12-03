@@ -12,7 +12,9 @@ import theme from 'src/ui/theme'
 const ProductIngredients = ({ product }) => {
   const matches = useMediaQuery('(min-width: 760px)')
   return (
-    <Container>
+    <Container
+      css={{ borderBottom: '10px solid white', borderTop: '10px solid white' }}
+    >
       <Grid container justify="center">
         <Grid item xs={12} md={10}>
           <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
