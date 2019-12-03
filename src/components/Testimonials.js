@@ -19,6 +19,7 @@ const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
       css={{
         paddingBottom: theme.spacing(8),
         paddingTop: theme.spacing(8),
+        borderBottom: '10px solid white',
       }}
     >
       <Box mb={2} p={3} textAlign="center">
