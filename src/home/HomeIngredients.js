@@ -5,11 +5,14 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core'
-import Ingredients from 'src/components/Ingredients'
+import IngredientsDesktop from 'src/components/IngredientsDesktop'
+import IngredientsMobile from 'src/components/IngredientsMobile'
+import ingredientData from 'data/ingredients'
 import theme from 'src/ui/theme'
 
 const HomeIngredients = () => {
-  const matches = useMediaQuery('(min-width: 760px)')
+  const ingredients = ingredientData.filter(ing => ing.showHome)
+  const matches = useMediaQuery(`(min-width: 820px)`)
   return (
     <Container
       css={{ paddingBottom: theme.spacing(8), paddingTop: theme.spacing(8) }}
@@ -38,7 +41,13 @@ const HomeIngredients = () => {
           </Box>
         </Grid>
         <Grid item xs={12} md={10}>
-          <Ingredients />
+          <div id="ingredientes">
+            {matches ? (
+              <IngredientsDesktop data={ingredients} />
+            ) : (
+              <IngredientsMobile data={ingredients} />
+            )}
+          </div>
         </Grid>
       </Grid>
     </Container>

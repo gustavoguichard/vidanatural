@@ -1,21 +1,19 @@
 import { useInView } from 'react-intersection-observer'
-import Certifications from 'src/components/Certifications'
 import Ingredients from 'src/components/Ingredients'
+import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
 import ProductCTA from 'src/product-page/ProductCTA'
-import { Paper, Container, Grid, Box, Typography } from '@material-ui/core'
+import {
+  Paper,
+  Container,
+  Grid,
+  Box,
+  Typography,
+  useMediaQuery,
+} from '@material-ui/core'
 import theme from 'src/ui/theme'
 
-const wrapperCss = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'column',
-  [theme.breakpoints.down('md')]: {
-    order: -1,
-  },
-}
-
 const ProductSale = ({ product, isMobile }) => {
+  const matches = useMediaQuery('(min-width: 760px)')
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
   return (
     <>
@@ -40,7 +38,7 @@ const ProductSale = ({ product, isMobile }) => {
       <Grid container justify="center">
         <Grid item xs={12} md={10}>
           <Grid spacing={6} justify="center" container>
-            <Grid item xs={12} sm={6} md={4} css={wrapperCss}>
+            <Grid item xs={12} sm={6} md={4}>
               <img width="400" src={product.image_url} />
             </Grid>
             <Grid
@@ -57,20 +55,20 @@ const ProductSale = ({ product, isMobile }) => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid
-        container
-        justify="center"
-        css={{ backgroundColor: theme.palette.common.white }}
-      >
-        <Container>
+      <Container>
+        <Grid
+          container
+          justify="center"
+          css={{ backgroundColor: theme.palette.common.white }}
+        >
           <Grid item xs={12} md={10}>
-            <Box pt={8} pb={8}>
+            <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
               <Typography variant="h3">Ingredientes</Typography>
               <Typography
                 variant="body1"
                 css={{
-                  marginTop: theme.spacing(1),
-                  marginBottom: theme.spacing(2),
+                  marginTop: theme.spacing(2),
+                  marginBottom: theme.spacing(4),
                 }}
               >
                 Esse produto é feito de{' '}
@@ -79,14 +77,12 @@ const ProductSale = ({ product, isMobile }) => {
                 sobre o nível de segurança no site da EWG (Environmental Working
                 Group - em inglês).
               </Typography>
-              <Ingredients product={product} />
+              <FeaturedIngredients product={product} />
+              <Ingredients hideFeatured product={product} />
             </Box>
           </Grid>
-        </Container>
-      </Grid>
-      <Box css={{ width: '100%' }}>
-        <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
-      </Box>
+        </Grid>
+      </Container>
     </>
   )
 }

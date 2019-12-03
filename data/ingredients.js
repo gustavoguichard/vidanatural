@@ -10,6 +10,7 @@ export default [
     name: 'Manteiga de Karité',
     inci: 'Butyrospermum Parkii',
     showHome: true,
+    hasIcon: true,
     description: 'Ingrediente orgânico.',
     url: '700875/BUTYROSPERMUM_PARKII_%28SHEA_BUTTER%29/',
   },
@@ -66,6 +67,7 @@ export default [
     name: 'Óleo Essencial de Tea Tree',
     inci: 'Melaleuca Alternifolia Leaf Extract',
     showHome: true,
+    hasIcon: true,
     description:
       'Ingrediente orgânico, poderoso antifúngico. O OE de Tea tree atua sobre brotoejas, picadas de insetos, micoses, dermatites, aftas, "sapinhos", piolhos, furúnculos, sarna, dores de garganta, abscessos, acne e pé-de-atleta.',
     url: '720554/MELALEUCA_ALTERNIFOLIA_%28TEA_TREE%29_LEAF_EXTRACT/',
@@ -74,6 +76,7 @@ export default [
     name: 'Óleo Essencial de Lavanda',
     inci: 'Lavandula Angustifolia Extract',
     showHome: true,
+    hasIcon: true,
     description:
       'Além de muitos efeitos conhecidos, na pele, o OE de lavanda destaca-se por ser um grande regenerador das células cutâneas. É bastante utilizado em tratamentos de acne, peles desidratadas e maltratadas. Também utilizado como método para tratar queimaduras, inflamações, psoríases e feridas.',
     url: '703484/LAVANDULA_ANGUSTIFOLIA_%28LAVENDER%29_EXTRACT/',
@@ -81,6 +84,7 @@ export default [
   {
     name: 'Óleo Essencial de Lavandin',
     inci: 'Lavandula Hybrida Oil',
+    hasIcon: true,
     description:
       'É uma espécie híbrida de Lavanda, dentre os tipos de lavanda, é o mais eficaz em ações: anti-fúngicas, antivirais, bactericidas e imunoestimulantes.',
     url: '703490/LAVANDULA_HYBRIDA_%28LAVANDIN%29_OIL/',
@@ -88,6 +92,7 @@ export default [
   {
     name: 'Óleo Essencial de Capim Limão',
     inci: 'Cymbopogon Flexuosos Leaf Oil',
+    hasIcon: true,
     description:
       'Possui uma ampla variedade de aplicações, como por exemplo: anti-inflamatório, analgésico, antisséptico, antipirético, antioxidante, antimicrobiano, fungicida, etc.',
     url: '701748/CYMBOPOGON_%28LEMON_GRASS%29_OIL/',
@@ -95,6 +100,7 @@ export default [
   {
     name: 'Óleo Essencial de Hortelã',
     inci: 'Mentha Piperita (Peppermint) Oil',
+    hasIcon: true,
     description: 'Além do conhecido e amado aroma, possui ação bactericída.',
     url: '703844/MENTHA_PIPERITA_%28PEPPERMINT%29_OIL/',
   },
@@ -108,6 +114,7 @@ export default [
   {
     name: 'Óleo de Girassol ',
     inci: 'Helianthus Annuus (Sunflower) Oil',
+    hasIcon: true,
     description:
       '100% vegetal e prensado a frio, mantendo suas propriedades. É constituido basicamente de ácidos graxos insaturados (ômegas 3, 6 e 9) e vitamina E.',
     url: '702804/HELIANTHUS_ANNUUS_%28SUNFLOWER%29_OIL/',
@@ -137,6 +144,7 @@ export default [
     name: 'Óleo de Rosa Mosqueta',
     inci: 'Rosa Aff Rubiginosa Oil',
     showHome: true,
+    hasIcon: true,
     description:
       'Reverenciada pelos egípcios, maias e norte-americanos nativos por suas propriedades terapêuticas, o óleo de Rosa Mosqueta oferece uma forma natural de combater rugas, desacelerar o envelhecimento e se atingir uma pele saudável. Estudos clínicos demonstram que ela também tem qualidades antibacterianas, antivirais e antifúngicas.',
     url: '705579/ROSA_CANINA_%28DOG_ROSE%29_FRUIT_OIL/',
@@ -158,6 +166,7 @@ export default [
   {
     name: 'Café Verde',
     inci: 'Coffea Arabica',
+    hasIcon: true,
     description:
       'Possui propriedades tonificantes, suavizantes e antissépticas e é muito utilizado em tratamentos de beleza corporais e faciais. É rico em ácidos graxos insaturados, como o ácido linoleico, que atua na cura de dermatites e alívio de eczemas. Os ácidos graxos promovem, também, a hidratação da pele e proteção contra raios UV.',
     url: '701591/COFFEA_ARABICA_%28ARABIAN_COFFEE%29/',
@@ -166,6 +175,7 @@ export default [
     name: 'Óleo de Oliva',
     inci: 'Olea Europaea',
     showHome: true,
+    hasIcon: true,
     description:
       'Rico em vitaminas A, D, E e K e antioxidantes, o azeite colabora para o combate aos radicais livres. Sendo assim, ajuda na prevenção do envelhecimento precoce da pele.',
     url: '704248/OLEA_EUROPAEA_%28OLIVE%29/',
@@ -181,6 +191,7 @@ export default [
     name: 'Juá em Pó',
     inci: 'Zizyphus Joazeiro Bark Extract',
     showHome: true,
+    hasIcon: true,
     description:
       'Simplesmente a casca de uma árvore (Juazeiro) em pó! O juá é um antiséptico e saponáceo natural.',
     url: '724946/ZIZYPHUS_JOAZEIRO_BARK_EXTRACT/',
