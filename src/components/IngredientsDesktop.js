@@ -23,7 +23,7 @@ const IngredientsDesktop = ({ data }) => (
         <TableCell>O que significa?</TableCell>
       </TableRow>
     </TableHead>
-    <TableBody>
+    <TableBody css={{ '& tr:last-child td': { borderBottom: 'none' } }}>
       {data.map((item, i) => (
         <TableRow key={`item-${i}`}>
           {item.name && <TableCell>{item.name}</TableCell>}
