@@ -1,12 +1,11 @@
 import {
-  Link,
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
   Typography,
 } from '@material-ui/core'
 import { ExpandMore } from '@material-ui/icons'
-import { EWG_URL } from 'data/ingredients'
+import InciLink from 'src/components/InciLink'
 
 const IngredientsMobile = ({ data }) =>
   data.map((item, i) => (
@@ -21,19 +20,7 @@ const IngredientsMobile = ({ data }) =>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography variant="body1" css={{ textAlign: 'left' }}>
-          <strong>Inci:</strong>{' '}
-          {item.url ? (
-            <Link
-              href={EWG_URL + item.url}
-              target="_blank"
-              color="secondary"
-              title="Obter mais informações"
-            >
-              {item.inci}
-            </Link>
-          ) : (
-            item.inci
-          )}
+          <strong>Inci:</strong> <InciLink {...item} />
           <br />
           <br />
           <strong>O que significa?</strong>

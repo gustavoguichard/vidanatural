@@ -1,6 +1,7 @@
 import find from 'lodash/find'
 import { Grid, Typography } from '@material-ui/core'
 import Img from 'src/components/Img'
+import InciLink from 'src/components/InciLink'
 import ingredientData from 'data/ingredients'
 import theme from 'src/ui/theme'
 
@@ -27,11 +28,14 @@ const FeaturedIngredients = ({ product }) => {
           <Typography variant="h4" css={{ textShadow: '-1px -1px 1px white' }}>
             {ing.name}
           </Typography>
+          <Typography variant="caption">
+            <InciLink {...ing} />
+          </Typography>
           <Typography
             variant="body1"
             css={{
               color: theme.palette.text.hint,
-              marginTop: theme.spacing(3),
+              marginTop: theme.spacing(),
               marginBottom: theme.spacing(5),
             }}
           >

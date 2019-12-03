@@ -1,12 +1,11 @@
 import {
-  Link,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
 } from '@material-ui/core'
-import { EWG_URL } from 'data/ingredients'
+import InciLink from 'src/components/InciLink'
 
 const IngredientsDesktop = ({ data }) => (
   <Table>
@@ -29,18 +28,7 @@ const IngredientsDesktop = ({ data }) => (
         <TableRow key={`item-${i}`}>
           {item.name && <TableCell>{item.name}</TableCell>}
           <TableCell colSpan={item.name ? 1 : 2}>
-            {item.url ? (
-              <Link
-                href={EWG_URL + item.url}
-                target="_blank"
-                color="secondary"
-                title="Obter mais informações"
-              >
-                {item.inci}
-              </Link>
-            ) : (
-              item.inci
-            )}
+            <InciLink {...item} />
           </TableCell>
           <TableCell>{item.description || '--'}</TableCell>
         </TableRow>
