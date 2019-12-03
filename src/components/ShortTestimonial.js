@@ -12,7 +12,6 @@ const ShortTestimonial = ({ name, picture, shortContent, content }) => (
       flexDirection: 'column',
       position: 'relative',
       padding: theme.spacing(4),
-      marginBottom: theme.spacing(5),
       textShadow: 'none',
     }}
   >
