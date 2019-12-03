@@ -11,7 +11,12 @@ const FeaturedIngredients = ({ product }) => {
   const ingredients = allIngredients.filter(ing => ing.hasIcon)
 
   return (
-    <Grid spacing={3} container justify="space-around" textAlign="center">
+    <Grid
+      spacing={3}
+      container
+      justify="space-around"
+      css={{ textAlign: 'center' }}
+    >
       {ingredients.map(ing => (
         <Grid key={ing.inci} item xs={12} sm={6} md={4}>
           <Img

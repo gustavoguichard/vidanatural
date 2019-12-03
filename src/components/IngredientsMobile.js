@@ -20,7 +20,7 @@ const IngredientsMobile = ({ data }) =>
         </Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <Typography variant="body1">
+        <Typography variant="body1" css={{ textAlign: 'left' }}>
           <strong>Inci:</strong>{' '}
           {item.url ? (
             <Link
