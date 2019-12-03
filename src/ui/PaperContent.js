@@ -20,7 +20,7 @@ const Wrapper = ({
         alignItems: 'center',
       }
     : {}
-  const marginBottom = overlap ? '-3rem' : 0
+  const marginBottom = overlap ? '-1rem' : 0
   const marginTop = overlap ? '-5rem' : 0
   return isMobile ? (
     <Box css={styles} py={noPadding ? 0 : 8} px={noPadding ? 0 : 5}>
