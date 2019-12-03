@@ -4,7 +4,7 @@ import MdContent from 'src/components/MdContent'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
-const Testimonial = ({ name, size, role, picture, location, content }) =>
+const Testimonial = ({ name, role, picture, location, content }) =>
   name ? (
     <Paper
       css={{

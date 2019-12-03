@@ -15,7 +15,12 @@ const HomeIngredients = () => {
   const matches = useMediaQuery(`(min-width: 820px)`)
   return (
     <Container
-      css={{ paddingBottom: theme.spacing(8), paddingTop: theme.spacing(8) }}
+      css={{
+        borderBottom: '10px solid white',
+        borderTop: '10px solid white',
+        paddingBottom: theme.spacing(8),
+        paddingTop: theme.spacing(8),
+      }}
     >
       <Grid container justify="center">
         <Grid item xs={12} md={10}>

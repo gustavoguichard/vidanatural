@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Box, CircularProgress } from '@material-ui/core'
-import theme from 'src/ui/theme'
+import { Box, CircularProgress, Typography } from '@material-ui/core'
 import { getResizedImg } from 'utils/api'
+import theme from 'src/ui/theme'
 
 const ImageGallery = ({ product, isLarge }) => {
   const [index, setIndex] = useState(0)
@@ -49,12 +49,23 @@ const ImageGallery = ({ product, isLarge }) => {
           ) : null,
         )}
       </Box>
+      {isLarge || (
+        <Typography
+          variant="h2"
+          css={{
+            textAlign: 'center',
+            marginBottom: theme.spacing(2),
+            marginTop: theme.spacing(2),
+          }}
+        >
+          {product.fullName || product.name}
+        </Typography>
+      )}
       <Box
         css={{ order: isLarge ? -1 : 0 }}
         display="flex"
         flexDirection={isLarge ? 'column' : 'row'}
         justifyContent="center"
-        flexWrap="wrap"
       >
         {product.images.map((img, i) => (
           <img

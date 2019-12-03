@@ -17,11 +17,10 @@ import theme from 'src/ui/theme'
 const ProductSale = ({ product, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
 
-  const matches = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)
+  const isLarge = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)
 
   const [variant] = product.variants || [{}]
 
-  console.log(product)
   return (
     <>
       {isMobile && <MobileCTA visible={visible} product={product} />}
@@ -32,9 +31,17 @@ const ProductSale = ({ product, isMobile }) => {
         <Box pt={12} pb={6}>
           <Grid spacing={4} container justify="center">
             <Grid item xs={12} md={6}>
-              <Typography variant="h3" css={{ marginBottom: theme.spacing() }}>
-                {product.fullName || product.name}
-              </Typography>
+              <ImageGallery product={product} isLarge={isLarge} />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              {isLarge && (
+                <Typography
+                  variant="h3"
+                  css={{ marginBottom: theme.spacing() }}
+                >
+                  {product.fullName || product.name}
+                </Typography>
+              )}
               <Typography variant="h4">
                 {toCurrency(variant.price || 0)}
               </Typography>
@@ -51,10 +58,7 @@ const ProductSale = ({ product, isMobile }) => {
               <p>
                 <Link>Saiba mais</Link>
               </p>
-              <ProductCTA ref={ref} product={product} />
-            </Grid>
-            <Grid css={{ order: matches ? -1 : 0 }} item xs={12} md={6}>
-              <ImageGallery product={product} isLarge={matches} />
+              <ProductCTA ref={ref} product={product} isLarge={isLarge} />
             </Grid>
           </Grid>
         </Box>
