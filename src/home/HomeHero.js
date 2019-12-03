@@ -1,12 +1,15 @@
 import React from 'react'
 import CTAButton from 'src/components/CTAButton'
 import { Container, Box, Grid, Typography } from '@material-ui/core'
-import theme from 'src/ui/theme'
 import BackgroundImg from 'src/components/BackgroundImg'
 
 const Hero = () => (
   <Box color="secondary.contrastText" position="relative">
-    <BackgroundImg src="/static/images/home_products.jpg" position="bottom" />
+    <BackgroundImg
+      alwaysShow
+      src="/static/images/home_products.jpg"
+      position="bottom"
+    />
     <Container
       css={{
         alignItems: 'flex-start',

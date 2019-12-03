@@ -27,7 +27,9 @@ const Hero = ({
       position="relative"
       bgcolor={color || defaultColor}
     >
-      {background && <BackgroundImg filter={filter} src={background} />}
+      {background && (
+        <BackgroundImg alwaysShow filter={filter} src={background} />
+      )}
       <Container
         css={{
           display: 'flex',

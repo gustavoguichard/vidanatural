@@ -3,7 +3,8 @@ import Img from 'src/components/Img'
 
 const Icon = ({ path, title, size = 75 }) => (
   <Img
-    css={{ margin: 10 }}
+    hideSpinner
+    css={{ margin: 12 }}
     width={size}
     src={require(`../../static/svgs/${path}.svg`)}
     alt={title}

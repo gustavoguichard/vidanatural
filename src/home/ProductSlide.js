@@ -54,8 +54,7 @@ const ProductSlide = ({
         md={10}
         css={{
           textAlign: 'center',
-          opacity: hidden ? 0 : 1,
-          pointerEvents: hidden ? 'none' : null,
+          visibility: hidden ? 'hidden' : 'visible',
         }}
       >
         <Link
@@ -91,8 +90,7 @@ const ProductSlide = ({
         css={{
           paddingTop: '0 !important',
           textAlign: 'center',
-          pointerEvents: hidden ? 'none' : null,
-          opacity: hidden ? 0 : 1,
+          visibility: hidden ? 'hidden' : 'visible',
         }}
       >
         <Paper

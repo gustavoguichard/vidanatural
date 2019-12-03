@@ -74,8 +74,8 @@ const getUrlObject = (url: string) => {
 }
 
 export const getResizedImg = (url: string, w = 200, h = w) => {
-  const imgUrl = getUrlObject(url)
-  return `${imgUrl.origin}/${w}x${h}${imgUrl.pathname}${imgUrl.search}`
+  const DOMAIN_REG = /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
+  return url.replace(DOMAIN_REG, `$1/${w}x${h}`)
 }
 
 export const getOwnPath = (url: string) => {

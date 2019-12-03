@@ -1,14 +1,4 @@
-import { useState } from 'react'
-import {
-  Box,
-  FormControl,
-  MenuItem,
-  Grid,
-  Paper,
-  Typography,
-  Select,
-  useMediaQuery,
-} from '@material-ui/core'
+import { Grid, Paper, Typography, useMediaQuery } from '@material-ui/core'
 import MdContent from 'src/components/MdContent'
 import Link from 'src/components/Link'
 import Img from 'src/components/Img'
@@ -18,8 +8,6 @@ import { isOdd, toCurrency } from 'utils/helpers'
 
 const ProductPreview = ({ product, index }) => {
   const matches = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)
-  const [value, setValue] = useState(1)
-  const handleChange = ({ target }) => setValue(target.value)
 
   const [variant] = product.variants || [{}]
 
@@ -85,18 +73,7 @@ const ProductPreview = ({ product, index }) => {
           <p>
             <Link href={`/produto/${product.slug}`}>Saiba mais</Link>
           </p>
-          <Box display="flex">
-            <FormControl css={{ marginRight: 4 }} variant="outlined">
-              <Select value={value} onChange={handleChange}>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => (
-                  <MenuItem key={n} value={n}>
-                    {n}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <ProductCTA size="large" quantity={value} product={product} />
-          </Box>
+          <ProductCTA size="large" product={product} />
         </Paper>
       </Grid>
     </Grid>
