@@ -86,7 +86,11 @@ export default [
     size: true,
     showHome: true,
     slogan: 'Você sem Óleos Minerais',
-    ingredients: ['Rosa Aff Rubiginosa Oil', 'Lavandula Angustifolia Extract'],
+    ingredients: [
+      'Rosa Aff Rubiginosa Oil',
+      'Lavandula Angustifolia Extract',
+      'Tocopheryl Acetate',
+    ],
   },
   {
     name: 'Xampú em Barra',
