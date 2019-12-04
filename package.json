@@ -40,7 +40,8 @@
     "react-icons": "^3.8.0",
     "react-intersection-observer": "^8.25.2",
     "react-netlify-form": "^2.1.5",
-    "react-swipeable": "^5.5.0"
+    "react-swipeable": "^5.5.0",
+    "react-swipeable-views": "^0.13.3"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.23",

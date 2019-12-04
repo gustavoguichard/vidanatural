@@ -56,7 +56,7 @@ const ProductSale = ({ product, isMobile }) => {
                 content={product.subtitle}
               />
               <p>
-                <Link>Saiba mais</Link>
+                <Link href="#">Saiba mais</Link>
               </p>
               <ProductCTA ref={ref} product={product} isLarge={isLarge} />
             </Grid>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Box, CircularProgress, Typography } from '@material-ui/core'
 import { getResizedImg } from 'utils/api'
+import SwipeableViews from 'react-swipeable-views'
 import theme from 'src/ui/theme'
 
 const ImageGallery = ({ product, isLarge }) => {
@@ -21,8 +22,12 @@ const ImageGallery = ({ product, isLarge }) => {
             position: 'absolute',
           }}
         />
-        {product.images.map((img, i) =>
-          index === i ? (
+        <SwipeableViews
+          index={index}
+          onChangeIndex={setIndex}
+          enableMouseEvents
+        >
+          {product.images.map((img, i) => (
             <div key={`img-${i}`}>
               <img
                 className="responsive"
@@ -46,8 +51,8 @@ const ImageGallery = ({ product, isLarge }) => {
                 src={getResizedImg(img.url, 100)}
               />
             </div>
-          ) : null,
-        )}
+          ))}
+        </SwipeableViews>
       </Box>
       {isLarge || (
         <Typography
@@ -72,8 +77,13 @@ const ImageGallery = ({ product, isLarge }) => {
             key={i}
             onClick={() => setIndex(i)}
             css={{
+              boxShadow:
+                i === index
+                  ? `0 0 0 2px ${theme.palette.common.black}`
+                  : `0 0 0 0 black`,
               margin: theme.spacing(),
               cursor: 'pointer',
+              transition: 'all .6s',
             }}
             src={getResizedImg(img.url, 100)}
           />

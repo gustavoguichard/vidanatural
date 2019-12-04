@@ -6,8 +6,6 @@ export default [
     slug: 'desodorante-em-pasta-maior-protecao-40g',
     path: 'desodorante-em-pasta',
     packing: 'pote',
-    tone: '#e4e13e',
-    size: 6,
     showHome: true,
     slogan: 'Você sem Parabeno',
     ingredients: [
@@ -31,8 +29,6 @@ export default [
     Também não entope os poros e nunca impede o suor.`,
     path: 'desodorante-rollon',
     packing: 'rollon',
-    tone: '#0082FB',
-    size: 6,
     showHome: true,
     slogan: 'Você sem Alumínio',
     ingredients: [
@@ -48,8 +44,6 @@ export default [
   //   fullName: 'Desodorante Gel 30g',
   //   subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
   //   path: 'desodorante-bisnaga',
-  //   tone: '#78B496',
-  //   size: true,
   //   showHome: false,
   //   slogan: 'Você sem Parabeno',
   //   ingredients: [
@@ -82,8 +76,6 @@ export default [
     slug: 'oleo-de-rosa-mosqueta-30ml',
     path: 'rosa-mosqueta',
     packing: 'pipeta',
-    tone: '#A938FF',
-    size: true,
     showHome: true,
     slogan: 'Você sem Óleos Minerais',
     ingredients: [
@@ -99,8 +91,6 @@ export default [
     slug: 'xampu-em-barra-capim-limao-e-lavanda-100g',
     path: 'xampu-em-barra',
     packing: 'caixa',
-    tone: '#0b0c17',
-    size: 6,
     showHome: true,
     slogan: 'Você sem Parabeno',
     ingredients: [
@@ -121,8 +111,6 @@ export default [
     slug: 'hidratante-facial-30g',
     path: 'hidratante-facial',
     packing: 'pump',
-    tone: '#fe5c5c',
-    size: true,
     showHome: false,
     slogan: 'Você sem Ácido Sulfônico',
     ingredients: [
@@ -148,8 +136,6 @@ export default [
     path: 'po-dental',
     slug: 'po-dental-20g',
     packing: 'bisnaga',
-    tone: '#6CBB3D',
-    size: true,
     showHome: true,
     slogan: 'Você sem Microplásticos',
     ingredients: [
@@ -166,8 +152,6 @@ export default [
     slug: 'oleo-hidratante-girassol-150ml',
     path: 'oleo-hidratante',
     packing: 'frasco',
-    tone: '#da8235',
-    size: true,
     showHome: false,
     slogan: 'Você sem Fragrâncias Sintéticas',
     ingredients: [
