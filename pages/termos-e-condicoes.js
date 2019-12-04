@@ -23,6 +23,7 @@ export default function Index() {
               css={{
                 maxWidth: '100%',
                 width: 320,
+                minHeight: 300,
                 margin: '10px auto',
                 display: 'block',
               }}
@@ -59,6 +60,7 @@ export default function Index() {
               css={{
                 maxWidth: '100%',
                 width: 340,
+                minHeight: 300,
                 margin: '80px auto 10px',
                 display: 'block',
               }}
@@ -104,28 +106,27 @@ export default function Index() {
                 <br />
                 Assim sendo, se compromete a:
               </p>
-              <p>
-                <ul>
-                  <li>
-                    Corrigir prontamente quaisquer alterações relativas às
-                    informações pessoais dos usuários sempre que informada;
-                  </li>
-                  <li>
-                    Em hipótese alguma divulgar as informações pessoais dos
-                    usuários cadastrados no site ou comercializá-los; e
-                  </li>
-                  <li>
-                    Retirar prontamente, mediante solicitação, os contatos de
-                    qualquer cliente de alguma lista de envio de informativos
-                    promocionais.
-                  </li>
-                </ul>
-              </p>
+              <ul>
+                <li>
+                  Corrigir prontamente quaisquer alterações relativas às
+                  informações pessoais dos usuários sempre que informada;
+                </li>
+                <li>
+                  Em hipótese alguma divulgar as informações pessoais dos
+                  usuários cadastrados no site ou comercializá-los; e
+                </li>
+                <li>
+                  Retirar prontamente, mediante solicitação, os contatos de
+                  qualquer cliente de alguma lista de envio de informativos
+                  promocionais.
+                </li>
+              </ul>
             </Typography>
             <Img
               css={{
                 maxWidth: '100%',
                 width: 320,
+                minHeight: 300,
                 margin: '80px auto 10px',
                 display: 'block',
               }}
@@ -166,6 +167,7 @@ export default function Index() {
               css={{
                 maxWidth: '100%',
                 width: 320,
+                minHeight: 300,
                 margin: '80px auto 10px',
                 display: 'block',
               }}
@@ -304,6 +306,7 @@ export default function Index() {
               css={{
                 maxWidth: '100%',
                 width: 200,
+                minHeight: 300,
                 margin: '80px auto 10px',
                 display: 'block',
               }}

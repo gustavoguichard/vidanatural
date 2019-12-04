@@ -1,5 +1,5 @@
 import find from 'lodash/find'
-import { Container, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import ProductPreview from 'src/produtos/ProductPreview'
@@ -18,20 +18,7 @@ const ProductsPage = ({ products }) => (
       </Typography>
     </Hero>
     {products.map((product, index) => (
-      <Container
-        maxWidth="lg"
-        key={index}
-        css={{
-          borderBottom: '10px solid white',
-          borderTop: index === 0 ? '10px solid white' : null,
-          minHeight: '80vh',
-          display: 'flex',
-          alignItems: 'center',
-          position: 'relative',
-        }}
-      >
-        <ProductPreview index={index} product={product} />
-      </Container>
+      <ProductPreview key={index} index={index} product={product} />
     ))}
   </Layout>
 )

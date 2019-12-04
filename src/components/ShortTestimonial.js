@@ -34,18 +34,7 @@ const ShortTestimonial = ({ name, picture, shortContent, content }) => (
       variant="body1"
     >
       <GoQuote css={{ fontSize: '1.2rem', position: 'relative', bottom: -5 }} />
-      <MdContent
-        css={{
-          textIndent: '1.15rem',
-          a: {
-            color: theme.palette.secondary.main,
-          },
-          '&::first-letter': {
-            fontSize: '1.25rem',
-          },
-        }}
-        content={shortContent || content}
-      />
+      <MdContent content={shortContent || content} />
     </Typography>
   </Box>
 )

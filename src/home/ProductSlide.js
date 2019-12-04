@@ -54,6 +54,7 @@ const ProductSlide = ({
         md={10}
         css={{
           textAlign: 'center',
+          minHeight: 350,
           visibility: hidden ? 'hidden' : 'visible',
         }}
       >
@@ -65,6 +66,7 @@ const ProductSlide = ({
         >
           <Img
             className="responsive"
+            hideSpinner
             css={{
               width: 520,
               marginTop: theme.spacing(4),
@@ -94,7 +96,7 @@ const ProductSlide = ({
         }}
       >
         <Paper
-          elevation={3}
+          elevation={1}
           css={{
             backgroundColor: 'rgba(255, 255, 255, .9)',
             padding: theme.spacing(4),

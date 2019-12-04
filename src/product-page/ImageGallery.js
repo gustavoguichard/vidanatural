@@ -14,7 +14,11 @@ const ImageGallery = ({ product, isLarge }) => {
         display="flex"
         alignItems="flex-start"
         justifyContent="center"
-        css={{ width: '100%', minHeight: 300 }}
+        css={{
+          width: '100%',
+          minHeight: 300,
+          border: `2px solid ${theme.palette.common.black}`,
+        }}
       >
         <CircularProgress
           css={{

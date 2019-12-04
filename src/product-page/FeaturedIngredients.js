@@ -1,5 +1,5 @@
 import find from 'lodash/find'
-import { Grid, Typography } from '@material-ui/core'
+import { Box, Grid, Typography } from '@material-ui/core'
 import Img from 'src/components/Img'
 import InciLink from 'src/components/InciLink'
 import ingredientData from 'data/ingredients'
@@ -20,13 +20,14 @@ const FeaturedIngredients = ({ product }) => {
     >
       {ingredients.map(ing => (
         <Grid key={ing.inci} item xs={12} sm={6} md={4}>
-          <Img
-            className="responsive"
-            width={300}
-            css={{ marginBottom: -theme.spacing(8) }}
-            alt={ing.name}
-            src={`/static/images/ingredients/${ing.inci}.png`}
-          />
+          <Box mb={-8} minHeight={250}>
+            <Img
+              className="responsive"
+              width={300}
+              alt={ing.name}
+              src={`/static/images/ingredients/${ing.inci}.png`}
+            />
+          </Box>
           <Typography
             variant="h4"
             css={{
