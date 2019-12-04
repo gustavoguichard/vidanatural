@@ -58,7 +58,7 @@ const ImageGallery = ({ product, isDesktop }) => {
           ))}
         </SwipeableViews>
       </Box>
-      {isDesktop || (
+      {isDesktop ? null : (
         <Typography
           variant="h2"
           css={{

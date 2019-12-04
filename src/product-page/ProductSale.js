@@ -73,7 +73,7 @@ const ProductSale = ({ product, isMobile }) => {
           </Grid>
         </Box>
       </Container>
-      <Description product={product} />
+      <Description product={product} isDesktop={isDesktop} />
     </>
   )
 }
