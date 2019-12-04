@@ -1,5 +1,4 @@
 import ReactMarkdown from 'react-markdown'
-import { nl2Br } from 'utils/helpers'
 import theme from 'src/ui/theme'
 
 const MdContent = ({ content, ...props }) => (
@@ -15,7 +14,7 @@ const MdContent = ({ content, ...props }) => (
     }}
     {...props}
     escapeHtml={false}
-    source={nl2Br(content)}
+    source={content}
   />
 )
 

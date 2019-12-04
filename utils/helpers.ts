@@ -45,9 +45,6 @@ export const isClient = typeof window === 'object'
 
 export const isOdd = (num: number) => num % 2
 
-export const nl2Br = (content: string) =>
-  content.replace(/(?:\r\n|\r|\n)/g, '<br />')
-
 export const sleep = (time: number) =>
   new Promise(resolve => setTimeout(resolve, time))
 

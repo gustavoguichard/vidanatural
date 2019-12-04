@@ -80,9 +80,11 @@ const ProductPreview = ({ product, index }) => {
               padding: theme.spacing(4),
             }}
           >
-            <Typography variant="h3" css={{ marginBottom: theme.spacing() }}>
-              {product.title}
-            </Typography>
+            <Link href={`/produto/${product.slug}`}>
+              <Typography variant="h3" css={{ marginBottom: theme.spacing() }}>
+                {product.title}
+              </Typography>
+            </Link>
             <Typography variant="subtitle1">
               {toCurrency(variant.price || 0)}
             </Typography>

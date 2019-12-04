@@ -18,6 +18,8 @@ const HomeIngredients = () => {
       css={{
         borderBottom: '10px solid white',
         borderTop: '10px solid white',
+        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(5),
         paddingBottom: theme.spacing(8),
         paddingTop: theme.spacing(8),
       }}
@@ -46,7 +48,13 @@ const HomeIngredients = () => {
           </Box>
         </Grid>
         <Grid item xs={12} md={10}>
-          <div id="ingredientes">
+          <div
+            id="ingredientes"
+            css={{
+              marginLeft: -theme.spacing(2),
+              marginRight: -theme.spacing(2),
+            }}
+          >
             {matches ? (
               <IngredientsDesktop data={ingredients} />
             ) : (

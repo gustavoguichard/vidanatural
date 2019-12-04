@@ -3,6 +3,7 @@ import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import PaperContent from 'src/ui/PaperContent'
 import Member from 'src/about/Member'
+import IllustratedIngredients from 'src/about/IllustratedIngredients'
 import theme from 'src/ui/theme'
 import team from 'data/team'
 
@@ -64,6 +65,7 @@ export default function Index() {
           </Grid>
         </Grid>
       </PaperContent>
+      <IllustratedIngredients />
     </Layout>
   )
 }

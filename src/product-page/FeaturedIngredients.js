@@ -6,9 +6,12 @@ import ingredientData from 'data/ingredients'
 import theme from 'src/ui/theme'
 
 const FeaturedIngredients = ({ product }) => {
-  const allIngredients = product.ingredients.map(ing =>
-    find(ingredientData, data => data.inci === ing),
-  )
+  const allIngredients = product
+    ? product.ingredients.map(ing =>
+        find(ingredientData, data => data.inci === ing),
+      )
+    : ingredientData
+
   const ingredients = allIngredients.filter(ing => ing.hasIcon)
 
   return (
