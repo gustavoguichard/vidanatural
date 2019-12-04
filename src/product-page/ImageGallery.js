@@ -22,9 +22,13 @@ const ImageGallery = ({ product, isLarge }) => {
             position: 'absolute',
           }}
         />
-        <SwipeableViews index={index} onChangeIndex={setIndex}>
+        <SwipeableViews
+          enableMouseEvents
+          index={index}
+          onChangeIndex={setIndex}
+        >
           {product.images.map((img, i) => (
-            <div key={`img-${i}`}>
+            <Box display="flex" justifyContent="center" key={`img-${i}`}>
               <img
                 className="responsive"
                 css={{
@@ -46,7 +50,7 @@ const ImageGallery = ({ product, isLarge }) => {
                 }}
                 src={getResizedImg(img.url, 100)}
               />
-            </div>
+            </Box>
           ))}
         </SwipeableViews>
       </Box>
@@ -65,6 +69,7 @@ const ImageGallery = ({ product, isLarge }) => {
       {product.images.length > 1 && (
         <Box
           css={{ order: isLarge ? -1 : 0 }}
+          px={isLarge ? 0 : 1}
           display="flex"
           flexDirection={isLarge ? 'column' : 'row'}
           justifyContent="center"
@@ -79,6 +84,8 @@ const ImageGallery = ({ product, isLarge }) => {
                     ? `0 0 0 2px ${theme.palette.common.black}`
                     : `0 0 0 0 black`,
                 margin: theme.spacing(),
+                width: 100,
+                maxWidth: isLarge ? 100 : `${100 / product.images.length}%`,
                 cursor: 'pointer',
                 transition: 'all .6s',
               }}
