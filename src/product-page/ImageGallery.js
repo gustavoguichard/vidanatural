@@ -62,29 +62,31 @@ const ImageGallery = ({ product, isLarge }) => {
           {product.fullName || product.name}
         </Typography>
       )}
-      <Box
-        css={{ order: isLarge ? -1 : 0 }}
-        display="flex"
-        flexDirection={isLarge ? 'column' : 'row'}
-        justifyContent="center"
-      >
-        {product.images.map((img, i) => (
-          <img
-            key={i}
-            onClick={() => setIndex(i)}
-            css={{
-              boxShadow:
-                i === index
-                  ? `0 0 0 2px ${theme.palette.common.black}`
-                  : `0 0 0 0 black`,
-              margin: theme.spacing(),
-              cursor: 'pointer',
-              transition: 'all .6s',
-            }}
-            src={getResizedImg(img.url, 100)}
-          />
-        ))}
-      </Box>
+      {product.images.length > 1 && (
+        <Box
+          css={{ order: isLarge ? -1 : 0 }}
+          display="flex"
+          flexDirection={isLarge ? 'column' : 'row'}
+          justifyContent="center"
+        >
+          {product.images.map((img, i) => (
+            <img
+              key={i}
+              onClick={() => setIndex(i)}
+              css={{
+                boxShadow:
+                  i === index
+                    ? `0 0 0 2px ${theme.palette.common.black}`
+                    : `0 0 0 0 black`,
+                margin: theme.spacing(),
+                cursor: 'pointer',
+                transition: 'all .6s',
+              }}
+              src={getResizedImg(img.url, 100)}
+            />
+          ))}
+        </Box>
+      )}
     </Box>
   )
 }
