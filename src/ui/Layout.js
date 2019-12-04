@@ -1,9 +1,14 @@
 import { memo } from 'react'
 import { Box } from '@material-ui/core'
+import Router from 'next/router'
 import Chat from 'src/ui/Chat'
 import Header from 'src/ui/Header'
 import Footer from 'src/ui/Footer'
 import Certifications from 'src/components/Certifications'
+
+Router.events.on('routeChangeComplete', () => {
+  window.scrollTo(0, 0)
+})
 
 const Layout = ({
   children,

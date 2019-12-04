@@ -5,7 +5,6 @@ import {
   useScrollTrigger,
   useMediaQuery,
 } from '@material-ui/core'
-import Router from 'next/router'
 import Logo from 'src/ui/header/Logo'
 import DesktopMenu from 'src/ui/header/DesktopMenu'
 import MobileMenu from 'src/ui/header/MobileMenu'
@@ -13,15 +12,13 @@ import CartIcon from 'src/ui/header/CartIcon'
 import SearchBar from 'src/ui/header/SearchBar'
 import SearchIcon from 'src/ui/header/SearchIcon'
 import useGlobal from 'utils/useGlobal'
+import { useScrollDirection } from 'utils/hooks'
 import theme from 'src/ui/theme'
-
-Router.events.on('routeChangeComplete', () => {
-  window.scrollTo(0, 0)
-})
 
 const Header = ({ stick, logoCompanion, variant }) => {
   const secondary = variant === 'secondary'
   const isDesktop = useMediaQuery('(min-width: 790px)')
+  const scrollDirection = useScrollDirection()
   const hasScrolled = useScrollTrigger({
     disableHysteresis: true,
     threshold: isDesktop ? 80 : 20,
@@ -38,6 +35,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
       <AppBar
         css={{
           backgroundColor: sticky ? null : 'transparent',
+          top: sticky && scrollDirection === 'DOWN' ? -64 : 0,
           transition: 'all .3s',
         }}
         position="fixed"

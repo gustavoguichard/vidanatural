@@ -1,11 +1,7 @@
-import {
-  useState,
-  useRef,
-  useEffect,
-  useReducer,
-} from 'react'
+import { useCallback, useState, useRef, useEffect, useReducer } from 'react'
 import get from 'lodash/get'
 import debounce from 'lodash/debounce'
+import throttle from 'lodash/throttle'
 import isEqual from 'lodash/isEqual'
 import { isClient } from 'utils/helpers'
 
@@ -22,22 +18,26 @@ export const useWindowDimensions = (delay = 300) => {
   return dimensions
 }
 
-export const useScroll = () => {
+export const useScroll = (delay = 300) => {
   const frame = useRef(0)
   const [state, setState] = useState({
     x: isClient ? window.scrollX : 0,
     y: isClient ? window.scrollY : 0,
   })
 
+  const updateScroll = useCallback(
+    throttle(() => {
+      setState({
+        x: window.scrollX,
+        y: window.scrollY,
+      })
+    }, delay),
+  )
+
   useEffect(() => {
     const handler = () => {
       cancelAnimationFrame(frame.current)
-      frame.current = requestAnimationFrame(() => {
-        setState({
-          x: window.scrollX,
-          y: window.scrollY,
-        })
-      })
+      frame.current = requestAnimationFrame(updateScroll)
     }
 
     window.addEventListener('scroll', handler, {
@@ -52,6 +52,21 @@ export const useScroll = () => {
   }, [])
 
   return state
+}
+
+export const useScrollDirection = (threeshold = 15, delay = 300) => {
+  const [direction, setDirection] = useState()
+  const { y } = useScroll(delay) || { y: 0 }
+  const prevY = usePrevious(y)
+
+  if (direction !== 'DOWN' && y > prevY + threeshold) {
+    setDirection('DOWN')
+  }
+  if (direction !== 'UP' && y < prevY - threeshold) {
+    setDirection('UP')
+  }
+
+  return direction
 }
 
 export const useColumns = (splitFactor = 365) => {
