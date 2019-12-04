@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { Box } from '@material-ui/core'
 import Router from 'next/router'
+import BottomCTA from 'src/ui/BottomCTA'
 import Chat from 'src/ui/Chat'
 import Header from 'src/ui/Header'
 import Footer from 'src/ui/Footer'
@@ -16,7 +17,9 @@ const Layout = ({
   variant = 'primary',
   footerVariant = variant,
   hideCertifications,
+  hideChat,
   stickBar,
+  ctaChildren,
 }) => (
   <>
     <Header logoCompanion={logoCompanion} variant={variant} stick={stickBar} />
@@ -27,7 +30,10 @@ const Layout = ({
       </Box>
     )}
     <Footer variant={footerVariant} />
-    <Chat />
+    <BottomCTA>
+      {hideChat || <Chat css={{ bottom: 8, position: 'absolute', right: 8 }} />}
+      {ctaChildren}
+    </BottomCTA>
   </>
 )
 

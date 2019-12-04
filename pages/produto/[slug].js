@@ -9,7 +9,7 @@ import { useIsMobile } from 'utils/responsive'
 const ProductPage = ({ product }) => {
   const isMobile = useIsMobile()
   return (
-    <ProductLayout product={product}>
+    <ProductLayout isMobile={isMobile} product={product}>
       <ProductSale isMobile={isMobile} product={product} />
     </ProductLayout>
   )

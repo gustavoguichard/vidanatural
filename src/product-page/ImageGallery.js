@@ -4,11 +4,11 @@ import { getResizedImg } from 'utils/api'
 import SwipeableViews from 'react-swipeable-views'
 import theme from 'src/ui/theme'
 
-const ImageGallery = ({ product, isLarge }) => {
+const ImageGallery = ({ product, isDesktop }) => {
   const [index, setIndex] = useState(0)
 
   return (
-    <Box display="flex" flexDirection={isLarge ? 'row' : 'column'}>
+    <Box display="flex" flexDirection={isDesktop ? 'row' : 'column'}>
       <Box
         position="relative"
         display="flex"
@@ -58,7 +58,7 @@ const ImageGallery = ({ product, isLarge }) => {
           ))}
         </SwipeableViews>
       </Box>
-      {isLarge || (
+      {isDesktop || (
         <Typography
           variant="h2"
           css={{
@@ -72,10 +72,10 @@ const ImageGallery = ({ product, isLarge }) => {
       )}
       {product.images.length > 1 && (
         <Box
-          css={{ order: isLarge ? -1 : 0 }}
-          px={isLarge ? 0 : 1}
+          css={{ order: isDesktop ? -1 : 0 }}
+          px={isDesktop ? 0 : 1}
           display="flex"
-          flexDirection={isLarge ? 'column' : 'row'}
+          flexDirection={isDesktop ? 'column' : 'row'}
           justifyContent="center"
         >
           {product.images.map((img, i) => (
@@ -89,7 +89,7 @@ const ImageGallery = ({ product, isLarge }) => {
                     : `0 0 0 0 black`,
                 margin: theme.spacing(),
                 width: 100,
-                maxWidth: isLarge ? 100 : `${100 / product.images.length}%`,
+                maxWidth: isDesktop ? 100 : `${100 / product.images.length}%`,
                 cursor: 'pointer',
                 transition: 'all .6s',
               }}

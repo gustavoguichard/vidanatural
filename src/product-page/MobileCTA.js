@@ -1,5 +1,6 @@
-import ProductCTA from 'src/product-page/ProductCTA'
 import { Paper } from '@material-ui/core'
+import Chat from 'src/ui/Chat'
+import ProductCTA from 'src/product-page/ProductCTA'
 import theme from 'src/ui/theme'
 
 const MobileCTA = ({ product, visible }) => (
@@ -8,16 +9,19 @@ const MobileCTA = ({ product, visible }) => (
     css={{
       backgroundColor: theme.palette.primary.main,
       borderRadius: 0,
-      position: 'fixed',
       bottom: visible ? -100 : 0,
+      display: 'flex',
+      justifyContent: 'space-evenly',
       left: 0,
-      right: 0,
-      zIndex: 200,
       padding: '.5rem',
+      position: 'fixed',
+      right: 0,
       transition: 'all .45s ease-in-out',
+      zIndex: 200,
     }}
   >
     <ProductCTA size="large" product={product} hideQuantity />
+    <Chat />
   </Paper>
 )
 
