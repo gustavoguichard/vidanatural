@@ -57,7 +57,7 @@ export default function Index() {
             >
               Quem somos?
             </Typography>
-            <Grid container justify="center" spacing={3}>
+            <Grid container spacing={4} justify="center" alignItems="stretch">
               {team.map(member => (
                 <Member key={member.picture} {...member} />
               ))}
