@@ -12,12 +12,15 @@ const ImageGallery = ({ product, isDesktop }) => {
       <Box
         position="relative"
         display="flex"
-        alignItems="flex-start"
+        alignItems="stretch"
         justifyContent="center"
         css={{
           width: '100%',
           minHeight: 300,
           border: `2px solid ${theme.palette.common.black}`,
+          '& .react-swipeable-view-container': {
+            height: '100%',
+          },
         }}
       >
         <CircularProgress
@@ -32,7 +35,12 @@ const ImageGallery = ({ product, isDesktop }) => {
           onChangeIndex={setIndex}
         >
           {product.images.map((img, i) => (
-            <Box display="flex" justifyContent="center" key={`img-${i}`}>
+            <Box
+              display="flex"
+              justifyContent="center"
+              css={{ height: '100%' }}
+              key={`img-${i}`}
+            >
               <img
                 className="responsive"
                 css={{

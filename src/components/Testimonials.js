@@ -22,7 +22,7 @@ const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
         borderBottom: '10px solid white',
       }}
     >
-      <Box mb={2} p={3} textAlign="center">
+      <Box mx={2} mb={2} p={3} textAlign="center">
         <Img
           className="responsive"
           css={{

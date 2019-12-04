@@ -19,7 +19,11 @@ const ProductSale = ({ product, isMobile }) => {
     <>
       {isMobile && <MobileCTA visible={visible} product={product} />}
       <Container
-        css={{ backgroundColor: theme.palette.common.white }}
+        css={{
+          backgroundColor: theme.palette.common.white,
+          paddingLeft: theme.spacing(5),
+          paddingRight: theme.spacing(5),
+        }}
         maxWidth="lg"
       >
         <Box pt={12} pb={6}>

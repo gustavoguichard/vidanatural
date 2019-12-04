@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Typography, useMediaQuery } from '@material-ui/core'
+import { Box, Typography, useMediaQuery } from '@material-ui/core'
 import IngredientsDesktop from 'src/components/IngredientsDesktop'
 import IngredientsMobile from 'src/components/IngredientsMobile'
 import ingredientData from 'data/ingredients'
@@ -29,11 +29,13 @@ const Ingredients = ({ product, hideFeatured }) => {
           Outros ingredientes
         </Typography>
       )}
-      {matches ? (
-        <IngredientsDesktop data={ingredients} />
-      ) : (
-        <IngredientsMobile data={ingredients} />
-      )}
+      <Box mx={-2}>
+        {matches ? (
+          <IngredientsDesktop data={ingredients} />
+        ) : (
+          <IngredientsMobile data={ingredients} />
+        )}
+      </Box>
     </div>
   ) : null
 }

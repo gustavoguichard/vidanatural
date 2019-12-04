@@ -113,7 +113,7 @@ const ProductSlide = ({
               fontWeight: 400,
               color: theme.palette.text.hint,
             }}
-            className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+            className="MuiTypography-root MuiTypography-body1"
             content={product.subtitle}
           />
           <CTAButton

@@ -13,10 +13,15 @@ const ProductIngredients = ({ product }) => {
   const matches = useMediaQuery('(min-width: 760px)')
   return (
     <Container
-      css={{ borderBottom: '10px solid white', borderTop: '10px solid white' }}
+      css={{
+        borderBottom: '10px solid white',
+        borderTop: '10px solid white',
+        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(5),
+      }}
       id={`ingredientes-${product.path}`}
     >
-      <Grid container justify="center">
+      <Grid css={{ padding: 0 }} container justify="center">
         <Grid item xs={12} md={10}>
           <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
             <Typography variant="h3">Ingredientes</Typography>
