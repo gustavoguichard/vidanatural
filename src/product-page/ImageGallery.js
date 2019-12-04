@@ -22,11 +22,7 @@ const ImageGallery = ({ product, isLarge }) => {
             position: 'absolute',
           }}
         />
-        <SwipeableViews
-          index={index}
-          onChangeIndex={setIndex}
-          enableMouseEvents
-        >
+        <SwipeableViews index={index} onChangeIndex={setIndex}>
           {product.images.map((img, i) => (
             <div key={`img-${i}`}>
               <img
