@@ -7,19 +7,18 @@ import theme from 'src/ui/theme'
 const ShortTestimonial = ({ name, picture, shortContent, content }) => (
   <Box
     css={{
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column',
-      position: 'relative',
       padding: theme.spacing(4),
-      textShadow: 'none',
+      textAlign: 'center',
     }}
   >
     <Img
       Component={Avatar}
+      height={130}
+      width={130}
       css={{
         width: 130,
         height: 130,
+        margin: 'auto',
         marginBottom: theme.spacing(2),
       }}
       alt={name}

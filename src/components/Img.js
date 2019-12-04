@@ -19,14 +19,24 @@ const Img = ({
       {visible || alwaysShow ? (
         <Component ref={ref} className={className} src={src} {...props} />
       ) : (
-        <CircularProgress
-          ref={ref}
+        <div
           css={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             margin: 'auto',
-            visibility: hideSpinner ? 'hidden' : 'visible',
+            width: props.width || null,
+            height: props.height || null,
           }}
           className={className}
-        />
+        >
+          <CircularProgress
+            ref={ref}
+            css={{
+              visibility: hideSpinner ? 'hidden' : 'visible',
+            }}
+          />
+        </div>
       )}
     </Fragment>
   )

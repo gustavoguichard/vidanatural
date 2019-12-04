@@ -6,6 +6,7 @@ const Icon = ({ path, title, size = 75 }) => (
     hideSpinner
     css={{ margin: 12 }}
     width={size}
+    height={size}
     src={require(`../../static/svgs/${path}.svg`)}
     alt={title}
     title={title}

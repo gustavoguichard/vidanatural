@@ -21,11 +21,19 @@ const FeaturedIngredients = ({ product }) => {
       {ingredients.map(ing => (
         <Grid key={ing.inci} item xs={12} sm={6} md={4}>
           <Img
+            className="responsive"
+            width={300}
             css={{ marginBottom: -theme.spacing(8) }}
             alt={ing.name}
             src={`/static/images/ingredients/${ing.inci}.png`}
           />
-          <Typography variant="h4" css={{ textShadow: '-1px -1px 1px white' }}>
+          <Typography
+            variant="h4"
+            css={{
+              textShadow:
+                '-2px -2px 1px white, 2px -2px 1px white, -2px 2px 1px white, 2px 2px 1px white',
+            }}
+          >
             {ing.name}
           </Typography>
           <Typography variant="caption">
