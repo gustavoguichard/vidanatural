@@ -1,7 +1,6 @@
 import React from 'react'
 import { Paper, Container, Box } from '@material-ui/core'
 import { useIsMobile } from 'utils/responsive'
-import theme from 'src/ui/theme'
 
 const Wrapper = ({
   color = 'white',

@@ -10,7 +10,7 @@ export default {
           path: '/produtos',
         },
         ...products.map(product => ({
-          ...product,
+          name: product.title,
           path: `/produto/${product.slug || product.path}`,
         })),
       ],

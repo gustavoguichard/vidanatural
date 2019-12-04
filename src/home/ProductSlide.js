@@ -61,7 +61,7 @@ const ProductSlide = ({
         <Link
           {...swipeHandlers}
           href={product.slug ? `/produto/${product.slug}` : `/${product.path}`}
-          title={product.name}
+          title={product.title}
           prefetch={false}
         >
           <Img
@@ -77,7 +77,7 @@ const ProductSlide = ({
               opacity: show ? 1 : 0,
             }}
             src={`/static/images/products/${product.path}.png`}
-            alt={product.name}
+            alt={product.title}
           />
         </Link>
       </Grid>
@@ -105,7 +105,7 @@ const ProductSlide = ({
             bottom: show ? 0 : -15,
           }}
         >
-          <Typography variant="h3">{product.name}</Typography>
+          <Typography variant="h3">{product.title}</Typography>
           <MdContent
             css={{
               marginTop: theme.spacing(3),

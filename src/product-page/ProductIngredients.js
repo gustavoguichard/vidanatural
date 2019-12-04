@@ -14,6 +14,7 @@ const ProductIngredients = ({ product }) => {
   return (
     <Container
       css={{ borderBottom: '10px solid white', borderTop: '10px solid white' }}
+      id={`ingredientes-${product.path}`}
     >
       <Grid container justify="center">
         <Grid item xs={12} md={10}>

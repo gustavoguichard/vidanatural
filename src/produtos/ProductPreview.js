@@ -51,13 +51,13 @@ const ProductPreview = ({ product, index }) => {
             href={
               product.slug ? `/produto/${product.slug}` : `/${product.path}`
             }
-            title={product.name}
+            title={product.title}
           >
             <Img
               className="responsive"
               css={{ width: 520, marginTop: theme.spacing(4) }}
               src={`/static/images/products/${product.path}.png`}
-              alt={product.name}
+              alt={product.title}
             />
           </Link>
         </Grid>
@@ -81,11 +81,21 @@ const ProductPreview = ({ product, index }) => {
             }}
           >
             <Typography variant="h3" css={{ marginBottom: theme.spacing() }}>
-              {product.fullName || product.name}
+              {product.title}
             </Typography>
-            <Typography variant="h4">
+            <Typography variant="subtitle1">
               {toCurrency(variant.price || 0)}
             </Typography>
+            <MdContent
+              css={{
+                marginTop: theme.spacing(3),
+                marginBottom: theme.spacing(2),
+                fontWeight: 600,
+                color: theme.palette.text.hint,
+              }}
+              className="MuiTypography-root MuiTypography-body1"
+              content={product.subtitle}
+            />
             <MdContent
               css={{
                 marginTop: theme.spacing(3),
@@ -93,8 +103,8 @@ const ProductPreview = ({ product, index }) => {
                 fontWeight: 400,
                 color: theme.palette.text.hint,
               }}
-              className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
-              content={product.subtitle}
+              className="MuiTypography-root MuiTypography-body1"
+              content={product.presentation}
             />
             <p>
               <Link href={`/produto/${product.slug}`}>Saiba mais</Link>

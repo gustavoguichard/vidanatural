@@ -3,6 +3,7 @@ import { Box, Container, Grid, Typography } from '@material-ui/core'
 import MdContent from 'src/components/MdContent'
 import Link from 'src/components/Link'
 import ImageGallery from 'src/product-page/ImageGallery'
+import Description from 'src/product-page/Description'
 import ProductCTA from 'src/product-page/ProductCTA'
 import MobileCTA from 'src/product-page/MobileCTA'
 import { toCurrency } from 'utils/helpers'
@@ -32,7 +33,7 @@ const ProductSale = ({ product, isMobile }) => {
                   variant="h3"
                   css={{ marginBottom: theme.spacing() }}
                 >
-                  {product.fullName || product.name}
+                  {product.title}
                 </Typography>
               )}
               <Typography variant="h4">
@@ -41,21 +42,38 @@ const ProductSale = ({ product, isMobile }) => {
               <MdContent
                 css={{
                   marginTop: theme.spacing(3),
+                  fontWeight: 600,
+                  color: theme.palette.text.hint,
+                  p: {
+                    marginBottom: 0,
+                  },
+                }}
+                className="MuiTypography-root MuiTypography-body1"
+                content={product.subtitle}
+              />
+              <Typography variant="caption">
+                <Link href={`#descricao`}>Mais detalhes</Link>
+                {' - '}
+                <Link href={`#ingredientes-${product.path}`}>
+                  Ver ingredientes
+                </Link>
+              </Typography>
+              <MdContent
+                css={{
+                  marginTop: theme.spacing(3),
                   marginBottom: theme.spacing(2),
                   fontWeight: 400,
                   color: theme.palette.text.hint,
                 }}
-                className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
-                content={product.subtitle}
+                className="MuiTypography-root MuiTypography-body1"
+                content={product.presentation}
               />
-              <p>
-                <Link href="#">Saiba mais</Link>
-              </p>
               <ProductCTA ref={ref} product={product} />
             </Grid>
           </Grid>
         </Box>
       </Container>
+      <Description product={product} />
     </>
   )
 }

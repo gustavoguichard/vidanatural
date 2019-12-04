@@ -1,11 +1,18 @@
 export default [
   {
-    name: 'Desodorante em Pasta',
-    fullName: 'Desodorante Pasta 40g',
+    title: 'Desodorante em Pasta',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     slug: 'desodorante-em-pasta-maior-protecao-40g',
     path: 'desodorante-em-pasta',
     packing: 'pote',
+    presentation: `Um desodorante **natural** e sustentável de verdade e que é super **eficiente**!
+
+O desodorante em pasta da Vida Natural é aprovado por atletas de alto desempenho, agricultores que trabalham na roça e por profissionais da saúde.
+
+Protege do mau cheiro sem intoxicar o corpo e sem poluir o planeta.
+
+Artesanal, vegano, sem alumínio, sem parabenos, sem triclosan, sem fragrâncias artificiais e outros absurdos sintéticos.
+`,
     showHome: true,
     slogan: 'Você sem Parabeno',
     ingredients: [
@@ -20,8 +27,7 @@ export default [
     ],
   },
   {
-    name: 'Desodorante Rollon',
-    fullName: 'Desodorante Rollon 70ml',
+    title: 'Desodorante Roll On',
     subtitle: 'Indicado para o dia-a-dia.',
     slug: 'desodorante-roll-on-suave-70ml',
     fullSubtitle: `Desodorante suave, Indicado para peles sensíveis e uso diário.
@@ -29,6 +35,14 @@ export default [
     Também não entope os poros e nunca impede o suor.`,
     path: 'desodorante-rollon',
     packing: 'rollon',
+    presentation: `Desodorante natural suave para o dia-a-dia, com óleos essenciais de tea tree (melaleuca) e lavanda (com função bactericida).
+
+Desenvolvemos um leite de magnésia específico para ser usado como desodorante, portanto mais eficiente e com a garantia de que não é testado em animais.
+
+Artesanal, vegano, sem alumínio, sem parabenos, sem triclosan, sem fragrâncias artificiais e outros absurdos sintéticos.
+
+Em embalagem prática, fácil aplicação.
+`,
     showHome: true,
     slogan: 'Você sem Alumínio',
     ingredients: [
@@ -40,8 +54,7 @@ export default [
     ],
   },
   // {
-  //   name: 'Desodorante Gel',
-  //   fullName: 'Desodorante Gel 30g',
+  //   title: 'Desodorante Gel',
   //   subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
   //   path: 'desodorante-bisnaga',
   //   showHome: false,
@@ -69,13 +82,21 @@ export default [
   //   ],
   // },
   {
-    name: 'Rosa Mosqueta',
-    fullName: 'Óleo Rosa Mosqueta 30ml',
+    title: 'Rosa Mosqueta',
     subtitle: `Cuidado e reparo para a pele.
     Óleo 100% vegetal, extraído a frio, conhecido por sua ação regeneradora.`,
     slug: 'oleo-de-rosa-mosqueta-30ml',
     path: 'rosa-mosqueta',
     packing: 'pipeta',
+    presentation: `Óleo vegetal de Rosa Mosqueta é um poderoso antioxidante.
+Previne e ameniza os efeitos do tempo sobre a pele.
+
+É rico em ácidos graxos que estimulam a atividade celular e a regeneração do tecido cutâneo.
+
+Ajuda a reduzir manchas, marcas, linhas de expressão.
+Hidrata, trata e suaviza a pele.
+É uma m-a-r-a-v-i-l-h-a para pele!
+`,
     showHome: true,
     slogan: 'Você sem Óleos Minerais',
     ingredients: [
@@ -85,12 +106,21 @@ export default [
     ],
   },
   {
-    name: 'Xampú em Barra',
-    fullName: 'Xampú Capim Limão e Lavanda 100g',
+    title: 'Xampú em Barra',
     subtitle: 'Limpa sem remover a hidratação natural.',
     slug: 'xampu-em-barra-capim-limao-e-lavanda-100g',
     path: 'xampu-em-barra',
     packing: 'caixa',
+    presentation: `Com uma formulação natural de verdade que:
+- não agride o cabelo e o couro cabeludo,
+- não deixa resíduos que danificam o cabelo,
+- não contém ingredientes poluentes ou tóxicos.
+
+Xampu feito a partir da saponificação de óleos e manteigas vegetais (não usamos base pronta de glicerina).
+
+Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação e nutrição para pele e cabelos.
+Óleo essencial de Capim Limão atua como bactericida e antifúngico.
+`,
     showHome: true,
     slogan: 'Você sem Parabeno',
     ingredients: [
@@ -105,12 +135,21 @@ export default [
     ],
   },
   {
-    name: 'Hidratante Facial',
-    fullName: 'Hidratante Facial 40g',
+    title: 'Hidratante Facial',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     slug: 'hidratante-facial-30g',
     path: 'hidratante-facial',
     packing: 'pump',
+    presentation: `Nosso hidratante protege, hidrata e repara a pele do rosto.
+É feito com óleos essenciais, para sua pele receber a potência e a essência da natureza. Potencializa os processos de renovação celular.
+
+- Feito com gel de Babosa, que acalma, regenera e hidrata.
+- Tem Rosa Mosqueta na composição, conhecido tradicionalmente por seu poder de regenerar a pele.
+- Acompanhado de outro poderoso antioxidante, o café verde.
+- Palmarosa, junto com Rosa Mosqueta, atua amenizando manchas.
+- Lavanda é sempre um cuidado extra com pele.
+- Copaíba super hidratante e nutritivo, tem propriedades anti inflamatórias.
+`,
     showHome: false,
     slogan: 'Você sem Ácido Sulfônico',
     ingredients: [
@@ -130,12 +169,19 @@ export default [
     ],
   },
   {
-    name: 'Pó Dental',
-    fullName: 'Pó Dental 20g',
+    title: 'Pó Dental',
     subtitle: 'Diferente por ser o mais natural.',
-    path: 'po-dental',
     slug: 'po-dental-20g',
+    path: 'po-dental',
     packing: 'bisnaga',
+    presentation: `Só 3 ingredientes?!
+Melhores ingredientes para sua boca!
+
+Juá é um antiséptico e saponáceo natural.
+Melaleuca e hortelã são bactericidas.
+Toda a limpeza,  higiene e proteção que sua boca e seus dentes merecem.
+E, claro, sem poluir e sem agredir.
+`,
     showHome: true,
     slogan: 'Você sem Microplásticos',
     ingredients: [
@@ -145,13 +191,19 @@ export default [
     ],
   },
   {
-    name: 'Óleo Hidratante',
-    fullName: 'Óleo Hidratante 150ml',
+    title: 'Óleo Hidratante',
     subtitle:
       'Óleo 100% vegetal extraído a frio, o que preserva as características naturais. Hidrata e nutre a pele.',
     slug: 'oleo-hidratante-girassol-150ml',
     path: 'oleo-hidratante',
     packing: 'frasco',
+    presentation: `Hidrata, suaviza, restaura e protege pele.
+
+Óleo de Girassol prensado a frio é rico em bioativos antioxidantes.
+
+Ele reforça a camada hidrolipídica da pele, mantendo o tecido hidratado e protegido.
+Lavanda e Palmarosa estimulam a regeneração celular e melhoram a aparência da pele.
+`,
     showHome: false,
     slogan: 'Você sem Fragrâncias Sintéticas',
     ingredients: [

@@ -32,6 +32,13 @@ export const buildQuery = (query?: object) => {
   return queryString.join('&')
 }
 
+export function clipString(text: string, size = 35) {
+  const { length } = text
+  const first = Math.max(0, Math.floor((size - 3) / 2))
+  const last = Math.max(0, Math.ceil(length - first))
+  return length < size ? text : `${text.slice(0, first)}...${text.slice(last)}`
+}
+
 export const joinWith = (args: any[], mark = '') => compact(args).join(mark)
 
 export const isClient = typeof window === 'object'
