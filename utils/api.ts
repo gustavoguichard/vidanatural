@@ -14,7 +14,7 @@ const saveCookie = (headers: Headers) => {
   }
 }
 
-const getUrl = (path: string, params?: object, proxy?: boolean) => {
+export const getUrl = (path: string, params?: object, proxy?: boolean) => {
   const base = proxy
     ? process.env.API_PROXY
     : `https://${process.env.API_DOMAIN}/`
