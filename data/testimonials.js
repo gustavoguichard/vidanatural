@@ -150,7 +150,7 @@ Os produtos Vida Natural serão **usados pelos pesquisadores no veleiro ECO/UFSC
   {
     name: 'Denise Franco',
     role: 'Vendedora',
-    tags: ['desodorante-rollon', 'desodorante-em-pasta'],
+    tags: ['all'],
     location: 'Canoas / RS',
     picture: 'denise-franco',
     shortContent: `Sinto uma profunda gratidão por haver pessoas empreendedoras que apresentam produtos feitos com **carinho e respeito**, **cuidando verdadeiramente** do próximo.`,
@@ -377,5 +377,13 @@ Fruto de um trabalho feito com **muito amor**, **idealismo** e muita preocupaç�
     location: 'Florianópolis / SC',
     picture: 'karla-scherer',
     content: `Sempre recomendo os produtos Vida Natural para meus amigos e para aqueles que desconhecem a **eficácia dos [desodorantes](/produto/desodorante-em-pasta)** e [hidratantes naturais](/produto/hidratante-facial) naturais. Os produtos têm **excelente qualidade**, **composição** perfeita e com ótimos preços!`,
+  },
+  {
+    name: 'Murilo Secco',
+    role: 'Designer Gráfico',
+    tags: ['desodorante-rollon', 'desodorante-em-pasta'],
+    location: 'Franca / SP',
+    picture: 'murilo-secco',
+    content: `Acredita que meu [desodorante em pasta](/produto/desodorante-em-pasta) eu uso até hoje? Tenho usado todo dia! Ele não acaba... acho que ele nasce de novo no pote!`,
   },
 ]

@@ -5,7 +5,6 @@ import { withRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
 import Input from 'src/contato/Input'
 import theme from 'src/ui/theme'
-import { getUrl } from 'utils/api'
 
 const Form = ({ router }) => {
   const [formState, { raw, text, email, textarea }] = useFormState({

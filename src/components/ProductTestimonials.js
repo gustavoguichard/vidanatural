@@ -7,7 +7,10 @@ const filterByTag = tag => item => item.tags.includes(tag)
 const ProductTestimonials = ({ product }) => {
   const filteredTestimonials = filter(testimonials, filterByTag(product.path))
   const genericTestimonials = filter(testimonials, filterByTag('all'))
-  const items = [...filteredTestimonials, ...genericTestimonials]
+  const items =
+    filteredTestimonials.length < 3
+      ? [...filteredTestimonials, ...genericTestimonials]
+      : filteredTestimonials
   return <Testimonials testimonials={items} />
 }
 
