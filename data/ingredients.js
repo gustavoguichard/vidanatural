@@ -84,7 +84,6 @@ export default [
   {
     name: 'Óleo Essencial de Lavandin',
     inci: 'Lavandula Hybrida Oil',
-    hasIcon: true,
     description:
       'É uma espécie híbrida de Lavanda, dentre os tipos de lavanda, é o mais eficaz em ações: anti-fúngicas, antivirais, bactericidas e imunoestimulantes.',
     url: '703490/LAVANDULA_HYBRIDA_%28LAVANDIN%29_OIL/',
@@ -236,5 +235,13 @@ export default [
     inci: 'Aloe Vera Gel',
     description: 'Simplesmente: Gel de babosa!',
     url: '700269/ALOE_BARBADENSIS_%28ALOE_VERA%29_GEL/',
+  },
+  {
+    name: 'Argila Verde',
+    inci: 'Montmorillonite',
+    showHome: true,
+    description:
+      'A argila é famosa pelos seus benefícios no cuidado com a pele, sendo comumente usada em tratamentos há milhares de anos. Os egípcios, por exemplo, já usavam esse componente nas suas mumificações.',
+    url: '704015/MONTMORILLONITE/',
   },
 ]
