@@ -40,6 +40,8 @@ const NewsForm = () => {
           variant="outlined"
           {...email('email')}
           css={{
+            display: 'flex',
+            paddingRight: 5,
             '& fieldset': {
               borderColor: theme.palette.primary.light,
             },
