@@ -33,7 +33,16 @@ const Icon = ({
 
 const SocialList = ({ className, ...props }) => {
   return (
-    <div className={`social-list ${className}`}>
+    <div
+      css={{
+        [theme.breakpoints.up('md')]: {
+          alignItems: 'flex-end',
+          display: 'flex',
+          flexDirection: 'column',
+        },
+      }}
+      className={`social-list ${className}`}
+    >
       <Icon
         site="instagram"
         href="https://instagram.com/vidanatural.eco"

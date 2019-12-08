@@ -21,7 +21,7 @@ const MobileCTA = ({ product, visible }) => (
     }}
   >
     <ProductCTA size="large" product={product} hideQuantity />
-    <Chat />
+    <Chat css={{ backgroundColor: 'transparent', boxShadow: 'none' }} />
   </Paper>
 )
 

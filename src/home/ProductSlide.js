@@ -81,7 +81,16 @@ const ProductSlide = ({
           />
         </Link>
       </Grid>
-      <Grid item xs={12} md={10} css={{ zIndex: 10, padding: '0 !important' }}>
+      <Grid
+        item
+        xs={12}
+        md={10}
+        css={{
+          zIndex: 10,
+          padding: '0 !important',
+          visibility: hidden ? 'hidden' : 'visible',
+        }}
+      >
         {children}
       </Grid>
       <Grid

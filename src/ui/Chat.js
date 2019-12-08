@@ -1,10 +1,12 @@
 import { Paper } from '@material-ui/core'
 import { FaWhatsapp, FaFacebookMessenger } from 'react-icons/fa'
+import theme from 'src/ui/theme'
 
 const Chat = props => (
   <Paper
     elevation={6}
     css={{
+      backgroundColor: theme.palette.primary.dark,
       display: 'grid',
       gridAutoFlow: 'column',
       gridGap: 5,
