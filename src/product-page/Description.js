@@ -10,6 +10,7 @@ const Description = ({ product, isDesktop }) => {
   return (
     <Container
       maxWidth="lg"
+      id="descricao"
       css={{
         borderTop: '10px solid white',
         paddingBottom: theme.spacing(5),
@@ -33,7 +34,6 @@ const Description = ({ product, isDesktop }) => {
           <Typography
             variant="body1"
             component="div"
-            id="descricao"
             css={{
               maxHeight: isOpen ? 'auto' : 300,
               transition: 'all .45s ease-in-out',
