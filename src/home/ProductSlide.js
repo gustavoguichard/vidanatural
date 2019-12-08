@@ -96,7 +96,7 @@ const ProductSlide = ({
         }}
       >
         <Paper
-          elevation={1}
+          elevation={0}
           css={{
             backgroundColor: 'rgba(255, 255, 255, .9)',
             padding: theme.spacing(4),

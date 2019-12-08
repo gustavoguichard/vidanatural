@@ -73,7 +73,7 @@ const ProductPreview = ({ product, index }) => {
           }}
         >
           <Paper
-            elevation={1}
+            elevation={0}
             css={{
               backgroundColor: 'rgba(255, 255, 255, .9)',
               marginBottom: theme.spacing(4),

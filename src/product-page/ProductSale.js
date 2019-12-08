@@ -21,8 +21,6 @@ const ProductSale = ({ product, isMobile }) => {
       <Container
         css={{
           backgroundColor: theme.palette.common.white,
-          paddingLeft: theme.spacing(5),
-          paddingRight: theme.spacing(5),
         }}
         maxWidth="lg"
       >
@@ -31,7 +29,15 @@ const ProductSale = ({ product, isMobile }) => {
             <Grid item xs={12} md={6}>
               <ImageGallery product={product} isDesktop={isDesktop} />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              css={{
+                paddingLeft: `${theme.spacing(5)}px !important`,
+                paddingRight: `${theme.spacing(5)}px !important`,
+              }}
+            >
               {isDesktop && (
                 <Typography
                   variant="h3"
