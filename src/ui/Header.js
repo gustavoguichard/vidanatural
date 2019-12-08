@@ -5,6 +5,7 @@ import {
   useScrollTrigger,
   useMediaQuery,
 } from '@material-ui/core'
+import get from 'lodash/get'
 import Logo from 'src/ui/header/Logo'
 import DesktopMenu from 'src/ui/header/DesktopMenu'
 import MobileMenu from 'src/ui/header/MobileMenu'
@@ -27,6 +28,9 @@ const Header = ({ stick, logoCompanion, variant }) => {
   const sticky = stick || hasScrolled
   const elevation = sticky ? 4 : 0
   const companionSize = sticky ? 35 : 60
+  const isOnTop =
+    typeof document !== 'undefined' &&
+    get(document, 'documentElement.scrollTop', 0) < 20
 
   const [, actions] = useGlobal()
   useEffect(actions.getCartItems, [])
@@ -35,7 +39,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
       <AppBar
         css={{
           backgroundColor: sticky ? null : 'transparent',
-          top: sticky && scrollDirection === 'DOWN' ? -64 : 0,
+          top: !isOnTop && sticky && scrollDirection === 'DOWN' ? -64 : 0,
           transition: 'all .3s',
         }}
         position="fixed"
