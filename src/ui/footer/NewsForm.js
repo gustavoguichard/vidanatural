@@ -9,22 +9,31 @@ import {
 } from '@material-ui/core'
 import { Send } from '@material-ui/icons'
 import { useFormState } from 'react-use-form-state'
+import Alert from 'src/components/Alert'
 import theme from 'src/ui/theme'
-import { sleep } from 'utils/helpers'
+import api from 'utils/api'
 
 const NewsForm = () => {
-  const [loading, setLoading] = useState(false)
-  const [formState, { email }] = useFormState()
+  const [sending, setSending] = useState(false)
+  const [sent, setSent] = useState(false)
+  const [hasError, setHasError] = useState(false)
+  const [formState, { email }] = useFormState({ key: 'vidanatural-newsletter' })
   const handleSubmit = async event => {
     event.preventDefault()
-    setLoading(true)
+    setHasError(false)
+    setSending(true)
 
-    await sleep(4000)
-    formState.clear()
-    setLoading(false)
+    const isSent = await api.sendForm(formState.values)
+    if (isSent) {
+      formState.clear()
+      setSent(true)
+    } else {
+      setHasError(true)
+    }
+    setSending(false)
   }
   return (
-    <form name="Newsletter" onSubmit={handleSubmit} action="/news">
+    <form name="Newsletter" onSubmit={handleSubmit} action="/webform">
       <Typography
         variant="h5"
         color="inherit"
@@ -60,7 +69,7 @@ const NewsForm = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                {loading ? (
+                {sending ? (
                   <CircularProgress color="secondary" />
                 ) : (
                   <IconButton
@@ -75,6 +84,18 @@ const NewsForm = () => {
               </InputAdornment>
             ),
           }}
+        />
+        <Alert
+          message={
+            hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
+          }
+        />
+        <Alert
+          color={theme.palette.secondary.dark}
+          message={
+            sent &&
+            'Agradecemos a confiança! Confira seu e-mail para confirmação.'
+          }
         />
       </Box>
     </form>

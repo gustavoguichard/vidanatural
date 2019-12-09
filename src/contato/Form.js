@@ -1,40 +1,38 @@
+import { useState } from 'react'
 import { Button, CircularProgress, SnackbarContent } from '@material-ui/core'
 import { useFormState } from 'react-use-form-state'
 import { TextField } from '@material-ui/core'
 import { withRouter } from 'next/router'
-import fetch from 'isomorphic-unfetch'
+import Alert from 'src/components/Alert'
 import Input from 'src/contato/Input'
-import theme from 'src/ui/theme'
+import api from 'utils/api'
 
 const Form = ({ router }) => {
+  const [sending, setSending] = useState(false)
+  const [hasError, setHasError] = useState(false)
+
   const [formState, { raw, text, email, textarea }] = useFormState({
-    key: 'vidanatural-problemas-tecnicos',
+    key: 'vidanatural-mensagem-pelo-site',
     reply_to: '',
   })
+
   const handleSubmit = async event => {
     event.preventDefault()
+    setHasError(false)
+    setSending(true)
 
-    const response = await fetch('/webform', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        ...formState.values,
-        reply_to: formState.values.email,
-      }),
-    })
+    const values = { ...formState.values, reply_to: formState.values.email }
+    const isSent = await api.sendForm(values)
 
-    console.log(response)
-
-    // router.push({ pathname: '/gratos' })
+    isSent ? router.push({ pathname: '/gratos' }) : setHasError(true)
+    setSending(false)
   }
   return (
     <form
-      name="Formulário de Contato"
+      name="Contato"
       onSubmit={handleSubmit}
       action="/webform"
-      data-webform="vidanatural-problemas-tecnicos"
+      data-webform="vidanatural-mensagem-pelo-site"
     >
       <TextField {...raw('key')} type="hidden" />
       <TextField {...raw('reply_to')} type="hidden" />
@@ -54,17 +52,13 @@ const Form = ({ router }) => {
         rows="4"
         label="Mensagem"
       />
-      {false && (
-        <SnackbarContent
-          css={{
-            backgroundColor: theme.palette.error.main,
-            color: theme.palette.text.secondary,
-          }}
-          message="Ocorreu algum erro, por favor, tente denovo mais tarde"
-        />
-      )}
+      <Alert
+        message={
+          hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
+        }
+      />
       <Button type="submit" variant="contained" color="secondary">
-        {false ? <CircularProgress /> : 'Enviar mensagem'}
+        {sending ? <CircularProgress /> : 'Enviar mensagem'}
       </Button>
     </form>
   )

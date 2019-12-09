@@ -2,6 +2,7 @@ import get from 'lodash/get'
 import fetch from 'isomorphic-unfetch'
 import { buildQuery, joinWith } from 'utils/helpers'
 import Cookies from 'js-cookie'
+import { FormKeys } from './typeDeclarations'
 
 const saveCookie = (headers: Headers) => {
   const cookie = headers.get('Biscuit')
@@ -40,14 +41,35 @@ const doRequest = async (url: string, params = {}, proxy?: boolean) => {
   return data
 }
 
-const fetchApi = (path = '', query?: object, proxy = false) => {
+const fetchApi = async (path = '', query?: object, proxy = false) => {
   const url = getUrl(path, query, proxy)
   return doRequest(url, {}, proxy)
 }
 
-const post = (path = '', query?: object, params?: object, proxy = false) => {
+const post = async (
+  path = '',
+  query?: object,
+  params?: object,
+  proxy = false,
+) => {
   const url = getUrl(path, query, proxy)
   return doRequest(url, { ...params, method: 'POST' }, proxy)
+}
+
+const sendForm = async (values: FormKeys, proxy = false) => {
+  const { a_password, key, ...otherValues } = values
+
+  if (!!a_password || !key) {
+    return false
+  }
+
+  const url = getUrl('webform', { key, ...otherValues }, proxy)
+  const response = await fetch(url, {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
+  })
+
+  return response.status < 400
 }
 
 const search = (params?: object) => fetchApi('busca', params, true)
@@ -90,6 +112,7 @@ export default {
   listCart,
   listProduct,
   listPage,
+  sendForm,
   search,
   textSearch,
   CART_URL: getUrl('carrinho'),
