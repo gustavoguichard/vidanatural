@@ -14,7 +14,7 @@ const Form = ({ router }) => {
   const handleSubmit = async event => {
     event.preventDefault()
 
-    await fetch('/api/webform', {
+    await fetch('/webform', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -24,7 +24,7 @@ const Form = ({ router }) => {
         reply_to: formState.values.email,
       }),
     })
-    router.push({ pathname: '/gratos' })
+    // router.push({ pathname: '/gratos' })
   }
   return (
     <form
