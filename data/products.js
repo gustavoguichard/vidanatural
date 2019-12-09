@@ -1,5 +1,6 @@
 export default [
   {
+    vndaId: 3,
     title: 'Desodorante em Pasta',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     slug: 'desodorante-em-pasta-maior-protecao-40g',
@@ -41,6 +42,7 @@ Artesanal, vegano, sem alumínio, sem parabenos, sem triclosan, sem fragrâncias
     ],
   },
   {
+    vndaId: 1,
     title: 'Desodorante Roll On',
     subtitle: 'Indicado para o dia-a-dia.',
     slug: 'desodorante-roll-on-suave-70ml',
@@ -110,6 +112,7 @@ Em embalagem prática, fácil aplicação.
   //   ],
   // },
   {
+    vndaId: 5,
     title: 'Rosa Mosqueta',
     subtitle: `Cuidado e reparo para a pele.
     Óleo 100% vegetal, extraído a frio, conhecido por sua ação regeneradora.`,
@@ -146,6 +149,7 @@ Hidrata, trata e suaviza a pele.
     ],
   },
   {
+    vndaId: 6,
     title: 'Xampú em Barra',
     subtitle: 'Limpa sem remover a hidratação natural.',
     slug: 'xampu-em-barra-capim-limao-e-lavanda-100g',
@@ -187,6 +191,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
     ],
   },
   {
+    vndaId: 4,
     title: 'Hidratante Facial',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
     slug: 'hidratante-facial-30g',
@@ -232,6 +237,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
     ],
   },
   {
+    vndaId: 2,
     title: 'Pó Dental',
     subtitle: 'Diferente por ser o mais natural.',
     slug: 'po-dental-20g',
@@ -265,6 +271,7 @@ E, claro, sem poluir e sem agredir.
     ],
   },
   {
+    vndaId: 7,
     title: 'Óleo Hidratante',
     subtitle:
       'Óleo 100% vegetal extraído a frio, o que preserva as características naturais. Hidrata e nutre a pele.',
