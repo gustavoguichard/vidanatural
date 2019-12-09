@@ -18,13 +18,13 @@ const HomeIngredients = () => {
       css={{
         borderBottom: '10px solid white',
         borderTop: '10px solid white',
-        paddingLeft: theme.spacing(5),
-        paddingRight: theme.spacing(5),
         paddingBottom: theme.spacing(8),
         paddingTop: theme.spacing(8),
       }}
     >
-      <Container>
+      <Container
+        css={{ paddingLeft: theme.spacing(5), paddingRight: theme.spacing(5) }}
+      >
         <Grid container justify="center">
           <Grid item xs={12} md={10}>
             <Box textAlign={matches ? 'center' : 'left'}>

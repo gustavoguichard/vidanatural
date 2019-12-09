@@ -1,4 +1,5 @@
 import React from 'react'
+import NextLink from 'next/link'
 import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
 import { Box, Container, Grid, Paper, Typography } from '@material-ui/core'
@@ -35,7 +36,7 @@ const Hero = () => (
               background: 'rgba(255,255,255,.9)',
               position: 'relative',
               zIndex: 10,
-              padding: theme.spacing(6),
+              padding: theme.spacing(4),
               marginBottom: theme.spacing(2),
             }}
           >
@@ -68,10 +69,12 @@ const Hero = () => (
             },
           }}
         >
-          <Img
-            className="responsive"
-            src="/static/images/products-banner.png"
-          />
+          <a href="/produtos">
+            <Img
+              className="responsive"
+              src="/static/images/products-banner.png"
+            />
+          </a>
         </Grid>
       </Grid>
     </Container>

@@ -16,12 +16,12 @@ const IllustratedIngredients = () => {
       css={{
         borderBottom: '10px solid white',
         borderTop: '10px solid white',
-        paddingLeft: theme.spacing(5),
-        paddingRight: theme.spacing(5),
       }}
       id="ingredientes"
     >
-      <Container>
+      <Container
+        css={{ paddingLeft: theme.spacing(5), paddingRight: theme.spacing(5) }}
+      >
         <Grid container justify="center">
           <Grid item xs={12} md={10}>
             <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>

@@ -1,9 +1,8 @@
 import { useState, memo } from 'react'
 import shuffle from 'lodash/shuffle'
-import { Box, Dialog } from '@material-ui/core'
+import { Container, Dialog, Paper } from '@material-ui/core'
 import { useProcessOnce } from 'utils/hooks'
 import Testimonial from 'src/components/Testimonial'
-import PaperContent from 'src/ui/PaperContent'
 import testimonials from 'data/testimonials'
 import theme from 'src/ui/theme'
 import Masonry from 'src/components/Masonry'
@@ -20,31 +19,43 @@ const People = () => {
   const isOpen = !!current
 
   return (
-    <PaperContent
-      overflow="hidden"
-      noPadding
-      color={theme.palette.primary.dark}
-    >
-      <Masonry>
-        {shuffled.map((testimonial, index) => (
-          <Person onOpen={onOpen} index={index} key={index} {...testimonial} />
-        ))}
-      </Masonry>
-      <Dialog
-        scroll="body"
-        PaperComponent={'div'}
-        PaperProps={{
-          style: {
-            margin: 20,
-            maxWidth: 600,
-          },
+    <Container maxWidth="lg">
+      <Paper
+        css={{
+          backgroundColor: theme.palette.primary.dark,
+          overflow: 'hidden',
+          marginBottom: '-1rem',
+          marginTop: '-5rem',
+          '-webkit-mask-image':
+            'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)',
         }}
-        onClose={handleClose}
-        open={isOpen}
       >
-        <Testimonial {...current} />
-      </Dialog>
-    </PaperContent>
+        <Masonry>
+          {shuffled.map((testimonial, index) => (
+            <Person
+              onOpen={onOpen}
+              index={index}
+              key={index}
+              {...testimonial}
+            />
+          ))}
+        </Masonry>
+        <Dialog
+          scroll="body"
+          PaperComponent={'div'}
+          PaperProps={{
+            style: {
+              margin: 20,
+              maxWidth: 600,
+            },
+          }}
+          onClose={handleClose}
+          open={isOpen}
+        >
+          <Testimonial {...current} />
+        </Dialog>
+      </Paper>
+    </Container>
   )
 }
 

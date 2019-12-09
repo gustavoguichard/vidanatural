@@ -20,7 +20,7 @@ export default function Index() {
       </Hero>
       <PaperContent>
         <Grid container justify="center">
-          <Grid item xs={11} sm={8}>
+          <Grid item xs={12} sm={8}>
             <Typography variant="h4" css={{ marginBottom: theme.spacing(4) }}>
               Por que fazemos o que fazemos?
             </Typography>

@@ -7,7 +7,7 @@ import theme from 'src/ui/theme'
 const ShortTestimonial = ({ name, picture, shortContent, content }) => (
   <Box
     css={{
-      padding: theme.spacing(4),
+      padding: `${theme.spacing(4)}px ${theme.spacing(5)}px`,
       textAlign: 'center',
     }}
   >

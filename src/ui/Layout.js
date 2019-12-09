@@ -31,7 +31,9 @@ const Layout = ({
     )}
     <Footer variant={footerVariant} />
     <BottomCTA>
-      {hideChat || <Chat css={{ bottom: 8, position: 'absolute', right: 8 }} />}
+      {hideChat ? null : (
+        <Chat css={{ bottom: 8, position: 'absolute', right: 8 }} />
+      )}
       {ctaChildren}
     </BottomCTA>
   </>
