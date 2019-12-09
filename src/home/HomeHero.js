@@ -1,13 +1,15 @@
 import React from 'react'
+import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
-import { Container, Box, Grid, Typography } from '@material-ui/core'
+import { Box, Container, Grid, Paper, Typography } from '@material-ui/core'
 import BackgroundImg from 'src/components/BackgroundImg'
+import theme from 'src/ui/theme'
 
 const Hero = () => (
   <Box color="secondary.contrastText" position="relative">
     <BackgroundImg
       alwaysShow
-      src="/static/images/home_products.jpg"
+      src="/static/images/banner.jpg"
       position="bottom"
     />
     <Container
@@ -17,26 +19,59 @@ const Hero = () => (
         flexDirection: 'column',
         justifyContent: 'center',
         minHeight: '65vh',
-        paddingBottom: '12rem',
         paddingTop: '12rem',
         position: 'relative',
         zIndex: 2,
+        [theme.breakpoints.up('sm')]: {
+          paddingBottom: '12rem',
+        },
       }}
     >
       <Grid container justify="space-between">
-        <Grid item xs={12} sm={8} md={7}>
-          <Typography variant="h2" color="primary">
-            Cosméticos Naturais de Verdade, de alta eficiência, para
-            necessidades básicas diárias.
-          </Typography>
-          <CTAButton
-            css={{ margin: '2rem 0' }}
-            color="secondary"
-            variant="contained"
-            href="/produtos"
+        <Grid item xs={12} sm={6} md={5}>
+          <Paper
+            elevation={6}
+            css={{
+              background: 'rgba(255,255,255,.9)',
+              position: 'relative',
+              zIndex: 10,
+              padding: theme.spacing(6),
+              marginBottom: theme.spacing(2),
+            }}
           >
-            Comprar produtos
-          </CTAButton>
+            <Typography variant="h3">
+              Cosméticos Naturais de Verdade!
+            </Typography>
+            <Typography variant="body1">
+              Alta eficiência para as necessidades básicas diárias.
+            </Typography>
+            <CTAButton
+              css={{ marginTop: theme.spacing(2) }}
+              center={false}
+              color="secondary"
+              variant="contained"
+              href="/produtos"
+            >
+              Comprar produtos
+            </CTAButton>
+          </Paper>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={7}
+          css={{
+            right: 0,
+            bottom: 0,
+            [theme.breakpoints.up('sm')]: {
+              position: 'absolute',
+            },
+          }}
+        >
+          <Img
+            className="responsive"
+            src="/static/images/products-banner.png"
+          />
         </Grid>
       </Grid>
     </Container>

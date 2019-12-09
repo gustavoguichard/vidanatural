@@ -54,17 +54,13 @@ const Wrapper = ({
 const PaperContent = ({ children, style = {}, maxWidth = 'lg', ...props }) => {
   const isMobile = useIsMobile()
   return (
-    <Container
-      css={{
-        backgroundColor: (isMobile && props.color) || 'white',
-        padding: isMobile ? 0 : undefined,
-      }}
-      maxWidth={maxWidth}
-    >
-      <Wrapper css={style} {...props} isMobile={isMobile}>
-        {children}
-      </Wrapper>
-    </Container>
+    <Box css={{ padding: isMobile ? 0 : undefined }}>
+      <Container maxWidth={maxWidth}>
+        <Wrapper css={style} {...props} isMobile={isMobile}>
+          {children}
+        </Wrapper>
+      </Container>
+    </Box>
   )
 }
 

@@ -12,7 +12,7 @@ import theme from 'src/ui/theme'
 const IllustratedIngredients = () => {
   const matches = useMediaQuery('(min-width: 760px)')
   return (
-    <Container
+    <Box
       css={{
         borderBottom: '10px solid white',
         borderTop: '10px solid white',
@@ -21,27 +21,30 @@ const IllustratedIngredients = () => {
       }}
       id="ingredientes"
     >
-      <Grid container justify="center">
-        <Grid item xs={12} md={10}>
-          <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
-            <Typography variant="h3">Ingredientes</Typography>
-            <Typography
-              variant="body1"
-              css={{
-                marginTop: theme.spacing(2),
-                marginBottom: theme.spacing(4),
-              }}
-            >
-              Veja alguns dos nossos principais ingredientes e seus benefícios.
-            </Typography>
-            <FeaturedIngredients />
-            <CTAButton href="/produtos" css={{ marginTop: theme.spacing(4) }}>
-              Conhecer os produtos
-            </CTAButton>
-          </Box>
+      <Container>
+        <Grid container justify="center">
+          <Grid item xs={12} md={10}>
+            <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
+              <Typography variant="h3">Ingredientes</Typography>
+              <Typography
+                variant="body1"
+                css={{
+                  marginTop: theme.spacing(2),
+                  marginBottom: theme.spacing(4),
+                }}
+              >
+                Veja alguns dos nossos principais ingredientes e seus
+                benefícios.
+              </Typography>
+              <FeaturedIngredients />
+              <CTAButton href="/produtos" css={{ marginTop: theme.spacing(4) }}>
+                Conhecer os produtos
+              </CTAButton>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   )
 }
 

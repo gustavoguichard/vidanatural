@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Box, Container, Grid, Typography } from '@material-ui/core'
 import theme from 'src/ui/theme'
 import FooterMenu from 'src/ui/footer/FooterMenu'
 import NewsForm from 'src/ui/footer/NewsForm'
@@ -9,7 +9,7 @@ const year = new Date().getFullYear()
 const Footer = () => {
   const color = theme.palette.primary.contrastText
   return (
-    <Container
+    <Box
       id="contato"
       css={{
         color,
@@ -24,46 +24,51 @@ const Footer = () => {
         },
       }}
     >
-      <Grid container>
-        <Grid
-          item
-          xs={12}
-          sm={8}
-          md={6}
-          css={{ marginBottom: theme.spacing(3) }}
-        >
-          <FooterMenu />
+      <Container>
+        <Grid container>
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={6}
+            css={{ marginBottom: theme.spacing(3) }}
+          >
+            <FooterMenu />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={5}
+            css={{
+              marginBottom: theme.spacing(3),
+              [theme.breakpoints.down('xs')]: { order: -1 },
+            }}
+          >
+            <NewsForm />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={1}
+            css={{ marginBottom: theme.spacing(), marginTop: -theme.spacing() }}
+          >
+            <SocialList color={color} />
+          </Grid>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={4}
-          md={5}
-          css={{
-            marginBottom: theme.spacing(3),
-            [theme.breakpoints.down('xs')]: { order: -1 },
-          }}
-        >
-          <NewsForm />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={1}
-          css={{ marginBottom: theme.spacing(), marginTop: -theme.spacing() }}
-        >
-          <SocialList color={color} />
-        </Grid>
-      </Grid>
-      <Typography variant="body2" color="inherit">
-        Vida Natural&reg; {year} • Imbituba / SC
-        <br />
-        <a css={{ color: 'inherit' }} href="mailto:falecom@vidanatural.eco.br">
-          falecom@vidanatural.eco.br
-        </a>{' '}
-        | CNPJ: 24.288.982/0001-27
-      </Typography>
-    </Container>
+        <Typography variant="body2" color="inherit">
+          Vida Natural&reg; {year} • Imbituba / SC
+          <br />
+          <a
+            css={{ color: 'inherit' }}
+            href="mailto:falecom@vidanatural.eco.br"
+          >
+            falecom@vidanatural.eco.br
+          </a>{' '}
+          | CNPJ: 24.288.982/0001-27
+        </Typography>
+      </Container>
+    </Box>
   )
 }
 

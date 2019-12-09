@@ -41,40 +41,41 @@ const Products = () => {
   )
 
   return (
-    <Container
-      maxWidth="lg"
+    <Box
       css={{
         borderBottom: '10px solid white',
         borderTop: '10px solid white',
         minHeight: '80vh',
-        display: 'flex',
-        alignItems: 'center',
-        position: 'relative',
       }}
     >
-      <Box flex={1} py={isMobile ? 7 : 10}>
-        <ProductSlide
-          key={`product---1`}
-          hidden
-          show
-          index={value}
-          product={productsArray[value]}
-          handleChange={handleChange}
-        />
-        {productsArray.map((product, index) => (
+      <Container
+        maxWidth="lg"
+        css={{ display: 'flex', alignItems: 'center', position: 'relative' }}
+      >
+        <Box flex={1} py={isMobile ? 7 : 10}>
           <ProductSlide
-            isMobile={isMobile}
-            key={`product-${index}`}
-            show={value === index}
+            key={`product---1`}
+            hidden
+            show
+            index={value}
+            product={productsArray[value]}
             handleChange={handleChange}
-            index={index}
-            product={product}
-          >
-            <Stepper />
-          </ProductSlide>
-        ))}
-      </Box>
-    </Container>
+          />
+          {productsArray.map((product, index) => (
+            <ProductSlide
+              isMobile={isMobile}
+              key={`product-${index}`}
+              show={value === index}
+              handleChange={handleChange}
+              index={index}
+              product={product}
+            >
+              <Stepper />
+            </ProductSlide>
+          ))}
+        </Box>
+      </Container>
+    </Box>
   )
 }
 

@@ -18,71 +18,72 @@ const ProductSale = ({ product, isMobile }) => {
   return (
     <>
       {isMobile && <MobileCTA visible={visible} product={product} />}
-      <Container
+      <Box
         css={{
           backgroundColor: theme.palette.common.white,
         }}
-        maxWidth="lg"
       >
-        <Box pt={12} pb={6}>
-          <Grid spacing={4} container justify="center">
-            <Grid item xs={12} md={6}>
-              <ImageGallery product={product} isDesktop={isDesktop} />
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={6}
-              css={{
-                paddingLeft: `${theme.spacing(5)}px !important`,
-                paddingRight: `${theme.spacing(5)}px !important`,
-              }}
-            >
-              {isDesktop && (
-                <Typography
-                  variant="h3"
-                  css={{ marginBottom: theme.spacing() }}
-                >
-                  {product.title}
+        <Container maxWidth="lg">
+          <Box pt={12} pb={6}>
+            <Grid spacing={4} container justify="center">
+              <Grid item xs={12} md={6}>
+                <ImageGallery product={product} isDesktop={isDesktop} />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                css={{
+                  paddingLeft: `${theme.spacing(5)}px !important`,
+                  paddingRight: `${theme.spacing(5)}px !important`,
+                }}
+              >
+                {isDesktop && (
+                  <Typography
+                    variant="h3"
+                    css={{ marginBottom: theme.spacing() }}
+                  >
+                    {product.title}
+                  </Typography>
+                )}
+                <Typography variant="h4">
+                  {toCurrency(variant.price || 0)}
                 </Typography>
-              )}
-              <Typography variant="h4">
-                {toCurrency(variant.price || 0)}
-              </Typography>
-              <MdContent
-                css={{
-                  marginTop: theme.spacing(3),
-                  fontWeight: 600,
-                  color: theme.palette.text.hint,
-                  p: {
-                    marginBottom: 0,
-                  },
-                }}
-                className="MuiTypography-root MuiTypography-body1"
-                content={product.subtitle}
-              />
-              <Typography variant="caption">
-                <Link href={`#descricao`}>Mais detalhes</Link>
-                {' - '}
-                <Link href={`#ingredientes-${product.path}`}>
-                  Ver ingredientes
-                </Link>
-              </Typography>
-              <MdContent
-                css={{
-                  marginTop: theme.spacing(3),
-                  marginBottom: theme.spacing(2),
-                  fontWeight: 400,
-                  color: theme.palette.text.hint,
-                }}
-                className="MuiTypography-root MuiTypography-body1"
-                content={product.presentation}
-              />
-              <ProductCTA ref={ref} product={product} />
+                <MdContent
+                  css={{
+                    marginTop: theme.spacing(3),
+                    fontWeight: 600,
+                    color: theme.palette.text.hint,
+                    p: {
+                      marginBottom: 0,
+                    },
+                  }}
+                  className="MuiTypography-root MuiTypography-body1"
+                  content={product.subtitle}
+                />
+                <Typography variant="caption">
+                  <Link href={`#descricao`}>Mais detalhes</Link>
+                  {' - '}
+                  <Link href={`#ingredientes-${product.path}`}>
+                    Ver ingredientes
+                  </Link>
+                </Typography>
+                <MdContent
+                  css={{
+                    marginTop: theme.spacing(3),
+                    marginBottom: theme.spacing(2),
+                    fontWeight: 400,
+                    color: theme.palette.text.hint,
+                  }}
+                  className="MuiTypography-root MuiTypography-body1"
+                  content={product.presentation}
+                />
+                <ProductCTA ref={ref} product={product} />
+              </Grid>
             </Grid>
-          </Grid>
-        </Box>
-      </Container>
+          </Box>
+        </Container>
+      </Box>
       <Description product={product} isDesktop={isDesktop} />
     </>
   )
