@@ -4,7 +4,7 @@ import defaultConfig, { titleTemplate } from 'utils/next-seo.config'
 
 const SEO = ({ title, description, ...props }) => (
   <NextSeo
-    title={title || defaultConfig.description}
+    title={title || defaultConfig.title}
     description={description || defaultConfig.description}
     titleTemplate={title ? titleTemplate : undefined}
     openGraph={{
