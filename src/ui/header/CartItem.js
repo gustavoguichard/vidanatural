@@ -9,7 +9,15 @@ import { getResizedImg } from 'utils/api'
 import { getOwnPath } from 'utils/api'
 import { toCurrency } from 'utils/helpers'
 
-const CartItem = ({ router, product_name, image_url, product_url, total }) => {
+const CartItem = ({
+  router,
+  product_name,
+  image_url,
+  product_url,
+  total,
+  price,
+  quantity,
+}) => {
   return (
     <ListItem button onClick={() => router.push(getOwnPath(product_url))}>
       <ListItemAvatar>
@@ -18,7 +26,8 @@ const CartItem = ({ router, product_name, image_url, product_url, total }) => {
       <ListItemText>
         <Typography variant="body2">{product_name}</Typography>
         <Typography component="span" variant="caption">
-          {toCurrency(total)}
+          {quantity > 1 ? `${quantity} x ${toCurrency(price)} = ` : null}
+          <strong>{toCurrency(total)}</strong>
         </Typography>
       </ListItemText>
     </ListItem>
