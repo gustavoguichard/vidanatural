@@ -301,7 +301,7 @@ Lavanda e Palmarosa estimulam a regeneração celular e melhoram a aparência da
       ['Dimensões (L x C x A)', '19,5 x 12,5 x 12,5 cm'],
       ['Validade', '1 ano'],
       ['Regulado pela ANVISA sob nº', '4.00.537-0'],
-      ['Código de barras', '0606529335519'],
+      ['Código de barras', '0606529335526'],
     ],
   },
 ]
