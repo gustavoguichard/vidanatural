@@ -73,7 +73,7 @@ O que já é um grande ponto positivo. Mas talvez o mais importante para mim sej
   {
     name: 'Dircéia',
     role: 'Nutricionista',
-    tags: ['desodorante-rollon', 'desodorante-em-pasta'],
+    tags: ['all', 'desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Garopaba / SC',
     picture: 'dirceia',
     shortContent: `Quando usei fiquei **suuuuper feliz**! Enfim achei um **produto de qualidade**, realmente **natural** e que funciona! Uso e indico para todos!! Obrigada por criarem esse excelente produto! A **saúde e a natureza** agradecem!`,
@@ -122,7 +122,7 @@ Em 2017, porém me mudei para Belém, mas não sabia mais viver sem o [desodoran
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Florianópolis / SC',
     picture: 'monica-auga',
-    content: `Incrível!  **Único [desodorante natural](/produto/desodorante-natural)** que realmente superou os químicos. .... super aprovo, 5 anos que **só uso** Vida Natural!!!`,
+    content: `Incrível!  **Único [desodorante natural](/produto/desodorante-em-pasta)** que realmente superou os químicos. .... super aprovo, 5 anos que **só uso** Vida Natural!!!`,
   },
   {
     name: 'Mayara',
@@ -381,7 +381,7 @@ Fruto de um trabalho feito com **muito amor**, **idealismo** e muita preocupaç�
   {
     name: 'Murilo Secco',
     role: 'Designer Gráfico',
-    tags: ['desodorante-rollon', 'desodorante-em-pasta'],
+    tags: ['desodorante-em-pasta'],
     location: 'Franca / SP',
     picture: 'murilo-secco',
     content: `Acredita que meu [desodorante em pasta](/produto/desodorante-em-pasta) eu uso até hoje? Tenho usado todo dia! Ele não acaba... acho que ele nasce de novo no pote!`,

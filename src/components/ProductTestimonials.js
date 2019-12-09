@@ -1,17 +1,18 @@
+import shuffle from 'lodash/shuffle'
 import filter from 'lodash/filter'
-import testimonials from 'data/testimonials'
 import Testimonials from 'src/components/Testimonials'
+import { useProcessOnce } from 'utils/hooks'
+import testimonials from 'data/testimonials'
 
 const filterByTag = tag => item => item.tags.includes(tag)
 
-const ProductTestimonials = ({ product }) => {
+const ProductTestimonials = ({ product, ...props }) => {
   const filteredTestimonials = filter(testimonials, filterByTag(product.path))
   const genericTestimonials = filter(testimonials, filterByTag('all'))
-  const items =
-    filteredTestimonials.length < 3
-      ? [...filteredTestimonials, ...genericTestimonials]
-      : filteredTestimonials
-  return <Testimonials testimonials={items} />
+  const shuffled = useProcessOnce(shuffle, filteredTestimonials)
+  const shuffledGeneric = useProcessOnce(shuffle, genericTestimonials)
+  const items = [...shuffled, ...shuffledGeneric]
+  return <Testimonials {...props} testimonials={items} />
 }
 
 export default ProductTestimonials

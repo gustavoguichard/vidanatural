@@ -4,7 +4,7 @@ import Certifications from 'src/components/Certifications'
 import Hero from 'src/home/HomeHero'
 import Products from 'src/home/Products'
 import HomeIngredients from 'src/home/HomeIngredients'
-import Testimonials from 'src/components/Testimonials'
+import Testimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
 
 const Home = () => {

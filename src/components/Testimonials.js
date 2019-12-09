@@ -1,18 +1,15 @@
 import { memo } from 'react'
-import shuffle from 'lodash/shuffle'
 import take from 'lodash/take'
 import { Box, Container, Grid } from '@material-ui/core'
 import sloganImg from 'static/svgs/slogan.svg'
 import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
 import Testimonial from './ShortTestimonial'
-import { useProcessOnce } from 'utils/hooks'
 import testimonialsData from 'data/testimonials'
 import theme from 'src/ui/theme'
 
 const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
-  const shuffled = useProcessOnce(shuffle, testimonials)
-  const testimonialsToShow = take(shuffled, show)
+  const testimonialsToShow = take(testimonials, show)
   return (
     <Box
       css={{
