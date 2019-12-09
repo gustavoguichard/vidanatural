@@ -6,11 +6,11 @@ import products from 'data/products'
 import api from 'utils/api'
 import { useIsMobile } from 'utils/responsive'
 
-const ProductPage = ({ product }) => {
+const ProductPage = ({ product, slug }) => {
   const isMobile = useIsMobile()
 
   return (
-    <ProductLayout isMobile={isMobile} product={product}>
+    <ProductLayout slug={slug} isMobile={isMobile} product={product}>
       <ProductSale isMobile={isMobile} product={product} />
     </ProductLayout>
   )
@@ -23,6 +23,7 @@ ProductPage.getInitialProps = async ({ query }) => {
   const localData = find(products, p => serverData.id === p.vndaId)
   const rescueData = localData || find(products, p => slug.includes(p.path))
   return {
+    slug,
     product: {
       ...rescueData,
       ...serverData,

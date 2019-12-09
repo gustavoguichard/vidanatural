@@ -7,7 +7,7 @@ import theme from 'src/ui/theme'
 
 export default function Index() {
   return (
-    <Layout>
+    <Layout title="Termos e Condições">
       <Hero size="small" background="/static/images/capa-pb.jpg">
         <Typography variant="h2">Termos e Condições</Typography>
         <Typography variant="body1" css={{ margin: theme.spacing(3) }}>

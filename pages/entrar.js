@@ -4,7 +4,7 @@ import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'
 
 const Page = () => (
-  <Layout>
+  <Layout title="Log in">
     <Hero size="small" background="/static/images/plants.jpg">
       <Typography variant="h2">Fazer Login</Typography>
       <Typography variant="body1" css={{ margin: theme.spacing(3) }}>

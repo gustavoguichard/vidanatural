@@ -5,6 +5,7 @@ import BottomCTA from 'src/ui/BottomCTA'
 import Chat from 'src/ui/Chat'
 import Header from 'src/ui/Header'
 import Footer from 'src/ui/Footer'
+import SEO from 'src/components/SEO'
 import Certifications from 'src/components/Certifications'
 
 Router.events.on('routeChangeComplete', () => {
@@ -19,9 +20,12 @@ const Layout = ({
   hideCertifications,
   hideChat,
   stickBar,
+  title,
+  seo = {},
   ctaChildren,
 }) => (
   <>
+    <SEO title={title} {...seo} />
     <Header logoCompanion={logoCompanion} variant={variant} stick={stickBar} />
     <main css={{ flex: 1 }}>{children}</main>
     {hideCertifications || (

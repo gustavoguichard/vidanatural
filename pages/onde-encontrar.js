@@ -7,7 +7,7 @@ import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 
 const Page = () => (
-  <Layout>
+  <Layout title="Onde encontrar">
     <Hero size="small" background="/static/images/onde-encontrar.jpg">
       <Typography variant="h2">Onde Encontrar</Typography>
     </Hero>

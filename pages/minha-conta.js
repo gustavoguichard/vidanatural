@@ -4,9 +4,9 @@ import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'
 
 const Page = () => (
-  <Layout>
+  <Layout title="Meus pedidos">
     <Hero size="small" background="/static/images/plants.jpg">
-      <Typography variant="h2">Minha Conta</Typography>
+      <Typography variant="h2">Meus Pedidos</Typography>
       <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
         <strong>Alterar informações</strong>.
       </Typography>

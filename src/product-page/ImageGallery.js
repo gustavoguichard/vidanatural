@@ -17,7 +17,6 @@ const ImageGallery = ({ product, isDesktop }) => {
         css={{
           width: '100%',
           minHeight: 300,
-          border: `2px solid ${theme.palette.common.black}`,
           '& .react-swipeable-view-container': {
             height: '100%',
           },

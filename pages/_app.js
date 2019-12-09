@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import App from 'next/app'
-import Head from 'next/head'
+import { DefaultSeo } from 'next-seo'
 import Router from 'next/router'
 import { ThemeProvider } from '@material-ui/styles'
 import { initGA, logPageView } from 'utils/analytics'
@@ -9,6 +9,7 @@ import { StylesProvider } from '@material-ui/styles'
 import NProgress from 'next-nprogress/component'
 import Providers from 'src/core/Providers'
 import { isClient } from 'utils/helpers'
+import SEO from 'utils/next-seo.config'
 import theme from 'src/ui/theme'
 
 import 'src/ui/app.scss'
@@ -51,13 +52,10 @@ class VidaNatural extends App {
 
   render() {
     const { Component, pageProps } = this.props
-    const title = 'Vida Natural | Cosmética Consciente'
     return (
       <Fragment>
         <NProgress color={theme.palette.secondary.main} />
-        <Head>
-          <title>{title}</title>
-        </Head>
+        <DefaultSeo {...SEO} />
         <StylesProvider injectFirst>
           <ThemeProvider theme={theme}>
             <CssBaseline />

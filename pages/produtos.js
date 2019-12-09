@@ -8,7 +8,7 @@ import localProducts from 'data/products'
 import api from 'utils/api'
 
 const ProductsPage = ({ products }) => (
-  <Layout>
+  <Layout title="Conheça nossos produtos">
     <Hero size="small" background="/static/images/plants.jpg">
       <Typography variant="h2">Produtos</Typography>
       <Typography variant="body1" css={{ margin: theme.spacing(3) }}>

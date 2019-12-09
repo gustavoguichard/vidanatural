@@ -7,7 +7,7 @@ import PaperContent from 'src/ui/PaperContent'
 import Form from 'src/contato/Form'
 
 const Page = () => (
-  <Layout>
+  <Layout title="Entre em contato">
     <Hero size="small" background="/static/images/capa-pb.jpg">
       <Typography variant="h2">Entre em contato</Typography>
     </Hero>

@@ -7,9 +7,11 @@ import IllustratedIngredients from 'src/about/IllustratedIngredients'
 import theme from 'src/ui/theme'
 import team from 'data/team'
 
-export default function Index() {
+export default function AboutPage() {
   return (
-    <Layout>
+    <Layout title="Sobre a Vida Natural" seo={{
+      description: 'Uma empresa  feita por amigos, unidos pelo propósito da transparência, que se importam com aquilo que colocamos todos os dias no nosso maior orgão de absorção - a pele.',
+    }}>
       <Hero size="small" background="/static/images/capa-pb.jpg">
         <Typography variant="h2">Sobre a Vida Natural</Typography>
         <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
