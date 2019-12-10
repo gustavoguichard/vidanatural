@@ -56,7 +56,7 @@ const post = async (
   return doRequest(url, { ...params, method: 'POST' }, proxy)
 }
 
-const sendForm = async (values: FormKeys, proxy = false) => {
+const sendForm = async (values: FormKeys, proxy = true) => {
   const { a_password, key, ...otherValues } = values
 
   if (!!a_password || !key) {
@@ -115,5 +115,5 @@ export default {
   sendForm,
   search,
   textSearch,
-  CART_URL: getUrl('carrinho'),
+  CART_URL: getUrl('carrinho', {}, true),
 }
