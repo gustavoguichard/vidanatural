@@ -115,5 +115,5 @@ export default {
   sendForm,
   search,
   textSearch,
-  CART_URL: getUrl('carrinho', {}, true),
+  CART_URL: getUrl('carrinho'),
 }
