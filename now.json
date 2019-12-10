@@ -1,6 +1,14 @@
 {
   "public": true,
   "version": 2,
+  "alias": ["www.vidanatural.eco.br"],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://vidanatural.eco.br" }
+    }
+  ],
   "build": {
     "env": {
       "API_IP": "@api-ip",
