@@ -1,7 +1,7 @@
 const withPlugins = require('next-compose-plugins')
 const sass = require('@zeit/next-sass')
 const purgeCss = require('next-purgecss')
-const offline = require('next-offline')
+// const offline = require('next-offline')
 const optimizedImages = require('next-optimized-images')
 const nextEnv = require('next-env')
 const dotenvLoad = require('dotenv-load')
@@ -17,7 +17,6 @@ const nextConfig = {
 module.exports = withPlugins(
   [
     nextEnv,
-    offline,
     [optimizedImages, { optimizeImagesInDev: true }],
     sass,
     purgeCss,

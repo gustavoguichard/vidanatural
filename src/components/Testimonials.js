@@ -1,53 +1,52 @@
 import { memo } from 'react'
-import { Grid } from '@material-ui/core'
-import reduce from 'lodash/reduce'
-import Hero from 'src/components/Hero'
+import take from 'lodash/take'
+import { Box, Container, Grid } from '@material-ui/core'
+import sloganImg from 'static/svgs/slogan.svg'
+import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
+import Testimonial from './ShortTestimonial'
+import testimonialsData from 'data/testimonials'
 import theme from 'src/ui/theme'
-import Testimonial from './Testimonial'
 
-const Testimonials = ({ testimonials, showCTA = true, children, ...props }) => {
-  const [testimonialsToShow] = reduce(
-    testimonials,
-    (all, test) => {
-      const [list, size] = all
-      if (size >= 3 || (size === 2 && test.size > 1)) return all
-      return [[...list, test], size + test.size]
-    },
-    [[], 0],
-  )
+const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
+  const testimonialsToShow = take(testimonials, show)
   return (
-    <Hero
-      color={theme.palette.primary.dark}
-      size="small"
-      maxWidth="lg"
-      {...props}
+    <Box
+      css={{
+        paddingBottom: theme.spacing(8),
+        paddingTop: theme.spacing(8),
+        borderBottom: '10px solid white',
+      }}
     >
-      {children}
-      <Grid container spacing={4} justify="center" alignItems="stretch">
-        {testimonialsToShow.map(testimonial => (
-          <Grid
-            key={testimonial.picture}
-            sm={6 * testimonial.size}
-            md={4 * testimonial.size}
-            item
-          >
-            <Testimonial {...testimonial} />
-          </Grid>
-        ))}
-      </Grid>
-      {showCTA && (
+      <Container maxWidth="lg">
+        <Box mx={2} mb={2} p={3} textAlign="center">
+          <Img
+            className="responsive"
+            css={{
+              height: 70,
+              width: 350,
+              marginBottom: theme.spacing(2),
+              filter: 'brightness(0.2)',
+            }}
+            src={sloganImg}
+            alt="Eu uso cosmética consciente"
+          />
+        </Box>
+        <Grid container spacing={4} justify="center" alignItems="stretch">
+          {testimonialsToShow.map(testimonial => (
+            <Grid key={testimonial.picture} sm={6} md={4} item>
+              <Testimonial {...testimonial} />
+            </Grid>
+          ))}
+        </Grid>
         <CTAButton
           href="/eu-uso-cosmetica-consciente"
-          css={{
-            color: theme.palette.text.secondary,
-            margin: theme.spacing(4),
-          }}
+          css={{ marginTop: theme.spacing(4) }}
         >
           Mais depoimentos
         </CTAButton>
-      )}
-    </Hero>
+      </Container>
+    </Box>
   )
 }
 

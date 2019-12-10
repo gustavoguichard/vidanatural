@@ -5,11 +5,12 @@ import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'
 
 const Page = () => (
-  <Layout>
+  <Layout title="Gratos pelo contato">
     <Hero size="full" background="/static/images/capa-pb.jpg">
       <Typography variant="h2">Agradecemos pelo contato!</Typography>
       <Typography css={{ marginTop: theme.spacing(4) }} variant="body1">
-        Retornaremos assim que possível.{' '}
+        Retornaremos assim que possível.
+        <br />
         <Link href="/">Voltar para a Homepage</Link>
       </Typography>
     </Hero>

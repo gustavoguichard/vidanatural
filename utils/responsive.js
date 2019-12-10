@@ -17,6 +17,6 @@ export const useIsTablet = () => {
 }
 
 export const useIsDesktop = () => {
-  const isTablet = useIsTablet()
-  return !isTablet
+  const matches = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)
+  return matches
 }

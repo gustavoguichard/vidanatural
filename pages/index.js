@@ -1,27 +1,24 @@
-import { Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import About from 'src/home/About'
-import Certified from 'src/home/Certified'
-import Hero from 'src/components/Hero'
+import Certifications from 'src/components/Certifications'
+import Hero from 'src/home/HomeHero'
 import Products from 'src/home/Products'
-import HomeTestimonials from 'src/home/HomeTestimonials'
+import HomeIngredients from 'src/home/HomeIngredients'
+import Testimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
 
-const Page = () => {
+const Home = () => {
   const isMobile = useIsMobile()
   return (
-    <Layout>
-      <Hero size="small" background="/static/images/plants.jpg">
-        <Typography variant="h2">
-          Você se importa com o que sua pele absorve todos os dias?
-        </Typography>
-      </Hero>
-      <Products isMobile={isMobile} />
+    <Layout variant="secondary" footerVariant="primary" hideCertifications>
+      <Hero />
+      <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
+      <Products />
       <About isMobile={isMobile} />
-      <Certified isMobile={isMobile} />
-      <HomeTestimonials isMobile={isMobile} />
+      <HomeIngredients />
+      <Testimonials />
     </Layout>
   )
 }
 
-export default Page
+export default Home

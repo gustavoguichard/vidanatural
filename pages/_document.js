@@ -17,15 +17,7 @@ class VidaNatural extends Document {
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
-          <meta
-            name="description"
-            content="Produzimos desodorantes, shampoos, óleos hidratantes e pó dental elaborados em um processo de produção totalmente artesanal, 100% feitos à mão e em pequenos lotes, o que garante a entrega de cosméticos únicos, frescos, eficientes e em total equilíbrio com o seu corpo e o meio ambiente."
-          />
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <meta
-            property="og:title"
-            content="Vida Natural | Cosmética Consciente"
-          />
           <link rel="manifest" href="/static/manifest.json" />
           <link
             rel="shortcut icon"

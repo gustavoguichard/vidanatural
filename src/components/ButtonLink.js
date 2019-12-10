@@ -11,6 +11,7 @@ function ButtonLink({
   innerRef,
   icon,
   href,
+  prefetch,
   ...props
 }) {
   const className = clsx(classNameProps, {
@@ -19,7 +20,7 @@ function ButtonLink({
   const Component = icon ? IconButton : Button
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} prefetch={prefetch}>
       <Component className={className} ref={innerRef} {...props} />
     </NextLink>
   )

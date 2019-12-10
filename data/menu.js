@@ -1,36 +1,18 @@
+import products from 'data/products'
+
 export default {
   links: [
     {
-      name: 'Cosméticos',
+      name: 'Produtos',
       links: [
         {
-          name: 'Desodorante Rollon',
-          path: '/desodorante-rollon',
+          name: 'Todos os produtos',
+          path: '/produtos',
         },
-        {
-          name: 'Desodorante em Pasta',
-          path: '/desodorante-em-pasta',
-        },
-        {
-          name: 'Xampú em Barra',
-          path: '/xampu-em-barra',
-        },
-        {
-          name: 'Pó Dental',
-          path: '/po-dental',
-        },
-        {
-          name: 'Óleo Hidratante',
-          path: '/oleo-hidratante',
-        },
-        {
-          name: 'Rosa Mosqueta',
-          path: '/rosa-mosqueta',
-        },
-        {
-          name: 'Hidratante Facial',
-          path: '/hidratante-facial',
-        },
+        ...products.map(product => ({
+          name: product.title,
+          path: `/produto/${product.slug || product.path}`,
+        })),
       ],
     },
     {
@@ -57,11 +39,57 @@ export default {
           name: 'Nossos ingredientes',
           path: '/sobre-a-vida-natural#ingredientes',
         },
+        {
+          name: 'Termos e Condições',
+          path: '/termos-e-condicoes',
+        },
       ],
     },
     {
       name: 'Contato',
       path: '/entre-em-contato',
+    },
+  ],
+  footerLinks: [
+    {
+      name: 'Produtos',
+      links: products.map(product => ({
+        name: product.title,
+        path: `/produto/${product.slug || product.path}`,
+      })),
+    },
+    {
+      name: 'Nós',
+      links: [
+        {
+          name: 'A Vida Natural',
+          path: '/sobre-a-vida-natural',
+        },
+        {
+          name: 'Quem somos?',
+          path: '/sobre-a-vida-natural#quem-somos',
+        },
+        {
+          name: 'Onde encontrar?',
+          path: '/onde-encontrar',
+        },
+        {
+          name: 'Eu Uso!',
+          path: '/eu-uso-cosmetica-consciente',
+        },
+        {
+          name: 'Nossos ingredientes',
+          path: '/sobre-a-vida-natural#ingredientes',
+        },
+        {
+          name: 'Termos e Condições',
+          path: '/termos-e-condicoes',
+        },
+        {
+          name: 'Contato',
+          path: '/entre-em-contato',
+        },
+      ],
     },
   ],
 }

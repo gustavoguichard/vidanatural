@@ -1,14 +1,13 @@
 import { Grid, Typography } from '@material-ui/core'
 import { FaWhatsapp } from 'react-icons/fa'
 import Layout from 'src/ui/Layout'
-import Link from 'src/components/Link'
 import Hero from 'src/components/Hero'
 import theme from 'src/ui/theme'
 import PaperContent from 'src/ui/PaperContent'
 import Form from 'src/contato/Form'
 
 const Page = () => (
-  <Layout>
+  <Layout title="Entre em contato">
     <Hero size="small" background="/static/images/capa-pb.jpg">
       <Typography variant="h2">Entre em contato</Typography>
     </Hero>
@@ -47,14 +46,18 @@ const Page = () => (
             <p>
               <strong>Ligue ou envie uma mensagem</strong>
               <br />
-              <Link
-                css={{ position: 'relative', bottom: -2 }}
+              <a
+                css={{
+                  position: 'relative',
+                  bottom: -2,
+                  color: theme.palette.secondary.main,
+                }}
                 href="https://wa.me/5548991039557"
                 title="Enviar mensagem de whatsapp"
                 target="_blank"
               >
                 <FaWhatsapp />
-              </Link>{' '}
+              </a>{' '}
               +55 (48) 99103-9557
             </p>
             <p>

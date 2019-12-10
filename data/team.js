@@ -1,7 +1,7 @@
 export default [
   {
     name: 'Dalila Ozorio',
-    picture: 'lila.png',
+    picture: 'lila.jpg',
     role: 'CEO',
     bio: `Terra embaixo da unha é sinal de bom humor. Mexer na terra é terapia.
 Gosta de ler. A média são uns 3 livros aos mesmo tempo. Caminhar e
@@ -12,7 +12,7 @@ praticar Yoga também são terapias.`,
   },
   {
     name: 'Gustavo Guichard',
-    picture: 'guga.png',
+    picture: 'guga.jpg',
     role: 'COO',
     bio: `Guga coexiste em dois mundos!
     Ao mesmo tempo que tá surfando nos códigos da programação, pega altas ondas nesse nosso mundão maravilha! Super praticante e estudante de Yoga.`,
@@ -22,7 +22,7 @@ praticar Yoga também são terapias.`,
   },
   {
     name: 'Giovane Ide',
-    picture: 'gi.png',
+    picture: 'gi.jpg',
     role: 'CPO',
     bio: `Conheça nosso mago alquímico. Maestra a quimica natural e desenvolve as composições que faz a gente feliz.
 Porque, é claro que queremos usar produtos que cuidam da nossa saúde e causem menos impacto ao ambiente, mas é claro também que esses produtos tem que ser eficientes.`,

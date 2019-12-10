@@ -57,13 +57,15 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
   )
 }
 
-const MobileMenu = () => {
+const MobileMenu = ({ children }) => {
   const [open, setOpen] = useState(false)
   const toggleDrawer = nextOpen => () => setOpen(nextOpen)
   return (
     <>
+      {children}
       <IconButton
         onClick={toggleDrawer(true)}
+        css={{ marginLeft: 0 }}
         edge="start"
         color="inherit"
         aria-label="Menu"

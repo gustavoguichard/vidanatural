@@ -7,7 +7,13 @@ const About = ({ isMobile }) => (
   <Grid container>
     <Grid item sm={9} md={6} xs={12}>
       <Box css={{ position: 'relative' }} py={isMobile ? 10 : 14}>
-        <Container maxWidth="xs">
+        <Container
+          maxWidth="xs"
+          css={{
+            paddingLeft: theme.spacing(5),
+            paddingRight: theme.spacing(5),
+          }}
+        >
           <Typography variant="h2">Uma ideia, um movimento</Typography>
           <Typography
             variant="body1"

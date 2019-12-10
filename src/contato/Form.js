@@ -1,39 +1,67 @@
+import { useState } from 'react'
 import { Button, CircularProgress, SnackbarContent } from '@material-ui/core'
+import { useFormState } from 'react-use-form-state'
 import { TextField } from '@material-ui/core'
-import NetlifyForm from 'react-netlify-form'
-import Router from 'next/router'
+import { withRouter } from 'next/router'
+import Alert from 'src/components/Alert'
 import Input from 'src/contato/Input'
-import theme from 'src/ui/theme'
+import api from 'utils/api'
 
-const Form = () => (
-  <NetlifyForm
-    name="Formulário de Contato"
-    onSuccess={() => Router.push({ pathname: '/gratos' })}
-    action="/gratos"
-    honeypotName="mel"
-  >
-    {({ loading, error }) => (
-      <>
-        <TextField name="mel" type="hidden" />
-        <Input id="name" required label="Seu nome" />
-        <Input required type="email" id="email" label="Seu e-mail" />
-        <Input id="phone" label="Seu telefone / whatsapp" />
-        <Input id="message" multiline required rows="4" label="Mensagem" />
-        {error && (
-          <SnackbarContent
-            css={{
-              backgroundColor: theme.palette.error.main,
-              color: theme.palette.text.secondary,
-            }}
-            message="Ocorreu algum erro, por favor, tente denovo mais tarde"
-          />
-        )}
-        <Button type="submit" variant="contained" color="secondary">
-          {loading ? <CircularProgress /> : 'Enviar mensagem'}
-        </Button>
-      </>
-    )}
-  </NetlifyForm>
-)
+const Form = ({ router }) => {
+  const [sending, setSending] = useState(false)
+  const [hasError, setHasError] = useState(false)
 
-export default Form
+  const [formState, { raw, text, email, textarea }] = useFormState({
+    key: 'vidanatural-mensagem-pelo-site',
+    reply_to: '',
+  })
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+    setHasError(false)
+    setSending(true)
+
+    const values = { ...formState.values, reply_to: formState.values.email }
+    const isSent = await api.sendForm(values)
+
+    isSent ? router.push({ pathname: '/gratos' }) : setHasError(true)
+    setSending(false)
+  }
+  return (
+    <form
+      name="Contato"
+      onSubmit={handleSubmit}
+      action="/webform"
+      data-webform="vidanatural-mensagem-pelo-site"
+    >
+      <TextField {...raw('key')} type="hidden" />
+      <TextField {...raw('reply_to')} type="hidden" />
+      <input
+        {...text('a_password')}
+        css={{ display: 'none !important' }}
+        tabIndex={-1}
+        autoComplete="false"
+      />
+      <Input {...text('name')} required label="Seu nome" />
+      <Input {...email('email')} required label="Seu e-mail" />
+      <Input {...text('phone')} label="Seu telefone / whatsapp" />
+      <Input
+        {...textarea('message')}
+        multiline
+        required
+        rows="4"
+        label="Mensagem"
+      />
+      <Alert
+        message={
+          hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
+        }
+      />
+      <Button type="submit" variant="contained" color="secondary">
+        {sending ? <CircularProgress /> : 'Enviar mensagem'}
+      </Button>
+    </form>
+  )
+}
+
+export default withRouter(Form)

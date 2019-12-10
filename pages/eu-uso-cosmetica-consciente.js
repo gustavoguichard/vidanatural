@@ -7,7 +7,7 @@ import theme from 'src/ui/theme'
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout title="Eu uso cosmética consciente!">
       <Hero size="small" background="/static/images/capa-pb.jpg">
         <Box mb={2} p={3}>
           <img

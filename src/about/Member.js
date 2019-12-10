@@ -36,13 +36,13 @@ const Member = ({
     sm={6}
     md={4}
   >
-    <Card>
+    <Card elevation={0}>
       <CardMedia
         css={{ height: 240, backgroundPositionY: 'top' }}
         image={`/static/images/team/${picture}`}
         title={name}
       />
-      <CardContent>
+      <CardContent css={{ paddingBottom: 0 }}>
         <Typography component="div" variant="body1">
           <strong>{name}</strong>
           <br />

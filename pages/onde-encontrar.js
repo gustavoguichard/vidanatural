@@ -1,5 +1,4 @@
-import { Button, Grid, Paper, Typography, TextField } from '@material-ui/core'
-import { FaWhatsapp } from 'react-icons/fa'
+import { Grid, Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Link from 'src/components/Link'
 import Img from 'src/components/Img'
@@ -8,7 +7,7 @@ import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 
 const Page = () => (
-  <Layout>
+  <Layout title="Onde encontrar">
     <Hero size="small" background="/static/images/onde-encontrar.jpg">
       <Typography variant="h2">Onde Encontrar</Typography>
     </Hero>

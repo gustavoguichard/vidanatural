@@ -69,6 +69,9 @@ const theme = createMuiTheme({
       fontWeight: 400,
       letterSpacing: '-0.022rem',
     },
+    overline: {
+      lineHeight: 1.66,
+    },
   },
 })
 

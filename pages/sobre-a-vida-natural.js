@@ -3,12 +3,15 @@ import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import PaperContent from 'src/ui/PaperContent'
 import Member from 'src/about/Member'
+import IllustratedIngredients from 'src/about/IllustratedIngredients'
 import theme from 'src/ui/theme'
 import team from 'data/team'
 
-export default function Index() {
+export default function AboutPage() {
   return (
-    <Layout>
+    <Layout title="Sobre a Vida Natural" seo={{
+      description: 'Uma empresa  feita por amigos, unidos pelo propósito da transparência, que se importam com aquilo que colocamos todos os dias no nosso maior orgão de absorção - a pele.',
+    }}>
       <Hero size="small" background="/static/images/capa-pb.jpg">
         <Typography variant="h2">Sobre a Vida Natural</Typography>
         <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
@@ -19,7 +22,7 @@ export default function Index() {
       </Hero>
       <PaperContent>
         <Grid container justify="center">
-          <Grid item xs={11} sm={8}>
+          <Grid item xs={12} sm={8}>
             <Typography variant="h4" css={{ marginBottom: theme.spacing(4) }}>
               Por que fazemos o que fazemos?
             </Typography>
@@ -56,26 +59,15 @@ export default function Index() {
             >
               Quem somos?
             </Typography>
-            <Grid container justify="center" spacing={3}>
+            <Grid container spacing={4} justify="center" alignItems="stretch">
               {team.map(member => (
                 <Member key={member.picture} {...member} />
               ))}
             </Grid>
           </Grid>
-          <Grid item xs={11} sm={8}>
-            <Typography
-              variant="h4"
-              css={{
-                marginBottom: theme.spacing(2),
-                marginTop: theme.spacing(4),
-              }}
-            >
-              Ingredientes que usamos
-            </Typography>
-            <Typography variant="body1">Em breve...</Typography>
-          </Grid>
         </Grid>
       </PaperContent>
+      <IllustratedIngredients />
     </Layout>
   )
 }

@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react'
-import Router, { withRouter } from 'next/router'
+import { useState } from 'react'
+import { withRouter } from 'next/router'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import ButtonLink from 'src/components/ButtonLink'
-import Link from 'src/components/Link'
-import clsx from 'clsx'
 import theme from 'src/ui/theme'
 import menu from 'data/menu'
 
@@ -42,7 +40,7 @@ const SubMenu = ({ name, path, links, router }) => {
       >
         {links.map(subItem => (
           <MenuItem
-            onClick={() => Router.push(subItem.path)}
+            onClick={() => router.push(subItem.path)}
             key={subItem.path}
           >
             {subItem.name}
@@ -55,26 +53,31 @@ const SubMenu = ({ name, path, links, router }) => {
 
 const SubMenuRouter = withRouter(SubMenu)
 
-const HeaderMenu = () => {
-  return menu.links.map(item => {
-    const hasSubmenu = !!item.links
-    return hasSubmenu ? (
-      <SubMenuRouter key={item.name} {...item} />
-    ) : (
-      <ButtonLink
-        css={{
-          '&.active': {
-            color: theme.palette.secondary.main,
-          },
-        }}
-        color="inherit"
-        key={item.name}
-        href={item.path}
-      >
-        {item.name}
-      </ButtonLink>
-    )
-  })
+const DesktopMenu = ({ children }) => {
+  return (
+    <>
+      {menu.links.map(item => {
+        const hasSubmenu = !!item.links
+        return hasSubmenu ? (
+          <SubMenuRouter key={item.name} {...item} />
+        ) : (
+          <ButtonLink
+            css={{
+              '&.active': {
+                color: theme.palette.secondary.main,
+              },
+            }}
+            color="inherit"
+            key={item.name}
+            href={item.path}
+          >
+            {item.name}
+          </ButtonLink>
+        )
+      })}
+      {children}
+    </>
+  )
 }
 
-export default HeaderMenu
+export default DesktopMenu

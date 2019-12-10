@@ -1,22 +1,18 @@
-import filter from 'lodash/filter'
 import shuffle from 'lodash/shuffle'
-import { Box, Typography } from '@material-ui/core'
-import { useProcessOnce } from 'utils/hooks'
-import theme from 'src/ui/theme'
-import sloganImg from 'static/svgs/slogan.svg'
-import testimonials from 'data/testimonials'
+import filter from 'lodash/filter'
 import Testimonials from 'src/components/Testimonials'
+import { useProcessOnce } from 'utils/hooks'
+import testimonials from 'data/testimonials'
 
 const filterByTag = tag => item => item.tags.includes(tag)
 
-const ProductTestimonials = ({ product }) => {
-  const shuffled = useProcessOnce(shuffle, testimonials)
-  const filteredTestimonials = filter(shuffled, filterByTag(product.path))
-  const genericTestimonials = filter(shuffled, filterByTag('all'))
-  const items = [...filteredTestimonials, ...genericTestimonials]
-  return (
-    <Testimonials testimonials={items} background="/static/images/plants.jpg" />
-  )
+const ProductTestimonials = ({ product, ...props }) => {
+  const filteredTestimonials = filter(testimonials, filterByTag(product.path))
+  const genericTestimonials = filter(testimonials, filterByTag('all'))
+  const shuffled = useProcessOnce(shuffle, filteredTestimonials)
+  const shuffledGeneric = useProcessOnce(shuffle, genericTestimonials)
+  const items = [...shuffled, ...shuffledGeneric]
+  return <Testimonials {...props} testimonials={items} />
 }
 
 export default ProductTestimonials

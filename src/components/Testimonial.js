@@ -4,7 +4,7 @@ import MdContent from 'src/components/MdContent'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
-const Testimonial = ({ name, size, role, picture, location, content }) =>
+const Testimonial = ({ name, role, picture, location, content }) =>
   name ? (
     <Paper
       css={{
@@ -27,7 +27,7 @@ const Testimonial = ({ name, size, role, picture, location, content }) =>
         <GoQuote css={{ position: 'absolute', fontSize: '0.8rem' }} />
         <MdContent
           css={{
-            textIndent: '1.15rem',
+            '& p:first-child': { textIndent: '1.15rem' },
             '&::first-letter': {
               fontSize: '1.25rem',
             },
