@@ -4,7 +4,7 @@ export default [
   {
     name: 'Água Purificada',
     inci: 'Aqua',
-    description: '<3 Água <3 sem sais minerais e matérias orgânicas.',
+    description: 'Água ❤️ sem sais minerais e matérias orgânicas. 💦',
   },
   {
     name: 'Manteiga de Karité',
