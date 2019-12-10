@@ -30,7 +30,7 @@ const Logo = ({ sticky, variant }) => {
             width: sticky ? 40 : 80,
           }}
           src={logoImg}
-          alt="Vida Natural Logo"
+          alt="Vida Natural"
         />
       )}
     </ButtonLink>
