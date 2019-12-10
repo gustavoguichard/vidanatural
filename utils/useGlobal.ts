@@ -32,7 +32,7 @@ export default useStore(
           .listCart()
           .then(result => {
             store.setState({
-              cart: result,
+              cart: result || [],
             })
           })
           .catch(() => console.warn('Not able to get cart'))
