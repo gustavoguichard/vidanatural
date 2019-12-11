@@ -16,9 +16,7 @@ const saveCookie = (headers: Headers) => {
 }
 
 export const getUrl = (path: string, params?: object, proxy?: boolean) => {
-  const base = proxy
-    ? process.env.API_PROXY
-    : `https://${process.env.API_DOMAIN}/`
+  const base = proxy ? '/api/proxy/' : `https://${process.env.API_DOMAIN}/`
   const formattedPath = proxy ? path.replace('/', '::') : path
   const query = buildQuery(params)
   const url = joinWith([base, formattedPath])
@@ -56,7 +54,7 @@ const post = async (
   return doRequest(url, { ...params, method: 'POST' }, proxy)
 }
 
-const sendForm = async (values: FormKeys, proxy = true) => {
+const sendForm = async (values: FormKeys, proxy = false) => {
   const { a_password, key, ...otherValues } = values
 
   if (!!a_password || !key) {
