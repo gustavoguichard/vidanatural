@@ -21,7 +21,7 @@ export default async (req: any, res: Http2ServerResponse) => {
         headers: {
           Accept: 'application/json',
           cookie: encodedCookies,
-          Host: process.env.API_DOMAIN || 'localhost',
+          Host: req.headers.host || process.env.API_DOMAIN || 'localhost',
         },
         method: req.method,
         credentials: 'include',
