@@ -12,20 +12,16 @@ const omitCookies = (cookies = '', fn: (v: string, k: string) => boolean) => {
 const keysWithLodash = (_: string, k: string) => k.startsWith('_')
 
 export default async (req: any, res: Http2ServerResponse) => {
-  console.log(req.headers)
   const endpoint = req.url.replace('/api/proxy/', '').replace('::', '/')
   try {
     if (endpoint) {
       const encodedCookies = omitCookies(req.headers.cookie, keysWithLodash)
       const url = `${process.env.API_IP}${endpoint}`
-      const Host = req.headers.host.includes('localhost')
-        ? process.env.API_DOMAIN
-        : req.headers.host
       const response = await fetch(url, {
         headers: {
           Accept: 'application/json',
           cookie: encodedCookies,
-          Host,
+          Host: process.env.API_DOMAIN || 'localhost',
         },
         method: req.method,
         credentials: 'include',
