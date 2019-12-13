@@ -5,6 +5,7 @@
     "env": {
       "API_IP": "@api-ip",
       "API_DOMAIN": "@api-domain",
+      "EXT_API_DOMAIN": "@ext-api-domain",
       "API_PROXY": "@api-proxy",
       "ANALYTICS_ID": "@analytics-uid",
       "GTM_ID": "@gtm-id"
