@@ -6,8 +6,8 @@ export default [
     location: 'São Paulo / SP',
     picture: 'cristina',
     ratio: '2by3',
-    shortContent: `Há mais de dois anos que uso o [desodorante em pasta](/produto/desodorante-em-pasta) e **não troco** por outro. **Super eficiente**, **100% Natural**, e rende muito, uso por pelo menos **2 meses o mesmo** tubinho.`,
-    content: `Há mais de dois anos que uso o [desodorante em pasta](/produto/desodorante-em-pasta) e **não troco** por outro. **Super eficiente**, **100% Natural**, e rende muito, uso por pelo menos **2 meses o mesmo** tubinho.
+    shortContent: `Há mais de dois anos que uso o [desodorante em pasta](/produtos/desodorante-em-pasta) e **não troco** por outro. **Super eficiente**, **100% Natural**, e rende muito, uso por pelo menos **2 meses o mesmo** tubinho.`,
+    content: `Há mais de dois anos que uso o [desodorante em pasta](/produtos/desodorante-em-pasta) e **não troco** por outro. **Super eficiente**, **100% Natural**, e rende muito, uso por pelo menos **2 meses o mesmo** tubinho.
 
   Super feliz por esse produto existir!`,
   },
@@ -91,14 +91,14 @@ Quando usei fiquei **suuuuper feliz**! Enfim achei um **produto de qualidade**, 
     location: 'Florianópolis / SC',
     picture: 'aline-blasius',
     ratio: '2by3',
-    content: `Faz quase dois anos que uso o [desodorante](/produto/desodorante-em-pasta) e o [pó dental](/produto/po-dental) e são **muito eficientes**! As **embalagens são práticas** de carregar na bolsa. **Sem veneninhos** e **sem crueldade**! Recomendo!`,
+    content: `Faz quase dois anos que uso o [desodorante](/produtos/desodorante-em-pasta) e o [pó dental](/produtos/po-dental) e são **muito eficientes**! As **embalagens são práticas** de carregar na bolsa. **Sem veneninhos** e **sem crueldade**! Recomendo!`,
   },
   {
     name: 'Zilda Gama',
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Belém / PA',
     picture: 'zilda-gama',
-    shortContent: `...não sabia mais viver sem o [desodorante](/produto/desodorante-em-pasta) da Vida Natural e minha busca recomeçou, foi quando encontrei a página da Vida Natural no facebook e as gurias facilitam minha vida **mandando para mim pelos correios** sempre que eu os peço.`,
+    shortContent: `...não sabia mais viver sem o [desodorante](/produtos/desodorante-em-pasta) da Vida Natural e minha busca recomeçou, foi quando encontrei a página da Vida Natural no facebook e as gurias facilitam minha vida **mandando para mim pelos correios** sempre que eu os peço.`,
     content: `
 Em 2015 fui diagnosticada com **câncer de mama** o que me levou a iniciar uma busca por explicações para a causa da doença, especialmente em pessoas jovens e sem outros casos na família, eu tinha 34 anos.
 
@@ -106,7 +106,7 @@ Nessa busca eu encontrei estudos que relacionavam o **câncer de mama** a alguma
 
 Foi assim, que eu encontrei o desodorante da Vida Natural sendo vendido em um restaurante indiano de Porto Alegre e que **atendeu todas as minhas expectativas**.
 
-Em 2017, porém me mudei para Belém, mas não sabia mais viver sem o [desodorante](/produto/desodorante-em-pasta) da Vida Natural e minha busca recomeçou, foi quando encontrei a página da Vida Natural no facebook e as gurias facilitam minha vida **mandando para mim pelos correios** sempre que eu os peço.`,
+Em 2017, porém me mudei para Belém, mas não sabia mais viver sem o [desodorante](/produtos/desodorante-em-pasta) da Vida Natural e minha busca recomeçou, foi quando encontrei a página da Vida Natural no facebook e as gurias facilitam minha vida **mandando para mim pelos correios** sempre que eu os peço.`,
   },
   {
     name: 'Rafael Pieruccini',
@@ -114,7 +114,7 @@ Em 2017, porém me mudei para Belém, mas não sabia mais viver sem o [desodoran
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Porto Alegre / RS',
     picture: 'rafael-pieruccini',
-    content: `Faz anos que procurava um **[desodorante natural](/produto/desodorante-em-pasta) que funcionasse**, até que **encontrei** o Vida Natural. Ele é **extremamente eficiente**, e o **melhor**, **naturalmente**.`,
+    content: `Faz anos que procurava um **[desodorante natural](/produtos/desodorante-em-pasta) que funcionasse**, até que **encontrei** o Vida Natural. Ele é **extremamente eficiente**, e o **melhor**, **naturalmente**.`,
   },
   {
     name: 'Monica Auga',
@@ -122,7 +122,7 @@ Em 2017, porém me mudei para Belém, mas não sabia mais viver sem o [desodoran
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Florianópolis / SC',
     picture: 'monica-auga',
-    content: `Incrível!  **Único [desodorante natural](/produto/desodorante-em-pasta)** que realmente superou os químicos. .... super aprovo, 5 anos que **só uso** Vida Natural!!!`,
+    content: `Incrível!  **Único [desodorante natural](/produtos/desodorante-em-pasta)** que realmente superou os químicos. .... super aprovo, 5 anos que **só uso** Vida Natural!!!`,
   },
   {
     name: 'Mayara',
@@ -141,9 +141,9 @@ Obrigada por criar esses produtos incríveis que **eu tanto amo** e uso desde qu
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Florianópolis / SC',
     picture: 'andrea-freire',
-    shortContent: `Durante 1 mês de **árduo trabalho físico**, velejando sob um sol escaldante e muito calor, o **[desodorante](/produto/desodorante-em-pasta) funcionou muito bem**. Os produtos Vida Natural aliam **eficiência** à **sustentabilidade ambiental**.`,
+    shortContent: `Durante 1 mês de **árduo trabalho físico**, velejando sob um sol escaldante e muito calor, o **[desodorante](/produtos/desodorante-em-pasta) funcionou muito bem**. Os produtos Vida Natural aliam **eficiência** à **sustentabilidade ambiental**.`,
     content: `
-Durante 1 mês de **árduo trabalho físico**, velejando sob um sol escaldante e muito calor, o **[desodorante](/produto/desodorante-em-pasta) funcionou muito bem**.
+Durante 1 mês de **árduo trabalho físico**, velejando sob um sol escaldante e muito calor, o **[desodorante](/produtos/desodorante-em-pasta) funcionou muito bem**.
 
 Os produtos Vida Natural serão **usados pelos pesquisadores no veleiro ECO/UFSC**, pois aliam **eficiência** à **sustentabilidade ambiental**.`,
   },
@@ -190,7 +190,7 @@ Foi aí que comecei a ser muito mais **criteriosa** com todo cosmético que eu u
     location: 'Curitiba / PR',
     picture: 'diuly-venson',
     ratio: '2by3',
-    content: `**Fantástico**! Segura o **dia todo**, inclusive **durante atividades físicas**, e o **melhor, sem bloquear a transpiração**. Um dos melhores [desodorantes](/produto/desodorante-em-pasta) naturais que já experimentei. Super recomendo!!!`,
+    content: `**Fantástico**! Segura o **dia todo**, inclusive **durante atividades físicas**, e o **melhor, sem bloquear a transpiração**. Um dos melhores [desodorantes](/produtos/desodorante-em-pasta) naturais que já experimentei. Super recomendo!!!`,
   },
   {
     name: 'Gisele de Menezes',
@@ -198,9 +198,9 @@ Foi aí que comecei a ser muito mais **criteriosa** com todo cosmético que eu u
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Porto Alegre / RS',
     picture: 'gisele-de-menezes',
-    shortContent: `Há muito tempo descobri o [desodorante de creme](/produto/desodorante-em-pasta) em um restaurante de POA e ADOREI. Nunca mais quis comprar outros desodorantes, pois na minha adolescência eu tive que fazer uma pequena cirurgia devido a um **entupimento das glândulas sebáceas da axila**, causado por **desodorantes convencionais**. Depois de um tempo descobri o [Rollon](/produto/desodorante-roll-on) e **não voltei atrás**.`,
+    shortContent: `Há muito tempo descobri o [desodorante de creme](/produtos/desodorante-em-pasta) em um restaurante de POA e ADOREI. Nunca mais quis comprar outros desodorantes, pois na minha adolescência eu tive que fazer uma pequena cirurgia devido a um **entupimento das glândulas sebáceas da axila**, causado por **desodorantes convencionais**. Depois de um tempo descobri o [Rollon](/produtos/desodorante-roll-on) e **não voltei atrás**.`,
     content: `
-Há muito tempo descobri o [desodorante de creme](/produto/desodorante-em-pasta) em um restaurante de POA e ADOREI. Nunca mais quis comprar outros desodorantes, pois na minha adolescência eu tive que fazer uma pequena cirurgia devido a um **entupimento das glândulas sebáceas da axila**, causado por **desodorantes convencionais**. Depois de um tempo descobri o [Rollon](/produto/desodorante-roll-on) e **não voltei atrás**.
+Há muito tempo descobri o [desodorante de creme](/produtos/desodorante-em-pasta) em um restaurante de POA e ADOREI. Nunca mais quis comprar outros desodorantes, pois na minha adolescência eu tive que fazer uma pequena cirurgia devido a um **entupimento das glândulas sebáceas da axila**, causado por **desodorantes convencionais**. Depois de um tempo descobri o [Rollon](/produtos/desodorante-roll-on) e **não voltei atrás**.
 
 Claro que é importante manter uma boa assepsia do corpo, ter uma **boa alimentação** que não produza tanta acidez, mas considero o desodorante **suficiente para minhas necessidades**. E saber também que é um produto **natural e artesanal** é tudo!
 
@@ -211,9 +211,9 @@ Que bom se os sabonetes, produtos de limpeza e todas as coisas fossem feitas des
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     picture: 'samantha-linsmeyer',
     ratio: '2by3',
-    shortContent: `O [desodorante](/produto/desodorante-em-pasta) que experimentei é **simplesmente o melhor que já usei na minha vida**. Eu não largo mais! Senti ele leve, o **aroma agradável** e com uma **resistência** muito importante para quem tem uma **rotina agitada** igual a minha.`,
+    shortContent: `O [desodorante](/produtos/desodorante-em-pasta) que experimentei é **simplesmente o melhor que já usei na minha vida**. Eu não largo mais! Senti ele leve, o **aroma agradável** e com uma **resistência** muito importante para quem tem uma **rotina agitada** igual a minha.`,
     content: `
-O [desodorante](/produto/desodorante-em-pasta) que experimentei é **simplesmente o melhor que já usei na minha vida**. Eu não largo mais! Quero provar e experimentar os outros produtos.
+O [desodorante](/produtos/desodorante-em-pasta) que experimentei é **simplesmente o melhor que já usei na minha vida**. Eu não largo mais! Quero provar e experimentar os outros produtos.
 
 Senti ele leve, o **aroma agradável** e com uma **resistência** muito importante para quem tem uma **rotina agitada** igual a minha. Agora quero mais, tenho certeza que vou amar os outros e me sinto feliz em **cuidar também da natureza e dos animais** desta forma!`,
   },
@@ -223,7 +223,7 @@ Senti ele leve, o **aroma agradável** e com uma **resistência** muito importan
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Canada',
     picture: 'gabriela-de-lucca',
-    content: `Ganhei o [desodorante](/produto/desodorante-em-pasta) de presente e fiquei **encantada com toda proposta** da marca. Usar um produto todos os dias sabendo que é **feito com total amor**, **consciente e natural** faz meu **dia começar muito melhor**. Sem contar que **funciona super bem** e **não mancha minhas blusas**. Recomendo com todo meu coração.`,
+    content: `Ganhei o [desodorante](/produtos/desodorante-em-pasta) de presente e fiquei **encantada com toda proposta** da marca. Usar um produto todos os dias sabendo que é **feito com total amor**, **consciente e natural** faz meu **dia começar muito melhor**. Sem contar que **funciona super bem** e **não mancha minhas blusas**. Recomendo com todo meu coração.`,
   },
   {
     name: 'Fabiula Zimmer',
@@ -232,7 +232,7 @@ Senti ele leve, o **aroma agradável** e com uma **resistência** muito importan
     location: 'São Leopoldo / RS',
     picture: 'fabiula-zimmer',
     ratio: '2by3',
-    content: `Os produtos Vida Natural fazem parte do **meu dia a dia**. Utilizo o **[desodorante em pasta](/produto/desodorante-em-pasta)** alternado com o **[roll on](/produto/desodorante-roll-on)** e o **óleo de girassol com palmarosa e lavanda**, que é super **hidratante** e tem um **cheiro maravilhoso**.`,
+    content: `Os produtos Vida Natural fazem parte do **meu dia a dia**. Utilizo o **[desodorante em pasta](/produtos/desodorante-em-pasta)** alternado com o **[roll on](/produtos/desodorante-roll-on)** e o **óleo de girassol com palmarosa e lavanda**, que é super **hidratante** e tem um **cheiro maravilhoso**.`,
   },
   {
     name: 'Carol Carida',
@@ -249,7 +249,7 @@ Senti ele leve, o **aroma agradável** e com uma **resistência** muito importan
     tags: ['desodorante-rollon', 'desodorante-em-pasta'],
     location: 'Imbituba / SC',
     picture: 'francisco-camolesi',
-    content: `Depois que experimentei **nunca mais usei outro**. [Desodorante](/produto/desodorante-em-pasta) mais **eficiente** que já usei. O produto é **simplesmente sensacional**. Já estou usando há dois anos e nem penso em experimentar outro!`,
+    content: `Depois que experimentei **nunca mais usei outro**. [Desodorante](/produtos/desodorante-em-pasta) mais **eficiente** que já usei. O produto é **simplesmente sensacional**. Já estou usando há dois anos e nem penso em experimentar outro!`,
   },
   {
     name: 'Gabriel de Menezes',
@@ -257,7 +257,7 @@ Senti ele leve, o **aroma agradável** e com uma **resistência** muito importan
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'oleo-hidratante'],
     location: 'São Leopoldo / RS',
     picture: 'gabriel-de-menezes',
-    content: `Utilizo os produtos da Vida Natural há pelo menos 2 anos. O **[desodorante](/produto/desodorante-em-pasta)** e os **[óleos hidratantes](/produto/oleo-hidratante)** fazem **parte do meu dia a dia** desde então.`,
+    content: `Utilizo os produtos da Vida Natural há pelo menos 2 anos. O **[desodorante](/produtos/desodorante-em-pasta)** e os **[óleos hidratantes](/produtos/oleo-hidratante)** fazem **parte do meu dia a dia** desde então.`,
   },
   {
     name: 'Lúcia do Valle',
@@ -281,8 +281,8 @@ Senti ele leve, o **aroma agradável** e com uma **resistência** muito importan
     tags: ['desodorante-em-pasta'],
     location: 'Porto Alegre / RS',
     picture: 'luise-rabelo',
-    shortContent: `Conheci os produtos Vida Natural por acaso há uns 3 anos e **nunca mais deixei de usar**, principalmente o **[desodorante em pasta](/produto/desodorante-em-pasta)**, meu preferido. Os produtos são **eficazes**, tem um **cheiro suave e gostoso** e **não agridem nosso organismo** como os cosméticos convencionais.`,
-    content: `Conheci os produtos Vida Natural por acaso há uns 3 anos e **nunca mais deixei de usar**, principalmente o **[desodorante em pasta](/produto/desodorante-em-pasta)**, meu preferido. Os produtos são **eficazes**, tem um **cheiro suave e gostoso** e **não agridem nosso organismo** como os cosméticos convencionais. Obrigada Vida Natural por cuidar da gente com tanto **carinho**!`,
+    shortContent: `Conheci os produtos Vida Natural por acaso há uns 3 anos e **nunca mais deixei de usar**, principalmente o **[desodorante em pasta](/produtos/desodorante-em-pasta)**, meu preferido. Os produtos são **eficazes**, tem um **cheiro suave e gostoso** e **não agridem nosso organismo** como os cosméticos convencionais.`,
+    content: `Conheci os produtos Vida Natural por acaso há uns 3 anos e **nunca mais deixei de usar**, principalmente o **[desodorante em pasta](/produtos/desodorante-em-pasta)**, meu preferido. Os produtos são **eficazes**, tem um **cheiro suave e gostoso** e **não agridem nosso organismo** como os cosméticos convencionais. Obrigada Vida Natural por cuidar da gente com tanto **carinho**!`,
   },
   {
     name: 'Camila de Lucca',
@@ -315,8 +315,8 @@ Nosso agradecimento em especial e carinhoso à Dalila Ozório, criadora dos prod
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'oleo-hidratante'],
     location: 'Rio de Janeiro / RJ',
     picture: 'priscila-pittel',
-    shortContent: `O [óleo](/produto/oleo-hidratante) além de **hidratar a minha pele**, **estimula** a auto massagem, o que me traz uma **série de benefícios**. O **[desodorante](/produto/desodorante-em-pasta) neutraliza o odor sem tampar os meus poros**, que **precisam colocar as toxinas para fora**.`,
-    content: `O [óleo](/produto/oleo-hidratante) além de **hidratar a minha pele**, **estimula** a auto massagem, o que me traz uma **série de benefícios**. O **[desodorante](/produto/desodorante-em-pasta) neutraliza o odor sem tampar os meus poros**, que **precisam colocar as toxinas para fora**. São **pequenos hábitos diários** que fazem toda a **diferença** na vida.`,
+    shortContent: `O [óleo](/produtos/oleo-hidratante) além de **hidratar a minha pele**, **estimula** a auto massagem, o que me traz uma **série de benefícios**. O **[desodorante](/produtos/desodorante-em-pasta) neutraliza o odor sem tampar os meus poros**, que **precisam colocar as toxinas para fora**.`,
+    content: `O [óleo](/produtos/oleo-hidratante) além de **hidratar a minha pele**, **estimula** a auto massagem, o que me traz uma **série de benefícios**. O **[desodorante](/produtos/desodorante-em-pasta) neutraliza o odor sem tampar os meus poros**, que **precisam colocar as toxinas para fora**. São **pequenos hábitos diários** que fazem toda a **diferença** na vida.`,
   },
   {
     name: 'Daniela Caniçali',
@@ -324,11 +324,11 @@ Nosso agradecimento em especial e carinhoso à Dalila Ozório, criadora dos prod
     tags: ['desodorante-rollon', 'desodorante-em-pasta', 'po-dental'],
     location: 'Florianópolis / SC',
     picture: 'daniela-canicali',
-    shortContent: `Os [desodorantes](/produto/desodorante-em-pasta) são **super eficazes**: passo **apenas uma vez ao dia**, pela manhã, e eles geralmente **duram o dia todo**, sem necessidade de reaplicação. O **[pó dental](/produto/po-dental)** também é uma **ótima alternativa** à pasta de dente tradicional.`,
+    shortContent: `Os [desodorantes](/produtos/desodorante-em-pasta) são **super eficazes**: passo **apenas uma vez ao dia**, pela manhã, e eles geralmente **duram o dia todo**, sem necessidade de reaplicação. O **[pó dental](/produtos/po-dental)** também é uma **ótima alternativa** à pasta de dente tradicional.`,
     content: `
 Utilizo os produtos da Vida Natural há algum tempo, em especial os **desodorantes** e o **pó dental**. Considero todos de **excelente qualidade**.
 
-Os [desodorantes](/produto/desodorante-em-pasta) são **super eficazes**: passo **apenas uma vez ao dia**, pela manhã, e eles geralmente **duram o dia todo**, sem necessidade de reaplicação. O **[pó dental](/produto/po-dental)** também é uma **ótima alternativa** à pasta de dente tradicional.
+Os [desodorantes](/produtos/desodorante-em-pasta) são **super eficazes**: passo **apenas uma vez ao dia**, pela manhã, e eles geralmente **duram o dia todo**, sem necessidade de reaplicação. O **[pó dental](/produtos/po-dental)** também é uma **ótima alternativa** à pasta de dente tradicional.
 
 Além disso, o fato de serem feitos com **ingredientes 100% naturais e veganos** também proporcionam **tranquilidade e segurança**, por sabermos que não representam quaisquer riscos à nossa saúde ou de outros seres.`,
   },
@@ -339,11 +339,11 @@ Além disso, o fato de serem feitos com **ingredientes 100% naturais e veganos**
     location: 'Florianópolis / SC',
     picture: 'merilyn-da-silva',
     ratio: '2by3',
-    shortContent: `Toda a **nossa familia** usa os produtos da Vida Natural. Desorante, óleo hidratante, [óleo de rosa mosqueta](/produto/oleo-de-rosa-mosqueta) e adoramos. Produtos feitos com **consciência e amor**!`,
+    shortContent: `Toda a **nossa familia** usa os produtos da Vida Natural. Desorante, óleo hidratante, [óleo de rosa mosqueta](/produtos/oleo-de-rosa-mosqueta) e adoramos. Produtos feitos com **consciência e amor**!`,
     content: `
 A mamãe e o papai sempre usam o **óleo de rosa mosqueta** da Vida Natural na minha pele. Ela fica **macia** e sem assaduras!
 
-Toda a **nossa familia** usa os produtos da Vida Natural. Desorante, [óleo hidratante](/produto/oleo-hidratante), [óleo de rosa mosqueta](/produto/oleo-de-rosa-mosqueta) e adoramos. Produtos feitos com **consciência e amor**!`,
+Toda a **nossa familia** usa os produtos da Vida Natural. Desorante, [óleo hidratante](/produtos/oleo-hidratante), [óleo de rosa mosqueta](/produtos/oleo-de-rosa-mosqueta) e adoramos. Produtos feitos com **consciência e amor**!`,
   },
   {
     name: 'Renata Santanayanna',
@@ -363,7 +363,7 @@ Fruto de um trabalho feito com **muito amor**, **idealismo** e muita preocupaç�
     tags: ['oleo-hidratante', 'hidratante-facial'],
     location: 'Florianópolis / SC',
     picture: 'bruno-pasti',
-    content: `Gosto do **resultado dos cosméticos** Vida Natural. A **pele fica ótima** com os [hidratantes](/produto/oleo-hidratante) e o **aroma** dos óleos essenciais é uma **delícia**.`,
+    content: `Gosto do **resultado dos cosméticos** Vida Natural. A **pele fica ótima** com os [hidratantes](/produtos/oleo-hidratante) e o **aroma** dos óleos essenciais é uma **delícia**.`,
   },
   {
     name: 'Karla Scherer',
@@ -376,7 +376,7 @@ Fruto de um trabalho feito com **muito amor**, **idealismo** e muita preocupaç�
     ],
     location: 'Florianópolis / SC',
     picture: 'karla-scherer',
-    content: `Sempre recomendo os produtos Vida Natural para meus amigos e para aqueles que desconhecem a **eficácia dos [desodorantes](/produto/desodorante-em-pasta)** e [hidratantes naturais](/produto/hidratante-facial) naturais. Os produtos têm **excelente qualidade**, **composição** perfeita e com ótimos preços!`,
+    content: `Sempre recomendo os produtos Vida Natural para meus amigos e para aqueles que desconhecem a **eficácia dos [desodorantes](/produtos/desodorante-em-pasta)** e [hidratantes naturais](/produtos/hidratante-facial) naturais. Os produtos têm **excelente qualidade**, **composição** perfeita e com ótimos preços!`,
   },
   {
     name: 'Murilo Secco',
@@ -384,6 +384,6 @@ Fruto de um trabalho feito com **muito amor**, **idealismo** e muita preocupaç�
     tags: ['desodorante-em-pasta'],
     location: 'Franca / SP',
     picture: 'murilo-secco',
-    content: `Acredita que meu [desodorante em pasta](/produto/desodorante-em-pasta) eu uso até hoje? Tenho usado todo dia! Ele não acaba... acho que ele nasce de novo no pote!`,
+    content: `Acredita que meu [desodorante em pasta](/produtos/desodorante-em-pasta) eu uso até hoje? Tenho usado todo dia! Ele não acaba... acho que ele nasce de novo no pote!`,
   },
 ]

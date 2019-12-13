@@ -18,8 +18,10 @@ const CartItem = ({
   price,
   quantity,
 }) => {
+  const fixedUrl = product_url.replace('/produto/', '/produtos/')
+  const path = getOwnPath(fixedUrl)
   return (
-    <ListItem button onClick={() => router.push(getOwnPath(product_url))}>
+    <ListItem button onClick={() => router.push(path)}>
       <ListItemAvatar>
         <img src={getResizedImg(image_url, 30)} width="30" />
       </ListItemAvatar>

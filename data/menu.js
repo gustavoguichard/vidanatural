@@ -11,7 +11,7 @@ export default {
         },
         ...products.map(product => ({
           name: product.title,
-          path: `/produto/${product.slug || product.path}`,
+          path: `/produtos/${product.slug || product.path}`,
         })),
       ],
     },
@@ -55,7 +55,7 @@ export default {
       name: 'Produtos',
       links: products.map(product => ({
         name: product.title,
-        path: `/produto/${product.slug || product.path}`,
+        path: `/produtos/${product.slug || product.path}`,
       })),
     },
     {

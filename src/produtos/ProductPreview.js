@@ -54,7 +54,7 @@ const ProductPreview = ({ product, index }) => {
           >
             <Link
               href={
-                product.slug ? `/produto/${product.slug}` : `/${product.path}`
+                product.slug ? `/produtos/${product.slug}` : `/${product.path}`
               }
               title={product.title}
             >
@@ -85,7 +85,7 @@ const ProductPreview = ({ product, index }) => {
                 padding: theme.spacing(4),
               }}
             >
-              <Link href={`/produto/${product.slug}`}>
+              <Link href={`/produtos/${product.slug}`}>
                 <Typography
                   variant="h3"
                   css={{ marginBottom: theme.spacing() }}
@@ -117,7 +117,7 @@ const ProductPreview = ({ product, index }) => {
                 content={product.presentation}
               />
               <p>
-                <Link href={`/produto/${product.slug}`}>Saiba mais</Link>
+                <Link href={`/produtos/${product.slug}`}>Saiba mais</Link>
               </p>
               <ProductCTA size="large" product={product} />
             </Paper>

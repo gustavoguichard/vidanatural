@@ -18,7 +18,7 @@ const ProductLayout = ({ product, slug, children, isMobile }) => {
       seo={{
         description: product.presentation,
         openGraph: {
-          url: `https://vidanatural.eco.br/produto/${slug}`,
+          url: `https://vidanatural.eco.br/produtos/${slug}`,
           type: 'product',
           product: {
             price: get(product, 'variants.0.price', 0),

@@ -60,7 +60,7 @@ const ProductSlide = ({
       >
         <Link
           {...swipeHandlers}
-          href={product.slug ? `/produto/${product.slug}` : `/${product.path}`}
+          href={product.slug ? `/produtos/${product.slug}` : `/${product.path}`}
           title={product.title}
           prefetch={false}
         >
@@ -127,7 +127,7 @@ const ProductSlide = ({
           />
           <CTAButton
             color="secondary"
-            href={`/produto/${product.slug}`}
+            href={`/produtos/${product.slug}`}
             prefetch={false}
           >
             Saiba mais
