@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import take from 'lodash/take'
+import isArray from 'lodash/isArray'
 import { ShoppingBasket } from '@material-ui/icons'
 import {
   IconButton,
@@ -18,6 +19,7 @@ import useGlobal from 'utils/useGlobal'
 
 const CartIcon = () => {
   const [{ cart, showCart }, actions] = useGlobal()
+  const safeCart = isArray(cart) ? cart : []
   const cartRef = useRef(null)
   const hideCart = async () => {
     await sleep(8000)
@@ -41,7 +43,7 @@ const CartIcon = () => {
         <Badge
           overlap="circle"
           color="secondary"
-          invisible={!cart.length}
+          invisible={!safeCart.length}
           anchorOrigin={{
             vertical: 'top',
             horizontal: 'right',
@@ -84,7 +86,7 @@ const CartIcon = () => {
       >
         <ListSubheader color="inherit">Adicionado recentemente</ListSubheader>
         <Divider />
-        {take(cart, 3).map(cartItem => (
+        {take(safeCart, 3).map(cartItem => (
           <CartItem key={cartItem.id} {...cartItem} />
         ))}
         <Button

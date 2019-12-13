@@ -56,14 +56,14 @@ const post = async (
   return doRequest(url, { ...params, method: 'POST' }, proxy)
 }
 
-const sendForm = async (values: FormKeys, proxy = true) => {
+const sendForm = async (values: FormKeys) => {
   const { a_password, key, ...otherValues } = values
 
   if (!!a_password || !key) {
     return false
   }
 
-  const url = getUrl('webform', { key, ...otherValues }, proxy)
+  const url = getUrl('webform', { key, ...otherValues })
   const response = await fetch(url, {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',

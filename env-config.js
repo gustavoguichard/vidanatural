@@ -5,5 +5,6 @@ module.exports = {
   'process.env.GTM_ID': process.env.GTM_ID,
   'process.env.API_IP': process.env.API_IP,
   'process.env.API_DOMAIN': process.env.API_DOMAIN,
+  'process.env.EXT_API_DOMAIN': process.env.EXT_API_DOMAIN,
   'process.env.API_PROXY': process.env.API_PROXY,
 }
