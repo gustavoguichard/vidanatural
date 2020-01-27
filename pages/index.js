@@ -3,7 +3,6 @@ import About from 'src/home/About'
 import Certifications from 'src/components/Certifications'
 import Hero from 'src/home/HomeHero'
 import Products from 'src/home/Products'
-import HomeIngredients from 'src/home/HomeIngredients'
 import Testimonials from 'src/home/HomeTestimonials'
 import { useIsMobile } from 'utils/responsive'
 
@@ -15,7 +14,6 @@ const Home = () => {
       <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
       <Products />
       <About isMobile={isMobile} />
-      <HomeIngredients />
       <Testimonials />
     </Layout>
   )

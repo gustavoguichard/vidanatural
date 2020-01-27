@@ -4,7 +4,7 @@ import BackgroundImg from 'src/components/BackgroundImg'
 import theme from 'src/ui/theme'
 
 const About = ({ isMobile }) => (
-  <Grid container>
+  <Grid container css={{ borderBottom: '10px solid white' }}>
     <Grid item sm={9} md={6} xs={12}>
       <Box css={{ position: 'relative' }} py={isMobile ? 10 : 14}>
         <Container

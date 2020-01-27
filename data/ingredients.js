@@ -9,7 +9,6 @@ export default [
   {
     name: 'Manteiga de Karité',
     inci: 'Butyrospermum Parkii',
-    showHome: true,
     hasIcon: true,
     description: 'Super hidratante!',
     url: '700875/BUTYROSPERMUM_PARKII_%28SHEA_BUTTER%29/',
@@ -24,7 +23,6 @@ export default [
   {
     name: 'Óleo de Palma',
     inci: 'Elaeis Guineensis (Palm) Oil',
-    showHome: true,
     description:
       'Ingrediente orgânico e produzido no Brasil. O óleo é extraído da amêndoa do dende por métodos físicos (prensagem mecânica) sem uso de solventes ou outras substâncias químicas. O refino é realizado de forma natural (processo físico) sem uso de insumos químicos.',
     url: '702238/ELAEIS_GUINEENSIS_%28AFRICAN_OIL_PALM%29_OIL/',
@@ -39,7 +37,6 @@ export default [
   {
     name: 'Fécula de Mandioca',
     inci: 'Tapioca Starch',
-    showHome: true,
     description:
       'Da série: se você ama comer, sabe que não há perigo em passar na pele!',
     url: '724361/TAPIOCA_STARCH/',
@@ -68,7 +65,6 @@ export default [
   {
     name: 'Óleo Essencial de Tea Tree',
     inci: 'Melaleuca Alternifolia Leaf Extract',
-    showHome: true,
     hasIcon: true,
     description:
       'Poderoso antisséptico. Bactericida, antifúngico, revigora o sistema imunológico e ajuda o corpo a combater infecções. Elimina o mau cheiro e auxilia na higiene bucal. Indispensável!',
@@ -77,7 +73,6 @@ export default [
   {
     name: 'Óleo Essencial de Lavanda',
     inci: 'Lavandula Angustifolia Oil',
-    showHome: true,
     hasIcon: true,
     description:
       'Regenera a pele, estimulando o crescimento de novas células saudáveis. Hidrata, suaviza e trata a pele. Protege e repara. Cicatrizante e bactericida é   usado para tratar queimaduras, inflamações, psoríases e feridas.',
@@ -158,7 +153,6 @@ export default [
   {
     name: 'Óleo de Rosa Mosqueta',
     inci: 'Rosa Canina Fruit Oil',
-    showHome: true,
     hasIcon: true,
     description:
       'É uma forma natural de combater rugas, desacelerar o envelhecimento e de ter uma pele saudável. Rico em ácidos graxos nutritivos que contribuem para regeneração das células e tecidos.',
@@ -196,7 +190,6 @@ export default [
   {
     name: 'Óleo de Oliva',
     inci: 'Olea Europaea',
-    showHome: true,
     hasIcon: true,
     description: 'Hidrata e nutre cabelo e couro cabeludo.',
     url: '704248/OLEA_EUROPAEA_%28OLIVE%29/',
@@ -211,7 +204,6 @@ export default [
   {
     name: 'Juá em Pó',
     inci: 'Zizyphus Joazeiro Bark Extract',
-    showHome: true,
     hasIcon: true,
     description:
       'Simplesmente a casca de uma árvore (Juazeiro) em pó! O juá é um antiséptico e saponáceo natural. Excelente para higiene bucal, combatendo cáries e placa.',
