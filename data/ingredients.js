@@ -7,10 +7,11 @@ export default [
     description: 'Água ❤️ sem sais minerais e matérias orgânicas. 💦',
   },
   {
-    name: 'Manteiga de Karité',
+    name: 'Manteiga de Karite',
     inci: 'Butyrospermum Parkii',
     hasIcon: true,
-    description: 'Super hidratante!',
+    description:
+      'Super hidratante! Previne cicatrizes, minimiza manchas de acne, suaviza as rugas, ajuda no tratamento de queimaduras, feridas, cicatrizes, dermatites, psoríase, estrias... ❤️!',
     url: '700875/BUTYROSPERMUM_PARKII_%28SHEA_BUTTER%29/',
   },
   {
