@@ -76,7 +76,7 @@ export default [
   },
   {
     name: 'Óleo Essencial de Lavanda',
-    inci: 'Lavandula Angustifolia Extract',
+    inci: 'Lavandula Angustifolia Oil',
     showHome: true,
     hasIcon: true,
     description:
@@ -107,7 +107,7 @@ export default [
   },
   {
     name: 'Óleo Resina Alecrim',
-    inci: 'Rosmarinus Officinalis',
+    inci: 'Rosmarinus Officinalis Leaf Extract',
     description:
       'Conhecido por ser um dos mais efetivos antioxidantes / conservantes naturais. É um extrato natural das folhas do Alecrim.',
     url: '705663/ROSMARINUS_OFFICINALIS_%28ROSEMARY%29_OLEORESIN/',
@@ -126,7 +126,7 @@ export default [
     hasIcon: true,
     description:
       '100% vegetal e prensado a frio, mantendo suas propriedades. Rico em vitaminas, nutre e hidrata a pele. ',
-    url: '707096-PRUNUS_AMYGDALUS_DULCIS_(SWEET_ALMOND)_OIL',
+    url: '707096/PRUNUS_AMYGDALUS_DULCIS_(SWEET_ALMOND)_OIL',
   },
   {
     name: 'Hidróxido de Magnésio',
@@ -143,38 +143,51 @@ export default [
     url: '701190/CELLULOSE_GUM/',
   },
   {
+    name: 'Goma Xantana',
+    inci: 'Xanthan Gum',
+    description: 'Espessante conhecido por seu uso na culinária.',
+    url: '706998/xanthan-gum',
+  },
+  {
     name: 'Glicerina Vegetal',
     inci: 'Glycerin',
     description:
       'Possui propriedades emolientes, lubrificantes, umectantes e hidratantes que contribuem para absorção da água na pele e nos cabelos, promovendo hidratação e maciez.',
-    url: '706851/VEGETABLE_GLYCERIN/',
+    url: '702620/glycerin',
   },
   {
     name: 'Óleo de Rosa Mosqueta',
-    inci: 'Rosa Aff Rubiginosa Oil',
+    inci: 'Rosa Canina Fruit Oil',
     showHome: true,
     hasIcon: true,
     description:
       'É uma forma natural de combater rugas, desacelerar o envelhecimento e de ter uma pele saudável. Rico em ácidos graxos nutritivos que contribuem para regeneração das células e tecidos.',
-    url: '705579/ROSA_CANINA_%28DOG_ROSE%29_FRUIT_OIL/',
+    url: '861786/ROSE_CANINA_ROSE_HIPS_FRUIT_OIL',
   },
   {
     name: 'Palmarosa',
-    inci: 'Cymbopogon Martini',
+    inci: 'Cymbopogon Martini Oil',
     description:
       'O óleo essencial de Palmarosa é extraído por hidratação ou destilação a vapor, que produz um óleo com um odor doce, floral e rosado, com nuances frutadas, especiadas e amadeiradas. Alguns dos usos do óleo de palmarosa incluem: tratamento de manchas na pele, revitalização e manutenção da flexibilidade e outros danos causados pelo envelhecimento, tratamento de fungos, entre outros.',
     url: '701749/CYMBOPOGON_MARTINI_%28PALMAROSA%29/',
   },
   {
+    name: 'Pró-vitamina B5',
+    inci: 'Panthenol',
+    description:
+      'A vitamina B5 é muito famosa pela sua ação anti-inflamatória e por promover renovação da pele.',
+    url: '704436/PANTHENOL',
+  },
+  {
     name: 'Copaíba',
-    inci: 'Copaifera Officinalis Resin',
+    inci: 'Copaifera Officinalis Oil',
     description:
       'O óleo de copaíba foi apelidado de "bálsamo da Amazônia" devido às suas qualidades. Dentre elas, adoramos, o poder de hidratação e ação anti-inflamatória.',
-    url: '701635/COPAIFERA_OFFICINALIS_%28BALSAM_COPAIBA%29_RESIN/',
+    url: '726641/COPAIFERA_OFFICINALIS_BALSAM_COPAIBA_OIL',
   },
   {
     name: 'Café Verde',
-    inci: 'Coffea Arabica',
+    inci: 'Coffea Arabica Oil',
     hasIcon: true,
     description:
       'Possui propriedades tonificantes, suavizantes e antissépticas e é muito utilizado em tratamentos de beleza corporais e faciais. Os ácidos graxos promovem, também, a hidratação da pele e proteção contra raios UV.',
@@ -205,20 +218,6 @@ export default [
     url: '724946/ZIZYPHUS_JOAZEIRO_BARK_EXTRACT/',
   },
   {
-    name: '',
-    inci: 'Caprylhydroxamic Acid',
-    description:
-      'É ideal para produtos de cuidados pessoais onde uma reivindicação sem paraben ou livre de conservante é necessária. Pode ser usado como uma alternativa às misturas conservantes tradicionais que são vistas como indesejáveis ​​pelo consumidor.',
-    url: '862573/CAPRYLHYDROXAMIC_ACID/',
-  },
-  {
-    name: '',
-    inci: 'Caprylyl Glycol',
-    description:
-      'É um derivado dos óleos de palma e de coco. É considerado um conservante "preservative free".',
-    url: '701067/CAPRYLYL_GLYCOL/',
-  },
-  {
     name: 'Etilhexilglicerina',
     inci: 'Ethylhexylglycerin',
     description:
@@ -226,23 +225,32 @@ export default [
     url: '702352/ETHYLHEXYLGLYCERIN/',
   },
   {
-    name: '',
-    inci: 'Aminomethyl Propanol',
+    inci: 'Undecane (and) Tridecane',
     description:
-      'Poduto ultilizado em formulações de gel - neutralizante - também usado para aumentar o ph das formulações. É um composto orgânico com a fórmula H₂NC (CH2) ₂CH2OH. É um líquido incolor classificado como alcanolamina. É um tampão útil e um precursor de vários outros compostos orgânicos.',
-    url: '700348/AMINOMETHYL_PROPANOL/',
+      'Emoliente 100% natural e biodegradável. Aprovado por Ecocert e Cosmos.',
+    url: '728620/TRIDECANE',
   },
   {
-    name: '',
-    inci: 'Acrylates/C10-30 Alkyl Acrylate Crosspolymer',
+    inci: 'Dicaprylyl Carbonate',
     description:
-      'Agente espessante e emulsificante. O polímero cruzado de acrilato de alquil acrilato/C10-30 é um copolímero de vários ingredientes. Os polímeros geralmente são orgânicos e formados a partir de grandes cadeias de monômeros, que são moléculas que podem se ligar umas nas outras.',
-    url: '700138/ACRYLATES%3B%3B_C10-30_ALKYL_ACRYLATE_CROSSPOLYMER/',
+      'Emoliente 100% natural e biodegradável. Aprovado por Ecocert e Cosmos.',
+    url: '701945/DICAPRYLYL_CARBONATE',
   },
   {
-    name: 'Gel de Aloe Vera',
-    inci: 'Aloe Vera Gel',
-    description: 'Simplesmente: Gel de babosa!',
+    inci: 'Cetearyl Glucoside (and) Cetearyl Alcohol',
+    description:
+      'Base 100% natural e biodegradável. Aprovado por Ecocert e Cosmos.',
+    url: '701241/CETEARYL_GLUCOSIDE',
+  },
+  {
+    inci: 'Benzyl Alcohol (and) Dehydroacetic Acid',
+    description: 'Conservante aprovado por Ecocert.',
+    url: '701893/DEHYDROACETIC_ACID',
+  },
+  {
+    name: 'Aloe Vera em Pó',
+    inci: 'Aloe Barbadensis Leaf Extract Powder',
+    description: 'Simplesmente: Pó de babosa!',
     url: '700269/ALOE_BARBADENSIS_%28ALOE_VERA%29_GEL/',
   },
   {

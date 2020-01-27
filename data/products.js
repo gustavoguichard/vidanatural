@@ -24,7 +24,7 @@ Artesanal, vegano, sem alumínio, sem parabenos, sem triclosan, sem fragrâncias
       'Copernicia Cerifera Cera',
       'Tocopheryl Acetate',
       'Melaleuca Alternifolia Leaf Extract',
-      'Lavandula Angustifolia Extract',
+      'Lavandula Angustifolia Oil',
     ],
     characteristics: [
       ['Gênero', 'Sem gênero'],
@@ -65,7 +65,7 @@ Em embalagem prática, fácil aplicação.
       'Aqua',
       'Magnesium Hydroxide',
       'Melaleuca Alternifolia Leaf Extract',
-      'Lavandula Angustifolia Extract',
+      'Lavandula Angustifolia Oil',
       'Ethylhexylglycerin',
     ],
     characteristics: [
@@ -95,7 +95,7 @@ Em embalagem prática, fácil aplicação.
   //     'Cellulose Gum',
   //     'Glycerin',
   //     'Melaleuca Alternifolia Leaf Extract',
-  //     'Lavandula Angustifolia Extract',
+  //     'Lavandula Angustifolia Oil',
   //     'Cinnamomum Zeylanicum Leaf Oil',
   //     'Caprylyl Glycol',
   //   ],
@@ -131,8 +131,8 @@ Hidrata, trata e suaviza a pele.
     showHome: true,
     slogan: 'Você sem Óleos Minerais',
     ingredients: [
-      'Rosa Aff Rubiginosa Oil',
-      'Lavandula Angustifolia Extract',
+      'Rosa Canina Fruit Oil',
+      'Lavandula Angustifolia Oil',
       'Tocopheryl Acetate',
     ],
     characteristics: [
@@ -175,7 +175,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
       'Cymbopogon Flexuosos Leaf Oil',
       'Lavandula Hybrida Oil',
       'Sodium Lactate',
-      'Rosmarinus Officinalis',
+      'Rosmarinus Officinalis Leaf Extract',
     ],
     characteristics: [
       ['Gênero', 'Sem gênero'],
@@ -200,8 +200,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
     presentation: `Nosso hidratante protege, hidrata e repara a pele do rosto.
 É feito com óleos essenciais, para sua pele receber a potência e a essência da natureza. Potencializa os processos de renovação celular.
 
-- Feito com gel de Babosa, que acalma, regenera e hidrata.
-- Tem Rosa Mosqueta na composição, conhecido tradicionalmente por seu poder de regenerar a pele.
+- Com Rosa Mosqueta na composição, conhecido tradicionalmente por seu poder de regenerar a pele.
 - Acompanhado de outro poderoso antioxidante, o café verde.
 - Palmarosa, junto com Rosa Mosqueta, atua amenizando manchas.
 - Lavanda é sempre um cuidado extra com pele.
@@ -211,18 +210,22 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
     slogan: 'Você sem Ácido Sulfônico',
     ingredients: [
       'Aqua',
-      'Aloe Vera Gel',
-      'Rosa Aff Rubiginosa Oil',
-      'Tocopheryl Acetate',
-      'Lavandula Angustifolia Extract',
-      'Cymbopogon Martini',
-      'Copaifera Officinalis Resin',
-      'Coffea Arabica',
-      'Acrylates/C10-30 Alkyl Acrylate Crosspolymer',
-      'Aminomethyl Propanol',
-      'Caprylhydroxamic Acid',
+      'Rosa Canina Fruit Oil',
+      'Undecane (and) Tridecane',
       'Glycerin',
-      'Caprylyl Glycol',
+      'Dicaprylyl Carbonate',
+      'Cetearyl Glucoside (and) Cetearyl Alcohol',
+      'Copaifera Officinalis Oil',
+      'Tocopheryl Acetate',
+      'Coffea Arabica Oil',
+      'Panthenol',
+      'Benzyl Alcohol (and) Dehydroacetic Acid',
+      'Xanthan Gum',
+      'Lavandula Angustifolia Oil',
+      'Cymbopogon Martini Oil',
+      'Aloe Barbadensis Leaf Extract Powder',
+      'Rosmarinus Officinalis Leaf Extract',
+      'Melaleuca Alternifolia Leaf Extract',
     ],
     characteristics: [
       ['Gênero', 'Sem gênero'],
@@ -289,8 +292,8 @@ Lavanda e Palmarosa estimulam a regeneração celular e melhoram a aparência da
     slogan: 'Você sem Fragrâncias Sintéticas',
     ingredients: [
       'Helianthus Annuus (Sunflower) Oil',
-      'Lavandula Angustifolia Extract',
-      'Cymbopogon Martini',
+      'Lavandula Angustifolia Oil',
+      'Cymbopogon Martini Oil',
     ],
     characteristics: [
       ['Gênero', 'Sem gênero'],
