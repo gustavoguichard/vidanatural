@@ -81,6 +81,7 @@ export default [
   {
     name: 'Óleo Essencial de Lavandin',
     inci: 'Lavandula Hybrida Oil',
+    hasIcon: true,
     description:
       'Propriedades muito semelhantes as da Lavanda, porém ainda mais terapêutico. Mais eficaz em ações: anti-fúngicas, antivirais, bactericidas e imunoestimulantes.',
     url: '703490/LAVANDULA_HYBRIDA_%28LAVANDIN%29_OIL/',
