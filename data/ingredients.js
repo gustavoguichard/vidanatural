@@ -161,7 +161,7 @@ export default [
     url: '861786/ROSE_CANINA_ROSE_HIPS_FRUIT_OIL',
   },
   {
-    name: 'Palmarosa',
+    name: 'Óleo essencial de Palmarosa',
     inci: 'Cymbopogon Martini Oil',
     description:
       'O óleo essencial de Palmarosa é extraído por hidratação ou destilação a vapor, que produz um óleo com um odor doce, floral e rosado, com nuances frutadas, especiadas e amadeiradas. Alguns dos usos do óleo de palmarosa incluem: tratamento de manchas na pele, revitalização e manutenção da flexibilidade e outros danos causados pelo envelhecimento, tratamento de fungos, entre outros.',
@@ -175,14 +175,14 @@ export default [
     url: '704436/PANTHENOL',
   },
   {
-    name: 'Copaíba',
+    name: 'Óleo de Copaíba',
     inci: 'Copaifera Officinalis Oil',
     description:
       'O óleo de copaíba foi apelidado de "bálsamo da Amazônia" devido às suas qualidades. Dentre elas, adoramos, o poder de hidratação e ação anti-inflamatória.',
     url: '726641/COPAIFERA_OFFICINALIS_BALSAM_COPAIBA_OIL',
   },
   {
-    name: 'Café Verde',
+    name: 'Óleo de Café Verde',
     inci: 'Coffea Arabica Oil',
     hasIcon: true,
     description:
