@@ -1,6 +1,4 @@
 import React from 'react'
-import NextLink from 'next/link'
-import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
 import { Box, Container, Grid, Paper, Typography } from '@material-ui/core'
 import BackgroundImg from 'src/components/BackgroundImg'
@@ -70,11 +68,21 @@ const Hero = () => (
           }}
         >
           <a href="/produtos" title="Página de produtos">
-            <Img
-              className="responsive"
-              alt="Products banner"
-              src="/static/images/products-banner.png"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/static/images/products-banner.webp"
+              />
+              <source
+                type="image/png"
+                srcSet="/static/images/products-banner.png"
+              />
+              <img
+                className="responsive"
+                alt="Products banner"
+                src="/static/images/products-banner.png"
+              />
+            </picture>
           </a>
         </Grid>
       </Grid>
