@@ -42,6 +42,7 @@ const ImageGallery = ({ product, isDesktop }) => {
             >
               <img
                 className="responsive"
+                alt={product.title}
                 css={{
                   objectFit: 'contain',
                   position: 'relative',

@@ -10,7 +10,6 @@ const SearchIcon = () => {
       color="inherit"
       aria-label="Busca"
       aria-haspopup="true"
-      aria-controls="search-field"
       onClick={openSearch}
     >
       <Search fontSize="inherit" css={{ fontSize: '1.35rem' }} />
