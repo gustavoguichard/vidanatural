@@ -52,6 +52,7 @@ const ImageGallery = ({ product, isDesktop }) => {
               />
               <img
                 className="responsive"
+                alt={product.title}
                 css={{
                   position: 'absolute',
                   top: 0,
