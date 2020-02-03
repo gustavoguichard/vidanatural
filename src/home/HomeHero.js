@@ -1,16 +1,29 @@
 import React from 'react'
 import CTAButton from 'src/components/CTAButton'
 import { Box, Container, Grid, Paper, Typography } from '@material-ui/core'
-import BackgroundImg from 'src/components/BackgroundImg'
 import theme from 'src/ui/theme'
 
 const Hero = () => (
   <Box color="secondary.contrastText" position="relative">
-    <BackgroundImg
-      alwaysShow
-      src="/static/images/banner.jpg"
-      position="bottom"
-    />
+    <picture>
+      <source type="image/webp" srcSet="/static/images/banner.webp" />
+      <source type="image/jpg" srcSet="/static/images/banner.jpg" />
+      <img
+        src="/static/images/banner.jpg"
+        alt="Background"
+        css={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'bottom',
+        }}
+      />
+    </picture>
     <Container
       css={{
         alignItems: 'flex-start',
