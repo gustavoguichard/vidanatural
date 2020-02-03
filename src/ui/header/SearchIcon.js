@@ -9,6 +9,7 @@ const SearchIcon = () => {
     <IconButton
       color="inherit"
       aria-label="Busca"
+      aria-haspopup="true"
       aria-controls="search-field"
       onClick={openSearch}
     >

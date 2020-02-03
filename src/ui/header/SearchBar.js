@@ -71,6 +71,7 @@ const SearchBar = () => {
         >
           <InputBase
             autoFocus
+            id="search-field"
             ref={field}
             css={{ background: 'white', padding: 20, width: '100%' }}
             placeholder="Buscar..."
