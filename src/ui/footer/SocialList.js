@@ -26,6 +26,7 @@ const Icon = ({
     {...props}
     title={children}
     target="_blank"
+    rel="noopener"
   >
     {icons[site]({ css, color, size })}
   </a>

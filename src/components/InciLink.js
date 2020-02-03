@@ -6,6 +6,7 @@ const InciLink = ({ url, inci }) =>
     <Link
       href={EWG_URL + url}
       target="_blank"
+      rel="noopener"
       color="secondary"
       title="Obter mais informações"
     >

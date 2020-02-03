@@ -23,7 +23,12 @@ const FooterMenu = () => (
             }}
           >
             {tree.links.map((item, i) => (
-              <li key={`item-${i}`}>
+              <li
+                key={`item-${i}`}
+                css={{
+                  [theme.breakpoints.down('xs')]: { padding: 10 },
+                }}
+              >
                 <Link href={item.path}>{item.name}</Link>
               </li>
             ))}

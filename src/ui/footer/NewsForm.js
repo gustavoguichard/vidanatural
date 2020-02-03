@@ -46,6 +46,7 @@ const NewsForm = () => {
       </Typography>
       <Box mt={2}>
         <TextField
+          id="email"
           variant="outlined"
           {...email('email')}
           css={{

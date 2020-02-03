@@ -69,9 +69,10 @@ const Hero = () => (
             },
           }}
         >
-          <a href="/produtos">
+          <a href="/produtos" title="Página de produtos">
             <Img
               className="responsive"
+              alt="Products banner"
               src="/static/images/products-banner.png"
             />
           </a>

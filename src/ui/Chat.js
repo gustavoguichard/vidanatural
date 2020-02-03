@@ -19,6 +19,7 @@ const Chat = props => (
       href="https://wa.me/5548991039557"
       title="Fale conosco por whatsapp"
       target="_blank"
+      rel="noopener"
     >
       <FaWhatsapp color="#26CC63" size={33} />
     </a>
@@ -27,6 +28,7 @@ const Chat = props => (
       href="https://m.me/vidanatural.eco"
       title="Fale conosco no messenger"
       target="_blank"
+      rel="noopener"
     >
       <FaFacebookMessenger color="#0080F8" size={33} />
     </a>

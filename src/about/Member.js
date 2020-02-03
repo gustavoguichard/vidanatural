@@ -12,7 +12,7 @@ import MdContent from 'src/components/MdContent'
 
 const SocialLink = ({ Icon, url }) =>
   url ? (
-    <a href={url} target="_blank">
+    <a href={url} target="_blank" rel="noopener">
       <IconButton>
         <Icon />
       </IconButton>

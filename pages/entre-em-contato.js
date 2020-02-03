@@ -55,6 +55,7 @@ const Page = () => (
                 href="https://wa.me/5548991039557"
                 title="Enviar mensagem de whatsapp"
                 target="_blank"
+                rel="noopener"
               >
                 <FaWhatsapp />
               </a>{' '}

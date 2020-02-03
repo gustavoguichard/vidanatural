@@ -11,7 +11,7 @@ export const useWindowDimensions = (delay = 300) => {
     const update = () =>
       setDimensions({ height: window.innerHeight, width: window.innerWidth })
     const handleResize = debounce(update, delay)
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', handleResize, { passive: true })
     update()
     return () => window.removeEventListener('resize', handleResize)
   }, [delay])
