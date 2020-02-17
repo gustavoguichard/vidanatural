@@ -3,7 +3,7 @@ export default [
     vndaId: 3,
     title: 'Desodorante em Pasta',
     subtitle: 'Não basta ser natural e sustentável, tem que ser eficiente.',
-    slug: 'desodorante-em-pasta-maior-protecao-40g',
+    slug: 'desodorante-em-pasta-maior-protecao-40g-3',
     path: 'desodorante-em-pasta',
     packing: 'pote',
     presentation: `Um desodorante **natural** e sustentável de verdade e que é super **eficiente**!
@@ -45,7 +45,7 @@ Artesanal, vegano, sem alumínio, sem parabenos, sem triclosan, sem fragrâncias
     vndaId: 1,
     title: 'Desodorante Roll On',
     subtitle: 'Indicado para o dia-a-dia.',
-    slug: 'desodorante-roll-on-suave-70ml',
+    slug: 'desodorante-roll-on-suave-70ml-1',
     fullSubtitle: `Desodorante suave, Indicado para peles sensíveis e uso diário.
     Fácil aplicação, protege do mau cheiro sem agredir sua saúde.
     Também não entope os poros e nunca impede o suor.`,
@@ -88,7 +88,7 @@ Em embalagem prática, fácil aplicação.
     title: 'Rosa Mosqueta',
     subtitle: `Cuidado e reparo para a pele.
     Óleo 100% vegetal, extraído a frio, conhecido por sua ação regeneradora.`,
-    slug: 'oleo-de-rosa-mosqueta-30ml',
+    slug: 'oleo-de-rosa-mosqueta-30ml-5',
     path: 'rosa-mosqueta',
     packing: 'pipeta',
     presentation: `Óleo vegetal de Rosa Mosqueta é um poderoso antioxidante.
@@ -124,7 +124,7 @@ Hidrata, trata e suaviza a pele.
     vndaId: 6,
     title: 'Xampú em Barra',
     subtitle: 'Limpa sem remover a hidratação natural.',
-    slug: 'xampu-em-barra-capim-limao-e-lavanda-100g',
+    slug: 'xampu-em-barra-capim-limao-e-lavanda-100g-6',
     path: 'xampu-em-barra',
     packing: 'caixa',
     presentation: `Com uma formulação natural de verdade que:
@@ -166,7 +166,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
     vndaId: 4,
     title: 'Hidratante Facial',
     subtitle: 'Protege, hidrata e repara a pele do rosto.',
-    slug: 'hidratante-facial-30g',
+    slug: 'hidratante-facial-30g-4',
     path: 'hidratante-facial',
     packing: 'pump',
     presentation: `É feito com óleos essenciais, para sua pele receber a potência e a essência da natureza. Potencializa os processos de renovação celular.
@@ -214,7 +214,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
     vndaId: 2,
     title: 'Pó Dental',
     subtitle: 'Diferente por ser o mais natural.',
-    slug: 'po-dental-20g',
+    slug: 'po-dental-20g-2',
     path: 'po-dental',
     packing: 'bisnaga',
     presentation: `Só 3 ingredientes?!
@@ -249,7 +249,7 @@ E, claro, sem poluir e sem agredir.
     title: 'Óleo Hidratante',
     subtitle:
       'Óleo 100% vegetal extraído a frio, o que preserva as características naturais. Hidrata e nutre a pele.',
-    slug: 'oleo-hidratante-girassol-150ml',
+    slug: 'oleo-hidratante-girassol-150ml-7',
     path: 'oleo-hidratante',
     packing: 'frasco',
     presentation: `Hidrata, suaviza, restaura e protege pele.
