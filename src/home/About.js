@@ -38,7 +38,7 @@ const About = ({ isMobile }) => (
               Queremos que vc possa usar no seu dia-a-dia produtos naturais,
               sustentáveis e altamente eficientes!
             </p>
-            <p>Acreditamos na poder desse movimento! Vamos junt@s?</p>
+            <p>Acreditamos no poder desse movimento! Vamos junt@s?</p>
           </Typography>
           <CTAButton href="/sobre-a-vida-natural" center={false}>
             Saiba mais
