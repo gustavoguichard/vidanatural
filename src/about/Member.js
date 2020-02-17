@@ -10,10 +10,10 @@ import {
 import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
 import MdContent from 'src/components/MdContent'
 
-const SocialLink = ({ Icon, url }) =>
+const SocialLink = ({ Icon, title, url }) =>
   url ? (
-    <a href={url} target="_blank" rel="noopener">
-      <IconButton>
+    <a title={title} href={url} target="_blank" rel="noopener">
+      <IconButton title={title} tabIndex="-1">
         <Icon />
       </IconButton>
     </a>
@@ -51,10 +51,18 @@ const Member = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <SocialLink url={github} Icon={FaGithub} />
-        <SocialLink url={linkedin} Icon={FaLinkedin} />
-        <SocialLink url={insta} Icon={FaInstagram} />
-        <SocialLink url={face} Icon={FaFacebook} />
+        <SocialLink title="Abrir github" url={github} Icon={FaGithub} />
+        <SocialLink
+          title="Ir para perfil do LinkedIn"
+          url={linkedin}
+          Icon={FaLinkedin}
+        />
+        <SocialLink
+          title="Seguir no Instagram"
+          url={insta}
+          Icon={FaInstagram}
+        />
+        <SocialLink title="Ver no Facebook" url={face} Icon={FaFacebook} />
       </CardActions>
     </Card>
   </Grid>
