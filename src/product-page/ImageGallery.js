@@ -91,6 +91,7 @@ const ImageGallery = ({ product, isDesktop }) => {
             <img
               key={i}
               onClick={() => setIndex(i)}
+              alt={product.title}
               css={{
                 boxShadow:
                   i === index

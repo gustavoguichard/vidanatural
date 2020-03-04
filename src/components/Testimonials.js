@@ -4,9 +4,10 @@ import { Box, Container, Grid } from '@material-ui/core'
 import sloganImg from 'static/svgs/slogan.svg'
 import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
-import Testimonial from './ShortTestimonial'
 import testimonialsData from 'data/testimonials'
 import theme from 'src/ui/theme'
+
+import Testimonial from './ShortTestimonial'
 
 const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
   const testimonialsToShow = take(testimonials, show)

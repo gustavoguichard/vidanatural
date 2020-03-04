@@ -57,7 +57,7 @@ const ProductSale = ({ product, isMobile }) => {
                 content={product.subtitle}
               />
               <Typography variant="caption">
-                <Link href={`#descricao`}>Mais detalhes</Link>
+                <Link href="#descricao">Mais detalhes</Link>
                 {' - '}
                 <Link href={`#ingredientes-${product.path}`}>
                   Ver ingredientes

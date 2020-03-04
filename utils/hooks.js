@@ -2,7 +2,6 @@ import { useCallback, useState, useRef, useEffect, useReducer } from 'react'
 import get from 'lodash/get'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
-import isEqual from 'lodash/isEqual'
 import { isClient } from 'utils/helpers'
 
 export const useWindowDimensions = (delay = 300) => {
@@ -52,6 +51,14 @@ export const useScroll = (delay = 300) => {
   }, [])
 
   return state
+}
+
+export const usePrevious = value => {
+  const ref = useRef()
+  useEffect(() => {
+    ref.current = value
+  })
+  return ref.current
 }
 
 export const useScrollDirection = (threeshold = 15, delay = 300) => {
@@ -157,23 +164,4 @@ export const useSafeSetState = initialState => {
   }, [])
   const safeSetState = (...args) => mountedRef.current && setState(...args)
   return [state, safeSetState]
-}
-
-export const usePrevious = value => {
-  const ref = useRef()
-  useEffect(() => {
-    ref.current = value
-  })
-  return ref.current
-}
-
-export const useDeepDiffEffect = (callback, values) => {
-  const cleanup = useRef()
-  useEffect(() => {
-    if (!isEqual(previousValues, values)) {
-      cleanup.current = callback()
-    }
-    return cleanup.current
-  })
-  const previousValues = usePrevious(values)
 }

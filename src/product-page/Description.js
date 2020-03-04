@@ -1,7 +1,6 @@
 import { Box, Container, Grid, Typography } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
 import LinearGradient from 'src/components/LinearGradient'
-import PaperContent from 'src/ui/PaperContent'
 import { useToggle } from 'utils/hooks'
 import theme from 'src/ui/theme'
 

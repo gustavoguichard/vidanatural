@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { CircularProgress } from '@material-ui/core'
 import { useInView } from 'react-intersection-observer'
 
@@ -14,8 +13,9 @@ const Img = ({
     threshold: 0,
     triggerOnce: true,
   })
+  const { width, height } = props
   return (
-    <Fragment>
+    <>
       {visible || alwaysShow ? (
         <Component ref={ref} className={className} src={src} {...props} />
       ) : (
@@ -25,8 +25,8 @@ const Img = ({
             justifyContent: 'center',
             alignItems: 'center',
             margin: 'auto',
-            width: props.width || null,
-            height: props.height || null,
+            width: width || null,
+            height: height || null,
           }}
           className={className}
         >
@@ -38,7 +38,7 @@ const Img = ({
           />
         </div>
       )}
-    </Fragment>
+    </>
   )
 }
 

@@ -12,7 +12,7 @@ const ProductLayout = ({ product, slug, children, isMobile }) => {
   return (
     <Layout
       stickBar
-      logoCompanion={require(`../../static/svgs/${product.packing}.svg`)}
+      logoCompanion={`/static/svgs/${product.packing}.svg`}
       hideChat={isMobile}
       title={product.name}
       seo={{

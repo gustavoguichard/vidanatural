@@ -11,7 +11,7 @@ export default [
     inci: 'Butyrospermum Parkii',
     hasIcon: true,
     description:
-      'Super hidratante natural!No nosso Desodorante atua como hidratante e fixador.',
+      'Super hidratante natural! No nosso Desodorante atua como hidratante e fixador. Previne cicatrizes, minimiza manchas de acne, suaviza as rugas, ajuda no tratamento de queimaduras, feridas, cicatrizes, dermatites, psoríase, estrias... ❤️!',
     url: '700875/BUTYROSPERMUM_PARKII_%28SHEA_BUTTER%29/',
   },
   {

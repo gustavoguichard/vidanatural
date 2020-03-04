@@ -1,4 +1,3 @@
-import Link from 'src/components/Link'
 import theme from 'src/ui/theme'
 import ButtonLink from 'src/components/ButtonLink'
 

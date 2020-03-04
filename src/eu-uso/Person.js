@@ -2,11 +2,10 @@ import { memo } from 'react'
 import { Typography } from '@material-ui/core'
 import { RemoveRedEye } from '@material-ui/icons'
 import Img from 'src/components/Img'
-import { useToggle } from 'utils/hooks'
 import { saturateOnHover } from 'utils/styles'
 import theme from 'src/ui/theme'
 
-const Testimonial = ({ onOpen, index, src, name, picture, ...props }) => {
+const Testimonial = ({ onOpen, index, name, picture }) => {
   const onClick = event => {
     event.preventDefault()
     onOpen(index)

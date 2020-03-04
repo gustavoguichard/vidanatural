@@ -1,4 +1,4 @@
-import { Avatar, Box, Paper, Typography } from '@material-ui/core'
+import { Avatar, Box, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
 import MdContent from 'src/components/MdContent'
 import Img from 'src/components/Img'

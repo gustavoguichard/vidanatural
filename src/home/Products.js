@@ -54,7 +54,7 @@ const Products = () => {
       >
         <Box flex={1} py={isMobile ? 7 : 10}>
           <ProductSlide
-            key={`product---1`}
+            key="product---1"
             hidden
             show
             index={value}

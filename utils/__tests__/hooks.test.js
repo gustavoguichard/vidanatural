@@ -1,4 +1,4 @@
-import { cleanup, render, getNodeText, fireEvent } from '@testing-library/react'
+import { cleanup, getNodeText, fireEvent } from '@testing-library/react'
 import identity from 'lodash/identity'
 
 import { element, getResultValue, getResultNode, clickEl } from 'test/utils'
@@ -127,9 +127,9 @@ describe('useHtmlClass', () => {
     const add = jest.spyOn(document.documentElement.classList, 'add')
     const remove = jest.spyOn(document.documentElement.classList, 'remove')
     const { el, rerender, rerenderTwice } = getResultNode(
-      <Component className="is-open" condition={true} />,
+      <Component className="is-open" condition />,
     )
-    rerender(<Component className="is-open" condition={true} />)
+    rerender(<Component className="is-open" condition />)
     expect(getNodeText(el)).toBe('')
     expect(add).toHaveBeenCalledWith('is-open')
     add.mockClear()

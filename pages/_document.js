@@ -10,7 +10,7 @@ class VidaNatural extends Document {
 
   render() {
     return (
-      <html amp="" lang="pt-br">
+      <html amp="" lang="pt-BR">
         <Head>
           <meta charSet="utf-8" />
           <meta

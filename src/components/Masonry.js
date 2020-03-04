@@ -1,4 +1,4 @@
-import { useState, useRef, memo, useEffect, cloneElement } from 'react'
+import React, { useState, useRef, memo, useEffect, cloneElement } from 'react'
 import { useWindowDimensions } from 'utils/hooks'
 import times from 'lodash/times'
 

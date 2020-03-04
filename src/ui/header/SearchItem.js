@@ -14,7 +14,7 @@ const SearchItem = ({ router, name, image_url, url, price }) => (
     onClick={() => router.push(url.replace('/produto/', '/produtos/'))}
   >
     <ListItemAvatar>
-      <img src={getResizedImg(image_url, 30)} width="30" />
+      <img alt={name} src={getResizedImg(image_url, 30)} width="30" />
     </ListItemAvatar>
     <ListItemText>
       <Typography variant="body2">{name}</Typography>

@@ -31,8 +31,9 @@ function Link({
   color = 'secondary',
   ...props
 }) {
+  const { href } = props
   const className = clsx(classNameProps, {
-    [activeClassName]: router.pathname === props.href && activeClassName,
+    [activeClassName]: router.pathname === href && activeClassName,
   })
 
   if (naked) {

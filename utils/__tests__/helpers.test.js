@@ -1,4 +1,4 @@
-import * as subject from '../helpers'
+import * as subject from '../helpers.ts'
 
 const oldScroll = window.scroll
 const oldGetById = window.document.getElementById

@@ -42,7 +42,7 @@ const People = () => {
         </Masonry>
         <Dialog
           scroll="body"
-          PaperComponent={'div'}
+          PaperComponent="div"
           PaperProps={{
             style: {
               margin: 20,
