@@ -260,14 +260,6 @@ Senti ele leve, o **aroma agradável** e com uma **resistência** muito importan
     content: `Utilizo os produtos da Vida Natural há pelo menos 2 anos. O **[desodorante](/produtos/desodorante-em-pasta)** e os **[óleos hidratantes](/produtos/oleo-hidratante)** fazem **parte do meu dia a dia** desde então.`,
   },
   {
-    name: 'Lúcia do Valle',
-    role: 'Cozinheira e Artesã',
-    tags: ['all'],
-    location: 'Florianópolis / SC',
-    picture: 'lucia-do-valle',
-    content: `É **saudável**. É **eficaz**. E o **planeta agradece**.`,
-  },
-  {
     name: 'Sebastian Bisbal',
     role: 'Salva Vidas',
     tags: ['all'],

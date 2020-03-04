@@ -11,21 +11,21 @@ export default [
     inci: 'Butyrospermum Parkii',
     hasIcon: true,
     description:
-      'Super hidratante! Previne cicatrizes, minimiza manchas de acne, suaviza as rugas, ajuda no tratamento de queimaduras, feridas, cicatrizes, dermatites, psoríase, estrias... ❤️!',
+      'Super hidratante natural!No nosso Desodorante atua como hidratante e fixador.',
     url: '700875/BUTYROSPERMUM_PARKII_%28SHEA_BUTTER%29/',
   },
   {
     name: 'Óleo de Coco Palmiste',
     inci: 'Elaeis Guineensis (Palm) Kernel Oil',
     description:
-      'Ingrediente orgânico e produzido no Brasil. O óleo é extraído da amêndoa do dende por métodos físicos (prensagem mecânica) sem uso de solventes ou outras substâncias químicas. O refino é realizado de forma natural (processo físico) sem uso de insumos químicos.',
+      'Ingrediente orgânico e produzido no Brasil. O óleo é extraído da amêndoa do dende. O refino é realizado de forma natural (processo físico) sem uso de insumos químicos.',
     url: '704405/PALM_KERNEL_OIL/',
   },
   {
     name: 'Óleo de Palma',
     inci: 'Elaeis Guineensis (Palm) Oil',
     description:
-      'Ingrediente orgânico e produzido no Brasil. O óleo é extraído da amêndoa do dende por métodos físicos (prensagem mecânica) sem uso de solventes ou outras substâncias químicas. O refino é realizado de forma natural (processo físico) sem uso de insumos químicos.',
+      'Ingrediente orgânico e produzido no Brasil. O óleo é extraído da polpa do dende por métodos físicos (prensagem mecânica) sem uso de solventes ou outras substâncias químicas.',
     url: '702238/ELAEIS_GUINEENSIS_%28AFRICAN_OIL_PALM%29_OIL/',
   },
   {
@@ -92,7 +92,7 @@ export default [
     inci: 'Cymbopogon Flexuosos Leaf Oil',
     hasIcon: true,
     description:
-      'Excelente no tratamento de manchas. Revitaliza a pele e protege dos danos causados pelo envelhecimento.',
+      'É antisséptico, estimula a circulação. Possui aroma herbal e refrescante.',
     url: '701748/CYMBOPOGON_%28LEMON_GRASS%29_OIL/',
   },
   {
