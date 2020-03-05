@@ -25,7 +25,12 @@ export const getUrl = (path: string, params?: object, proxy?: boolean) => {
   return joinWith([url, query], '?')
 }
 
-const doRequest = async (url: string, params = {}, proxy?: boolean) => {
+const doRequest = async (
+  url: string,
+  params = {},
+  proxy?: boolean,
+  returnArray?: boolean,
+) => {
   const requestParams = {
     method: 'GET',
     headers: {
@@ -36,14 +41,19 @@ const doRequest = async (url: string, params = {}, proxy?: boolean) => {
     credentials: proxy ? 'include' : undefined,
   } as any
   const res = await fetch(url, requestParams)
-  const data = res.status >= 400 ? [] : await res.json()
+  const data = res.status >= 400 ? (returnArray ? [] : res) : await res.json()
   saveCookie(res.headers)
   return data
 }
 
-const fetchApi = async (path = '', query?: object, proxy = false) => {
+const fetchApi = async (
+  path = '',
+  query?: object,
+  proxy = false,
+  returnArray = true,
+) => {
   const url = getUrl(path, query, proxy)
-  return doRequest(url, {}, proxy)
+  return doRequest(url, {}, proxy, returnArray)
 }
 
 const post = async (
@@ -76,7 +86,7 @@ const search = (params?: object) => fetchApi('busca', params, true)
 
 const textSearch = (text: string) => fetchApi('busca', { q: text }, true)
 
-const listCart = () => fetchApi('carrinho/popup', {}, true)
+const listCart = () => fetchApi('carrinho/popup', {}, true, false)
 
 const listProduct = (slug: string) => fetchApi(`produto/${slug}`, {}, true)
 

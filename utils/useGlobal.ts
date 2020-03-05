@@ -1,8 +1,8 @@
 import useStore from 'utils/useStore'
+import Cookies from 'js-cookie'
 import { Store } from 'utils/typeDeclarations'
 import find from 'lodash/find'
 import api from 'utils/api'
-import { parseCookies } from 'utils/helpers'
 
 const initialState = {
   cart: [],
@@ -26,14 +26,18 @@ export default useStore(
       return true
     },
     getCartItems: (store: Store) => {
-      const cookies = parseCookies(document.cookie)
-      if (cookies.hasOwnProperty('cart_id')) {
+      const cartId = Cookies.get('cart_id')
+      if (cartId) {
         api
           .listCart()
           .then(result => {
-            store.setState({
-              cart: result || [],
-            })
+            if (result.status === 404) {
+              Cookies.remove('cart_id')
+            } else {
+              store.setState({
+                cart: result || [],
+              })
+            }
           })
           .catch(() => console.warn('Not able to get cart'))
       }
