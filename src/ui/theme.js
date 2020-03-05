@@ -40,7 +40,7 @@ const theme = createMuiTheme({
       lineHeight: 1.0667,
     },
     h3: {
-      fontSize: '2,125rem',
+      fontSize: '2.125rem',
       fontWeight: 600,
       lineHeight: 1.0667,
       letterSpacing: '-0.035rem',
