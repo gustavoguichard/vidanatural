@@ -39,7 +39,9 @@ export default useStore(
               })
             }
           })
-          .catch(() => console.warn('Not able to get cart'))
+          .catch(() => {
+            Cookies.remove('cart_id')
+          })
       }
     },
     hideCart: async (store: Store) => {
