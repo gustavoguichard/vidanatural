@@ -1,6 +1,25 @@
-Sitemap: https://vidanatural.eco.br/api/sitemap
+User-agent: Acunetix Security Scanner
+Disallow: /
 
-User-agent: *
-Allow: /*
+User-agent: MJ12bot
+Disallow: /
 
+User-Agent: Googlebot
+Disallow: /admin
+Disallow: /carrinho
+Disallow: /checkout
+Disallow: /entrar
+Disallow: /conta
+Disallow: /concluido
+Disallow: /*?*property__*
+Disallow: /*?*typedtags__*
+Disallow: /api/*
+
+User-Agent: *
+Disallow: /admin
+Disallow: /carrinho
+Disallow: /checkout
+Disallow: /entrar
+Disallow: /conta
+Disallow: /concluido
 Disallow: /api/*
