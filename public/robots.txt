@@ -1,0 +1,6 @@
+Sitemap: https://vidanatural.eco.br/api/sitemap
+
+User-agent: *
+Allow: /*
+
+Disallow: /api/*

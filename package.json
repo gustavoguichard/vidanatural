@@ -50,7 +50,8 @@
     "react-markdown": "^4.3.1",
     "react-swipeable": "^5.5.1",
     "react-swipeable-views": "^0.13.9",
-    "react-use-form-state": "^0.12.1"
+    "react-use-form-state": "^0.12.1",
+    "sitemap": "^5.1.0"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
