@@ -10,13 +10,6 @@ const sourceMaps = require('@zeit/next-source-maps')
 dotenvLoad()
 
 const nextConfig = {
-  experimental: {
-    modern: true,
-    async rewrites() {
-      return [{ source: '/sitemap.xml', destination: '/api/sitemap' }]
-    },
-    catchAllRouting: true,
-  },
   purgeCss: {
     whitelist: () => ['MuiPaper-root', 'MuiPaper-rounded', 'MuiFormLabel-root'],
   },
