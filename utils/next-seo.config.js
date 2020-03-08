@@ -13,6 +13,14 @@ export default {
     locale: 'pt_BR',
     url: 'https://vidanatural.eco.br/',
     site_name: title,
+    images: [
+      {
+        url: 'https://www.vidanatural.eco.br/static/icon.png',
+        width: 192,
+        height: 192,
+        alt: 'Logo da Vida Natural',
+      },
+    ],
   },
   twitter: {
     // handle: '@vidanatural.eco',
