@@ -1,16 +1,22 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import products from 'data/products'
 
-const fs = require('fs')
-const path = require('path')
+const pages = [
+  'produtos',
+  'sobre-a-vida-natural',
+  'onde-encontrar',
+  'eu-uso-cosmetica-consciente',
+  'entre-em-contato',
+  'termos-e-condicoes',
+  'gratos',
+  'entrar',
+  'minha-conta',
+]
 
 const Sitemap = ({ xml }) => xml
 
 Sitemap.getInitialProps = async ({ req, res }) => {
   try {
-    const directoryPath = path.join('./pages')
-    const pages = await fs.readdirSync(directoryPath, { withFileTypes: true })
-
     const smStream = new SitemapStream({
       hostname: `https://${req.headers.host}`,
       cacheTime: 600000,
@@ -22,23 +28,6 @@ Sitemap.getInitialProps = async ({ req, res }) => {
       priority: 1.0,
     })
 
-    pages
-      .filter(page => {
-        return (
-          !page.name.startsWith('_') &&
-          !page.name.endsWith('.xml.js') &&
-          page.isFile()
-        )
-      })
-      .forEach(page => {
-        const [name] = page.name.split('.')
-        smStream.write({
-          url: `/${name}`,
-          changefreq: 'weekly',
-          priority: 0.6,
-        })
-      })
-
     products.forEach(product => {
       smStream.write({
         url: `/produtos/${product.slug}`,
@@ -47,6 +36,14 @@ Sitemap.getInitialProps = async ({ req, res }) => {
         img: {
           url: `https://${req.headers.host}/static/images/products/${product.path}.png`,
         },
+      })
+    })
+
+    pages.forEach(page => {
+      smStream.write({
+        url: `/${page}`,
+        changefreq: 'weekly',
+        priority: 0.6,
       })
     })
 
