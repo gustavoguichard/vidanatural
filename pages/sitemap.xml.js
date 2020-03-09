@@ -4,7 +4,9 @@ import products from 'data/products'
 const fs = require('fs')
 const path = require('path')
 
-export default async (req, res) => {
+const Sitemap = ({ xml }) => xml
+
+Sitemap.getInitialProps = async ({ req, res }) => {
   try {
     const directoryPath = path.join('./pages')
     const pages = await fs.readdirSync(directoryPath, { withFileTypes: true })
@@ -22,7 +24,11 @@ export default async (req, res) => {
 
     pages
       .filter(page => {
-        return !page.name.startsWith('_') && page.isFile()
+        return (
+          !page.name.startsWith('_') &&
+          !page.name.endsWith('.xml.js') &&
+          page.isFile()
+        )
       })
       .forEach(page => {
         const [name] = page.name.split('.')
@@ -45,7 +51,7 @@ export default async (req, res) => {
     smStream.end()
 
     // XML sitemap string
-    const sitemapOutput = (await streamToPromise(smStream)).toString()
+    const xml = (await streamToPromise(smStream)).toString()
 
     // Change headers
     res.writeHead(200, {
@@ -53,10 +59,14 @@ export default async (req, res) => {
     })
 
     // Display output to user
-    res.end(sitemapOutput)
+    res.end(xml)
+    return { xml }
   } catch (e) {
     // eslint-disable-next-line
     console.log(e)
     res.send(JSON.stringify(e))
+    return { xml: null }
   }
 }
+
+export default Sitemap
