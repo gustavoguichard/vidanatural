@@ -10,6 +10,15 @@ const sourceMaps = require('@zeit/next-source-maps')
 dotenvLoad()
 
 const nextConfig = {
+  webpack: config => {
+    // eslint-disable-next-line
+    config.node = {
+      fs: 'empty',
+      child_process: 'empty',
+      readline: 'empty',
+    }
+    return config
+  },
   purgeCss: {
     whitelist: () => ['MuiPaper-root', 'MuiPaper-rounded', 'MuiFormLabel-root'],
   },
