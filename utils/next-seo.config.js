@@ -15,10 +15,10 @@ export default {
     site_name: title,
     images: [
       {
-        url: 'https://www.vidanatural.eco.br/static/icon.png',
-        width: 192,
-        height: 192,
-        alt: 'Logo da Vida Natural',
+        url: 'https://www.vidanatural.eco.br/logo_bg.jpg',
+        width: 1000,
+        height: 839,
+        alt: 'Vida Natural',
       },
     ],
   },
