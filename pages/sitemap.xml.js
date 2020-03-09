@@ -19,7 +19,7 @@ Sitemap.getInitialProps = async ({ req, res }) => {
     smStream.write({
       url: `/`,
       changefreq: 'daily',
-      priority: 0.9,
+      priority: 1.0,
     })
 
     pages
@@ -35,7 +35,7 @@ Sitemap.getInitialProps = async ({ req, res }) => {
         smStream.write({
           url: `/${name}`,
           changefreq: 'weekly',
-          priority: 0.7,
+          priority: 0.6,
         })
       })
 
@@ -43,7 +43,10 @@ Sitemap.getInitialProps = async ({ req, res }) => {
       smStream.write({
         url: `/produtos/${product.slug}`,
         changefreq: 'daily',
-        priority: 0.9,
+        priority: 0.8,
+        img: {
+          url: `https://${req.headers.host}/static/images/products/${product.path}.png`,
+        },
       })
     })
 

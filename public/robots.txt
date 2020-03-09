@@ -1,5 +1,3 @@
-Sitemap: https://vidanatural.eco.br/api/sitemap
-
 User-agent: Acunetix Security Scanner
 Disallow: /
 
