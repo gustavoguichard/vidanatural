@@ -18,7 +18,7 @@ const Sitemap = ({ xml }) => xml
 Sitemap.getInitialProps = async ({ req, res }) => {
   try {
     const smStream = new SitemapStream({
-      hostname: `https://${req.headers.host}`,
+      hostname: process.env.API_IP,
       cacheTime: 600000,
     })
 
@@ -34,7 +34,7 @@ Sitemap.getInitialProps = async ({ req, res }) => {
         changefreq: 'daily',
         priority: 0.8,
         img: {
-          url: `https://${req.headers.host}/static/images/products/${product.path}.png`,
+          url: `/static/images/products/${product.path}.png`,
         },
       })
     })
