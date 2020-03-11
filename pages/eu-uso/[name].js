@@ -3,6 +3,7 @@ import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import Img from 'src/components/Img'
 import MdContent from 'src/components/MdContent'
+import CTAButton from 'src/components/CTAButton'
 import sloganImg from 'static/svgs/slogan.svg'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
@@ -87,6 +88,12 @@ const ContentPage = ({ testimonial }) => {
             >
               <MdContent content={content} />
             </Typography>
+            <CTAButton
+              href="/eu-uso-cosmetica-consciente"
+              css={{ marginTop: theme.spacing(4) }}
+            >
+              Mais depoimentos
+            </CTAButton>
           </Grid>
         </Grid>
       </PaperContent>

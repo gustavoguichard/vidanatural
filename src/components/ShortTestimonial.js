@@ -1,6 +1,7 @@
 import { Avatar, Box, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
 import MdContent from 'src/components/MdContent'
+import Link from 'src/components/Link'
 import Img from 'src/components/Img'
 import theme from 'src/ui/theme'
 
@@ -11,19 +12,21 @@ const ShortTestimonial = ({ name, picture, shortContent, content }) => (
       textAlign: 'center',
     }}
   >
-    <Img
-      Component={Avatar}
-      height={130}
-      width={130}
-      css={{
-        width: 130,
-        height: 130,
-        margin: 'auto',
-        marginBottom: theme.spacing(2),
-      }}
-      alt={name}
-      src={`/static/images/testimonials/thumbs/${picture}.jpg`}
-    />
+    <Link href={`/eu-uso/${picture}`}>
+      <Img
+        Component={Avatar}
+        height={130}
+        width={130}
+        css={{
+          width: 130,
+          height: 130,
+          margin: 'auto',
+          marginBottom: theme.spacing(2),
+        }}
+        alt={name}
+        src={`/static/images/testimonials/thumbs/${picture}.jpg`}
+      />
+    </Link>
     <Typography variant="h4" css={{ margin: theme.spacing() }}>
       <strong>{name.split(' ')[0]}</strong>
     </Typography>
