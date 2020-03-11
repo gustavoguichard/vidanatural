@@ -16,7 +16,7 @@ const pages = [
 
 const Sitemap = ({ xml }) => xml
 
-Sitemap.getInitialProps = async ({ req, res }) => {
+Sitemap.getInitialProps = async ({ res }) => {
   try {
     const smStream = new SitemapStream({
       hostname: process.env.API_IP,
