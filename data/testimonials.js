@@ -1,5 +1,21 @@
 export default [
   {
+    name: 'Caroline Nectoux Culau',
+    role: 'Bióloga - Professora',
+    tags: ['desodorante-em-pasta'],
+    location: 'Porto Alegre / RS',
+    picture: 'caroline-culau',
+    ratio: '2by3',
+    shortContent: `Eu experimentei uns prontos de marcas naturais e nada deu certo... **Finalmente encontrei** um [desodorante](/produtos/desodorante-em-pasta) que, além de ter um cheiro sensacional, **funciona muito** bem 💚🌱`,
+    content: `VENCEMOS O DIA AMIGOS!
+
+De fato o [desodorante](/produtos/desodorante-em-pasta) da Vida Natural é **SENSACIONAL**!! Desde que mudei meus hábitos para produtos mais naturais, ou seja, deixar de usar os antitranspirantes comuns e cheios de alumínio e passar a usar alternativas, nunca tive muito sucesso.
+
+Tenho alta produção de suor e muitas vezes, aquele cheiro clássico de axila (sejamos honestos aqui), e eu experimentei o leite de magnésio com água, uns prontos de marcas naturais e nada deu certo, o último que estava usando e funcionando era um "talco" da Granado. Entretanto, além de não ser natural, não era local e muito menos artesanal.
+
+**Finalmente encontrei** um [desodorante](/produtos/desodorante-em-pasta) que, além de ter um cheiro sensacional, **funciona muito** bem 💚🌱`,
+  },
+  {
     name: 'Cristina Scudeler',
     role: 'Empresária',
     tags: ['desodorante-em-pasta'],
