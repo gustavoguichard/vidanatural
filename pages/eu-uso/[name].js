@@ -3,7 +3,6 @@ import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import Img from 'src/components/Img'
 import MdContent from 'src/components/MdContent'
-import { GoQuote } from 'react-icons/go'
 import sloganImg from 'static/svgs/slogan.svg'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
@@ -55,7 +54,7 @@ const ContentPage = ({ testimonial }) => {
             item
             xs={12}
             sm={8}
-            md={4}
+            md={6}
             css={{
               justifyContent: 'center',
               display: 'flex',
@@ -72,8 +71,6 @@ const ContentPage = ({ testimonial }) => {
             <Typography
               variant="body2"
               css={{
-                lineHeight: 1.4,
-                fontSize: '.85rem',
                 color: theme.palette.text.hint,
                 marginBottom: theme.spacing(2),
               }}
@@ -86,18 +83,9 @@ const ContentPage = ({ testimonial }) => {
               css={{ color: theme.palette.primary.light, overflowY: 'auto' }}
               align="left"
               component="div"
-              variant="body2"
+              variant="body1"
             >
-              <GoQuote css={{ position: 'absolute', fontSize: '0.8rem' }} />
-              <MdContent
-                css={{
-                  '& p:first-child': { textIndent: '1.15rem' },
-                  '&::first-letter': {
-                    fontSize: '1.25rem',
-                  },
-                }}
-                content={content}
-              />
+              <MdContent content={content} />
             </Typography>
           </Grid>
         </Grid>

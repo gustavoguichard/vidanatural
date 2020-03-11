@@ -27,7 +27,7 @@ const Testimonial = ({ name, role, picture, location, content }) =>
         <GoQuote css={{ position: 'absolute', fontSize: '0.8rem' }} />
         <MdContent
           css={{
-            '& p:first-child': { textIndent: '1.15rem' },
+            '& p:first-of-type': { textIndent: '1.15rem' },
             '&::first-letter': {
               fontSize: '1.25rem',
             },

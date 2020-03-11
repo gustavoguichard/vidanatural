@@ -1,17 +1,29 @@
-import { memo } from 'react'
+import { memo, useRef } from 'react'
 import { Typography } from '@material-ui/core'
-import { RemoveRedEye } from '@material-ui/icons'
+import { Link, RemoveRedEye } from '@material-ui/icons'
 import Img from 'src/components/Img'
+import VNLink from 'src/components/Link'
 import { saturateOnHover } from 'utils/styles'
 import theme from 'src/ui/theme'
 
 const Testimonial = ({ onOpen, index, name, picture }) => {
+  const linkRef = useRef()
+
   const onClick = event => {
-    event.preventDefault()
-    onOpen(index)
+    if (event.currentTarget.dataset.id === 'link') {
+      event.stopPropagation()
+    } else {
+      event.preventDefault()
+      onOpen(index)
+    }
   }
+
   return (
-    <a href="#" className="testimonial-item" onClick={onClick}>
+    <VNLink
+      href={`/eu-uso/${picture}`}
+      className="testimonial-item"
+      onClick={onClick}
+    >
       <figure
         css={{
           ...saturateOnHover(),
@@ -49,10 +61,16 @@ const Testimonial = ({ onOpen, index, name, picture }) => {
           >
             {name}
           </Typography>
+          <Link
+            onClick={onClick}
+            data-id="link"
+            ref={linkRef}
+            css={{ color: theme.palette.text.secondary, marginRight: 4 }}
+          />
           <RemoveRedEye css={{ color: theme.palette.text.secondary }} />
         </div>
       </figure>
-    </a>
+    </VNLink>
   )
 }
 
