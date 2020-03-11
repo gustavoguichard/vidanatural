@@ -51,7 +51,7 @@ const ContentPage = ({ testimonial }) => (
         <Grid
           item
           xs={12}
-          sm={6}
+          sm={8}
           md={4}
           css={{
             justifyContent: 'center',
@@ -59,6 +59,26 @@ const ContentPage = ({ testimonial }) => (
             flexDirection: 'column',
           }}
         >
+          <Typography
+            variant="body1"
+            css={{ fontSize: '1.85rem' }}
+            component="h1"
+          >
+            <strong>{testimonial.name}</strong>
+          </Typography>
+          <Typography
+            variant="body2"
+            css={{
+              lineHeight: 1.4,
+              fontSize: '.85rem',
+              color: theme.palette.text.hint,
+              marginBottom: theme.spacing(2),
+            }}
+          >
+            {testimonial.role}
+            {testimonial.role && <br />}
+            {testimonial.location}
+          </Typography>
           <Typography
             css={{ color: theme.palette.primary.light, overflowY: 'auto' }}
             align="left"
@@ -75,18 +95,6 @@ const ContentPage = ({ testimonial }) => (
               }}
               content={testimonial.content}
             />
-          </Typography>
-          <Typography
-            variant="body2"
-            css={{ lineHeight: 1.4, fontSize: '.85rem' }}
-          >
-            <strong>{testimonial.name}</strong>
-            <br />
-            <span css={{ color: theme.palette.text.hint }}>
-              {testimonial.role}
-              {testimonial.role && <br />}
-              {testimonial.location}
-            </span>
           </Typography>
         </Grid>
       </Grid>
