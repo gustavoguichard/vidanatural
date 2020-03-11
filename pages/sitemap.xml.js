@@ -1,5 +1,6 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import products from 'data/products'
+import testimonials from 'data/testimonials'
 
 const pages = [
   'produtos',
@@ -44,6 +45,17 @@ Sitemap.getInitialProps = async ({ req, res }) => {
         url: `/${page}`,
         changefreq: 'weekly',
         priority: 0.6,
+      })
+    })
+
+    testimonials.forEach(testimonial => {
+      smStream.write({
+        url: `/eu-uso/${testimonial.picture}`,
+        changefreq: 'weekly',
+        priority: 0.5,
+        img: {
+          url: `/static/images/testimonials/${testimonial.picture}.jpg`,
+        },
       })
     })
 
