@@ -51,7 +51,7 @@ Sitemap.getInitialProps = async ({ res }) => {
     testimonials.forEach(testimonial => {
       smStream.write({
         url: `/eu-uso/${testimonial.picture}`,
-        changefreq: 'weekly',
+        changefreq: 'monthly',
         priority: 0.5,
         img: {
           url: `/static/images/testimonials/${testimonial.picture}.jpg`,
