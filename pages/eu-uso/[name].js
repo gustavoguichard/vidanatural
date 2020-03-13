@@ -31,17 +31,7 @@ const ContentPage = ({ testimonial }) => {
       </Hero>
       <PaperContent>
         <Grid container spacing={4} justify="center" alignItems="stretch">
-          <Grid
-            item
-            xs={12}
-            sm={8}
-            md={6}
-            css={{
-              justifyContent: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
+          <Grid item xs={12} sm={8} md={6} css={{ display: 'flex' }}>
             <Img
               className="responsive"
               css={{

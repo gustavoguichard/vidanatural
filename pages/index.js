@@ -9,7 +9,7 @@ import { useIsMobile } from 'utils/responsive'
 const Home = () => {
   const isMobile = useIsMobile()
   return (
-    <Layout variant="secondary" footerVariant="primary" hideCertifications>
+    <Layout hideCertifications>
       <Hero />
       <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
       <Products />
