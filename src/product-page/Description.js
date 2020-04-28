@@ -37,6 +37,10 @@ const Description = ({ product, isDesktop }) => {
               maxHeight: isOpen ? 'auto' : 300,
               transition: 'all .45s ease-in-out',
               overflow: 'hidden',
+              a: {
+                color: theme.palette.secondary.main,
+                textDecoration: 'none',
+              },
             }}
             dangerouslySetInnerHTML={{ __html: product.description }}
           />

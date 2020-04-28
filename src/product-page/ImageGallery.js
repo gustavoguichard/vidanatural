@@ -76,7 +76,7 @@ const ImageGallery = ({ product, isDesktop }) => {
             marginTop: theme.spacing(2),
           }}
         >
-          {product.title}
+          {product.title || product.name}
         </Typography>
       )}
       {product.images.length > 1 && (

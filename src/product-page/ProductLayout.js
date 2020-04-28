@@ -6,13 +6,21 @@ import ProductTestimonials from 'src/components/ProductTestimonials'
 import { ProductJsonLd } from 'next-seo'
 import { getResizedImg } from 'utils/api'
 
-const ProductLayout = ({ product, slug, children, isMobile }) => {
+const ProductLayout = ({
+  product,
+  hasLocalContent,
+  slug,
+  children,
+  isMobile,
+}) => {
   const images = map(product.images, 'url')
 
   return (
     <Layout
       stickBar
-      logoCompanion={`/static/svgs/${product.packing}.svg`}
+      logoCompanion={
+        product.packing ? `/static/svgs/${product.packing}.svg` : null
+      }
       hideChat={isMobile}
       title={product.name}
       seo={{
@@ -49,7 +57,7 @@ const ProductLayout = ({ product, slug, children, isMobile }) => {
         }}
       />
       {children}
-      <ProductIngredients product={product} />
+      {hasLocalContent && <ProductIngredients product={product} />}
       <ProductTestimonials product={product} />
     </Layout>
   )
