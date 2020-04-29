@@ -27,8 +27,8 @@ const ProductPage = ({ product, hasLocalContent, slug }) => {
   )
 }
 
-ProductPage.getInitialProps = async ({ query, res }) => {
-  const { slug } = query
+export async function getServerSideProps({ params, res }) {
+  const { slug } = params
   const response = await api.listProduct(slug)
   const serverData = isArray(response) ? response[0] : response
   if (!get(serverData, 'id')) {
@@ -38,11 +38,13 @@ ProductPage.getInitialProps = async ({ query, res }) => {
   }
   const localData = find(products, p => serverData.id === p.vndaId)
   return {
-    slug,
-    hasLocalContent: !!localData,
-    product: {
-      ...localData,
-      ...serverData,
+    props: {
+      slug,
+      hasLocalContent: !!localData,
+      product: {
+        ...localData,
+        ...serverData,
+      },
     },
   }
 }

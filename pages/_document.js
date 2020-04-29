@@ -3,11 +3,6 @@ import { ServerStyleSheets } from '@material-ui/styles'
 import theme from 'src/ui/theme'
 
 class VidaNatural extends Document {
-  static async getInitialProps(...args) {
-    const documentProps = await super.getInitialProps(...args)
-    return { ...documentProps }
-  }
-
   render() {
     return (
       <html amp="" lang="pt-BR">
@@ -38,6 +33,29 @@ class VidaNatural extends Document {
         </body>
       </html>
     )
+  }
+}
+
+VidaNatural.getInitialProps = async ctx => {
+  const sheets = new ServerStyleSheets()
+  const originalRenderPage = ctx.renderPage
+
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: App => props => sheets.collect(<App {...props} />),
+    })
+
+  const initialProps = await Document.getInitialProps(ctx)
+
+  return {
+    ...initialProps,
+    // Styles fragment is rendered after the app and page rendering finish.
+    styles: (
+      <>
+        {initialProps.styles}
+        {sheets.getStyleElement()}
+      </>
+    ),
   }
 }
 

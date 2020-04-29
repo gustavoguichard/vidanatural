@@ -91,15 +91,17 @@ const ContentPage = ({ testimonial }) => {
   )
 }
 
-ContentPage.getInitialProps = async ({ query, res }) => {
-  const { name } = query
-  const filtered = testimonials.filter(t => t.picture === name)
-  if (filtered.length > 0) {
-    return { testimonial: filtered[0] || {} }
+export async function getStaticProps({ params }) {
+  const { name } = params
+  const testimonial = testimonials.find(t => t.picture === name)
+  return { props: { testimonial } }
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: testimonials.map(t => ({ params: { name: t.picture } })),
+    fallback: false,
   }
-  res.writeHead(404, { Location: '/404' })
-  res.end()
-  return null
 }
 
 export default ContentPage

@@ -23,10 +23,10 @@ const ContentPage = ({ page }) => (
   </Layout>
 )
 
-ContentPage.getInitialProps = async ({ query }) => {
-  const { pageId } = query
+export async function getServerSideProps({ params }) {
+  const { pageId } = params
   const page = await api.listPage(pageId)
-  return { page }
+  return { props: { page } }
 }
 
 export default ContentPage

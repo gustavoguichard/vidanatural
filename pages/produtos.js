@@ -23,13 +23,13 @@ const ProductsPage = ({ products }) => (
   </Layout>
 )
 
-ProductsPage.getInitialProps = async () => {
+export async function getServerSideProps() {
   const serverData = await api.search()
   const products = localProducts.map(p => {
     const data = find(serverData, servP => p.slug.startsWith(servP.slug))
     return { ...p, ...data }
   })
-  return { products }
+  return { props: { products } }
 }
 
 export default ProductsPage

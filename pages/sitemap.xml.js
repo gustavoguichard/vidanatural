@@ -1,6 +1,6 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
-import products from 'data/products'
 import testimonials from 'data/testimonials'
+import api from 'utils/api'
 
 const pages = [
   'produtos',
@@ -16,8 +16,9 @@ const pages = [
 
 const Sitemap = ({ xml }) => xml
 
-Sitemap.getInitialProps = async ({ res }) => {
+export async function getServerSideProps({ res }) {
   try {
+    const productList = await api.search()
     const smStream = new SitemapStream({
       hostname: process.env.API_IP,
       cacheTime: 600000,
@@ -29,13 +30,13 @@ Sitemap.getInitialProps = async ({ res }) => {
       priority: 1.0,
     })
 
-    products.forEach(product => {
+    productList.forEach(product => {
       smStream.write({
         url: `/produtos/${product.slug}`,
         changefreq: 'daily',
         priority: 0.8,
         img: {
-          url: `/static/images/products/${product.path}.png`,
+          url: product.image_url,
         },
       })
     })
@@ -72,12 +73,12 @@ Sitemap.getInitialProps = async ({ res }) => {
 
     // Display output to user
     res.end(xml)
-    return { xml }
+    return { props: { xml } }
   } catch (e) {
     // eslint-disable-next-line
     console.log(e)
     res.send(JSON.stringify(e))
-    return { xml: null }
+    return { props: { xml: null } }
   }
 }
 

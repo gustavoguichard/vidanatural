@@ -1,4 +1,4 @@
-import App from 'next/app'
+import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
 import Router from 'next/router'
 import { ThemeProvider, StylesProvider } from '@material-ui/styles'
@@ -12,59 +12,40 @@ import theme from 'src/ui/theme'
 
 import 'src/ui/app.scss'
 
-class VidaNatural extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
-
-    return { pageProps }
+const didMount = async () => {
+  if (isClient && typeof window.IntersectionObserver === 'undefined') {
+    await require('intersection-observer')
   }
 
-  async componentDidMount() {
-    await this.polyfill()
-    this.removeServerStyles()
-    this.initGATracking()
+  // Remove Server Styles
+  const jssStyles = document.querySelector('#jss-server-side')
+  if (jssStyles) {
+    jssStyles.parentElement.removeChild(jssStyles)
   }
 
-  async polyfill() {
-    if (isClient && typeof window.IntersectionObserver === 'undefined') {
-      await require('intersection-observer')
-    }
-  }
+  // initGATraking
+  initGA()
+  logPageView()
+  Router.router.events.on('routeChangeComplete', logPageView)
+}
 
-  initGATracking() {
-    initGA()
-    logPageView()
-    Router.router.events.on('routeChangeComplete', logPageView)
-  }
+const VidaNatural = ({ pageProps, Component }) => {
+  useEffect(didMount, [])
 
-  removeServerStyles() {
-    const jssStyles = document.querySelector('#jss-server-side')
-    if (jssStyles) {
-      jssStyles.parentNode.removeChild(jssStyles)
-    }
-  }
-
-  render() {
-    const { Component, pageProps } = this.props
-    return (
-      <>
-        <NProgress color={theme.palette.secondary.main} />
-        <DefaultSeo {...SEO} />
-        <StylesProvider injectFirst>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Providers>
-              <Component {...pageProps} />
-            </Providers>
-          </ThemeProvider>
-        </StylesProvider>
-      </>
-    )
-  }
+  return (
+    <>
+      <NProgress color={theme.palette.secondary.main} />
+      <DefaultSeo {...SEO} />
+      <StylesProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Providers>
+            <Component {...pageProps} />
+          </Providers>
+        </ThemeProvider>
+      </StylesProvider>
+    </>
+  )
 }
 
 export default VidaNatural
