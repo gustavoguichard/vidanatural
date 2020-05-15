@@ -1,13 +1,6 @@
 {
   "public": true,
-  "version": 2,
-  "build": {
-    "env": {
-      "API_IP": "@api-ip",
-      "API_DOMAIN": "@api-domain",
-      "API_PROXY": "@api-proxy",
-      "ANALYTICS_ID": "@analytics-uid",
-      "GTM_ID": "@gtm-id"
-    }
-  }
+  "version": 2
+  // "build": {
+  // }
 }
