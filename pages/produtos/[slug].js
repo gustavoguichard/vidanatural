@@ -1,3 +1,4 @@
+import get from 'lodash/get'
 import find from 'lodash/find'
 import isArray from 'lodash/isArray'
 import { useRouter } from 'next/router'
@@ -9,11 +10,11 @@ import products from 'data/products'
 import api from 'utils/api'
 import { useIsMobile } from 'utils/responsive'
 
-const ProductPage = ({ product, hasLocalContent, slug }) => {
+const ProductPage = ({ product, foundProduct, hasLocalContent, slug }) => {
   const isMobile = useIsMobile()
   const { isFallback } = useRouter()
 
-  return isFallback || product ? (
+  return isFallback || foundProduct ? (
     <ProductLayout
       hasLocalContent={hasLocalContent}
       slug={slug}
@@ -45,10 +46,12 @@ export async function getStaticProps({ params }) {
   const { slug } = params
   const response = await api.listProduct(slug)
   const serverData = isArray(response) ? response[0] : response
-  const localData = find(products, (p) => serverData.id === p.vndaId)
+  const id = get(serverData, 'id')
+  const localData = find(products, (p) => id === p.vndaId)
   return {
     props: {
       slug,
+      foundProduct: !!serverData,
       hasLocalContent: !!localData,
       product: {
         ...localData,
