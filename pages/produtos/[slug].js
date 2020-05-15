@@ -1,6 +1,7 @@
-import get from 'lodash/get'
 import find from 'lodash/find'
 import isArray from 'lodash/isArray'
+import { useRouter } from 'next/router'
+import ErrorPage from 'pages/404'
 import GeneralProductSale from 'src/product-page/GeneralProductSale'
 import ProductLayout from 'src/product-page/ProductLayout'
 import ProductSale from 'src/product-page/ProductSale'
@@ -10,33 +11,41 @@ import { useIsMobile } from 'utils/responsive'
 
 const ProductPage = ({ product, hasLocalContent, slug }) => {
   const isMobile = useIsMobile()
+  const { isFallback } = useRouter()
 
-  return (
+  return isFallback || product ? (
     <ProductLayout
       hasLocalContent={hasLocalContent}
       slug={slug}
       isMobile={isMobile}
       product={product}
     >
-      {hasLocalContent ? (
+      {hasLocalContent && !isFallback ? (
         <ProductSale isMobile={isMobile} product={product} />
       ) : (
         <GeneralProductSale isMobile={isMobile} product={product} />
       )}
     </ProductLayout>
+  ) : (
+    <ErrorPage />
   )
 }
 
-export async function getServerSideProps({ params, res }) {
+export async function getStaticPaths() {
+  const products = await api.search()
+  return {
+    paths: products.map((p) => ({
+      params: { slug: [p.slug, p.id].join('-') },
+    })),
+    fallback: true,
+  }
+}
+
+export async function getStaticProps({ params }) {
   const { slug } = params
   const response = await api.listProduct(slug)
   const serverData = isArray(response) ? response[0] : response
-  if (!get(serverData, 'id')) {
-    res.writeHead(404, { Location: '/404' })
-    res.end()
-    return null
-  }
-  const localData = find(products, p => serverData.id === p.vndaId)
+  const localData = find(products, (p) => serverData.id === p.vndaId)
   return {
     props: {
       slug,

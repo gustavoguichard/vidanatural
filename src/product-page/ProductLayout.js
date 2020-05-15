@@ -7,7 +7,7 @@ import { ProductJsonLd } from 'next-seo'
 import { getResizedImg } from 'utils/api'
 
 const ProductLayout = ({
-  product,
+  product = {},
   hasLocalContent,
   slug,
   children,
@@ -32,7 +32,7 @@ const ProductLayout = ({
             price: get(product, 'variants.0.price', 0),
             currency: 'BRL',
           },
-          images: map(images, img => ({
+          images: map(images, (img) => ({
             url: getResizedImg(img, 500),
             width: 500,
             height: 500,
