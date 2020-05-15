@@ -1,5 +1,4 @@
 import { Http2ServerResponse } from 'http2'
-import fetch from 'isomorphic-unfetch'
 import omitBy from 'lodash/omitBy'
 import { parseCookies, encodeCookies } from 'utils/helpers'
 

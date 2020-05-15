@@ -30,7 +30,9 @@ const didMount = async () => {
 }
 
 const VidaNatural = ({ pageProps, Component }) => {
-  useEffect(didMount, [])
+  useEffect(() => {
+    didMount()
+  }, [])
 
   return (
     <>
@@ -46,6 +48,10 @@ const VidaNatural = ({ pageProps, Component }) => {
       </StylesProvider>
     </>
   )
+}
+
+export function reportWebVitals(metric) {
+  console.log(metric)
 }
 
 export default VidaNatural

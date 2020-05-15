@@ -1,5 +1,4 @@
 import get from 'lodash/get'
-import fetch from 'isomorphic-unfetch'
 import { buildQuery, joinWith } from 'utils/helpers'
 import Cookies from 'js-cookie'
 import { FormKeys } from './typeDeclarations'
