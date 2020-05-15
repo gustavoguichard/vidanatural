@@ -23,10 +23,10 @@ const ProductsPage = ({ products }) => (
   </Layout>
 )
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const serverData = await api.search()
-  const products = localProducts.map(p => {
-    const data = find(serverData, servP => p.slug.startsWith(servP.slug))
+  const products = localProducts.map((p) => {
+    const data = find(serverData, (servP) => p.slug.startsWith(servP.slug))
     return { ...p, ...data }
   })
   return { props: { products } }
