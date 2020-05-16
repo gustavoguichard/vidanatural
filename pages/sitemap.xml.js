@@ -30,9 +30,9 @@ export async function getServerSideProps({ res }) {
       priority: 1.0,
     })
 
-    productList.forEach(product => {
+    productList.forEach((product) => {
       smStream.write({
-        url: `/produtos/${product.slug}`,
+        url: product.url.replace('/produto/', '/produtos/'),
         changefreq: 'daily',
         priority: 0.8,
         img: {
@@ -41,7 +41,7 @@ export async function getServerSideProps({ res }) {
       })
     })
 
-    pages.forEach(page => {
+    pages.forEach((page) => {
       smStream.write({
         url: `/${page}`,
         changefreq: 'weekly',
@@ -49,7 +49,7 @@ export async function getServerSideProps({ res }) {
       })
     })
 
-    testimonials.forEach(testimonial => {
+    testimonials.forEach((testimonial) => {
       smStream.write({
         url: `/eu-uso/${testimonial.picture}`,
         changefreq: 'monthly',
