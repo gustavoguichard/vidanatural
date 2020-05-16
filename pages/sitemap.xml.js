@@ -1,6 +1,7 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import testimonials from 'data/testimonials'
 import api from 'utils/api'
+import * as cms from 'utils/cms'
 
 const pages = [
   'produtos',
@@ -24,6 +25,8 @@ export async function getServerSideProps({ res }) {
       hostname: process.env.API_IP,
       cacheTime: 600000,
     })
+
+    const faqItems = await cms.allByTypeAndTags('faq_item')
 
     smStream.write({
       url: `/`,
@@ -58,6 +61,14 @@ export async function getServerSideProps({ res }) {
         img: {
           url: `/static/images/testimonials/${testimonial.picture}.jpg`,
         },
+      })
+    })
+
+    faqItems.forEach((item) => {
+      smStream.write({
+        url: `/faq/${item.uid}`,
+        changefreq: 'monthly',
+        priority: 0.4,
       })
     })
 
