@@ -10,7 +10,16 @@ export const query = async (predicates: any, options: any) => {
   return response
 }
 
-export const allByTypeAndTags = async (type: string, tags?: string[]) => {
+export const getBySlug = async (type: string, uid: string) => {
+  const response = await client.getByUID(type, uid, {})
+  return response
+}
+
+export const allByTypeAndTags = async (
+  type: string,
+  tags?: string[],
+  options?: any,
+) => {
   const response = await query(
     tags
       ? [
@@ -18,7 +27,7 @@ export const allByTypeAndTags = async (type: string, tags?: string[]) => {
           Prismic.Predicates.any('document.tags', tags),
         ]
       : Prismic.Predicates.at('document.type', type),
-    { pageSize: 1000 },
+    { pageSize: 1000, ...options },
   )
   return get(response, 'results', [])
 }
