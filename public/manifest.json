@@ -3,12 +3,12 @@
   "name": "Vida Natural",
   "icons": [
     {
-      "src": "/icon.png",
+      "src": "/static/icon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icon-lg.png",
+      "src": "/static/icon-lg.png",
       "type": "image/png",
       "sizes": "512x512"
     }
