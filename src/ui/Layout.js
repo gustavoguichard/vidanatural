@@ -1,12 +1,18 @@
 import { memo } from 'react'
 import { Box } from '@material-ui/core'
+import dynamic from 'next/dynamic'
 import Router from 'next/router'
-import BottomCTA from 'src/ui/BottomCTA'
-import Chat from 'src/ui/Chat'
+import Skeleton from 'src/ui/Skeleton'
 import Header from 'src/ui/Header'
-import Footer from 'src/ui/Footer'
 import SEO from 'src/components/SEO'
-import Certifications from 'src/components/Certifications'
+
+const BottomCTA = dynamic(() => import('src/ui/BottomCTA'), { ssr: false })
+const Chat = dynamic(() => import('src/ui/Chat'), { ssr: false })
+const Footer = dynamic(() => import('src/ui/Footer'))
+const Certifications = dynamic(() => import('src/components/Certifications'), {
+  loading: () => <Skeleton />,
+  ssr: false,
+})
 
 Router.events.on('routeChangeComplete', () => {
   window.scrollTo(0, 0)
