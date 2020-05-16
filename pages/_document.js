@@ -14,9 +14,9 @@ class VidaNatural extends Document {
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
-          <link rel="icon" sizes="192x192" href="/icon.png" />
-          <link rel="apple-touch-icon" href="/icon.png" />
+          <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+          <link rel="icon" sizes="192x192" href="/static/icon.png" />
+          <link rel="apple-touch-icon" href="/static/icon.png" />
         </Head>
         <body>
           <Main />
