@@ -1,7 +1,10 @@
 import get from 'lodash/get'
 import map from 'lodash/map'
+import { Box } from '@material-ui/core'
+
 import Layout from 'src/ui/Layout'
 import ProductIngredients from 'src/product-page/ProductIngredients'
+import ProductFaq from 'src/product-page/ProductFaq'
 import ProductTestimonials from 'src/components/ProductTestimonials'
 import { ProductJsonLd } from 'next-seo'
 import { getResizedImg } from 'utils/api'
@@ -9,6 +12,7 @@ import { getResizedImg } from 'utils/api'
 const ProductLayout = ({
   product = {},
   hasLocalContent,
+  faqItems,
   slug,
   children,
   isMobile,
@@ -57,7 +61,15 @@ const ProductLayout = ({
         }}
       />
       {children}
-      {hasLocalContent && <ProductIngredients product={product} />}
+      <Box
+        css={{
+          borderTop: '10px solid white',
+          borderBottom: '10px solid white',
+        }}
+      >
+        {hasLocalContent && <ProductIngredients product={product} />}
+        <ProductFaq items={faqItems} />
+      </Box>
       <ProductTestimonials product={product} />
     </Layout>
   )

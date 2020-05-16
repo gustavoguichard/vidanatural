@@ -12,40 +12,33 @@ import theme from 'src/ui/theme'
 const ProductIngredients = ({ product }) => {
   const matches = useMediaQuery('(min-width: 760px)')
   return (
-    <Box
-      css={{
-        borderBottom: '10px solid white',
-        borderTop: '10px solid white',
-      }}
+    <Container
       id={`ingredientes-${product.path}`}
+      css={{ paddingLeft: theme.spacing(5), paddingRight: theme.spacing(5) }}
     >
-      <Container
-        css={{ paddingLeft: theme.spacing(5), paddingRight: theme.spacing(5) }}
-      >
-        <Grid css={{ padding: 0 }} container justify="center">
-          <Grid item xs={12} md={10}>
-            <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
-              <Typography variant="h3">Ingredientes</Typography>
-              <Typography
-                variant="body1"
-                css={{
-                  marginTop: theme.spacing(2),
-                  marginBottom: theme.spacing(4),
-                }}
-              >
-                Esse produto é feito de{' '}
-                <strong>ingredientes seguros que você conhece</strong>, se tiver
-                alguma dúvida, clique no link de cada um para obter informações
-                sobre o nível de segurança no site da EWG (Environmental Working
-                Group - em inglês).
-              </Typography>
-              <FeaturedIngredients product={product} />
-              <Ingredients hideFeatured product={product} />
-            </Box>
-          </Grid>
+      <Grid css={{ padding: 0 }} container justify="center">
+        <Grid item xs={12} md={10}>
+          <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
+            <Typography variant="h3">Ingredientes</Typography>
+            <Typography
+              variant="body1"
+              css={{
+                marginTop: theme.spacing(2),
+                marginBottom: theme.spacing(4),
+              }}
+            >
+              Esse produto é feito de{' '}
+              <strong>ingredientes seguros que você conhece</strong>, se tiver
+              alguma dúvida, clique no link de cada um para obter informações
+              sobre o nível de segurança no site da EWG (Environmental Working
+              Group - em inglês).
+            </Typography>
+            <FeaturedIngredients product={product} />
+            <Ingredients hideFeatured product={product} />
+          </Box>
         </Grid>
-      </Container>
-    </Box>
+      </Grid>
+    </Container>
   )
 }
 
