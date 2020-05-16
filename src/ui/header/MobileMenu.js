@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core'
 import NextLink from 'next/link'
 import { Menu } from '@material-ui/icons'
-import brandImg from 'static/svgs/brand.svg'
+import brandImg from 'public/static/svgs/brand.svg'
 import Img from 'src/components/Img'
 import menu from 'data/menu'
 import theme from 'src/ui/theme'
@@ -45,7 +45,7 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
             </ListSubheader>
           }
         >
-          {links.map(item => (
+          {links.map((item) => (
             <MenuButton key={item.path} onClose={onClose} {...item} />
           ))}
         </List>
@@ -59,7 +59,7 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
 
 const MobileMenu = ({ children }) => {
   const [open, setOpen] = useState(false)
-  const toggleDrawer = nextOpen => () => setOpen(nextOpen)
+  const toggleDrawer = (nextOpen) => () => setOpen(nextOpen)
   return (
     <>
       {children}

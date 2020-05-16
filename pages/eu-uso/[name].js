@@ -4,7 +4,7 @@ import Hero from 'src/components/Hero'
 import Img from 'src/components/Img'
 import MdContent from 'src/components/MdContent'
 import CTAButton from 'src/components/CTAButton'
-import sloganImg from 'static/svgs/slogan.svg'
+import sloganImg from 'public/static/svgs/slogan.svg'
 import PaperContent from 'src/ui/PaperContent'
 import theme from 'src/ui/theme'
 import testimonials from 'data/testimonials'
@@ -93,13 +93,13 @@ const ContentPage = ({ testimonial }) => {
 
 export async function getStaticProps({ params }) {
   const { name } = params
-  const testimonial = testimonials.find(t => t.picture === name)
+  const testimonial = testimonials.find((t) => t.picture === name)
   return { props: { testimonial } }
 }
 
 export async function getStaticPaths() {
   return {
-    paths: testimonials.map(t => ({ params: { name: t.picture } })),
+    paths: testimonials.map((t) => ({ params: { name: t.picture } })),
     fallback: false,
   }
 }

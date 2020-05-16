@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import take from 'lodash/take'
 import { Box, Container, Grid } from '@material-ui/core'
-import sloganImg from 'static/svgs/slogan.svg'
+import sloganImg from 'public/static/svgs/slogan.svg'
 import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
 import testimonialsData from 'data/testimonials'
@@ -34,7 +34,7 @@ const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
           />
         </Box>
         <Grid container spacing={4} justify="center" alignItems="stretch">
-          {testimonialsToShow.map(testimonial => (
+          {testimonialsToShow.map((testimonial) => (
             <Grid key={testimonial.picture} sm={6} md={4} item>
               <Testimonial {...testimonial} />
             </Grid>
