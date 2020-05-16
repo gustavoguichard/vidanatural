@@ -50,7 +50,7 @@ const OndeEncontrar = () => (
         </Grid>
         <Grid item xs={12} md={3}>
           <Img
-            css={{ maxWidth: '100%' }}
+            css={{ maxWidth: '100%', width: 300 }}
             src="/static/svgs/where-to-find.svg"
             alt="Onde encontrar"
           />

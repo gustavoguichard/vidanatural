@@ -9,7 +9,7 @@ export default {
           name: 'Todos os produtos',
           path: '/produtos',
         },
-        ...products.map(product => ({
+        ...products.map((product) => ({
           name: product.title,
           path: `/produtos/${product.slug || product.path}`,
         })),
@@ -40,6 +40,10 @@ export default {
           path: '/sobre-a-vida-natural#ingredientes',
         },
         {
+          name: 'Perguntas frequentes',
+          path: '/faq',
+        },
+        {
           name: 'Termos e Condições',
           path: '/termos-e-condicoes',
         },
@@ -53,7 +57,7 @@ export default {
   footerLinks: [
     {
       name: 'Produtos',
-      links: products.map(product => ({
+      links: products.map((product) => ({
         name: product.title,
         path: `/produtos/${product.slug || product.path}`,
       })),
@@ -80,6 +84,10 @@ export default {
         {
           name: 'Nossos ingredientes',
           path: '/sobre-a-vida-natural#ingredientes',
+        },
+        {
+          name: 'Perguntas frequentes',
+          path: '/faq',
         },
         {
           name: 'Termos e Condições',

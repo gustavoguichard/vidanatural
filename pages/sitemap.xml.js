@@ -6,6 +6,7 @@ const pages = [
   'produtos',
   'sobre-a-vida-natural',
   'onde-encontrar',
+  'faq',
   'eu-uso-cosmetica-consciente',
   'entre-em-contato',
   'termos-e-condicoes',
