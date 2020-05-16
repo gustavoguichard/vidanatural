@@ -13,14 +13,10 @@ class VidaNatural extends Document {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="manifest" href="/static/manifest.json" />
-          <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="/static/favicon.png"
-          />
-          <link rel="icon" sizes="192x192" href="/static/icon.png" />
-          <link rel="apple-touch-icon" href="/static/icon.png" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
+          <link rel="icon" sizes="192x192" href="/icon.png" />
+          <link rel="apple-touch-icon" href="/icon.png" />
         </Head>
         <body>
           <Main />
@@ -36,13 +32,13 @@ class VidaNatural extends Document {
   }
 }
 
-VidaNatural.getInitialProps = async ctx => {
+VidaNatural.getInitialProps = async (ctx) => {
   const sheets = new ServerStyleSheets()
   const originalRenderPage = ctx.renderPage
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: App => props => sheets.collect(<App {...props} />),
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     })
 
   const initialProps = await Document.getInitialProps(ctx)
