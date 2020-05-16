@@ -10,7 +10,6 @@
     "dev": "next",
     "build": "next build",
     "export": "next export",
-    "postexport": "cp ./out/service-worker.js ./out/static/service-worker.js",
     "start": "next",
     "start:local": "next start",
     "deploy": "npm run build && npm run export"
