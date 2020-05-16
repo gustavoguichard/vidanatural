@@ -27,7 +27,7 @@ export async function getStaticProps() {
   const serverData = await api.search()
   const products = localProducts.map((p) => {
     const data = find(serverData, (servP) => p.slug.startsWith(servP.slug))
-    return { ...p, ...data }
+    return { ...data, ...p }
   })
   return { props: { products } }
 }

@@ -52,12 +52,7 @@ const ProductPreview = ({ product, index }) => {
             md={6}
             css={{ textAlign: 'center', minHeight: 350 }}
           >
-            <Link
-              href={
-                product.slug ? `/produtos/${product.slug}` : `/${product.path}`
-              }
-              title={product.title}
-            >
+            <Link href={`/produtos/${product.slug}`} title={product.title}>
               <Img
                 className="responsive"
                 css={{ width: 520, marginTop: theme.spacing(4) }}
