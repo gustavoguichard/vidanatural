@@ -14,7 +14,6 @@ const SinglePostPage = ({
   author,
   dateFrom,
   readingTime,
-  excerpt,
   data,
 }) => {
   const hasFeatured = !!featuredUrl
@@ -77,11 +76,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params
-  // const serverData = await api.search()
   const authors = await cms.allByTypeAndTags('team_member')
   const response = await cms.getBySlug('blog_post', slug)
   const props = parsePost(response, authors)
-  // console.log(props.tags)
   return { props }
 }
 
