@@ -9,11 +9,10 @@ const config = {
   feed_url: 'https://vidanatural.eco.br/blog/rss.xml',
   site_url: 'https://vidanatural.eco.br/blog/',
   image_url: 'https://vidanatural.eco.br/static/icon.png',
-  managingEditor: 'Vida Natural',
-  webMaster: 'Gustavo Guichard',
+  managingEditor: 'falecom@vidanatural.eco.br',
+  webMaster: 'guga@vidanatural.eco.br',
   copyright: '2020 Vida Natural',
   language: 'pt-br',
-  pubDate: 'May 20, 2012 04:00:00 GMT',
   ttl: '300',
 }
 
@@ -27,7 +26,7 @@ export async function getServerSideProps({ res }) {
     })
     const posts = response.map((post) => parsePost(post, authors))
     const [lastPost] = posts
-    const feed = new RSS({ ...config, pubDate: lastPost.date })
+    const feed = new RSS({ ...config, pubDate: lastPost.date.toUTCString() })
     posts.forEach((post) => {
       feed.item({
         title: post.titleText,
@@ -36,7 +35,7 @@ export async function getServerSideProps({ res }) {
         guid: post.id,
         categories: post.tags,
         author: post.author.fullName,
-        date: post.date,
+        date: post.date.toUTCString(),
         image: {
           title: post.titleText,
           url: post.featuredUrl,
