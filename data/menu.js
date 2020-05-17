@@ -1,5 +1,11 @@
 import products from 'data/products'
 
+const productLinks = products.map((product) => ({
+  name: product.title,
+  path: '/produtos/[slug]',
+  as: `/produtos/${product.slug}`,
+}))
+
 export default {
   links: [
     {
@@ -9,10 +15,7 @@ export default {
           name: 'Todos os produtos',
           path: '/produtos',
         },
-        ...products.map((product) => ({
-          name: product.title,
-          path: `/produtos/${product.slug || product.path}`,
-        })),
+        ...productLinks,
       ],
     },
     {
@@ -57,10 +60,7 @@ export default {
   footerLinks: [
     {
       name: 'Produtos',
-      links: products.map((product) => ({
-        name: product.title,
-        path: `/produtos/${product.slug || product.path}`,
-      })),
+      links: productLinks,
     },
     {
       name: 'Nós',

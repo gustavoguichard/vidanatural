@@ -129,7 +129,6 @@ const ProductSlide = ({
             color="secondary"
             href="/produtos/[slug]"
             as={`/produtos/${product.slug}`}
-            prefetch={false}
           >
             Saiba mais
           </CTAButton>

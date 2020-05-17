@@ -11,6 +11,7 @@ function ButtonLink({
   innerRef,
   icon,
   href,
+  as,
   prefetch,
   ...props
 }) {
@@ -20,7 +21,7 @@ function ButtonLink({
   const Component = icon ? IconButton : Button
 
   return (
-    <NextLink href={href} prefetch={prefetch}>
+    <NextLink href={href} prefetch={prefetch} as={as}>
       <Component className={className} ref={innerRef} {...props} />
     </NextLink>
   )

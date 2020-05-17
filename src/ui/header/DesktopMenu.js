@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import ButtonLink from 'src/components/ButtonLink'
 import theme from 'src/ui/theme'
 import menu from 'data/menu'
 
-const SubMenu = ({ name, path, links, router }) => {
+const SubMenu = ({ name, path, as, links }) => {
   const [anchorEl, setAnchorEl] = useState(null)
+  const router = useRouter()
   const id = `menu-appbar-${kebabCase(name)}`
-  const active = router.pathname === path
+  const active = [path, as].includes(router.pathname)
   return (
     <>
       <Button
@@ -17,7 +18,7 @@ const SubMenu = ({ name, path, links, router }) => {
         aria-label={name}
         aria-haspopup="true"
         aria-controls={id}
-        onClick={event => setAnchorEl(event.currentTarget)}
+        onClick={(event) => setAnchorEl(event.currentTarget)}
       >
         {name}
       </Button>
@@ -38,9 +39,9 @@ const SubMenu = ({ name, path, links, router }) => {
         open={!!anchorEl}
         onClose={() => setAnchorEl(null)}
       >
-        {links.map(subItem => (
+        {links.map((subItem) => (
           <MenuItem
-            onClick={() => router.push(subItem.path)}
+            onClick={() => router.push(subItem.path, subItem.as)}
             key={subItem.path}
           >
             {subItem.name}
@@ -51,15 +52,13 @@ const SubMenu = ({ name, path, links, router }) => {
   )
 }
 
-const SubMenuRouter = withRouter(SubMenu)
-
 const DesktopMenu = ({ children }) => {
   return (
     <>
-      {menu.links.map(item => {
+      {menu.links.map((item) => {
         const hasSubmenu = !!item.links
         return hasSubmenu ? (
-          <SubMenuRouter key={item.name} {...item} />
+          <SubMenu key={item.name} {...item} />
         ) : (
           <ButtonLink
             css={{
@@ -70,6 +69,7 @@ const DesktopMenu = ({ children }) => {
             color="inherit"
             key={item.name}
             href={item.path}
+            as={item.as}
           >
             {item.name}
           </ButtonLink>

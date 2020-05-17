@@ -15,8 +15,8 @@ import Img from 'src/components/Img'
 import menu from 'data/menu'
 import theme from 'src/ui/theme'
 
-const MenuButton = ({ name, path, onClose }) => (
-  <NextLink href={path}>
+const MenuButton = ({ name, path, as, onClose }) => (
+  <NextLink href={path} as={as}>
     <ListItem
       onClick={() => {
         onClose()
@@ -28,7 +28,7 @@ const MenuButton = ({ name, path, onClose }) => (
   </NextLink>
 )
 
-const MenuItem = ({ name, onClose, last, path, links }) => {
+const MenuItem = ({ name, as, onClose, last, path, links }) => {
   const hasSubmenu = !!links
   return (
     <>
@@ -50,7 +50,7 @@ const MenuItem = ({ name, onClose, last, path, links }) => {
           ))}
         </List>
       ) : (
-        <MenuButton onClose={onClose} name={name} path={path} />
+        <MenuButton onClose={onClose} name={name} path={path} as={as} />
       )}
       {last || <Divider />}
     </>

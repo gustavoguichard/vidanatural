@@ -29,7 +29,9 @@ const FooterMenu = () => (
                   [theme.breakpoints.down('xs')]: { padding: 10 },
                 }}
               >
-                <Link href={item.path}>{item.name}</Link>
+                <Link href={item.path} as={item.as}>
+                  {item.name}
+                </Link>
               </li>
             ))}
           </ul>
