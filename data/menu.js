@@ -19,6 +19,10 @@ export default {
       ],
     },
     {
+      name: 'Blog',
+      path: '/blog',
+    },
+    {
       name: 'Onde encontrar?',
       path: '/onde-encontrar',
     },
@@ -65,6 +69,10 @@ export default {
     {
       name: 'Nós',
       links: [
+        {
+          name: 'Blog',
+          path: '/blog',
+        },
         {
           name: 'A Vida Natural',
           path: '/sobre-a-vida-natural',

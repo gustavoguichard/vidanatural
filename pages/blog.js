@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import SinglePageLayout from 'src/ui/SinglePageLayout'
 import Hero from 'src/components/Hero'
 import PostPreview from 'src/blog/PostPreview'

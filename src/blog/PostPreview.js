@@ -1,9 +1,8 @@
 import { memo } from 'react'
 import { Box, Grid, Typography } from '@material-ui/core'
 import Img from 'src/components/Img'
-import theme from 'src/ui/theme'
 import Link from 'src/components/Link'
-import get from 'lodash/get'
+import theme from 'src/ui/theme'
 
 const PostPreview = ({
   author,
@@ -12,6 +11,7 @@ const PostPreview = ({
   excerpt,
   titleText,
   thumbUrl,
+  imgAlt,
   permalink,
   data,
 }) => {
@@ -20,11 +20,7 @@ const PostPreview = ({
       {thumbUrl && (
         <Grid item md={3}>
           <Link {...permalink}>
-            <Img
-              className="responsive"
-              src={thumbUrl}
-              alt={get(data, 'header_image.alt', titleText)}
-            />
+            <Img className="responsive" src={thumbUrl} alt={imgAlt} />
           </Link>
         </Grid>
       )}
