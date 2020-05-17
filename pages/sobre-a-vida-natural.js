@@ -5,9 +5,9 @@ import PaperContent from 'src/ui/PaperContent'
 import Member from 'src/about/Member'
 import IllustratedIngredients from 'src/about/IllustratedIngredients'
 import theme from 'src/ui/theme'
-import team from 'data/team'
+import * as cms from 'utils/cms'
 
-export default function AboutPage() {
+const AboutPage = ({ team }) => {
   return (
     <Layout
       title="Sobre a Vida Natural"
@@ -64,8 +64,8 @@ export default function AboutPage() {
               Quem somos?
             </Typography>
             <Grid container spacing={4} justify="center" alignItems="stretch">
-              {team.map(member => (
-                <Member key={member.picture} {...member} />
+              {team.map((member) => (
+                <Member key={member.picture} {...member.data} />
               ))}
             </Grid>
           </Grid>
@@ -75,3 +75,10 @@ export default function AboutPage() {
     </Layout>
   )
 }
+
+export async function getStaticProps() {
+  const team = await cms.allByTypeAndTags('team_member')
+  return { props: { team } }
+}
+
+export default AboutPage
