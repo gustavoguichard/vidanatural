@@ -52,7 +52,11 @@ const ProductPreview = ({ product, index }) => {
             md={6}
             css={{ textAlign: 'center', minHeight: 350 }}
           >
-            <Link href={`/produtos/${product.slug}`} title={product.title}>
+            <Link
+              href="/produtos/[slug]"
+              as={`/produtos/${product.slug}`}
+              title={product.title}
+            >
               <Img
                 className="responsive"
                 css={{ width: 520, marginTop: theme.spacing(4) }}
@@ -80,7 +84,7 @@ const ProductPreview = ({ product, index }) => {
                 padding: theme.spacing(4),
               }}
             >
-              <Link href={`/produtos/${product.slug}`}>
+              <Link href="/produtos/[slug]" as={`/produtos/${product.slug}`}>
                 <Typography
                   variant="h3"
                   css={{ marginBottom: theme.spacing() }}
@@ -112,7 +116,9 @@ const ProductPreview = ({ product, index }) => {
                 content={product.presentation}
               />
               <p>
-                <Link href={`/produtos/${product.slug}`}>Saiba mais</Link>
+                <Link href="/produtos/[slug]" as={`/produtos/${product.slug}`}>
+                  Saiba mais
+                </Link>
               </p>
               <ProductCTA size="large" product={product} />
             </Paper>

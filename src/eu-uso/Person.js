@@ -9,7 +9,7 @@ import theme from 'src/ui/theme'
 const Testimonial = ({ onOpen, index, name, picture }) => {
   const linkRef = useRef()
 
-  const onClick = event => {
+  const onClick = (event) => {
     if (event.currentTarget.dataset.id === 'link') {
       event.stopPropagation()
     } else {
@@ -20,7 +20,8 @@ const Testimonial = ({ onOpen, index, name, picture }) => {
 
   return (
     <VNLink
-      href={`/eu-uso/${picture}`}
+      href="/eu-uso/[name]"
+      as={`/eu-uso/${picture}`}
       className="testimonial-item"
       onClick={onClick}
     >

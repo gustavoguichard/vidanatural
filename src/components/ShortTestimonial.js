@@ -12,7 +12,7 @@ const ShortTestimonial = ({ name, picture, shortContent, content }) => (
       textAlign: 'center',
     }}
   >
-    <Link href={`/eu-uso/${picture}`}>
+    <Link href="/eu-uso/[name]" as={`/eu-uso/${picture}`}>
       <Img
         Component={Avatar}
         height={130}

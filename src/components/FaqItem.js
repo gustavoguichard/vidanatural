@@ -32,7 +32,8 @@ const FaqItem = ({ id, data, uid }) => {
           <RichText render={data.answer} />
           <VNLink
             css={{ position: 'absolute', top: 10, right: 10 }}
-            href={`/faq/${uid}`}
+            href="/faq/[slug]"
+            as={`/faq/${uid}`}
           >
             <Link />
           </VNLink>
