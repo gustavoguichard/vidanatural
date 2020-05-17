@@ -16,7 +16,7 @@ const AboutPage = ({ team }) => {
           'Uma empresa  feita por amigos, unidos pelo propósito da transparência, que se importam com aquilo que colocamos todos os dias no nosso maior orgão de absorção - a pele.',
       }}
     >
-      <Hero size="small" background="/static/images/capa-pb.jpg">
+      <Hero size="small" background="/static/images/banner.jpg">
         <Typography variant="h2">Sobre a Vida Natural</Typography>
         <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
           Uma empresa feita por <strong>amigos</strong>, unidos pelo propósito

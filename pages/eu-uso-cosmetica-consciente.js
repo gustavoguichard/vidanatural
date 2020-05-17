@@ -8,7 +8,7 @@ import theme from 'src/ui/theme'
 const Page = () => {
   return (
     <Layout title="Eu uso cosmética consciente!">
-      <Hero size="small" background="/static/images/capa-pb.jpg">
+      <Hero size="small" background="/static/images/banner.jpg">
         <Box mb={2} p={3}>
           <img
             css={{

@@ -8,7 +8,7 @@ import Form from 'src/contato/Form'
 
 const Page = () => (
   <Layout title="Entre em contato">
-    <Hero size="small" background="/static/images/capa-pb.jpg">
+    <Hero size="small" background="/static/images/banner.jpg">
       <Typography variant="h2">Entre em contato</Typography>
     </Hero>
     <PaperContent>

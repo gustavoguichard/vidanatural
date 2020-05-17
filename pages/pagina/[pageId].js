@@ -10,7 +10,7 @@ import api from 'utils/api'
 const ContentPage = ({ page }) =>
   get(page, 'id') ? (
     <Layout title={page.title} seo={{ description: page.description }}>
-      <Hero size="small" background="/static/images/capa-pb.jpg">
+      <Hero size="small" background="/static/images/banner.jpg">
         <Typography variant="h2">{page.title}</Typography>
         <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
           {page.description}
