@@ -101,14 +101,13 @@ export async function getServerSideProps({ res }) {
     res.writeHead(200, {
       'Content-Type': 'application/xml',
     })
-
     // Display output to user
     res.end(xml)
     return { props: { xml } }
   } catch (e) {
     // eslint-disable-next-line
     console.log(e)
-    res.send(JSON.stringify(e))
+    res.end(JSON.stringify(e))
     return { props: { xml: null } }
   }
 }

@@ -76,6 +76,7 @@
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
     "responsive-loader": "^1.2.0",
+    "rss": "^1.2.2",
     "typescript": "^3.9.2",
     "webp-loader": "^0.6.0"
   },
