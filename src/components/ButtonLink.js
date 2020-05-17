@@ -1,12 +1,11 @@
 import React from 'react'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import NextLink from 'next/link'
 import { Button, IconButton } from '@material-ui/core'
 
 function ButtonLink({
   activeClassName = 'active',
-  router,
   className: classNameProps,
   innerRef,
   icon,
@@ -15,6 +14,7 @@ function ButtonLink({
   prefetch,
   ...props
 }) {
+  const router = useRouter()
   const className = clsx(classNameProps, {
     [activeClassName]: router.pathname === href && activeClassName,
   })
@@ -31,8 +31,6 @@ ButtonLink.defaultProps = {
   activeClassName: 'active',
 }
 
-const RouterButton = withRouter(ButtonLink)
-
 export default React.forwardRef((props, ref) => (
-  <RouterButton {...props} innerRef={ref} />
+  <ButtonLink {...props} innerRef={ref} />
 ))

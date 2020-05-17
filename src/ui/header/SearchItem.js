@@ -1,4 +1,4 @@
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import {
   ListItem,
   ListItemAvatar,
@@ -8,23 +8,28 @@ import {
 import { getResizedImg } from 'utils/api'
 import { toCurrency } from 'utils/helpers'
 
-const SearchItem = ({ router, name, image_url, url, price }) => (
-  <ListItem
-    button
-    onClick={() => router.push(url.replace('/produto/', '/produtos/'))}
-  >
-    <ListItemAvatar>
-      <img alt={name} src={getResizedImg(image_url, 30)} width="30" />
-    </ListItemAvatar>
-    <ListItemText>
-      <Typography variant="body2">{name}</Typography>
-      {price && (
-        <Typography component="span" variant="caption">
-          {toCurrency(price)}
-        </Typography>
-      )}
-    </ListItemText>
-  </ListItem>
-)
+const SearchItem = ({ name, image_url, url, price }) => {
+  const router = useRouter()
+  return (
+    <ListItem
+      button
+      onClick={() =>
+        router.push('/produtos/[slug]', url.replace('/produto/', '/produtos/'))
+      }
+    >
+      <ListItemAvatar>
+        <img alt={name} src={getResizedImg(image_url, 30)} width="30" />
+      </ListItemAvatar>
+      <ListItemText>
+        <Typography variant="body2">{name}</Typography>
+        {price && (
+          <Typography component="span" variant="caption">
+            {toCurrency(price)}
+          </Typography>
+        )}
+      </ListItemText>
+    </ListItem>
+  )
+}
 
-export default withRouter(SearchItem)
+export default SearchItem

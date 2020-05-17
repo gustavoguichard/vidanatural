@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Button, CircularProgress, TextField } from '@material-ui/core'
 import { useFormState } from 'react-use-form-state'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Alert from 'src/components/Alert'
 import Input from 'src/contato/Input'
 import api from 'utils/api'
 
-const Form = ({ router }) => {
+const Form = () => {
+  const router = useRouter()
   const [sending, setSending] = useState(false)
   const [hasError, setHasError] = useState(false)
 
@@ -15,7 +16,7 @@ const Form = ({ router }) => {
     reply_to: '',
   })
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     setHasError(false)
     setSending(true)
@@ -63,4 +64,4 @@ const Form = ({ router }) => {
   )
 }
 
-export default withRouter(Form)
+export default Form

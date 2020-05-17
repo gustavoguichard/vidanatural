@@ -1,4 +1,4 @@
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import {
   ListItem,
   ListItemAvatar,
@@ -9,7 +9,6 @@ import { getResizedImg, getOwnPath } from 'utils/api'
 import { toCurrency } from 'utils/helpers'
 
 const CartItem = ({
-  router,
   product_name,
   image_url,
   product_url,
@@ -17,10 +16,11 @@ const CartItem = ({
   price,
   quantity,
 }) => {
+  const router = useRouter()
   const fixedUrl = product_url.replace('/produto/', '/produtos/')
   const path = getOwnPath(fixedUrl)
   return (
-    <ListItem button onClick={() => router.push(path)}>
+    <ListItem button onClick={() => router.push('/produtos/[slug]', path)}>
       <ListItemAvatar>
         <img alt={product_name} src={getResizedImg(image_url, 30)} width="30" />
       </ListItemAvatar>
@@ -35,4 +35,4 @@ const CartItem = ({
   )
 }
 
-export default withRouter(CartItem)
+export default CartItem

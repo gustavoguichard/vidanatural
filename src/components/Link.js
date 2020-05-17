@@ -2,11 +2,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import MuiLink from '@material-ui/core/Link'
 
-const NextComposed = React.forwardRef(function NextComposed(props, ref) {
+const NextComposed = React.forwardRef((props, ref) => {
   const { as, href, prefetch, ...other } = props
 
   return (
@@ -24,16 +24,15 @@ NextComposed.propTypes = {
 
 function Link({
   activeClassName,
-  router,
   className: classNameProps,
   innerRef,
   naked,
   color = 'secondary',
   ...props
 }) {
-  const { href } = props
+  const router = useRouter()
   const className = clsx(classNameProps, {
-    [activeClassName]: router.pathname === href && activeClassName,
+    [activeClassName]: router.pathname === props.href && activeClassName,
   })
 
   if (naked) {
@@ -70,8 +69,6 @@ Link.defaultProps = {
   activeClassName: 'active',
 }
 
-const RouterLink = withRouter(Link)
-
 export default React.forwardRef((props, ref) => (
-  <RouterLink {...props} innerRef={ref} />
+  <Link {...props} innerRef={ref} />
 ))
