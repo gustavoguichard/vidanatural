@@ -5,6 +5,7 @@ import * as cms from 'utils/cms'
 
 const pages = [
   'produtos',
+  'blog',
   'sobre-a-vida-natural',
   'onde-encontrar',
   'faq',
@@ -26,7 +27,9 @@ export async function getServerSideProps({ res }) {
       cacheTime: 600000,
     })
 
+    const posts = await cms.allByTypeAndTags('blog_post')
     const faqItems = await cms.allByTypeAndTags('faq_item')
+    const members = await cms.allByTypeAndTags('team_member')
 
     smStream.write({
       url: `/`,
@@ -53,6 +56,14 @@ export async function getServerSideProps({ res }) {
       })
     })
 
+    posts.forEach((item) => {
+      smStream.write({
+        url: `/blog/${item.uid}`,
+        changefreq: 'daily',
+        priority: 0.8,
+      })
+    })
+
     testimonials.forEach((testimonial) => {
       smStream.write({
         url: `/eu-uso/${testimonial.picture}`,
@@ -67,8 +78,16 @@ export async function getServerSideProps({ res }) {
     faqItems.forEach((item) => {
       smStream.write({
         url: `/faq/${item.uid}`,
-        changefreq: 'monthly',
+        changefreq: 'weekly',
         priority: 0.4,
+      })
+    })
+
+    members.forEach((item) => {
+      smStream.write({
+        url: `/equipe/${item.uid}`,
+        changefreq: 'monthly',
+        priority: 0.3,
       })
     })
 
