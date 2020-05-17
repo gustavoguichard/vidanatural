@@ -1,6 +1,7 @@
 import * as cms from 'utils/cms'
 import { parsePost } from 'utils/contentParsers'
 import RSS from 'rss'
+import moment from 'moment'
 
 const config = {
   title: 'Blog da Vida Natural',
@@ -26,7 +27,10 @@ export async function getServerSideProps({ res }) {
     })
     const posts = response.map((post) => parsePost(post, authors))
     const [lastPost] = posts
-    const feed = new RSS({ ...config, pubDate: lastPost.date.toUTCString() })
+    const feed = new RSS({
+      ...config,
+      pubDate: moment(lastPost.date).format('ddd, DD MMM YYYY HH:mm:ss [BRT]'),
+    })
     posts.forEach((post) => {
       feed.item({
         title: post.titleText,
@@ -35,7 +39,7 @@ export async function getServerSideProps({ res }) {
         guid: post.id,
         categories: post.tags,
         author: post.author.fullName,
-        date: post.date.toUTCString(),
+        date: moment(post.date).format('ddd, DD MMM YYYY HH:mm:ss [BRT]'),
         image: {
           title: post.titleText,
           url: post.featuredUrl,
