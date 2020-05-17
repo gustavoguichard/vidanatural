@@ -23,7 +23,9 @@ const FaqItem = ({ id, data, uid }) => {
       <ExpansionPanelDetails
         css={{
           backgroundColor: theme.palette.common.white,
+          borderBottom: `1px solid rgba(0,0,0,.2)`,
           position: 'relative',
+          padding: theme.spacing(5, 2),
         }}
       >
         <Typography component="div" variant="body1" css={{ textAlign: 'left' }}>

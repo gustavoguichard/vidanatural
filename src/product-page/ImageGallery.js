@@ -108,6 +108,7 @@ const ImageGallery = ({ product, isDesktop }) => {
           css={{ order: isDesktop ? -1 : 0 }}
           px={isDesktop ? 0 : 1}
           display="flex"
+          flexWrap="wrap"
           flexDirection={isDesktop ? 'column' : 'row'}
           justifyContent="center"
         >
