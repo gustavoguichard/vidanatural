@@ -34,7 +34,7 @@ const Products = () => {
         },
       }}
     >
-      {times(productsArray.length, ind => (
+      {times(productsArray.length, (ind) => (
         <Tab key={`index-${ind}`} component="a" label={ind + 1} />
       ))}
     </Tabs>

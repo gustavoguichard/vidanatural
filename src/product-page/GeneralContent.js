@@ -44,10 +44,6 @@ const GeneralContent = ({ product = {}, isDesktop }, ref) => {
               marginBottom: theme.spacing(2),
               fontWeight: 400,
               color: theme.palette.text.hint,
-              a: {
-                color: theme.palette.secondary.main,
-                textDecoration: 'none',
-              },
             }}
             dangerouslySetInnerHTML={{ __html: product.description }}
           />

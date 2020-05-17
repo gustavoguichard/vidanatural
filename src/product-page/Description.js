@@ -1,5 +1,5 @@
-import { Box, Container, Grid, Typography } from '@material-ui/core'
-import CTAButton from 'src/components/CTAButton'
+import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
+import { FaAngleRight } from 'react-icons/fa'
 import LinearGradient from 'src/components/LinearGradient'
 import { useToggle } from 'utils/hooks'
 import theme from 'src/ui/theme'
@@ -37,10 +37,6 @@ const Description = ({ product, isDesktop }) => {
               maxHeight: isOpen ? 'auto' : 300,
               transition: 'all .45s ease-in-out',
               overflow: 'hidden',
-              a: {
-                color: theme.palette.secondary.main,
-                textDecoration: 'none',
-              },
             }}
             dangerouslySetInnerHTML={{ __html: product.description }}
           />
@@ -59,16 +55,17 @@ const Description = ({ product, isDesktop }) => {
                   css={{ pointerEvents: 'none' }}
                 />
               </LinearGradient>
-              <CTAButton
-                center={false}
-                href="#"
-                onClick={ev => {
+              <Button
+                variant="text"
+                color="secondary"
+                onClick={(ev) => {
                   ev.preventDefault()
                   toggle()
                 }}
               >
                 Ler mais
-              </CTAButton>
+                <FaAngleRight css={{ marginLeft: theme.spacing() }} />
+              </Button>
             </>
           )}
         </Grid>

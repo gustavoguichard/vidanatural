@@ -60,9 +60,6 @@ Link.propTypes = {
   naked: PropTypes.bool,
   onClick: PropTypes.func,
   prefetch: PropTypes.bool,
-  router: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
 }
 
 Link.defaultProps = {

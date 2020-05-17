@@ -59,8 +59,8 @@ const SearchBar = () => {
           position: 'relative',
           animation: `${descend} .3s ease-out`,
         }}
-        onClick={event => event.stopPropagation()}
-        onKeyUp={event => {
+        onClick={(event) => event.stopPropagation()}
+        onKeyUp={(event) => {
           event.key === 'Escape' && closeSearch()
         }}
       >
@@ -76,7 +76,7 @@ const SearchBar = () => {
             css={{ background: 'white', padding: 20, width: '100%' }}
             placeholder="Buscar..."
             inputProps={{ 'aria-label': 'search' }}
-            onChange={ev => setQuery(ev.target.value)}
+            onChange={(ev) => setQuery(ev.target.value)}
           />
           {fetching && (
             <CircularProgress
@@ -95,7 +95,13 @@ const SearchBar = () => {
               <Divider />
               <List>
                 {results.length ? (
-                  results.map(item => <SearchItem key={item.id} {...item} />)
+                  results.map((item) => (
+                    <SearchItem
+                      key={item.id}
+                      closeSearch={closeSearch}
+                      {...item}
+                    />
+                  ))
                 ) : (
                   <ListSubheader color="inherit">
                     Nenhum resultado similar

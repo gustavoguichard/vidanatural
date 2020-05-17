@@ -46,7 +46,11 @@ const MenuItem = ({ name, as, onClose, last, path, links }) => {
           }
         >
           {links.map((item) => (
-            <MenuButton key={item.path} onClose={onClose} {...item} />
+            <MenuButton
+              key={item.as || item.path}
+              onClose={onClose}
+              {...item}
+            />
           ))}
         </List>
       ) : (

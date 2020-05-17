@@ -1,26 +1,37 @@
-body, html {
-    overflow-x: hidden;
-    max-width: 100vw;
+body,
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+a {
+  color: #1db980;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 p {
-    margin: 0 0 1rem 0;
+  margin: 0 0 1rem 0;
 }
 
 #__next {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.MuiPaper-root img, .responsive {
-    max-width: 100% !important;
+.MuiPaper-root img,
+.responsive {
+  max-width: 100% !important;
 }
 
 .MuiPaper-rounded {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .MuiFormLabel-root {
-    color: #5b5c67;
+  color: #5b5c67;
 }

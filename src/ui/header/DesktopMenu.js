@@ -42,7 +42,7 @@ const SubMenu = ({ name, path, as, links }) => {
         {links.map((subItem) => (
           <MenuItem
             onClick={() => router.push(subItem.path, subItem.as)}
-            key={subItem.path}
+            key={subItem.as || subItem.path}
           >
             {subItem.name}
           </MenuItem>

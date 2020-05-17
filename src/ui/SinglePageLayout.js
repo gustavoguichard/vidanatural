@@ -10,9 +10,6 @@ const SinglePageLayout = ({ children, containerProps = {}, ...props }) => {
         css={{
           padding: theme.spacing(18, 3, 4),
           borderBottom: '10px solid white',
-          a: {
-            color: theme.palette.secondary.main,
-          },
         }}
       >
         <Grid container justify="center">

@@ -8,14 +8,18 @@ import {
 import { getResizedImg } from 'utils/api'
 import { toCurrency } from 'utils/helpers'
 
-const SearchItem = ({ name, image_url, url, price }) => {
+const SearchItem = ({ name, closeSearch, image_url, url, price }) => {
   const router = useRouter()
   return (
     <ListItem
       button
-      onClick={() =>
-        router.push('/produtos/[slug]', url.replace('/produto/', '/produtos/'))
-      }
+      onClick={async () => {
+        await router.push(
+          '/produtos/[slug]',
+          url.replace('/produto/', '/produtos/'),
+        )
+        closeSearch()
+      }}
     >
       <ListItemAvatar>
         <img alt={name} src={getResizedImg(image_url, 30)} width="30" />
