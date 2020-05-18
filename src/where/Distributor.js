@@ -36,7 +36,7 @@ const Distributor = ({ place }) => (
     <Typography variant="body1">
       <strong>{place.name}</strong>
     </Typography>
-    <Typography variany="body2">
+    <Typography component="div" variany="body2">
       {map(place.address, (addr, index) => (
         <div key={`addr-${addr}`}>
           <LinkInfo

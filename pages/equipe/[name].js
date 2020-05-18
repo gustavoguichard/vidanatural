@@ -24,7 +24,7 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
               width: '80vw',
             }}
             src={sloganImg}
-            alt={`${firstName} usa cosmética consciente!`}
+            alt="Eu faço | cosmética consciente"
           />
         </Box>
         <Typography variant="body1" css={{ marginBottom: theme.spacing(5) }}>

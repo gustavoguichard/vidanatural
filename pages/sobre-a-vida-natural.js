@@ -1,10 +1,11 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Box, Grid, Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import PaperContent from 'src/ui/PaperContent'
 import Member from 'src/about/Member'
 import IllustratedIngredients from 'src/about/IllustratedIngredients'
 import theme from 'src/ui/theme'
+import sloganImg from 'public/static/svgs/eufaco.svg'
 import * as cms from 'utils/cms'
 
 const AboutPage = ({ team }) => {
@@ -17,7 +18,16 @@ const AboutPage = ({ team }) => {
       }}
     >
       <Hero size="small" background="/static/images/banner.jpg">
-        <Typography variant="h2">Sobre a Vida Natural</Typography>
+        <Box mb={2} p={3}>
+          <img
+            css={{
+              maxWidth: 600,
+              width: '80vw',
+            }}
+            src={sloganImg}
+            alt="Eu faço | cosmética consciente"
+          />
+        </Box>
         <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
           Uma empresa feita por <strong>amigos</strong>, unidos pelo propósito
           da <strong>transparência</strong>, que se importam com aquilo que
