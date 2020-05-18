@@ -62,50 +62,45 @@ export default {
     },
   ],
   footerLinks: [
-    {
-      name: 'Produtos',
-      links: productLinks,
-    },
-    {
-      name: 'Nós',
-      links: [
-        {
-          name: 'Blog',
-          path: '/blog',
-        },
-        {
-          name: 'A Vida Natural',
-          path: '/sobre-a-vida-natural',
-        },
-        {
-          name: 'Quem somos?',
-          path: '/sobre-a-vida-natural#quem-somos',
-        },
-        {
-          name: 'Onde encontrar?',
-          path: '/onde-encontrar',
-        },
-        {
-          name: 'Eu Uso!',
-          path: '/eu-uso-cosmetica-consciente',
-        },
-        {
-          name: 'Nossos ingredientes',
-          path: '/sobre-a-vida-natural#ingredientes',
-        },
-        {
-          name: 'Perguntas frequentes',
-          path: '/faq',
-        },
-        {
-          name: 'Termos e Condições',
-          path: '/termos-e-condicoes',
-        },
-        {
-          name: 'Contato',
-          path: '/entre-em-contato',
-        },
-      ],
-    },
+    [
+      {
+        name: 'Blog',
+        path: '/blog',
+      },
+      {
+        name: 'A Vida Natural',
+        path: '/sobre-a-vida-natural',
+      },
+      {
+        name: 'Quem somos?',
+        path: '/sobre-a-vida-natural#quem-somos',
+      },
+      {
+        name: 'Onde encontrar?',
+        path: '/onde-encontrar',
+      },
+      {
+        name: 'Eu Uso!',
+        path: '/eu-uso-cosmetica-consciente',
+      },
+    ],
+    [
+      {
+        name: 'Nossos ingredientes',
+        path: '/sobre-a-vida-natural#ingredientes',
+      },
+      {
+        name: 'Perguntas frequentes',
+        path: '/faq',
+      },
+      {
+        name: 'Termos e Condições',
+        path: '/termos-e-condicoes',
+      },
+      {
+        name: 'Contato',
+        path: '/entre-em-contato',
+      },
+    ],
   ],
 }

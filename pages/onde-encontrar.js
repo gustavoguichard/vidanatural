@@ -25,7 +25,7 @@ const OndeEncontrar = () => (
         />
       </Box>
     </Hero>
-    <PaperContent css={{ overflow: 'hidden' }}>
+    <PaperContent>
       <Grid container justify="space-between">
         <Grid item xs={12} md={8}>
           <Typography variant="h3">
