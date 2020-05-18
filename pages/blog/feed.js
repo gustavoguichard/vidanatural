@@ -1,11 +1,11 @@
 import * as cms from 'utils/cms'
 import { parsePost } from 'utils/contentParsers'
 import RSS from 'rss'
+import { blogDescription } from 'utils/next-seo.config'
 
 const config = {
   title: 'Blog da Vida Natural',
-  description:
-    'Leia aqui artigos sobre cosmética natural, produtos orgânicos, veganos, artesanais e DIY (faça você mesmo).',
+  description: blogDescription,
   feed_url: 'https://vidanatural.eco.br/blog/feed',
   site_url: 'https://vidanatural.eco.br/blog/',
   image_url: 'https://vidanatural.eco.br/static/logo_bg.jpg',

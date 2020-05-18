@@ -15,6 +15,7 @@ const SinglePostPage = ({
   dateFrom,
   readingTime,
   data,
+  excerpt,
 }) => {
   const hasFeatured = !!featuredUrl
   return (
@@ -22,8 +23,7 @@ const SinglePostPage = ({
       variant={hasFeatured ? 'primary' : 'secondary'}
       title="Blog"
       seo={{
-        description:
-          'Leia aqui artigos sobre cosmética natural, produtos orgânicos, veganos, artesanais e DIY (faça você mesmo).',
+        description: excerpt,
       }}
       hero={
         hasFeatured && (

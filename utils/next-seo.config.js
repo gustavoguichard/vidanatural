@@ -4,6 +4,9 @@ const description =
 
 export const titleTemplate = `%s | ${title}`
 
+export const blogDescription =
+  'Leia aqui artigos sobre cosmética natural, produtos orgânicos, veganos, artesanais e DIY (faça você mesmo).'
+
 export default {
   title,
   description,

@@ -1,22 +1,39 @@
-import { Typography } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 import SinglePageLayout from 'src/ui/SinglePageLayout'
 import Hero from 'src/components/Hero'
 import PostPreview from 'src/blog/PostPreview'
 import * as cms from 'utils/cms'
 import { parsePost } from 'utils/contentParsers'
+import { blogDescription } from 'utils/next-seo.config'
+import sloganImg from 'public/static/svgs/euamo.svg'
+import theme from 'src/ui/theme'
 
 const BlogPage = ({ posts }) => {
   return (
     <SinglePageLayout
       variant="primary"
       title="Blog"
-      seo={{
-        description:
-          'Leia aqui artigos sobre cosmética natural, produtos orgânicos, veganos, artesanais e DIY (faça você mesmo).',
-      }}
+      seo={{ description: blogDescription }}
       hero={
         <Hero size="small" background="/static/images/banner.jpg">
-          <Typography variant="h2">Blog da VN ❤️</Typography>
+          <Box mb={2} p={3}>
+            <img
+              css={{
+                maxWidth: 600,
+                width: '80vw',
+              }}
+              src={sloganImg}
+              alt="Eu amo | cosmética consciente"
+            />
+            <Typography
+              variant="body1"
+              css={{ margin: theme.spacing(4, 2, 0) }}
+            >
+              Blog da VN - leia artigos sobre cosmética natural, produtos
+              orgânicos, veganos, artesanais e dicas de estilo de{' '}
+              <strong>vida natural</strong>.
+            </Typography>
+          </Box>
         </Hero>
       }
     >
