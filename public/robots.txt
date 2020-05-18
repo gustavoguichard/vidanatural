@@ -10,6 +10,7 @@ Disallow: /carrinho
 Disallow: /checkout
 Disallow: /entrar
 Disallow: /conta
+Disallow: /produto/*
 Disallow: /concluido
 Disallow: /*?*property__*
 Disallow: /*?*typedtags__*

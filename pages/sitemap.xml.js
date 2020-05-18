@@ -12,9 +12,7 @@ const pages = [
   'eu-uso-cosmetica-consciente',
   'entre-em-contato',
   'termos-e-condicoes',
-  'gratos',
-  'entrar',
-  'minha-conta',
+  // 'minha-conta',
 ]
 
 const Sitemap = ({ xml }) => xml
