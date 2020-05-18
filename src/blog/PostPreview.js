@@ -13,18 +13,22 @@ const PostPreview = ({
   thumbUrl,
   imgAlt,
   permalink,
-  data,
 }) => {
   return (
     <Grid container spacing={3} css={{ marginBottom: theme.spacing(6) }}>
       {thumbUrl && (
-        <Grid item md={3}>
+        <Grid item sm={3}>
           <Link {...permalink}>
             <Img className="responsive" src={thumbUrl} alt={imgAlt} />
           </Link>
         </Grid>
       )}
-      <Grid item md={9} css={{ 'a:link, a:visited': { color: 'inherit' } }}>
+      <Grid
+        item
+        sm={thumbUrl ? 9 : 12}
+        md={9}
+        css={{ 'a:link, a:visited': { color: 'inherit' } }}
+      >
         <Link {...permalink}>
           <Typography variant="h3">{titleText}</Typography>
         </Link>

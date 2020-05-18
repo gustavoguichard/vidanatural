@@ -33,7 +33,11 @@ const SinglePostPage = ({
         )
       }
     >
-      {hasFeatured || <Typography variant="h3">{titleText}</Typography>}
+      {hasFeatured || (
+        <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
+          {titleText}
+        </Typography>
+      )}
       <Box
         mt={1}
         mb={2}
