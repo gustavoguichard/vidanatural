@@ -39,9 +39,12 @@ export async function getServerSideProps({ res }) {
         categories: post.tags,
         author: post.author.fullName,
         date: post.date,
+        enclosure: {
+          url: post.thumbUrl,
+        },
         image: {
           title: post.titleText,
-          url: post.featuredUrl,
+          url: post.thumbUrl,
           link: `${process.env.API_IP}/blog/${post.uid}`,
         },
       })
