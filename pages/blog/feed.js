@@ -6,7 +6,7 @@ const config = {
   title: 'Blog da Vida Natural',
   description:
     'Leia aqui artigos sobre cosmética natural, produtos orgânicos, veganos, artesanais e DIY (faça você mesmo).',
-  // feed_url: 'https://vidanatural.eco.br/blog/rss.xml',
+  feed_url: 'https://vidanatural.eco.br/blog/rss.xml',
   site_url: 'https://vidanatural.eco.br/blog/',
   image_url: 'https://vidanatural.eco.br/static/icon.png',
   managingEditor: 'falecom@vidanatural.eco.br (Lila Ozorio)',
