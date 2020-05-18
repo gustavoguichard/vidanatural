@@ -8,7 +8,7 @@ const config = {
     'Leia aqui artigos sobre cosmética natural, produtos orgânicos, veganos, artesanais e DIY (faça você mesmo).',
   feed_url: 'https://vidanatural.eco.br/blog/feed',
   site_url: 'https://vidanatural.eco.br/blog/',
-  image_url: 'https://vidanatural.eco.br/static/icon.png',
+  image_url: 'https://vidanatural.eco.br/static/logo_bg.jpg',
   managingEditor: 'falecom@vidanatural.eco.br (Lila Ozorio)',
   webMaster: 'guga@vidanatural.eco.br (Gustavo Guichard)',
   copyright: '2020 Vida Natural',

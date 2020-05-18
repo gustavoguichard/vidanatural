@@ -14,9 +14,19 @@ class VidaNatural extends Document {
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+          <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/static/favicon.png"
+          />
           <link rel="icon" sizes="192x192" href="/static/icon.png" />
           <link rel="apple-touch-icon" href="/static/icon.png" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Blog da Vida Natural"
+            href="https://vidanatural.eco.br/blog/feed/"
+          />
         </Head>
         <body>
           <Main />
