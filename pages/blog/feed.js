@@ -39,14 +39,19 @@ export async function getServerSideProps({ res }) {
         categories: post.tags,
         author: post.author.fullName,
         date: post.date,
-        enclosure: {
-          url: post.thumbUrl,
-        },
-        image: {
-          title: post.titleText,
-          url: post.thumbUrl,
-          link: `${process.env.API_IP}/blog/${post.uid}`,
-        },
+        enclosure: post.thumbUrl
+          ? {
+              url: post.thumbUrl,
+              type: 'image/jpeg',
+            }
+          : null,
+        image: post.thumbUrl
+          ? {
+              title: post.titleText,
+              url: post.thumbUrl,
+              link: `${process.env.API_IP}/blog/${post.uid}`,
+            }
+          : null,
       })
     })
     const xml = feed.xml()
