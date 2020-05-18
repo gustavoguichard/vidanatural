@@ -35,7 +35,8 @@ const Image = ({ src, order = 0 }) => (
     css={{
       position: 'relative',
       minHeight: 300,
-      [theme.breakpoints.down('xs')]: { order },
+      order,
+      [theme.breakpoints.down('xs')]: { order: 0 },
     }}
   >
     <BackgroundImg src={src} />
@@ -58,6 +59,7 @@ const About = ({ isMobile }) => (
         corpo e do meio ambiente.
       </p>
     </Section>
+    <Image order={1} src={'/static/images/maos.jpg'} />
     <Section title="Produtos de alta qualidade" isMobile={isMobile}>
       <p>
         Queremos que vc possa usar no seu dia a dia produtos naturais,
@@ -68,7 +70,6 @@ const About = ({ isMobile }) => (
         Saiba mais
       </CTAButton>
     </Section>
-    <Image order={-1} src={'/static/images/maos.jpg'} />
   </Grid>
 )
 
