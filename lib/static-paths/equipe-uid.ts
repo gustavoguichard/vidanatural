@@ -1,16 +1,19 @@
 import { GetStaticPaths } from 'next'
+import flatten from 'lodash/flatten'
+import map from 'lodash/map'
+import uniq from 'lodash/uniq'
 
 import api from 'lib/api'
 
-import { TeamMember } from 'types/cms'
-
 const getStaticPaths: GetStaticPaths = async () => {
   const items = await api.cms.getByTypeAndTags('team_member', {
-    fetch: 'team_member.uid',
+    fetch: 'team_member.slugs',
   })
+  const allSlugs = map(items, 'slugs')
+  const slugs = uniq(flatten(allSlugs))
   return {
-    paths: (items as TeamMember[]).map((item) => ({
-      params: { name: item.uid },
+    paths: map(slugs, (slug) => ({
+      params: { slug },
     })),
     fallback: false,
   }
