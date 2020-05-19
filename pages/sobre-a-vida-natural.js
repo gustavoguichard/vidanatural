@@ -82,7 +82,7 @@ const AboutPage = ({ team }) => {
             </Typography>
             <Grid container spacing={4} justify="center" alignItems="stretch">
               {team.map((member) => (
-                <TeamMember key={member.picture} {...member.data} />
+                <TeamMember key={member.uid} {...member.data} />
               ))}
             </Grid>
           </Grid>
