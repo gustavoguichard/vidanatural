@@ -47,7 +47,7 @@ export default {
           path: '/sobre-a-vida-natural#ingredientes',
         },
         {
-          name: 'Perguntas frequentes',
+          name: 'Dúvidas frequentes',
           path: '/faq',
         },
         {
@@ -90,7 +90,7 @@ export default {
         path: '/sobre-a-vida-natural#ingredientes',
       },
       {
-        name: 'Perguntas frequentes',
+        name: 'Dúvidas frequentes',
         path: '/faq',
       },
       {

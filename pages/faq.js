@@ -8,10 +8,10 @@ import * as cms from 'utils/cms'
 const FaqPage = ({ items }) => {
   return (
     <SinglePageLayout
-      title="Perguntas Frequentes"
+      title="Dúvidas Frequentes"
       containerProps={{ css: { textAlign: 'center' } }}
     >
-      <Typography variant="h2">Perguntas Frequentes</Typography>
+      <Typography variant="h2">Dúvidas Frequentes</Typography>
       <Box py={4} textAlign="left">
         {items.map((item) => (
           <FaqItem key={`item-${item.id}`} {...item} />
@@ -24,7 +24,7 @@ const FaqPage = ({ items }) => {
           margin: theme.spacing(4, 0),
         }}
         src="/static/svgs/faq.svg"
-        alt="Perguntas frequentes"
+        alt="Dúvidas frequentes"
       />
     </SinglePageLayout>
   )

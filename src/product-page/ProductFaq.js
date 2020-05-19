@@ -15,7 +15,7 @@ const ProductFaq = ({ items }) => {
               textAlign: 'center',
             }}
           >
-            Perguntas frequentes
+            Dúvidas frequentes
           </Typography>
           {items.map((item) => (
             <FaqItem key={`item-${item.id}`} {...item} />
