@@ -1,17 +1,19 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Container, Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Img from 'components/img'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
 
 export default function Index() {
+  const title = 'Termos e Condições'
   return (
-    <Layout title="Termos e Condições">
+    <Layout title={title}>
       <Hero size="small" background="/static/images/banner.jpg">
-        <Typography variant="h2">Termos e Condições</Typography>
+        <Typography variant="h2">{title}</Typography>
         <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
           Comprar na Vida Natural é seguro e fácil. Aqui você encontra toda a
           linha de produtos, basta clicar nas imagens para conhecer os detalhes
@@ -19,6 +21,14 @@ export default function Index() {
         </Typography>
       </Hero>
       <PaperContent>
+        <Container maxWidth="md">
+          <Breadcrumbs
+            css={{ margin: theme.spacing(-3, 0, 3) }}
+            links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
+          >
+            {title}
+          </Breadcrumbs>
+        </Container>
         <Grid container justify="center">
           <Grid item xs={12} md={7}>
             <Img

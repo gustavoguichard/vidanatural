@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Img from 'components/img'
 import Layout from 'components/layout'
@@ -30,6 +31,12 @@ const OndeEncontrar = () => (
     <PaperContent>
       <Grid container justify="space-between">
         <Grid item xs={12} md={8}>
+          <Breadcrumbs
+            links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
+            css={{ margin: theme.spacing(-3, 0, 3) }}
+          >
+            Onde encontrar?
+          </Breadcrumbs>
           <Typography variant="h3">
             Procure pelo estado na lista abaixo
           </Typography>

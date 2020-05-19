@@ -1,29 +1,38 @@
 import { FaWhatsapp } from 'react-icons/fa'
-import { Grid, Typography } from '@material-ui/core'
+import { Box, Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import Form from 'components/form'
 import Hero from 'components/hero'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
 
+import sloganImg from 'public/static/svgs/euconecto.svg'
+
 const Page = () => (
   <Layout title="Entre em contato">
     <Hero size="small" background="/static/images/banner.jpg">
-      <Typography variant="h2">Entre em contato</Typography>
+      <Box mb={2} p={3}>
+        <img
+          css={{
+            maxWidth: 600,
+            width: '80vw',
+          }}
+          src={sloganImg}
+          alt="Eu conecto | cosmética consciente"
+        />
+      </Box>
     </Hero>
     <PaperContent>
       <Grid container justify="space-between">
         <Grid item xs={12} md={7}>
-          <Typography variant="h3">Envie-nos uma mensagem</Typography>
-          <Typography
-            variant="body1"
-            css={{
-              marginTop: theme.spacing(4),
-              marginBottom: theme.spacing(4),
-            }}
-          >
+          <Breadcrumbs css={{ margin: theme.spacing(-3, 0, 3) }}>
+            Entre em contato
+          </Breadcrumbs>
+          <Typography variant="h3">Queremos ouvir você!</Typography>
+          <Typography variant="body1" css={{ margin: theme.spacing(2, 0, 4) }}>
             Estamos abertos a ouvir qualquer sugestão, reclamação ou um oizinho.
             <br />
             Nós retornaremos o contato assim que possível.

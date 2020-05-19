@@ -1,8 +1,9 @@
-import { Typography } from '@material-ui/core'
+import { Container, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 import staticProps from 'lib/static-props/produtos'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Layout from 'components/layout'
 import ProductPreview from 'components/product-preview'
@@ -17,6 +18,9 @@ const ProductsPage = ({ products }) => (
         <strong>diárias</strong>.
       </Typography>
     </Hero>
+    <Container maxWidth="md">
+      <Breadcrumbs>Produtos</Breadcrumbs>
+    </Container>
     {products.map((product, index) => (
       <ProductPreview key={index} index={index} product={product} />
     ))}

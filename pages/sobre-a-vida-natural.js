@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@material-ui/core'
 import theme from 'lib/theme'
 import staticProps from 'lib/static-props/sobre-a-vida-natural'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import IllustratedIngredients from 'components/illustrated-ingredients'
 import Layout from 'components/layout'
@@ -21,7 +22,7 @@ const AboutPage = ({ team }) => {
       }}
     >
       <Hero size="small" background="/static/images/banner.jpg">
-        <Box mb={2} p={3}>
+        <Box mb={2} px={3} pt={3} pb={2}>
           <img
             css={{
               maxWidth: 600,
@@ -31,7 +32,7 @@ const AboutPage = ({ team }) => {
             alt="Eu faço | cosmética consciente"
           />
         </Box>
-        <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
+        <Typography variant="body1" css={{ margin: theme.spacing(0, 3, 3) }}>
           Uma empresa feita por <strong>amigos</strong>, unidos pelo propósito
           da <strong>transparência</strong>, que se importam com aquilo que
           colocamos todos os dias no nosso maior orgão de absorção - a pele.
@@ -40,6 +41,9 @@ const AboutPage = ({ team }) => {
       <PaperContent>
         <Grid container justify="center">
           <Grid item xs={12} sm={8}>
+            <Breadcrumbs css={{ margin: theme.spacing(-3, 0, 3) }}>
+              Sobre a VN
+            </Breadcrumbs>
             <Typography variant="h4" css={{ marginBottom: theme.spacing(4) }}>
               Por que fazemos o que fazemos?
             </Typography>

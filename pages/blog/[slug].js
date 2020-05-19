@@ -6,7 +6,9 @@ import staticProps from 'lib/static-props/blog-uid'
 import staticPaths from 'lib/static-paths/blog-uid'
 
 import AuthorCard from 'components/author-card'
+import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
+import PostTags from 'components/post-tags'
 import SinglePageLayout from 'components/single-page-layout'
 
 const SinglePostPage = ({
@@ -15,6 +17,7 @@ const SinglePostPage = ({
   author,
   date,
   data,
+  tags,
   excerpt,
 }) => {
   const hasFeatured = !!featuredUrl
@@ -45,13 +48,16 @@ const SinglePostPage = ({
         showAvatar
         top={hasFeatured ? theme.spacing(-3) : 0}
       />
-      <Typography
-        component="div"
-        variant="body1"
-        css={{ margin: theme.spacing(4, 0) }}
+      <Breadcrumbs
+        css={{ margin: theme.spacing(hasFeatured ? 1 : 3, 0, 2) }}
+        links={[{ title: 'Blog', href: '/blog' }]}
       >
+        {titleText}
+      </Breadcrumbs>
+      <Typography component="div" variant="body1">
         <RichText render={data.body} />
       </Typography>
+      <PostTags tags={tags} />
     </SinglePageLayout>
   )
 }

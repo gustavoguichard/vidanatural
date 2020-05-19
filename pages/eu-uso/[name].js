@@ -5,6 +5,7 @@ import theme from 'lib/theme'
 import staticPaths from 'lib/static-paths/eu-uso-uid'
 import staticProps from 'lib/static-props/eu-uso-uid'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import CTAButton from 'components/cta-button'
 import Hero from 'components/hero'
 import Img from 'components/img'
@@ -34,6 +35,12 @@ const ContentPage = ({ testimonial }) => {
         </Typography>
       </Hero>
       <PaperContent>
+        <Breadcrumbs
+          css={{ margin: theme.spacing(-3, 0, 3) }}
+          links={[{ title: 'Eu uso', href: '/eu-uso-cosmetica-consciente' }]}
+        >
+          {name}
+        </Breadcrumbs>
         <Grid container spacing={4} justify="center" alignItems="stretch">
           <Grid item xs={12} sm={8} md={6} css={{ display: 'flex' }}>
             <Img
@@ -75,7 +82,7 @@ const ContentPage = ({ testimonial }) => {
               {location}
             </Typography>
             <Typography
-              css={{ color: theme.palette.primary.light, overflowY: 'auto' }}
+              css={{ color: theme.palette.primary.light }}
               align="left"
               component="div"
               variant="body1"

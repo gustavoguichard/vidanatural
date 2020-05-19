@@ -6,7 +6,7 @@ import theme from 'lib/theme'
 import staticProps from 'lib/static-props/equipe-uid'
 import staticPaths from 'lib/static-paths/equipe-uid'
 
-import CTAButton from 'components/cta-button'
+import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Img from 'components/img'
 import Layout from 'components/layout'
@@ -21,7 +21,7 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
   return (
     <Layout title={`${firstName} usa cosmética consciente!`}>
       <Hero size="small" background="/static/images/banner.jpg">
-        <Box mb={2} p={3}>
+        <Box mb={2} px={3} pt={3}>
           <img
             css={{
               maxWidth: 600,
@@ -35,8 +35,16 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
           Conheça quem faz a <strong>Vida Natural</strong> acontecer!
         </Typography>
       </Hero>
-      <PaperContent>
-        <Grid container spacing={4} justify="center" alignItems="stretch">
+      <PaperContent maxWidth="md">
+        <Breadcrumbs
+          css={{ margin: theme.spacing(-3, 0, 3) }}
+          links={[
+            { title: 'Equipe', href: '/sobre-a-vida-natural#quem-somos' },
+          ]}
+        >
+          {firstName}
+        </Breadcrumbs>
+        <Grid container spacing={4} justify="center">
           <Grid item xs={12} sm={8} md={6} css={{ display: 'flex' }}>
             <Img
               className="responsive"
@@ -47,17 +55,7 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
               src={get(picture, 'big.url')}
             />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={8}
-            md={6}
-            css={{
-              justifyContent: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
+          <Grid item xs={12} sm={8} md={6}>
             <Typography
               variant="body1"
               css={{ fontSize: '1.85rem' }}
@@ -75,21 +73,10 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
             >
               {role}
             </Typography>
-            <Typography
-              css={{ color: theme.palette.primary.light, overflowY: 'auto' }}
-              align="left"
-              component="div"
-              variant="body1"
-            >
+            <Typography align="left" component="div" variant="body1">
               <RichText render={bio} />
             </Typography>
             <SocialLinks {...props} />
-            <CTAButton
-              href="/sobre-a-vida-natural#quem-somos"
-              css={{ marginTop: theme.spacing(4) }}
-            >
-              Conheça toda a Equipe VN
-            </CTAButton>
           </Grid>
         </Grid>
       </PaperContent>

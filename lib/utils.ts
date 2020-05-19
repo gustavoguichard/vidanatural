@@ -2,6 +2,7 @@ import compact from 'lodash/compact'
 import isArray from 'lodash/isArray'
 import isEmpty from 'lodash/isEmpty'
 import map from 'lodash/map'
+import take from 'lodash/take'
 import toPairs from 'lodash/toPairs'
 import words from 'lodash/words'
 import accounting from 'accounting'
@@ -69,4 +70,11 @@ export const getReadTime = (text: string) => {
   const totalWords = words(text)
   const minutes = totalWords.length / AVG_WORDS_PER_MINUTE
   return Math.ceil(minutes)
+}
+
+export function clipSentence(text: string, size = 5) {
+  const wordsArray = words(text)
+  const shouldClip = wordsArray.length > size
+  const sentence = shouldClip ? take(wordsArray, size).join(' ') : text
+  return shouldClip ? `${sentence}...` : sentence
 }

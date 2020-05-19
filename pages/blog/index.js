@@ -6,6 +6,7 @@ import theme from 'lib/theme'
 import staticProps from 'lib/static-props/blog'
 import { BLOG_DESCRIPTION } from 'lib/constants'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import ErrorPage from 'pages/404'
 import Hero from 'components/hero'
 import PostPreview from 'components/post-preview'
@@ -52,6 +53,9 @@ const BlogPage = ({ posts, page = 1, pages }) => {
         </Hero>
       }
     >
+      <Breadcrumbs css={{ top: theme.spacing(-1), position: 'relative' }}>
+        Blog
+      </Breadcrumbs>
       {router.isFallback
         ? [...Array(4).keys()].map(Skeleton)
         : posts.map((post) => <PostPreview key={post.id} {...post} />)}

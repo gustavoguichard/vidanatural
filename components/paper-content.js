@@ -4,11 +4,11 @@ import { Box, Container, Paper } from '@material-ui/core'
 import { useIsMobile } from 'lib/hooks'
 import theme from 'lib/theme'
 
-const PaperContent = ({ children, overlap = true }) => {
+const PaperContent = ({ children, maxWidth = 'lg', overlap = true }) => {
   const isMobile = useIsMobile()
   return (
     <Container
-      maxWidth="lg"
+      maxWidth={maxWidth}
       css={{ paddingLeft: theme.spacing(5), paddingRight: theme.spacing(5) }}
     >
       {isMobile ? (

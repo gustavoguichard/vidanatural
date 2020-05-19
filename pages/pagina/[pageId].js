@@ -1,10 +1,11 @@
 import get from 'lodash/get'
-import { Grid, Typography } from '@material-ui/core'
+import { Container, Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 import staticPaths from 'lib/static-paths/pagina-uid'
 import staticProps from 'lib/static-props/pagina-uid'
 
+import Breadcrumbs from 'components/breadcrumbs'
 import ErrorPage from 'pages/404'
 import Hero from 'components/hero'
 import Layout from 'components/layout'
@@ -20,6 +21,11 @@ const ContentPage = ({ page }) =>
         </Typography>
       </Hero>
       <PaperContent>
+        <Container maxWidth="md">
+          <Breadcrumbs css={{ margin: theme.spacing(-3, 0, 3) }}>
+            {page.title}
+          </Breadcrumbs>
+        </Container>
         <Grid container justify="center">
           <Grid item xs={12} md={7}>
             <div dangerouslySetInnerHTML={{ __html: page.body }} />
