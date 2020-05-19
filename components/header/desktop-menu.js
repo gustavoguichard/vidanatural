@@ -44,7 +44,10 @@ const SubMenu = ({ name, path, as, links }) => {
       >
         {links.map((subItem) => (
           <MenuItem
-            onClick={() => router.push(subItem.path, subItem.as)}
+            onClick={async () => {
+              await router.push(subItem.path, subItem.as)
+              setAnchorEl(null)
+            }}
             key={subItem.as || subItem.path}
           >
             {subItem.name}
