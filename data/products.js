@@ -205,7 +205,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
       ['Fragrância', 'Especial (ver ingredientes)'],
       ['Vegano', 'Sim'],
       ['Dimensões (L x C x A)', '3 x 3 x 11 cm'],
-      ['Validade', '6 meses'],
+      ['Validade', '9 meses'],
       ['Regulado pela ANVISA sob nº', '4.00.537-0'],
       ['Código de barras', '0606529335519'],
     ],
