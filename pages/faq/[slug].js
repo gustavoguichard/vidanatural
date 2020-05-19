@@ -26,7 +26,7 @@ const FaqPage = ({ data }) => {
 }
 
 export async function getStaticPaths() {
-  const items = await api.cms.allByTypeAndTags('faq_item')
+  const items = await api.cms.getByTypeAndTags('faq_item')
   return {
     paths: items.map((item) => ({ params: { slug: item.uid } })),
     fallback: false,

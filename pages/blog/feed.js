@@ -1,5 +1,5 @@
 import api from 'lib/api'
-import parsePost from 'lib/parsers/post'
+import parsePost from 'lib/parsers/blog-post'
 import RSS from 'rss'
 import { BLOG_DESCRIPTION } from 'lib/constants'
 
@@ -20,8 +20,8 @@ const Feed = ({ xml }) => xml
 
 export async function getServerSideProps({ res }) {
   try {
-    const authors = await api.cms.allByTypeAndTags('team_member')
-    const response = await api.cms.allByTypeAndTags('blog_post', null, {
+    const authors = await api.cms.getByTypeAndTags('team_member')
+    const response = await api.cms.getByTypeAndTags('blog_post', {
       orderings: '[my.blog_post.date desc]',
     })
     const posts = response.map((post) => parsePost(post, authors))

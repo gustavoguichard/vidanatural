@@ -90,7 +90,7 @@ const AboutPage = ({ team }) => {
 }
 
 export async function getStaticProps() {
-  const team = await api.cms.allByTypeAndTags('team_member')
+  const team = await api.cms.getByTypeAndTags('team_member')
   return { props: { team } }
 }
 

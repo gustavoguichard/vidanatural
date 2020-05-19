@@ -33,9 +33,13 @@ const FaqPage = ({ items }) => {
 }
 
 export async function getStaticProps() {
-  const items = await api.cms.allByTypeAndTags('faq_item', ['institucional'], {
-    orderings: '[my.faq_item.question]',
-  })
+  const items = await api.cms.getByTypeAndTags(
+    'faq_item',
+    {
+      orderings: '[my.faq_item.question]',
+    },
+    ['institucional'],
+  )
   return { props: { items } }
 }
 

@@ -1,8 +1,8 @@
 import { Box, Typography } from '@material-ui/core'
+import { Pagination } from '@material-ui/lab'
 
-import api from 'lib/api'
 import theme from 'lib/theme'
-import parsePost from 'lib/parsers/post'
+import staticProps from 'lib/static-props/blog'
 import { BLOG_DESCRIPTION } from 'lib/constants'
 
 import Hero from 'components/hero'
@@ -12,6 +12,7 @@ import SinglePageLayout from 'components/single-page-layout'
 import sloganImg from 'public/static/svgs/euamo.svg'
 
 const BlogPage = ({ posts }) => {
+  const handlePageChange = (_e, newPage) => console.log(newPage)
   return (
     <SinglePageLayout
       variant="primary"
@@ -43,17 +44,21 @@ const BlogPage = ({ posts }) => {
       {posts.map((post) => (
         <PostPreview key={post.id} {...post} />
       ))}
+      <Box display="flex" justifyContent="center">
+        <Pagination
+          count={10}
+          showFirstButton
+          showLastButton
+          hidePrevButton
+          hideNextButton
+          color="primary"
+          onChange={handlePageChange}
+        />
+      </Box>
     </SinglePageLayout>
   )
 }
 
-export async function getStaticProps() {
-  const authors = await api.cms.allByTypeAndTags('team_member')
-  const response = await api.cms.allByTypeAndTags('blog_post', null, {
-    orderings: '[my.blog_post.date desc]',
-  })
-  const posts = response.map((post) => parsePost(post, authors))
-  return { props: { posts } }
-}
+export const getStaticProps = staticProps
 
 export default BlogPage

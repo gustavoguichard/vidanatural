@@ -61,9 +61,13 @@ export async function getStaticProps({ params }) {
   const id = get(serverData, 'id')
   const localData = find(products, (p) => id === p.vndaId)
   const tags = map(get(serverData, 'tags'), 'name')
-  const faqItems = await api.cms.allByTypeAndTags('faq_item', tags, {
-    orderings: '[my.faq_item.question]',
-  })
+  const faqItems = await api.cms.getByTypeAndTags(
+    'faq_item',
+    {
+      orderings: '[my.faq_item.question]',
+    },
+    tags,
+  )
   return {
     props: {
       slug,

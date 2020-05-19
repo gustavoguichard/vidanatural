@@ -1,14 +1,25 @@
+export type DocumentType = 'blog_post' | 'team_member' | 'faq_item'
+
+export interface QueryOptions {
+  after?: string | string[]
+  fetch?: string | string[]
+  fetchLinks?: string | string[]
+  ref?: string
+  orderings?: string
+  lang?: string
+  pageSize?: number
+  page?: number
+}
+
 export interface Post {
   uid: string
-  first_publication_date: Date
+  first_publication_date?: string
   data: {
-    title: string
+    title?: string
     date?: Date
-    body: PostBody[]
+    body?: PostBody[]
     header_image?: object
-    author: {
-      id: string
-    }
+    author: Member
   }
 }
 

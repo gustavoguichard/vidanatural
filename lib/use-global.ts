@@ -1,9 +1,11 @@
+import find from 'lodash/find'
 import useStore from 'lib/use-store'
 import Cookies from 'js-cookie'
-import { Store } from 'types/global-state'
-import find from 'lodash/find'
+
 import api from 'lib/api'
 import { initialState } from 'lib/constants'
+
+import { Store } from 'types/global-state'
 
 export default useStore(
   {

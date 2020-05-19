@@ -97,7 +97,7 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
 }
 
 export async function getStaticPaths() {
-  const items = await api.cms.allByTypeAndTags('team_member')
+  const items = await api.cms.getByTypeAndTags('team_member')
   return {
     paths: items.map((item) => ({ params: { name: item.uid } })),
     fallback: false,

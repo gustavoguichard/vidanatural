@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import forEach from 'lodash/forEach'
+
 import { Store, GlobalState, Listener, Actions } from 'types/global-state'
 
 function setState(this: Store, newState: GlobalState, updateContext?: string) {

@@ -1,11 +1,13 @@
 import moment from 'moment'
 import map from 'lodash/map'
 import truncate from 'lodash/truncate'
-import { PostBody } from 'types/cms'
+
 import { getReadTime } from 'lib/utils'
 
+import { PostBody } from 'types/cms'
+
 moment.locale('pt-br')
-export const getFromDate = (date: Date) => moment(date).fromNow()
+export const getFromDate = (date: Date | string) => moment(date).fromNow()
 
 export const calculatePostReadTime = (body: PostBody[]) => {
   const paragraphs = body.filter((b) => b.type === 'paragraph')

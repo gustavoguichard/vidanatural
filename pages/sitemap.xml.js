@@ -24,9 +24,9 @@ export async function getServerSideProps({ res }) {
       cacheTime: 600000,
     })
 
-    const posts = await api.cms.allByTypeAndTags('blog_post')
-    const faqItems = await api.cms.allByTypeAndTags('faq_item')
-    const members = await api.cms.allByTypeAndTags('team_member')
+    const posts = await api.cms.getByTypeAndTags('blog_post')
+    const faqItems = await api.cms.getByTypeAndTags('faq_item')
+    const members = await api.cms.getByTypeAndTags('team_member')
 
     smStream.write({
       url: `/`,

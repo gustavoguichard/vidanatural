@@ -1,4 +1,5 @@
 import get from 'lodash/get'
+
 import { Member } from 'types/cms'
 
 export default (member: Member) => {

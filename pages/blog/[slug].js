@@ -3,7 +3,8 @@ import { RichText } from 'prismic-reactjs'
 
 import api from 'lib/api'
 import theme from 'lib/theme'
-import parsePost from 'lib/parsers/post'
+import staticProps from 'lib/static-props/blog-single'
+import parsePost from 'lib/parsers/blog-post'
 
 import AuthorCard from 'components/author-card'
 import Hero from 'components/hero'
@@ -58,19 +59,13 @@ const SinglePostPage = ({
 }
 
 export async function getStaticPaths() {
-  const items = await api.cms.allByTypeAndTags('blog_post')
+  const items = await api.cms.getByTypeAndTags('blog_post')
   return {
     paths: items.map((item) => ({ params: { slug: item.uid } })),
     fallback: false,
   }
 }
 
-export async function getStaticProps({ params }) {
-  const { slug } = params
-  const authors = await api.cms.allByTypeAndTags('team_member')
-  const response = await api.cms.getBySlug('blog_post', slug)
-  const props = parsePost(response, authors)
-  return { props }
-}
+export const getStaticProps = staticProps
 
 export default SinglePostPage
