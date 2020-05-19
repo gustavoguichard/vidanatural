@@ -13,7 +13,7 @@ const getStaticPaths: GetStaticPaths = async () => {
   const slugs = uniq(flatten(allSlugs))
   return {
     paths: map(slugs, (slug) => ({
-      params: { slug },
+      params: { name: slug },
     })),
     fallback: false,
   }
