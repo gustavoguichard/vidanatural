@@ -12,7 +12,7 @@ const getStaticPaths: GetStaticPaths = async () => {
     paths: [...Array(response.total_pages).keys()].map((index) => ({
       params: { number: `${index + 1}` },
     })),
-    fallback: false,
+    fallback: true,
   }
 }
 

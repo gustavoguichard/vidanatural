@@ -6,9 +6,11 @@ import theme from 'lib/theme'
 import staticProps from 'lib/static-props/blog'
 import { BLOG_DESCRIPTION } from 'lib/constants'
 
+import ErrorPage from 'pages/404'
 import Hero from 'components/hero'
 import PostPreview from 'components/post-preview'
 import SinglePageLayout from 'components/single-page-layout'
+import Skeleton from 'components/skeleton/blog-post'
 
 import sloganImg from 'public/static/svgs/euamo.svg'
 
@@ -22,7 +24,7 @@ const BlogPage = ({ posts, page = 1, pages }) => {
     }
   }
   const title = page === 1 ? 'Blog' : `Página ${page} - Blog`
-  return (
+  return router.isFallback || posts.length ? (
     <SinglePageLayout
       variant="primary"
       title={title}
@@ -50,9 +52,9 @@ const BlogPage = ({ posts, page = 1, pages }) => {
         </Hero>
       }
     >
-      {posts.map((post) => (
-        <PostPreview key={post.id} {...post} />
-      ))}
+      {router.isFallback
+        ? [...Array(4).keys()].map(Skeleton)
+        : posts.map((post) => <PostPreview key={post.id} {...post} />)}
       {pages > 1 && (
         <Box display="flex" justifyContent="center">
           <Pagination
@@ -68,6 +70,8 @@ const BlogPage = ({ posts, page = 1, pages }) => {
         </Box>
       )}
     </SinglePageLayout>
+  ) : (
+    <ErrorPage />
   )
 }
 
