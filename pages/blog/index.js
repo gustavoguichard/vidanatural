@@ -71,7 +71,9 @@ const BlogPage = ({ posts, page = 1, pages }) => {
       )}
     </SinglePageLayout>
   ) : (
-    <ErrorPage />
+    <ErrorPage href="/blog" linkText="Voltar ao blog">
+      Você veio longe demais
+    </ErrorPage>
   )
 }
 

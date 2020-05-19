@@ -6,17 +6,26 @@ import Hero from 'components/hero'
 import Layout from 'components/layout'
 import Link from 'components/link'
 
-const Page = () => (
-  <Layout title="404 - Página não encontrada">
-    <Hero size="full" background="/static/images/capa-pb.jpg">
-      <Typography variant="h2">404 - Página não encontrada</Typography>
-      <Typography css={{ marginTop: theme.spacing(4) }} variant="body1">
-        Procure outra página no nosso menu.
-        <br />
-        <Link href="/">Voltar para a Homepage</Link>
-      </Typography>
-    </Hero>
-  </Layout>
-)
+const ErrorPage = ({
+  href = '/',
+  children = 'Procure outra página no nosso menu.',
+  linkText = 'Voltar para a Homepage',
+  code = 404,
+  title = 'Página não encontrada',
+}) => {
+  const titleWithCode = [code, title].join(' - ')
+  return (
+    <Layout hideCertifications title={titleWithCode}>
+      <Hero size="full" background="/static/images/capa-pb.jpg">
+        <Typography variant="h2">{titleWithCode}</Typography>
+        <Typography css={{ marginTop: theme.spacing(4) }} variant="body1">
+          {children}
+          <br />
+          <Link href={href}>{linkText}</Link>
+        </Typography>
+      </Hero>
+    </Layout>
+  )
+}
 
-export default Page
+export default ErrorPage
