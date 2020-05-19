@@ -5,8 +5,8 @@ import api from 'lib/api'
 import theme from 'lib/theme'
 
 import Hero from 'components/hero'
-import Layout from 'src/ui/Layout'
-import ProductPreview from 'src/produtos/ProductPreview'
+import Layout from 'components/layout'
+import ProductPreview from 'components/product-preview'
 
 import localProducts from 'data/products'
 

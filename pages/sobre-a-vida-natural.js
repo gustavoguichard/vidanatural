@@ -5,9 +5,9 @@ import theme from 'lib/theme'
 
 import Hero from 'components/hero'
 import IllustratedIngredients from 'src/about/IllustratedIngredients'
-import Layout from 'src/ui/Layout'
+import Layout from 'components/layout'
 import Member from 'src/about/Member'
-import PaperContent from 'src/ui/PaperContent'
+import PaperContent from 'components/paper-content'
 
 import sloganImg from 'public/static/svgs/eufaco.svg'
 

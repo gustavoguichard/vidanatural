@@ -1,20 +1,22 @@
 import { useEffect } from 'react'
+import get from 'lodash/get'
 import {
   AppBar,
   Toolbar,
   useScrollTrigger,
   useMediaQuery,
 } from '@material-ui/core'
-import get from 'lodash/get'
-import Logo from 'src/ui/header/Logo'
-import DesktopMenu from 'src/ui/header/DesktopMenu'
-import MobileMenu from 'src/ui/header/MobileMenu'
-import CartIcon from 'src/ui/header/CartIcon'
-import SearchBar from 'src/ui/header/SearchBar'
-import SearchIcon from 'src/ui/header/SearchIcon'
-import useGlobal from 'lib/use-global'
+
 import { useScrollDirection } from 'lib/hooks'
 import theme from 'lib/theme'
+import useGlobal from 'lib/use-global'
+
+import CartIcon from './cart-icon'
+import DesktopMenu from './desktop-menu'
+import Logo from './logo'
+import MobileMenu from './mobile-menu'
+import SearchBar from './search-bar'
+import SearchIcon from './search-icon'
 
 const Header = ({ stick, logoCompanion, variant }) => {
   const secondary = variant === 'secondary'

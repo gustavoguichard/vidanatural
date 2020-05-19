@@ -5,9 +5,9 @@ import api from 'lib/api'
 import theme from 'lib/theme'
 import parsePost from 'lib/parsers/post'
 
-import AuthorCard from 'src/blog/AuthorCard'
+import AuthorCard from 'components/author-card'
 import Hero from 'components/hero'
-import SinglePageLayout from 'src/ui/SinglePageLayout'
+import SinglePageLayout from 'components/single-page-layout'
 
 const SinglePostPage = ({
   featuredUrl,

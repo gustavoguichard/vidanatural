@@ -3,7 +3,7 @@ import { Container, Typography } from '@material-ui/core'
 import theme from 'lib/theme'
 
 import Hero from 'components/hero'
-import Layout from 'src/ui/Layout'
+import Layout from 'components/layout'
 
 const Page = () => (
   <Layout title="Log in">

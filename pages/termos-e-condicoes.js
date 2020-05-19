@@ -4,8 +4,8 @@ import theme from 'lib/theme'
 
 import Hero from 'components/hero'
 import Img from 'components/img'
-import Layout from 'src/ui/Layout'
-import PaperContent from 'src/ui/PaperContent'
+import Layout from 'components/layout'
+import PaperContent from 'components/paper-content'
 
 export default function Index() {
   return (

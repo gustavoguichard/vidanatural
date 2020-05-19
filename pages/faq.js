@@ -1,5 +1,5 @@
 import { Box, Typography } from '@material-ui/core'
-import SinglePageLayout from 'src/ui/SinglePageLayout'
+import SinglePageLayout from 'components/single-page-layout'
 
 import api from 'lib/api'
 import theme from 'lib/theme'

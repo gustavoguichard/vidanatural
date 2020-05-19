@@ -3,8 +3,8 @@ import { Box, Typography } from '@material-ui/core'
 import theme from 'lib/theme'
 
 import Hero from 'components/hero'
-import Layout from 'src/ui/Layout'
-import People from 'src/eu-uso/People'
+import Layout from 'components/layout'
+import People from 'components/people'
 
 import sloganImg from 'public/static/svgs/slogan.svg'
 

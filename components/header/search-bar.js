@@ -12,9 +12,9 @@ import {
 import api from 'lib/api'
 import theme from 'lib/theme'
 import useGlobal from 'lib/use-global'
+import { descend } from 'lib/css'
 
-import { descend } from 'src/css/animations'
-import SearchItem from 'src/ui/header/SearchItem'
+import SearchItem from './search-item'
 
 const doSearch = throttle(async (text, setResults, setFetching) => {
   setFetching(true)

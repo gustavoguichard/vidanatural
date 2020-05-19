@@ -3,14 +3,14 @@ import { Box } from '@material-ui/core'
 import dynamic from 'next/dynamic'
 import Router from 'next/router'
 
-import Header from 'src/ui/Header'
+import Header from 'components/header'
 import SEO from 'components/seo'
-import Skeleton from 'src/ui/Skeleton'
+import Skeleton from 'components/skeleton'
 
-const BottomCTA = dynamic(() => import('src/ui/BottomCTA'), { ssr: false })
-const Chat = dynamic(() => import('src/ui/Chat'), { ssr: false })
-const Footer = dynamic(() => import('src/ui/Footer'))
-const Certifications = dynamic(() => import('components/Certifications'), {
+const BottomCTA = dynamic(() => import('components/bottom-cta'), { ssr: false })
+const Chat = dynamic(() => import('components/chat'), { ssr: false })
+const Footer = dynamic(() => import('components/footer'))
+const Certifications = dynamic(() => import('components/certifications'), {
   loading: () => <Skeleton />,
   ssr: false,
 })

@@ -1,10 +1,12 @@
 import { forwardRef } from 'react'
 import { useRouter } from 'next/router'
 import { Grid, Typography } from '@material-ui/core'
-import ProductCTA from 'src/product-page/ProductCTA'
-import Skeleton from 'src/ui/Skeleton'
+
 import { toCurrency } from 'lib/utils'
 import theme from 'lib/theme'
+
+import ProductCTA from 'src/product-page/ProductCTA'
+import Skeleton from 'components/skeleton'
 
 const GeneralContent = ({ product = {}, isDesktop }, ref) => {
   const { isFallback } = useRouter()

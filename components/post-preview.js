@@ -3,7 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
-import AuthorCard from 'src/blog/AuthorCard'
+import AuthorCard from 'components/author-card'
 import Img from 'components/img'
 import Link from 'components/link'
 

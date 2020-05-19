@@ -5,8 +5,8 @@ import theme from 'lib/theme'
 
 import Form from 'components/form'
 import Hero from 'components/hero'
-import Layout from 'src/ui/Layout'
-import PaperContent from 'src/ui/PaperContent'
+import Layout from 'components/layout'
+import PaperContent from 'components/paper-content'
 
 const Page = () => (
   <Layout title="Entre em contato">

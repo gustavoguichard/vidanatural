@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import take from 'lodash/take'
 import isArray from 'lodash/isArray'
-import { ShoppingBasket } from '@material-ui/icons'
 import {
   IconButton,
   Button,
@@ -10,12 +9,15 @@ import {
   ListSubheader,
   Divider,
 } from '@material-ui/core'
-import { ripple } from 'src/css/animations'
-import { sleep } from 'lib/utils'
-import CartItem from 'src/ui/header/CartItem'
-import theme from 'lib/theme'
+import { ShoppingBasket } from '@material-ui/icons'
+
 import api from 'lib/api'
+import theme from 'lib/theme'
+import { ripple } from 'lib/css'
+import { sleep } from 'lib/utils'
 import useGlobal from 'lib/use-global'
+
+import CartItem from './cart-item'
 
 const CartIcon = () => {
   const [{ cart, showCart }, actions] = useGlobal()

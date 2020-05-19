@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core'
 import theme from 'lib/theme'
 
 import Hero from 'components/hero'
-import Layout from 'src/ui/Layout'
+import Layout from 'components/layout'
 import Link from 'components/link'
 
 const Page = () => (

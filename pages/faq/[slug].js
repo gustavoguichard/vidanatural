@@ -6,7 +6,7 @@ import theme from 'lib/theme'
 import api from 'lib/api'
 
 import CTAButton from 'components/cta-button'
-import SinglePageLayout from 'src/ui/SinglePageLayout'
+import SinglePageLayout from 'components/single-page-layout'
 
 const FaqPage = ({ data }) => {
   const title = get(data, 'question.0.text')

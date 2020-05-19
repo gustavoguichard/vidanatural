@@ -1,5 +1,6 @@
 import { Search } from '@material-ui/icons'
 import { IconButton } from '@material-ui/core'
+
 import useGlobal from 'lib/use-global'
 
 const SearchIcon = () => {

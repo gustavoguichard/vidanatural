@@ -6,8 +6,8 @@ import theme from 'lib/theme'
 
 import ErrorPage from 'pages/404'
 import Hero from 'components/hero'
-import Layout from 'src/ui/Layout'
-import PaperContent from 'src/ui/PaperContent'
+import Layout from 'components/layout'
+import PaperContent from 'components/paper-content'
 
 const ContentPage = ({ page }) =>
   get(page, 'id') ? (

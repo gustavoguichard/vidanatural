@@ -5,9 +5,9 @@ import theme from 'lib/theme'
 
 import Hero from 'components/hero'
 import Img from 'components/img'
-import Layout from 'src/ui/Layout'
+import Layout from 'components/layout'
 import Link from 'components/link'
-import PaperContent from 'src/ui/PaperContent'
+import PaperContent from 'components/paper-content'
 import parsedClients from 'src/where/parsedClients'
 import StatePannel from 'src/where/StatePannel'
 

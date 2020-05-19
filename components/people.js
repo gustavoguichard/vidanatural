@@ -6,7 +6,7 @@ import { useProcessOnce } from 'lib/hooks'
 import theme from 'lib/theme'
 
 import Masonry from 'components/masonry'
-import Person from 'src/eu-uso/Person'
+import Person from 'components/person'
 import Testimonial from 'components/testimonial'
 
 import testimonials from 'data/testimonials'

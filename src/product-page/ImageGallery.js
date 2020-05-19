@@ -8,7 +8,7 @@ import { Box, CircularProgress, Typography } from '@material-ui/core'
 import api from 'lib/api'
 import theme from 'lib/theme'
 
-import Skeleton from 'src/ui/Skeleton'
+import Skeleton from 'components/skeleton'
 
 const ImageGallery = ({ product, isDesktop }) => {
   const { isFallback } = useRouter()

@@ -1,15 +1,18 @@
-import get from 'lodash/get'
-import map from 'lodash/map'
 import find from 'lodash/find'
+import get from 'lodash/get'
 import isArray from 'lodash/isArray'
+import map from 'lodash/map'
 import { useRouter } from 'next/router'
+
+import api from 'lib/api'
+import { useIsMobile } from 'lib/hooks'
+
 import ErrorPage from 'pages/404'
 import GeneralProductSale from 'src/product-page/GeneralProductSale'
 import ProductLayout from 'src/product-page/ProductLayout'
 import ProductSale from 'src/product-page/ProductSale'
+
 import products from 'data/products'
-import api from 'lib/api'
-import { useIsMobile } from 'lib/hooks'
 
 const ProductPage = ({
   product,

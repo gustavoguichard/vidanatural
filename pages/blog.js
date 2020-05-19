@@ -6,8 +6,8 @@ import parsePost from 'lib/parsers/post'
 import { BLOG_DESCRIPTION } from 'lib/constants'
 
 import Hero from 'components/hero'
-import PostPreview from 'src/blog/PostPreview'
-import SinglePageLayout from 'src/ui/SinglePageLayout'
+import PostPreview from 'components/post-preview'
+import SinglePageLayout from 'components/single-page-layout'
 
 import sloganImg from 'public/static/svgs/euamo.svg'
 

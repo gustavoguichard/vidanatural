@@ -10,7 +10,7 @@ import { isClient } from 'lib/utils'
 import SEO from 'lib/next-seo.config'
 import theme from 'lib/theme'
 
-import 'src/ui/app.scss'
+import 'styles/app.scss'
 
 const didMount = async () => {
   if (isClient && typeof window.IntersectionObserver === 'undefined') {

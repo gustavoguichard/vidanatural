@@ -2,9 +2,9 @@ import { Box, Container, Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
-import FooterMenu from 'src/ui/footer/FooterMenu'
-import NewsForm from 'src/ui/footer/NewsForm'
-import SocialList from 'src/ui/footer/SocialList'
+import FooterMenu from './footer-menu'
+import NewsForm from './news-form'
+import SocialList from './social-list'
 
 const year = new Date().getFullYear()
 
