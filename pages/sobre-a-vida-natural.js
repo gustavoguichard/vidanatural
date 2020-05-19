@@ -4,9 +4,9 @@ import api from 'lib/api'
 import theme from 'lib/theme'
 
 import Hero from 'components/hero'
-import IllustratedIngredients from 'src/about/IllustratedIngredients'
+import IllustratedIngredients from 'components/illustrated-ingredients'
 import Layout from 'components/layout'
-import Member from 'src/about/Member'
+import TeamMember from 'components/team-member'
 import PaperContent from 'components/paper-content'
 
 import sloganImg from 'public/static/svgs/eufaco.svg'
@@ -78,7 +78,7 @@ const AboutPage = ({ team }) => {
             </Typography>
             <Grid container spacing={4} justify="center" alignItems="stretch">
               {team.map((member) => (
-                <Member key={member.picture} {...member.data} />
+                <TeamMember key={member.picture} {...member.data} />
               ))}
             </Grid>
           </Grid>

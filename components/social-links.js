@@ -11,7 +11,7 @@ const SocialLink = ({ Icon, title, url, target }) =>
     </a>
   ) : null
 
-const Member = ({ facebook, instagram, linkedin, github }) => {
+const SocialLinks = ({ facebook, instagram, linkedin, github }) => {
   return (
     <div>
       <SocialLink title="Abrir github" {...github} Icon={FaGithub} />
@@ -30,4 +30,4 @@ const Member = ({ facebook, instagram, linkedin, github }) => {
   )
 }
 
-export default memo(Member)
+export default memo(SocialLinks)

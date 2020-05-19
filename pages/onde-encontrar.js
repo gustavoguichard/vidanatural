@@ -8,9 +8,9 @@ import Img from 'components/img'
 import Layout from 'components/layout'
 import Link from 'components/link'
 import PaperContent from 'components/paper-content'
-import parsedClients from 'src/where/parsedClients'
-import StatePannel from 'src/where/StatePannel'
+import StatePannel from 'components/state-pannel'
 
+import parsedClients from 'data/parsed-clients'
 import sloganImg from 'public/static/svgs/euquero.svg'
 
 const OndeEncontrar = () => (

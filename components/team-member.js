@@ -12,7 +12,7 @@ import { RichText } from 'prismic-reactjs'
 
 import SocialLinks from 'components/social-links'
 
-const Member = (props) => {
+const TeamMember = (props) => {
   const { name, bio, picture, role, ...socialLinks } = props
   return (
     <Grid
@@ -45,4 +45,4 @@ const Member = (props) => {
   )
 }
 
-export default memo(Member)
+export default memo(TeamMember)

@@ -1,3 +1,4 @@
+import map from 'lodash/map'
 import {
   Box,
   Divider,
@@ -7,8 +8,8 @@ import {
   ExpansionPanelDetails,
 } from '@material-ui/core'
 import { ExpandMore } from '@material-ui/icons'
-import map from 'lodash/map'
-import Distributor from 'src/where/Distributor'
+
+import Distributor from 'components/distributor'
 
 const StatePannel = ({ region, title }) => (
   <ExpansionPanel square>
@@ -23,7 +24,7 @@ const StatePannel = ({ region, title }) => (
         <Box key={`place-${name}`}>
           <Typography variant="h4">{name}</Typography>
           <Divider />
-          {map(places, place => (
+          {map(places, (place) => (
             <Distributor place={place} key={place.name} />
           ))}
         </Box>
