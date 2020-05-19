@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import NextLink from 'next/link'
 import {
   Divider,
   IconButton,
@@ -8,12 +9,14 @@ import {
   ListSubheader,
   SwipeableDrawer,
 } from '@material-ui/core'
-import NextLink from 'next/link'
 import { Menu } from '@material-ui/icons'
-import brandImg from 'public/static/svgs/brand.svg'
-import Img from 'src/components/Img'
-import menu from 'data/menu'
+
 import theme from 'lib/theme'
+
+import Img from 'components/img'
+
+import menu from 'data/menu'
+import brandImg from 'public/static/svgs/brand.svg'
 
 const MenuButton = ({ name, path, as, onClose }) => (
   <NextLink href={path} as={as}>

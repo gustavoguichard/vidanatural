@@ -7,9 +7,11 @@ import {
   Typography,
 } from '@material-ui/core'
 import { Link, Add } from '@material-ui/icons'
-import VNLink from 'src/components/Link'
 import { RichText } from 'prismic-reactjs'
+
 import theme from 'lib/theme'
+
+import VNLink from 'components/link'
 
 const FaqItem = ({ id, data, uid }) => {
   return (

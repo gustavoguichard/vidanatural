@@ -1,8 +1,10 @@
-import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
 import { FaAngleRight } from 'react-icons/fa'
-import LinearGradient from 'src/components/LinearGradient'
+import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
+
 import { useToggle } from 'lib/hooks'
 import theme from 'lib/theme'
+
+import LinearGradient from 'components/linear-gradient'
 
 const Description = ({ product, isDesktop }) => {
   const [isOpen, toggle] = useToggle()

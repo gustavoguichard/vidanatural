@@ -1,10 +1,12 @@
 import get from 'lodash/get'
 import { Typography } from '@material-ui/core'
-import SinglePageLayout from 'src/ui/SinglePageLayout'
-import CTAButton from 'src/components/CTAButton'
 import { RichText } from 'prismic-reactjs'
+
 import theme from 'lib/theme'
 import api from 'lib/api'
+
+import CTAButton from 'components/cta-button'
+import SinglePageLayout from 'src/ui/SinglePageLayout'
 
 const FaqPage = ({ data }) => {
   const title = get(data, 'question.0.text')

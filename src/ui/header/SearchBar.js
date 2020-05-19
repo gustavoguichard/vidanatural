@@ -8,11 +8,13 @@ import {
   ListSubheader,
   Card,
 } from '@material-ui/core'
+
+import api from 'lib/api'
+import theme from 'lib/theme'
 import useGlobal from 'lib/use-global'
+
 import { descend } from 'src/css/animations'
 import SearchItem from 'src/ui/header/SearchItem'
-import theme from 'lib/theme'
-import api from 'lib/api'
 
 const doSearch = throttle(async (text, setResults, setFetching) => {
   setFetching(true)

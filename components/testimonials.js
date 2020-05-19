@@ -1,13 +1,15 @@
 import { memo } from 'react'
 import take from 'lodash/take'
 import { Box, Container, Grid } from '@material-ui/core'
-import sloganImg from 'public/static/svgs/slogan.svg'
-import Img from 'src/components/Img'
-import CTAButton from 'src/components/CTAButton'
-import testimonialsData from 'data/testimonials'
+
 import theme from 'lib/theme'
 
-import Testimonial from './ShortTestimonial'
+import CTAButton from 'components/cta-button'
+import Img from 'components/img'
+import Testimonial from 'components/short-testimonial'
+
+import testimonialsData from 'data/testimonials'
+import sloganImg from 'public/static/svgs/slogan.svg'
 
 const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
   const testimonialsToShow = take(testimonials, show)

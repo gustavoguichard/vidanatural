@@ -1,13 +1,14 @@
 import get from 'lodash/get'
 import map from 'lodash/map'
+import { ProductJsonLd } from 'next-seo'
 import { Box } from '@material-ui/core'
 
-import Layout from 'src/ui/Layout'
-import ProductIngredients from 'src/product-page/ProductIngredients'
-import ProductFaq from 'src/product-page/ProductFaq'
-import ProductTestimonials from 'src/components/ProductTestimonials'
-import { ProductJsonLd } from 'next-seo'
 import { getResizedImg } from 'lib/api'
+
+import Layout from 'src/ui/Layout'
+import ProductFaq from 'src/product-page/ProductFaq'
+import ProductIngredients from 'src/product-page/ProductIngredients'
+import ProductTestimonials from 'components/product-testimonials'
 
 const ProductLayout = ({
   product = {},

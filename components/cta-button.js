@@ -1,6 +1,8 @@
-import ButtonLink from 'src/components/ButtonLink'
 import { FaAngleRight } from 'react-icons/fa'
+
 import theme from 'lib/theme'
+
+import ButtonLink from 'components/button-link'
 
 const CTAButton = ({
   color = 'secondary',

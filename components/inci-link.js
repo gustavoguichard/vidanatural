@@ -1,4 +1,5 @@
 import { Link } from '@material-ui/core'
+
 import { EWG_URL } from 'data/ingredients'
 
 const InciLink = ({ url, inci }) =>

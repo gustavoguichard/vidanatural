@@ -1,5 +1,6 @@
 import { Box, Container } from '@material-ui/core'
-import Img from 'src/components/Img'
+
+import Img from 'components/img'
 
 const Icon = ({ path, title, size = 75 }) => (
   <Img
@@ -13,7 +14,7 @@ const Icon = ({ path, title, size = 75 }) => (
   />
 )
 
-const Certifications = props => (
+const Certifications = (props) => (
   <Container>
     <Box
       display="flex"

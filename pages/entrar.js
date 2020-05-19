@@ -1,7 +1,9 @@
 import { Container, Typography } from '@material-ui/core'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
+
 import theme from 'lib/theme'
+
+import Hero from 'components/hero'
+import Layout from 'src/ui/Layout'
 
 const Page = () => (
   <Layout title="Log in">

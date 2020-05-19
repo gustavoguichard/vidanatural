@@ -1,8 +1,10 @@
-import { Avatar, Box, Paper, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
-import MdContent from 'src/components/MdContent'
-import Img from 'src/components/Img'
+import ReactMarkdown from 'react-markdown'
+import { Avatar, Box, Paper, Typography } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import Img from 'components/img'
 
 const Testimonial = ({ name, role, picture, location, content }) =>
   name ? (
@@ -25,14 +27,15 @@ const Testimonial = ({ name, role, picture, location, content }) =>
         variant="body2"
       >
         <GoQuote css={{ position: 'absolute', fontSize: '0.8rem' }} />
-        <MdContent
+        <ReactMarkdown
+          escapeHtml={false}
           css={{
             '& p:first-of-type': { textIndent: '1.15rem' },
             '&::first-letter': {
               fontSize: '1.25rem',
             },
           }}
-          content={content}
+          source={content}
         />
       </Typography>
       <Box display="flex">

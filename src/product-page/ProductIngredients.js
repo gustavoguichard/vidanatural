@@ -1,5 +1,3 @@
-import Ingredients from 'src/components/Ingredients'
-import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
 import {
   Container,
   Grid,
@@ -7,7 +5,11 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
+import Ingredients from 'components/ingredients'
 
 const ProductIngredients = ({ product }) => {
   const matches = useMediaQuery('(min-width: 760px)')

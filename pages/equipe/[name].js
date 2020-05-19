@@ -1,15 +1,18 @@
 import get from 'lodash/get'
 import { Grid, Box, Typography } from '@material-ui/core'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
-import Img from 'src/components/Img'
 import { RichText } from 'prismic-reactjs'
-import CTAButton from 'src/components/CTAButton'
-import SocialLinks from 'src/components/SocialLinks'
-import sloganImg from 'public/static/svgs/eufaco.svg'
-import PaperContent from 'src/ui/PaperContent'
+
 import theme from 'lib/theme'
 import api from 'lib/api'
+
+import CTAButton from 'components/cta-button'
+import Hero from 'components/hero'
+import Img from 'components/img'
+import Layout from 'src/ui/Layout'
+import PaperContent from 'src/ui/PaperContent'
+import SocialLinks from 'components/social-links'
+
+import sloganImg from 'public/static/svgs/eufaco.svg'
 
 const MemberPage = ({ name, picture, role, bio, ...props }) => {
   const fullName = get(name, '0.text', '')

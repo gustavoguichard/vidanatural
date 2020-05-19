@@ -5,9 +5,11 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core'
-import CTAButton from 'src/components/CTAButton'
-import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
+
 import theme from 'lib/theme'
+
+import CTAButton from 'components/cta-button'
+import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
 
 const IllustratedIngredients = () => {
   const matches = useMediaQuery('(min-width: 760px)')

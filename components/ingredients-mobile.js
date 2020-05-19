@@ -5,7 +5,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import { ExpandMore } from '@material-ui/icons'
-import InciLink from 'src/components/InciLink'
+
+import InciLink from 'components/inci-link'
 
 const IngredientsMobile = ({ data }) =>
   data.map((item, i) => (

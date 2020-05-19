@@ -1,10 +1,12 @@
-import { Grid, Paper, Typography } from '@material-ui/core'
+import ReactMarkdown from 'react-markdown'
 import { useSwipeable } from 'react-swipeable'
-import CTAButton from 'src/components/CTAButton'
-import MdContent from 'src/components/MdContent'
-import Link from 'src/components/Link'
-import Img from 'src/components/Img'
+import { Grid, Paper, Typography } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import CTAButton from 'components/cta-button'
+import Img from 'components/img'
+import Link from 'components/link'
 
 const ProductSlide = ({
   product,
@@ -115,7 +117,8 @@ const ProductSlide = ({
           }}
         >
           <Typography variant="h3">{product.title}</Typography>
-          <MdContent
+          <ReactMarkdown
+            escapeHtml={false}
             css={{
               marginTop: theme.spacing(3),
               marginBottom: theme.spacing(2),
@@ -123,7 +126,7 @@ const ProductSlide = ({
               color: theme.palette.text.hint,
             }}
             className="MuiTypography-root MuiTypography-body1"
-            content={product.subtitle}
+            source={product.subtitle}
           />
           <CTAButton
             color="secondary"

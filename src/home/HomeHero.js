@@ -1,7 +1,9 @@
 import React from 'react'
-import CTAButton from 'src/components/CTAButton'
 import { Box, Container, Grid, Typography } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import CTAButton from 'components/cta-button'
 
 const Hero = () => (
   <Box color="secondary.contrastText" position="relative">

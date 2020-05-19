@@ -1,10 +1,12 @@
-import { Grid, Typography } from '@material-ui/core'
 import { FaWhatsapp } from 'react-icons/fa'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
+import { Grid, Typography } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import Form from 'components/form'
+import Hero from 'components/hero'
+import Layout from 'src/ui/Layout'
 import PaperContent from 'src/ui/PaperContent'
-import Form from 'src/contato/Form'
 
 const Page = () => (
   <Layout title="Entre em contato">

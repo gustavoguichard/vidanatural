@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
 import Router from 'next/router'
-import { ThemeProvider, StylesProvider } from '@material-ui/styles'
-import { initGA, logPageView } from 'lib/analytics'
-import { CssBaseline } from '@material-ui/core'
 import NProgress from 'next-nprogress/component'
-import Providers from 'src/core/Providers'
+import { ThemeProvider, StylesProvider } from '@material-ui/styles'
+import { CssBaseline } from '@material-ui/core'
+
+import { initGA, logPageView } from 'lib/analytics'
 import { isClient } from 'lib/utils'
 import SEO from 'lib/next-seo.config'
 import theme from 'lib/theme'
@@ -41,9 +41,7 @@ const VidaNatural = ({ pageProps, Component }) => {
       <StylesProvider injectFirst>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Providers>
-            <Component {...pageProps} />
-          </Providers>
+          <Component {...pageProps} />
         </ThemeProvider>
       </StylesProvider>
     </>

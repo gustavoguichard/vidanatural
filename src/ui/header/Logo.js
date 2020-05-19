@@ -1,5 +1,6 @@
 import theme from 'lib/theme'
-import ButtonLink from 'src/components/ButtonLink'
+
+import ButtonLink from 'components/button-link'
 
 import logoImg from 'public/static/svgs/logo.svg'
 import brandImg from 'public/static/svgs/brand.svg'

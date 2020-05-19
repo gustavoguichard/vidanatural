@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { Button, CircularProgress, TextField } from '@material-ui/core'
 import { useFormState } from 'react-use-form-state'
 import { useRouter } from 'next/router'
-import Alert from 'src/components/Alert'
-import Input from 'src/contato/Input'
+import { Button, CircularProgress, TextField } from '@material-ui/core'
+
 import api from 'lib/api'
+
+import Alert from 'components/alert'
+import Input from 'components/input'
 
 const Form = () => {
   const router = useRouter()

@@ -1,9 +1,11 @@
 import { Box, Typography } from '@material-ui/core'
 import SinglePageLayout from 'src/ui/SinglePageLayout'
-import Img from 'src/components/Img'
-import FaqItem from 'src/components/FaqItem'
-import theme from 'lib/theme'
+
 import api from 'lib/api'
+import theme from 'lib/theme'
+
+import FaqItem from 'components/faq-item'
+import Img from 'components/img'
 
 const FaqPage = ({ items }) => {
   return (

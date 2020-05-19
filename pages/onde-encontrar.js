@@ -1,15 +1,17 @@
-import { Box, Grid, Typography } from '@material-ui/core'
 import map from 'lodash/map'
-import Layout from 'src/ui/Layout'
-import Link from 'src/components/Link'
-import Img from 'src/components/Img'
-import Hero from 'src/components/Hero'
-import PaperContent from 'src/ui/PaperContent'
-import StatePannel from 'src/where/StatePannel'
-import sloganImg from 'public/static/svgs/euquero.svg'
+import { Box, Grid, Typography } from '@material-ui/core'
+
 import theme from 'lib/theme'
 
+import Hero from 'components/hero'
+import Img from 'components/img'
+import Layout from 'src/ui/Layout'
+import Link from 'components/link'
+import PaperContent from 'src/ui/PaperContent'
 import parsedClients from 'src/where/parsedClients'
+import StatePannel from 'src/where/StatePannel'
+
+import sloganImg from 'public/static/svgs/euquero.svg'
 
 const OndeEncontrar = () => (
   <Layout title="Onde encontrar">

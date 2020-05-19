@@ -1,6 +1,9 @@
 import { Grid } from '@material-ui/core'
-import Link from 'src/components/Link'
+
 import theme from 'lib/theme'
+
+import Link from 'components/link'
+
 import menu from 'data/menu'
 
 const FooterMenu = () => (

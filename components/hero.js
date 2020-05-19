@@ -1,8 +1,10 @@
 import React from 'react'
 import get from 'lodash/get'
 import { Container, Box } from '@material-ui/core'
+
 import theme from 'lib/theme'
-import BackgroundImg from 'src/components/BackgroundImg'
+
+import BackgroundImg from 'components/background-img'
 
 const sizes = { small: '40vh', medium: '65vh', full: '100vh' }
 

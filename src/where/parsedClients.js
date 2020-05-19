@@ -1,17 +1,17 @@
 import compact from 'lodash/compact'
-import map from 'lodash/map'
 import filter from 'lodash/filter'
 import find from 'lodash/find'
+import groupBy from 'lodash/groupBy'
+import map from 'lodash/map'
 import reduce from 'lodash/reduce'
 import sortBy from 'lodash/sortBy'
-import groupBy from 'lodash/groupBy'
 
 import clients from 'data/clients'
 import states from 'data/states'
 
-const formatLink = url => (url.startsWith('http') ? url : `https://${url}`)
+const formatLink = (url) => (url.startsWith('http') ? url : `https://${url}`)
 
-const formatted = map(clients, client => {
+const formatted = map(clients, (client) => {
   const shortAddress = client['Observações']
     ? client['Observações'].split('\n')
     : [compact([client['Endereço'], client['Número']]).join(', ')]
@@ -23,7 +23,7 @@ const formatted = map(clients, client => {
           ' - ',
         ),
       ]
-  const fullAddress = address.map(addr =>
+  const fullAddress = address.map((addr) =>
     compact([addr, client.Cidade, client.Estado]).join(' - '),
   )
   return {
@@ -36,15 +36,15 @@ const formatted = map(clients, client => {
     url: client['Web Site'] ? formatLink(client['Web Site']) : null,
   }
 })
-const compoundName = client =>
+const compoundName = (client) =>
   `${client.state} - ${client.city} - ${client.name}`
 const filtered = filter(
   formatted,
-  client => client.state && client.city && client.name,
+  (client) => client.state && client.city && client.name,
 )
 const sorted = sortBy(filtered, compoundName)
 const clentsByState = groupBy(sorted, 'state')
-const fullName = name => find(states, (_, st) => st === name)
+const fullName = (name) => find(states, (_, st) => st === name)
 
 export default reduce(
   clentsByState,

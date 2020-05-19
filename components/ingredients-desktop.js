@@ -5,7 +5,8 @@ import {
   TableHead,
   TableRow,
 } from '@material-ui/core'
-import InciLink from 'src/components/InciLink'
+
+import InciLink from 'components/inci-link'
 
 const IngredientsDesktop = ({ data }) => (
   <Table>

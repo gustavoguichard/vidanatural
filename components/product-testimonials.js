@@ -1,7 +1,10 @@
-import shuffle from 'lodash/shuffle'
 import filter from 'lodash/filter'
-import Testimonials from 'src/components/Testimonials'
+import shuffle from 'lodash/shuffle'
+
 import { useProcessOnce } from 'lib/hooks'
+
+import Testimonials from 'components/testimonials'
+
 import testimonials from 'data/testimonials'
 
 const filterByTag = (tag) => (item) => item.tags.includes(tag)

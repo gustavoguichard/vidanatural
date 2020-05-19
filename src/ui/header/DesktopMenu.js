@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
-import ButtonLink from 'src/components/ButtonLink'
+import { Button, Menu, MenuItem } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import ButtonLink from 'components/button-link'
+
 import menu from 'data/menu'
 
 const SubMenu = ({ name, path, as, links }) => {

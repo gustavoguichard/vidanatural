@@ -1,6 +1,8 @@
 import get from 'lodash/get'
-import { buildQuery, joinWith } from 'lib/utils'
 import Cookies from 'js-cookie'
+
+import { buildQuery, joinWith } from 'lib/utils'
+
 import { FormKeys } from 'types/vnda'
 
 const saveCookie = (headers: Headers) => {

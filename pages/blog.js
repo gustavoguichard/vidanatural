@@ -1,12 +1,15 @@
 import { Box, Typography } from '@material-ui/core'
-import SinglePageLayout from 'src/ui/SinglePageLayout'
-import Hero from 'src/components/Hero'
-import PostPreview from 'src/blog/PostPreview'
+
 import api from 'lib/api'
+import theme from 'lib/theme'
 import parsePost from 'lib/parsers/post'
 import { BLOG_DESCRIPTION } from 'lib/constants'
+
+import Hero from 'components/hero'
+import PostPreview from 'src/blog/PostPreview'
+import SinglePageLayout from 'src/ui/SinglePageLayout'
+
 import sloganImg from 'public/static/svgs/euamo.svg'
-import theme from 'lib/theme'
 
 const BlogPage = ({ posts }) => {
   return (

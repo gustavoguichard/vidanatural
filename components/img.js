@@ -1,5 +1,5 @@
-import { CircularProgress } from '@material-ui/core'
 import { useInView } from 'react-intersection-observer'
+import { CircularProgress } from '@material-ui/core'
 
 const Img = ({
   src,

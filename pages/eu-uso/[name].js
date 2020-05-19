@@ -1,13 +1,16 @@
+import ReactMarkdown from 'react-markdown'
 import { Grid, Box, Typography } from '@material-ui/core'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
-import Img from 'src/components/Img'
-import MdContent from 'src/components/MdContent'
-import CTAButton from 'src/components/CTAButton'
-import sloganImg from 'public/static/svgs/slogan.svg'
-import PaperContent from 'src/ui/PaperContent'
+
 import theme from 'lib/theme'
+
+import CTAButton from 'components/cta-button'
+import Hero from 'components/hero'
+import Img from 'components/img'
+import Layout from 'src/ui/Layout'
+import PaperContent from 'src/ui/PaperContent'
+
 import testimonials from 'data/testimonials'
+import sloganImg from 'public/static/svgs/slogan.svg'
 
 const ContentPage = ({ testimonial }) => {
   const { content, name, picture, role, location } = testimonial
@@ -76,7 +79,7 @@ const ContentPage = ({ testimonial }) => {
               component="div"
               variant="body1"
             >
-              <MdContent content={content} />
+              <ReactMarkdown escapeHtml={false} source={content} />
             </Typography>
             <CTAButton
               href="/eu-uso-cosmetica-consciente"

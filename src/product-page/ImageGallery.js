@@ -1,12 +1,14 @@
+import { useState } from 'react'
+import SwipeableViews from 'react-swipeable-views'
 import get from 'lodash/get'
 import range from 'lodash/range'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import { Box, CircularProgress, Typography } from '@material-ui/core'
+
 import api from 'lib/api'
-import SwipeableViews from 'react-swipeable-views'
-import Skeleton from 'src/ui/Skeleton'
 import theme from 'lib/theme'
+
+import Skeleton from 'src/ui/Skeleton'
 
 const ImageGallery = ({ product, isDesktop }) => {
   const { isFallback } = useRouter()

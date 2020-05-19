@@ -1,13 +1,15 @@
+import ReactMarkdown from 'react-markdown'
 import { useInView } from 'react-intersection-observer'
 import { Box, Container, Grid, Typography } from '@material-ui/core'
-import MdContent from 'src/components/MdContent'
+
+import { toCurrency } from 'lib/utils'
+import { useIsDesktop } from 'lib/hooks'
+import theme from 'lib/theme'
+
 import ImageGallery from 'src/product-page/ImageGallery'
 import Description from 'src/product-page/Description'
 import ProductCTA from 'src/product-page/ProductCTA'
 import MobileCTA from 'src/product-page/MobileCTA'
-import { toCurrency } from 'lib/utils'
-import { useIsDesktop } from 'lib/hooks'
-import theme from 'lib/theme'
 
 const ProductSale = ({ product, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
@@ -43,7 +45,8 @@ const ProductSale = ({ product, isMobile }) => {
               <Typography variant="h4">
                 {toCurrency(variant.price || 0)}
               </Typography>
-              <MdContent
+              <ReactMarkdown
+                escapeHtml={false}
                 css={{
                   marginTop: theme.spacing(3),
                   fontWeight: 600,
@@ -53,14 +56,15 @@ const ProductSale = ({ product, isMobile }) => {
                   },
                 }}
                 className="MuiTypography-root MuiTypography-body1"
-                content={product.subtitle}
+                source={product.subtitle}
               />
               <Typography variant="caption">
                 <a href="#descricao">Mais detalhes</a>
                 {' - '}
                 <a href={`#ingredientes-${product.path}`}>Ver ingredientes</a>
               </Typography>
-              <MdContent
+              <ReactMarkdown
+                escapeHtml={false}
                 css={{
                   marginTop: theme.spacing(3),
                   marginBottom: theme.spacing(2),
@@ -68,7 +72,7 @@ const ProductSale = ({ product, isMobile }) => {
                   color: theme.palette.text.hint,
                 }}
                 className="MuiTypography-root MuiTypography-body1"
-                content={product.presentation}
+                source={product.presentation}
               />
               <ProductCTA ref={ref} product={product} />
             </Grid>

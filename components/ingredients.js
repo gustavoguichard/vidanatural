@@ -1,10 +1,13 @@
 import { memo } from 'react'
-import { Box, Typography, useMediaQuery } from '@material-ui/core'
-import IngredientsDesktop from 'src/components/IngredientsDesktop'
-import IngredientsMobile from 'src/components/IngredientsMobile'
-import ingredientData from 'data/ingredients'
 import find from 'lodash/find'
+import { Box, Typography, useMediaQuery } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import IngredientsDesktop from 'components/ingredients-desktop'
+import IngredientsMobile from 'components/ingredients-mobile'
+
+import ingredientData from 'data/ingredients'
 
 const Ingredients = ({ product, hideFeatured }) => {
   const allIngredients = product.ingredients.map((ing) =>

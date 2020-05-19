@@ -1,9 +1,11 @@
 import { memo, useRef } from 'react'
 import { Typography } from '@material-ui/core'
 import { Link, RemoveRedEye } from '@material-ui/icons'
-import Img from 'src/components/Img'
-import VNLink from 'src/components/Link'
+
 import theme from 'lib/theme'
+
+import Img from 'components/img'
+import VNLink from 'components/link'
 
 export const saturateOnHover = (time = '.3s') => ({
   filter: 'saturate(0)',

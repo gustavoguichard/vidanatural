@@ -1,4 +1,4 @@
-import Img from 'src/components/Img'
+import Img from 'components/img'
 
 const BackgroundImg = ({
   src,

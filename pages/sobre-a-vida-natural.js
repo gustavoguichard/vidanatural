@@ -1,12 +1,15 @@
 import { Box, Grid, Typography } from '@material-ui/core'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
-import PaperContent from 'src/ui/PaperContent'
-import Member from 'src/about/Member'
-import IllustratedIngredients from 'src/about/IllustratedIngredients'
-import theme from 'lib/theme'
-import sloganImg from 'public/static/svgs/eufaco.svg'
+
 import api from 'lib/api'
+import theme from 'lib/theme'
+
+import Hero from 'components/hero'
+import IllustratedIngredients from 'src/about/IllustratedIngredients'
+import Layout from 'src/ui/Layout'
+import Member from 'src/about/Member'
+import PaperContent from 'src/ui/PaperContent'
+
+import sloganImg from 'public/static/svgs/eufaco.svg'
 
 const AboutPage = ({ team }) => {
   return (

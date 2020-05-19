@@ -1,9 +1,11 @@
 import { Grid, Typography } from '@material-ui/core'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
-import Img from 'src/components/Img'
-import PaperContent from 'src/ui/PaperContent'
+
 import theme from 'lib/theme'
+
+import Hero from 'components/hero'
+import Img from 'components/img'
+import Layout from 'src/ui/Layout'
+import PaperContent from 'src/ui/PaperContent'
 
 export default function Index() {
   return (

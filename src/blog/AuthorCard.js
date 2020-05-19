@@ -1,7 +1,9 @@
 import { memo } from 'react'
 import { Avatar, Box, Typography } from '@material-ui/core'
-import Link from 'src/components/Link'
+
 import theme from 'lib/theme'
+
+import Link from 'components/link'
 
 const AuthorCard = ({
   author,

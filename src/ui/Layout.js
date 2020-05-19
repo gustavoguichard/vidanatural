@@ -2,14 +2,15 @@ import { memo } from 'react'
 import { Box } from '@material-ui/core'
 import dynamic from 'next/dynamic'
 import Router from 'next/router'
-import Skeleton from 'src/ui/Skeleton'
+
 import Header from 'src/ui/Header'
-import SEO from 'src/components/SEO'
+import SEO from 'components/seo'
+import Skeleton from 'src/ui/Skeleton'
 
 const BottomCTA = dynamic(() => import('src/ui/BottomCTA'), { ssr: false })
 const Chat = dynamic(() => import('src/ui/Chat'), { ssr: false })
 const Footer = dynamic(() => import('src/ui/Footer'))
-const Certifications = dynamic(() => import('src/components/Certifications'), {
+const Certifications = dynamic(() => import('components/Certifications'), {
   loading: () => <Skeleton />,
   ssr: false,
 })

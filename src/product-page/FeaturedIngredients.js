@@ -1,9 +1,12 @@
 import find from 'lodash/find'
 import { Box, Grid, Typography } from '@material-ui/core'
-import Img from 'src/components/Img'
-import InciLink from 'src/components/InciLink'
-import ingredientData from 'data/ingredients'
+
 import theme from 'lib/theme'
+
+import Img from 'components/img'
+import InciLink from 'components/inci-link'
+
+import ingredientData from 'data/ingredients'
 
 const FeaturedIngredients = ({ product }) => {
   const allIngredients = product

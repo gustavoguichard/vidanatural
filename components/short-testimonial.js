@@ -1,9 +1,11 @@
-import { Avatar, Box, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
-import MdContent from 'src/components/MdContent'
-import Link from 'src/components/Link'
-import Img from 'src/components/Img'
+import ReactMarkdown from 'react-markdown'
+import { Avatar, Box, Typography } from '@material-ui/core'
+
 import theme from 'lib/theme'
+
+import Img from 'components/img'
+import Link from 'components/link'
 
 const ShortTestimonial = ({ name, picture, shortContent, content }) => (
   <Box
@@ -37,7 +39,7 @@ const ShortTestimonial = ({ name, picture, shortContent, content }) => (
       variant="body1"
     >
       <GoQuote css={{ fontSize: '1.2rem', position: 'relative', bottom: -5 }} />
-      <MdContent content={shortContent || content} />
+      <ReactMarkdown escapeHtml={false} source={shortContent || content} />
     </Typography>
   </Box>
 )

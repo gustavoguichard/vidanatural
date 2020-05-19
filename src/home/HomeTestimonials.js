@@ -1,6 +1,9 @@
 import shuffle from 'lodash/shuffle'
-import Testimonials from 'src/components/Testimonials'
+
 import { useProcessOnce } from 'lib/hooks'
+
+import Testimonials from 'components/testimonials'
+
 import testimonials from 'data/testimonials'
 
 const HomeTestimonials = (props) => {

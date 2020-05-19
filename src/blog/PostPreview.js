@@ -1,9 +1,11 @@
 import { memo } from 'react'
 import { Grid, Typography } from '@material-ui/core'
-import Img from 'src/components/Img'
-import Link from 'src/components/Link'
-import AuthorCard from 'src/blog/AuthorCard'
+
 import theme from 'lib/theme'
+
+import AuthorCard from 'src/blog/AuthorCard'
+import Img from 'components/img'
+import Link from 'components/link'
 
 const PostPreview = ({
   author,

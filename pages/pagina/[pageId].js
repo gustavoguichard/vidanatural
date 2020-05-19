@@ -1,11 +1,13 @@
 import get from 'lodash/get'
 import { Grid, Typography } from '@material-ui/core'
-import ErrorPage from 'pages/404'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
-import PaperContent from 'src/ui/PaperContent'
-import theme from 'lib/theme'
+
 import api from 'lib/api'
+import theme from 'lib/theme'
+
+import ErrorPage from 'pages/404'
+import Hero from 'components/hero'
+import Layout from 'src/ui/Layout'
+import PaperContent from 'src/ui/PaperContent'
 
 const ContentPage = ({ page }) =>
   get(page, 'id') ? (

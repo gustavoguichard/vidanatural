@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown'
 import {
   Box,
   Container,
@@ -6,12 +7,13 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core'
-import MdContent from 'src/components/MdContent'
-import Link from 'src/components/Link'
-import Img from 'src/components/Img'
-import ProductCTA from 'src/product-page/ProductCTA'
+
 import theme from 'lib/theme'
 import { isOdd, toCurrency } from 'lib/utils'
+
+import Img from 'components/img'
+import Link from 'components/link'
+import ProductCTA from 'src/product-page/ProductCTA'
 
 const ProductPreview = ({ product, index }) => {
   const matches = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)
@@ -95,7 +97,8 @@ const ProductPreview = ({ product, index }) => {
               <Typography variant="subtitle1">
                 {toCurrency(variant.price || 0)}
               </Typography>
-              <MdContent
+              <ReactMarkdown
+                escapeHtml={false}
                 css={{
                   marginTop: theme.spacing(3),
                   marginBottom: theme.spacing(2),
@@ -103,9 +106,10 @@ const ProductPreview = ({ product, index }) => {
                   color: theme.palette.text.hint,
                 }}
                 className="MuiTypography-root MuiTypography-body1"
-                content={product.subtitle}
+                source={product.subtitle}
               />
-              <MdContent
+              <ReactMarkdown
+                escapeHtml={false}
                 css={{
                   marginTop: theme.spacing(3),
                   marginBottom: theme.spacing(2),
@@ -113,7 +117,7 @@ const ProductPreview = ({ product, index }) => {
                   color: theme.palette.text.hint,
                 }}
                 className="MuiTypography-root MuiTypography-body1"
-                content={product.presentation}
+                source={product.presentation}
               />
               <p>
                 <Link href="/produtos/[slug]" as={`/produtos/${product.slug}`}>

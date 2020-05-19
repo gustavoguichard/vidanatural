@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useFormState } from 'react-use-form-state'
 import {
   Box,
   IconButton,
@@ -8,10 +9,11 @@ import {
   Typography,
 } from '@material-ui/core'
 import { Send } from '@material-ui/icons'
-import { useFormState } from 'react-use-form-state'
-import Alert from 'src/components/Alert'
+
 import theme from 'lib/theme'
 import api from 'lib/api'
+
+import Alert from 'components/alert'
 
 const NewsForm = () => {
   const [sending, setSending] = useState(false)

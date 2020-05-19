@@ -1,11 +1,14 @@
 import find from 'lodash/find'
 import { Typography } from '@material-ui/core'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
-import ProductPreview from 'src/produtos/ProductPreview'
-import theme from 'lib/theme'
-import localProducts from 'data/products'
+
 import api from 'lib/api'
+import theme from 'lib/theme'
+
+import Hero from 'components/hero'
+import Layout from 'src/ui/Layout'
+import ProductPreview from 'src/produtos/ProductPreview'
+
+import localProducts from 'data/products'
 
 const ProductsPage = ({ products }) => (
   <Layout title="Conheça nossos produtos">

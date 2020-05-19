@@ -1,9 +1,12 @@
 import { Box, Typography } from '@material-ui/core'
-import Layout from 'src/ui/Layout'
-import Hero from 'src/components/Hero'
-import People from 'src/eu-uso/People'
-import sloganImg from 'public/static/svgs/slogan.svg'
+
 import theme from 'lib/theme'
+
+import Hero from 'components/hero'
+import Layout from 'src/ui/Layout'
+import People from 'src/eu-uso/People'
+
+import sloganImg from 'public/static/svgs/slogan.svg'
 
 const Page = () => {
   return (

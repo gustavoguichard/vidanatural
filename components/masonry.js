@@ -1,6 +1,7 @@
 import React, { useState, useRef, memo, useEffect, cloneElement } from 'react'
-import { useWindowDimensions } from 'lib/hooks'
 import times from 'lodash/times'
+
+import { useWindowDimensions } from 'lib/hooks'
 
 const boxStyles = {
   alignItems: 'stretch',

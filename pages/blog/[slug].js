@@ -1,11 +1,13 @@
 import { Typography } from '@material-ui/core'
-import SinglePageLayout from 'src/ui/SinglePageLayout'
-import Hero from 'src/components/Hero'
-import api from 'lib/api'
-import AuthorCard from 'src/blog/AuthorCard'
-import parsePost from 'lib/parsers/post'
 import { RichText } from 'prismic-reactjs'
+
+import api from 'lib/api'
 import theme from 'lib/theme'
+import parsePost from 'lib/parsers/post'
+
+import AuthorCard from 'src/blog/AuthorCard'
+import Hero from 'components/hero'
+import SinglePageLayout from 'src/ui/SinglePageLayout'
 
 const SinglePostPage = ({
   featuredUrl,

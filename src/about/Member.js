@@ -8,8 +8,9 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core'
-import SocialLinks from 'src/components/SocialLinks'
 import { RichText } from 'prismic-reactjs'
+
+import SocialLinks from 'components/social-links'
 
 const Member = (props) => {
   const { name, bio, picture, role, ...socialLinks } = props

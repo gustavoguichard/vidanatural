@@ -1,5 +1,6 @@
 import { useState, forwardRef } from 'react'
 import { Button, Box, FormControl, MenuItem, Select } from '@material-ui/core'
+
 import useGlobal from 'lib/use-global'
 
 const ProductCTA = ({ product, size, innerRef, hideQuantity }) => {
