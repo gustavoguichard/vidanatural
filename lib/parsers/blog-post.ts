@@ -3,9 +3,9 @@ import get from 'lodash/get'
 import { getFromDate, calculatePostReadTime, getExcerpt } from 'lib/domain'
 import parseMember from './team-member'
 
-import { Post, PostBody } from 'types/cms'
+import { BlogPost, PostBody } from 'types/cms'
 
-export default (post: Post) => {
+export default (post: BlogPost) => {
   const { uid, first_publication_date, data } = post
   const { title, date, body, header_image } = data
   const titleText = get(title, '0.text')

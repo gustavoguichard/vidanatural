@@ -3,10 +3,10 @@ import { GetStaticProps } from 'next'
 import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
 
-import { Post } from 'types/cms'
+import { BlogPost } from 'types/cms'
 
-const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params || {}
+const getStaticProps: GetStaticProps = async ({ params = {} }) => {
+  const { slug } = params
   const response = await api.cms.getBySlug('blog_post', slug as string, {
     fetch: [
       'blog_post.title',
@@ -16,7 +16,7 @@ const getStaticProps: GetStaticProps = async ({ params }) => {
     ],
     fetchLinks: ['team_member.name', 'team_member.picture'],
   })
-  const props = response ? parsePost(response as Post) : {}
+  const props = response ? parsePost(response as BlogPost) : {}
   return { props }
 }
 

@@ -1,8 +1,8 @@
 import { Box, Typography } from '@material-ui/core'
 import SinglePageLayout from 'components/single-page-layout'
 
-import api from 'lib/api'
 import theme from 'lib/theme'
+import staticProps from 'lib/static-props/faq'
 
 import FaqItem from 'components/faq-item'
 import Img from 'components/img'
@@ -32,15 +32,5 @@ const FaqPage = ({ items }) => {
   )
 }
 
-export async function getStaticProps() {
-  const items = await api.cms.getByTypeAndTags(
-    'faq_item',
-    {
-      orderings: '[my.faq_item.question]',
-    },
-    ['institucional'],
-  )
-  return { props: { items } }
-}
-
+export const getStaticProps = staticProps
 export default FaqPage

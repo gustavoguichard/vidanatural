@@ -1,10 +1,9 @@
 import { Typography } from '@material-ui/core'
 import { RichText } from 'prismic-reactjs'
 
-import api from 'lib/api'
 import theme from 'lib/theme'
-import staticProps from 'lib/static-props/blog-single'
-import parsePost from 'lib/parsers/blog-post'
+import staticProps from 'lib/static-props/blog-uid'
+import staticPaths from 'lib/static-paths/blog-uid'
 
 import AuthorCard from 'components/author-card'
 import Hero from 'components/hero'
@@ -58,14 +57,6 @@ const SinglePostPage = ({
   )
 }
 
-export async function getStaticPaths() {
-  const items = await api.cms.getByTypeAndTags('blog_post')
-  return {
-    paths: items.map((item) => ({ params: { slug: item.uid } })),
-    fallback: false,
-  }
-}
-
+export const getStaticPaths = staticPaths
 export const getStaticProps = staticProps
-
 export default SinglePostPage

@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 
-import api from 'lib/api'
 import theme from 'lib/theme'
+import staticProps from 'lib/static-props/sobre-a-vida-natural'
 
 import Hero from 'components/hero'
 import IllustratedIngredients from 'components/illustrated-ingredients'
@@ -89,9 +89,5 @@ const AboutPage = ({ team }) => {
   )
 }
 
-export async function getStaticProps() {
-  const team = await api.cms.getByTypeAndTags('team_member')
-  return { props: { team } }
-}
-
+export const getStaticProps = staticProps
 export default AboutPage

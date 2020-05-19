@@ -3,7 +3,8 @@ import { Grid, Box, Typography } from '@material-ui/core'
 import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
-import api from 'lib/api'
+import staticProps from 'lib/static-props/equipe-uid'
+import staticPaths from 'lib/static-paths/equipe-uid'
 
 import CTAButton from 'components/cta-button'
 import Hero from 'components/hero'
@@ -96,18 +97,6 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
   )
 }
 
-export async function getStaticPaths() {
-  const items = await api.cms.getByTypeAndTags('team_member')
-  return {
-    paths: items.map((item) => ({ params: { name: item.uid } })),
-    fallback: false,
-  }
-}
-
-export async function getStaticProps({ params }) {
-  const { name } = params
-  const props = await api.cms.getBySlug('team_member', name)
-  return { props: { ...props.data } }
-}
-
+export const getStaticPaths = staticPaths
+export const getStaticProps = staticProps
 export default MemberPage

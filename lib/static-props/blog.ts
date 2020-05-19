@@ -1,5 +1,6 @@
 import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
+import { BlogPost } from 'types/cms'
 
 export default async () => {
   const response = await api.cms.getByTypeAndTags('blog_post', {
@@ -12,6 +13,6 @@ export default async () => {
     ],
     fetchLinks: ['team_member.name', 'team_member.picture'],
   })
-  const posts = (response as any[]).map(parsePost)
+  const posts = (response as BlogPost[]).map(parsePost)
   return { props: { posts } }
 }

@@ -11,7 +11,16 @@ export interface QueryOptions {
   page?: number
 }
 
-export interface Post {
+export interface FaqItem {
+  uid: string
+  first_publication_date?: string
+  data: {
+    question?: string
+    answer?: PostBody[]
+  }
+}
+
+export interface BlogPost {
   uid: string
   first_publication_date?: string
   data: {
@@ -19,11 +28,11 @@ export interface Post {
     date?: Date
     body?: PostBody[]
     header_image?: object
-    author: Member
+    author: TeamMember
   }
 }
 
-export interface Member {
+export interface TeamMember {
   id: string
   uid: string
   data: {
