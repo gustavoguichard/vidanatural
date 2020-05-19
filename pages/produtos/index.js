@@ -1,14 +1,11 @@
-import find from 'lodash/find'
 import { Typography } from '@material-ui/core'
 
-import api from 'lib/api'
 import theme from 'lib/theme'
+import staticProps from 'lib/static-props/produtos'
 
 import Hero from 'components/hero'
 import Layout from 'components/layout'
 import ProductPreview from 'components/product-preview'
-
-import localProducts from 'data/products'
 
 const ProductsPage = ({ products }) => (
   <Layout title="Conheça nossos produtos">
@@ -26,13 +23,5 @@ const ProductsPage = ({ products }) => (
   </Layout>
 )
 
-export async function getStaticProps() {
-  const serverData = await api.vnda.search()
-  const products = localProducts.map((p) => {
-    const data = find(serverData, (servP) => p.slug.startsWith(servP.slug))
-    return { ...data, ...p }
-  })
-  return { props: { products } }
-}
-
+export const getStaticProps = staticProps
 export default ProductsPage

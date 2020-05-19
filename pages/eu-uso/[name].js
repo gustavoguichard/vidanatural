@@ -2,6 +2,8 @@ import ReactMarkdown from 'react-markdown'
 import { Grid, Box, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
+import staticPaths from 'lib/static-paths/eu-uso-uid'
+import staticProps from 'lib/static-props/eu-uso-uid'
 
 import CTAButton from 'components/cta-button'
 import Hero from 'components/hero'
@@ -9,7 +11,6 @@ import Img from 'components/img'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
 
-import testimonials from 'data/testimonials'
 import sloganImg from 'public/static/svgs/slogan.svg'
 
 const ContentPage = ({ testimonial }) => {
@@ -94,17 +95,6 @@ const ContentPage = ({ testimonial }) => {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const { name } = params
-  const testimonial = testimonials.find((t) => t.picture === name)
-  return { props: { testimonial } }
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: testimonials.map((t) => ({ params: { name: t.picture } })),
-    fallback: false,
-  }
-}
-
+export const getStaticPaths = staticPaths
+export const getStaticProps = staticProps
 export default ContentPage

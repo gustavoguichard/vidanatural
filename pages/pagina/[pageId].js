@@ -1,8 +1,9 @@
 import get from 'lodash/get'
 import { Grid, Typography } from '@material-ui/core'
 
-import api from 'lib/api'
 import theme from 'lib/theme'
+import staticPaths from 'lib/static-paths/pagina-uid'
+import staticProps from 'lib/static-props/pagina-uid'
 
 import ErrorPage from 'pages/404'
 import Hero from 'components/hero'
@@ -30,19 +31,6 @@ const ContentPage = ({ page }) =>
     <ErrorPage />
   )
 
-export async function getStaticPaths() {
-  return {
-    paths: ['termos-e-condicoes'].map((pageId) => ({
-      params: { pageId },
-    })),
-    fallback: true,
-  }
-}
-
-export async function getStaticProps({ params }) {
-  const { pageId } = params
-  const page = await api.vnda.listPage(pageId)
-  return { props: { page } }
-}
-
+export const getStaticPaths = staticPaths
+export const getStaticProps = staticProps
 export default ContentPage

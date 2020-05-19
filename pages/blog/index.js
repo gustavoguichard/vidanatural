@@ -60,5 +60,4 @@ const BlogPage = ({ posts }) => {
 }
 
 export const getStaticProps = staticProps
-
 export default BlogPage
