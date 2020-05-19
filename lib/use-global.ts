@@ -26,7 +26,7 @@ export default useStore(
     getCartItems: (store: Store) => {
       const cartId = Cookies.get('cart_id')
       if (cartId) {
-        api
+        api.vnda
           .listCart()
           .then((result) => {
             if (result.status === 404) {

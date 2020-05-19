@@ -3,7 +3,7 @@ import map from 'lodash/map'
 import { ProductJsonLd } from 'next-seo'
 import { Box } from '@material-ui/core'
 
-import { getResizedImg } from 'lib/api'
+import api from 'lib/api'
 
 import Layout from 'src/ui/Layout'
 import ProductFaq from 'src/product-page/ProductFaq'
@@ -38,7 +38,7 @@ const ProductLayout = ({
             currency: 'BRL',
           },
           images: map(images, (img) => ({
-            url: getResizedImg(img, 500),
+            url: api.vnda.getResizedImg(img, 500),
             width: 500,
             height: 500,
             alt: product.name,
