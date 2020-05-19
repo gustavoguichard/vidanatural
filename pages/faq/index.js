@@ -5,7 +5,7 @@ import theme from 'lib/theme'
 import staticProps from 'lib/static-props/faq'
 
 import Breadcrumbs from 'components/breadcrumbs'
-import FaqItem from 'components/faq-item'
+import FaqItems from 'components/faq-items'
 import Img from 'components/img'
 
 const FaqPage = ({ items }) => {
@@ -23,9 +23,7 @@ const FaqPage = ({ items }) => {
         >
           {title}
         </Breadcrumbs>
-        {items.map((item) => (
-          <FaqItem key={`item-${item.id}`} {...item} />
-        ))}
+        <FaqItems items={items} />
       </Box>
       <Img
         css={{

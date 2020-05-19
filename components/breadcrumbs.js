@@ -35,7 +35,7 @@ const Breadcrumbs = ({ links, children, clip = true, hideHome, ...props }) => {
           {link.title}
         </Link>
       ))}
-      <Typography color="disabled" css={{ fontSize: 'inherit' }}>
+      <Typography color="inherit" css={{ fontSize: 'inherit' }}>
         {clip ? clipSentence(children) : children}
       </Typography>
     </MuiBreadcrumbs>

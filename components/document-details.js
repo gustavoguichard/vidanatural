@@ -5,7 +5,7 @@ import { calculatePostReadTime, getFromDate } from 'lib/domain'
 
 import Link from 'components/link'
 
-const DocumentDetails = ({ author, post, date, ...props }) => {
+const DocumentDetails = ({ prepend, author, post, date, ...props }) => {
   return (
     <Typography variant="caption" {...props}>
       {author && (
@@ -18,6 +18,7 @@ const DocumentDetails = ({ author, post, date, ...props }) => {
         </div>
       )}
       <em>
+        {prepend && `${prepend} `}
         {getFromDate(date)} · {calculatePostReadTime(post)} de leitura
       </em>
     </Typography>

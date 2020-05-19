@@ -15,10 +15,13 @@ const PostTags = ({ tags }) => {
     <Box mt={4} mb={2}>
       {tags.map((tag, idx) => (
         <Chip
-          css={{ margin: 2, fontSize: '.75rem' }}
+          css={{
+            color: theme.palette.text.hint,
+            margin: 2,
+            fontSize: '.75rem',
+          }}
           size="small"
           variant="outlined"
-          color="textHint"
           icon={<Label />}
           key={idx}
           label={startCase(tag)}

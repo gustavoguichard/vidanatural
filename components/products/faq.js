@@ -3,7 +3,7 @@ import { Container, Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
-import FaqItem from 'components/faq-item'
+import FaqItems from 'components/faq-items'
 
 const ProductFaq = ({ items }) => {
   return get(items, 'length') ? (
@@ -19,9 +19,7 @@ const ProductFaq = ({ items }) => {
           >
             Dúvidas frequentes
           </Typography>
-          {items.map((item) => (
-            <FaqItem key={`item-${item.id}`} {...item} />
-          ))}
+          <FaqItems items={items} />
         </Grid>
       </Grid>
     </Container>
