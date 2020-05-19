@@ -1,5 +1,5 @@
 import get from 'lodash/get'
-import { Typography } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
@@ -7,13 +7,17 @@ import staticProps from 'lib/static-props/faq-uid'
 import staticPaths from 'lib/static-paths/faq-uid'
 
 import CTAButton from 'components/cta-button'
+import DocumentDetails from 'components/document-details'
 import SinglePageLayout from 'components/single-page-layout'
 
-const FaqPage = ({ data }) => {
+const FaqPage = ({ data, last_publication_date }) => {
   const title = get(data, 'question.0.text')
   return (
     <SinglePageLayout title={title}>
       <Typography variant="h2">{title}</Typography>
+      <Box my={2}>
+        <DocumentDetails date={last_publication_date} post={data.answer} />
+      </Box>
       <RichText render={data.answer} />
       <CTAButton
         center={false}

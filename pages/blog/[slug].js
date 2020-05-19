@@ -13,8 +13,7 @@ const SinglePostPage = ({
   featuredUrl,
   titleText,
   author,
-  dateFrom,
-  readingTime,
+  date,
   data,
   excerpt,
 }) => {
@@ -41,8 +40,8 @@ const SinglePostPage = ({
       )}
       <AuthorCard
         author={author}
-        readingTime={readingTime}
-        dateFrom={dateFrom}
+        post={data.body}
+        date={date}
         showAvatar
         top={hasFeatured ? theme.spacing(-3) : 0}
       />

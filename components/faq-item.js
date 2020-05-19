@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import get from 'lodash/get'
 import {
+  Box,
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
@@ -11,16 +12,28 @@ import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
 
+import DocumentDetails from 'components/document-details'
 import VNLink from 'components/link'
 
-const FaqItem = ({ id, data, uid }) => {
+const FaqItem = ({ id, last_publication_date, uid, data }) => {
   return (
-    <ExpansionPanel elevation={0} css={{ backgroundColor: 'transparent' }}>
+    <ExpansionPanel
+      elevation={0}
+      css={{
+        backgroundColor: 'transparent',
+        '&:before': { backgroundColor: 'rgba(0, 0, 0, 0.05)' },
+      }}
+    >
       <ExpansionPanelSummary
         expandIcon={<Add />}
         aria-controls={`${id}-content`}
       >
-        <Typography variant="h4">{get(data, 'question.0.text')}</Typography>
+        <Box>
+          <Typography variant="h4" css={{ margin: theme.spacing(1, 0) }}>
+            {get(data, 'question.0.text')}
+          </Typography>
+          <DocumentDetails date={last_publication_date} post={data.answer} />
+        </Box>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails
         css={{

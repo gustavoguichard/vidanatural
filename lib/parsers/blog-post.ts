@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 
-import { getFromDate, calculatePostReadTime, getExcerpt } from 'lib/domain'
+import { getExcerpt } from 'lib/domain'
 import parseMember from './team-member'
 
 import { BlogPost, PostBody } from 'types/cms'
@@ -23,8 +23,6 @@ export default (post: BlogPost) => {
     permalink,
     author,
     date: date || first_publication_date,
-    dateFrom: getFromDate((date || first_publication_date) as Date),
-    readingTime: calculatePostReadTime(body as PostBody[]),
     excerpt: getExcerpt(body as PostBody[]),
   }
 }

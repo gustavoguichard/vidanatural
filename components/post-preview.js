@@ -9,8 +9,8 @@ import Link from 'components/link'
 
 const PostPreview = ({
   author,
-  dateFrom,
-  readingTime,
+  date,
+  data,
   excerpt,
   titleText,
   thumbUrl,
@@ -35,11 +35,7 @@ const PostPreview = ({
         <Link {...permalink}>
           <Typography variant="h3">{titleText}</Typography>
         </Link>
-        <AuthorCard
-          author={author}
-          readingTime={readingTime}
-          dateFrom={dateFrom}
-        />
+        <AuthorCard author={author} post={data.body} date={date} />
         <Typography css={{ marginBottom: theme.spacing() }} variant="body1">
           {excerpt}
         </Typography>

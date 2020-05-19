@@ -1,17 +1,12 @@
 import { memo } from 'react'
-import { Avatar, Box, Typography } from '@material-ui/core'
+import { Avatar, Box } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
+import DocumentDetails from 'components/document-details'
 import Link from 'components/link'
 
-const AuthorCard = ({
-  author,
-  dateFrom,
-  readingTime,
-  showAvatar,
-  ...props
-}) => {
+const AuthorCard = ({ author, date, post, showAvatar, ...props }) => {
   return (
     <Box mt={1} mb={2} display="flex" position="relative" {...props}>
       {showAvatar && (
@@ -19,17 +14,7 @@ const AuthorCard = ({
           <Avatar alt={author.imgAlt} src={author.thumbUrl} />
         </Link>
       )}
-      <Typography variant="caption">
-        Escrito por{' '}
-        <strong>
-          <Link {...author.permalink}>{author.fullName}</Link>
-        </strong>
-        <br />
-        <em>
-          {' '}
-          {dateFrom} · {readingTime} de leitura
-        </em>
-      </Typography>
+      <DocumentDetails author={author} post={post} date={date} />
     </Box>
   )
 }
