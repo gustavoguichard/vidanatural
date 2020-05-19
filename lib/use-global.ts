@@ -53,6 +53,9 @@ export default useStore(
     closeSearch: (store: Store) => {
       store.setState({ searchOpen: false })
     },
+    subscribe: (store: Store) => {
+      store.setState({ subscribed: true })
+    },
   },
   initialState,
 )

@@ -12,12 +12,13 @@ import { Send } from '@material-ui/icons'
 
 import theme from 'lib/theme'
 import api from 'lib/api'
+import useGlobal from 'lib/use-global'
 
 import Alert from 'components/alert'
 
 const NewsForm = () => {
   const [sending, setSending] = useState(false)
-  const [sent, setSent] = useState(false)
+  const [{ subscribed }, { subscribe }] = useGlobal()
   const [hasError, setHasError] = useState(false)
   const [formState, { email }] = useFormState({ key: 'vidanatural-newsletter' })
   const handleSubmit = async (event) => {
@@ -28,13 +29,25 @@ const NewsForm = () => {
     const isSent = await api.vnda.sendForm(formState.values)
     if (isSent) {
       formState.clear()
-      setSent(true)
+      subscribe()
     } else {
       setHasError(true)
     }
     setSending(false)
   }
-  return (
+
+  const successful = subscribed && !hasError
+  return successful ? (
+    <Typography
+      variant="h5"
+      color="inherit"
+      css={{ marginBottom: theme.spacing() }}
+    >
+      Gratos!
+      <br />
+      Você começará a receber nossas ofertas em breve! 🌱
+    </Typography>
+  ) : (
     <form name="Newsletter" onSubmit={handleSubmit} action="/webform">
       <Typography
         variant="h5"
@@ -91,13 +104,6 @@ const NewsForm = () => {
         <Alert
           message={
             hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
-          }
-        />
-        <Alert
-          color={theme.palette.secondary.dark}
-          message={
-            sent &&
-            'Agradecemos a confiança! Confira seu e-mail para confirmação.'
           }
         />
       </Box>
