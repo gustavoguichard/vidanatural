@@ -74,7 +74,7 @@ export const usePrevious = (value: any) => {
 }
 
 export const useScrollDirection = (threeshold = 15, delay = 300) => {
-  const [direction, setDirection] = useState('DOWN')
+  const [direction, setDirection] = useState('UP')
   const { y } = useScroll(delay) || { y: 0 }
   const prevY = usePrevious(y) ?? 0
 
