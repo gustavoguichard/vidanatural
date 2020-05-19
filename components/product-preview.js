@@ -13,7 +13,7 @@ import { isOdd, toCurrency } from 'lib/utils'
 
 import Img from 'components/img'
 import Link from 'components/link'
-import ProductCTA from 'src/product-page/ProductCTA'
+import ProductCTA from 'components/products/cta'
 
 const ProductPreview = ({ product, index }) => {
   const matches = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)

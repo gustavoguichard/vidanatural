@@ -8,7 +8,7 @@ import {
 
 import theme from 'lib/theme'
 
-import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
+import FeaturedIngredients from 'components/featured-ingredients'
 import Ingredients from 'components/ingredients'
 
 const ProductIngredients = ({ product }) => {

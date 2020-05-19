@@ -9,7 +9,7 @@ import {
 import theme from 'lib/theme'
 
 import CTAButton from 'components/cta-button'
-import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
+import FeaturedIngredients from 'components/featured-ingredients'
 
 const IllustratedIngredients = () => {
   const matches = useMediaQuery('(min-width: 760px)')

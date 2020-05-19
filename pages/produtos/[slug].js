@@ -8,9 +8,9 @@ import api from 'lib/api'
 import { useIsMobile } from 'lib/hooks'
 
 import ErrorPage from 'pages/404'
-import GeneralProductSale from 'src/product-page/GeneralProductSale'
-import ProductLayout from 'src/product-page/ProductLayout'
-import ProductSale from 'src/product-page/ProductSale'
+import GeneralProductSale from 'components/products/general-sale'
+import ProductLayout from 'components/products/layout'
+import ProductSale from 'components/products/sale'
 
 import products from 'data/products'
 

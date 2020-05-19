@@ -1,11 +1,11 @@
 import { useIsMobile } from 'lib/hooks'
 
-import About from 'src/home/About'
+import About from 'components/home/about'
 import Certifications from 'components/certifications'
-import Hero from 'src/home/HomeHero'
+import Hero from 'components/home/hero'
 import Layout from 'components/layout'
-import Products from 'src/home/Products'
-import Testimonials from 'src/home/HomeTestimonials'
+import Products from 'components/home/products'
+import Testimonials from 'components/home/testimonials'
 
 const Home = () => {
   const isMobile = useIsMobile()

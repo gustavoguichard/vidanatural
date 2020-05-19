@@ -1,15 +1,18 @@
 import { useState } from 'react'
-import { Box, Container, Tabs, Tab } from '@material-ui/core'
 import filter from 'lodash/filter'
 import times from 'lodash/times'
-import ProductSlide from 'src/home/ProductSlide'
-import products from 'data/products'
+import { Box, Container, Tabs, Tab } from '@material-ui/core'
+
 import { useIsMobile } from 'lib/hooks'
 import theme from 'lib/theme'
 
+import ProductSlide from 'components/home/slide'
+
+import products from 'data/products'
+
 const productsArray = filter(products, 'showHome')
 
-const Products = () => {
+const HomeProducts = () => {
   const [value, setValue] = useState(0)
 
   const handleChange = (event, newValue) => {
@@ -79,4 +82,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default HomeProducts

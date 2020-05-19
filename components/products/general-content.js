@@ -5,7 +5,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { toCurrency } from 'lib/utils'
 import theme from 'lib/theme'
 
-import ProductCTA from 'src/product-page/ProductCTA'
+import ProductCTA from './cta'
 import Skeleton from 'components/skeleton'
 
 const GeneralContent = ({ product = {}, isDesktop }, ref) => {

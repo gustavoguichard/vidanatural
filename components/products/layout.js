@@ -6,9 +6,9 @@ import { Box } from '@material-ui/core'
 import api from 'lib/api'
 
 import Layout from 'components/layout'
-import ProductFaq from 'src/product-page/ProductFaq'
-import ProductIngredients from 'src/product-page/ProductIngredients'
-import ProductTestimonials from 'components/product-testimonials'
+import ProductFaq from './faq'
+import ProductIngredients from './ingredients'
+import ProductTestimonials from './testimonials'
 
 const ProductLayout = ({
   product = {},

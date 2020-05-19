@@ -1,9 +1,11 @@
 import { useInView } from 'react-intersection-observer'
 import { Box, Container, Grid } from '@material-ui/core'
-import ImageGallery from 'src/product-page/ImageGallery'
-import MobileCTA from 'src/product-page/MobileCTA'
-import GeneralContent from 'src/product-page/GeneralContent'
+
 import { useIsDesktop } from 'lib/hooks'
+
+import GeneralContent from './general-content'
+import MobileCTA from './mobile-cta'
+import ImageGallery from 'components/image-gallery'
 
 const GeneralProductSale = ({ product = {}, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })

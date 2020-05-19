@@ -6,10 +6,10 @@ import { toCurrency } from 'lib/utils'
 import { useIsDesktop } from 'lib/hooks'
 import theme from 'lib/theme'
 
-import ImageGallery from 'src/product-page/ImageGallery'
-import Description from 'src/product-page/Description'
-import ProductCTA from 'src/product-page/ProductCTA'
-import MobileCTA from 'src/product-page/MobileCTA'
+import ImageGallery from 'components/image-gallery'
+import Description from './description'
+import ProductCTA from './cta'
+import MobileCTA from './mobile-cta'
 
 const ProductSale = ({ product, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })

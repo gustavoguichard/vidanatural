@@ -5,7 +5,7 @@ import theme from 'lib/theme'
 
 import CTAButton from 'components/cta-button'
 
-const Hero = () => (
+const HomeHero = () => (
   <Box color="secondary.contrastText" position="relative">
     <picture>
       <source type="image/webp" srcSet="/static/images/banner.webp" />
@@ -65,4 +65,4 @@ const Hero = () => (
   </Box>
 )
 
-export default Hero
+export default HomeHero
