@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { Box, Typography } from '@material-ui/core'
 import { Pagination } from '@material-ui/lab'
 
@@ -11,12 +12,20 @@ import SinglePageLayout from 'components/single-page-layout'
 
 import sloganImg from 'public/static/svgs/euamo.svg'
 
-const BlogPage = ({ posts }) => {
-  const handlePageChange = (_e, newPage) => console.log(newPage)
+const BlogPage = ({ posts, page = 1, pages }) => {
+  const router = useRouter()
+  const handlePageChange = (_e, newPage) => {
+    if (newPage !== page) {
+      newPage === 1
+        ? router.push('/blog', '/blog')
+        : router.push('/blog/page/[number]', `/blog/page/${newPage}`)
+    }
+  }
+  const title = page === 1 ? 'Blog' : `Página ${page} - Blog`
   return (
     <SinglePageLayout
       variant="primary"
-      title="Blog"
+      title={title}
       seo={{ description: BLOG_DESCRIPTION }}
       hero={
         <Hero size="small" background="/static/images/banner.jpg">
@@ -33,7 +42,7 @@ const BlogPage = ({ posts }) => {
               variant="body1"
               css={{ margin: theme.spacing(4, 2, 0) }}
             >
-              Blog da VN - leia artigos sobre cosmética natural, produtos
+              {title} da VN - leia artigos sobre cosmética natural, produtos
               orgânicos, veganos, artesanais e dicas de estilo de{' '}
               <strong>vida natural</strong>.
             </Typography>
@@ -44,17 +53,20 @@ const BlogPage = ({ posts }) => {
       {posts.map((post) => (
         <PostPreview key={post.id} {...post} />
       ))}
-      <Box display="flex" justifyContent="center">
-        <Pagination
-          count={10}
-          showFirstButton
-          showLastButton
-          hidePrevButton
-          hideNextButton
-          color="primary"
-          onChange={handlePageChange}
-        />
-      </Box>
+      {pages > 1 && (
+        <Box display="flex" justifyContent="center">
+          <Pagination
+            count={pages}
+            page={page}
+            showFirstButton
+            showLastButton
+            hidePrevButton
+            hideNextButton
+            color="primary"
+            onChange={handlePageChange}
+          />
+        </Box>
+      )}
     </SinglePageLayout>
   )
 }

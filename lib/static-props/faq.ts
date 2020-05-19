@@ -1,6 +1,8 @@
+import { GetStaticProps } from 'next'
+
 import api from 'lib/api'
 
-export default async () => {
+const getStaticProps: GetStaticProps = async () => {
   const items = await api.cms.getByTypeAndTags(
     'faq_item',
     {
@@ -11,3 +13,5 @@ export default async () => {
   )
   return { props: { items } }
 }
+
+export default getStaticProps

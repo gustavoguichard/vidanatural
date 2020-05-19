@@ -1,3 +1,5 @@
+export const BLOG_PAGE_SIZE = 1
+
 // Global State Management
 export const initialState = {
   cart: [],

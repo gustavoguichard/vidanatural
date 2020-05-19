@@ -17,7 +17,7 @@ export const getBySlug = async (type: string, uid: string, options?: any) => {
   return response
 }
 
-export const getByTypeAndTags = async (
+export const getPaginated = async (
   type: DocumentType,
   options?: QueryOptions,
   tags?: string[],
@@ -31,5 +31,14 @@ export const getByTypeAndTags = async (
       : Prismic.Predicates.at('document.type', type),
     { pageSize: 1000, ...options },
   )
+  return response
+}
+
+export const getByTypeAndTags = async (
+  type: DocumentType,
+  options?: QueryOptions,
+  tags?: string[],
+) => {
+  const response = await getPaginated(type, options, tags)
   return get(response, 'results', [])
 }
