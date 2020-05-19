@@ -2,7 +2,6 @@ import { memo } from 'react'
 import { useRouter } from 'next/router'
 import get from 'lodash/get'
 import {
-  Box,
   List,
   ListItem,
   ListItemText,
@@ -10,6 +9,7 @@ import {
   Typography,
 } from '@material-ui/core'
 
+import { getExcerpt } from 'lib/domain'
 import theme from 'lib/theme'
 
 import DocumentDetails from 'components/document-details'
@@ -32,12 +32,23 @@ const FaqItem = ({ last_publication_date, uid, data }) => {
       <ListItemText
         primary={get(data, 'question.0.text')}
         secondary={
-          <DocumentDetails
-            css={{ color: theme.palette.text.hint }}
-            prepend="Atualizado"
-            date={last_publication_date}
-            post={data.answer}
-          />
+          <>
+            <DocumentDetails
+              css={{ color: theme.palette.text.hint }}
+              prepend="Atualizado"
+              date={last_publication_date}
+              post={data.answer}
+            />
+            <div
+              css={{
+                marginTop: theme.spacing(),
+                color: theme.palette.text.hint,
+                fontSize: '.85rem',
+              }}
+            >
+              {getExcerpt(data.answer, 100)}
+            </div>
+          </>
         }
       />
     </ListItem>

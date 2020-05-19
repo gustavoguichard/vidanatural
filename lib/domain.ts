@@ -15,7 +15,7 @@ export const calculatePostReadTime = (body: PostBody[]) => {
   return `${getReadTime(text)} min`
 }
 
-export const getExcerpt = (body: PostBody[]) => {
+export const getExcerpt = (body: PostBody[], length = 200) => {
   const paragraph = body.find((b) => b.type === 'paragraph') || { text: '' }
-  return truncate(paragraph.text, { length: 200 })
+  return truncate(paragraph.text, { length })
 }
