@@ -42,6 +42,7 @@ export const useScroll = (delay = 300) => {
         y: window.scrollY,
       })
     }, delay),
+    [],
   )
 
   useEffect(() => {
@@ -64,7 +65,7 @@ export const useScroll = (delay = 300) => {
   return state
 }
 
-export const usePrevious = (value) => {
+export const usePrevious = (value: any) => {
   const ref = useRef()
   useEffect(() => {
     ref.current = value
@@ -73,9 +74,9 @@ export const usePrevious = (value) => {
 }
 
 export const useScrollDirection = (threeshold = 15, delay = 300) => {
-  const [direction, setDirection] = useState()
+  const [direction, setDirection] = useState('DOWN')
   const { y } = useScroll(delay) || { y: 0 }
-  const prevY = usePrevious(y)
+  const prevY = usePrevious(y) ?? 0
 
   if (direction !== 'DOWN' && y > prevY + threeshold) {
     setDirection('DOWN')
@@ -87,7 +88,7 @@ export const useScrollDirection = (threeshold = 15, delay = 300) => {
   return direction
 }
 
-export const useProcessOnce = (fn, value) => {
+export const useProcessOnce = (fn: (x: any) => any, value: any) => {
   const [result, setResult] = useState()
   useEffect(() => {
     if (!result) {

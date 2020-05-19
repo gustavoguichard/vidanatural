@@ -58,6 +58,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@testing-library/react": "^10.0.4",
     "@types/js-cookie": "^2.2.6",
+    "@types/react-gtm-module": "^2.0.0",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "dom-helpers": "5.1.4",
     "eslint": "^7.0.0",

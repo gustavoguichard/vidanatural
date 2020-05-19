@@ -29,7 +29,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ['DM Sans', 'sans-serif'],
+    fontFamily: 'DM Sans, sans-serif',
     htmlFontSize: 17,
     fontSize: 16,
     h2: {
