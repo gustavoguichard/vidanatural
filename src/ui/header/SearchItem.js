@@ -5,8 +5,8 @@ import {
   ListItemText,
   Typography,
 } from '@material-ui/core'
-import { getResizedImg } from 'utils/api'
-import { toCurrency } from 'utils/helpers'
+import api from 'lib/api'
+import { toCurrency } from 'lib/utils'
 
 const SearchItem = ({ name, closeSearch, image_url, url, price }) => {
   const router = useRouter()
@@ -22,7 +22,11 @@ const SearchItem = ({ name, closeSearch, image_url, url, price }) => {
       }}
     >
       <ListItemAvatar>
-        <img alt={name} src={getResizedImg(image_url, 30)} width="30" />
+        <img
+          alt={name}
+          src={api.vnda.getResizedImg(image_url, 30)}
+          width="30"
+        />
       </ListItemAvatar>
       <ListItemText>
         <Typography variant="body2">{name}</Typography>

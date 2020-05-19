@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Link from 'src/components/Link'
 import Hero from 'src/components/Hero'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Page = () => (
   <Layout title="404 - Página não encontrada">

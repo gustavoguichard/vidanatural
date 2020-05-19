@@ -11,11 +11,11 @@ import {
   Divider,
 } from '@material-ui/core'
 import { ripple } from 'src/css/animations'
-import { sleep } from 'utils/helpers'
+import { sleep } from 'lib/utils'
 import CartItem from 'src/ui/header/CartItem'
-import theme from 'src/ui/theme'
-import api from 'utils/api'
-import useGlobal from 'utils/useGlobal'
+import theme from 'lib/theme'
+import api from 'lib/api'
+import useGlobal from 'lib/use-global'
 
 const CartIcon = () => {
   const [{ cart, showCart }, actions] = useGlobal()
@@ -38,7 +38,7 @@ const CartIcon = () => {
         aria-label="Carrinho"
         aria-haspopup="true"
         aria-controls="cart-popover"
-        href={api.CART_URL}
+        href={api.vnda.CART_URL}
       >
         <Badge
           overlap="circle"
@@ -86,14 +86,14 @@ const CartIcon = () => {
       >
         <ListSubheader color="inherit">Adicionado recentemente</ListSubheader>
         <Divider />
-        {take(safeCart, 3).map(cartItem => (
+        {take(safeCart, 3).map((cartItem) => (
           <CartItem key={cartItem.id} {...cartItem} />
         ))}
         <Button
           css={{ display: 'flex', width: '100%', borderRadius: 0 }}
           variant="contained"
           color="secondary"
-          href={api.CART_URL}
+          href={api.vnda.CART_URL}
         >
           Ver carrinho
         </Button>

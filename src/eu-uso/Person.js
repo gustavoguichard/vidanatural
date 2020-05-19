@@ -3,8 +3,15 @@ import { Typography } from '@material-ui/core'
 import { Link, RemoveRedEye } from '@material-ui/icons'
 import Img from 'src/components/Img'
 import VNLink from 'src/components/Link'
-import { saturateOnHover } from 'utils/styles'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
+
+export const saturateOnHover = (time = '.3s') => ({
+  filter: 'saturate(0)',
+  transition: `${time} filter`,
+  '&:hover, a:focus & ': {
+    filter: 'saturate(1)',
+  },
+})
 
 const Testimonial = ({ onOpen, index, name, picture }) => {
   const linkRef = useRef()

@@ -1,17 +1,17 @@
 import { useState, memo } from 'react'
 import shuffle from 'lodash/shuffle'
 import { Container, Dialog, Paper } from '@material-ui/core'
-import { useProcessOnce } from 'utils/hooks'
+import { useProcessOnce } from 'lib/hooks'
 import Testimonial from 'src/components/Testimonial'
 import testimonials from 'data/testimonials'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 import Masonry from 'src/components/Masonry'
 import Person from 'src/eu-uso/Person'
 
 const People = () => {
   const [current, setCurrent] = useState(null)
   const shuffled = useProcessOnce(shuffle, testimonials)
-  const onOpen = index => {
+  const onOpen = (index) => {
     const testimonial = shuffled[index]
     setCurrent(testimonial)
   }

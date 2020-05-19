@@ -1,7 +1,7 @@
 import get from 'lodash/get'
 import { Container, Grid, Typography } from '@material-ui/core'
 import FaqItem from 'src/components/FaqItem'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const ProductFaq = ({ items }) => {
   return get(items, 'length') ? (

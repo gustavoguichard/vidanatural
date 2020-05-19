@@ -3,7 +3,7 @@ import { Box, Container, Grid } from '@material-ui/core'
 import ImageGallery from 'src/product-page/ImageGallery'
 import MobileCTA from 'src/product-page/MobileCTA'
 import GeneralContent from 'src/product-page/GeneralContent'
-import { useIsDesktop } from 'utils/responsive'
+import { useIsDesktop } from 'lib/hooks'
 
 const GeneralProductSale = ({ product = {}, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })

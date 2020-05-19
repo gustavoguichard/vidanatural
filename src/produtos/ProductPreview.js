@@ -10,8 +10,8 @@ import MdContent from 'src/components/MdContent'
 import Link from 'src/components/Link'
 import Img from 'src/components/Img'
 import ProductCTA from 'src/product-page/ProductCTA'
-import theme from 'src/ui/theme'
-import { isOdd, toCurrency } from 'utils/helpers'
+import theme from 'lib/theme'
+import { isOdd, toCurrency } from 'lib/utils'
 
 const ProductPreview = ({ product, index }) => {
   const matches = useMediaQuery(`(min-width: ${theme.breakpoints.values.md}px)`)

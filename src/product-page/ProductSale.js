@@ -1,14 +1,13 @@
 import { useInView } from 'react-intersection-observer'
 import { Box, Container, Grid, Typography } from '@material-ui/core'
 import MdContent from 'src/components/MdContent'
-import Link from 'src/components/Link'
 import ImageGallery from 'src/product-page/ImageGallery'
 import Description from 'src/product-page/Description'
 import ProductCTA from 'src/product-page/ProductCTA'
 import MobileCTA from 'src/product-page/MobileCTA'
-import { toCurrency } from 'utils/helpers'
-import { useIsDesktop } from 'utils/responsive'
-import theme from 'src/ui/theme'
+import { toCurrency } from 'lib/utils'
+import { useIsDesktop } from 'lib/hooks'
+import theme from 'lib/theme'
 
 const ProductSale = ({ product, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })

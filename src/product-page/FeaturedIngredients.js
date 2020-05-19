@@ -3,16 +3,16 @@ import { Box, Grid, Typography } from '@material-ui/core'
 import Img from 'src/components/Img'
 import InciLink from 'src/components/InciLink'
 import ingredientData from 'data/ingredients'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const FeaturedIngredients = ({ product }) => {
   const allIngredients = product
-    ? product.ingredients.map(ing =>
-        find(ingredientData, data => data.inci === ing),
+    ? product.ingredients.map((ing) =>
+        find(ingredientData, (data) => data.inci === ing),
       )
     : ingredientData
 
-  const ingredients = allIngredients.filter(ing => ing.hasIcon)
+  const ingredients = allIngredients.filter((ing) => ing.hasIcon)
 
   return (
     <Grid
@@ -21,7 +21,7 @@ const FeaturedIngredients = ({ product }) => {
       justify="space-around"
       css={{ textAlign: 'center' }}
     >
-      {ingredients.map(ing => (
+      {ingredients.map((ing) => (
         <Grid key={ing.inci} item xs={12} sm={6} md={4}>
           <Box mb={-8} minHeight={250}>
             <Img

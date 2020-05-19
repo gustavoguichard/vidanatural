@@ -3,7 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 import Img from 'src/components/Img'
 import Link from 'src/components/Link'
 import AuthorCard from 'src/blog/AuthorCard'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const PostPreview = ({
   author,

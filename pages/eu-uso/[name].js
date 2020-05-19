@@ -6,7 +6,7 @@ import MdContent from 'src/components/MdContent'
 import CTAButton from 'src/components/CTAButton'
 import sloganImg from 'public/static/svgs/slogan.svg'
 import PaperContent from 'src/ui/PaperContent'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 import testimonials from 'data/testimonials'
 
 const ContentPage = ({ testimonial }) => {

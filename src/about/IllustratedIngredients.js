@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
 import FeaturedIngredients from 'src/product-page/FeaturedIngredients'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const IllustratedIngredients = () => {
   const matches = useMediaQuery('(min-width: 760px)')

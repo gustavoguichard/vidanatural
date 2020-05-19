@@ -7,7 +7,7 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const ProductIngredients = ({ product }) => {
   const matches = useMediaQuery('(min-width: 760px)')

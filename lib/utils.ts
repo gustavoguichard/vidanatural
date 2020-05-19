@@ -2,14 +2,10 @@ import compact from 'lodash/compact'
 import isArray from 'lodash/isArray'
 import isEmpty from 'lodash/isEmpty'
 import map from 'lodash/map'
-import truncate from 'lodash/truncate'
-import words from 'lodash/words'
 import toPairs from 'lodash/toPairs'
+import words from 'lodash/words'
 import accounting from 'accounting'
-import moment from 'moment'
-import { PostBody } from './typeDeclarations'
 
-moment.locale('pt-br')
 accounting.settings = {
   currency: {
     symbol: 'R$',
@@ -27,8 +23,6 @@ accounting.settings = {
 
 export const toCurrency = (n: number) => accounting.formatMoney(+n)
 
-export const formatDate = (date: Date) => moment(date).fromNow()
-
 export const buildQuery = (query?: object) => {
   if (isEmpty(query)) return null
   const queryString = map(query, (value, key) =>
@@ -37,13 +31,6 @@ export const buildQuery = (query?: object) => {
       : `${key}=${value}`,
   )
   return queryString.join('&')
-}
-
-export function clipString(text: string, size = 35) {
-  const { length } = text
-  const first = Math.max(0, Math.floor((size - 3) / 2))
-  const last = Math.max(0, Math.ceil(length - first))
-  return length < size ? text : `${text.slice(0, first)}...${text.slice(last)}`
 }
 
 export const joinWith = (args: any[], mark = '') => compact(args).join(mark)
@@ -77,15 +64,9 @@ export const encodeCookies = (obj: object): string => {
   return pairs.join('; ')
 }
 
-export const calculatePostReadTime = (body: PostBody[]) => {
+export const getReadTime = (text: string) => {
   const AVG_WORDS_PER_MINUTE = 265
-  const paragraphs = body.filter((b) => b.type === 'paragraph')
-  const totalWords = words(map(paragraphs, 'text').join(' '))
-  const minutes = Math.ceil(totalWords.length / AVG_WORDS_PER_MINUTE)
-  return `${minutes} min`
-}
-
-export const getExcerpt = (body: PostBody[]) => {
-  const paragraph = body.find((b) => b.type === 'paragraph') || { text: '' }
-  return truncate(paragraph.text, { length: 200 })
+  const totalWords = words(text)
+  const minutes = totalWords.length / AVG_WORDS_PER_MINUTE
+  return Math.ceil(minutes)
 }

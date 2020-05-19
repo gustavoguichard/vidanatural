@@ -1,24 +1,22 @@
-import useStore from 'utils/useStore'
+import useStore from 'lib/use-store'
 import Cookies from 'js-cookie'
-import { Store } from 'utils/typeDeclarations'
+import { Store } from 'types/global-state'
 import find from 'lodash/find'
-import api from 'utils/api'
-
-const initialState = {
-  cart: [],
-  showCart: false,
-  searchOpen: false,
-}
+import api from 'lib/api'
+import { initialState } from 'lib/constants'
 
 export default useStore(
   {
     addToCart: async (store: Store, sku: string, quantity = 1) => {
-      const existing = find(store.state.cart, item => item.variant_sku === sku)
-      await api.addToCart(
+      const existing = find(
+        store.state.cart,
+        (item) => item.variant_sku === sku,
+      )
+      await api.vnda.addToCart(
         sku,
         existing ? existing.quantity + quantity : quantity,
       )
-      const result = await api.listCart()
+      const result = await api.vnda.listCart()
       store.setState({
         cart: result,
         showCart: true,
@@ -30,7 +28,7 @@ export default useStore(
       if (cartId) {
         api
           .listCart()
-          .then(result => {
+          .then((result) => {
             if (result.status === 404) {
               Cookies.remove('cart_id')
             } else {

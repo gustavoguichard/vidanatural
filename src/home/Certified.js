@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
 import Certifications from 'src/components/Certifications'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Certified = () => (
   <Box

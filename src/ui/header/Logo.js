@@ -1,4 +1,4 @@
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 import ButtonLink from 'src/components/ButtonLink'
 
 import logoImg from 'public/static/svgs/logo.svg'

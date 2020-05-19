@@ -3,9 +3,9 @@ import { Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import ProductPreview from 'src/produtos/ProductPreview'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 import localProducts from 'data/products'
-import api from 'utils/api'
+import api from 'lib/api'
 
 const ProductsPage = ({ products }) => (
   <Layout title="Conheça nossos produtos">
@@ -24,7 +24,7 @@ const ProductsPage = ({ products }) => (
 )
 
 export async function getStaticProps() {
-  const serverData = await api.search()
+  const serverData = await api.vnda.search()
   const products = localProducts.map((p) => {
     const data = find(serverData, (servP) => p.slug.startsWith(servP.slug))
     return { ...data, ...p }

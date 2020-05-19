@@ -10,20 +10,20 @@ import {
 import { Send } from '@material-ui/icons'
 import { useFormState } from 'react-use-form-state'
 import Alert from 'src/components/Alert'
-import theme from 'src/ui/theme'
-import api from 'utils/api'
+import theme from 'lib/theme'
+import api from 'lib/api'
 
 const NewsForm = () => {
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [hasError, setHasError] = useState(false)
   const [formState, { email }] = useFormState({ key: 'vidanatural-newsletter' })
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     setHasError(false)
     setSending(true)
 
-    const isSent = await api.sendForm(formState.values)
+    const isSent = await api.vnda.sendForm(formState.values)
     if (isSent) {
       formState.clear()
       setSent(true)

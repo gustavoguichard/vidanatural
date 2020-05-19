@@ -3,10 +3,10 @@ import range from 'lodash/range'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Box, CircularProgress, Typography } from '@material-ui/core'
-import { getResizedImg } from 'utils/api'
+import api from 'lib/api'
 import SwipeableViews from 'react-swipeable-views'
 import Skeleton from 'src/ui/Skeleton'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const ImageGallery = ({ product, isDesktop }) => {
   const { isFallback } = useRouter()
@@ -66,7 +66,7 @@ const ImageGallery = ({ product, isDesktop }) => {
                     position: 'relative',
                     zIndex: 2,
                   }}
-                  src={getResizedImg(img.url, 600)}
+                  src={api.vnda.getResizedImg(img.url, 600)}
                 />
                 <img
                   className="responsive"
@@ -79,7 +79,7 @@ const ImageGallery = ({ product, isDesktop }) => {
                     width: '100%',
                     height: '100%',
                   }}
-                  src={getResizedImg(img.url, 100)}
+                  src={api.vnda.getResizedImg(img.url, 100)}
                 />
               </Box>
             ))}
@@ -131,7 +131,7 @@ const ImageGallery = ({ product, isDesktop }) => {
                         ? `0 0 0 2px ${theme.palette.common.black}`
                         : `0 0 0 0 black`,
                   }}
-                  src={getResizedImg(img.url, 100)}
+                  src={api.vnda.getResizedImg(img.url, 100)}
                 />
               ))}
         </Box>

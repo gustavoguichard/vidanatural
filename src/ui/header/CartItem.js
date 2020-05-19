@@ -5,8 +5,8 @@ import {
   ListItemText,
   Typography,
 } from '@material-ui/core'
-import { getResizedImg, getOwnPath } from 'utils/api'
-import { toCurrency } from 'utils/helpers'
+import api from 'lib/api'
+import { toCurrency } from 'lib/utils'
 
 const CartItem = ({
   product_name,
@@ -18,11 +18,15 @@ const CartItem = ({
 }) => {
   const router = useRouter()
   const fixedUrl = product_url.replace('/produto/', '/produtos/')
-  const path = getOwnPath(fixedUrl)
+  const path = api.vnda.getOwnPath(fixedUrl)
   return (
     <ListItem button onClick={() => router.push('/produtos/[slug]', path)}>
       <ListItemAvatar>
-        <img alt={product_name} src={getResizedImg(image_url, 30)} width="30" />
+        <img
+          alt={product_name}
+          src={api.vnda.getResizedImg(image_url, 30)}
+          width="30"
+        />
       </ListItemAvatar>
       <ListItemText>
         <Typography variant="body2">{product_name}</Typography>

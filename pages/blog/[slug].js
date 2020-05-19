@@ -1,13 +1,11 @@
-import { Avatar, Box, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import SinglePageLayout from 'src/ui/SinglePageLayout'
 import Hero from 'src/components/Hero'
-import Link from 'src/components/Link'
-import * as cms from 'utils/cms'
+import api from 'lib/api'
 import AuthorCard from 'src/blog/AuthorCard'
-import { parsePost } from 'utils/contentParsers'
+import parsePost from 'lib/parsers/post'
 import { RichText } from 'prismic-reactjs'
-// import api from 'utils/api'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const SinglePostPage = ({
   featuredUrl,
@@ -58,7 +56,7 @@ const SinglePostPage = ({
 }
 
 export async function getStaticPaths() {
-  const items = await cms.allByTypeAndTags('blog_post')
+  const items = await api.cms.allByTypeAndTags('blog_post')
   return {
     paths: items.map((item) => ({ params: { slug: item.uid } })),
     fallback: false,
@@ -67,8 +65,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const authors = await cms.allByTypeAndTags('team_member')
-  const response = await cms.getBySlug('blog_post', slug)
+  const authors = await api.cms.allByTypeAndTags('team_member')
+  const response = await api.cms.getBySlug('blog_post', slug)
   const props = parsePost(response, authors)
   return { props }
 }

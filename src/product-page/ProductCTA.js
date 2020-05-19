@@ -1,6 +1,6 @@
 import { useState, forwardRef } from 'react'
 import { Button, Box, FormControl, MenuItem, Select } from '@material-ui/core'
-import useGlobal from 'utils/useGlobal'
+import useGlobal from 'lib/use-global'
 
 const ProductCTA = ({ product, size, innerRef, hideQuantity }) => {
   const [adding, setAdding] = useState(false)
@@ -15,7 +15,7 @@ const ProductCTA = ({ product, size, innerRef, hideQuantity }) => {
       {hideQuantity ? null : (
         <FormControl css={{ marginRight: 4 }} variant="outlined">
           <Select value={quantity} onChange={changeQuantity}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
               <MenuItem key={n} value={n}>
                 {n}
               </MenuItem>

@@ -7,7 +7,7 @@ import ProductIngredients from 'src/product-page/ProductIngredients'
 import ProductFaq from 'src/product-page/ProductFaq'
 import ProductTestimonials from 'src/components/ProductTestimonials'
 import { ProductJsonLd } from 'next-seo'
-import { getResizedImg } from 'utils/api'
+import { getResizedImg } from 'lib/api'
 
 const ProductLayout = ({
   product = {},

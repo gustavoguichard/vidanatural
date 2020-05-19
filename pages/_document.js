@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheets } from '@material-ui/styles'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 class VidaNatural extends Document {
   render() {

@@ -2,7 +2,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { FaWhatsapp } from 'react-icons/fa'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 import PaperContent from 'src/ui/PaperContent'
 import Form from 'src/contato/Form'
 

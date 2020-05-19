@@ -1,7 +1,7 @@
 import get from 'lodash/get'
-import { buildQuery, joinWith } from 'utils/helpers'
+import { buildQuery, joinWith } from 'lib/utils'
 import Cookies from 'js-cookie'
-import { FormKeys } from './typeDeclarations'
+import { FormKeys } from 'types/vnda'
 
 const saveCookie = (headers: Headers) => {
   const cookie = headers.get('Biscuit')
@@ -14,7 +14,7 @@ const saveCookie = (headers: Headers) => {
   }
 }
 
-export const getUrl = (path: string, params?: object, proxy?: boolean) => {
+const getUrl = (path: string, params?: object, proxy?: boolean) => {
   const base = proxy
     ? process.env.NEXT_PUBLIC_API_PROXY
     : `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/`
@@ -104,17 +104,19 @@ const getUrlObject = (url: string) => {
   return urlObject
 }
 
-export const getResizedImg = (url: string, w = 200, h = w) => {
+const getResizedImg = (url: string, w = 200, h = w) => {
   const DOMAIN_REG = /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
   return url.replace(DOMAIN_REG, `$1/${w}x${h}`)
 }
 
-export const getOwnPath = (url: string) => {
+const getOwnPath = (url: string) => {
   const urlObj = getUrlObject(url)
   return joinWith([urlObj.pathname, urlObj.search])
 }
 
 export default {
+  getOwnPath,
+  getResizedImg,
   fetch: fetchApi,
   post,
   addToCart,

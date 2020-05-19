@@ -1,5 +1,5 @@
 import React, { useState, useRef, memo, useEffect, cloneElement } from 'react'
-import { useWindowDimensions } from 'utils/hooks'
+import { useWindowDimensions } from 'lib/hooks'
 import times from 'lodash/times'
 
 const boxStyles = {
@@ -32,7 +32,7 @@ const Masonry = ({
 
   return (
     <div {...props} style={boxStyles} ref={wrapper}>
-      {times(columns, index => {
+      {times(columns, (index) => {
         const isLast = index === columns - 1
         return (
           <div

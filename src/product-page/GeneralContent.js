@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import { Grid, Typography } from '@material-ui/core'
 import ProductCTA from 'src/product-page/ProductCTA'
 import Skeleton from 'src/ui/Skeleton'
-import { toCurrency } from 'utils/helpers'
-import theme from 'src/ui/theme'
+import { toCurrency } from 'lib/utils'
+import theme from 'lib/theme'
 
 const GeneralContent = ({ product = {}, isDesktop }, ref) => {
   const { isFallback } = useRouter()

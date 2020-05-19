@@ -8,15 +8,15 @@ import {
   ListSubheader,
   Card,
 } from '@material-ui/core'
-import useGlobal from 'utils/useGlobal'
+import useGlobal from 'lib/use-global'
 import { descend } from 'src/css/animations'
 import SearchItem from 'src/ui/header/SearchItem'
-import theme from 'src/ui/theme'
-import api from 'utils/api'
+import theme from 'lib/theme'
+import api from 'lib/api'
 
 const doSearch = throttle(async (text, setResults, setFetching) => {
   setFetching(true)
-  const result = await api.textSearch(text)
+  const result = await api.vnda.textSearch(text)
   setResults(result)
   setFetching(false)
 }, 1300)

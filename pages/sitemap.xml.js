@@ -1,7 +1,6 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import testimonials from 'data/testimonials'
-import api from 'utils/api'
-import * as cms from 'utils/cms'
+import api from 'lib/api'
 
 const pages = [
   'produtos',
@@ -19,15 +18,15 @@ const Sitemap = ({ xml }) => xml
 
 export async function getServerSideProps({ res }) {
   try {
-    const productList = await api.search()
+    const productList = await api.vnda.search()
     const smStream = new SitemapStream({
       hostname: process.env.API_IP,
       cacheTime: 600000,
     })
 
-    const posts = await cms.allByTypeAndTags('blog_post')
-    const faqItems = await cms.allByTypeAndTags('faq_item')
-    const members = await cms.allByTypeAndTags('team_member')
+    const posts = await api.cms.allByTypeAndTags('blog_post')
+    const faqItems = await api.cms.allByTypeAndTags('faq_item')
+    const members = await api.cms.allByTypeAndTags('team_member')
 
     smStream.write({
       url: `/`,

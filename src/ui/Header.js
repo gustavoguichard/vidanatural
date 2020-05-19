@@ -12,9 +12,9 @@ import MobileMenu from 'src/ui/header/MobileMenu'
 import CartIcon from 'src/ui/header/CartIcon'
 import SearchBar from 'src/ui/header/SearchBar'
 import SearchIcon from 'src/ui/header/SearchIcon'
-import useGlobal from 'utils/useGlobal'
-import { useScrollDirection } from 'utils/hooks'
-import theme from 'src/ui/theme'
+import useGlobal from 'lib/use-global'
+import { useScrollDirection } from 'lib/hooks'
+import theme from 'lib/theme'
 
 const Header = ({ stick, logoCompanion, variant }) => {
   const secondary = variant === 'secondary'

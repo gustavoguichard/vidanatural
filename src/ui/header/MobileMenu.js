@@ -13,7 +13,7 @@ import { Menu } from '@material-ui/icons'
 import brandImg from 'public/static/svgs/brand.svg'
 import Img from 'src/components/Img'
 import menu from 'data/menu'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const MenuButton = ({ name, path, as, onClose }) => (
   <NextLink href={path} as={as}>

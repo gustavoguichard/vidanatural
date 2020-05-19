@@ -4,7 +4,7 @@ import CTAButton from 'src/components/CTAButton'
 import MdContent from 'src/components/MdContent'
 import Link from 'src/components/Link'
 import Img from 'src/components/Img'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const ProductSlide = ({
   product,

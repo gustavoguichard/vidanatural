@@ -5,7 +5,7 @@ import sloganImg from 'public/static/svgs/slogan.svg'
 import Img from 'src/components/Img'
 import CTAButton from 'src/components/CTAButton'
 import testimonialsData from 'data/testimonials'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 import Testimonial from './ShortTestimonial'
 

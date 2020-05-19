@@ -3,7 +3,7 @@ import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import People from 'src/eu-uso/People'
 import sloganImg from 'public/static/svgs/slogan.svg'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Page = () => {
   return (

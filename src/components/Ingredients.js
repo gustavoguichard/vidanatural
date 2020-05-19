@@ -4,14 +4,14 @@ import IngredientsDesktop from 'src/components/IngredientsDesktop'
 import IngredientsMobile from 'src/components/IngredientsMobile'
 import ingredientData from 'data/ingredients'
 import find from 'lodash/find'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Ingredients = ({ product, hideFeatured }) => {
-  const allIngredients = product.ingredients.map(ing =>
-    find(ingredientData, data => data.inci === ing),
+  const allIngredients = product.ingredients.map((ing) =>
+    find(ingredientData, (data) => data.inci === ing),
   )
   const ingredients = hideFeatured
-    ? allIngredients.filter(ing => !ing.hasIcon)
+    ? allIngredients.filter((ing) => !ing.hasIcon)
     : allIngredients
 
   const matches = useMediaQuery(`(min-width: 820px)`)

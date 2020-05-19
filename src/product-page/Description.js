@@ -1,8 +1,8 @@
 import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
 import { FaAngleRight } from 'react-icons/fa'
 import LinearGradient from 'src/components/LinearGradient'
-import { useToggle } from 'utils/hooks'
-import theme from 'src/ui/theme'
+import { useToggle } from 'lib/hooks'
+import theme from 'lib/theme'
 
 const Description = ({ product, isDesktop }) => {
   const [isOpen, toggle] = useToggle()

@@ -2,18 +2,18 @@ import { Box, Typography } from '@material-ui/core'
 import SinglePageLayout from 'src/ui/SinglePageLayout'
 import Hero from 'src/components/Hero'
 import PostPreview from 'src/blog/PostPreview'
-import * as cms from 'utils/cms'
-import { parsePost } from 'utils/contentParsers'
-import { blogDescription } from 'utils/next-seo.config'
+import api from 'lib/api'
+import parsePost from 'lib/parsers/post'
+import { BLOG_DESCRIPTION } from 'lib/constants'
 import sloganImg from 'public/static/svgs/euamo.svg'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const BlogPage = ({ posts }) => {
   return (
     <SinglePageLayout
       variant="primary"
       title="Blog"
-      seo={{ description: blogDescription }}
+      seo={{ description: BLOG_DESCRIPTION }}
       hero={
         <Hero size="small" background="/static/images/banner.jpg">
           <Box mb={2} p={3}>
@@ -45,8 +45,8 @@ const BlogPage = ({ posts }) => {
 }
 
 export async function getStaticProps() {
-  const authors = await cms.allByTypeAndTags('team_member')
-  const response = await cms.allByTypeAndTags('blog_post', null, {
+  const authors = await api.cms.allByTypeAndTags('team_member')
+  const response = await api.cms.allByTypeAndTags('blog_post', null, {
     orderings: '[my.blog_post.date desc]',
   })
   const posts = response.map((post) => parsePost(post, authors))

@@ -4,8 +4,8 @@ import ErrorPage from 'pages/404'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import PaperContent from 'src/ui/PaperContent'
-import theme from 'src/ui/theme'
-import api from 'utils/api'
+import theme from 'lib/theme'
+import api from 'lib/api'
 
 const ContentPage = ({ page }) =>
   get(page, 'id') ? (
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { pageId } = params
-  const page = await api.listPage(pageId)
+  const page = await api.vnda.listPage(pageId)
   return { props: { page } }
 }
 

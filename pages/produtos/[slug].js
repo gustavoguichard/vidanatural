@@ -8,9 +8,8 @@ import GeneralProductSale from 'src/product-page/GeneralProductSale'
 import ProductLayout from 'src/product-page/ProductLayout'
 import ProductSale from 'src/product-page/ProductSale'
 import products from 'data/products'
-import api from 'utils/api'
-import * as cms from 'utils/cms'
-import { useIsMobile } from 'utils/responsive'
+import api from 'lib/api'
+import { useIsMobile } from 'lib/hooks'
 
 const ProductPage = ({
   product,
@@ -43,7 +42,7 @@ const ProductPage = ({
 }
 
 export async function getStaticPaths() {
-  const products = await api.search()
+  const products = await api.vnda.search()
   return {
     paths: products.map((p) => ({
       params: { slug: [p.slug, p.id].join('-') },
@@ -54,12 +53,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const response = await api.listProduct(slug)
+  const response = await api.vnda.listProduct(slug)
   const serverData = isArray(response) ? response[0] : response
   const id = get(serverData, 'id')
   const localData = find(products, (p) => id === p.vndaId)
   const tags = map(get(serverData, 'tags'), 'name')
-  const faqItems = await cms.allByTypeAndTags('faq_item', tags, {
+  const faqItems = await api.cms.allByTypeAndTags('faq_item', tags, {
     orderings: '[my.faq_item.question]',
   })
   return {

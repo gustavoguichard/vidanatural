@@ -4,7 +4,7 @@ import Certifications from 'src/components/Certifications'
 import Hero from 'src/home/HomeHero'
 import Products from 'src/home/Products'
 import Testimonials from 'src/home/HomeTestimonials'
-import { useIsMobile } from 'utils/responsive'
+import { useIsMobile } from 'lib/hooks'
 
 const Home = () => {
   const isMobile = useIsMobile()

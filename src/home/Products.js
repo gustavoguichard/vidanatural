@@ -4,8 +4,8 @@ import filter from 'lodash/filter'
 import times from 'lodash/times'
 import ProductSlide from 'src/home/ProductSlide'
 import products from 'data/products'
-import { useIsMobile } from 'utils/responsive'
-import theme from 'src/ui/theme'
+import { useIsMobile } from 'lib/hooks'
+import theme from 'lib/theme'
 
 const productsArray = filter(products, 'showHome')
 

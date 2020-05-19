@@ -1,5 +1,5 @@
 import { SnackbarContent } from '@material-ui/core'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Alert = ({ message, color = theme.palette.error.main, ...props }) =>
   message ? (

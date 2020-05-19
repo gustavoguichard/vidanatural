@@ -4,9 +4,9 @@ import Hero from 'src/components/Hero'
 import PaperContent from 'src/ui/PaperContent'
 import Member from 'src/about/Member'
 import IllustratedIngredients from 'src/about/IllustratedIngredients'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 import sloganImg from 'public/static/svgs/eufaco.svg'
-import * as cms from 'utils/cms'
+import api from 'lib/api'
 
 const AboutPage = ({ team }) => {
   return (
@@ -87,7 +87,7 @@ const AboutPage = ({ team }) => {
 }
 
 export async function getStaticProps() {
-  const team = await cms.allByTypeAndTags('team_member')
+  const team = await api.cms.allByTypeAndTags('team_member')
   return { props: { team } }
 }
 

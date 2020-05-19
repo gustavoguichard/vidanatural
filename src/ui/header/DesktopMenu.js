@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 import kebabCase from 'lodash/kebabCase'
 import ButtonLink from 'src/components/ButtonLink'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 import menu from 'data/menu'
 
 const SubMenu = ({ name, path, as, links }) => {

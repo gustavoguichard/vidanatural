@@ -1,8 +1,8 @@
 import { Paper } from '@material-ui/core'
 import { FaWhatsapp, FaFacebookMessenger } from 'react-icons/fa'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
-const Chat = props => (
+const Chat = (props) => (
   <Paper
     elevation={6}
     css={{

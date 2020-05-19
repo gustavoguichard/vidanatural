@@ -1,7 +1,7 @@
 import { Paper } from '@material-ui/core'
 import Chat from 'src/ui/Chat'
 import ProductCTA from 'src/product-page/ProductCTA'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const MobileCTA = ({ product, visible }) => (
   <Paper

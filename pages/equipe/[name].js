@@ -8,8 +8,8 @@ import CTAButton from 'src/components/CTAButton'
 import SocialLinks from 'src/components/SocialLinks'
 import sloganImg from 'public/static/svgs/eufaco.svg'
 import PaperContent from 'src/ui/PaperContent'
-import theme from 'src/ui/theme'
-import * as cms from 'utils/cms'
+import theme from 'lib/theme'
+import api from 'lib/api'
 
 const MemberPage = ({ name, picture, role, bio, ...props }) => {
   const fullName = get(name, '0.text', '')
@@ -94,7 +94,7 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
 }
 
 export async function getStaticPaths() {
-  const items = await cms.allByTypeAndTags('team_member')
+  const items = await api.cms.allByTypeAndTags('team_member')
   return {
     paths: items.map((item) => ({ params: { name: item.uid } })),
     fallback: false,
@@ -103,7 +103,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { name } = params
-  const props = await cms.getBySlug('team_member', name)
+  const props = await api.cms.getBySlug('team_member', name)
   return { props: { ...props.data } }
 }
 

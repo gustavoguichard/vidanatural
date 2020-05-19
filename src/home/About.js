@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography } from '@material-ui/core'
 import CTAButton from 'src/components/CTAButton'
 import BackgroundImg from 'src/components/BackgroundImg'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Section = ({ title, children, isMobile }) => (
   <Grid item sm={9} md={6} xs={12}>

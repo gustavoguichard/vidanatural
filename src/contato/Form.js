@@ -4,7 +4,7 @@ import { useFormState } from 'react-use-form-state'
 import { useRouter } from 'next/router'
 import Alert from 'src/components/Alert'
 import Input from 'src/contato/Input'
-import api from 'utils/api'
+import api from 'lib/api'
 
 const Form = () => {
   const router = useRouter()
@@ -22,7 +22,7 @@ const Form = () => {
     setSending(true)
 
     const values = { ...formState.values, reply_to: formState.values.email }
-    const isSent = await api.sendForm(values)
+    const isSent = await api.vnda.sendForm(values)
 
     isSent ? router.push({ pathname: '/gratos' }) : setHasError(true)
     setSending(false)

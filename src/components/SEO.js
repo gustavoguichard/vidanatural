@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 import { NextSeo } from 'next-seo'
-import defaultConfig, { titleTemplate } from 'utils/next-seo.config'
+import defaultConfig, { titleTemplate } from 'lib/next-seo.config'
 
 const SEO = ({ title, description, ...props }) => (
   <NextSeo

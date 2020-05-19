@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, Paper } from '@material-ui/core'
-import { useIsMobile } from 'utils/responsive'
-import theme from 'src/ui/theme'
+import { useIsMobile } from 'lib/hooks'
+import theme from 'lib/theme'
 
 const PaperContent = ({ children, overlap = true }) => {
   const isMobile = useIsMobile()

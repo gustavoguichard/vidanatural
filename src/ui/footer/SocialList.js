@@ -1,9 +1,9 @@
 import { FiFacebook, FiInstagram } from 'react-icons/fi'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const icons = {
-  facebook: props => <FiFacebook {...props} />,
-  instagram: props => <FiInstagram {...props} />,
+  facebook: (props) => <FiFacebook {...props} />,
+  instagram: (props) => <FiInstagram {...props} />,
 }
 
 const css = {

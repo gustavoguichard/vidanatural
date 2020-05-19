@@ -1,7 +1,7 @@
 import { Container, Typography } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Page = () => (
   <Layout title="Meus pedidos">

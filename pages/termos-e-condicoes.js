@@ -3,7 +3,7 @@ import Layout from 'src/ui/Layout'
 import Hero from 'src/components/Hero'
 import Img from 'src/components/Img'
 import PaperContent from 'src/ui/PaperContent'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 export default function Index() {
   return (

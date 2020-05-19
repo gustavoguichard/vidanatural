@@ -7,7 +7,7 @@ import Hero from 'src/components/Hero'
 import PaperContent from 'src/ui/PaperContent'
 import StatePannel from 'src/where/StatePannel'
 import sloganImg from 'public/static/svgs/euquero.svg'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 import parsedClients from 'src/where/parsedClients'
 

@@ -1,6 +1,6 @@
 import { Http2ServerResponse } from 'http2'
 import omitBy from 'lodash/omitBy'
-import { parseCookies, encodeCookies } from 'utils/helpers'
+import { parseCookies, encodeCookies } from 'lib/utils'
 
 const omitCookies = (cookies = '', fn: (v: string, k: string) => boolean) => {
   const reqCookiesObj = parseCookies(cookies)

@@ -1,11 +1,11 @@
-import * as cms from 'utils/cms'
-import { parsePost } from 'utils/contentParsers'
+import api from 'lib/api'
+import parsePost from 'lib/parsers/post'
 import RSS from 'rss'
-import { blogDescription } from 'utils/next-seo.config'
+import { BLOG_DESCRIPTION } from 'lib/constants'
 
 const config = {
   title: 'Blog da Vida Natural',
-  description: blogDescription,
+  description: BLOG_DESCRIPTION,
   feed_url: 'https://vidanatural.eco.br/blog/feed',
   site_url: 'https://vidanatural.eco.br/blog/',
   image_url: 'https://vidanatural.eco.br/static/logo_bg.jpg',
@@ -20,8 +20,8 @@ const Feed = ({ xml }) => xml
 
 export async function getServerSideProps({ res }) {
   try {
-    const authors = await cms.allByTypeAndTags('team_member')
-    const response = await cms.allByTypeAndTags('blog_post', null, {
+    const authors = await api.cms.allByTypeAndTags('team_member')
+    const response = await api.cms.allByTypeAndTags('blog_post', null, {
       orderings: '[my.blog_post.date desc]',
     })
     const posts = response.map((post) => parsePost(post, authors))

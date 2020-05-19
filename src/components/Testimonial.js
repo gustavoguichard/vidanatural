@@ -2,7 +2,7 @@ import { Avatar, Box, Paper, Typography } from '@material-ui/core'
 import { GoQuote } from 'react-icons/go'
 import MdContent from 'src/components/MdContent'
 import Img from 'src/components/Img'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const Testimonial = ({ name, role, picture, location, content }) =>
   name ? (

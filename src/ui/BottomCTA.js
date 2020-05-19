@@ -1,5 +1,5 @@
 import { Box } from '@material-ui/core'
-import { useScrollDirection } from 'utils/hooks'
+import { useScrollDirection } from 'lib/hooks'
 
 const BottomCTA = ({ children }) => {
   const scrollDirection = useScrollDirection()

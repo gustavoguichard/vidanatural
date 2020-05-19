@@ -1,6 +1,6 @@
 import { Container, Grid } from '@material-ui/core'
 import Layout from 'src/ui/Layout'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const SinglePageLayout = ({
   children,

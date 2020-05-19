@@ -1,7 +1,7 @@
 import { Box, Typography } from '@material-ui/core'
 import { OpenInNew, Place } from '@material-ui/icons'
 import map from 'lodash/map'
-import theme from 'src/ui/theme'
+import theme from 'lib/theme'
 
 const InfoDisplay = ({ title, children }) =>
   children ? (

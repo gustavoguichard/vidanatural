@@ -1,23 +1,9 @@
 import get from 'lodash/get'
-import { Post, Member } from './typeDeclarations'
-import { formatDate, calculatePostReadTime, getExcerpt } from 'utils/helpers'
+import { Post, Member } from 'types/cms'
+import parseMember from './member'
+import { getFromDate, calculatePostReadTime, getExcerpt } from 'lib/domain'
 
-export const parseMember = (member: Member) => {
-  const fullName = get(member, 'data.name.0.text', '')
-  return {
-    ...member,
-    fullName,
-    thumbUrl: get(member, 'data.picture.url'),
-    imgAlt: get(member, 'data.picture.alt'),
-    firstName: fullName.split(' '),
-    permalink: {
-      href: '/equipe/[name]',
-      as: `/equipe/${member.uid}`,
-    },
-  }
-}
-
-export const parsePost = (post: Post, authors: any) => {
+export default (post: Post, authors: any) => {
   const { uid, first_publication_date, data } = post
   const { title, date, body, header_image } = data
   const titleText = get(title, '0.text')
@@ -36,7 +22,7 @@ export const parsePost = (post: Post, authors: any) => {
     permalink,
     author,
     date: date || first_publication_date,
-    dateFrom: formatDate(date || first_publication_date),
+    dateFrom: getFromDate(date || first_publication_date),
     readingTime: calculatePostReadTime(body),
     excerpt: getExcerpt(body),
   }
