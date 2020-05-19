@@ -10,7 +10,8 @@ import CTAButton from 'components/cta-button'
 import DocumentDetails from 'components/document-details'
 import SinglePageLayout from 'components/single-page-layout'
 
-const FaqPage = ({ data, last_publication_date }) => {
+const FaqPage = ({ item }) => {
+  const { data, last_publication_date } = item
   const title = get(data, 'question.0.text')
   return (
     <SinglePageLayout title={title}>
