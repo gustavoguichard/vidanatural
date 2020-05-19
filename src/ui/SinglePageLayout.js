@@ -9,7 +9,7 @@ const SinglePageLayout = ({
   ...props
 }) => {
   return (
-    <Layout variant="secondary" {...props}>
+    <Layout variant="secondary" css={{ background: 'white' }} {...props}>
       {hero}
       <Container
         maxWidth="lg"

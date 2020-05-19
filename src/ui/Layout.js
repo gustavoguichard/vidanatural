@@ -29,11 +29,14 @@ const Layout = ({
   title,
   seo = {},
   ctaChildren,
+  ...props
 }) => (
   <>
     <SEO title={title} {...seo} />
     <Header logoCompanion={logoCompanion} variant={variant} stick={stickBar} />
-    <main css={{ flex: 1 }}>{children}</main>
+    <main {...props} css={{ flex: 1 }}>
+      {children}
+    </main>
     {hideCertifications || (
       <Box css={{ width: '100%' }}>
         <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
