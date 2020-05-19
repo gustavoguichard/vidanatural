@@ -3,6 +3,7 @@ import SinglePageLayout from 'src/ui/SinglePageLayout'
 import Hero from 'src/components/Hero'
 import Link from 'src/components/Link'
 import * as cms from 'utils/cms'
+import AuthorCard from 'src/blog/AuthorCard'
 import { parsePost } from 'utils/contentParsers'
 import { RichText } from 'prismic-reactjs'
 // import api from 'utils/api'
@@ -38,27 +39,13 @@ const SinglePostPage = ({
           {titleText}
         </Typography>
       )}
-      <Box
-        mt={1}
-        mb={2}
-        display="flex"
-        position="relative"
-        top={hasFeatured ? theme.spacing(-4) : 0}
-      >
-        <Link {...author.permalink} css={{ margin: theme.spacing(0, 1) }}>
-          <Avatar alt={author.imgAlt} src={author.thumbUrl} />
-        </Link>
-        <Typography variant="caption">
-          <strong>
-            <Link {...author.permalink}>{author.fullName}</Link>
-          </strong>
-          <br />
-          <em>
-            {' '}
-            {dateFrom} · {readingTime} de leitura
-          </em>
-        </Typography>
-      </Box>
+      <AuthorCard
+        author={author}
+        readingTime={readingTime}
+        dateFrom={dateFrom}
+        showAvatar
+        top={hasFeatured ? theme.spacing(-3) : 0}
+      />
       <Typography
         component="div"
         variant="body1"
