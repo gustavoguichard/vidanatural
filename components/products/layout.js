@@ -34,7 +34,7 @@ const ProductLayout = ({
           url: `https://vidanatural.eco.br/produtos/${slug}`,
           type: 'product',
           product: {
-            price: get(product, 'variants.0.price', 0),
+            price: get(product, 'variants.0.sale_price', 0),
             currency: 'BRL',
           },
           images: map(images, (img) => ({
@@ -52,7 +52,7 @@ const ProductLayout = ({
         description={product.presentation}
         brand="Vida Natural"
         offers={{
-          price: get(product, 'variants.0.price', 0),
+          price: get(product, 'variants.0.sale_price', 0),
           priceCurrency: 'BRL',
           itemCondition: 'http://schema.org/NewCondition',
           availability: 'http://schema.org/InStock',

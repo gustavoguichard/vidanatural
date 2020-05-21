@@ -2,9 +2,9 @@ import { forwardRef } from 'react'
 import { useRouter } from 'next/router'
 import { Grid, Typography } from '@material-ui/core'
 
-import { toCurrency } from 'lib/utils'
 import theme from 'lib/theme'
 
+import PriceTag from './price-tag'
 import ProductCTA from './cta'
 import Skeleton from 'components/skeleton'
 
@@ -37,7 +37,7 @@ const GeneralContent = ({ product = {}, isDesktop }, ref) => {
               {product.name}
             </Typography>
           )}
-          <Typography variant="h4">{toCurrency(variant.price || 0)}</Typography>
+          <PriceTag item={variant} />
           <Typography
             variant="body1"
             component="div"
@@ -49,6 +49,7 @@ const GeneralContent = ({ product = {}, isDesktop }, ref) => {
             }}
             dangerouslySetInnerHTML={{ __html: product.description }}
           />
+          <PriceTag item={variant} />
           <ProductCTA ref={ref} product={product} />
         </>
       )}

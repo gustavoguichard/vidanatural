@@ -44,6 +44,9 @@ export default useStore(
           })
       }
     },
+    openCart: async (store: Store) => {
+      store.setState({ showCart: true })
+    },
     hideCart: async (store: Store) => {
       store.setState({ showCart: false })
     },

@@ -7,9 +7,17 @@ import {
 } from '@material-ui/core'
 
 import api from 'lib/api'
-import { toCurrency } from 'lib/utils'
 
-const SearchItem = ({ name, closeSearch, image_url, url, price }) => {
+import PriceTag from 'components/products/price-tag'
+
+const SearchItem = ({
+  name,
+  closeSearch,
+  image_url,
+  url,
+  price,
+  sale_price,
+}) => {
   const router = useRouter()
   return (
     <ListItem
@@ -31,10 +39,13 @@ const SearchItem = ({ name, closeSearch, image_url, url, price }) => {
       </ListItemAvatar>
       <ListItemText>
         <Typography variant="body2">{name}</Typography>
-        {price && (
-          <Typography component="span" variant="caption">
-            {toCurrency(price)}
-          </Typography>
+        {sale_price && (
+          <PriceTag
+            variant="caption"
+            component="span"
+            lineBreak={false}
+            item={{ price, sale_price }}
+          />
         )}
       </ListItemText>
     </ListItem>

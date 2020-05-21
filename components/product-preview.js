@@ -9,10 +9,11 @@ import {
 } from '@material-ui/core'
 
 import theme from 'lib/theme'
-import { isOdd, toCurrency } from 'lib/utils'
+import { isOdd } from 'lib/utils'
 
 import Img from 'components/img'
 import Link from 'components/link'
+import PriceTag from 'components/products/price-tag'
 import ProductCTA from 'components/products/cta'
 
 const ProductPreview = ({ product, index }) => {
@@ -94,9 +95,6 @@ const ProductPreview = ({ product, index }) => {
                   {product.title}
                 </Typography>
               </Link>
-              <Typography variant="subtitle1">
-                {toCurrency(variant.price || 0)}
-              </Typography>
               <ReactMarkdown
                 escapeHtml={false}
                 css={{
@@ -124,6 +122,7 @@ const ProductPreview = ({ product, index }) => {
                   Saiba mais
                 </Link>
               </p>
+              <PriceTag item={variant} />
               <ProductCTA size="large" product={product} />
             </Paper>
           </Grid>

@@ -2,13 +2,13 @@ import ReactMarkdown from 'react-markdown'
 import { useInView } from 'react-intersection-observer'
 import { Box, Container, Grid, Typography } from '@material-ui/core'
 
-import { toCurrency } from 'lib/utils'
 import { useIsDesktop } from 'lib/hooks'
 import theme from 'lib/theme'
 
 import Breadcrumbs from './breadcrumbs'
 import Description from './description'
 import ImageGallery from 'components/image-gallery'
+import PriceTag from './price-tag'
 import ProductCTA from './cta'
 import MobileCTA from './mobile-cta'
 
@@ -44,9 +44,7 @@ const ProductSale = ({ product, isMobile }) => {
                   {product.title}
                 </Typography>
               )}
-              <Typography variant="h4">
-                {toCurrency(variant.price || 0)}
-              </Typography>
+              <PriceTag item={variant} />
               {isMobile && <Breadcrumbs isMobile product={product} />}
               <ReactMarkdown
                 escapeHtml={false}
@@ -77,6 +75,7 @@ const ProductSale = ({ product, isMobile }) => {
                 className="MuiTypography-root MuiTypography-body1"
                 source={product.presentation}
               />
+              <PriceTag item={variant} />
               <ProductCTA ref={ref} product={product} />
             </Grid>
           </Grid>
