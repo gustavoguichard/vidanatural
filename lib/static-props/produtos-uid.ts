@@ -18,8 +18,8 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const faqItems = await api.cms.getByTypeAndTags(
     'faq_item',
     {
-      orderings: '[my.faq_item.question]',
-      fetch: ['faq_item.question', 'faq_item.answer'],
+      orderings: '[my.faq_item.title]',
+      fetch: ['faq_item.title', 'faq_item.answer'],
     },
     tags,
   )

@@ -17,15 +17,14 @@ const breadcrumbs = [
 
 const FaqPage = ({ item }) => {
   const { data, last_publication_date } = item
-  const title = get(data, 'question.0.text')
 
   return (
-    <SinglePageLayout title={title}>
-      <Typography variant="h2">{title}</Typography>
+    <SinglePageLayout title={data.title}>
+      <Typography variant="h2">{data.title}</Typography>
       <Box my={2}>
         <DocumentDetails date={last_publication_date} post={data.answer} />
       </Box>
-      <Breadcrumbs links={breadcrumbs}>{title}</Breadcrumbs>
+      <Breadcrumbs links={breadcrumbs}>{data.title}</Breadcrumbs>
       <RichText render={data.answer} />
       <PostTags tags={item.tags} />
     </SinglePageLayout>

@@ -30,7 +30,8 @@ const FaqItem = ({ last_publication_date, uid, data }) => {
       }}
     >
       <ListItemText
-        primary={get(data, 'question.0.text')}
+        disableTypography
+        primary={<Typography>{data.title}</Typography>}
         secondary={
           <>
             <DocumentDetails

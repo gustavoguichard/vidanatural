@@ -15,7 +15,7 @@ export interface FaqItem {
   uid: string
   first_publication_date?: string
   data: {
-    question?: string
+    title?: string
     answer?: PostBody[]
   }
 }
