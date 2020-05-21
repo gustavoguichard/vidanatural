@@ -169,7 +169,7 @@ Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação 
     slug: 'hidratante-facial-30g-4',
     path: 'hidratante-facial',
     packing: 'pump',
-    presentation: `É feito com óleos essenciais, para sua pele receber a potência e a essência da natureza. Potencializa os processos de renovação celular.
+    presentation: `É feito com óleos essenciais, para sua pele receber a potência e a essência da natureza. Estimula os processos de renovação celular.
 
 - Com Rosa Mosqueta na composição, conhecido tradicionalmente por seu poder de regenerar a pele.
 - Acompanhado de outro poderoso antioxidante, o café verde.
