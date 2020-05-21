@@ -12,7 +12,7 @@ const DocumentDetails = ({ prepend, author, post, date, ...props }) => {
         <div>
           Escrito por{' '}
           <strong>
-            <Link {...author.permalink}>{author.fullName}</Link>
+            <Link {...author.permalink}>{author.data.name}</Link>
           </strong>
           <br />
         </div>

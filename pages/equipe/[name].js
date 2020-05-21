@@ -16,8 +16,7 @@ import SocialLinks from 'components/social-links'
 import sloganImg from 'public/static/svgs/eufaco.svg'
 
 const MemberPage = ({ name, picture, role, bio, ...props }) => {
-  const fullName = get(name, '0.text', '')
-  const [firstName] = fullName.split(' ')
+  const [firstName] = name.split(' ')
   return (
     <Layout title={`${firstName} usa cosmética consciente!`}>
       <Hero size="small" background="/static/images/banner.jpg">
@@ -61,7 +60,7 @@ const MemberPage = ({ name, picture, role, bio, ...props }) => {
               css={{ fontSize: '1.85rem' }}
               component="h1"
             >
-              <strong>{fullName}</strong>
+              <strong>{name}</strong>
             </Typography>
             <Typography
               variant="body2"

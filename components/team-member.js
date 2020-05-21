@@ -27,11 +27,11 @@ const TeamMember = (props) => {
           css={{ height: 240, backgroundPositionY: 'top' }}
           image={get(picture, 'url')}
           alt={get(picture, 'alt')}
-          title={get(name, '0.text')}
+          title={name}
         />
         <CardContent css={{ paddingBottom: 0 }}>
           <Typography component="div" variant="body1">
-            <strong>{get(name, '0.text')}</strong>
+            <strong>{name}</strong>
             <br />
             <Typography variant="subtitle2">{role}</Typography>
             <RichText render={bio} />

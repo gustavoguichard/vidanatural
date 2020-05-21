@@ -11,15 +11,7 @@ import Hero from 'components/hero'
 import PostTags from 'components/post-tags'
 import SinglePageLayout from 'components/single-page-layout'
 
-const SinglePostPage = ({
-  featuredUrl,
-  titleText,
-  author,
-  date,
-  data,
-  tags,
-  excerpt,
-}) => {
+const SinglePostPage = ({ featuredUrl, author, date, data, tags, excerpt }) => {
   const hasFeatured = !!featuredUrl
   return (
     <SinglePageLayout
@@ -31,14 +23,14 @@ const SinglePostPage = ({
       hero={
         hasFeatured && (
           <Hero filter="brightness(0.4)" size="medium" background={featuredUrl}>
-            <Typography variant="h2">{titleText}</Typography>
+            <Typography variant="h2">{data.title}</Typography>
           </Hero>
         )
       }
     >
       {hasFeatured || (
         <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
-          {titleText}
+          {data.title}
         </Typography>
       )}
       <AuthorCard
@@ -52,7 +44,7 @@ const SinglePostPage = ({
         css={{ margin: theme.spacing(hasFeatured ? 1 : 3, 0, 2) }}
         links={[{ title: 'Blog', href: '/blog' }]}
       >
-        {titleText}
+        {data.title}
       </Breadcrumbs>
       <Typography component="div" variant="body1">
         <RichText render={data.body} />

@@ -8,15 +8,13 @@ import { BlogPost, PostBody } from 'types/cms'
 export default (post: BlogPost) => {
   const { uid, first_publication_date, data } = post
   const { title, date, body, header_image } = data
-  const titleText = get(title, '0.text')
   const thumbUrl = get(header_image, 'thumb.url', null)
   const featuredUrl = get(header_image, 'url', null)
-  const imgAlt = get(header_image, 'alt', titleText)
+  const imgAlt = get(header_image, 'alt', title)
   const author = parseMember(data.author)
   const permalink = { href: '/blog/[slug]', as: `/blog/${uid}` }
   return {
     ...post,
-    titleText,
     thumbUrl,
     featuredUrl,
     imgAlt,

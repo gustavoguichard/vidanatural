@@ -36,7 +36,14 @@ export interface TeamMember {
   id: string
   uid: string
   data: {
-    name: any
+    name: string
+    role: string
+    bio?: PostBody[]
+    picture?: object
+    instagram: string
+    facebook: string
+    linkeding: string
+    github: string
   }
 }
 

@@ -12,7 +12,6 @@ const PostPreview = ({
   date,
   data,
   excerpt,
-  titleText,
   thumbUrl,
   imgAlt,
   permalink,
@@ -33,7 +32,7 @@ const PostPreview = ({
         css={{ 'a:link, a:visited': { color: 'inherit' } }}
       >
         <Link {...permalink}>
-          <Typography variant="h3">{titleText}</Typography>
+          <Typography variant="h3">{data.title}</Typography>
         </Link>
         <AuthorCard author={author} post={data.body} date={date} />
         <Typography css={{ marginBottom: theme.spacing() }} variant="body1">

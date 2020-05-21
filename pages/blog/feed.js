@@ -20,11 +20,17 @@ const Feed = ({ xml }) => xml
 
 export async function getServerSideProps({ res }) {
   try {
-    const authors = await api.cms.getByTypeAndTags('team_member')
     const response = await api.cms.getByTypeAndTags('blog_post', {
       orderings: '[my.blog_post.date desc]',
+      fetch: [
+        'blog_post.title',
+        'blog_post.body',
+        'blog_post.author',
+        'blog_post.header_image',
+      ],
+      fetchLinks: ['team_member.name', 'team_member.picture'],
     })
-    const posts = response.map((post) => parsePost(post, authors))
+    const posts = response.map(parsePost)
     const [lastPost] = posts
     const feed = new RSS({
       ...config,
@@ -32,12 +38,12 @@ export async function getServerSideProps({ res }) {
     })
     posts.forEach((post) => {
       feed.item({
-        title: post.titleText,
+        title: post.data.title,
         description: post.excerpt,
         url: `${process.env.API_IP}/blog/${post.uid}`,
         guid: post.id,
         categories: post.tags,
-        author: post.author.fullName,
+        author: post.author.data.name,
         date: post.date,
         enclosure: post.thumbUrl
           ? {
@@ -47,7 +53,7 @@ export async function getServerSideProps({ res }) {
           : null,
         image: post.thumbUrl
           ? {
-              title: post.titleText,
+              title: post.data.title,
               url: post.thumbUrl,
               link: `${process.env.API_IP}/blog/${post.uid}`,
             }
