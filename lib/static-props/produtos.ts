@@ -11,7 +11,7 @@ const getStaticProps: GetStaticProps = async () => {
     const data = find(serverData, (servP) => p.slug.startsWith(servP.slug))
     return { ...data, ...p }
   })
-  return { props: { products } }
+  return { props: { products }, unstable_revalidate: 1 }
 }
 
 export default getStaticProps
