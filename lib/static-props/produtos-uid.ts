@@ -35,7 +35,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       tags,
       faqItems,
     },
-    unstable_revalidate: 1,
+    unstable_revalidate: 15,
   }
 }
 
