@@ -8,6 +8,7 @@ import { Box, CircularProgress, Typography } from '@material-ui/core'
 import api from 'lib/api'
 import theme from 'lib/theme'
 
+import DiscountTag from 'components/products/discount-tag'
 import Skeleton from 'components/skeleton'
 
 const ImageGallery = ({ product, isDesktop }) => {
@@ -32,7 +33,7 @@ const ImageGallery = ({ product, isDesktop }) => {
         <Box
           position="relative"
           display="flex"
-          alignItems="stretch"
+          alignItems="start"
           justifyContent="center"
           css={{
             width: '100%',
@@ -60,16 +61,19 @@ const ImageGallery = ({ product, isDesktop }) => {
                 css={{ height: '100%' }}
                 key={`img-${i}`}
               >
-                <img
-                  className="responsive"
-                  alt={product.title}
-                  css={{
-                    objectFit: 'contain',
-                    position: 'relative',
-                    zIndex: 2,
-                  }}
-                  src={api.vnda.getResizedImg(img.url, 600)}
-                />
+                <Box position="relative">
+                  <DiscountTag product={product} />
+                  <img
+                    className="responsive"
+                    alt={product.title}
+                    css={{
+                      objectFit: 'contain',
+                      position: 'relative',
+                      zIndex: 2,
+                    }}
+                    src={api.vnda.getResizedImg(img.url, 600)}
+                  />
+                </Box>
                 <img
                   className="responsive"
                   alt={product.title}
