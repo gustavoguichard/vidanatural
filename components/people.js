@@ -1,17 +1,12 @@
 import { memo } from 'react'
-import shuffle from 'lodash/shuffle'
 import { Container, Paper } from '@material-ui/core'
 
-import { useProcessOnce } from 'lib/hooks'
 import theme from 'lib/theme'
 
 import Masonry from 'components/masonry'
 import Person from 'components/person'
 
-import testimonials from 'data/testimonials'
-
-const People = () => {
-  const shuffled = useProcessOnce(shuffle, testimonials)
+const People = ({ testimonials }) => {
   return (
     <Container maxWidth="lg">
       <Paper
@@ -25,7 +20,7 @@ const People = () => {
         }}
       >
         <Masonry>
-          {shuffled.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => (
             <Person key={index} {...testimonial} />
           ))}
         </Masonry>

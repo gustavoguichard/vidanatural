@@ -15,6 +15,15 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const id = get(serverData, 'id')
   const localData = find(products, (p) => id === p.vndaId)
   const tags = map(get(serverData, 'tags'), 'name')
+  const testimonials = await api.cms.getByTypeAndTags(
+    'testimonial',
+    {
+      fetch: ['name', 'picture', 'content', 'short_content'].map(
+        (field) => `testimonial.${field}`,
+      ),
+    },
+    [...tags, 'institucional'],
+  )
   const faqItems = await api.cms.getByTypeAndTags(
     'faq_item',
     {
@@ -34,6 +43,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       },
       tags,
       faqItems,
+      testimonials,
     },
     unstable_revalidate: 15,
   }

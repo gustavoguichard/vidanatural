@@ -1,4 +1,3 @@
-import get from 'lodash/get'
 import { Box, Typography } from '@material-ui/core'
 import { RichText } from 'prismic-reactjs'
 

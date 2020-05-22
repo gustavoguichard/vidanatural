@@ -6,7 +6,7 @@ import { TeamMember } from 'types/cms'
 
 const getStaticPaths: GetStaticPaths = async () => {
   const items = await api.cms.getByTypeAndTags('team_member', {
-    fetch: 'team_member.slugs',
+    fetch: 'team_member.uid',
   })
   return {
     paths: (items as TeamMember[]).map((item) => ({

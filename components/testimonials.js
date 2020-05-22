@@ -8,11 +8,10 @@ import CTAButton from 'components/cta-button'
 import Img from 'components/img'
 import Testimonial from 'components/short-testimonial'
 
-import testimonialsData from 'data/testimonials'
 import sloganImg from 'public/static/svgs/slogan.svg'
 
-const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
-  const testimonialsToShow = take(testimonials, show)
+const Testimonials = ({ testimonials: items, show = 3 }) => {
+  const testimonials = take(items, show)
   return (
     <Box
       css={{
@@ -36,8 +35,8 @@ const Testimonials = ({ testimonials = testimonialsData, show = 3 }) => {
           />
         </Box>
         <Grid container spacing={4} justify="center" alignItems="stretch">
-          {testimonialsToShow.map((testimonial) => (
-            <Grid key={testimonial.picture} sm={6} md={4} item>
+          {testimonials.map((testimonial) => (
+            <Grid key={testimonial.uid} sm={6} md={4} item>
               <Testimonial {...testimonial} />
             </Grid>
           ))}

@@ -12,6 +12,7 @@ import ProductTestimonials from './testimonials'
 
 const ProductLayout = ({
   product = {},
+  testimonials,
   hasLocalContent,
   faqItems,
   slug,
@@ -71,7 +72,7 @@ const ProductLayout = ({
         {hasLocalContent && <ProductIngredients product={product} />}
         <ProductFaq items={faqItems} />
       </Box>
-      <ProductTestimonials product={product} />
+      <ProductTestimonials product={product} testimonials={testimonials} />
     </Layout>
   )
 }

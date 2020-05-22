@@ -19,3 +19,7 @@ export const getExcerpt = (body: PostBody[], length = 200) => {
   const paragraph = body.find((b) => b.type === 'paragraph') || { text: '' }
   return truncate(paragraph.text, { length })
 }
+
+export const isEmptyBody = (body?: PostBody[]) => {
+  return !body || getExcerpt(body) === ''
+}

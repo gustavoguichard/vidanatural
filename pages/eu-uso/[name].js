@@ -1,5 +1,5 @@
-import ReactMarkdown from 'react-markdown'
 import { Grid, Box, Typography } from '@material-ui/core'
+import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
 import staticPaths from 'lib/static-paths/eu-uso-uid'
@@ -14,8 +14,8 @@ import PaperContent from 'components/paper-content'
 
 import sloganImg from 'public/static/svgs/slogan.svg'
 
-const ContentPage = ({ testimonial }) => {
-  const { content, name, picture, role, location } = testimonial
+const ContentPage = ({ data }) => {
+  const { content, name, picture, role, location, is_long } = data
   const [firstName] = name.split(' ')
   return (
     <Layout title="Eu uso cosmética consciente!">
@@ -49,7 +49,7 @@ const ContentPage = ({ testimonial }) => {
                 alignSelf: 'flex-end',
               }}
               alt={name}
-              src={`/static/images/testimonials/${picture}.jpg`}
+              src={picture[is_long ? 'long' : 'square'].url}
             />
           </Grid>
           <Grid
@@ -78,7 +78,7 @@ const ContentPage = ({ testimonial }) => {
               }}
             >
               {role}
-              {role && <br />}
+              {role ? <br /> : null}
               {location}
             </Typography>
             <Typography
@@ -87,7 +87,7 @@ const ContentPage = ({ testimonial }) => {
               component="div"
               variant="body1"
             >
-              <ReactMarkdown escapeHtml={false} source={content} />
+              <RichText render={content} />
             </Typography>
             <CTAButton
               href="/eu-uso-cosmetica-consciente"

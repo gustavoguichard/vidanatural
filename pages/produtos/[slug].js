@@ -11,6 +11,7 @@ import ProductSale from 'components/products/sale'
 
 const ProductPage = ({
   product,
+  testimonials,
   faqItems,
   foundProduct,
   hasLocalContent,
@@ -26,6 +27,7 @@ const ProductPage = ({
       isMobile={isMobile}
       product={product}
       faqItems={faqItems}
+      testimonials={testimonials}
     >
       {hasLocalContent && !isFallback ? (
         <ProductSale isMobile={isMobile} product={product} />
