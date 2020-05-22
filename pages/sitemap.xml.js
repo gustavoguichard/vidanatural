@@ -1,18 +1,20 @@
+import get from 'lodash/get'
+import forEach from 'lodash/forEach'
 import { SitemapStream, streamToPromise } from 'sitemap'
-import testimonials from 'data/testimonials'
+
 import api from 'lib/api'
 
-const pages = [
-  'produtos',
-  'blog',
-  'sobre-a-vida-natural',
-  'onde-encontrar',
-  'faq',
-  'eu-uso-cosmetica-consciente',
-  'entre-em-contato',
-  'termos-e-condicoes',
+const pages = {
+  produtos: ['daily', 1.0],
+  blog: ['daily', 0.9],
+  'sobre-a-vida-natural': [],
+  'onde-encontrar': ['monthly', 0.5],
+  faq: [],
+  'eu-uso-cosmetica-consciente': [],
+  'entre-em-contato': ['monthly', 0.4],
+  'termos-e-condicoes': ['monthly', 0.3],
   // 'minha-conta',
-]
+}
 
 const Sitemap = ({ xml }) => xml
 
@@ -24,9 +26,18 @@ export async function getServerSideProps({ res }) {
       cacheTime: 600000,
     })
 
-    const posts = await api.cms.getByTypeAndTags('blog_post')
-    const faqItems = await api.cms.getByTypeAndTags('faq_item')
-    const members = await api.cms.getByTypeAndTags('team_member')
+    const posts = await api.cms.getByTypeAndTags('blog_post', {
+      fetch: ['blog_post.uid', 'blog_post.header_image'],
+    })
+    const faqItems = await api.cms.getByTypeAndTags('faq_item', {
+      fetch: 'faq_item.uid',
+    })
+    const members = await api.cms.getByTypeAndTags('team_member', {
+      fetch: ['team_member.picture', 'team_member.uid'],
+    })
+    const testimonials = await api.cms.getByTypeAndTags('testimonial', {
+      fetch: ['testimonial.picture', 'testimonial.uid'],
+    })
 
     smStream.write({
       url: `/`,
@@ -45,29 +56,36 @@ export async function getServerSideProps({ res }) {
       })
     })
 
-    pages.forEach((page) => {
+    forEach(pages, ([freq, priority], slug) => {
       smStream.write({
-        url: `/${page}`,
-        changefreq: 'weekly',
-        priority: 0.6,
+        url: `/${slug}`,
+        changefreq: freq || 'weekly',
+        priority: priority || 0.6,
       })
     })
 
     posts.forEach((item) => {
       smStream.write({
+        ...(get(item, 'data.header_image.thumb.url')
+          ? {
+              img: {
+                url: get(item, 'data.header_image.thumb.url'),
+              },
+            }
+          : null),
         url: `/blog/${item.uid}`,
         changefreq: 'daily',
         priority: 0.8,
       })
     })
 
-    testimonials.forEach((testimonial) => {
+    testimonials.forEach((item) => {
       smStream.write({
-        url: `/eu-uso/${testimonial.picture}`,
+        url: `/eu-uso/${item.uid}`,
         changefreq: 'monthly',
         priority: 0.5,
         img: {
-          url: `/static/images/testimonials/${testimonial.picture}.jpg`,
+          url: get(item, 'data.picture.url'),
         },
       })
     })
@@ -85,6 +103,9 @@ export async function getServerSideProps({ res }) {
         url: `/equipe/${item.uid}`,
         changefreq: 'monthly',
         priority: 0.3,
+        img: {
+          url: get(item, 'data.picture.url'),
+        },
       })
     })
 
