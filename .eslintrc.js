@@ -8,7 +8,7 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     semi: ['error', 'never'],
-    'arrow-parens': ['warning', 'as-needed'],
+    'arrow-parens': [0, 'as-needed'],
     camelcase: 0,
     'class-methods-use-this': 0,
     'global-require': 0,
