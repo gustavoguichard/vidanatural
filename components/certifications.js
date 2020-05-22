@@ -4,7 +4,6 @@ import Img from 'components/img'
 
 const Icon = ({ path, title, size = 75 }) => (
   <Img
-    hideSpinner
     css={{ margin: 12 }}
     width={size}
     height={size}

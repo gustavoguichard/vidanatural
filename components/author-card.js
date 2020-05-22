@@ -4,6 +4,7 @@ import { Avatar, Box } from '@material-ui/core'
 import theme from 'lib/theme'
 
 import DocumentDetails from 'components/document-details'
+import Img from 'components/img'
 import Link from 'components/link'
 
 const AuthorCard = ({ author, date, post, showAvatar, ...props }) => {
@@ -11,7 +12,14 @@ const AuthorCard = ({ author, date, post, showAvatar, ...props }) => {
     <Box mt={1} mb={2} display="flex" position="relative" {...props}>
       {showAvatar && (
         <Link {...author.permalink} css={{ margin: theme.spacing(0, 1) }}>
-          <Avatar alt={author.imgAlt} src={author.thumbUrl} />
+          <Img
+            Component={Avatar}
+            circle
+            width={40}
+            height={40}
+            alt={author.imgAlt}
+            src={author.thumbUrl}
+          />
         </Link>
       )}
       <DocumentDetails author={author} post={post} date={date} />

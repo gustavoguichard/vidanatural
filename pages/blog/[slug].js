@@ -28,11 +28,11 @@ const SinglePostPage = ({ featuredUrl, author, date, data, tags, excerpt }) => {
         )
       }
     >
-      {hasFeatured || (
+      {hasFeatured ? (
         <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
           {data.title}
         </Typography>
-      )}
+      ) : null}
       <AuthorCard
         author={author}
         post={data.body}

@@ -55,6 +55,7 @@ const Testimonial = ({ name, role, picture, location, content }) =>
         </Box>
         <Img
           Component={Avatar}
+          circle
           css={{
             alignSelf: 'flex-end',
             border: '4px solid white',

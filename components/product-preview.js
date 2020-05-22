@@ -39,7 +39,6 @@ const ProductPreview = ({ product, index }) => {
         <Grid justify="center" container>
           <Img
             className="responsive"
-            hideSpinner
             css={{
               zIndex: -1,
               position: 'absolute',

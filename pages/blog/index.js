@@ -59,7 +59,7 @@ const BlogPage = ({ posts, page = 1, pages }) => {
       {router.isFallback
         ? [...Array(4).keys()].map(Skeleton)
         : posts.map((post) => <PostPreview key={post.id} {...post} />)}
-      {pages > 1 && (
+      {pages > 1 ? (
         <Box display="flex" justifyContent="center">
           <Pagination
             count={pages}
@@ -72,7 +72,7 @@ const BlogPage = ({ posts, page = 1, pages }) => {
             onChange={handlePageChange}
           />
         </Box>
-      )}
+      ) : null}
     </SinglePageLayout>
   ) : (
     <ErrorPage href="/blog" linkText="Voltar ao blog">

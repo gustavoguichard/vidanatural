@@ -17,6 +17,7 @@ const ShortTestimonial = ({ name, picture, shortContent, content }) => (
     <Link href="/eu-uso/[name]" as={`/eu-uso/${picture}`}>
       <Img
         Component={Avatar}
+        circle
         height={130}
         width={130}
         css={{

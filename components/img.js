@@ -1,10 +1,13 @@
 import { useInView } from 'react-intersection-observer'
 import { CircularProgress } from '@material-ui/core'
 
+import Skeleton from 'components/skeleton'
+
 const Img = ({
   src,
   alwaysShow,
   Component = 'img',
+  circle,
   className,
   hideSpinner,
   ...props
@@ -19,24 +22,14 @@ const Img = ({
       {visible || alwaysShow ? (
         <Component ref={ref} className={className} src={src} {...props} />
       ) : (
-        <div
-          css={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: 'auto',
-            width: width || null,
-            height: height || null,
-          }}
+        <Skeleton
+          ref={ref}
+          width={width}
+          height={height}
+          variant={circle ? 'circle' : 'rect'}
+          css={{ visibility: hideSpinner ? 'hidden' : 'visible' }}
           className={className}
-        >
-          <CircularProgress
-            ref={ref}
-            css={{
-              visibility: hideSpinner ? 'hidden' : 'visible',
-            }}
-          />
-        </div>
+        />
       )}
     </>
   )

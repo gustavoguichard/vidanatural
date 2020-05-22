@@ -1,7 +1,8 @@
+import { forwardRef } from 'react'
 import { Skeleton } from '@material-ui/lab'
 
-const CustomSkeleton = (props) => (
-  <Skeleton variant="rect" animation="wave" {...props} />
+const CustomSkeleton = ({ variant = 'rect', ...props }, ref) => (
+  <Skeleton ref={ref} variant={variant} animation="wave" {...props} />
 )
 
-export default CustomSkeleton
+export default forwardRef(CustomSkeleton)
