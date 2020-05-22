@@ -1,4 +1,8 @@
-export type DocumentType = 'blog_post' | 'team_member' | 'faq_item'
+export type DocumentType =
+  | 'blog_post'
+  | 'team_member'
+  | 'faq_item'
+  | 'testimonial'
 
 export interface QueryOptions {
   after?: string | string[]
@@ -15,8 +19,8 @@ export interface FaqItem {
   uid: string
   first_publication_date?: string
   data: {
-    title?: string
-    answer?: PostBody[]
+    title: string
+    answer: PostBody[]
   }
 }
 
@@ -24,9 +28,9 @@ export interface BlogPost {
   uid: string
   first_publication_date?: string
   data: {
-    title?: string
+    title: string
     date?: Date
-    body?: PostBody[]
+    body: PostBody[]
     header_image?: object
     author: TeamMember
   }
@@ -38,12 +42,25 @@ export interface TeamMember {
   data: {
     name: string
     role: string
-    bio?: PostBody[]
+    bio: PostBody[]
     picture?: object
-    instagram: string
-    facebook: string
-    linkeding: string
-    github: string
+    instagram?: string
+    facebook?: string
+    linkeding?: string
+    github?: string
+  }
+}
+
+export interface Testimonial {
+  id: string
+  uid: string
+  data: {
+    name: string
+    role?: string
+    location?: string
+    content: PostBody[]
+    short_content?: PostBody[]
+    picture: object
   }
 }
 
