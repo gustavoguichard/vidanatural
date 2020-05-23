@@ -5,6 +5,7 @@ import isArray from 'lodash/isArray'
 import { GetStaticProps } from 'next'
 
 import api from 'lib/api'
+import parseProduct from 'lib/parsers/product'
 
 import products from 'data/products'
 
@@ -12,9 +13,10 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
   const response = await api.vnda.listProduct(slug as string)
   const serverData = isArray(response) ? response[0] : response
-  const id = get(serverData, 'id')
+  const product = parseProduct(serverData)
+  const id = get(product, 'id')
   const localData = find(products, (p) => id === p.vndaId)
-  const tags = map(get(serverData, 'tags'), 'name')
+  const tags = map(get(product, 'tags'), 'name')
   const testimonials = await api.cms.getByTypeAndTags(
     'testimonial',
     {
@@ -39,7 +41,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       hasLocalContent: !!localData,
       product: {
         ...localData,
-        ...serverData,
+        ...product,
       },
       tags,
       faqItems,

@@ -40,7 +40,9 @@ const Description = ({ product, isDesktop }) => {
               transition: 'all .45s ease-in-out',
               overflow: 'hidden',
             }}
-            dangerouslySetInnerHTML={{ __html: product.description }}
+            dangerouslySetInnerHTML={{
+              __html: product.description.information,
+            }}
           />
           {isOpen ? null : (
             <>
@@ -71,27 +73,28 @@ const Description = ({ product, isDesktop }) => {
             </>
           )}
         </Grid>
-        <Grid item xs={12} md={4}>
-          <hr
-            css={{
-              border: 'none',
-              borderTop: `5px solid #d8d8d8`,
-              marginBottom: theme.spacing(3),
-              display: isDesktop ? 'none' : 'block',
-            }}
-          />
-          <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
-            Especificações
-          </Typography>
-          {product.characteristics.map((char, i) => (
-            <Typography
-              key={`char-${i}`}
-              css={{ fontSize: '0.941rem', lineHeight: '1.6rem' }}
-            >
-              <strong>{char[0]}:</strong> {char[1]}
+        {product.description.specifications && (
+          <Grid item xs={12} md={4}>
+            <hr
+              css={{
+                border: 'none',
+                borderTop: `5px solid #d8d8d8`,
+                marginBottom: theme.spacing(3),
+                display: isDesktop ? 'none' : 'block',
+              }}
+            />
+            <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
+              Especificações
             </Typography>
-          ))}
-        </Grid>
+            <Typography
+              component="div"
+              css={{ fontSize: '0.941rem', lineHeight: '1.6rem' }}
+              dangerouslySetInnerHTML={{
+                __html: product.description.specifications,
+              }}
+            />
+          </Grid>
+        )}
       </Grid>
     </Container>
   )

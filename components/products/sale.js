@@ -5,9 +5,9 @@ import { Box, Container, Grid, Typography } from '@material-ui/core'
 import { useIsDesktop } from 'lib/hooks'
 import theme from 'lib/theme'
 
+import ImageGallery from 'components/image-gallery'
 import Breadcrumbs from './breadcrumbs'
 import Description from './description'
-import ImageGallery from 'components/image-gallery'
 import PriceTag from './price-tag'
 import ProductCTA from './cta'
 import MobileCTA from './mobile-cta'
@@ -16,7 +16,6 @@ const ProductSale = ({ product, isMobile }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
   const [variant] = product.variants || [{}]
   const isDesktop = useIsDesktop()
-
   return (
     <>
       {isMobile && <MobileCTA visible={visible} product={product} />}
@@ -41,24 +40,26 @@ const ProductSale = ({ product, isMobile }) => {
                   variant="h3"
                   css={{ marginBottom: theme.spacing() }}
                 >
-                  {product.title}
+                  {product.name}
                 </Typography>
               )}
               <PriceTag item={variant} />
               {isMobile && <Breadcrumbs isMobile product={product} />}
-              <ReactMarkdown
-                escapeHtml={false}
-                css={{
-                  marginTop: theme.spacing(3),
-                  fontWeight: 600,
-                  color: theme.palette.text.hint,
-                  p: {
-                    marginBottom: 0,
-                  },
-                }}
-                className="MuiTypography-root MuiTypography-body1"
-                source={product.subtitle}
-              />
+              {product.description.featured && (
+                <ReactMarkdown
+                  escapeHtml={false}
+                  css={{
+                    marginTop: theme.spacing(3),
+                    fontWeight: 600,
+                    color: theme.palette.text.hint,
+                    p: {
+                      marginBottom: 0,
+                    },
+                  }}
+                  className="MuiTypography-root MuiTypography-body1"
+                  source={product.description.featured}
+                />
+              )}
               <Typography variant="caption">
                 <a href="#descricao">Mais detalhes</a>
                 {' - '}
@@ -73,7 +74,7 @@ const ProductSale = ({ product, isMobile }) => {
                   color: theme.palette.text.hint,
                 }}
                 className="MuiTypography-root MuiTypography-body1"
-                source={product.presentation}
+                source={product.description.presentation}
               />
               <PriceTag item={variant} />
               <ProductCTA ref={ref} product={product} />
@@ -81,7 +82,9 @@ const ProductSale = ({ product, isMobile }) => {
           </Grid>
         </Box>
       </Container>
-      <Description product={product} isDesktop={isDesktop} />
+      {product.description.information && (
+        <Description product={product} isDesktop={isDesktop} />
+      )}
     </>
   )
 }
