@@ -13,20 +13,22 @@ import theme from 'lib/theme'
 const PostTags = ({ tags }) => {
   return (
     <Box mt={4} mb={2}>
-      {tags.map((tag, idx) => (
-        <Chip
-          css={{
-            color: theme.palette.text.hint,
-            margin: 2,
-            fontSize: '.75rem',
-          }}
-          size="small"
-          variant="outlined"
-          icon={<Label />}
-          key={idx}
-          label={startCase(tag)}
-        />
-      ))}
+      {tags
+        .filter((t) => t !== 'institucional')
+        .map((tag, idx) => (
+          <Chip
+            css={{
+              color: theme.palette.text.hint,
+              margin: 2,
+              fontSize: '.75rem',
+            }}
+            size="small"
+            variant="outlined"
+            icon={<Label />}
+            key={idx}
+            label={startCase(tag)}
+          />
+        ))}
     </Box>
   )
 }
