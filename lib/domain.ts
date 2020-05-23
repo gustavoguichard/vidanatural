@@ -27,15 +27,16 @@ export const isEmptyBody = (body?: PostBody[]) => {
   return !body || getExcerpt(body) === ''
 }
 
-export const getCategoryTags = (products: VndaProduct[]) => {
+export const getCategoryTags = (products: VndaProduct[], addSales = true) => {
   const isCategoryType = (cat: ProductTag) => cat.type === 'product_cat'
   const allCategoryTags = reduce(
     products,
     (result, product) => [...result, ...product.tags.filter(isCategoryType)],
     [] as ProductTag[],
   )
+  const prepend = addSales ? [{ name: 'promocoes', title: 'Promoções' }] : []
   return [
-    { name: 'promocoes', title: 'Promoções' },
+    ...prepend,
     ...uniqBy(allCategoryTags, 'name').sort((cat) =>
       cat.name === 'kit' ? -1 : 1,
     ),

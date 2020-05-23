@@ -47,10 +47,17 @@ const ProductsPage = ({ products, filters }) => {
     setSelected(router.query.filter)
   }, [])
 
+  const links = selected
+    ? [{ title: 'Produtos', href: '/produtos' }]
+    : undefined
+  const currentFilter = filters.find((f) => f.name === selected)
+
   return (
     <Layout stickBar title="Conheça nossos produtos">
       <Container css={{ marginTop: theme.spacing(9) }} maxWidth="md">
-        <Breadcrumbs>Produtos</Breadcrumbs>
+        <Breadcrumbs links={links}>
+          {currentFilter ? currentFilter.title : 'Produtos'}
+        </Breadcrumbs>
         <Box mb={3} display="flex" justifyContent="center">
           <Scroller flex css={{ width: 'auto' }}>
             {map(filters, (filter) => (
