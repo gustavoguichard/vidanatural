@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import map from 'lodash/map'
 import { Box, Button, Container, Grid } from '@material-ui/core'
 
@@ -10,26 +11,37 @@ import { Scroller } from 'components/scroller'
 import Layout from 'components/layout'
 import ProductCard from 'components/product-card'
 
-const filters = ['Promoções', 'Desodorantes', 'Hidratantes', 'Higiene', 'Kits']
 const filteredProducts = (products, filter) => {
   switch (filter) {
     case null:
+    case undefined:
       return products
-    case 'Promoções':
+    case 'promocoes':
       return products.filter((p) => p.on_sale)
     default:
       return products.filter((p) => {
-        const tags = map(p.tags, 'title')
+        const tags = map(p.tags, 'name')
         return tags.includes(filter)
       })
   }
 }
 
-const ProductsPage = ({ products }) => {
-  const [selected, setSelected] = useState(null)
-  const select = (filter) => () => {
+const ProductsPage = ({ products, filters }) => {
+  const router = useRouter()
+
+  const [selected, setSelected] = useState(router.query.filter)
+  const select = (filter) => {
     setSelected(filter === selected ? null : filter)
   }
+
+  const setFilter = (filter) => () => {
+    const query = filter === selected ? null : { filter }
+    router.push({ pathname: '/produtos', query })
+  }
+
+  useEffect(() => {
+    select(router.query.filter)
+  }, [router.query.filter])
 
   return (
     <Layout stickBar title="Conheça nossos produtos">
@@ -37,14 +49,14 @@ const ProductsPage = ({ products }) => {
         <Breadcrumbs>Produtos</Breadcrumbs>
         <Box mb={3} display="flex" justifyContent="center">
           <Scroller flex css={{ width: 'auto' }}>
-            {filters.map((filter) => (
+            {map(filters, (filter) => (
               <Button
-                onClick={select(filter)}
-                color={filter === selected ? 'secondary' : 'primary'}
+                onClick={setFilter(filter.name)}
+                color={filter.name === selected ? 'secondary' : 'primary'}
                 css={{ margin: theme.spacing() }}
-                key={filter}
+                key={filter.name}
               >
-                {filter}
+                {filter.title}
               </Button>
             ))}
           </Scroller>
