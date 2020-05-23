@@ -81,7 +81,7 @@ const NewsForm = () => {
             },
           }}
           required
-          label="Sem e-mail"
+          label="Seu e-mail"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
