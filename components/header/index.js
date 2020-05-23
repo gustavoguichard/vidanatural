@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import get from 'lodash/get'
 import {
   AppBar,
@@ -9,6 +9,7 @@ import {
 
 import { useScrollDirection } from 'lib/hooks'
 import theme from 'lib/theme'
+import { useTagsMenu } from 'lib/domain-hooks'
 import useGlobal from 'lib/use-global'
 
 import CartIcon from './cart-icon'
@@ -19,6 +20,8 @@ import SearchBar from './search-bar'
 import SearchIcon from './search-icon'
 
 const Header = ({ stick, logoCompanion, variant }) => {
+  const tags = useTagsMenu()
+
   const secondary = variant === 'secondary'
   const isDesktop = useMediaQuery('(min-width: 790px)')
   const scrollDirection = useScrollDirection()
@@ -36,6 +39,8 @@ const Header = ({ stick, logoCompanion, variant }) => {
 
   const [, actions] = useGlobal()
   useEffect(actions.getCartItems, [])
+
+  const MenuComponent = isDesktop ? DesktopMenu : MobileMenu
   return (
     <>
       <AppBar
@@ -72,17 +77,10 @@ const Header = ({ stick, logoCompanion, variant }) => {
             />
           )}
           <div css={{ flexGrow: 1 }} />
-          {isDesktop ? (
-            <DesktopMenu>
-              <SearchIcon />
-              <CartIcon />
-            </DesktopMenu>
-          ) : (
-            <MobileMenu>
-              <SearchIcon />
-              <CartIcon />
-            </MobileMenu>
-          )}
+          <MenuComponent tags={tags}>
+            <SearchIcon />
+            <CartIcon />
+          </MenuComponent>
         </Toolbar>
       </AppBar>
       <SearchBar />

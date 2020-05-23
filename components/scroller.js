@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react'
-import PropTypes from 'prop-types'
 import { Box, useTheme } from '@material-ui/core'
 import * as customTypes from 'types/prop-types'
 

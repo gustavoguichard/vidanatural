@@ -1,23 +1,5 @@
-import products from 'data/products'
-
-const productLinks = products.map((product) => ({
-  name: product.title,
-  path: '/produtos/[slug]',
-  as: `/produtos/${product.slug}`,
-}))
-
 export default {
   links: [
-    {
-      name: 'Produtos',
-      links: [
-        {
-          name: 'Todos os produtos',
-          path: '/produtos',
-        },
-        ...productLinks,
-      ],
-    },
     {
       name: 'Blog',
       path: '/blog',

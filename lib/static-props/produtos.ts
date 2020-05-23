@@ -1,26 +1,10 @@
-import reduce from 'lodash/reduce'
-import uniqBy from 'lodash/uniqBy'
 import { GetStaticProps } from 'next'
 
 import api from 'lib/api'
 import parseProduct from 'lib/parsers/product'
+import { getCategoryTags } from 'lib/domain'
 
-import { VndaProduct, ProductTag } from 'types/vnda'
-
-const getCategoryTags = (products: VndaProduct[]) => {
-  const isCategoryType = (cat: ProductTag) => cat.type === 'product_cat'
-  const allCategoryTags = reduce(
-    products,
-    (result, product) => [...result, ...product.tags.filter(isCategoryType)],
-    [] as ProductTag[],
-  )
-  return [
-    { name: 'promocoes', title: 'Promoções' },
-    ...uniqBy(allCategoryTags, 'name').sort((cat) =>
-      cat.name === 'kit' ? -1 : 1,
-    ),
-  ]
-}
+import { VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async () => {
   const serverData = await api.vnda.search()

@@ -58,10 +58,10 @@ const SubMenu = ({ name, path, as, links }) => {
   )
 }
 
-const DesktopMenu = ({ children }) => {
+const DesktopMenu = ({ children, tags }) => {
   return (
     <>
-      {menu.links.map((item) => {
+      {[tags, ...menu.links].map((item) => {
         const hasSubmenu = !!item.links
         return hasSubmenu ? (
           <SubMenu key={item.name} {...item} />

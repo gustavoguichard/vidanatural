@@ -1,10 +1,13 @@
 import moment from 'moment'
 import map from 'lodash/map'
 import truncate from 'lodash/truncate'
+import reduce from 'lodash/reduce'
+import uniqBy from 'lodash/uniqBy'
 
 import { getReadTime } from 'lib/utils'
 
 import { PostBody } from 'types/cms'
+import { VndaProduct, ProductTag } from 'types/vnda'
 
 moment.locale('pt-br')
 export const getFromDate = (date: Date | string) => moment(date).fromNow()
@@ -22,4 +25,19 @@ export const getExcerpt = (body: PostBody[], length = 200) => {
 
 export const isEmptyBody = (body?: PostBody[]) => {
   return !body || getExcerpt(body) === ''
+}
+
+export const getCategoryTags = (products: VndaProduct[]) => {
+  const isCategoryType = (cat: ProductTag) => cat.type === 'product_cat'
+  const allCategoryTags = reduce(
+    products,
+    (result, product) => [...result, ...product.tags.filter(isCategoryType)],
+    [] as ProductTag[],
+  )
+  return [
+    { name: 'promocoes', title: 'Promoções' },
+    ...uniqBy(allCategoryTags, 'name').sort((cat) =>
+      cat.name === 'kit' ? -1 : 1,
+    ),
+  ]
 }

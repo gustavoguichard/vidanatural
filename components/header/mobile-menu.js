@@ -64,7 +64,7 @@ const MenuItem = ({ name, as, onClose, last, path, links }) => {
   )
 }
 
-const MobileMenu = ({ children }) => {
+const MobileMenu = ({ children, tags }) => {
   const [open, setOpen] = useState(false)
   const toggleDrawer = (nextOpen) => () => setOpen(nextOpen)
   return (
@@ -100,7 +100,7 @@ const MobileMenu = ({ children }) => {
         </NextLink>
         <Divider />
         <List css={{ minWidth: '80vw' }}>
-          {menu.links.map((item, index) => (
+          {[tags, ...menu.links].map((item, index) => (
             <MenuItem
               key={item.name}
               onClose={toggleDrawer(false)}
