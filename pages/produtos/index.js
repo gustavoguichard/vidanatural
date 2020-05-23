@@ -31,11 +31,9 @@ const ProductsPage = ({ products }) => {
     setSelected(filter === selected ? null : filter)
   }
 
-  debugger
-
   return (
     <Layout stickBar title="Conheça nossos produtos">
-      <Container css={{ marginTop: theme.spacing(8) }} maxWidth="md">
+      <Container css={{ marginTop: theme.spacing(9) }} maxWidth="md">
         <Breadcrumbs>Produtos</Breadcrumbs>
         <Box mb={3} display="flex" justifyContent="center">
           <Scroller flex css={{ width: 'auto' }}>
