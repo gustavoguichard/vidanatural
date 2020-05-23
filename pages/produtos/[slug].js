@@ -7,6 +7,7 @@ import staticProps from 'lib/static-props/produtos-uid'
 import ErrorPage from 'pages/404'
 import ProductLayout from 'components/products/layout'
 import ProductSale from 'components/products/sale'
+import Skeleton from 'components/skeleton/product-sale'
 
 const ProductPage = ({
   product,
@@ -28,7 +29,11 @@ const ProductPage = ({
       faqItems={faqItems}
       testimonials={testimonials}
     >
-      <ProductSale isMobile={isMobile} product={product} />
+      {isFallback ? (
+        <Skeleton />
+      ) : (
+        <ProductSale isMobile={isMobile} product={product} />
+      )}
     </ProductLayout>
   ) : (
     <ErrorPage

@@ -1,103 +1,81 @@
 import { useState } from 'react'
 import SwipeableViews from 'react-swipeable-views'
 import get from 'lodash/get'
-import range from 'lodash/range'
-import { useRouter } from 'next/router'
 import { Box, CircularProgress, Typography } from '@material-ui/core'
 
 import api from 'lib/api'
 import theme from 'lib/theme'
 
 import DiscountTag from 'components/products/discount-tag'
-import Skeleton from 'components/skeleton'
 
 const ImageGallery = ({ product, isDesktop }) => {
-  const { isFallback } = useRouter()
-
   const [index, setIndex] = useState(0)
-
   const imagesLenght = get(product, 'images.length', 2)
-  const thumbStyle = {
-    margin: theme.spacing(),
-    width: 100,
-    maxWidth: isDesktop ? 100 : `${100 / imagesLenght}%`,
-    cursor: 'pointer',
-    transition: 'all .6s',
-  }
 
   return (
     <Box display="flex" flexDirection={isDesktop ? 'row' : 'column'}>
-      {isFallback ? (
-        <Skeleton css={{ flex: 1, minHeight: 300 }} />
-      ) : (
-        <Box
-          position="relative"
-          display="flex"
-          alignItems="start"
-          justifyContent="center"
+      <Box
+        position="relative"
+        display="flex"
+        alignItems="start"
+        justifyContent="center"
+        css={{
+          width: '100%',
+          minHeight: 300,
+          '& .react-swipeable-view-container': {
+            height: '100%',
+          },
+        }}
+      >
+        <CircularProgress
           css={{
-            width: '100%',
-            minHeight: 300,
-            '& .react-swipeable-view-container': {
-              height: '100%',
-            },
+            alignSelf: 'center',
+            position: 'absolute',
           }}
+        />
+        <SwipeableViews
+          enableMouseEvents
+          index={index}
+          onChangeIndex={setIndex}
         >
-          <CircularProgress
-            css={{
-              alignSelf: 'center',
-              position: 'absolute',
-            }}
-          />
-          <SwipeableViews
-            enableMouseEvents
-            index={index}
-            onChangeIndex={setIndex}
-          >
-            {product.images.map((img, i) => (
-              <Box
-                display="flex"
-                justifyContent="center"
-                css={{ height: '100%' }}
-                key={`img-${i}`}
-              >
-                <Box position="relative">
-                  <DiscountTag product={product} />
-                  <img
-                    className="responsive"
-                    alt={product.title}
-                    css={{
-                      objectFit: 'contain',
-                      position: 'relative',
-                      zIndex: 2,
-                    }}
-                    src={api.vnda.getResizedImg(img.url, 600)}
-                  />
-                </Box>
+          {product.images.map((img, i) => (
+            <Box
+              display="flex"
+              justifyContent="center"
+              css={{ height: '100%' }}
+              key={`img-${i}`}
+            >
+              <Box position="relative">
+                <DiscountTag product={product} />
                 <img
                   className="responsive"
                   alt={product.title}
                   css={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
                     objectFit: 'contain',
-                    width: '100%',
-                    height: '100%',
+                    position: 'relative',
+                    zIndex: 2,
                   }}
-                  src={api.vnda.getResizedImg(img.url, 100)}
+                  src={api.vnda.getResizedImg(img.url, 600)}
                 />
               </Box>
-            ))}
-          </SwipeableViews>
-        </Box>
-      )}
-      {isDesktop ? null : isFallback ? (
-        <Skeleton
-          variant="text"
-          css={{ margin: theme.spacing(2, 0), height: 40 }}
-        />
-      ) : (
+              <img
+                className="responsive"
+                alt={product.title}
+                css={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  objectFit: 'contain',
+                  width: '100%',
+                  height: '100%',
+                }}
+                src={api.vnda.getResizedImg(img.url, 100)}
+              />
+            </Box>
+          ))}
+        </SwipeableViews>
+      </Box>
+      {isDesktop || (
         <Typography
           variant="h2"
           css={{
@@ -118,28 +96,25 @@ const ImageGallery = ({ product, isDesktop }) => {
           flexDirection={isDesktop ? 'column' : 'row'}
           justifyContent="center"
         >
-          {isFallback
-            ? range(2).map((i) => (
-                <Skeleton
-                  css={{ ...thumbStyle, minHeight: 100 }}
-                  key={`thumb-${i}`}
-                />
-              ))
-            : product.images.map((img, i) => (
-                <img
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  alt={product.title}
-                  css={{
-                    ...thumbStyle,
-                    boxShadow:
-                      i === index
-                        ? `0 0 0 2px ${theme.palette.common.black}`
-                        : `0 0 0 0 black`,
-                  }}
-                  src={api.vnda.getResizedImg(img.url, 100)}
-                />
-              ))}
+          {product.images.map((img, i) => (
+            <img
+              key={i}
+              onClick={() => setIndex(i)}
+              alt={product.title}
+              css={{
+                margin: theme.spacing(),
+                width: 100,
+                maxWidth: isDesktop ? 100 : `${100 / imagesLenght}%`,
+                cursor: 'pointer',
+                transition: 'all .6s',
+                boxShadow:
+                  i === index
+                    ? `0 0 0 2px ${theme.palette.common.black}`
+                    : `0 0 0 0 black`,
+              }}
+              src={api.vnda.getResizedImg(img.url, 100)}
+            />
+          ))}
         </Box>
       )}
     </Box>

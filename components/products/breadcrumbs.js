@@ -8,7 +8,7 @@ const ProductBreadcrumbs = ({ product = {}, isMobile }) => {
       css={isMobile ? {} : { padding: theme.spacing(0, 2) }}
       links={[{ title: 'Produtos', href: '/produtos' }]}
     >
-      {product.name}
+      {product.name || 'Carregando...'}
     </Breadcrumbs>
   )
 }

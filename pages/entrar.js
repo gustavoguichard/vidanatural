@@ -7,7 +7,7 @@ import Layout from 'components/layout'
 
 const Page = () => (
   <Layout title="Log in">
-    <Hero size="small" background="/static/images/plants.jpg">
+    <Hero size="small" background="/static/images/banner.jpg">
       <Typography variant="h2">Fazer Login</Typography>
       <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
         <strong>Ou crie sua conta</strong>.
