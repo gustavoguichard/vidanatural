@@ -43,6 +43,10 @@ const ProductsPage = ({ products, filters }) => {
     select(router.query.filter)
   }, [router.query.filter])
 
+  useEffect(() => {
+    setSelected(router.query.filter)
+  }, [])
+
   return (
     <Layout stickBar title="Conheça nossos produtos">
       <Container css={{ marginTop: theme.spacing(9) }} maxWidth="md">
