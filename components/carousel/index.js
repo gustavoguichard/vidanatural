@@ -64,8 +64,12 @@ const Carousel = (
 
   return (
     <Box position="relative" alignItems="center" display="flex" {...props}>
-      {renderDefaultBt(PrevButton, doScroll(-1), PrevBt)}
-      {renderDefaultBt(NextButton, doScroll(1), NextBt)}
+      {childrenCount > 1
+        ? renderDefaultBt(PrevButton, doScroll(-1), PrevBt)
+        : null}
+      {childrenCount > 1
+        ? renderDefaultBt(NextButton, doScroll(1), NextBt)
+        : null}
       <Scroller ref={scroller} gap={gap} snap={snap} itemWidth={itemWidth}>
         {React.Children.map(children, (child, idx) => (
           <div key={`carousel-${idx}`} className="item">
