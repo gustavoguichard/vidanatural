@@ -3,6 +3,7 @@ export type DocumentType =
   | 'team_member'
   | 'faq_item'
   | 'testimonial'
+  | 'home_banner'
 
 export interface QueryOptions {
   after?: string | string[]
@@ -21,6 +22,22 @@ export interface FaqItem {
   data: {
     title: string
     answer: PostBody[]
+  }
+}
+
+export interface HomeBanner {
+  uid: string
+  first_publication_date?: string
+  data: {
+    title: string
+    subtitle?: string
+    img: object
+    order?: number
+    link: object
+    button_text?: string
+    vertical?: 'center' | 'top' | 'bottom'
+    horizontal?: 'left' | 'center' | 'right'
+    is_dark: boolean
   }
 }
 

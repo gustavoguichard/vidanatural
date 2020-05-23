@@ -9,18 +9,24 @@ export const PageBt = ({ onClick, Icon, ...props }) => {
     <IconButton
       {...props}
       role="button"
-      css={{ position: 'absolute', display: isMobile ? 'none' : 'block' }}
+      color="secondary"
+      css={{
+        color: 'white',
+        position: 'absolute',
+        display: isMobile ? 'none' : 'block',
+        zIndex: 2,
+      }}
       onClick={onClick}
     >
-      <Icon color="primary" fontSize="large" />
+      <Icon css={{ color: theme.palette.common.black }} fontSize="large" />
     </IconButton>
   )
 }
 
 export const PrevBt = ({ onClick }) => (
   <PageBt
-    css={{ left: -80 }}
-    className="prev-bt"
+    css={{ left: 20 }}
+    className="prev-bt carousel-bt"
     onClick={onClick}
     Icon={KeyboardArrowLeft}
   />
@@ -28,8 +34,8 @@ export const PrevBt = ({ onClick }) => (
 
 export const NextBt = ({ onClick }) => (
   <PageBt
-    css={{ right: -80 }}
-    className="next-bt"
+    css={{ right: 20 }}
+    className="next-bt carousel-bt"
     onClick={onClick}
     Icon={KeyboardArrowRight}
   />

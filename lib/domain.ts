@@ -27,6 +27,12 @@ export const isEmptyBody = (body?: PostBody[]) => {
   return !body || getExcerpt(body) === ''
 }
 
+export const resolveLink = (link: string) => {
+  const url = new URL(link)
+  const isLocal = url.hostname.includes('vidanatural.eco.br')
+  return isLocal ? `/${url.pathname}${url.search}` : url
+}
+
 export const getCategoryTags = (products: VndaProduct[], addSales = true) => {
   const isCategoryType = (cat: ProductTag) => cat.type === 'product_cat'
   const allCategoryTags = reduce(

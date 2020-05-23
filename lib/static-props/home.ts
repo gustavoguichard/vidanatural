@@ -6,5 +6,8 @@ export default async () => {
       (field) => `testimonial.${field}`,
     ),
   })
-  return { props: { testimonials } }
+  const banners = await api.cms.getByTypeAndTags('home_banner', {
+    orderings: '[my.home_banner.order]',
+  })
+  return { props: { banners, testimonials } }
 }

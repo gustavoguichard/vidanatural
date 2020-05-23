@@ -63,7 +63,7 @@ const ProductSlide = ({
         <Link
           {...swipeHandlers}
           href="/produtos/[slug]"
-          as={`/produtos/${product.slug}`}
+          as={`/produtos/${product.path}-${product.vndaId}`}
           title={product.title}
         >
           <Img
