@@ -1,3 +1,19 @@
+Limpa sem remover a hidratação natural.
+
+---
+
+Com uma formulação natural de verdade que:
+
+- não agride o cabelo e o couro cabeludo,
+- não deixa resíduos que danificam o cabelo,
+- não contém ingredientes poluentes ou tóxicos.
+
+Xampu feito a partir da saponificação de óleos e manteigas vegetais (não usamos base pronta de glicerina).
+
+Azeite de Oliva e Manteiga de Karite tem propriedades poderosas de hidratação e nutrição para pele e cabelos. Óleo essencial de Capim Limão atua como bactericida e antifúngico.
+
+---
+
 Sulfatos estão presentes na formulação da maioria dos xampus e sabonetes convencionais. Eles atuam como detergentes e são desnecessariamente fortes, podendo agredir a pele e cabelos ao remover a hidratação e proteção natural.
 
 Silicones e petrolatos criam uma película no fio, dando a falsa sensação de hidratação. Com o tempo, esse acúmulo de resíduos impede o fio de respirar, receber água e nutrientes, resultando em enfraquecimento e ressecamento do fio. Esses ingredientes não tem poder de hidratar ou nutrir o fio.
@@ -39,3 +55,16 @@ Pode ser aplicado nas mãos e então nos cabelos ou diretamente no cabelo, massa
 - Petrolatos
 - Silicones
 - Fragrâncias sintéticas
+
+---
+
+**Gênero:** Sem gênero
+**Peso líquido:** 100g
+**Tipo de embalagem:** Caixa de papel kraft
+**Fragrância:** Capim Limão e Lavandin
+**Vegano:** Sim
+**Dimensões (L x C x A):** 6 x 8 x 3 cm
+**Validade:** 1 ano
+**Rendimento médio:** 2 meses
+**Regulado pela ANVISA sob nº:** 4.00.537-0
+**Código de barras:** 0606529335588
