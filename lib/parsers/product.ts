@@ -17,6 +17,7 @@ export default (product: VndaProduct) => {
         }
   return {
     ...product,
+    slug: `${product.slug}-${product.id}`,
     description,
   }
 }
