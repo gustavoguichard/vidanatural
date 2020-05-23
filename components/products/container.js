@@ -7,7 +7,7 @@ const ProductSale = ({ children, product, isMobile }) => {
     <>
       <Container maxWidth="lg">
         <Box pt={isMobile ? 8 : 7} pb={6}>
-          {isMobile || <Breadcrumbs product={product} />}
+          {isMobile ? null : <Breadcrumbs product={product} />}
           <Grid spacing={4} container justify="center">
             {children}
           </Grid>

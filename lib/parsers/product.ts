@@ -9,8 +9,8 @@ export default (product: VndaProduct) => {
       ? {
           featured: brokenDesc[0],
           presentation: brokenDesc[1],
-          information: brokenDesc[2],
-          specifications: brokenDesc[3],
+          information: brokenDesc[2] || null,
+          specifications: brokenDesc[3] || null,
         }
       : {
           presentation: brokenDesc[0],

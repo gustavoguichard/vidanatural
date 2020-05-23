@@ -14,8 +14,8 @@ const SearchItem = ({
   name,
   closeSearch,
   image_url,
-  url,
   price,
+  slug,
   sale_price,
 }) => {
   const router = useRouter()
@@ -23,10 +23,7 @@ const SearchItem = ({
     <ListItem
       button
       onClick={async () => {
-        await router.push(
-          '/produtos/[slug]',
-          url.replace('/produto/', '/produtos/'),
-        )
+        await router.push('/produtos/[slug]', `/produtos/${slug}`)
         closeSearch()
       }}
     >
