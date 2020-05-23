@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef, useEffect, ElementRef } from 'react'
+import { useCallback, useState, useRef, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
 import { useMediaQuery } from '@material-ui/core'
