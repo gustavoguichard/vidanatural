@@ -7,7 +7,7 @@ import theme from 'lib/theme'
 import staticProps from 'lib/static-props/produtos'
 
 import Breadcrumbs from 'components/breadcrumbs'
-import { Scroller } from 'components/scroller'
+import Scroller from 'components/scroller'
 import Layout from 'components/layout'
 import ProductCard from 'components/product-card'
 

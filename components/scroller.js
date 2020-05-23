@@ -22,7 +22,7 @@ export const getBaseStyles = (children, flex, width, gridColumnGap) => {
       }
 }
 
-const ScrollerComponent = (
+const Scroller = (
   { flex, snap = 'mandatory', gap = 0, itemWidth = 'auto', children, ...props },
   ref,
 ) => {
@@ -61,22 +61,4 @@ const ScrollerComponent = (
   )
 }
 
-const HScroller = forwardRef(ScrollerComponent)
-export const propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  itemWidth: PropTypes.oneOfType([
-    customTypes.percent,
-    PropTypes.number,
-    PropTypes.oneOf(['auto']),
-  ]),
-  flex: PropTypes.bool,
-  gap: PropTypes.number,
-  snap: PropTypes.oneOfType([
-    PropTypes.oneOf(['mandatory', 'proximity']),
-    PropTypes.bool,
-  ]),
-}
-
-HScroller.propTypes = propTypes
-HScroller.displayName = 'Scroller'
-export const Scroller = React.memo(HScroller)
+export default React.memo(forwardRef(Scroller))

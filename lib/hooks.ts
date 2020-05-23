@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef, useEffect } from 'react'
+import { useCallback, useState, useRef, useEffect, ElementRef } from 'react'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
 import { useMediaQuery } from '@material-ui/core'
@@ -26,6 +26,32 @@ export const useWindowDimensions = (delay = 300) => {
     return () => window.removeEventListener('resize', handleResize)
   }, [delay])
   return dimensions
+}
+
+export const useElScroll = (el?: HTMLElement, delay = 300) => {
+  const getPositions = (element?: HTMLElement) => ({
+    x: typeof element !== 'undefined' ? element.scrollLeft : 0,
+    y: typeof element !== 'undefined' ? element.scrollTop : 0,
+  })
+
+  const [state, setState] = useState(getPositions(el))
+
+  const updateScroll = useCallback(
+    throttle(() => {
+      setState(getPositions(el))
+    }, delay),
+    [el],
+  )
+
+  useEffect(() => {
+    if (typeof el === 'undefined') return
+    el.addEventListener('scroll', updateScroll)
+    return () => {
+      el.removeEventListener('scroll', updateScroll)
+    }
+  }, [el])
+
+  return state
 }
 
 export const useScroll = (delay = 300) => {

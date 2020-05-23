@@ -50,7 +50,6 @@
     "react-intersection-observer": "^8.26.2",
     "react-markdown": "^4.3.1",
     "react-swipeable": "^5.5.1",
-    "react-swipeable-views": "^0.13.9",
     "react-use-form-state": "^0.13.0",
     "sitemap": "^6.1.4"
   },

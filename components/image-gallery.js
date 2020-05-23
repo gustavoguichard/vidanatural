@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import SwipeableViews from 'react-swipeable-views'
+import { useState, useRef } from 'react'
 import get from 'lodash/get'
-import { Box, CircularProgress, Typography } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 
 import api from 'lib/api'
 import theme from 'lib/theme'
 
 import DiscountTag from 'components/products/discount-tag'
+import Carousel from 'components/carousel'
 
 const ImageGallery = ({ product, isDesktop }) => {
   const [index, setIndex] = useState(0)
   const imagesLenght = get(product, 'images.length', 2)
+
+  const gallery = useRef()
 
   return (
     <Box display="flex" flexDirection={isDesktop ? 'row' : 'column'}>
@@ -19,63 +21,37 @@ const ImageGallery = ({ product, isDesktop }) => {
         display="flex"
         alignItems="start"
         justifyContent="center"
-        css={{
-          width: '100%',
-          minHeight: 300,
-          '& .react-swipeable-view-container': {
-            height: '100%',
-          },
-        }}
+        css={{ width: '100%', minHeight: 300 }}
       >
-        <CircularProgress
-          css={{
-            alignSelf: 'center',
-            position: 'absolute',
-          }}
-        />
-        <SwipeableViews
-          enableMouseEvents
-          index={index}
-          onChangeIndex={setIndex}
+        <Carousel
+          ref={gallery}
+          NextButton={false}
+          PrevButton={false}
+          onChange={({ current }) => setIndex(current - 1)}
         >
           {product.images.map((img, i) => (
             <Box
+              key={`img-${i}`}
               display="flex"
               justifyContent="center"
-              css={{ height: '100%' }}
-              key={`img-${i}`}
+              position="relative"
             >
-              <Box position="relative">
-                <DiscountTag product={product} />
-                <img
-                  className="responsive"
-                  alt={product.title}
-                  css={{
-                    objectFit: 'contain',
-                    position: 'relative',
-                    zIndex: 2,
-                  }}
-                  src={api.vnda.getResizedImg(img.url, 600)}
-                />
-              </Box>
+              <DiscountTag product={product} />
               <img
                 className="responsive"
-                alt={product.title}
+                alt={product.name}
                 css={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
                   objectFit: 'contain',
-                  width: '100%',
-                  height: '100%',
+                  position: 'relative',
+                  zIndex: 2,
                 }}
-                src={api.vnda.getResizedImg(img.url, 100)}
+                src={api.vnda.getResizedImg(img.url, 600)}
               />
             </Box>
           ))}
-        </SwipeableViews>
+        </Carousel>
       </Box>
-      {isDesktop || (
+      {isDesktop ? null : (
         <Typography
           variant="h2"
           css={{
@@ -84,10 +60,10 @@ const ImageGallery = ({ product, isDesktop }) => {
             marginTop: theme.spacing(2),
           }}
         >
-          {product.title || product.name}
+          {product.name}
         </Typography>
       )}
-      {imagesLenght > 1 && (
+      {imagesLenght > 1 ? (
         <Box
           css={{ order: isDesktop ? -1 : 0 }}
           px={isDesktop ? 0 : 1}
@@ -99,8 +75,8 @@ const ImageGallery = ({ product, isDesktop }) => {
           {product.images.map((img, i) => (
             <img
               key={i}
-              onClick={() => setIndex(i)}
-              alt={product.title}
+              onClick={() => gallery.current.goTo(i)}
+              alt={product.name}
               css={{
                 margin: theme.spacing(),
                 width: 100,
@@ -116,7 +92,7 @@ const ImageGallery = ({ product, isDesktop }) => {
             />
           ))}
         </Box>
-      )}
+      ) : null}
     </Box>
   )
 }
