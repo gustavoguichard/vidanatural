@@ -27,13 +27,15 @@ const SearchItem = ({
         closeSearch()
       }}
     >
-      <ListItemAvatar>
-        <img
-          alt={name}
-          src={api.vnda.getResizedImg(image_url, 30)}
-          width="30"
-        />
-      </ListItemAvatar>
+      {image_url ? (
+        <ListItemAvatar>
+          <img
+            alt={name}
+            src={api.vnda.getResizedImg(image_url, 30)}
+            width="30"
+          />
+        </ListItemAvatar>
+      ) : null}
       <ListItemText>
         <Typography variant="body2">{name}</Typography>
         {sale_price && (
