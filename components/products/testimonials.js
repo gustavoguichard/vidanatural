@@ -18,7 +18,11 @@ const ProductTestimonials = ({ testimonials, product, ...props }) => {
     [[], []],
   )
   const items = [...specific, ...general]
-  return <Testimonials {...props} testimonials={items} />
+  return (
+    <div id="depoimentos">
+      <Testimonials {...props} testimonials={items} />
+    </div>
+  )
 }
 
 export default memo(ProductTestimonials)

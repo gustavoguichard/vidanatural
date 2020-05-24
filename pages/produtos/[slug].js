@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import isEmpty from 'lodash/isEmpty'
 import { Container } from '@material-ui/core'
 
 import { useIsMobile } from 'lib/hooks'
@@ -35,7 +36,12 @@ const ProductPage = ({
       {isFallback ? (
         <Skeleton />
       ) : (
-        <ProductSale isMobile={isMobile} product={product} />
+        <ProductSale
+          hasTestimonials={!isEmpty(testimonials)}
+          hasFaqItems={!isEmpty(faqItems)}
+          isMobile={isMobile}
+          product={product}
+        />
       )}
       <Container maxWidth="md">
         <RelatedProducts products={relatedProducts} />

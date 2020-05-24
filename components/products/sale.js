@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import { useInView } from 'react-intersection-observer'
-import { Grid, Typography } from '@material-ui/core'
+import { Breadcrumbs as BCrumbs, Grid, Typography } from '@material-ui/core'
 
 import { useIsDesktop } from 'lib/hooks'
 import theme from 'lib/theme'
@@ -13,10 +13,14 @@ import ProductContainer from './container'
 import ProductCTA from './cta'
 import MobileCTA from './mobile-cta'
 
-const ProductSale = ({ product, isMobile }) => {
+const ProductSale = ({ product, isMobile, hasTestimonials, hasFaqItems }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
   const [variant] = product.variants || [{}]
   const isDesktop = useIsDesktop()
+
+  const hasInformation = !!product.description.information
+  const hasIngredinets = !!product.ingredients
+
   return (
     <>
       {isMobile && <MobileCTA visible={visible} product={product} />}
@@ -47,11 +51,17 @@ const ProductSale = ({ product, isMobile }) => {
               source={product.description.featured}
             />
           )}
-          <Typography variant="caption">
-            <a href="#descricao">Mais detalhes</a>
-            {' - '}
-            <a href={`#ingredientes-${product.path}`}>Ver ingredientes</a>
-          </Typography>
+          <BCrumbs
+            variant="caption"
+            color="primary"
+            separator="-"
+            css={{ fontSize: '.8rem', margin: theme.spacing(1, 0) }}
+          >
+            {hasInformation && <a href="#descricao">Mais detalhes</a>}
+            {hasIngredinets && <a href="#ingredientes">Ver ingredientes</a>}
+            {hasFaqItems && <a href="#faq">Dúvidas</a>}
+            {hasTestimonials && <a href="#depoimentos">Depoimentos</a>}
+          </BCrumbs>
           <ReactMarkdown
             escapeHtml={false}
             css={{
@@ -67,7 +77,7 @@ const ProductSale = ({ product, isMobile }) => {
           <ProductCTA ref={ref} product={product} />
         </Grid>
       </ProductContainer>
-      {product.description.information && (
+      {hasInformation && (
         <Description product={product} isDesktop={isDesktop} />
       )}
     </>
