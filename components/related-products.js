@@ -6,9 +6,9 @@ import { useWindowDimensions } from 'lib/hooks'
 import ProductCard from 'components/product-card'
 import Carousel from 'components/carousel'
 
-const RelatedProducts = ({ products }) => {
+const RelatedProducts = ({ products, maxPerPage = 4 }) => {
   const { width } = useWindowDimensions()
-  const columns = clamp(Math.floor(width / 320), 1, 4)
+  const columns = clamp(Math.floor(width / 320), 1, maxPerPage)
   return isEmpty(products) ? null : (
     <Carousel
       itemWidth={`${100 / columns}%`}

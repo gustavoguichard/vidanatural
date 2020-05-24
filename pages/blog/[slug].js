@@ -60,7 +60,7 @@ const SinglePostPage = ({
       </Typography>
       <PostTags tags={tags} />
       <Box mt={6}>
-        <RelatedProducts products={products} />
+        <RelatedProducts products={products} maxPerPage={3} />
       </Box>
     </SinglePageLayout>
   )
