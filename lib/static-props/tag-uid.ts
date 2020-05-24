@@ -4,7 +4,6 @@ import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parsePost from 'lib/parsers/blog-post'
 
-import { ProductTag, VndaProduct } from 'types/vnda'
 import { BlogPost } from 'types/cms'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
