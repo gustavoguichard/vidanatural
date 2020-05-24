@@ -30,7 +30,8 @@ export const isEmptyBody = (body?: PostBody[]) => {
 export const resolveLink = (link: string) => {
   const url = new URL(link)
   const isLocal = url.hostname.includes('vidanatural.eco.br')
-  return isLocal ? `/${url.pathname}${url.search}` : url
+  const result = isLocal ? `${url.pathname}${url.search}` : url
+  return result
 }
 
 export const getCategoryTags = (products: VndaProduct[], addSales = true) => {
