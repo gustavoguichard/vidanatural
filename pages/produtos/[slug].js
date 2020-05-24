@@ -7,7 +7,7 @@ import staticProps from 'lib/static-props/produtos-uid'
 
 import ErrorPage from 'pages/404'
 import ProductLayout from 'components/products/layout'
-import ProductGrid from 'components/product-grid'
+import RelatedProducts from 'components/related-products'
 import ProductSale from 'components/products/sale'
 import Skeleton from 'components/skeleton/product-sale'
 
@@ -38,7 +38,7 @@ const ProductPage = ({
         <ProductSale isMobile={isMobile} product={product} />
       )}
       <Container maxWidth="md">
-        <ProductGrid products={relatedProducts} />
+        <RelatedProducts products={relatedProducts} />
       </Container>
     </ProductLayout>
   ) : (

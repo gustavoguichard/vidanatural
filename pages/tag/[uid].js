@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import isEmpty from 'lodash/isEmpty'
 import startCase from 'lodash/startCase'
-import { Container, Grid, Typography, useTheme } from '@material-ui/core'
+import { Container, Typography, useTheme } from '@material-ui/core'
 
 import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'

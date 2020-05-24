@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
@@ -8,7 +8,7 @@ import staticPaths from 'lib/static-paths/blog-uid'
 import AuthorCard from 'components/author-card'
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
-import ProductGrid from 'components/product-grid'
+import RelatedProducts from 'components/related-products'
 import PostTags from 'components/post-tags'
 import SinglePageLayout from 'components/single-page-layout'
 
@@ -59,7 +59,9 @@ const SinglePostPage = ({
         <RichText render={data.body} />
       </Typography>
       <PostTags tags={tags} />
-      <ProductGrid products={products} title="Produtos relacionados" />
+      <Box mt={6}>
+        <RelatedProducts products={products} />
+      </Box>
     </SinglePageLayout>
   )
 }

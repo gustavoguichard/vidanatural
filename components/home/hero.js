@@ -72,7 +72,6 @@ const HomeHero = ({ banners, setVariant }) => {
               ) : null}
               <ButtonLink
                 color="primary"
-                center={data.horizontal === 'center'}
                 variant="outlined"
                 size="large"
                 href={resolveLink(data.link.url)}

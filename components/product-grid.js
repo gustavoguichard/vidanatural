@@ -10,7 +10,7 @@ const ProductGrid = ({ products, title }) => {
       {title ? (
         <Typography
           css={{ margin: theme.spacing(4) }}
-          variant="h2"
+          variant="h3"
           align="center"
         >
           Produtos relacionados
