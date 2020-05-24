@@ -1,8 +1,7 @@
 import React from 'react'
 import get from 'lodash/get'
-import { Container, Box } from '@material-ui/core'
+import { Container, Box, useMediaQuery } from '@material-ui/core'
 
-import { useIsDesktop } from 'lib/hooks'
 import theme from 'lib/theme'
 
 import BackgroundImg from 'components/background-img'
@@ -21,7 +20,7 @@ const Hero = ({
   background,
   mobileBg,
 }) => {
-  const isDesktop = useIsDesktop()
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'))
   const defaultColor =
     variant === 'secondary'
       ? theme.palette.secondary.light
