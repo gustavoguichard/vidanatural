@@ -2,7 +2,7 @@ import React from 'react'
 import get from 'lodash/get'
 import { Container, Box } from '@material-ui/core'
 
-import { useIsMobile } from 'lib/hooks'
+import { useIsDesktop } from 'lib/hooks'
 import theme from 'lib/theme'
 
 import BackgroundImg from 'components/background-img'
@@ -21,7 +21,7 @@ const Hero = ({
   background,
   mobileBg,
 }) => {
-  const isMobile = useIsMobile()
+  const isDesktop = useIsDesktop()
   const defaultColor =
     variant === 'secondary'
       ? theme.palette.secondary.light
@@ -36,7 +36,7 @@ const Hero = ({
         <BackgroundImg
           alwaysShow
           filter={filter}
-          src={isMobile ? mobileBg || background : background}
+          src={isDesktop ? background : mobileBg || background}
         />
       )}
       <Container

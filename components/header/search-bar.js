@@ -86,8 +86,8 @@ const SearchBar = () => {
               color="inherit"
               css={{
                 position: 'absolute',
-                top: 5,
-                right: 5,
+                top: 21,
+                right: 15,
                 pointerEvents: 'none',
               }}
             />

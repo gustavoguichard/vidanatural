@@ -11,6 +11,7 @@ import api from 'lib/api'
 import PriceTag from 'components/products/price-tag'
 
 const SearchItem = ({
+  id,
   name,
   closeSearch,
   image_url,
@@ -23,7 +24,7 @@ const SearchItem = ({
     <ListItem
       button
       onClick={async () => {
-        await router.push('/produtos/[slug]', `/produtos/${slug}`)
+        await router.push('/produtos/[slug]', `/produtos/${slug}-${id}`)
         closeSearch()
       }}
     >
