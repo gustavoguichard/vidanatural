@@ -52,3 +52,12 @@ export const getCategoryTags = (products: VndaProduct[], addSales = true) => {
     ),
   ]
 }
+
+export const getProductsByTag = (products: VndaProduct[], tags: string[]) => {
+  return products.filter((p: VndaProduct) =>
+    p.tags.reduce(
+      (res: boolean, tag: ProductTag) => tags.includes(tag.name) || res,
+      false,
+    ),
+  )
+}

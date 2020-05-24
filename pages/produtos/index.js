@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import map from 'lodash/map'
-import { Box, Button, Container, Grid } from '@material-ui/core'
+import { Box, Button, Container } from '@material-ui/core'
 
 import theme from 'lib/theme'
 import staticProps from 'lib/static-props/produtos'
@@ -9,7 +9,7 @@ import staticProps from 'lib/static-props/produtos'
 import Breadcrumbs from 'components/breadcrumbs'
 import Scroller from 'components/scroller'
 import Layout from 'components/layout'
-import ProductCard from 'components/product-card'
+import ProductGrid from 'components/product-grid'
 
 const filteredProducts = (products, filter) => {
   switch (filter) {
@@ -72,19 +72,7 @@ const ProductsPage = ({ products, filters }) => {
             ))}
           </Scroller>
         </Box>
-        <Grid container spacing={2} css={{ alignItems: 'stretch' }}>
-          {filteredProducts(products, selected).map((product, index) => (
-            <Grid
-              md={4}
-              sm={6}
-              item
-              key={index}
-              css={{ alignItems: 'stretch', display: 'flex' }}
-            >
-              <ProductCard product={product} />
-            </Grid>
-          ))}
-        </Grid>
+        <ProductGrid products={filteredProducts(products, selected)} />
       </Container>
     </Layout>
   )

@@ -5,10 +5,7 @@ import { Label } from '@material-ui/icons'
 
 import theme from 'lib/theme'
 
-// import Link from 'components/link'
-// component = { Link }
-// clickable
-// href = '#chip'
+import Link from 'components/link'
 
 const PostTags = ({ tags }) => {
   return (
@@ -22,6 +19,10 @@ const PostTags = ({ tags }) => {
               margin: 2,
               fontSize: '.75rem',
             }}
+            component={Link}
+            clickable
+            href="/tag/[uid]"
+            as={`/tag/${tag}`}
             size="small"
             variant="outlined"
             icon={<Label />}

@@ -8,10 +8,19 @@ import staticPaths from 'lib/static-paths/blog-uid'
 import AuthorCard from 'components/author-card'
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
+import ProductGrid from 'components/product-grid'
 import PostTags from 'components/post-tags'
 import SinglePageLayout from 'components/single-page-layout'
 
-const SinglePostPage = ({ featuredUrl, author, date, data, tags, excerpt }) => {
+const SinglePostPage = ({
+  products,
+  featuredUrl,
+  author,
+  date,
+  data,
+  tags,
+  excerpt,
+}) => {
   const hasFeatured = !!featuredUrl
   return (
     <SinglePageLayout
@@ -50,6 +59,7 @@ const SinglePostPage = ({ featuredUrl, author, date, data, tags, excerpt }) => {
         <RichText render={data.body} />
       </Typography>
       <PostTags tags={tags} />
+      <ProductGrid products={products} title="Produtos relacionados" />
     </SinglePageLayout>
   )
 }

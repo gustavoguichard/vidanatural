@@ -12,7 +12,7 @@ import sloganImg from 'public/static/svgs/slogan.svg'
 
 const Testimonials = ({ testimonials: items, show = 3 }) => {
   const testimonials = take(items, show)
-  return (
+  return testimonials.length ? (
     <Box
       css={{
         paddingBottom: theme.spacing(8),
@@ -49,7 +49,7 @@ const Testimonials = ({ testimonials: items, show = 3 }) => {
         </CTAButton>
       </Container>
     </Box>
-  )
+  ) : null
 }
 
 export default memo(Testimonials)

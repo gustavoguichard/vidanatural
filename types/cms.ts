@@ -17,7 +17,9 @@ export interface QueryOptions {
 }
 
 export interface FaqItem {
+  id: string
   uid: string
+  tags: string[]
   first_publication_date?: string
   data: {
     title: string
@@ -26,7 +28,9 @@ export interface FaqItem {
 }
 
 export interface HomeBanner {
+  id: string
   uid: string
+  tags: string[]
   first_publication_date?: string
   data: {
     title: string
@@ -42,7 +46,9 @@ export interface HomeBanner {
 }
 
 export interface BlogPost {
+  id: string
   uid: string
+  tags: string[]
   first_publication_date?: string
   data: {
     title: string
@@ -56,6 +62,7 @@ export interface BlogPost {
 export interface TeamMember {
   id: string
   uid: string
+  tags: string[]
   data: {
     name: string
     role: string
@@ -71,6 +78,7 @@ export interface TeamMember {
 export interface Testimonial {
   id: string
   uid: string
+  tags: string[]
   data: {
     name: string
     role?: string

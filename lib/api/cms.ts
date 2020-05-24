@@ -42,3 +42,11 @@ export const getByTypeAndTags = async (
   const response = await getPaginated(type, options, tags)
   return get(response, 'results', [])
 }
+
+export const allByTags = async (tags: string[], options?: QueryOptions) => {
+  const response = await query(Prismic.Predicates.any('document.tags', tags), {
+    pageSize: 1000,
+    ...options,
+  })
+  return get(response, 'results', [])
+}
