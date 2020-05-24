@@ -5,6 +5,7 @@ import React, {
   useImperativeHandle,
   forwardRef,
 } from 'react'
+import Router from 'next/router'
 import clamp from 'lodash/clamp'
 import { Box } from '@material-ui/core'
 
@@ -34,6 +35,11 @@ const Carousel = (
   const getPageStats = calculatePages(childrenCount, itemWidth)
   const { x } = useElScroll(scroller.current, 300)
 
+  const reset = () => {
+    setPage(0)
+    scroller.current && scroller.current.scroll({ left: 0, behavior: 'auto' })
+  }
+
   const goToPage = (newPage) => {
     const { width } = widthInPixels(itemWidth, scroller.current)
     const { total, perPage } = getPageStats(scroller.current)
@@ -50,6 +56,11 @@ const Carousel = (
     const { total, perPage } = getPageStats(scroller.current)
     onChange && onChange({ total, perPage, current: page + 1 })
   }, [onChange, page])
+
+  useEffect(() => {
+    Router.events.on('routeChangeComplete', reset)
+    return () => Router.events.off('routeChangeComplete', reset)
+  })
 
   useEffect(() => {
     const { width } = getPageStats(scroller.current)
