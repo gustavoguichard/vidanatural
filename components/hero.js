@@ -2,6 +2,7 @@ import React from 'react'
 import get from 'lodash/get'
 import { Container, Box } from '@material-ui/core'
 
+import { useIsMobile } from 'lib/hooks'
 import theme from 'lib/theme'
 
 import BackgroundImg from 'components/background-img'
@@ -18,7 +19,9 @@ const Hero = ({
   textShadow = true,
   maxWidth = 'md',
   background,
+  mobileBg,
 }) => {
+  const isMobile = useIsMobile()
   const defaultColor =
     variant === 'secondary'
       ? theme.palette.secondary.light
@@ -30,7 +33,11 @@ const Hero = ({
       bgcolor={color || defaultColor}
     >
       {background && (
-        <BackgroundImg alwaysShow filter={filter} src={background} />
+        <BackgroundImg
+          alwaysShow
+          filter={filter}
+          src={isMobile ? mobileBg || background : background}
+        />
       )}
       <Container
         css={{

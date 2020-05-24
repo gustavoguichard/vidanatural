@@ -32,11 +32,11 @@ const HomeHero = ({ banners, setVariant }) => {
     >
       {banners.map(({ data, id }) => {
         const variant = data.is_dark ? 'secondary' : 'primary'
-        console.log(data.link.url)
         return (
           <Hero
             size="full"
             background={data.image.url}
+            mobileBg={data.image.mobile.url}
             key={id}
             position="relative"
             style={{
