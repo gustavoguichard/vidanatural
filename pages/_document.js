@@ -27,6 +27,12 @@ class VidaNatural extends Document {
             title="Blog da Vida Natural"
             href="https://vidanatural.eco.br/blog/feed/"
           />
+          <link
+            rel="sitemap"
+            type="application/xml"
+            title="Sitemap"
+            href="/sitemap.xml"
+          />
         </Head>
         <body>
           <Main />
