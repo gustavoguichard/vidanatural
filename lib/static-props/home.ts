@@ -1,7 +1,9 @@
+import shuffle from 'lodash/shuffle'
+
 import api from 'lib/api'
 
 export default async () => {
-  const testimonials = await api.cms.getByTypeAndTags('testimonial', {
+  const testimonialsData = await api.cms.getByTypeAndTags('testimonial', {
     fetch: ['name', 'picture', 'content', 'short_content'].map(
       (field) => `testimonial.${field}`,
     ),

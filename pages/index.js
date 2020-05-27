@@ -9,7 +9,7 @@ import Certifications from 'components/certifications'
 import Hero from 'components/home/hero'
 import Layout from 'components/layout'
 import Products from 'components/home/products'
-import Testimonials from 'components/home/testimonials'
+import Testimonials from 'components/testimonials'
 
 const Home = ({ banners, testimonials }) => {
   const [variant, setVariant] = useState('primary')

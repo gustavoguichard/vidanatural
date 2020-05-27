@@ -1,6 +1,7 @@
 import find from 'lodash/find'
 import get from 'lodash/get'
 import map from 'lodash/map'
+import shuffle from 'lodash/shuffle'
 import isArray from 'lodash/isArray'
 import { GetStaticProps } from 'next'
 
@@ -29,15 +30,20 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const id = get(product, 'id')
   const localData = find(products, (p) => id === p.vndaId)
   const tags = map(get(product, 'tags'), 'name')
-  const testimonials = await api.cms.getByTypeAndTags(
+  const testimonialsData = await api.cms.getByTypeAndTags(
     'testimonial',
     {
-      fetch: ['name', 'picture', 'content', 'short_content'].map(
-        (field) => `testimonial.${field}`,
-      ),
+      fetch: [
+        'testimonial.name',
+        'testimonial.picture',
+        'testimonial.content',
+        'testimonial.short_content',
+      ],
     },
     [...tags, 'institucional'],
   )
+  const testimonials = shuffle(testimonialsData)
+
   const faqItems = await api.cms.getByTypeAndTags(
     'faq_item',
     {
@@ -46,6 +52,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     },
     tags,
   )
+
   return {
     props: {
       slug,
