@@ -10,8 +10,9 @@ import Hero from 'components/home/hero'
 import Layout from 'components/layout'
 import Products from 'components/home/products'
 import Testimonials from 'components/testimonials'
+import HomeFeed from 'components/home-feed'
 
-const Home = ({ banners, testimonials }) => {
+const Home = ({ banners, testimonials, posts }) => {
   const [variant, setVariant] = useState('primary')
   const isMobile = useIsMobile()
 
@@ -22,6 +23,7 @@ const Home = ({ banners, testimonials }) => {
       <Products />
       <About isMobile={isMobile} />
       <Testimonials testimonials={testimonials} />
+      <HomeFeed posts={posts} />
     </Layout>
   )
 }
