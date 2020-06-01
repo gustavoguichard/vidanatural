@@ -54,7 +54,7 @@ const HomeHero = ({ banners, setVariant }) => {
                 textAlign: data.horizontal === 'center' ? 'center' : 'left',
                 backgroundColor: `rgba(${
                   data.is_dark ? '255,255,255' : '0,0,0'
-                },.4)`,
+                },.6)`,
                 padding: theme.spacing(2),
               }}
             >

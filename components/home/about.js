@@ -20,11 +20,11 @@ const Section = ({ title, children, bb, bt, br, bl }) => (
         },
       }}
     >
-      <Typography variant="h2">{title}</Typography>
+      <Typography variant="h3">{title}</Typography>
       <Typography
         variant="body1"
         component="div"
-        css={{ margin: theme.spacing(5, 0) }}
+        css={{ margin: theme.spacing(3, 0, 5), color: theme.palette.text.hint }}
       >
         {children}
       </Typography>

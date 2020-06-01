@@ -6,8 +6,8 @@ import { Container, Typography, useTheme } from '@material-ui/core'
 import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'
 
+import Banners from 'components/banners'
 import Breadcrumbs from 'components/breadcrumbs'
-import Hero from 'components/home/hero'
 import Layout from 'components/layout'
 import PostPreview from 'components/post-preview'
 import PostSkeleton from 'components/skeleton/blog-post'
@@ -20,7 +20,7 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
   const router = useRouter()
   const title = `Tag: ${startCase(router.query.uid)}`
   const hero = isEmpty(banners) ? null : (
-    <Hero banners={banners} setVariant={() => {}} />
+    <Banners banners={banners} setVariant={() => {}} />
   )
   const emptyPage =
     [banners, products, posts, testimonials, faqItems].every(isEmpty) &&

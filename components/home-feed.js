@@ -76,7 +76,9 @@ const HomeFeed = ({ posts }) => {
                     >
                       {post.data.title}
                     </Typography>
-                    <Typography>{getExcerpt(post.data.body)}</Typography>
+                    <Typography css={{ color: theme.palette.text.hint }}>
+                      {getExcerpt(post.data.body)}
+                    </Typography>
                   </Box>
                   <AuthorCard
                     author={post.author}

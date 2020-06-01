@@ -1,4 +1,3 @@
-import isEmpty from 'lodash/isEmpty'
 import { GoQuote } from 'react-icons/go'
 import { RichText } from 'prismic-reactjs'
 import { Avatar, Box, Typography } from '@material-ui/core'
