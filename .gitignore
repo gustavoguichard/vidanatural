@@ -17,3 +17,5 @@ bundle/
 .eslintcache
 
 s3/
+
+.vercel

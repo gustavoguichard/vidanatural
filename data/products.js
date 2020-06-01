@@ -80,6 +80,7 @@ export default [
       'Você irá se apaixonar pelo nosso novo hidratante. Feito à base de abacate e rosa mosqueta.',
     path: 'hidratante-corporal',
     packing: 'pump',
+    showHome: true,
     ingredients: ['Lavandula Angustifolia Oil'],
   },
   {
