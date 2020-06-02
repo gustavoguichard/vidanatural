@@ -30,8 +30,6 @@ const ProductSale = ({
     isEmpty(cmsData.ingredients) && isEmpty(cmsData.ingredients_table)
   )
 
-  console.log(cmsData.related_products)
-
   return (
     <>
       {isMobile && <MobileCTA visible={visible} product={product} />}

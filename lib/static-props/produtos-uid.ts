@@ -66,7 +66,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
 
   const includedProducts = cmsProduct?.data?.related_products
     ? products.filter((p: VndaProduct) => includedIds.includes(String(p.id)))
-    : undefined
+    : null
 
   return {
     props: {
