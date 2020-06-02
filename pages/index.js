@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-import { useIsMobile } from 'lib/hooks'
-
 import staticProps from 'lib/static-props/home'
 
 import About from 'components/home/about'
@@ -14,14 +12,13 @@ import HomeFeed from 'components/home-feed'
 
 const Home = ({ banners, testimonials, posts }) => {
   const [variant, setVariant] = useState('primary')
-  const isMobile = useIsMobile()
 
   return (
     <Layout variant={variant} hideCertifications>
       <Banners banners={banners} setVariant={setVariant} />
       <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
       <Products />
-      <About isMobile={isMobile} />
+      <About />
       <Testimonials testimonials={testimonials} />
       <HomeFeed posts={posts} />
     </Layout>

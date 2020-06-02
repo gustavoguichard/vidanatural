@@ -48,7 +48,7 @@ const Image = ({ src, order = 0 }) => (
   </Grid>
 )
 
-const About = ({ isMobile }) => (
+const About = () => (
   <Box bgcolor="white" py={6}>
     <Container maxWidth="lg">
       <Grid spacing={0} container css={{ backgroundColor: '#fafafa' }}>
