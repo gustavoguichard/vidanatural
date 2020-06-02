@@ -60,11 +60,11 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   })
 
   const includedIds = map(
-    cmsProduct.data.related_products,
+    cmsProduct?.data?.related_products,
     'related_product.data.vnda_id',
   )
 
-  const includedProducts = cmsProduct.data.related_products
+  const includedProducts = cmsProduct?.data?.related_products
     ? products.filter((p: VndaProduct) => includedIds.includes(String(p.id)))
     : undefined
 
