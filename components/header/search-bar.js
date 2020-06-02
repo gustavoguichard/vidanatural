@@ -98,11 +98,7 @@ const SearchBar = () => {
               <List>
                 {results.length ? (
                   results.map((item) => (
-                    <SearchItem
-                      key={item.id}
-                      closeSearch={closeSearch}
-                      {...item}
-                    />
+                    <SearchItem key={item.id} onClick={closeSearch} {...item} />
                   ))
                 ) : (
                   <ListSubheader color="inherit">

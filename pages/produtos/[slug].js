@@ -8,6 +8,7 @@ import staticProps from 'lib/static-props/produtos-uid'
 
 import ErrorPage from 'pages/404'
 import ProductLayout from 'components/products/layout'
+import IncludedProducts from 'components/included-products'
 import RelatedProducts from 'components/related-products'
 import ProductSale from 'components/products/sale'
 import Skeleton from 'components/skeleton/product-sale'
@@ -19,11 +20,12 @@ const ProductPage = ({
   foundProduct,
   hasLocalContent,
   relatedProducts,
+  includedProducts,
+  cmsData,
   slug,
 }) => {
   const isMobile = useIsMobile()
   const { isFallback } = useRouter()
-
   return isFallback || foundProduct ? (
     <ProductLayout
       hasLocalContent={hasLocalContent}
@@ -32,6 +34,7 @@ const ProductPage = ({
       product={product}
       faqItems={faqItems}
       testimonials={testimonials}
+      cmsData={cmsData}
     >
       {isFallback ? (
         <Skeleton />
@@ -41,9 +44,11 @@ const ProductPage = ({
           hasFaqItems={!isEmpty(faqItems)}
           isMobile={isMobile}
           product={product}
+          cmsData={cmsData}
         />
       )}
       <Container maxWidth="md">
+        <IncludedProducts products={includedProducts} />
         <RelatedProducts products={relatedProducts} />
       </Container>
     </ProductLayout>

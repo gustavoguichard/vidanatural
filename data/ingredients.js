@@ -1,5 +1,3 @@
-export const EWG_URL = 'https://www.ewg.org/skindeep/ingredient/'
-
 export default [
   {
     name: 'Água Purificada',

@@ -5,13 +5,18 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core'
+import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
 
 import CTAButton from 'components/cta-button'
 import FeaturedIngredients from 'components/featured-ingredients'
 
-const IllustratedIngredients = () => {
+const IllustratedIngredients = ({
+  ingredients_description,
+  ingredients_title,
+  ingredients,
+}) => {
   const matches = useMediaQuery('(min-width: 760px)')
   return (
     <Box
@@ -27,18 +32,17 @@ const IllustratedIngredients = () => {
         <Grid container justify="center">
           <Grid item xs={12} md={10}>
             <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
-              <Typography variant="h3">Ingredientes</Typography>
+              <Typography variant="h3">{ingredients_title}</Typography>
               <Typography
-                variant="body1"
+                component="div"
                 css={{
                   marginTop: theme.spacing(2),
                   marginBottom: theme.spacing(4),
                 }}
               >
-                Veja alguns dos nossos principais ingredientes e seus
-                benefícios.
+                <RichText render={ingredients_description} />
               </Typography>
-              <FeaturedIngredients />
+              <FeaturedIngredients ingredients={ingredients} />
               <CTAButton href="/produtos" css={{ marginTop: theme.spacing(4) }}>
                 Conhecer os produtos
               </CTAButton>

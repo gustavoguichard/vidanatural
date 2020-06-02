@@ -14,5 +14,7 @@ export default async () => {
       'github',
     ].map((field) => `team_member.${field}`),
   })
-  return { props: { team } }
+
+  const page = await api.cms.getPage('about_page')
+  return { props: { team, page } }
 }

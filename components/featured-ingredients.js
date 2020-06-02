@@ -1,22 +1,12 @@
-import find from 'lodash/find'
 import { Box, Grid, Typography } from '@material-ui/core'
+import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
 
 import Img from 'components/img'
 import InciLink from 'components/inci-link'
 
-import ingredientData from 'data/ingredients'
-
-const FeaturedIngredients = ({ product }) => {
-  const allIngredients = product
-    ? product.ingredients.map((ing) =>
-        find(ingredientData, (data) => data.inci === ing),
-      )
-    : ingredientData
-
-  const ingredients = allIngredients.filter((ing) => ing.hasIcon)
-
+const FeaturedIngredients = ({ ingredients }) => {
   return (
     <Grid
       spacing={3}
@@ -25,13 +15,13 @@ const FeaturedIngredients = ({ product }) => {
       css={{ textAlign: 'center' }}
     >
       {ingredients.map((ing) => (
-        <Grid key={ing.inci} item xs={12} sm={6} md={4}>
+        <Grid key={ing.inci_title} item xs={12} sm={6} md={4}>
           <Box mb={-8} minHeight={250}>
             <Img
               className="responsive"
               width={300}
-              alt={ing.name}
-              src={`/static/images/ingredients/${ing.inci}.png`}
+              alt={ing.title}
+              src={ing.image.url}
             />
           </Box>
           <Typography
@@ -41,20 +31,20 @@ const FeaturedIngredients = ({ product }) => {
                 '-2px -2px 1px white, 2px -2px 1px white, -2px 2px 1px white, 2px 2px 1px white',
             }}
           >
-            {ing.name}
+            {ing.title}
           </Typography>
           <Typography variant="caption">
             <InciLink {...ing} />
           </Typography>
           <Typography
-            variant="body1"
+            component="div"
             css={{
               color: theme.palette.text.hint,
               marginTop: theme.spacing(),
               marginBottom: theme.spacing(5),
             }}
           >
-            {ing.description}
+            <RichText render={ing.description} />
           </Typography>
         </Grid>
       ))}

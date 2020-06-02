@@ -1,3 +1,4 @@
+import isEmpty from 'lodash/isEmpty'
 import {
   Container,
   Grid,
@@ -5,43 +6,53 @@ import {
   Typography,
   useMediaQuery,
 } from '@material-ui/core'
+import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
 
 import FeaturedIngredients from 'components/featured-ingredients'
 import Ingredients from 'components/ingredients'
 
-const ProductIngredients = ({ product }) => {
+const ProductIngredients = ({
+  ingredients_description,
+  ingredients,
+  ingredients_table,
+}) => {
   const matches = useMediaQuery('(min-width: 760px)')
-  return (
+  const hasIngredients = !isEmpty(ingredients)
+  const hasTable = !isEmpty(ingredients_table)
+  return hasIngredients || hasTable ? (
     <Container
       id="ingredientes"
-      css={{ paddingLeft: theme.spacing(5), paddingRight: theme.spacing(5) }}
+      css={{
+        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(5),
+        backgroundColor: '10px solid white',
+      }}
     >
       <Grid css={{ padding: 0 }} container justify="center">
         <Grid item xs={12} md={10}>
           <Box pt={8} pb={8} textAlign={matches ? 'center' : 'left'}>
             <Typography variant="h3">Ingredientes</Typography>
             <Typography
-              variant="body1"
+              component="div"
               css={{
                 marginTop: theme.spacing(2),
                 marginBottom: theme.spacing(4),
               }}
             >
-              Esse produto é feito de{' '}
-              <strong>ingredientes seguros que você conhece</strong>, se tiver
-              alguma dúvida, clique no link de cada um para obter informações
-              sobre o nível de segurança no site da EWG (Environmental Working
-              Group - em inglês).
+              <RichText render={ingredients_description} />
             </Typography>
-            <FeaturedIngredients product={product} />
-            <Ingredients hideFeatured product={product} />
+            <FeaturedIngredients ingredients={ingredients} />
+            <Ingredients
+              hasFeatured={hasIngredients}
+              ingredients={ingredients_table}
+            />
           </Box>
         </Grid>
       </Grid>
     </Container>
-  )
+  ) : null
 }
 
 export default ProductIngredients

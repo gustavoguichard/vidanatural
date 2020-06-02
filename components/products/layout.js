@@ -13,7 +13,7 @@ import ProductTestimonials from './testimonials'
 const ProductLayout = ({
   product = {},
   testimonials,
-  hasLocalContent,
+  cmsData,
   faqItems,
   slug,
   children,
@@ -70,7 +70,7 @@ const ProductLayout = ({
           borderBottom: '10px solid white',
         }}
       >
-        {hasLocalContent && <ProductIngredients product={product} />}
+        <ProductIngredients {...cmsData} />
         <ProductFaq items={faqItems} />
       </Box>
       <ProductTestimonials product={product} testimonials={testimonials} />

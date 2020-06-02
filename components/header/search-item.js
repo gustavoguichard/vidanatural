@@ -7,13 +7,14 @@ import {
 } from '@material-ui/core'
 
 import api from 'lib/api'
+import theme from 'lib/theme'
 
 import PriceTag from 'components/products/price-tag'
 
 const SearchItem = ({
+  onClick,
   id,
   name,
-  closeSearch,
   image_url,
   price,
   slug,
@@ -25,15 +26,16 @@ const SearchItem = ({
       button
       onClick={async () => {
         await router.push('/produtos/[slug]', `/produtos/${slug}-${id}`)
-        closeSearch()
+        onClick && onClick()
       }}
     >
       {image_url ? (
         <ListItemAvatar>
           <img
             alt={name}
-            src={api.vnda.getResizedImg(image_url, 30)}
-            width="30"
+            src={api.vnda.getResizedImg(image_url, 60)}
+            width="60"
+            css={{ marginRight: theme.spacing(2) }}
           />
         </ListItemAvatar>
       ) : null}

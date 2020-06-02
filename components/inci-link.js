@@ -1,20 +1,19 @@
+import isEmpty from 'lodash/isEmpty'
 import { Link } from '@material-ui/core'
 
-import { EWG_URL } from 'data/ingredients'
-
-const InciLink = ({ url, inci }) =>
-  url ? (
+const InciLink = ({ link, inci_title }) =>
+  isEmpty(link) ? (
+    inci_title
+  ) : (
     <Link
-      href={EWG_URL + url}
+      href={link.url}
       target="_blank"
       rel="noopener"
       color="secondary"
       title="Obter mais informações"
     >
-      {inci}
+      {inci_title}
     </Link>
-  ) : (
-    inci
   )
 
 export default InciLink

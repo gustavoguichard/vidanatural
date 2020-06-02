@@ -7,7 +7,10 @@ import FaqItems from 'components/faq-items'
 
 const ProductFaq = ({ items }) => {
   return get(items, 'length') ? (
-    <Container id="faq" css={{ padding: theme.spacing(3, 3) }}>
+    <Container
+      id="faq"
+      css={{ padding: theme.spacing(3, 3), backgroundColor: 'white' }}
+    >
       <Grid css={{ padding: 0 }} container justify="center" spacing={3}>
         <Grid item xs={12} md={9}>
           <Typography

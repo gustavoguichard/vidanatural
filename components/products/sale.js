@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import { useInView } from 'react-intersection-observer'
+import isEmpty from 'lodash/isEmpty'
 import { Breadcrumbs as BCrumbs, Grid, Typography } from '@material-ui/core'
 
 import { useIsDesktop } from 'lib/hooks'
@@ -13,13 +14,23 @@ import ProductContainer from './container'
 import ProductCTA from './cta'
 import MobileCTA from './mobile-cta'
 
-const ProductSale = ({ product, isMobile, hasTestimonials, hasFaqItems }) => {
+const ProductSale = ({
+  product,
+  isMobile,
+  hasTestimonials,
+  hasFaqItems,
+  cmsData,
+}) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
   const [variant] = product.variants || [{}]
   const isDesktop = useIsDesktop()
 
   const hasInformation = !!product.description.information
-  const hasIngredinets = !!product.ingredients
+  const hasIngredinets = !(
+    isEmpty(cmsData.ingredients) && isEmpty(cmsData.ingredients_table)
+  )
+
+  console.log(cmsData.related_products)
 
   return (
     <>

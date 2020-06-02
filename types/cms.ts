@@ -4,6 +4,7 @@ export type DocumentType =
   | 'faq_item'
   | 'testimonial'
   | 'home_banner'
+  | 'product'
 
 export interface QueryOptions {
   after?: string | string[]

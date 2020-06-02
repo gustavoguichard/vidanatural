@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import { ExpandMore } from '@material-ui/icons'
+import { RichText } from 'prismic-reactjs'
 
 import InciLink from 'components/inci-link'
 
@@ -16,17 +17,17 @@ const IngredientsMobile = ({ data }) =>
         aria-controls={`ingredient${i}-content`}
       >
         <Typography variant="body2">
-          <strong>{item.name || item.inci}</strong>
+          <strong>{item.title || item.inci_title}</strong>
         </Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <Typography variant="body1" css={{ textAlign: 'left' }}>
+        <Typography component="div" css={{ textAlign: 'left' }}>
           <strong>Inci:</strong> <InciLink {...item} />
           <br />
           <br />
           <strong>O que significa?</strong>
           <br />
-          {item.description || '--'}
+          {item.description ? <RichText render={item.description} /> : '--'}
         </Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>

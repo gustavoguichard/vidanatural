@@ -1,6 +1,5 @@
 import { memo } from 'react'
 import { useRouter } from 'next/router'
-import get from 'lodash/get'
 import {
   List,
   ListItem,

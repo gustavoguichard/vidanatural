@@ -1,4 +1,5 @@
 import { Box, Grid, Typography } from '@material-ui/core'
+import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
 import staticProps from 'lib/static-props/sobre-a-vida-natural'
@@ -12,7 +13,7 @@ import PaperContent from 'components/paper-content'
 
 import sloganImg from 'public/static/svgs/eufaco.svg'
 
-const AboutPage = ({ team }) => {
+const AboutPage = ({ team, page }) => {
   return (
     <Layout
       title="Sobre a Vida Natural"
@@ -32,10 +33,12 @@ const AboutPage = ({ team }) => {
             alt="Eu faço | cosmética consciente"
           />
         </Box>
-        <Typography variant="body1" css={{ margin: theme.spacing(0, 3, 3) }}>
-          Uma empresa feita por <strong>amigos</strong>, unidos pelo propósito
-          da <strong>transparência</strong>, que se importam com aquilo que
-          colocamos todos os dias no nosso maior orgão de absorção - a pele.
+        <Typography
+          component="div"
+          variant="body1"
+          css={{ margin: theme.spacing(0, 3, 3) }}
+        >
+          <RichText render={page.data.banner_description} />
         </Typography>
       </Hero>
       <PaperContent>
@@ -44,29 +47,11 @@ const AboutPage = ({ team }) => {
             <Breadcrumbs css={{ margin: theme.spacing(-3, 0, 3) }}>
               Sobre a VN
             </Breadcrumbs>
-            <Typography variant="h4" css={{ marginBottom: theme.spacing(4) }}>
-              Por que fazemos o que fazemos?
-            </Typography>
-            <Typography component="div" variant="body1">
-              <p>
-                Produzimos desodorantes, xampus, pó dental, óleos e cremes
-                hidratantes elaborados em um processo de produção totalmente
-                artesanal, feitos à mão e em pequenos lotes, o que garante a
-                entrega de cosméticos únicos, frescos, eficientes e em total
-                equilíbrio com o seu corpo e o meio ambiente.
-              </p>
-              <p>
-                Com a nossa linha de cosméticos queremos incentivar um movimento
-                para desconstruir ideias, propor mudanças no comportamento e nos
-                valores favorecendo um consumo + simples, consciente e em maior
-                equilíbrio com a saúde do seu corpo e a natureza.
-              </p>
-              <p>
-                Conservantes sintéticos, parabenos, fragrâncias artificiais,
-                derivados de petróleo ou origem animal, não fazem parte da nossa
-                produção. Nós acreditamos que um corpo, uma mente e um planeta
-                sadios dependem de tudo o que você faz e coloca neles.
-              </p>
+            <Typography
+              component="div"
+              css={{ marginBottom: theme.spacing(4) }}
+            >
+              <RichText render={page.data.content} />
             </Typography>
           </Grid>
           <Grid id="quem-somos" item xs={12}>
@@ -88,7 +73,7 @@ const AboutPage = ({ team }) => {
           </Grid>
         </Grid>
       </PaperContent>
-      <IllustratedIngredients />
+      <IllustratedIngredients {...page.data} />
     </Layout>
   )
 }

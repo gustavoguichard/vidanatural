@@ -9,6 +9,8 @@ import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parseProduct from 'lib/parsers/product'
 
+import { VndaProduct } from 'types/vnda'
+
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
   const response = await api.vnda.listProduct(slug as string)
@@ -53,6 +55,19 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     tags,
   )
 
+  const cmsProduct = await api.cms.getExact('product', 'vnda_id', String(id), {
+    fetchLinks: ['product.vnda_id'],
+  })
+
+  const includedIds = map(
+    cmsProduct.data.related_products,
+    'related_product.data.vnda_id',
+  )
+
+  const includedProducts = cmsProduct.data.related_products
+    ? products.filter((p: VndaProduct) => includedIds.includes(String(p.id)))
+    : undefined
+
   return {
     props: {
       slug,
@@ -66,6 +81,8 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       faqItems,
       testimonials,
       relatedProducts,
+      includedProducts,
+      cmsData: cmsProduct?.data ?? {},
     },
     unstable_revalidate: 15,
   }
