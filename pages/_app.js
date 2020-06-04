@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
 import Router from 'next/router'
-import NProgress from 'next-nprogress/component'
 import { ThemeProvider, StylesProvider } from '@material-ui/styles'
 import { CssBaseline } from '@material-ui/core'
 
@@ -36,7 +35,6 @@ const VidaNatural = ({ pageProps, Component }) => {
 
   return (
     <>
-      <NProgress color={theme.palette.secondary.main} />
       <DefaultSeo {...SEO} />
       <StylesProvider injectFirst>
         <ThemeProvider theme={theme}>

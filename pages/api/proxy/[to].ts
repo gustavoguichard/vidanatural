@@ -1,4 +1,4 @@
-import { Http2ServerResponse } from 'http2'
+import { NextApiRequest, NextApiResponse } from 'next'
 import omitBy from 'lodash/omitBy'
 import { parseCookies, encodeCookies } from 'lib/utils'
 
@@ -10,7 +10,12 @@ const omitCookies = (cookies = '', fn: (v: string, k: string) => boolean) => {
 
 const keysWithLodash = (_: string, k: string) => k.startsWith('_')
 
-export default async (req: any, res: Http2ServerResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  if (!req.url) {
+    res.status(404).json({ text: 'Not found' })
+    return
+  }
+
   const endpoint = req.url.replace('/api/proxy/', '').replace('::', '/')
 
   try {
@@ -33,16 +38,19 @@ export default async (req: any, res: Http2ServerResponse) => {
         credentials: 'include',
       })
       const cookie = response.headers.get('Set-Cookie') || ''
-      res.writeHead(response.status, { Biscuit: cookie })
+      res.setHeader('Biscuit', cookie)
       const isSuccess = response.status < 400
       if (isSuccess) {
         const json = await response.json()
-        res.end(JSON.stringify(json))
+        res.status(response.status).json(json)
+        return
       }
     }
-    res.end(`[]`)
+    res.status(500).json({ text: 'Could not process route' })
+    return
   } catch (err) {
     console.log(err)
-    res.end(`[]`)
+    res.status(500).json({ text: err })
+    return
   }
 }
