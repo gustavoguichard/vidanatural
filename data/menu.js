@@ -76,6 +76,11 @@ export default {
         path: '/faq',
       },
       {
+        name: 'Políticas de Frete grátis',
+        path:
+          '/faq/quais-sao-as-politicas-de-frete-gratis-do-e-commerce-da-vida-natural',
+      },
+      {
         name: 'Termos e Condições',
         path: '/termos-e-condicoes',
       },
