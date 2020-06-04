@@ -84,6 +84,7 @@ const HomeFeed = ({ posts }) => {
                     author={post.author}
                     post={post.data.body}
                     date={post.date}
+                    disableLink
                     css={{ margin: theme.spacing(3, 0, -1) }}
                   />
                 </CardContent>

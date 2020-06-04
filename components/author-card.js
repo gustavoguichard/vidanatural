@@ -7,7 +7,14 @@ import DocumentDetails from 'components/document-details'
 import Img from 'components/img'
 import Link from 'components/link'
 
-const AuthorCard = ({ author, date, post, showAvatar, ...props }) => {
+const AuthorCard = ({
+  author,
+  date,
+  post,
+  showAvatar,
+  disableLink,
+  ...props
+}) => {
   return (
     <Box mt={1} mb={2} display="flex" position="relative" {...props}>
       {showAvatar && (
@@ -22,7 +29,12 @@ const AuthorCard = ({ author, date, post, showAvatar, ...props }) => {
           />
         </Link>
       )}
-      <DocumentDetails author={author} post={post} date={date} />
+      <DocumentDetails
+        author={author}
+        post={post}
+        date={date}
+        disableLink={disableLink}
+      />
     </Box>
   )
 }

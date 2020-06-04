@@ -5,14 +5,25 @@ import { calculatePostReadTime, getFromDate } from 'lib/domain'
 
 import Link from 'components/link'
 
-const DocumentDetails = ({ prepend, author, post, date, ...props }) => {
+const DocumentDetails = ({
+  prepend,
+  disableLink,
+  author,
+  post,
+  date,
+  ...props
+}) => {
   return (
     <Typography variant="caption" {...props}>
       {author && (
         <div>
           Escrito por{' '}
           <strong>
-            <Link {...author.permalink}>{author.data.name}</Link>
+            {disableLink ? (
+              author.data.name
+            ) : (
+              <Link {...author.permalink}>{author.data.name}</Link>
+            )}
           </strong>
           <br />
         </div>
