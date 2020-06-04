@@ -63,16 +63,8 @@ const ProductLayout = ({
         }}
       />
       {children}
-      <Box
-        id="faq"
-        css={{
-          borderTop: '10px solid white',
-          borderBottom: '10px solid white',
-        }}
-      >
-        <ProductIngredients {...cmsData} />
-        <ProductFaq items={faqItems} />
-      </Box>
+      <ProductIngredients {...cmsData} />
+      <ProductFaq items={faqItems} />
       <ProductTestimonials product={product} testimonials={testimonials} />
     </Layout>
   )

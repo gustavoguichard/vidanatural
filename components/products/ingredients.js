@@ -27,7 +27,7 @@ const ProductIngredients = ({
       css={{
         paddingLeft: theme.spacing(5),
         paddingRight: theme.spacing(5),
-        backgroundColor: '10px solid white',
+        borderTop: '10px solid white',
       }}
     >
       <Grid css={{ padding: 0 }} container justify="center">
