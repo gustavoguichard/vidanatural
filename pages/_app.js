@@ -9,6 +9,8 @@ import { isClient } from 'lib/utils'
 import SEO from 'lib/next-seo.config'
 import theme from 'lib/theme'
 
+import Pixel from 'components/pixel'
+
 import 'styles/app.scss'
 
 const didMount = async () => {
@@ -36,6 +38,7 @@ const VidaNatural = ({ pageProps, Component }) => {
   return (
     <>
       <DefaultSeo {...SEO} />
+      <Pixel />
       <StylesProvider injectFirst>
         <ThemeProvider theme={theme}>
           <CssBaseline />
