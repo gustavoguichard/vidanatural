@@ -11,12 +11,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const page = Number(number)
   const response = await api.cms.getPaginated('blog_post', {
     orderings: '[my.blog_post.date desc]',
-    fetch: [
-      'blog_post.title',
-      'blog_post.body',
-      'blog_post.author',
-      'blog_post.header_image',
-    ],
+    fetch: ['title', 'body', 'author', 'header_image', 'date'].map(tag => `blog_post.${tag}.`),
     fetchLinks: ['team_member.name', 'team_member.picture'],
     page,
     pageSize: BLOG_PAGE_SIZE,

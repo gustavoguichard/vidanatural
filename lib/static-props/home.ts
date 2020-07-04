@@ -16,7 +16,7 @@ export default async () => {
   })
   const postsResponse = await api.cms.getByTypeAndTags('blog_post', {
     orderings: '[my.blog_post.date desc]',
-    fetch: ['blog_post.title', 'blog_post.body', 'blog_post.author'],
+    fetch: ['title', 'body', 'author', 'date'].map(tag => `blog_post.${tag}.`),
     fetchLinks: ['team_member.name', 'team_member.picture'],
     pageSize: 4,
   })
