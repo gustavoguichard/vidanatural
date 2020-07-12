@@ -59,7 +59,7 @@ const Footer = () => {
           </Grid>
         </Grid>
         <Typography variant="body2" color="inherit">
-          Vida Natural&reg; {year} • Imbituba / SC
+          Vida Natural&reg; {year} • Florianópolis / SC
           <br />
           <a
             css={{ color: 'inherit' }}

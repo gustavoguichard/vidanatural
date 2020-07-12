@@ -46,13 +46,13 @@ const Page = () => (
         <Grid item xs={12} md={4}>
           <Typography component="div" variant="body2">
             <p>
-              <strong>Nossa sede</strong>
+              <strong>Endereço</strong>
               <br />
-              Antolino E. Martins, 106
+              Manoel Petronilho da Silveira, 451
               <br />
-              Vila Esperança, Imbituba / SC
+              São João do Rio Vermelho, Florianópolis / SC
               <br />
-              88780-000
+              88060-100
             </p>
             <p>
               <strong>Ligue ou envie uma mensagem</strong>
