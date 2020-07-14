@@ -17,6 +17,7 @@ import theme from 'lib/theme'
 import Pixel from 'components/pixel'
 
 import 'styles/app.scss'
+import 'styles/tailwind.css'
 
 const didMount = async (router) => {
   await intersectionPolyfill()

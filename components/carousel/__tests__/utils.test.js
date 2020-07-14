@@ -29,6 +29,7 @@ describe('Carousel utils', () => {
       expect(subject.calculatePages(10, 120)(el)).toEqual({
         perPage: 2,
         total: 5,
+        width: 120,
       })
     })
   })
