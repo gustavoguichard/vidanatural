@@ -6,6 +6,7 @@ import { useMediaQuery as useMq } from 'react-responsive'
 import { isClient } from 'lib/utils'
 import theme from 'lib/theme'
 import tailwindConfig from 'tailwind.config'
+// @ts-ignore
 import resolveConfig from 'tailwindcss/resolveConfig'
 
 const Tailwind = resolveConfig(tailwindConfig)
