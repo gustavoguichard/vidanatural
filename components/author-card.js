@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Avatar, Box } from '@material-ui/core'
+import { Avatar } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
@@ -7,16 +7,9 @@ import DocumentDetails from 'components/document-details'
 import Img from 'components/img'
 import Link from 'components/link'
 
-const AuthorCard = ({
-  author,
-  date,
-  post,
-  showAvatar,
-  disableLink,
-  ...props
-}) => {
+const AuthorCard = ({ author, date, post, showAvatar, disableLink, style }) => {
   return (
-    <Box mt={1} mb={2} display="flex" position="relative" {...props}>
+    <div className="flex relative mt-2 mb-4" style={style}>
       {showAvatar && (
         <Link {...author.permalink} css={{ margin: theme.spacing(0, 1) }}>
           <Img
@@ -35,7 +28,7 @@ const AuthorCard = ({
         date={date}
         disableLink={disableLink}
       />
-    </Box>
+    </div>
   )
 }
 

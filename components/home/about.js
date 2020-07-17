@@ -44,14 +44,14 @@ const Image = ({ src, order = 0 }) => (
       [theme.breakpoints.down('sm')]: { order: 0 },
     }}
   >
-    <BackgroundImg src={src} />
+    <BackgroundImg src={src} className="shadow-lg" />
   </Grid>
 )
 
 const About = () => (
   <Box bgcolor="white" py={6}>
     <Container maxWidth="lg">
-      <Grid spacing={0} container css={{ backgroundColor: '#fafafa' }}>
+      <Grid spacing={0} container className="bg-gray-100">
         <Image src="/static/images/afro.jpg" />
         <Section title="Uma ideia, um movimento" bt br>
           <p>

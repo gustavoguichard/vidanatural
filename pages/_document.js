@@ -30,7 +30,7 @@ class VidaNatural extends Document {
             href="/sitemap.xml"
           />
         </Head>
-        <body>
+        <body className="bg-gray-100">
           <Main />
           <NextScript />
           <link

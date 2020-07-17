@@ -32,7 +32,7 @@ const Scroller = (
   const itemStyles = flex ? { flexShrink: 0 } : {}
 
   return (
-    <Box
+    <div
       ref={ref}
       css={{
         ...baseStyles,
@@ -56,7 +56,7 @@ const Scroller = (
           },
         }),
       )}
-    </Box>
+    </div>
   )
 }
 

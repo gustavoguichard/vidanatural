@@ -1,5 +1,4 @@
 import { memo } from 'react'
-import { Box } from '@material-ui/core'
 import dynamic from 'next/dynamic'
 import Router from 'next/router'
 
