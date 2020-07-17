@@ -1,20 +1,18 @@
-import { Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
-
-import Hero from 'components/hero'
+import Hero from 'components/hero2'
 import Layout from 'components/layout'
-import Link from 'components/link'
+import Link from 'next/link'
 
 const Page = () => (
   <Layout title="Gratos pelo contato">
     <Hero size="full" background="/static/images/capa-pb.jpg">
-      <Typography variant="h2">Agradecemos pelo contato!</Typography>
-      <Typography css={{ marginTop: theme.spacing(4) }} variant="body1">
+      <h2 className="text-4xl font-bold">Agradecemos pelo contato!</h2>
+      <p className="mt-2 text-lg">
         Retornaremos assim que possível.
         <br />
-        <Link href="/">Voltar para a Homepage</Link>
-      </Typography>
+        <Link href="/">
+          <a className="font-semibold text-green-400">Voltar para a Homepage</a>
+        </Link>
+      </p>
     </Hero>
   </Layout>
 )

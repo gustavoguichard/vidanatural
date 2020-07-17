@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
 import {
-  Box,
   IconButton,
   CircularProgress,
   InputAdornment,
   TextField,
-  Typography,
 } from '@material-ui/core'
 import { Send } from '@material-ui/icons'
 
@@ -14,7 +12,7 @@ import theme from 'lib/theme'
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 
-import Alert from 'components/alert'
+import FormError from 'components/form-error'
 
 const NewsForm = () => {
   const [sending, setSending] = useState(false)
@@ -38,35 +36,23 @@ const NewsForm = () => {
 
   const successful = subscribed && !hasError
   return successful ? (
-    <Typography
-      variant="h5"
-      color="inherit"
-      css={{ marginBottom: theme.spacing() }}
-    >
-      Gratos!
-      <br />
-      Você começará a receber nossas ofertas em breve! 🌱
-    </Typography>
+    <p>
+      <strong>Gratos!</strong> <br /> Você começará a receber nossas ofertas em
+      breve! 🌱
+    </p>
   ) : (
     <form name="Newsletter" onSubmit={handleSubmit} action="/webform">
-      <Typography
-        variant="h5"
-        color="inherit"
-        css={{ marginBottom: theme.spacing() }}
-      >
+      <h4 className="mb-1 uppercase tracking-wider font-semibold">
         Quer descontos exclusivos?
-      </Typography>
-      <Typography variant="body2" color="inherit">
-        Assine nossa newsletter e receba ofertas no seu e-mail
-      </Typography>
-      <Box mt={2}>
+      </h4>
+      <p>Assine nossa newsletter e receba ofertas no seu e-mail</p>
+      <div className="mt-3">
         <TextField
           id="news-email"
           variant="outlined"
+          className="flex pr-1"
           {...email('email')}
           css={{
-            display: 'flex',
-            paddingRight: 5,
             '& fieldset': {
               borderColor: theme.palette.primary.light,
             },
@@ -101,12 +87,8 @@ const NewsForm = () => {
             ),
           }}
         />
-        <Alert
-          message={
-            hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
-          }
-        />
-      </Box>
+        <FormError show={hasError} />
+      </div>
     </form>
   )
 }

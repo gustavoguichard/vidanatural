@@ -2,13 +2,22 @@ import { useCallback, useState, useRef, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
 import { useMediaQuery } from '@material-ui/core'
+import { useMediaQuery as useMq } from 'react-responsive'
 import { isClient } from 'lib/utils'
 import theme from 'lib/theme'
+import tailwindConfig from 'tailwind.config'
+import resolveConfig from 'tailwindcss/resolveConfig'
+
+const Tailwind = resolveConfig(tailwindConfig)
 
 export const useIsMobile = () => {
   const matches = useMediaQuery(theme.breakpoints.up('sm'))
   return !matches
 }
+
+export const useBreakPoint = (breakpoint: string) => useMq({
+  query: `(min-width: ${Tailwind.theme.screens[breakpoint]})`
+})
 
 export const useIsDesktop = () => {
   const matches = useMediaQuery(theme.breakpoints.up('md'))

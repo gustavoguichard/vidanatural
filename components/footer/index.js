@@ -1,77 +1,34 @@
-import { Box, Container, Grid, Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
-
 import FooterMenu from './footer-menu'
 import NewsForm from './news-form'
 import SocialList from './social-list'
 
 const year = new Date().getFullYear()
 
-const Footer = () => {
-  const color = theme.palette.primary.contrastText
-  return (
-    <Box
-      id="contato"
-      css={{
-        color,
-        paddingBottom: theme.spacing(10),
-        paddingTop: theme.spacing(8),
-        backgroundColor: theme.palette.primary.dark,
-        fontSize: '1.1rem',
-        a: {
-          color: 'inherit',
-          textDecoration: 'underline',
-          '&:hover': { color: theme.palette.secondary.main },
-        },
-      }}
-    >
-      <Container>
-        <Grid container>
-          <Grid
-            item
-            xs={12}
-            sm={8}
-            md={6}
-            css={{ marginBottom: theme.spacing(3) }}
-          >
-            <FooterMenu />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            md={5}
-            css={{
-              marginBottom: theme.spacing(3),
-              [theme.breakpoints.down('xs')]: { order: -1 },
-            }}
-          >
-            <NewsForm />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={1}
-            css={{ marginBottom: theme.spacing(), marginTop: -theme.spacing() }}
-          >
-            <SocialList color={color} />
-          </Grid>
-        </Grid>
-        <Typography variant="body2" color="inherit">
-          Vida Natural&reg; {year} • Florianópolis / SC
-          <br />
-          <a
-            css={{ color: 'inherit' }}
-            href="mailto:falecom@vidanatural.eco.br"
-          >
-            falecom@vidanatural.eco.br
-          </a>{' '}
-          | CNPJ: 24.288.982/0001-27
-        </Typography>
-      </Container>
-    </Box>
-  )
-}
+const Footer = () => (
+  <div id="contato" className="pb-20 pt-16 bg-gray-900 text-white">
+    <div className="mx-auto max-w-screen-xl w-full px-6 flex flex-wrap">
+      <div className="mb-6 sm:w-2/3 md:w-1/2">
+        <FooterMenu />
+      </div>
+      <div className="mb-6 order-first sm:order-none sm:w-1/3 w-full md:w-1/2 lg:w-5/12">
+        <NewsForm />
+      </div>
+      <div className="mb-2 -mt-2 w-full lg:w-1/12">
+        <SocialList />
+      </div>
+      <p className="text-sm w-full">
+        Vida Natural&reg; {year} • Florianópolis / SC
+        <br />
+        <a
+          className="font-semibold hover:text-green-300"
+          href="mailto:falecom@vidanatural.eco.br"
+        >
+          falecom@vidanatural.eco.br
+        </a>{' '}
+        | CNPJ: 24.288.982/0001-27
+      </p>
+    </div>
+  </div>
+)
 
 export default Footer

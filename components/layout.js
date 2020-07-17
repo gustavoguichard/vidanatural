@@ -38,11 +38,7 @@ const Layout = ({
     <main {...props} css={{ flex: 1 }}>
       {children}
     </main>
-    {hideCertifications || (
-      <Box css={{ width: '100%' }}>
-        <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
-      </Box>
-    )}
+    {hideCertifications || <Certifications />}
     <Footer variant={footerVariant} />
     <BottomCTA>
       {hideChat ? null : (

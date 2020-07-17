@@ -5,7 +5,7 @@ import { Button, CircularProgress, TextField } from '@material-ui/core'
 
 import api from 'lib/api'
 
-import Alert from 'components/alert'
+import FormError from 'components/form-error'
 import Input from 'components/input'
 
 const Form = () => {
@@ -54,11 +54,7 @@ const Form = () => {
         rows="4"
         label="Mensagem"
       />
-      <Alert
-        message={
-          hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
-        }
-      />
+      <FormError show={hasError} />
       <Button type="submit" variant="contained" color="secondary">
         {sending ? <CircularProgress /> : 'Enviar mensagem'}
       </Button>
