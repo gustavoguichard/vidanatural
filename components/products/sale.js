@@ -32,7 +32,9 @@ const ProductSale = ({
 
   return (
     <>
-      {isMobile && <MobileCTA visible={visible} product={product} />}
+      {isMobile && product.inStock && (
+        <MobileCTA visible={visible} product={product} />
+      )}
       <ProductContainer product={product} isMobile={isMobile}>
         <Grid item xs={12} md={6}>
           <ImageGallery product={product} isDesktop={isDesktop} />

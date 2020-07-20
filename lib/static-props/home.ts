@@ -26,5 +26,8 @@ export default async () => {
   const products = serverData.map(parseProduct).filter((p: ParsedProduct) => p.inStock)
   const posts = (postsResponse as BlogPost[]).map(parsePost)
   const testimonials = shuffle(testimonialsData)
-  return { props: { banners, testimonials, posts, products } }
+  return {
+    props: { banners, testimonials, posts, products },
+    unstable_revalidate: 60 * 10,
+  }
 }
