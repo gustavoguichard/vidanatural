@@ -10,14 +10,14 @@ import Products from 'components/home/products'
 import Testimonials from 'components/testimonials'
 import HomeFeed from 'components/home-feed'
 
-const Home = ({ banners, testimonials, posts }) => {
+const Home = ({ banners, testimonials, posts, products }) => {
   const [variant, setVariant] = useState('primary')
 
   return (
     <Layout variant={variant} hideCertifications>
       <Banners banners={banners} setVariant={setVariant} />
       <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
-      <Products />
+      <Products products={products} />
       <About />
       <Testimonials testimonials={testimonials} />
       <HomeFeed posts={posts} />

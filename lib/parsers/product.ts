@@ -4,6 +4,8 @@ import { VndaProduct } from 'types/vnda'
 
 export default (product: VndaProduct) => {
   const brokenDesc = product.description.split(`\n<hr/>\n`).map(trim)
+  const stock = +(product.variants[0]?.stock || 0)
+  const inStock = stock > 0
   const description =
     brokenDesc.length > 1
       ? {
@@ -18,6 +20,8 @@ export default (product: VndaProduct) => {
   return {
     ...product,
     slug: `${product.slug}-${product.id}`,
+    stock,
+    inStock,
     description,
   }
 }

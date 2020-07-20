@@ -2,8 +2,10 @@ import shuffle from 'lodash/shuffle'
 
 import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
+import parseProduct from 'lib/parsers/product'
 
 import { BlogPost } from 'types/cms'
+import { ParsedProduct } from 'types/vnda'
 
 export default async () => {
   const testimonialsData = await api.cms.getByTypeAndTags('testimonial', {
@@ -20,7 +22,9 @@ export default async () => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
     pageSize: 4,
   })
+  const serverData = await api.vnda.search()
+  const products = serverData.map(parseProduct).filter((p: ParsedProduct) => p.inStock)
   const posts = (postsResponse as BlogPost[]).map(parsePost)
   const testimonials = shuffle(testimonialsData)
-  return { props: { banners, testimonials, posts } }
+  return { props: { banners, testimonials, posts, products } }
 }

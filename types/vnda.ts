@@ -23,6 +23,11 @@ export interface VndaProduct {
   variants: ProductVariant[]
 }
 
+export interface ParsedProduct extends VndaProduct {
+  stock: number
+  inStock: boolean
+}
+
 export interface ProductTag {
   name: string
   title: string
@@ -40,4 +45,5 @@ export interface ProductVariant {
   name: string
   available: boolean
   available_quantity: number
+  stock: number
 }

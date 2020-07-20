@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import filter from 'lodash/filter'
 import times from 'lodash/times'
 import { Box, Container, Tabs, Tab } from '@material-ui/core'
@@ -8,12 +8,17 @@ import theme from 'lib/theme'
 
 import ProductSlide from 'components/home/slide'
 
-import products from 'data/products'
+import productsData from 'data/products'
 
-const productsArray = filter(products, 'showHome')
-
-const HomeProducts = () => {
+const HomeProducts = ({ products }) => {
   const [value, setValue] = useState(0)
+
+  const productsArray = useMemo(() => {
+    return filter(productsData, (product) => {
+      const vndaProduct = products.find((p) => p.id === product.vndaId)
+      return product.showHome && vndaProduct
+    })
+  }, [products])
 
   const handleChange = (event, newValue) => {
     const safeVal = newValue < 0 ? productsArray.length - 1 : newValue
