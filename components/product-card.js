@@ -50,6 +50,17 @@ const ProductPreview = ({ product }) => {
               dangerouslySetInnerHTML={{ __html: product.description.featured }}
             />
             <PriceTag lineBreak={false} item={variant} css={{ margin: 0 }} />
+            {product.inStock || (
+              <Typography
+                variant="caption"
+                css={{
+                  textTransform: 'uppercase',
+                  color: theme.palette.text.hint,
+                }}
+              >
+                Sem estoque
+              </Typography>
+            )}
           </CardContent>
         </CardActionArea>
       </Link>
