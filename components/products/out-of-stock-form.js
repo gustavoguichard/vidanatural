@@ -20,8 +20,9 @@ const OutOfStockForm = ({ product, innerRef }) => {
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [hasError, setHasError] = useState(false)
-  const [formState, { email }] = useFormState({
+  const [formState, { email, raw }] = useFormState({
     key: 'vidanatural-avise-me-quando-chegar-o-produto',
+    produto: '',
   })
 
   const handleSubmit = async (event) => {
@@ -29,13 +30,9 @@ const OutOfStockForm = ({ product, innerRef }) => {
     setHasError(false)
     setSending(true)
 
-    const isSent = await api.vnda.sendForm(formState.values)
-    if (isSent) {
-      formState.clear()
-      setSent(true)
-    } else {
-      setHasError(true)
-    }
+    const values = { ...formState.values, produto: product.name }
+    const isSent = await api.vnda.sendForm(values)
+    isSent ? setSent(true) : setHasError(true)
     setSending(false)
   }
 
@@ -47,43 +44,48 @@ const OutOfStockForm = ({ product, innerRef }) => {
         Você receberá uma mensagem em breve! 🌱
       </Typography>
     ) : (
-      <form name="Newsletter" onSubmit={handleSubmit} action="/webform">
+      <form
+        name="Avise-me"
+        data-webform="vidanatural-avise-me-quando-chegar-o-produto"
+        onSubmit={handleSubmit}
+        action="/webform"
+      >
         <Typography>
           Deixe o seu e-mail abaixo e enviaremos uma mensagem assim que tivermos
           o produto
         </Typography>
-        <Box mt={2}>
-          <TextField
-            id="news-email"
-            {...email('email')}
-            css={{ display: 'flex', paddingRight: 5 }}
-            required
-            label="Seu e-mail"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  {sending ? (
-                    <CircularProgress color="secondary" />
-                  ) : (
-                    <IconButton
-                      onClick={handleSubmit}
-                      aria-label="Enviar"
-                      type="submit"
-                      color="secondary"
-                    >
-                      <Send />
-                    </IconButton>
-                  )}
-                </InputAdornment>
-              ),
-            }}
-          />
-          <Alert
-            message={
-              hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
-            }
-          />
-        </Box>
+        <TextField {...raw('key')} type="hidden" />
+        <TextField {...raw('produto')} type="hidden" />
+        <TextField
+          id="news-email"
+          {...email('email')}
+          css={{ display: 'flex', paddingRight: 5 }}
+          required
+          label="Seu e-mail"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                {sending ? (
+                  <CircularProgress color="secondary" />
+                ) : (
+                  <IconButton
+                    onClick={handleSubmit}
+                    aria-label="Enviar"
+                    type="submit"
+                    color="secondary"
+                  >
+                    <Send />
+                  </IconButton>
+                )}
+              </InputAdornment>
+            ),
+          }}
+        />
+        <Alert
+          message={
+            hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
+          }
+        />
       </form>
     )
   }
