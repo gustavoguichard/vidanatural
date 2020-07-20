@@ -14,7 +14,7 @@ const Form = () => {
   const [hasError, setHasError] = useState(false)
 
   const [formState, { raw, text, email, textarea }] = useFormState({
-    key: 'vidanatural-mensagem-pelo-site',
+    key: 'vidanatural-nova-mensagem-pelo-site-da-vn',
     reply_to: '',
   })
 
@@ -34,7 +34,7 @@ const Form = () => {
       name="Contato"
       onSubmit={handleSubmit}
       action="/webform"
-      data-webform="vidanatural-mensagem-pelo-site"
+      data-webform="vidanatural-nova-mensagem-pelo-site-da-vn"
     >
       <TextField {...raw('key')} type="hidden" />
       <TextField {...raw('reply_to')} type="hidden" />
