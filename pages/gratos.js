@@ -1,4 +1,4 @@
-import Hero from 'components/hero2'
+import Hero from 'components/hero'
 import Layout from 'components/layout'
 import Link from 'next/link'
 

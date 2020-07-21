@@ -34,7 +34,9 @@ const PostPreview = ({
         <Link {...permalink}>
           <Typography variant="h3">{data.title}</Typography>
         </Link>
-        <AuthorCard author={author} post={data.body} date={date} />
+        <div className="mt-2 mb-4">
+          <AuthorCard author={author} post={data.body} date={date} />
+        </div>
         <Typography css={{ marginBottom: theme.spacing() }} variant="body1">
           {excerpt}
         </Typography>

@@ -9,7 +9,7 @@ import Link from 'components/link'
 
 const AuthorCard = ({ author, date, post, showAvatar, disableLink, style }) => {
   return (
-    <div className="flex relative mt-2 mb-4" style={style}>
+    <div className="flex relative" style={style}>
       {showAvatar && (
         <Link {...author.permalink} css={{ margin: theme.spacing(0, 1) }}>
           <Img

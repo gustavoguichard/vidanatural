@@ -1,44 +1,33 @@
 import { memo } from 'react'
-import { Breadcrumbs as MuiBreadcrumbs, Typography } from '@material-ui/core'
+import Link from 'next/link'
 
 import { clipSentence } from 'lib/utils'
-import theme from 'lib/theme'
-
-import Link from 'components/link'
 
 const Breadcrumbs = ({ links, children, clip = true, hideHome, ...props }) => {
-  const linkStyle = {
-    color: 'inherit',
-    textDecoration: 'underline',
-    '&:hover': {
-      color: theme.palette.text.primary,
-    },
-  }
+  const separator = <span className="text-xs mx-1"> &gt; </span>
   return (
-    <MuiBreadcrumbs
-      separator="›"
-      css={{
-        color: theme.palette.text.hint,
-        fontSize: '0.85rem',
-        margin: theme.spacing(2, 0),
-      }}
+    <p
       aria-label="breadcrumb"
       {...props}
+      className="text-gray-700 text-sm my-4"
     >
       {hideHome || (
-        <Link css={linkStyle} href="/">
-          Vida Natural
+        <Link href="/">
+          <a className="underline hover:text-green-600">Vida Natural</a>
         </Link>
       )}
-      {links?.map((link, idx) => (
-        <Link key={`link-${idx}`} css={linkStyle} {...link}>
-          {link.title}
-        </Link>
-      ))}
-      <Typography color="inherit" css={{ fontSize: 'inherit' }}>
-        {clip ? clipSentence(children) : children}
-      </Typography>
-    </MuiBreadcrumbs>
+      {hideHome || separator}
+      {links &&
+        links.map((link, idx) => (
+          <>
+            <Link key={`link-${idx}`} {...link}>
+              <a className="underline hover:text-green-600">{link.title}</a>
+            </Link>
+            {separator}
+          </>
+        ))}
+      <span>{clip ? clipSentence(children) : children}</span>
+    </p>
   )
 }
 

@@ -29,7 +29,7 @@ const HomeFeed = ({ posts }) => {
             <Link key={post.id} href="/blog/[slug]" as={`/blog/${post.uid}`}>
               <a className="block h-full rounded-lg border border-gray-300 hover:border-gray-500 focus:outline-none focus:border-green-500 focus:border-2 hover:no-underline">
                 <div className="p-6 flex flex-col justify-between h-full">
-                  <div>
+                  <div className="mb-3">
                     <h4 className="font-bold mb-2 text-xl leading-tight">
                       {post.data.title}
                     </h4>

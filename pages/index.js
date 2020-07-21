@@ -11,11 +11,9 @@ import Testimonials from 'components/testimonials'
 import HomeFeed from 'components/home-feed'
 
 const Home = ({ banners, testimonials, posts, products }) => {
-  const [variant, setVariant] = useState('primary')
-
   return (
-    <Layout variant={variant} hideCertifications>
-      <Banners banners={banners} setVariant={setVariant} />
+    <Layout variant="secondary" hideCertifications>
+      <Banners banners={banners} />
       <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
       <Products products={products} />
       <About />
