@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
+import Head from 'next/head'
 import Router from 'next/router'
 import { ThemeProvider, StylesProvider } from '@material-ui/styles'
 import { CssBaseline } from '@material-ui/core'
@@ -37,6 +38,12 @@ const VidaNatural = ({ pageProps, Component }) => {
 
   return (
     <>
+      <Head>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+        />
+      </Head>
       <DefaultSeo {...SEO} />
       <Pixel />
       <StylesProvider injectFirst>

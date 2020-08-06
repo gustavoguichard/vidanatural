@@ -84,7 +84,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       includedProducts,
       cmsData: cmsProduct?.data ?? {},
     },
-    unstable_revalidate: 15,
+    revalidate: 15,
   }
 }
 

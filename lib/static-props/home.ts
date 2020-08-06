@@ -18,16 +18,20 @@ export default async () => {
   })
   const postsResponse = await api.cms.getByTypeAndTags('blog_post', {
     orderings: '[my.blog_post.date desc]',
-    fetch: ['title', 'body', 'author', 'date'].map(tag => `blog_post.${tag}.`),
+    fetch: ['title', 'body', 'author', 'date'].map(
+      (tag) => `blog_post.${tag}.`,
+    ),
     fetchLinks: ['team_member.name', 'team_member.picture'],
     pageSize: 4,
   })
   const serverData = await api.vnda.search()
-  const products = serverData.map(parseProduct).filter((p: ParsedProduct) => p.inStock)
+  const products = serverData
+    .map(parseProduct)
+    .filter((p: ParsedProduct) => p.inStock)
   const posts = (postsResponse as BlogPost[]).map(parsePost)
   const testimonials = shuffle(testimonialsData)
   return {
     props: { banners, testimonials, posts, products },
-    unstable_revalidate: 60 * 10,
+    revalidate: 60 * 10,
   }
 }

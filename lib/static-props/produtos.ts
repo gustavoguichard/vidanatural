@@ -15,7 +15,7 @@ const getStaticProps: GetStaticProps = async () => {
 
   const filters = getCategoryTags(products)
 
-  return { props: { products, filters }, unstable_revalidate: 60 * 2 }
+  return { props: { products, filters }, revalidate: 60 * 2 }
 }
 
 export default getStaticProps

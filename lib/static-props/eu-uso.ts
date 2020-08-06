@@ -9,5 +9,5 @@ export default async () => {
     ),
   })
   const testimonials = shuffle(results)
-  return { props: { testimonials }, unstable_revalidate: 60 * 60 }
+  return { props: { testimonials }, revalidate: 60 * 60 }
 }

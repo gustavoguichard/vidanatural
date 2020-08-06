@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default () => {
+const Pixel = () => {
   const pixelId = process.env.FB_PIXEL_ID
   return pixelId ? (
     <Head>
@@ -27,3 +27,5 @@ export default () => {
     </Head>
   ) : null
 }
+
+export default Pixel
