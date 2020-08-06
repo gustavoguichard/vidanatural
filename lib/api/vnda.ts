@@ -1,4 +1,5 @@
 import get from 'lodash/get'
+import flatten from 'lodash/flatten'
 import Cookies from 'js-cookie'
 
 import { buildQuery, joinWith } from 'lib/utils'
@@ -8,11 +9,14 @@ import { FormKeys } from 'types/vnda'
 const saveCookie = (headers: Headers) => {
   const cookie = headers.get('Biscuit')
   if (cookie && typeof window !== 'undefined') {
-    const [id, tail] = cookie.split('=')
-    const value = tail.substring(0, tail.indexOf(';'))
-    if (!!value) {
-      Cookies.set(id, value)
-    }
+    const entries = cookie.split(', ')
+    const values = flatten(entries.map((val) => val.split('; ')))
+    values.forEach((value) => {
+      const [key, val] = value.split('=')
+      if (!!val) {
+        Cookies.set(key, val)
+      }
+    })
   }
 }
 
