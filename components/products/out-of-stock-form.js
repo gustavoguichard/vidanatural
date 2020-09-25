@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
 import {
-  Box,
   Button,
   IconButton,
   CircularProgress,

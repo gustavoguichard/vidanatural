@@ -100,6 +100,14 @@ const listPage = (slug: string) => fetchApi(`p/${slug}`, {}, true)
 const registerCoupon = (coupon: string) =>
   fetchApi(`cep/88060100?ccc=${coupon}`, {}, true)
 
+interface ShippingParams {
+  sku: number
+  zip: string
+  quantity?: number
+}
+const calculateShipping = ({ sku, quantity, zip }: ShippingParams) =>
+  post(`frete_produto`, { sku, quantity, zip }, {}, true)
+
 const addToCart = (sku: string, quantity = 1) =>
   post('carrinho/adicionar', { sku, quantity }, {}, true)
 
@@ -129,6 +137,7 @@ export default {
   fetch: fetchApi,
   post,
   addToCart,
+  calculateShipping,
   listCart,
   listProduct,
   listPage,
