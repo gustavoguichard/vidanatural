@@ -1,12 +1,16 @@
 import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Router from 'next/router'
 import { ThemeProvider, StylesProvider } from '@material-ui/styles'
 import { CssBaseline } from '@material-ui/core'
 
-import { initGA, logPageView } from 'lib/analytics'
-import { isClient } from 'lib/utils'
+import {
+  initTracking,
+  intersectionPolyfill,
+  removeServerStyles,
+  registerCoupon,
+} from 'lib/fx'
 import SEO from 'lib/next-seo.config'
 import theme from 'lib/theme'
 
@@ -14,27 +18,18 @@ import Pixel from 'components/pixel'
 
 import 'styles/app.scss'
 
-const didMount = async () => {
-  if (isClient && typeof window.IntersectionObserver === 'undefined') {
-    await require('intersection-observer')
-  }
-
-  // Remove Server Styles
-  const jssStyles = document.querySelector('#jss-server-side')
-  if (jssStyles) {
-    jssStyles.parentElement.removeChild(jssStyles)
-  }
-
-  // initGATraking
-  initGA()
-  logPageView()
-  Router.router.events.on('routeChangeComplete', logPageView)
+const didMount = async (router) => {
+  await intersectionPolyfill()
+  await removeServerStyles()
+  await initTracking(router)
+  await registerCoupon(router)
 }
 
 const VidaNatural = ({ pageProps, Component }) => {
+  const router = useRouter()
   useEffect(() => {
-    didMount()
-  }, [])
+    router && didMount(router)
+  }, [router])
 
   return (
     <>

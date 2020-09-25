@@ -97,6 +97,9 @@ const listProduct = (slug: string) => fetchApi(`produto/${slug}`, {}, true)
 
 const listPage = (slug: string) => fetchApi(`p/${slug}`, {}, true)
 
+const registerCoupon = (coupon: string) =>
+  fetchApi(`cep/88060100?ccc=${coupon}`, {}, true)
+
 const addToCart = (sku: string, quantity = 1) =>
   post('carrinho/adicionar', { sku, quantity }, {}, true)
 
@@ -129,6 +132,7 @@ export default {
   listCart,
   listProduct,
   listPage,
+  registerCoupon,
   sendForm,
   search,
   textSearch,
