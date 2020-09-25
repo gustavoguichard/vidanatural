@@ -61,6 +61,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
         {...text('zip')}
         css={{ display: 'flex', paddingRight: 5 }}
         required
+        autoFocus
         label="Qual o seu CEP?"
         InputProps={{
           endAdornment: (
