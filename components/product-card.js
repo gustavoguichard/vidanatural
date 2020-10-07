@@ -50,7 +50,7 @@ const ProductPreview = ({ product }) => {
               dangerouslySetInnerHTML={{ __html: product.description.featured }}
             />
             <PriceTag lineBreak={false} item={variant} css={{ margin: 0 }} />
-            {product.inStock || (
+            {product.inStock ? null : (
               <Typography
                 variant="caption"
                 css={{

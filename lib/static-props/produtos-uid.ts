@@ -11,6 +11,8 @@ import parseProduct from 'lib/parsers/product'
 
 import { VndaProduct } from 'types/vnda'
 
+import productsData from 'data/products'
+
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
   const response = await api.vnda.listProduct(slug as string)
@@ -30,7 +32,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   )
 
   const id = get(product, 'id')
-  const localData = find(products, (p) => id === p.vndaId)
+  const localData = find(productsData, (p) => id === p.vndaId)
   const tags = map(get(product, 'tags'), 'name')
   const testimonialsData = await api.cms.getByTypeAndTags(
     'testimonial',
