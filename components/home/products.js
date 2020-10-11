@@ -1,10 +1,9 @@
 import { useState, useMemo } from 'react'
 import filter from 'lodash/filter'
 import times from 'lodash/times'
-import { Tabs, Tab } from '@material-ui/core'
 
 import { useIsMobile } from 'lib/hooks'
-import theme from 'lib/theme'
+import { classes } from 'lib/utils'
 
 import ProductSlide from 'components/home/slide'
 
@@ -20,33 +19,11 @@ const HomeProducts = ({ products }) => {
     })
   }, [products])
 
-  const handleChange = (_event, newValue) => {
+  const handleChange = (newValue) => {
     const safeVal = newValue < 0 ? productsArray.length - 1 : newValue
     setValue(safeVal % productsArray.length)
   }
   const isMobile = useIsMobile()
-
-  const Stepper = () => (
-    <Tabs
-      centered
-      value={value}
-      onChange={handleChange}
-      textColor="secondary"
-      indicatorColor="secondary"
-      css={{
-        padding: 0,
-        a: {
-          color: theme.palette.secondary.main,
-          fontWeight: 'bold',
-          minWidth: 50,
-        },
-      }}
-    >
-      {times(productsArray.length, (ind) => (
-        <Tab key={`index-${ind}`} component="a" label={ind + 1} />
-      ))}
-    </Tabs>
-  )
 
   return (
     <div className="border-white mb-12 border-t-8 border-b-8 max-w-screen-xl m-auto flex items-center relative min-h-full">
@@ -59,21 +36,46 @@ const HomeProducts = ({ products }) => {
           product={productsArray[value]}
           handleChange={handleChange}
         />
-        {productsArray.map((product, index) => (
+        {productsArray.map((product, idx) => (
           <ProductSlide
             isMobile={isMobile}
-            key={`product-${index}`}
-            show={value === index}
+            key={`product-${idx}`}
+            show={value === idx}
             handleChange={handleChange}
-            index={index}
+            index={idx}
             product={product}
           >
-            <Stepper />
+            <Stepper
+              handleChange={handleChange}
+              size={productsArray.length}
+              current={value}
+            />
           </ProductSlide>
         ))}
       </div>
     </div>
   )
 }
+
+const Stepper = ({ current, size, handleChange }) => (
+  <div className="text-green-600 text-center">
+    {times(size, (idx) => {
+      const cx = classes('font-semibold px-4 py-2 border-b-2', {
+        'border-green-600': current === idx,
+        'border-transparent': current !== idx,
+      })
+      return (
+        <button
+          type="button"
+          onClick={() => handleChange(idx)}
+          key={`idxex-${idx}`}
+          className={cx}
+        >
+          {idx + 1}
+        </button>
+      )
+    })}
+  </div>
+)
 
 export default HomeProducts

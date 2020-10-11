@@ -51,8 +51,8 @@ const ProductSlide = ({
         </Link>
       </div>
       <div
-        className={`w-full md:w-10/12 z-10 p-0 ${
-          hidden ? 'invisible' : 'visible'
+        className={`w-full justify-center md:w-10/12 z-10 p-0 ${
+          hidden ? 'hidden' : 'flex'
         }`}
       >
         {children}
