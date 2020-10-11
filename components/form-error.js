@@ -3,7 +3,7 @@ const FormError = ({
   show,
 }) =>
   show ? (
-    <div className="bg-red-800 rounded p-3 text-white my-1">{message}</div>
+    <div className="bg-red-800 rounded p-3 text-white mb-2">{message}</div>
   ) : null
 
 export default FormError

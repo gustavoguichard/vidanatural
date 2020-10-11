@@ -1,10 +1,18 @@
 module.exports = {
   purge: false,
   theme: {
-    extend: {},
+    extend: {
+      transformOrigin: {
+        '0': '0%',
+      },
+      zIndex: {
+        '-1': '-1',
+      },
+    },
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+    borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
   },
   plugins: [],
 }

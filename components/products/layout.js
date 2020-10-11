@@ -1,7 +1,6 @@
 import get from 'lodash/get'
 import map from 'lodash/map'
 import { ProductJsonLd } from 'next-seo'
-import { Box } from '@material-ui/core'
 
 import api from 'lib/api'
 

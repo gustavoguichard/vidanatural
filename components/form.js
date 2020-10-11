@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
 import { useRouter } from 'next/router'
-import { Button, CircularProgress, TextField } from '@material-ui/core'
 
 import api from 'lib/api'
 
+import CircularProgress from 'components/circular-progress'
 import FormError from 'components/form-error'
 import Input from 'components/input'
 
@@ -36,8 +36,8 @@ const Form = () => {
       action="/webform"
       data-webform="vidanatural-nova-mensagem-pelo-site-da-vn"
     >
-      <TextField {...raw('key')} type="hidden" />
-      <TextField {...raw('reply_to')} type="hidden" />
+      <input {...raw('key')} type="hidden" />
+      <input {...raw('reply_to')} type="hidden" />
       <input
         {...text('a_password')}
         css={{ display: 'none !important' }}
@@ -55,9 +55,16 @@ const Form = () => {
         label="Mensagem"
       />
       <FormError show={hasError} />
-      <Button type="submit" variant="contained" color="secondary">
-        {sending ? <CircularProgress /> : 'Enviar mensagem'}
-      </Button>
+      <button
+        type="submit"
+        className="bg-green-500 hover:bg-green-600 py-3 px-4 rounded font-semibold uppercase"
+      >
+        {sending ? (
+          <CircularProgress color="inherit" size="4" className="mx-6" />
+        ) : (
+          'Enviar mensagem'
+        )}
+      </button>
     </form>
   )
 }

@@ -1,27 +1,21 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
-import {
-  IconButton,
-  CircularProgress,
-  InputAdornment,
-  TextField,
-} from '@material-ui/core'
-import { Send } from '@material-ui/icons'
+import { FiSend } from 'react-icons/fi'
 
-import theme from 'lib/theme'
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 
-import FormError from 'components/form-error'
+import CircularProgress from 'components/circular-progress'
+import Input from 'components/input'
 
 const NewsForm = () => {
   const [sending, setSending] = useState(false)
   const [{ subscribed }, { subscribe }] = useGlobal()
-  const [hasError, setHasError] = useState(false)
+  const [hasError, setHasError] = useState()
   const [formState, { email }] = useFormState({ key: 'vidanatural-newsletter' })
   const handleSubmit = async (event) => {
     event.preventDefault()
-    setHasError(false)
+    setHasError(null)
     setSending(true)
 
     const isSent = await api.vnda.sendForm(formState.values)
@@ -29,7 +23,9 @@ const NewsForm = () => {
       formState.clear()
       subscribe()
     } else {
-      setHasError(true)
+      setHasError(
+        'Não foi possível adicionar este e-mail nesse momento. Por favor, tente mais novamente.',
+      )
     }
     setSending(false)
   }
@@ -47,47 +43,28 @@ const NewsForm = () => {
       </h4>
       <p>Assine nossa newsletter e receba ofertas no seu e-mail</p>
       <div className="mt-3">
-        <TextField
-          id="news-email"
-          variant="outlined"
-          className="flex pr-1"
+        <Input
           {...email('email')}
-          css={{
-            '& fieldset': {
-              borderColor: theme.palette.primary.light,
-            },
-            '.MuiOutlinedInput-root:hover fieldset, .MuiOutlinedInput-root.Mui-focused fieldset': {
-              borderColor: theme.palette.common.white,
-            },
-            'label.Mui-focused': {
-              color: theme.palette.common.white,
-            },
-            input: {
-              color: theme.palette.common.white,
-            },
-          }}
           required
           label="Seu e-mail"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                {sending ? (
-                  <CircularProgress color="secondary" />
-                ) : (
-                  <IconButton
-                    onClick={handleSubmit}
-                    aria-label="Enviar"
-                    type="submit"
-                    color="secondary"
-                  >
-                    <Send />
-                  </IconButton>
-                )}
-              </InputAdornment>
-            ),
-          }}
+          text="white"
+          bg="gray-900"
+          error={hasError}
+          button={
+            sending ? (
+              <CircularProgress />
+            ) : (
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                aria-label="Enviar"
+                className="hover:bg-opacity-25 hover:bg-gray-500 rounded-full p-2 flex"
+              >
+                <FiSend className="text-green-700 w-6 h-6" />
+              </button>
+            )
+          }
         />
-        <FormError show={hasError} />
       </div>
     </form>
   )
