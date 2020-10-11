@@ -14,7 +14,7 @@ import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
 import theme from 'lib/theme'
 
-import Alert from 'components/alert'
+import FormError from 'components/form-error'
 
 const OutOfStockForm = ({ sku, quantity }) => {
   const [showForm, setShowForm] = useState(false)
@@ -113,7 +113,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
           </div>
         )}
       </Typography>
-      <Alert
+      <FormError
         message={
           hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
         }

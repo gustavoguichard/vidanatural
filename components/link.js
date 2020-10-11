@@ -1,72 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from 'react'
-import PropTypes from 'prop-types'
+import { forwardRef } from 'react'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
-import MuiLink from '@material-ui/core/Link'
 
 import { classes } from 'lib/utils'
 
-const NextComposed = React.forwardRef((props, ref) => {
-  const { as, href, prefetch, ...other } = props
-
-  return (
-    <NextLink href={href} prefetch={prefetch} as={as}>
-      <a ref={ref} {...other} />
-    </NextLink>
-  )
-})
-
-NextComposed.propTypes = {
-  as: PropTypes.string,
-  href: PropTypes.string,
-  prefetch: PropTypes.bool,
-}
-
-function Link({
-  activeClassName,
-  className: classNameProps,
-  innerRef,
-  naked,
-  color = 'secondary',
-  ...props
-}) {
+function Link(
+  { activeClassName, className, href, as, prefetch, ...props },
+  ref,
+) {
   const router = useRouter()
-  const className = classes(classNameProps, {
+  const cx = classes(className, {
     [activeClassName]: router.pathname === props.href && activeClassName,
   })
 
-  if (naked) {
-    return <NextComposed className={className} ref={innerRef} {...props} />
-  }
-
   return (
-    <MuiLink
-      color={color}
-      component={NextComposed}
-      className={className}
-      ref={innerRef}
-      {...props}
-    />
+    <NextLink href={href} prefetch={prefetch} as={as}>
+      <a ref={ref} className={cx} {...props} />
+    </NextLink>
   )
 }
 
-Link.propTypes = {
-  activeClassName: PropTypes.string,
-  as: PropTypes.string,
-  color: PropTypes.string,
-  className: PropTypes.string,
-  href: PropTypes.string,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  naked: PropTypes.bool,
-  onClick: PropTypes.func,
-  prefetch: PropTypes.bool,
-}
-
-Link.defaultProps = {
-  activeClassName: 'active',
-}
-
-export default React.forwardRef((props, ref) => (
-  <Link {...props} innerRef={ref} />
-))
+export default forwardRef(Link)

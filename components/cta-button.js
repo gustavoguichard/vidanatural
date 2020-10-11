@@ -1,34 +1,31 @@
+import Link from 'next/link'
 import { FaAngleRight } from 'react-icons/fa'
 
-import theme from 'lib/theme'
-
-import ButtonLink from 'components/button-link'
+import { classes } from 'lib/utils'
 
 const CTAButton = ({
-  color = 'secondary',
-  size = 'large',
-  variant = 'text',
-  center = true,
   children,
   disableIcon,
   IconComponent = FaAngleRight,
+  href,
+  as,
+  className,
+  prefetch = true,
   ...props
 }) => {
+  const cx = classes(
+    'group transition duration-200 inline-flex relative text-white rounded-sm items-center justify-center hover:bg-opacity-75 hover:shadow-lg p-4 bg-gray-900',
+    className,
+  )
   return (
-    <ButtonLink
-      color={color}
-      size={size}
-      variant={variant}
-      css={{
-        display: 'flex',
-        margin: center ? 'auto' : null,
-        color: theme.palette.primary,
-      }}
-      {...props}
-    >
-      {children}
-      {disableIcon || <IconComponent css={{ marginLeft: theme.spacing() }} />}
-    </ButtonLink>
+    <Link href={href} as={as} prefetch={prefetch}>
+      <a {...props} className={cx}>
+        {children}
+        {disableIcon || (
+          <IconComponent className="transition-all duration-200 ml-1 group-hover:ml-2" />
+        )}
+      </a>
+    </Link>
   )
 }
 

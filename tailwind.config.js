@@ -20,6 +20,7 @@ module.exports = {
       'group-hover',
     ],
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    margin: ['responsive', 'hover', 'focus', 'group-hover'],
   },
   plugins: [],
 }

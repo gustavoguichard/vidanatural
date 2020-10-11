@@ -12,7 +12,7 @@ import { Send } from '@material-ui/icons'
 
 import api from 'lib/api'
 
-import Alert from 'components/alert'
+import FormError from 'components/form-error'
 
 const OutOfStockForm = ({ product, innerRef }) => {
   const [showForm, setShowForm] = useState(false)
@@ -80,7 +80,7 @@ const OutOfStockForm = ({ product, innerRef }) => {
             ),
           }}
         />
-        <Alert
+        <FormError
           message={
             hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
           }

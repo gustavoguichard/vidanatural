@@ -50,7 +50,7 @@ const HomeFeed = ({ posts }) => {
           ))}
         </Carousel>
         <Link href="/blog">
-          <a className="ml-6 mt-4 block font-semibold hover:text-green-500">
+          <a className="ml-6 mt-4 inline-block font-semibold hover:underline">
             + ver tudo
           </a>
         </Link>
