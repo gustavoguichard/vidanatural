@@ -1,42 +1,23 @@
 import React from 'react'
-import { IconButton, useMediaQuery, useTheme } from '@material-ui/core'
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 export const PageBt = ({ onClick, Icon, ...props }) => {
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   return (
-    <IconButton
+    <button
+      type="button"
       {...props}
-      role="button"
-      color="secondary"
-      css={{
-        color: 'white',
-        position: 'absolute',
-        display: isMobile ? 'none' : 'block',
-        zIndex: 2,
-      }}
+      className="bg-white bg-opacity-0 p-4 transition duration-300 shadow rounded-full hover:shadow-lg hover:bg-opacity-25 absolute hidden sm:block z-10"
       onClick={onClick}
     >
-      <Icon css={{ color: theme.palette.common.black }} fontSize="large" />
-    </IconButton>
+      <Icon className="text-black text-2xl" />
+    </button>
   )
 }
 
 export const PrevBt = ({ onClick }) => (
-  <PageBt
-    css={{ left: 20 }}
-    className="prev-bt carousel-bt"
-    onClick={onClick}
-    Icon={KeyboardArrowLeft}
-  />
+  <PageBt style={{ left: 20 }} onClick={onClick} Icon={FaAngleLeft} />
 )
 
 export const NextBt = ({ onClick }) => (
-  <PageBt
-    css={{ right: 20 }}
-    className="next-bt carousel-bt"
-    onClick={onClick}
-    Icon={KeyboardArrowRight}
-  />
+  <PageBt style={{ right: 20 }} onClick={onClick} Icon={FaAngleRight} />
 )
