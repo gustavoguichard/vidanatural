@@ -27,7 +27,7 @@ const HomeFeed = ({ posts }) => {
         >
           {posts.map((post) => (
             <Link key={post.id} href="/blog/[slug]" as={`/blog/${post.uid}`}>
-              <a className="block h-full rounded-lg border border-gray-300 hover:border-gray-500 focus:outline-none focus:border-green-500 focus:border-2 hover:no-underline">
+              <a className="group block h-full rounded-lg border border-gray-300 hover:border-green-500 focus:outline-none focus:border-green-500 focus:border-2 hover:no-underline">
                 <div className="p-6 flex flex-col justify-between h-full">
                   <div className="mb-3">
                     <h4 className="font-bold mb-2 text-xl leading-tight">
@@ -51,7 +51,7 @@ const HomeFeed = ({ posts }) => {
         </Carousel>
         <Link href="/blog">
           <a className="ml-6 mt-4 block font-semibold hover:text-green-500">
-            Ver tudo
+            + ver tudo
           </a>
         </Link>
       </div>
