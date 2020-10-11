@@ -1,8 +1,5 @@
 import ReactMarkdown from 'react-markdown'
 import { useSwipeable } from 'react-swipeable'
-import { Grid, Paper, Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
 
 import CTAButton from 'components/cta-button'
 import Img from 'components/img'
@@ -14,7 +11,6 @@ const ProductSlide = ({
   handleChange,
   children,
   hidden,
-  isMobile,
   show,
 }) => {
   const onSwiping = ({ first, deltaX, absX }) => {
@@ -23,42 +19,19 @@ const ProductSlide = ({
   const swipeHandlers = useSwipeable({ onSwiping })
   const swipeHandlers2 = useSwipeable({ onSwiping })
   return (
-    <Grid
-      spacing={3}
-      justify="center"
-      container
-      css={{
-        position: hidden ? 'static' : 'absolute',
-        top: theme.spacing(isMobile ? 7 : 10),
-        left: 0,
-        zIndex: show && !hidden ? 0 : -1,
-        transition: 'all .3s',
-        opacity: show ? 1 : 0,
+    <div
+      className={`bg-no-repeat bg-gray-100 bg-center w-full items-center flex flex-col justify-center ${
+        show && !hidden ? '' : '-z-1 invisible'
+      } ${hidden ? 'static' : 'absolute'}`}
+      style={{
+        backgroundImage: `url('/static/images/products/${product.path}-bg.png')`,
       }}
     >
-      <Img
-        className="responsive"
-        hideSpinner
-        css={{
-          zIndex: -1,
-          position: 'absolute',
-          marginTop: 40,
-          transition: 'all .6s',
-          opacity: show && !hidden ? 1 : 0,
-          pointerEvents: hidden ? 'none' : null,
-        }}
-        src={`/static/images/products/${product.path}-bg.png`}
-        alt="decorative"
-      />
-      <Grid
-        item
-        xs={12}
-        md={10}
-        css={{
-          textAlign: 'center',
-          minHeight: 350,
-          visibility: hidden ? 'hidden' : 'visible',
-        }}
+      <div
+        className={`w-full md:w-10/12 flex justify-center ${
+          hidden ? 'invisible' : 'visible'
+        }`}
+        css={{ minHeight: 350 }}
       >
         <Link
           {...swipeHandlers}
@@ -67,65 +40,40 @@ const ProductSlide = ({
           title={product.title}
         >
           <Img
-            className="responsive"
+            css={{ width: 520 }}
+            className={`max-w-full mt-8 transition duration-700 relative delay-500 opacity-${
+              show ? '100' : '0'
+            } transform -translate-y-${show ? '0' : '8'}`}
             hideSpinner
-            css={{
-              width: 520,
-              marginTop: theme.spacing(4),
-              transition: 'all .6s',
-              position: 'relative',
-              transitionDelay: '.3s',
-              top: show ? 0 : -15,
-              opacity: show ? 1 : 0,
-            }}
             src={`/static/images/products/${product.path}.png`}
             alt={product.title}
           />
         </Link>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={10}
-        css={{
-          zIndex: 10,
-          padding: '0 !important',
-          visibility: hidden ? 'hidden' : 'visible',
-        }}
+      </div>
+      <div
+        className={`w-full md:w-10/12 z-10 p-0 ${
+          hidden ? 'invisible' : 'visible'
+        }`}
       >
         {children}
-      </Grid>
-      <Grid
+      </div>
+      <div
         {...swipeHandlers2}
-        item
-        xs={12}
-        md={6}
-        css={{
-          paddingTop: '0 !important',
-          textAlign: 'center',
-          visibility: hidden ? 'hidden' : 'visible',
-        }}
+        className={`pt-0 w-full md:w-1/2 text-center ${
+          hidden ? 'invisible' : 'visible'
+        }`}
       >
-        <Paper
-          elevation={0}
-          css={{
-            backgroundColor: 'rgba(255, 255, 255, .9)',
-            padding: theme.spacing(4),
-            transition: 'all .6s',
-            position: 'relative',
-            bottom: show ? 0 : -15,
-          }}
+        <div
+          className={`bg-white shadow-sm bg-opacity-75 p-8 transition duration-700 relative transform translate-y-${
+            show ? 0 : 10
+          } ${show && !hidden ? '' : 'invisible'}`}
         >
-          <Typography variant="h3">{product.title}</Typography>
+          <h3 className="text-3xl font-semibold tracking-tight">
+            {product.title}
+          </h3>
           <ReactMarkdown
             escapeHtml={false}
-            css={{
-              marginTop: theme.spacing(3),
-              marginBottom: theme.spacing(2),
-              fontWeight: 400,
-              color: theme.palette.text.hint,
-            }}
-            className="MuiTypography-root MuiTypography-body1"
+            className="mt-2 mb-4 text-gray-700 text-lg"
             source={product.subtitle}
           />
           <CTAButton
@@ -135,9 +83,9 @@ const ProductSlide = ({
           >
             Saiba mais
           </CTAButton>
-        </Paper>
-      </Grid>
-    </Grid>
+        </div>
+      </div>
+    </div>
   )
 }
 

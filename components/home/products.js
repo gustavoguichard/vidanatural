@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import filter from 'lodash/filter'
 import times from 'lodash/times'
-import { Box, Container, Tabs, Tab } from '@material-ui/core'
+import { Tabs, Tab } from '@material-ui/core'
 
 import { useIsMobile } from 'lib/hooks'
 import theme from 'lib/theme'
@@ -20,7 +20,7 @@ const HomeProducts = ({ products }) => {
     })
   }, [products])
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event, newValue) => {
     const safeVal = newValue < 0 ? productsArray.length - 1 : newValue
     setValue(safeVal % productsArray.length)
   }
@@ -49,41 +49,30 @@ const HomeProducts = ({ products }) => {
   )
 
   return (
-    <Box
-      css={{
-        borderBottom: '10px solid white',
-        borderTop: '10px solid white',
-        minHeight: '80vh',
-      }}
-    >
-      <Container
-        maxWidth="lg"
-        css={{ display: 'flex', alignItems: 'center', position: 'relative' }}
-      >
-        <Box flex={1} py={isMobile ? 7 : 10}>
+    <div className="border-white mb-12 border-t-8 border-b-8 max-w-screen-xl m-auto flex items-center relative min-h-full">
+      <div className="flex pt-8">
+        <ProductSlide
+          key="product---1"
+          hidden
+          show
+          index={value}
+          product={productsArray[value]}
+          handleChange={handleChange}
+        />
+        {productsArray.map((product, index) => (
           <ProductSlide
-            key="product---1"
-            hidden
-            show
-            index={value}
-            product={productsArray[value]}
+            isMobile={isMobile}
+            key={`product-${index}`}
+            show={value === index}
             handleChange={handleChange}
-          />
-          {productsArray.map((product, index) => (
-            <ProductSlide
-              isMobile={isMobile}
-              key={`product-${index}`}
-              show={value === index}
-              handleChange={handleChange}
-              index={index}
-              product={product}
-            >
-              <Stepper />
-            </ProductSlide>
-          ))}
-        </Box>
-      </Container>
-    </Box>
+            index={index}
+            product={product}
+          >
+            <Stepper />
+          </ProductSlide>
+        ))}
+      </div>
+    </div>
   )
 }
 

@@ -38,7 +38,7 @@ const NewsForm = () => {
     </p>
   ) : (
     <form name="Newsletter" onSubmit={handleSubmit} action="/webform">
-      <h4 className="mb-1 uppercase tracking-wider font-semibold">
+      <h4 className="mb-1 uppercase tracking-wide font-semibold">
         Quer descontos exclusivos?
       </h4>
       <p>Assine nossa newsletter e receba ofertas no seu e-mail</p>

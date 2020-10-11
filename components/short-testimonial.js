@@ -30,7 +30,7 @@ const ShortTestimonial = ({ data, uid, className }) => {
           src={picture.url}
         />
       </Link>
-      <h4 variant="h4" className="font-semibold text-lg">
+      <h4 className="tracking-tight font-semibold text-lg">
         {name.split(' ')[0]}
       </h4>
       <div className="tracking-wide text-gray-700 leading-relaxed mt-2">

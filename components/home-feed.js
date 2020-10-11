@@ -30,7 +30,7 @@ const HomeFeed = ({ posts }) => {
               <a className="group block h-full rounded-lg border border-gray-300 hover:border-green-500 focus:outline-none focus:border-green-500 focus:border-2 hover:no-underline">
                 <div className="p-6 flex flex-col justify-between h-full">
                   <div className="mb-3">
-                    <h4 className="font-bold mb-2 text-xl leading-tight">
+                    <h4 className="font-bold tracking-tight mb-2 text-xl leading-tight">
                       {post.data.title}
                     </h4>
                     <p className="text-base text-gray-600">
