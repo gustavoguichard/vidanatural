@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
 import PropTypes from 'prop-types'
-import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import MuiLink from '@material-ui/core/Link'
+
+import { classes } from 'lib/utils'
 
 const NextComposed = React.forwardRef((props, ref) => {
   const { as, href, prefetch, ...other } = props
@@ -31,7 +32,7 @@ function Link({
   ...props
 }) {
   const router = useRouter()
-  const className = clsx(classNameProps, {
+  const className = classes(classNameProps, {
     [activeClassName]: router.pathname === props.href && activeClassName,
   })
 

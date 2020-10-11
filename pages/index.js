@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import staticProps from 'lib/static-props/home'
 
 import About from 'components/home/about'
