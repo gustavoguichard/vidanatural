@@ -52,7 +52,7 @@ const NewsForm = () => {
           error={hasError}
           button={
             sending ? (
-              <CircularProgress />
+              <CircularProgress className="mx-2" />
             ) : (
               <button
                 type="submit"

@@ -1,85 +1,55 @@
-import { Box, Container, Grid, Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
-
-import BackgroundImg from 'components/background-img'
 import CTAButton from 'components/cta-button'
 
-const border = '60px solid white'
-const Section = ({ title, children, bb, bt, br, bl }) => (
-  <Grid item md={7} xs={12}>
-    <Box
-      py={8}
-      px={8}
-      css={{
-        [theme.breakpoints.up('md')]: {
-          borderBottom: bb && border,
-          borderTop: bt && border,
-          borderLeft: bl && border,
-          borderRight: br && border,
-        },
-      }}
-    >
-      <Typography variant="h3">{title}</Typography>
-      <Typography
-        variant="body1"
-        component="div"
-        css={{ margin: theme.spacing(3, 0, 5), color: theme.palette.text.hint }}
-      >
-        {children}
-      </Typography>
-    </Box>
-  </Grid>
-)
-
-const Image = ({ src, order = 0 }) => (
-  <Grid
-    item
-    xs={12}
-    md={5}
-    css={{
-      position: 'relative',
-      minHeight: 300,
-      order,
-      [theme.breakpoints.down('sm')]: { order: 0 },
-    }}
-  >
-    <BackgroundImg src={src} className="shadow-lg" />
-  </Grid>
-)
-
 const About = () => (
-  <Box bgcolor="white" py={6}>
-    <Container maxWidth="lg">
-      <Grid spacing={0} container className="bg-gray-100">
-        <Image src="/static/images/afro.jpg" />
-        <Section title="Uma ideia, um movimento" bt br>
-          <p>
-            Nossos cosméticos são feitos a mão, produzidos em pequenos lotes,
-            com ingredientes naturais, biodegradáveis e sustentáveis, com
-            fórmulas minimalistas e livre de crueldade contra animais.
-          </p>
-          <p>
-            Com nossos cosméticos queremos incentivar um movimento para
-            desconstruir ideias, propor mudanças no comportamento e nos valores
-            para favorecer um consumo + simples + consciente e em maior
-            equilíbrio com a saúde do seu corpo e do meio ambiente.
-          </p>
-        </Section>
-        <Image order={1} src="/static/images/folhas.jpg" />
-        <Section title="Produtos de alta qualidade" bb bl>
-          <p>
-            Queremos que vc possa usar no seu dia a dia produtos naturais,
-            sustentáveis e altamente eficientes!
-          </p>
-          <p>Acreditamos no poder desse movimento! Vamos junt@s?</p>
-          <CTAButton href="/sobre-a-vida-natural" center={false}>
-            Saiba mais
-          </CTAButton>
-        </Section>
-      </Grid>
-    </Container>
-  </Box>
+  <div className="bg-white py-12 sm:p-0">
+    <div className="max-w-screen-xl m-auto sm:p-24">
+      <div className="bg-gray-100 rounded-lg flex-col md:flex-row flex justify-center items-stretch">
+        <div
+          css={{ backgroundImage: 'url("/static/images/afro.jpg" )' }}
+          className="h-64 md:h-auto bg-cover bg-center md:w-6/12 transform lg:-translate-x-16  lg:-translate-y-16"
+        />
+        <div className="m-16 lg:mb-0 md:w-6/12 transform lg:-translate-x-8">
+          <h3 className="text-3xl tracking-tight font-semibold mb-4">
+            Uma ideia, um movimento
+          </h3>
+          <div className="text-gray-700">
+            <p className="mb-4">
+              Nossos cosméticos são feitos a mão, produzidos em pequenos lotes,
+              com ingredientes naturais, biodegradáveis e sustentáveis, com
+              fórmulas minimalistas e livre de crueldade contra animais.
+            </p>
+            <p className="mb-4">
+              Com nossos cosméticos queremos incentivar um movimento para
+              desconstruir ideias, propor mudanças no comportamento e nos
+              valores para favorecer um consumo + simples + consciente e em
+              maior equilíbrio com a saúde do seu corpo e do meio ambiente.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 rounded-lg flex-col md:flex-row flex justify-center items-stretch">
+        <div
+          css={{ backgroundImage: 'url("/static/images/folhas.jpg")' }}
+          className="h-64 md:h-auto bg-cover bg-center md:w-6/12 order-first md:order-1 transform lg:translate-x-16  lg:translate-y-16"
+        />
+        <div className="m-16 md:w-6/12 transform lg:translate-x-8">
+          <h3 className="text-3xl tracking-tight font-semibold mb-4">
+            Produtos de alta qualidade
+          </h3>
+          <div className="text-gray-700">
+            <p className="mb-4">
+              Queremos que vc possa usar no seu dia a dia produtos naturais,
+              sustentáveis e altamente eficientes!
+            </p>
+            <p className="mb-4">
+              Acreditamos no poder desse movimento! Vamos junt@s?
+            </p>
+            <CTAButton href="/sobre-a-vida-natural">Saiba mais</CTAButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 )
 
 export default About

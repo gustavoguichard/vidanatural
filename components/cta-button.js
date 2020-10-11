@@ -14,7 +14,7 @@ const CTAButton = ({
   ...props
 }) => {
   const cx = classes(
-    'group transition duration-200 inline-flex relative text-white rounded-sm items-center justify-center hover:bg-opacity-75 hover:shadow-lg p-4 bg-gray-900',
+    'group tracking-wide transition duration-200 inline-flex relative text-white rounded-sm items-center justify-center hover:bg-opacity-75 hover:shadow-lg p-4 bg-gray-900',
     className,
   )
   return (
