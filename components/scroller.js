@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Box, useTheme } from '@material-ui/core'
+import { useTheme } from '@material-ui/core'
 import * as customTypes from 'types/prop-types'
 
 export const getItemWidth = (itemWidth) => {
@@ -34,15 +34,11 @@ const Scroller = (
   return (
     <div
       ref={ref}
+      className="overflow-x-scroll w-full max-w-full"
       css={{
         ...baseStyles,
-        maxWidth: '100vw',
-        overflowX: 'scroll',
         scrollSnapType: snap ? `x ${snap}` : null,
-        width: '100%',
-        '&::-webkit-scrollbar': {
-          display: 'none',
-        },
+        '&::-webkit-scrollbar': { display: 'none' },
       }}
       {...props}
     >

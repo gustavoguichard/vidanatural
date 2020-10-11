@@ -59,7 +59,7 @@ const ProductsPage = ({ products, filters }) => {
           {currentFilter ? currentFilter.title : 'Produtos'}
         </Breadcrumbs>
         <Box mb={3} display="flex" justifyContent="center">
-          <Scroller flex css={{ width: 'auto' }}>
+          <Scroller flex>
             {map(filters, (filter) => (
               <Button
                 onClick={setFilter(filter.name)}

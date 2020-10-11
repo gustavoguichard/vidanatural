@@ -1,5 +1,3 @@
-import { Avatar } from '@material-ui/core'
-
 import { isEmptyBody } from 'lib/domain'
 import { classes } from 'lib/utils'
 
@@ -21,11 +19,7 @@ const ShortTestimonial = ({ data, uid, className }) => {
         title="Ver depoimento completo"
       >
         <Img
-          Component={Avatar}
-          circle
-          height={130}
-          width={130}
-          className="h-24 w-24 m-auto mb-4"
+          className="h-24 w-24 m-auto mb-4 rounded-full"
           alt={name}
           src={picture.url}
         />
