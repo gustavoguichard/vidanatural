@@ -58,8 +58,7 @@
     "react-swipeable": "^5.5.1",
     "react-use-form-state": "^0.13.1",
     "sitemap": "^6.2.0",
-    "tailwindcss": "^1.6.2",
-    "tailwindcss-typography": "^3.1.0"
+    "tailwindcss": "^1.8.13"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",

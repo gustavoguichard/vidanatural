@@ -1,5 +1,4 @@
 import map from 'lodash/map'
-import { Box, Grid, Typography } from '@material-ui/core'
 
 import theme from 'lib/theme'
 
@@ -17,37 +16,27 @@ import sloganImg from 'public/static/svgs/euquero.svg'
 const OndeEncontrar = () => (
   <Layout title="Onde encontrar">
     <Hero size="small" background="/static/images/onde-encontrar.jpg">
-      <Box mb={2} p={3}>
+      <div className="my-12 py-6 px-16 max-w-screen-sm">
         <img
-          css={{
-            maxWidth: 600,
-            width: '80vw',
-          }}
+          className="max-w-full h-24"
           src={sloganImg}
           alt="Eu quero | cosmética consciente"
         />
-      </Box>
+      </div>
     </Hero>
     <PaperContent>
-      <Grid container justify="space-between">
-        <Grid item xs={12} md={8}>
+      <div className="flex flex-col md:flex-row justify-between">
+        <div className="md:w-8/12">
           <Breadcrumbs
             links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
             css={{ margin: theme.spacing(-3, 0, 3) }}
           >
             Onde encontrar?
           </Breadcrumbs>
-          <Typography variant="h3">
+          <h3 className="text-3xl font-bold tracking-tight leading-none">
             Procure pelo estado na lista abaixo
-          </Typography>
-          <Typography
-            variant="body1"
-            component="div"
-            css={{
-              marginTop: theme.spacing(4),
-              marginBottom: theme.spacing(4),
-            }}
-          >
+          </h3>
+          <div className="mt-4 mb-8 rich-text">
             <p>
               Nós preparamos uma listagem de todas as lojas e distribuidores de
               nossos produtos no Brasil. Fique ligade, esta página será
@@ -62,24 +51,19 @@ const OndeEncontrar = () => (
               <Link href="/entre-em-contato">entre em contato</Link> conosco,
               vamos fazer acontecer!
             </p>
-          </Typography>
+          </div>
           {map(parsedClients, (region, state) => (
             <StatePannel title={state} region={region} key={state} />
           ))}
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={3}
-          css={{ display: 'flex', justifyContent: 'center' }}
-        >
+        </div>
+        <div className="md:w-3/12 flex justify-center">
           <Img
-            css={{ maxWidth: '100%', width: 300 }}
+            className="max-w-full w-64"
             src="/static/svgs/where-to-find.svg"
             alt="Onde encontrar"
           />
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </PaperContent>
   </Layout>
 )

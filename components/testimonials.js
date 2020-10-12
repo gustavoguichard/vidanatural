@@ -10,7 +10,7 @@ import sloganImg from 'public/static/svgs/slogan.svg'
 const Testimonials = ({ testimonials: items, show = 3 }) => {
   const testimonials = take(items, show)
   return testimonials.length ? (
-    <div className="py-16  max-w-screen-xl mx-auto">
+    <div className="py-16 border-b-8 border-white max-w-screen-xl mx-auto">
       <div className="mx-4 text-center">
         <Img
           className="max-w-full w-1/2 md:w-4/12 lg:w-3/12 mx-auto mb-4"
