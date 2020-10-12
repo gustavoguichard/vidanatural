@@ -18,6 +18,7 @@ const Input = ({
     'block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent rounded',
     className,
   )
+  const Component = props.multiline ? 'textarea' : 'input'
   return (
     <>
       <div
@@ -25,7 +26,7 @@ const Input = ({
           error ? errorColor : 'inherit'
         } focus-within:border-${focusBorder} rounded mb-4`}
       >
-        <input
+        <Component
           required={required}
           placeholder=" "
           type={type}

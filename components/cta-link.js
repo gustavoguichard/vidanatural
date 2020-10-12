@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FaAngleRight } from 'react-icons/fa'
 
 import { classes } from 'lib/utils'
@@ -6,8 +7,10 @@ const CTAButton = ({
   children,
   disableIcon,
   IconComponent = FaAngleRight,
-  onClick = () => null,
+  href,
+  as,
   className,
+  prefetch = true,
   ...props
 }) => {
   const cx = classes(
@@ -15,12 +18,14 @@ const CTAButton = ({
     className,
   )
   return (
-    <button type="button" {...props} onClick={onClick} className={cx}>
-      {children}
-      {disableIcon || (
-        <IconComponent className="transition-all duration-200 ml-1 group-hover:ml-2" />
-      )}
-    </button>
+    <Link href={href} as={as} prefetch={prefetch}>
+      <a {...props} className={cx}>
+        {children}
+        {disableIcon || (
+          <IconComponent className="transition-all duration-200 ml-1 group-hover:ml-2" />
+        )}
+      </a>
+    </Link>
   )
 }
 

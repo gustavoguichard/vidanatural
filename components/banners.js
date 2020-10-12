@@ -1,6 +1,6 @@
 import { resolveLink } from 'lib/domain'
 
-import CTAButton from 'components/cta-button'
+import CTALink from 'components/cta-link'
 import Img from 'components/img'
 import Carousel from 'components/carousel'
 
@@ -24,9 +24,9 @@ const HomeHero = ({ banners }) => {
                 {data.title}
               </h3>
               {data.subtitle && <p className="mt-2 mb-4">{data.subtitle}</p>}
-              <CTAButton href={resolveLink(data.link.url)}>
+              <CTALink href={resolveLink(data.link.url)}>
                 {data.button_text || 'Comprar'}
-              </CTAButton>
+              </CTALink>
             </div>
           </div>
         )

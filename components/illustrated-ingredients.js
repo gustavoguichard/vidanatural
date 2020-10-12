@@ -9,7 +9,7 @@ import { RichText } from 'prismic-reactjs'
 
 import theme from 'lib/theme'
 
-import CTAButton from 'components/cta-button'
+import CTALink from 'components/cta-link'
 import FeaturedIngredients from 'components/featured-ingredients'
 
 const IllustratedIngredients = ({
@@ -43,9 +43,9 @@ const IllustratedIngredients = ({
                 <RichText render={ingredients_description} />
               </Typography>
               <FeaturedIngredients ingredients={ingredients} />
-              <CTAButton href="/produtos" css={{ marginTop: theme.spacing(4) }}>
+              <CTALink href="/produtos" css={{ marginTop: theme.spacing(4) }}>
                 Conhecer os produtos
-              </CTAButton>
+              </CTALink>
             </Box>
           </Grid>
         </Grid>

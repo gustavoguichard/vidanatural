@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 import { useSwipeable } from 'react-swipeable'
 
-import CTAButton from 'components/cta-button'
+import CTALink from 'components/cta-link'
 import Img from 'components/img'
 import Link from 'components/link'
 
@@ -76,13 +76,13 @@ const ProductSlide = ({
             className="mt-2 mb-4 text-gray-700 text-lg"
             source={product.subtitle}
           />
-          <CTAButton
+          <CTALink
             color="secondary"
             href="/produtos/[slug]"
             as={`/produtos/${product.slug}`}
           >
             Saiba mais
-          </CTAButton>
+          </CTALink>
         </div>
       </div>
     </div>

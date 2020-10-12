@@ -1,4 +1,4 @@
-import CTAButton from 'components/cta-button'
+import CTALink from 'components/cta-link'
 
 const About = () => (
   <div className="bg-white py-12 sm:p-0">
@@ -44,7 +44,7 @@ const About = () => (
             <p className="mb-4">
               Acreditamos no poder desse movimento! Vamos junt@s?
             </p>
-            <CTAButton href="/sobre-a-vida-natural">Saiba mais</CTAButton>
+            <CTALink href="/sobre-a-vida-natural">Saiba mais</CTALink>
           </div>
         </div>
       </div>

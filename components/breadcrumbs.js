@@ -1,27 +1,36 @@
 import { memo } from 'react'
-import Link from 'next/link'
 
-import { clipSentence } from 'lib/utils'
+import { clipSentence, classes } from 'lib/utils'
 
-const Breadcrumbs = ({ links, children, clip = true, hideHome, ...props }) => {
+import Link from 'components/link'
+
+const Breadcrumbs = ({
+  links,
+  children,
+  className,
+  clip = true,
+  hideHome,
+  ...props
+}) => {
   const separator = <span className="text-xs mx-1"> &gt; </span>
+  const cx = classes('text-gray-700 text-sm my-4', className)
   return (
-    <p
-      aria-label="breadcrumb"
-      {...props}
-      className="text-gray-700 text-sm my-4"
-    >
+    <p aria-label="breadcrumb" {...props} className={cx}>
       {hideHome || (
-        <Link href="/">
-          <a className="underline hover:text-green-600">Vida Natural</a>
+        <Link href="/" className="underline hover:text-green-600">
+          Vida Natural
         </Link>
       )}
       {hideHome || separator}
       {links &&
         links.map((link, idx) => (
           <>
-            <Link key={`link-${idx}`} {...link}>
-              <a className="underline hover:text-green-600">{link.title}</a>
+            <Link
+              key={`link-${idx}`}
+              {...link}
+              className="underline hover:text-green-600"
+            >
+              {link.title}
             </Link>
             {separator}
           </>

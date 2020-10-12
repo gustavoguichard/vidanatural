@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import take from 'lodash/take'
 
-import CTAButton from 'components/cta-button'
+import CTALink from 'components/cta-link'
 import Img from 'components/img'
 import Testimonial from 'components/short-testimonial'
 
@@ -25,9 +25,7 @@ const Testimonials = ({ testimonials: items, show = 3 }) => {
         ))}
       </div>
       <div className="text-center">
-        <CTAButton href="/eu-uso-cosmetica-consciente">
-          Mais depoimentos
-        </CTAButton>
+        <CTALink href="/eu-uso-cosmetica-consciente">Mais depoimentos</CTALink>
       </div>
     </div>
   ) : null

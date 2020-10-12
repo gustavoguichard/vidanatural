@@ -6,7 +6,7 @@ import staticPaths from 'lib/static-paths/eu-uso-uid'
 import staticProps from 'lib/static-props/eu-uso-uid'
 
 import Breadcrumbs from 'components/breadcrumbs'
-import CTAButton from 'components/cta-button'
+import CTALink from 'components/cta-link'
 import Hero from 'components/hero'
 import Img from 'components/img'
 import Layout from 'components/layout'
@@ -89,12 +89,12 @@ const ContentPage = ({ data }) => {
             >
               <RichText render={content} />
             </Typography>
-            <CTAButton
+            <CTALink
               href="/eu-uso-cosmetica-consciente"
               css={{ marginTop: theme.spacing(4) }}
             >
               Mais depoimentos
-            </CTAButton>
+            </CTALink>
           </Grid>
         </Grid>
       </PaperContent>
