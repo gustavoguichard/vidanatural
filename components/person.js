@@ -1,70 +1,33 @@
 import { memo } from 'react'
-import { Typography } from '@material-ui/core'
-import { RemoveRedEye } from '@material-ui/icons'
-
-import theme from 'lib/theme'
+import { BsEyeFill } from 'react-icons/bs'
 
 import Img from 'components/img'
 import Link from 'components/link'
 
-export const saturateOnHover = (time = '.3s') => ({
-  filter: 'saturate(0)',
-  transition: `${time} filter`,
-  '&:hover, a:focus & ': {
-    filter: 'saturate(1)',
-  },
-})
-
-const Testimonial = ({ data, uid }) => {
+const Person = ({ data, uid }) => {
   const { is_long, picture, name } = data
   return (
-    <Link
-      href="/eu-uso/[name]"
-      as={`/eu-uso/${uid}`}
-      className="testimonial-item"
-    >
+    <Link href="/eu-uso/[name]" as={`/eu-uso/${uid}`}>
       <figure
+        className="cursor-pointer transition-all duration-300 m-0 mb-px w-full flex relative flex-col pr-px"
         css={{
-          ...saturateOnHover(),
-          cursor: 'pointer',
-          margin: 0,
-          marginBottom: 1,
-          width: '100%',
-          display: 'flex',
-          position: 'relative',
-          flexDirection: 'column',
+          filter: 'saturate(0)',
+          '&:hover, a:focus & ': { filter: 'saturate(1)' },
           minHeight: 250,
-          paddingRight: 1,
         }}
       >
         <Img
-          css={{ width: '100%', objectFit: 'cover' }}
+          className="w-full object-conver"
           src={picture[is_long ? 'long' : 'square'].url}
           alt={name}
         />
-        <div
-          css={{
-            backgroundColor: 'rgba(0,0,0,.5)',
-            bottom: 0,
-            left: 0,
-            padding: 12,
-            display: 'flex',
-            position: 'absolute',
-            right: 0,
-          }}
-        >
-          <Typography
-            css={{ flex: 1 }}
-            variant="subtitle1"
-            color="textSecondary"
-          >
-            {name}
-          </Typography>
-          <RemoveRedEye css={{ color: theme.palette.text.secondary }} />
+        <div className="text-white bg-black bg-opacity-50 absolute p-4 inset-x-0 bottom-0 flex">
+          <h5 className="flex-grow">{name}</h5>
+          <BsEyeFill />
         </div>
       </figure>
     </Link>
   )
 }
 
-export default memo(Testimonial)
+export default memo(Person)
