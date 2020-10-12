@@ -1,7 +1,3 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import { RichText } from 'prismic-reactjs'
-
-import theme from 'lib/theme'
 import staticProps from 'lib/static-props/sobre-a-vida-natural'
 
 import Breadcrumbs from 'components/breadcrumbs'
@@ -10,6 +6,7 @@ import IllustratedIngredients from 'components/illustrated-ingredients'
 import Layout from 'components/layout'
 import TeamMember from 'components/team-member'
 import PaperContent from 'components/paper-content'
+import RichText from 'components/rich-text'
 
 import sloganImg from 'public/static/svgs/eufaco.svg'
 
@@ -23,55 +20,34 @@ const AboutPage = ({ team, page }) => {
       }}
     >
       <Hero size="small" background="/static/images/banner.jpg">
-        <Box mb={2} px={3} pt={3} pb={2}>
+        <div className="my-12 py-6 px-16 max-w-screen-md">
           <img
-            css={{
-              maxWidth: 600,
-              width: '80vw',
-            }}
+            className="max-w-full h-24 m-auto"
             src={sloganImg}
             alt="Eu faço | cosmética consciente"
           />
-        </Box>
-        <Typography
-          component="div"
-          variant="body1"
-          css={{ margin: theme.spacing(0, 3, 3) }}
-        >
-          <RichText render={page.data.banner_description} />
-        </Typography>
+          <RichText className="m-4 text-lg">
+            {page.data.banner_description}
+          </RichText>
+        </div>
       </Hero>
       <PaperContent>
-        <Grid container justify="center">
-          <Grid item xs={12} sm={8}>
-            <Breadcrumbs css={{ margin: theme.spacing(-3, 0, 3) }}>
-              Sobre a VN
-            </Breadcrumbs>
-            <Typography
-              component="div"
-              css={{ marginBottom: theme.spacing(4) }}
-            >
-              <RichText render={page.data.content} />
-            </Typography>
-          </Grid>
-          <Grid id="quem-somos" item xs={12}>
-            <Typography
-              variant="h4"
-              align="center"
-              css={{
-                marginBottom: theme.spacing(2),
-                marginTop: theme.spacing(4),
-              }}
-            >
+        <div className="flex flex-col items-center">
+          <div className="sm:w-8/12">
+            <Breadcrumbs className="-mt-6 mb-6">Sobre a VN</Breadcrumbs>
+            <RichText>{page.data.content}</RichText>
+          </div>
+          <div id="quem-somos">
+            <h4 className="text-2xl mb-4 mt-8 font-bold tracking-tight leading-none">
               Quem somos?
-            </Typography>
-            <Grid container spacing={4} justify="center" alignItems="stretch">
+            </h4>
+            <div className="grid gap-8 md:grid-cols-2">
               {team.map((member) => (
                 <TeamMember key={member.uid} {...member.data} />
               ))}
-            </Grid>
-          </Grid>
-        </Grid>
+            </div>
+          </div>
+        </div>
       </PaperContent>
       <IllustratedIngredients {...page.data} />
     </Layout>

@@ -21,7 +21,7 @@ const ContentPage = ({ data }) => {
           <img
             className="max-w-full h-24"
             src={sloganImg}
-            alt="Eu uso cosmética consciente"
+            alt="Eu uso | cosmética consciente"
           />
           <p className="m-4 text-lg max-w-2xl">
             Descubra o que motiva {firstName} a usar os produtos da VN
