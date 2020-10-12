@@ -1,7 +1,3 @@
-import { Grid, Box, Typography } from '@material-ui/core'
-import { RichText } from 'prismic-reactjs'
-
-import theme from 'lib/theme'
 import staticPaths from 'lib/static-paths/eu-uso-uid'
 import staticProps from 'lib/static-props/eu-uso-uid'
 
@@ -11,6 +7,7 @@ import Hero from 'components/hero'
 import Img from 'components/img'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
+import RichText from 'components/rich-text'
 
 import sloganImg from 'public/static/svgs/slogan.svg'
 
@@ -20,83 +17,47 @@ const ContentPage = ({ data }) => {
   return (
     <Layout title="Eu uso cosmética consciente!">
       <Hero size="small" background="/static/images/banner.jpg">
-        <Box mb={2} p={3}>
+        <div className="my-12 py-6 px-16 max-w-screen-sm">
           <img
-            css={{
-              maxWidth: 600,
-              width: '80vw',
-            }}
+            className="max-w-full h-24"
             src={sloganImg}
             alt="Eu uso cosmética consciente"
           />
-        </Box>
-        <Typography variant="body1" css={{ marginBottom: theme.spacing(5) }}>
-          Descubra o que motiva {firstName} a usar os produtos da VN
-        </Typography>
+          <p className="m-4 text-lg max-w-2xl">
+            Descubra o que motiva {firstName} a usar os produtos da VN
+          </p>
+        </div>
       </Hero>
       <PaperContent>
         <Breadcrumbs
-          css={{ margin: theme.spacing(-3, 0, 3) }}
+          className="-mt-6 mb-6"
           links={[{ title: 'Eu uso', href: '/eu-uso-cosmetica-consciente' }]}
         >
           {name}
         </Breadcrumbs>
-        <Grid container spacing={4} justify="center" alignItems="stretch">
-          <Grid item xs={12} sm={8} md={6} css={{ display: 'flex' }}>
+        <div className="flex flex-col space-y-4 md:flex-row md:space-x-8 justify-center md:items-start items-center">
+          <div className="sm:w-8/12 md:w-6/12">
             <Img
-              className="responsive"
-              css={{
-                alignSelf: 'flex-end',
-              }}
+              className="max-w-full"
               alt={name}
               src={picture[is_long ? 'long' : 'square'].url}
             />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={8}
-            md={6}
-            css={{
-              justifyContent: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <Typography
-              variant="body1"
-              css={{ fontSize: '1.85rem' }}
-              component="h1"
-            >
-              <strong>{name}</strong>
-            </Typography>
-            <Typography
-              variant="body2"
-              css={{
-                color: theme.palette.text.hint,
-                marginBottom: theme.spacing(2),
-              }}
-            >
+          </div>
+          <div className="sm:w-8/12 md:w-6/12">
+            <h1 className="text-4xl font-bold tracking-tighter leading-none">
+              {name}
+            </h1>
+            <p className="text-gray-600 mb-4 text-sm">
               {role}
               {role ? <br /> : null}
               {location}
-            </Typography>
-            <Typography
-              css={{ color: theme.palette.primary.light }}
-              align="left"
-              component="div"
-              variant="body1"
-            >
-              <RichText render={content} />
-            </Typography>
-            <CTALink
-              href="/eu-uso-cosmetica-consciente"
-              css={{ marginTop: theme.spacing(4) }}
-            >
+            </p>
+            <RichText className="text-gray-700">{content}</RichText>
+            <CTALink href="/eu-uso-cosmetica-consciente">
               Mais depoimentos
             </CTALink>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </PaperContent>
     </Layout>
   )

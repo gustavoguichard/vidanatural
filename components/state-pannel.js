@@ -1,17 +1,13 @@
-import { useState } from 'react'
 import map from 'lodash/map'
 import { FaAngleDown } from 'react-icons/fa'
 
 import { classes } from 'lib/utils'
+import { useToggle } from 'lib/hooks'
 
 import Distributor from 'components/distributor'
 
 const StatePannel = ({ region, title }) => {
-  const [open, setOpen] = useState(false)
-
-  const onClick = () => {
-    setOpen(!open)
-  }
+  const [open, toggle] = useToggle()
 
   const cx = classes('transition duration-200', {
     'transform rotate-180': open,
@@ -20,7 +16,7 @@ const StatePannel = ({ region, title }) => {
   return (
     <div className={wCx}>
       <div
-        onClick={onClick}
+        onClick={toggle}
         className="flex p-4 justify-between cursor-pointer"
         aria-controls={`state-${title}`}
       >
