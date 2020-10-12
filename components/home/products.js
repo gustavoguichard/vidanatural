@@ -1,11 +1,10 @@
 import { useState, useMemo } from 'react'
 import filter from 'lodash/filter'
-import times from 'lodash/times'
 
 import { useIsMobile } from 'lib/hooks'
-import { classes } from 'lib/utils'
 
 import ProductSlide from 'components/home/slide'
+import Tabs from 'components/tabs'
 
 import productsData from 'data/products'
 
@@ -45,7 +44,7 @@ const HomeProducts = ({ products }) => {
             index={idx}
             product={product}
           >
-            <Stepper
+            <Tabs
               handleChange={handleChange}
               size={productsArray.length}
               current={value}
@@ -56,26 +55,5 @@ const HomeProducts = ({ products }) => {
     </div>
   )
 }
-
-const Stepper = ({ current, size, handleChange }) => (
-  <div className="text-green-600 text-center">
-    {times(size, (idx) => {
-      const cx = classes('font-semibold px-4 py-2 border-b-2', {
-        'border-green-600': current === idx,
-        'border-transparent': current !== idx,
-      })
-      return (
-        <button
-          type="button"
-          onClick={() => handleChange(idx)}
-          key={`idxex-${idx}`}
-          className={cx}
-        >
-          {idx + 1}
-        </button>
-      )
-    })}
-  </div>
-)
 
 export default HomeProducts

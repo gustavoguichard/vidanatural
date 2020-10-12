@@ -47,7 +47,7 @@ const SinglePostPage = ({
         post={data.body}
         date={date}
         showAvatar
-        style={{ top: hasFeatured ? theme.spacing(-3) : 0 }}
+        className={hasFeatured ? 'transform -translate-y-6' : ''}
       />
       <Breadcrumbs
         css={{ margin: theme.spacing(hasFeatured ? 1 : 3, 0, 2) }}

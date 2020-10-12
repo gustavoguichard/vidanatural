@@ -11,10 +11,7 @@ import Img from 'components/img'
 const FaqPage = ({ items }) => {
   const title = 'Dúvidas Frequentes'
   return (
-    <SinglePageLayout
-      title={title}
-      containerProps={{ css: { textAlign: 'center' } }}
-    >
+    <SinglePageLayout title={title} className="text-center">
       <Typography variant="h2">{title}</Typography>
       <Box py={4} textAlign="left">
         <Breadcrumbs

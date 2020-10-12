@@ -1,22 +1,26 @@
 import { memo } from 'react'
-import { Avatar } from '@material-ui/core'
 
-import theme from 'lib/theme'
+import { classes } from 'lib/utils'
 
 import DocumentDetails from 'components/document-details'
 import Img from 'components/img'
 import Link from 'components/link'
 
-const AuthorCard = ({ author, date, post, showAvatar, disableLink, style }) => {
+const AuthorCard = ({
+  author,
+  date,
+  post,
+  showAvatar,
+  disableLink,
+  className,
+}) => {
+  const cx = classes('flex relative', className)
   return (
-    <div className="flex relative" style={style}>
+    <div className={cx}>
       {showAvatar && (
-        <Link {...author.permalink} css={{ margin: theme.spacing(0, 1) }}>
+        <Link {...author.permalink} className="mx-2">
           <Img
-            Component={Avatar}
-            circle
-            width={40}
-            height={40}
+            className="h-10 w-10 rounded-full"
             alt={author.imgAlt}
             src={author.thumbUrl}
           />

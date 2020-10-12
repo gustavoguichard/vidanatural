@@ -1,31 +1,22 @@
-import { Container, Grid } from '@material-ui/core'
-
-import theme from 'lib/theme'
+import { classes } from 'lib/utils'
 
 import Layout from 'components/layout'
 
-const SinglePageLayout = ({
-  children,
-  hero,
-  containerProps = {},
-  ...props
-}) => {
+const SinglePageLayout = ({ children, hero, className, ...props }) => {
+  const cx = classes(
+    'flex flex-col items-center max-w-screen-xl m-auto border-b-8 border-white',
+    {
+      'p-16': !!hero,
+      'pt-32 px-6 pb-8': !hero,
+    },
+  )
+  const cx2 = classes('flex flex-col w-auto md:w-8/12', className)
   return (
-    <Layout variant="secondary" css={{ background: 'white' }} {...props}>
+    <Layout css={{ background: 'white' }} {...props}>
       {hero}
-      <Container
-        maxWidth="lg"
-        css={{
-          padding: theme.spacing(hero ? 8 : 18, 3, 4),
-          borderBottom: '10px solid white',
-        }}
-      >
-        <Grid container justify="center">
-          <Grid item xs={12} md={8} {...containerProps}>
-            {children}
-          </Grid>
-        </Grid>
-      </Container>
+      <div className={cx}>
+        <div className={cx2}>{children}</div>
+      </div>
     </Layout>
   )
 }

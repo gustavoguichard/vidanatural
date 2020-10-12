@@ -1,5 +1,4 @@
 import { memo } from 'react'
-import { Typography } from '@material-ui/core'
 
 import { calculatePostReadTime, getFromDate } from 'lib/domain'
 
@@ -14,7 +13,7 @@ const DocumentDetails = ({
   ...props
 }) => {
   return (
-    <Typography variant="caption" {...props}>
+    <div className="text-sm" {...props}>
       {author && (
         <div>
           Escrito por{' '}
@@ -22,17 +21,19 @@ const DocumentDetails = ({
             {disableLink ? (
               author.data.name
             ) : (
-              <Link {...author.permalink}>{author.data.name}</Link>
+              <Link {...author.permalink} className="hover:underline">
+                {author.data.name}
+              </Link>
             )}
           </strong>
           <br />
         </div>
       )}
-      <em>
+      <em className="text-xs">
         {prepend && `${prepend} `}
         {getFromDate(date)} · {calculatePostReadTime(post)} de leitura
       </em>
-    </Typography>
+    </div>
   )
 }
 
