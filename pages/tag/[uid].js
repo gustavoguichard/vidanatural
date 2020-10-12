@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import isEmpty from 'lodash/isEmpty'
 import startCase from 'lodash/startCase'
-import { Container, Typography, useTheme } from '@material-ui/core'
 
 import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'
@@ -16,7 +15,6 @@ import ProductFaq from 'components/products/faq'
 import Testimonials from 'components/testimonials'
 
 const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
-  const theme = useTheme()
   const router = useRouter()
   const title = `Tag: ${startCase(router.query.uid)}`
   const hero = isEmpty(banners) ? null : (
@@ -28,19 +26,17 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
   return (
     <Layout title={title} stickBar>
       {hero}
-      <Container
-        css={{
-          padding: theme.spacing(hero ? 8 : 18, 3, 4),
-          borderBottom: '10px solid white',
-        }}
-        maxWidth="md"
+      <div
+        className={`max-w-screen-lg m-auto border-b-8 border-white ${
+          hero ? 'p-16' : 'pt-32 px-6 pb-8'
+        }`}
       >
         <Breadcrumbs>{title}</Breadcrumbs>
         {router.isFallback || !isEmpty(posts) ? (
           <>
-            <Typography gutterBottom variant="h2">
+            <h2 className="text-4xl font-bold leading-none tracking-tight mb-4">
               Posts no blog
-            </Typography>
+            </h2>
             {router.isFallback
               ? [...Array(2).keys()].map(PostSkeleton)
               : posts.map((post) => <PostPreview key={post.id} {...post} />)}
@@ -50,11 +46,11 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
           <ProductGrid products={products} title="Produtos relacionados" />
         )}
         {emptyPage && (
-          <Typography gutterBottom variant="h2">
+          <h2 className="text-4xl font-bold leading-none tracking-tight mb-4">
             Nenhum conteúdo para a {title}
-          </Typography>
+          </h2>
         )}
-      </Container>
+      </div>
       <ProductFaq items={faqItems} />
       <Testimonials testimonials={testimonials} />
     </Layout>

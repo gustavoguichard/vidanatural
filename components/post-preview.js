@@ -13,9 +13,9 @@ const PostPreview = ({
   imgAlt,
   permalink,
 }) => (
-  <div className="sm:flex mb-12">
+  <div className="sm:flex mb-12 space-x-6">
     {thumbUrl && (
-      <div className="sm:w-1/4 mr-6 mb-4">
+      <div className="sm:w-1/4 mb-4">
         <Link {...permalink}>
           <Img className="max-w-full" src={thumbUrl} alt={imgAlt} />
         </Link>
@@ -23,7 +23,7 @@ const PostPreview = ({
     )}
     <div className="sm:w-3/4">
       <Link {...permalink}>
-        <h3 className="text-3xl font-bold tracking-tight leading-none">
+        <h3 className="text-3xl hover:underline font-bold tracking-tight leading-none">
           {data.title}
         </h3>
       </Link>
