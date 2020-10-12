@@ -1,14 +1,6 @@
-import { useRouter } from 'next/router'
-import {
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Typography,
-} from '@material-ui/core'
-
 import api from 'lib/api'
-import theme from 'lib/theme'
 
+import Link from 'components/link'
 import PriceTag from 'components/products/price-tag'
 
 const SearchItem = ({
@@ -20,37 +12,32 @@ const SearchItem = ({
   slug,
   sale_price,
 }) => {
-  const router = useRouter()
   return (
-    <ListItem
-      button
-      onClick={async () => {
-        await router.push('/produtos/[slug]', `/produtos/${slug}-${id}`)
-        onClick && onClick()
-      }}
+    <Link
+      onClick={onClick}
+      href="/produtos/[slug]"
+      as={`/produtos/${slug}-${id}`}
+      className="flex place-items-center p-3 space-x-3 transition duration-300 hover:bg-gray-200 text-gray-700"
     >
       {image_url ? (
-        <ListItemAvatar>
-          <img
-            alt={name}
-            src={api.vnda.getResizedImg(image_url, 60)}
-            width="60"
-            css={{ marginRight: theme.spacing(2) }}
-          />
-        </ListItemAvatar>
+        <img
+          alt={name}
+          src={api.vnda.getResizedImg(image_url, 60)}
+          width="60"
+        />
       ) : null}
-      <ListItemText>
-        <Typography variant="body2">{name}</Typography>
+      <div>
+        <p className="text-sm">{name}</p>
         {sale_price && (
           <PriceTag
             variant="caption"
-            component="span"
+            inline
             lineBreak={false}
             item={{ price, sale_price }}
           />
         )}
-      </ListItemText>
-    </ListItem>
+      </div>
+    </Link>
   )
 }
 

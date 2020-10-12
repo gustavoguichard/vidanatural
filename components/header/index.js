@@ -48,6 +48,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
           backgroundColor: sticky ? null : 'transparent',
           top: !isOnTop && sticky && scrollDirection === 'DOWN' ? -64 : 0,
           transition: 'all .3s',
+          zIndex: `40 !important`,
         }}
         position="fixed"
         elevation={elevation}

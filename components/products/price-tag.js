@@ -1,28 +1,21 @@
-import { Grid, Typography } from '@material-ui/core'
-
-import { toCurrency } from 'lib/utils'
-import theme from 'lib/theme'
+import { classes, toCurrency } from 'lib/utils'
 
 import OldPrice from './old-price'
 
-const PriceTag = ({ item, component, lineBreak, ...props }) => {
+const PriceTag = ({ item, inline, lineBreak, ...props }) => {
+  const cx = classes('text-sm text-gray-900', {
+    'm-2 mt-0': !inline,
+    'inline-block': inline,
+  })
   return (
-    <Typography
-      variant="h5"
-      css={{
-        fontWeight: 'bold',
-        margin: component === 'span' ? 0 : theme.spacing(0, 1, 1),
-      }}
-      component={component}
-      {...props}
-    >
+    <p className={cx} {...props}>
       <OldPrice
         price={item.price}
         salePrice={item.sale_price}
         lineBreak={lineBreak}
       />
-      <strong>{toCurrency(item.sale_price)}</strong>
-    </Typography>
+      {toCurrency(item.sale_price)}
+    </p>
   )
 }
 

@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, Fragment } from 'react'
 
 import { clipSentence, classes } from 'lib/utils'
 
@@ -24,16 +24,12 @@ const Breadcrumbs = ({
       {hideHome || separator}
       {links &&
         links.map((link, idx) => (
-          <>
-            <Link
-              key={`link-${idx}`}
-              {...link}
-              className="underline hover:text-green-600"
-            >
+          <Fragment key={`link-${idx}`}>
+            <Link {...link} className="underline hover:text-green-600">
               {link.title}
             </Link>
             {separator}
-          </>
+          </Fragment>
         ))}
       <span>{clip ? clipSentence(children) : children}</span>
     </p>
