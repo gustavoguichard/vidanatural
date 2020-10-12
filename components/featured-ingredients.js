@@ -1,54 +1,30 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import { RichText } from 'prismic-reactjs'
-
-import theme from 'lib/theme'
-
 import Img from 'components/img'
 import InciLink from 'components/inci-link'
+import RichText from 'components/rich-text'
 
 const FeaturedIngredients = ({ ingredients }) => {
   return (
-    <Grid
-      spacing={3}
-      container
-      justify="space-around"
-      css={{ textAlign: 'center' }}
-    >
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {ingredients.map((ing) => (
-        <Grid key={ing.inci_title} item xs={12} sm={6} md={4}>
-          <Box mb={-8} minHeight={250}>
-            <Img
-              className="responsive"
-              width={300}
-              alt={ing.title}
-              src={ing.image.url}
-            />
-          </Box>
-          <Typography
-            variant="h4"
-            css={{
-              textShadow:
-                '-2px -2px 1px white, 2px -2px 1px white, -2px 2px 1px white, 2px 2px 1px white',
-            }}
-          >
-            {ing.title}
-          </Typography>
-          <Typography variant="caption">
-            <InciLink {...ing} />
-          </Typography>
-          <Typography
-            component="div"
-            css={{
-              color: theme.palette.text.hint,
-              marginTop: theme.spacing(),
-              marginBottom: theme.spacing(5),
-            }}
-          >
-            <RichText render={ing.description} />
-          </Typography>
-        </Grid>
+        <div key={ing.inci_title}>
+          <Img
+            className="max-w-full -mb-16"
+            width={300}
+            alt={ing.title}
+            src={ing.image.url}
+          />
+          <div className="bg-gray-100 bg-opacity-75 py-1 relative z-10 rounded">
+            <h4 className="text-lg font-semibold tracking-tight">
+              {ing.title}
+            </h4>
+            <p className="text-xs">
+              <InciLink {...ing} />
+            </p>
+          </div>
+          <RichText className="my-2 text-gray-700">{ing.description}</RichText>
+        </div>
       ))}
-    </Grid>
+    </div>
   )
 }
 

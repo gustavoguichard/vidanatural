@@ -47,7 +47,7 @@ const ContentPage = ({ data }) => {
             <h1 className="text-4xl font-bold tracking-tighter leading-none">
               {name}
             </h1>
-            <p className="text-gray-600 mb-4 text-sm">
+            <p className="text-gray-600 mt-1 mb-4 text-sm">
               {role}
               {role ? <br /> : null}
               {location}

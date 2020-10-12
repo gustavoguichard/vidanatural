@@ -1,19 +1,18 @@
 import isEmpty from 'lodash/isEmpty'
-import { Link } from '@material-ui/core'
 
 const InciLink = ({ link, inci_title }) =>
   isEmpty(link) ? (
     inci_title
   ) : (
-    <Link
+    <a
       href={link.url}
       target="_blank"
-      rel="noopener"
-      color="secondary"
+      rel="noopener noreferrer"
+      className="text-green-500 hover:underline"
       title="Obter mais informações"
     >
       {inci_title}
-    </Link>
+    </a>
   )
 
 export default InciLink
