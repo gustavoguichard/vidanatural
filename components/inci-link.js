@@ -1,9 +1,5 @@
-import isEmpty from 'lodash/isEmpty'
-
 const InciLink = ({ link, inci_title }) =>
-  isEmpty(link) ? (
-    inci_title
-  ) : (
+  link.url ? (
     <a
       href={link.url}
       target="_blank"
@@ -13,6 +9,8 @@ const InciLink = ({ link, inci_title }) =>
     >
       {inci_title}
     </a>
+  ) : (
+    inci_title
   )
 
 export default InciLink

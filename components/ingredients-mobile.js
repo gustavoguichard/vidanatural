@@ -1,36 +1,24 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from '@material-ui/core'
-import { ExpandMore } from '@material-ui/icons'
-import { RichText } from 'prismic-reactjs'
-
 import InciLink from 'components/inci-link'
+import Pannel from 'components/pannel'
+import RichText from 'components/rich-text'
 
-const IngredientsMobile = ({ data }) =>
-  data.map((item, i) => (
-    <Accordion square key={`item-${i}`}>
-      <AccordionSummary
-        expandIcon={<ExpandMore />}
-        aria-controls={`ingredient${i}-content`}
-      >
-        <Typography variant="body2">
-          <strong>{item.title || item.inci_title}</strong>
-        </Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Typography component="div" css={{ textAlign: 'left' }}>
-          <strong>Inci:</strong> <InciLink {...item} />
-          <br />
-          <br />
-          <strong>O que significa?</strong>
-          <br />
-          {item.description ? <RichText render={item.description} /> : '--'}
-        </Typography>
-      </AccordionDetails>
-    </Accordion>
+const IngredientsMobile = ({ data }) => {
+  return data.map((item, i) => (
+    <Pannel
+      className="md:hidden"
+      key={`item-${i}`}
+      title={item.title || item.inci_title}
+    >
+      <div component="div" className="">
+        <strong>Inci:</strong> <InciLink {...item} />
+        <br />
+        <br />
+        <strong>O que significa?</strong>
+        <br />
+        {item.description ? <RichText>{item.description}</RichText> : '--'}
+      </div>
+    </Pannel>
   ))
+}
 
 export default IngredientsMobile
