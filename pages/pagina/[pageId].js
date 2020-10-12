@@ -1,7 +1,5 @@
 import get from 'lodash/get'
-import { Container, Grid, Typography } from '@material-ui/core'
 
-import theme from 'lib/theme'
 import staticPaths from 'lib/static-paths/pagina-uid'
 import staticProps from 'lib/static-props/pagina-uid'
 
@@ -15,22 +13,21 @@ const ContentPage = ({ page }) =>
   get(page, 'id') ? (
     <Layout title={page.title} seo={{ description: page.description }}>
       <Hero size="small" background="/static/images/banner.jpg">
-        <Typography variant="h2">{page.title}</Typography>
-        <Typography variant="body1" css={{ margin: theme.spacing(3) }}>
-          {page.description}
-        </Typography>
+        <h2 className="text-5xl mt-12 tracking-tighter font-bold leading-none">
+          {page.title}
+        </h2>
+        <p className="m-4 text-lg mb-12 max-w-2xl">{page.description}</p>
       </Hero>
       <PaperContent>
-        <Container maxWidth="md">
-          <Breadcrumbs css={{ margin: theme.spacing(-3, 0, 3) }}>
-            {page.title}
-          </Breadcrumbs>
-        </Container>
-        <Grid container justify="center">
-          <Grid item xs={12} md={7}>
-            <div dangerouslySetInnerHTML={{ __html: page.body }} />
-          </Grid>
-        </Grid>
+        <div className="max-w-screen-md m-auto">
+          <Breadcrumbs className="-mt-6 mb-6">{page.title}</Breadcrumbs>
+        </div>
+        <div className="rich-text max-w-screen-sm m-auto">
+          <div
+            className="rich-text"
+            dangerouslySetInnerHTML={{ __html: page.body }}
+          />
+        </div>
       </PaperContent>
     </Layout>
   ) : (
