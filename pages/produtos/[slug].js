@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import isEmpty from 'lodash/isEmpty'
-import { Container } from '@material-ui/core'
 
 import { useIsMobile } from 'lib/hooks'
 import staticPaths from 'lib/static-paths/produtos-uid'
@@ -47,10 +46,10 @@ const ProductPage = ({
           cmsData={cmsData}
         />
       )}
-      <Container maxWidth="md">
+      <div className="max-w-screen-lg m-auto">
         <IncludedProducts products={includedProducts} />
         <RelatedProducts products={relatedProducts} />
-      </Container>
+      </div>
     </ProductLayout>
   ) : (
     <ErrorPage

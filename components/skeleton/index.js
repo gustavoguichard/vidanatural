@@ -1,8 +1,13 @@
 import { forwardRef } from 'react'
-import { Skeleton } from '@material-ui/lab'
 
-const CustomSkeleton = ({ variant = 'rect', ...props }, ref) => (
-  <Skeleton ref={ref} variant={variant} animation="wave" {...props} />
-)
+import { classes } from 'lib/utils'
 
-export default forwardRef(CustomSkeleton)
+const Skeleton = ({ variant = 'rect', className, ...props }, ref) => {
+  const cx = classes(className, 'bg-gray-200 animate-pulse', {
+    'rounded-full': variant === 'circle',
+    rounded: variant !== 'circle',
+  })
+  return <div className={cx} ref={ref} {...props} />
+}
+
+export default forwardRef(Skeleton)

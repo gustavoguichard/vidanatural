@@ -41,7 +41,7 @@ const BlogPage = ({ posts, page = 1, pages }) => {
         Blog
       </Breadcrumbs>
       {router.isFallback
-        ? [...Array(4).keys()].map(Skeleton)
+        ? [...Array(4).keys()].map((i) => <Skeleton key={`skel-${i}`} />)
         : posts.map((post) => <PostPreview key={post.id} {...post} />)}
       <Pagination count={pages} page={page} path="/blog" />
     </SinglePageLayout>
