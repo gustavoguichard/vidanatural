@@ -1,33 +1,28 @@
-import { Box, Typography } from '@material-ui/core'
-import SinglePageLayout from 'components/single-page-layout'
-
-import theme from 'lib/theme'
 import staticProps from 'lib/static-props/faq'
 
 import Breadcrumbs from 'components/breadcrumbs'
 import FaqItems from 'components/faq-items'
 import Img from 'components/img'
+import SinglePageLayout from 'components/single-page-layout'
 
 const FaqPage = ({ items }) => {
   const title = 'Dúvidas Frequentes'
   return (
-    <SinglePageLayout title={title} className="text-center">
-      <Typography variant="h2">{title}</Typography>
-      <Box py={4} textAlign="left">
+    <SinglePageLayout gray title={title}>
+      <h2 className="text-5xl font-bold tracking-tighter leading-none text-center">
+        {title}
+      </h2>
+      <div className="py-6">
         <Breadcrumbs
           links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
-          css={{ padding: theme.spacing(0, 2) }}
+          className="px-4"
         >
           {title}
         </Breadcrumbs>
         <FaqItems items={items} />
-      </Box>
+      </div>
       <Img
-        css={{
-          maxWidth: '100%',
-          width: 250,
-          margin: theme.spacing(4, 0),
-        }}
+        className="max-w-full w-64 md:w-1/3 my-6 mx-auto"
         src="/static/svgs/faq.svg"
         alt="Dúvidas frequentes"
       />

@@ -1,31 +1,17 @@
 import get from 'lodash/get'
-import { Container, Grid, Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
 
 import FaqItems from 'components/faq-items'
 
 const ProductFaq = ({ items }) => {
   return get(items, 'length') ? (
-    <Container
-      id="faq"
-      css={{ padding: theme.spacing(3, 3), backgroundColor: 'white' }}
-    >
-      <Grid css={{ padding: 0 }} container justify="center" spacing={3}>
-        <Grid item xs={12} md={9}>
-          <Typography
-            variant="h3"
-            css={{
-              margin: theme.spacing(6, 0, 3),
-              textAlign: 'center',
-            }}
-          >
-            Dúvidas frequentes
-          </Typography>
-          <FaqItems items={items} />
-        </Grid>
-      </Grid>
-    </Container>
+    <div className="max-w-screen-xl pt-4 pb-8 bg-white flex justify-center">
+      <div className="mx-2 md:w-9/12">
+        <h3 className="text-3xl font-bold mt-10 mb-6 text-center tracking-tight">
+          Dúvidas frequentes
+        </h3>
+        <FaqItems items={items} />
+      </div>
+    </div>
   ) : null
 }
 
