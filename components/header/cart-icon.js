@@ -1,15 +1,8 @@
 import { useEffect, useRef } from 'react'
 import take from 'lodash/take'
 import isArray from 'lodash/isArray'
-import {
-  IconButton,
-  Button,
-  Menu,
-  Badge,
-  ListSubheader,
-  Divider,
-} from '@material-ui/core'
-import { ShoppingBasket } from '@material-ui/icons'
+import { Button, Menu, Badge, ListSubheader, Divider } from '@material-ui/core'
+import { FaShoppingCart } from 'react-icons/fa'
 
 import api from 'lib/api'
 import theme from 'lib/theme'
@@ -17,6 +10,7 @@ import { ripple } from 'lib/css'
 import { sleep } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
+import IconButton from 'components/icon-button'
 import CartItem from './cart-item'
 
 const CartIcon = () => {
@@ -36,7 +30,6 @@ const CartIcon = () => {
     <>
       <IconButton
         ref={cartRef}
-        color="inherit"
         aria-label="Carrinho"
         aria-haspopup="true"
         aria-controls="cart-popover"
@@ -65,7 +58,7 @@ const CartIcon = () => {
           }}
           variant="dot"
         >
-          <ShoppingBasket fontSize="inherit" css={{ fontSize: '1.35rem' }} />
+          <FaShoppingCart />
         </Badge>
       </IconButton>
       <Menu
