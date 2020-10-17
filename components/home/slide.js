@@ -14,7 +14,7 @@ const ProductSlide = ({
   show,
 }) => {
   const onSwiping = ({ first, deltaX, absX }) => {
-    first && absX > 10 && handleChange({}, deltaX < 0 ? index - 1 : index + 1)
+    first && absX > 10 && handleChange(deltaX < 0 ? index - 1 : index + 1)
   }
   const swipeHandlers = useSwipeable({ onSwiping })
   const swipeHandlers2 = useSwipeable({ onSwiping })
