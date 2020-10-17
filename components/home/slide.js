@@ -20,7 +20,7 @@ const ProductSlide = ({
   const swipeHandlers2 = useSwipeable({ onSwiping })
   return (
     <div
-      className={`bg-no-repeat bg-gray-100 bg-center w-full items-center flex flex-col justify-center ${
+      className={`bg-no-repeat bg-contain sm:bg-auto sm:bg-center bg-gray-100 bg-top w-full items-center flex flex-col justify-center ${
         show && !hidden ? '' : '-z-1 invisible'
       } ${hidden ? 'static' : 'absolute'}`}
       style={{
@@ -64,7 +64,7 @@ const ProductSlide = ({
         }`}
       >
         <div
-          className={`bg-white shadow-sm bg-opacity-75 p-8 transition duration-700 relative transform translate-y-${
+          className={`bg-white shadow-sm bg-opacity-75 py-8 px-10 transition duration-700 relative transform translate-y-${
             show ? 0 : 10
           } ${show && !hidden ? '' : 'invisible'}`}
         >

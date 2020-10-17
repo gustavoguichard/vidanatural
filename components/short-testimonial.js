@@ -8,7 +8,7 @@ import RichText from 'components/rich-text'
 const ShortTestimonial = ({ data, uid, className }) => {
   const { name, picture, short_content, content } = data
   const cx = classes(
-    'py-8 px-12 max-w-md sm:text-center w-full sm:w-1/2 lg:w-1/3',
+    'py-8 px-10 max-w-md sm:text-center w-full sm:w-1/2 lg:w-1/3',
     className,
   )
   return (

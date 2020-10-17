@@ -13,7 +13,7 @@ const HomeFeed = ({ posts }) => {
   const columns = clamp(Math.floor(width / 320), 1, 4)
   return (
     <section className="bg-white py-20" id="feed">
-      <div className="mx-auto max-w-screen-xl w-full px-6">
+      <div className="mx-auto max-w-screen-xl w-full px-4">
         <h3 className="text-center tracking-tight text-4xl font-semibold">
           Blog
         </h3>
