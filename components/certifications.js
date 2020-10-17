@@ -1,7 +1,5 @@
-import Img from 'components/img'
-
 const Icon = ({ path, title, size = 75 }) => (
-  <Img
+  <img
     className="m-6"
     style={{ filter: 'brightness(0.35)' }}
     width={size}

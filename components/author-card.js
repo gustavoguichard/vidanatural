@@ -14,11 +14,11 @@ const AuthorCard = ({
   disableLink,
   className,
 }) => {
-  const cx = classes('flex relative', className)
+  const cx = classes('flex relative space-x-3', className)
   return (
     <div className={cx}>
       {showAvatar && (
-        <Link {...author.permalink} className="mx-2">
+        <Link {...author.permalink}>
           <Img
             className="h-10 w-10 rounded-full"
             alt={author.imgAlt}

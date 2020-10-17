@@ -13,7 +13,7 @@ const PostPreview = ({
   imgAlt,
   permalink,
 }) => (
-  <div className="sm:flex mb-12 space-x-6">
+  <div className="sm:flex mb-12 sm:space-x-6">
     {thumbUrl && (
       <div className="sm:w-1/4 mb-4">
         <Link {...permalink}>

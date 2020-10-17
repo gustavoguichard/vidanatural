@@ -30,7 +30,7 @@ const SinglePostPage = ({
       hero={
         hasFeatured && (
           <Hero filter="brightness(0.4)" size="medium" background={featuredUrl}>
-            <h2 className="text-5xl font-bold tracking-tighter leading-none">
+            <h2 className="text-4xl sm:text-5xl px-6 font-bold tracking-tight leading-none">
               {data.title}
             </h2>
           </Hero>
@@ -38,7 +38,7 @@ const SinglePostPage = ({
       }
     >
       {hasFeatured ? null : (
-        <h3 className="mb-4 text-4xl leading-none tracking-tighter font-bold">
+        <h3 className="mb-4 text-4xl leading-none tracking-tight font-bold">
           {data.title}
         </h3>
       )}
@@ -47,7 +47,7 @@ const SinglePostPage = ({
         post={data.body}
         date={date}
         showAvatar
-        className={hasFeatured ? 'transform -translate-y-6' : ''}
+        className={hasFeatured ? 'transform -translate-y-6' : 'my-3'}
       />
       <Breadcrumbs
         css={{ margin: theme.spacing(hasFeatured ? 1 : 3, 0, 2) }}
