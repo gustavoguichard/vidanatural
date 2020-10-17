@@ -28,7 +28,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
 
   const MenuComponent = isDesktop ? DesktopMenu : MobileMenu
 
-  const cx = classes('px-6 fixed inset-x-0 top-0 z-40', {
+  const cx = classes('px-4 md:px-6 fixed inset-x-0 top-0 z-40', {
     'bg-white shadow-sm': sticky,
     'bg-transparent h-32': !sticky,
     'text-white': variant === 'primary' && !sticky,

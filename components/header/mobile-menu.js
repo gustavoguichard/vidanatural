@@ -2,18 +2,19 @@ import { useState } from 'react'
 import NextLink from 'next/link'
 import {
   Divider,
-  IconButton,
   List,
   ListItem,
   ListItemText,
   ListSubheader,
   SwipeableDrawer,
 } from '@material-ui/core'
-import { Menu } from '@material-ui/icons'
+import { FiMenu } from 'react-icons/fi'
 
 import theme from 'lib/theme'
 
+import IconButton from 'components/icon-button'
 import Img from 'components/img'
+import Link from 'components/link'
 
 import menu from 'data/menu'
 import brandImg from 'public/static/svgs/brand.svg'
@@ -70,14 +71,8 @@ const MobileMenu = ({ children, tags }) => {
   return (
     <>
       {children}
-      <IconButton
-        onClick={toggleDrawer(true)}
-        css={{ marginLeft: 0 }}
-        edge="start"
-        color="inherit"
-        aria-label="Menu"
-      >
-        <Menu />
+      <IconButton onClick={toggleDrawer(true)} aria-label="Menu">
+        <FiMenu />
       </IconButton>
       <SwipeableDrawer
         anchor="right"
@@ -85,19 +80,14 @@ const MobileMenu = ({ children, tags }) => {
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
       >
-        <NextLink href="/">
+        <Link href="/">
           <Img
-            css={{
-              filter: 'invert(0.95)',
-              width: 140,
-              margin: 'auto',
-              marginBottom: theme.spacing(2),
-              marginTop: theme.spacing(3),
-            }}
+            className="w-32 m-auto mb-4 mt-6"
+            css={{ filter: 'invert(0.95)' }}
             src={brandImg}
             alt="Home | Vida Natural"
           />
-        </NextLink>
+        </Link>
         <Divider />
         <List css={{ minWidth: '80vw' }}>
           {[tags, ...menu.links].map((item, index) => (
