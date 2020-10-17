@@ -11,10 +11,8 @@ const Ingredients = ({ ingredients, hasFeatured }) => {
           Outros ingredientes
         </h4>
       )}
-      <div className="-mx-4">
-        <IngredientsDesktop data={ingredients} />
-        <IngredientsMobile data={ingredients} />
-      </div>
+      <IngredientsDesktop data={ingredients} />
+      <IngredientsMobile data={ingredients} />
     </div>
   ) : null
 }

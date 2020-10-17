@@ -8,14 +8,14 @@ import SinglePageLayout from 'components/single-page-layout'
 const FaqPage = ({ items }) => {
   const title = 'Dúvidas Frequentes'
   return (
-    <SinglePageLayout gray title={title}>
+    <SinglePageLayout variant="secondary" gray title={title}>
       <h2 className="text-5xl font-bold tracking-tighter leading-none text-center">
         {title}
       </h2>
       <div className="py-6">
         <Breadcrumbs
           links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
-          className="px-4"
+          className="sm:px-4"
         >
           {title}
         </Breadcrumbs>

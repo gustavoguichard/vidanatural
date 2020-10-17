@@ -2,7 +2,14 @@ import { classes } from 'lib/utils'
 
 import Layout from 'components/layout'
 
-const SinglePageLayout = ({ children, gray, hero, className, ...props }) => {
+const SinglePageLayout = ({
+  children,
+  variant,
+  gray,
+  hero,
+  className,
+  ...props
+}) => {
   const cx = classes(
     'flex flex-col items-center max-w-screen-xl m-auto border-b-8 border-white',
     {
@@ -12,7 +19,11 @@ const SinglePageLayout = ({ children, gray, hero, className, ...props }) => {
   )
   const cx2 = classes('flex flex-col w-full md:w-8/12', className)
   return (
-    <Layout className={gray ? 'bg-gray-100' : 'bg-white'} {...props}>
+    <Layout
+      variant={variant}
+      className={gray ? 'bg-gray-100' : 'bg-white'}
+      {...props}
+    >
       {hero}
       <div className={cx}>
         <div className={cx2}>{children}</div>

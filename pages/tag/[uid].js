@@ -24,13 +24,9 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
     [banners, products, posts, testimonials, faqItems].every(isEmpty) &&
     !router.isFallback
   return (
-    <Layout title={title} stickBar>
+    <Layout title={title} variant="secondary" stickBar={!hero}>
       {hero}
-      <div
-        className={`max-w-screen-lg m-auto border-b-8 border-white ${
-          hero ? 'p-16' : 'pt-32 px-6 pb-8'
-        }`}
-      >
+      <div className="max-w-screen-lg m-auto border-b-8 border-white p-10">
         <Breadcrumbs>{title}</Breadcrumbs>
         {router.isFallback || !isEmpty(posts) ? (
           <>

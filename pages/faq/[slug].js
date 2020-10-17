@@ -16,7 +16,7 @@ const FaqPage = ({ item }) => {
   const { data, last_publication_date } = item
 
   return (
-    <SinglePageLayout title={data.title}>
+    <SinglePageLayout variant="secondary" title={data.title}>
       <h2 className="text-4xl font-bold tracking-tight leading-none">
         {data.title}
       </h2>

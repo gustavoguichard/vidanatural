@@ -27,7 +27,7 @@ const FaqItem = ({ last_publication_date, uid, data }) => {
 }
 
 const FaqItems = ({ items }) => (
-  <div className="bg-white divide-y divide-gray-200 shadow rounded-lg border border-gray-100 py-2">
+  <div className="bg-white -mx-4 sm:mx-0 divide-y divide-gray-200 shadow rounded-lg border border-gray-100">
     {items.map((item) => (
       <FaqItem key={`item-${item.id}`} {...item} />
     ))}

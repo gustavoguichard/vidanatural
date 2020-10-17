@@ -9,7 +9,7 @@ const IngredientsMobile = ({ data }) => {
       key={`item-${i}`}
       title={item.title || item.inci_title}
     >
-      <div component="div" className="">
+      <div>
         <strong>Inci:</strong> <InciLink {...item} />
         <br />
         <br />
