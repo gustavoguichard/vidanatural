@@ -15,7 +15,7 @@ const ContentPage = ({ data }) => {
   const { content, name, picture, role, location, is_long } = data
   const [firstName] = name.split(' ')
   return (
-    <Layout title="Eu uso cosmética consciente!">
+    <Layout title={`${firstName} usa cosmética consciente!`}>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="my-12 py-6 px-16 max-w-screen-sm">
           <img
@@ -24,38 +24,37 @@ const ContentPage = ({ data }) => {
             alt="Eu uso | cosmética consciente"
           />
           <p className="m-4 text-lg max-w-2xl">
-            Descubra o que motiva {firstName} a usar os produtos da VN
+            Descubra o que motiva <strong>{firstName}</strong> a usar os
+            produtos da VN
           </p>
         </div>
       </Hero>
-      <PaperContent>
-        <Breadcrumbs
-          className="-mt-6 mb-6"
-          links={[{ title: 'Eu uso', href: '/eu-uso-cosmetica-consciente' }]}
-        >
-          {name}
-        </Breadcrumbs>
-        <div className="flex flex-col space-y-4 md:flex-row md:space-x-8 justify-center md:items-start items-center">
-          <div className="sm:w-8/12 md:w-6/12">
+      <PaperContent maxWidth="md">
+        <div className="-mb-8">
+          <Breadcrumbs
+            className="-mt-6 mb-6"
+            links={[{ title: 'Eu uso', href: '/eu-uso-cosmetica-consciente' }]}
+          >
+            {name}
+          </Breadcrumbs>
+          <div className="my-4 flex flex-col sm:flex-row md:flex-col lg:flex-row items-start sm:space-x-4 md:space-x-0 lg:space-x-4 space-y-2 sm:space-y-0 md:space-y-2 lg:space-y-0">
             <Img
-              className="max-w-full"
+              className="sm:w-1/3 md:w-auto lg:w-1/3 md: rounded-lg self-stretch object-cover object-top"
               alt={name}
               src={picture[is_long ? 'long' : 'square'].url}
             />
-          </div>
-          <div className="sm:w-8/12 md:w-6/12">
-            <h1 className="text-4xl font-bold tracking-tighter leading-none">
-              {name}
-            </h1>
-            <p className="text-gray-600 mt-1 mb-4 text-sm">
-              {role}
-              {role ? <br /> : null}
-              {location}
-            </p>
-            <RichText className="text-gray-700">{content}</RichText>
-            <CTALink href="/eu-uso-cosmetica-consciente">
-              Mais depoimentos
-            </CTALink>
+            <div>
+              <h5 className="text-lg font-semibold tracking-tight">{name}</h5>
+              <p className="mb-2 font-semibold leading-tight text-gray-600">
+                {role}
+                {role ? <br /> : null}
+                {location}
+              </p>
+              <RichText className="text-gray-700">{content}</RichText>
+              <CTALink href="/eu-uso-cosmetica-consciente">
+                Mais depoimentos
+              </CTALink>
+            </div>
           </div>
         </div>
       </PaperContent>

@@ -12,7 +12,7 @@ import sloganImg from 'public/static/svgs/eufaco.svg'
 const MemberPage = ({ name, ...props }) => {
   const [firstName] = name.split(' ')
   return (
-    <Layout title={`${firstName} usa cosmética consciente!`}>
+    <Layout title={`${firstName} faz cosmética consciente!`}>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="my-12 py-6 px-16 max-w-screen-sm">
           <img
