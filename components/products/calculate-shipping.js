@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import get from 'lodash/get'
-import { LocalShipping } from '@material-ui/icons'
+import { MdLocalShipping } from 'react-icons/md'
 
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
@@ -75,7 +75,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
                   type="submit"
                   color="secondary"
                 >
-                  <LocalShipping />
+                  <MdLocalShipping />
                 </IconButton>
               )}
             </InputAdornment>

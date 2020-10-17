@@ -8,7 +8,7 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core'
-import { Send } from '@material-ui/icons'
+import { FiSend } from 'react-icons/fi'
 
 import api from 'lib/api'
 
@@ -73,7 +73,7 @@ const OutOfStockForm = ({ product, innerRef }) => {
                     type="submit"
                     color="secondary"
                   >
-                    <Send />
+                    <FiSend />
                   </IconButton>
                 )}
               </InputAdornment>

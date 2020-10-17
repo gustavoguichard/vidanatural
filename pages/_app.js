@@ -16,6 +16,7 @@ import theme from 'lib/theme'
 
 import Pixel from 'components/pixel'
 
+import 'animate.css/animate.min.css'
 import 'styles/app.scss'
 import 'styles/tailwind.css'
 

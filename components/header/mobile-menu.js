@@ -1,17 +1,8 @@
 import { useState } from 'react'
-import NextLink from 'next/link'
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  ListSubheader,
-  SwipeableDrawer,
-} from '@material-ui/core'
+import { SwipeableDrawer } from '@material-ui/core'
 import { FiMenu } from 'react-icons/fi'
 
-import theme from 'lib/theme'
-
+import Drawer from 'components/drawer'
 import IconButton from 'components/icon-button'
 import Img from 'components/img'
 import Link from 'components/link'
@@ -20,35 +11,25 @@ import menu from 'data/menu'
 import brandImg from 'public/static/svgs/brand.svg'
 
 const MenuButton = ({ name, path, as, onClose }) => (
-  <NextLink href={path} as={as}>
-    <ListItem
-      onClick={() => {
-        onClose()
-      }}
-      button
-    >
-      <ListItemText>{name}</ListItemText>
-    </ListItem>
-  </NextLink>
+  <Link
+    className="flex py-3 px-4 hover:bg-gray-200"
+    href={path}
+    as={as}
+    onClick={onClose}
+  >
+    {name}
+  </Link>
 )
 
-const MenuItem = ({ name, as, onClose, last, path, links }) => {
+const MenuItem = ({ name, as, onClose, path, links }) => {
   const hasSubmenu = !!links
   return (
     <>
       {hasSubmenu ? (
-        <List
-          subheader={
-            <ListSubheader
-              css={{
-                color: theme.palette.text.disabled,
-                background: theme.palette.common.white,
-              }}
-            >
-              {name}
-            </ListSubheader>
-          }
-        >
+        <div>
+          <span className="sticky top-0 flex text-sm text-gray-500 font-semibold bg-white py-2 px-4">
+            {name}
+          </span>
           {links.map((item) => (
             <MenuButton
               key={item.as || item.path}
@@ -56,31 +37,32 @@ const MenuItem = ({ name, as, onClose, last, path, links }) => {
               {...item}
             />
           ))}
-        </List>
+        </div>
       ) : (
         <MenuButton onClose={onClose} name={name} path={path} as={as} />
       )}
-      {last || <Divider />}
     </>
   )
 }
 
-const MobileMenu = ({ children, tags }) => {
+const MobileMenu = ({ tags }) => {
   const [open, setOpen] = useState(false)
-  const toggleDrawer = (nextOpen) => () => setOpen(nextOpen)
+  const toggleDrawer = (nextState) => () => setOpen(nextState)
   return (
     <>
-      {children}
-      <IconButton onClick={toggleDrawer(true)} aria-label="Menu">
+      <IconButton
+        className="md:hidden -ml-2"
+        onClick={toggleDrawer(true)}
+        aria-label="Menu"
+      >
         <FiMenu />
       </IconButton>
-      <SwipeableDrawer
-        anchor="right"
+      <Drawer
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
       >
-        <Link href="/">
+        <Link className="border-b" href="/">
           <Img
             className="w-32 m-auto mb-4 mt-6"
             css={{ filter: 'invert(0.95)' }}
@@ -88,18 +70,15 @@ const MobileMenu = ({ children, tags }) => {
             alt="Home | Vida Natural"
           />
         </Link>
-        <Divider />
-        <List css={{ minWidth: '80vw' }}>
-          {[tags, ...menu.links].map((item, index) => (
-            <MenuItem
-              key={item.name}
-              onClose={toggleDrawer(false)}
-              last={index >= menu.links.length - 1}
-              {...item}
-            />
+        <div className="divide-y min-w-screen-3/4">
+          {[tags].map((item) => (
+            <MenuItem key={item.name} onClose={toggleDrawer(false)} {...item} />
           ))}
-        </List>
-      </SwipeableDrawer>
+          {menu.links.map((item) => (
+            <MenuItem key={item.name} onClose={toggleDrawer(false)} {...item} />
+          ))}
+        </div>
+      </Drawer>
     </>
   )
 }

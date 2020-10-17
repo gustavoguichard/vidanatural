@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useScrollTrigger, useMediaQuery } from '@material-ui/core'
 
 import { useTagsMenu } from 'lib/domain-hooks'
+import { useScroll } from 'lib/hooks'
 import { classes } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
@@ -14,19 +14,12 @@ import SearchIcon from './search-icon'
 const Header = ({ stick, logoCompanion, variant }) => {
   const tags = useTagsMenu()
 
-  const isDesktop = useMediaQuery('(min-width: 790px)')
-  const hasScrolled = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: process.env.browser ? window() : undefined,
-  })
-  const sticky = stick || hasScrolled
+  const { y } = useScroll()
+  const sticky = stick || y > 0
   const companionSize = sticky ? 35 : 60
 
   const [, actions] = useGlobal()
   useEffect(actions.getCartItems, [])
-
-  const MenuComponent = isDesktop ? DesktopMenu : MobileMenu
 
   const cx = classes('px-4 md:px-6 fixed inset-x-0 top-0 z-40', {
     'bg-white shadow-sm': sticky,
@@ -36,6 +29,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
   return (
     <div className={cx}>
       <div className="flex items-center duration-500">
+        <MobileMenu tags={tags} />
         <Logo sticky={sticky} variant={variant} />
         {logoCompanion && (
           <img
@@ -50,10 +44,9 @@ const Header = ({ stick, logoCompanion, variant }) => {
           />
         )}
         <div className="flex-grow" />
-        <MenuComponent tags={tags}>
-          <SearchIcon />
-          <CartIcon />
-        </MenuComponent>
+        <DesktopMenu tags={tags} />
+        <SearchIcon />
+        <CartIcon />
       </div>
     </div>
   )

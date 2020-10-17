@@ -8,6 +8,9 @@ module.exports = {
       zIndex: {
         '-1': '-1',
       },
+      minWidth: {
+        'screen-3/4': '75vw',
+      },
     },
   },
   variants: {

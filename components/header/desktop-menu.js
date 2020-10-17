@@ -3,8 +3,6 @@ import { useRouter } from 'next/router'
 import kebabCase from 'lodash/kebabCase'
 import { Button, Menu, MenuItem } from '@material-ui/core'
 
-import theme from 'lib/theme'
-
 import ButtonLink from 'components/button-link'
 
 import menu from 'data/menu'
@@ -58,20 +56,15 @@ const SubMenu = ({ name, path, as, links }) => {
   )
 }
 
-const DesktopMenu = ({ children, tags }) => {
+const DesktopMenu = ({ tags }) => {
   return (
-    <>
+    <div className="hidden md:flex">
       {[tags, ...menu.links].map((item) => {
         const hasSubmenu = !!item.links
         return hasSubmenu ? (
           <SubMenu key={item.name} {...item} />
         ) : (
           <ButtonLink
-            css={{
-              '&.active': {
-                color: theme.palette.secondary.main,
-              },
-            }}
             color="inherit"
             key={item.name}
             href={item.path}
@@ -81,8 +74,7 @@ const DesktopMenu = ({ children, tags }) => {
           </ButtonLink>
         )
       })}
-      {children}
-    </>
+    </div>
   )
 }
 
