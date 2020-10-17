@@ -138,3 +138,24 @@ export const useToggle = (initial = false) => {
   const toggler = () => setValue(!value)
   return [value, toggler]
 }
+
+export const useOnClickOutside = (ref: any, handler: (e: any) => null) => {
+  useEffect(() => {
+    const listener = (event: any) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return
+      }
+      handler(event)
+    }
+
+    document.addEventListener('focusin', listener)
+    document.addEventListener('mousedown', listener)
+    document.addEventListener('touchstart', listener)
+
+    return () => {
+      document.removeEventListener('focusin', listener)
+      document.removeEventListener('mousedown', listener)
+      document.removeEventListener('touchstart', listener)
+    }
+  }, [ref, handler])
+}

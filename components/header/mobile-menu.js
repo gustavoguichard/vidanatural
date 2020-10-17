@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { SwipeableDrawer } from '@material-ui/core'
 import { FiMenu } from 'react-icons/fi'
 
 import Drawer from 'components/drawer'

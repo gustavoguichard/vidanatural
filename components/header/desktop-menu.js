@@ -1,58 +1,46 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import kebabCase from 'lodash/kebabCase'
-import { Button, Menu, MenuItem } from '@material-ui/core'
 
-import ButtonLink from 'components/button-link'
+import Dropdown from 'components/dropdown'
+import Link from 'components/link'
 
 import menu from 'data/menu'
 
 const SubMenu = ({ name, path, as, links }) => {
-  const [anchorEl, setAnchorEl] = useState(null)
+  const [open, setOpen] = useState(false)
   const router = useRouter()
   const id = `menu-appbar-${kebabCase(name)}`
   const active = [path, as].includes(router.pathname)
   return (
-    <>
-      <Button
-        color={active ? 'secondary' : 'inherit'}
+    <div className="relative inline-block text-left">
+      <button
+        type="button"
+        className={`rounded p-3 text-sm uppercase hover:bg-gray-500 hover:bg-opacity-25 ${
+          active ? 'text-green-600' : 'inherit'
+        }`}
         aria-label={name}
         aria-haspopup="true"
         aria-controls={id}
-        onClick={(event) => setAnchorEl(event.currentTarget)}
+        onClick={() => setOpen(!open)}
       >
         {name}
-      </Button>
-      <Menu
-        id={id}
-        autoFocus
-        anchorEl={anchorEl}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-        keepMounted
-        open={!!anchorEl}
-        onClose={() => setAnchorEl(null)}
-      >
+      </button>
+      <Dropdown onClose={() => setOpen(false)} open={open}>
         {links.map((subItem, idx) => (
-          <MenuItem
-            onClick={async () => {
-              await router.push(subItem.path, subItem.as)
-              setAnchorEl(null)
-            }}
+          <Link
+            href={subItem.path}
+            as={subItem.as}
+            onClick={() => setOpen(false)}
             key={`submenu-${idx}`}
+            className="flex px-4 py-2  text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-200 focus:text-gray-900"
+            role="menuitem"
           >
             {subItem.name}
-          </MenuItem>
+          </Link>
         ))}
-      </Menu>
-    </>
+      </Dropdown>
+    </div>
   )
 }
 
@@ -64,14 +52,14 @@ const DesktopMenu = ({ tags }) => {
         return hasSubmenu ? (
           <SubMenu key={item.name} {...item} />
         ) : (
-          <ButtonLink
-            color="inherit"
+          <Link
+            className="rounded p-3 text-sm uppercase hover:bg-gray-500 hover:bg-opacity-25"
             key={item.name}
             href={item.path}
             as={item.as}
           >
             {item.name}
-          </ButtonLink>
+          </Link>
         )
       })}
     </div>
