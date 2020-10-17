@@ -30,23 +30,26 @@ const Header = ({ stick, logoCompanion, variant }) => {
     <div className={cx}>
       <div className="flex items-center duration-500">
         <MobileMenu tags={tags} />
-        <Logo sticky={sticky} variant={variant} />
-        {logoCompanion && (
-          <img
-            className="hidden md:block relative transition-all duration-500"
-            css={{
-              maxWidth: companionSize,
-              maxHeight: companionSize,
-              left: sticky ? 0 : -20,
-            }}
-            src={logoCompanion}
-            alt="Embalagem"
-          />
-        )}
-        <div className="flex-grow" />
+        <div className="w-1/3 md:w-auto md:flex-grow flex justify-center md:justify-start">
+          <Logo sticky={sticky} variant={variant} />
+          {logoCompanion && (
+            <img
+              className="hidden md:block relative transition-all duration-500"
+              css={{
+                maxWidth: companionSize,
+                maxHeight: companionSize,
+                left: sticky ? 0 : -20,
+              }}
+              src={logoCompanion}
+              alt="Embalagem"
+            />
+          )}
+        </div>
         <DesktopMenu tags={tags} />
-        <SearchIcon />
-        <CartIcon />
+        <div className="flex justify-end flex-grow md:flex-grow-0">
+          <SearchIcon />
+          <CartIcon />
+        </div>
       </div>
     </div>
   )

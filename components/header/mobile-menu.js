@@ -49,9 +49,9 @@ const MobileMenu = ({ tags }) => {
   const [open, setOpen] = useState(false)
   const toggleDrawer = (nextState) => () => setOpen(nextState)
   return (
-    <>
+    <div className="w-1/3 md:hidden">
       <IconButton
-        className="md:hidden -ml-2"
+        className="text-xl -ml-2"
         onClick={toggleDrawer(true)}
         aria-label="Menu"
       >
@@ -79,7 +79,7 @@ const MobileMenu = ({ tags }) => {
           ))}
         </div>
       </Drawer>
-    </>
+    </div>
   )
 }
 
