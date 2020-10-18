@@ -1,15 +1,14 @@
 import { useEffect, useRef } from 'react'
 import take from 'lodash/take'
 import isArray from 'lodash/isArray'
-import { Button, Menu, Badge, ListSubheader, Divider } from '@material-ui/core'
 import { FaShoppingCart } from 'react-icons/fa'
 
 import api from 'lib/api'
-import theme from 'lib/theme'
-import { ripple } from 'lib/css'
 import { sleep } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
+import CTALink from 'components/cta-link'
+import Dropdown from 'components/dropdown'
 import IconButton from 'components/icon-button'
 import CartItem from './cart-item'
 
@@ -27,7 +26,7 @@ const CartIcon = () => {
     }
   }, [showCart])
   return (
-    <>
+    <div className="relative">
       <IconButton
         ref={cartRef}
         aria-label="Carrinho"
@@ -35,65 +34,29 @@ const CartIcon = () => {
         aria-controls="cart-popover"
         href={api.vnda.CART_URL}
       >
-        <Badge
-          overlap="circle"
-          color="secondary"
-          invisible={!safeCart.length}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          css={{
-            '& > .MuiBadge-badge:after': {
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              borderRadius: '50%',
-              animation: `${ripple} 1.2s infinite ease-in-out`,
-              border: `1px solid ${theme.palette.secondary.main}`,
-              content: '""',
-            },
-          }}
-          variant="dot"
-        >
-          <FaShoppingCart />
-        </Badge>
+        {!!safeCart.length && (
+          <span className="absolute flex h-2 w-2 right-0 top-0 transform translate-y-1 -translate-x-1">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full border-2 border-green-500 bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+          </span>
+        )}
+        <FaShoppingCart />
       </IconButton>
-      <Menu
+      <Dropdown
         id="cart-popover"
-        autoFocus
-        anchorEl={cartRef.current}
-        getContentAnchorEl={null}
-        css={{ '& .MuiList-padding': { paddingBottom: 0 } }}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
+        className="divide-y"
         onClose={actions.hideCart}
-        keepMounted
         open={showCart}
       >
-        <ListSubheader color="inherit">Adicionado recentemente</ListSubheader>
-        <Divider />
+        <p className="text-sm py-2 px-4">Adicionado recentemente</p>
         {take(safeCart, 3).map((cartItem) => (
           <CartItem key={cartItem.id} {...cartItem} />
         ))}
-        <Button
-          css={{ display: 'flex', width: '100%', borderRadius: 0 }}
-          variant="contained"
-          color="secondary"
-          href={api.vnda.CART_URL}
-        >
-          Ver carrinho
-        </Button>
-      </Menu>
-    </>
+        <p className="flex flex-col p-2 pb-1">
+          <CTALink href={api.vnda.CART_URL}>Ver carrinho</CTALink>
+        </p>
+      </Dropdown>
+    </div>
   )
 }
 

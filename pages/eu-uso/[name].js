@@ -45,13 +45,15 @@ const ContentPage = ({ data }) => {
             />
             <div>
               <h5 className="text-lg font-semibold tracking-tight">{name}</h5>
-              <p className="mb-2 font-semibold leading-tight text-gray-600">
+              <p className="mb-2 text-sm leading-tight text-gray-600">
                 {role}
                 {role ? <br /> : null}
                 {location}
               </p>
-              <RichText className="text-gray-700">{content}</RichText>
-              <CTALink href="/eu-uso-cosmetica-consciente">
+              <RichText className="text-gray-700 leading-relaxed">
+                {content}
+              </RichText>
+              <CTALink className="mt-2" href="/eu-uso-cosmetica-consciente">
                 Mais depoimentos
               </CTALink>
             </div>

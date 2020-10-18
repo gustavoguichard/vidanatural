@@ -1,9 +1,8 @@
-import theme from 'lib/theme'
 import { getCategoryTags } from 'lib/domain'
 
 import Breadcrumbs from 'components/breadcrumbs'
 
-const ProductBreadcrumbs = ({ product = {}, isMobile }) => {
+const ProductBreadcrumbs = ({ product = {} }) => {
   const [category] = getCategoryTags([product], false)
   const categoryLink = category
     ? [{ title: category.title, href: `/produtos?filter=${category.name}` }]
@@ -11,7 +10,7 @@ const ProductBreadcrumbs = ({ product = {}, isMobile }) => {
 
   return (
     <Breadcrumbs
-      css={isMobile ? {} : { padding: theme.spacing(0, 2) }}
+      className="md:px-4"
       links={[{ title: 'Produtos', href: '/produtos' }, ...categoryLink]}
     >
       {product.name || 'Carregando...'}

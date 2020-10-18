@@ -1,7 +1,5 @@
 import map from 'lodash/map'
 
-import theme from 'lib/theme'
-
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Img from 'components/img'
@@ -29,7 +27,7 @@ const OndeEncontrar = () => (
         <div className="md:w-8/12">
           <Breadcrumbs
             links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
-            css={{ margin: theme.spacing(-3, 0, 3) }}
+            className="-mt-6 mb-6"
           >
             Onde encontrar?
           </Breadcrumbs>

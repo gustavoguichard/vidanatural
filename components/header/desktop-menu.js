@@ -22,7 +22,7 @@ const SubMenu = ({ name, path, as, links }) => {
         aria-label={name}
         aria-haspopup="true"
         aria-controls={id}
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen(true)}
       >
         {name}
       </button>

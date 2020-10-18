@@ -1,4 +1,5 @@
 module.exports = {
+  experimental: 'all',
   purge: false,
   theme: {
     extend: {

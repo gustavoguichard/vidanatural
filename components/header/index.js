@@ -30,7 +30,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
     <div className={cx}>
       <div className="flex items-center duration-500">
         <MobileMenu tags={tags} />
-        <div className="w-1/3 md:w-auto md:flex-grow flex justify-center md:justify-start">
+        <div className="w-1/3 md:w-auto md:flex-grow flex items-center justify-center md:justify-start">
           <Logo sticky={sticky} variant={variant} />
           {logoCompanion && (
             <img

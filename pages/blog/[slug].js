@@ -1,4 +1,3 @@
-import theme from 'lib/theme'
 import staticProps from 'lib/static-props/blog-uid'
 import staticPaths from 'lib/static-paths/blog-uid'
 
@@ -50,7 +49,7 @@ const SinglePostPage = ({
         className={hasFeatured ? 'transform -translate-y-6' : 'my-3'}
       />
       <Breadcrumbs
-        css={{ margin: theme.spacing(hasFeatured ? 1 : 3, 0, 2) }}
+        className={hasFeatured ? 'my-2' : 'mt-6 mb-4'}
         links={[{ title: 'Blog', href: '/blog' }]}
       >
         {data.title}

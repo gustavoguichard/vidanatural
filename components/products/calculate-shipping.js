@@ -1,19 +1,14 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
-import {
-  IconButton,
-  CircularProgress,
-  InputAdornment,
-  TextField,
-  Typography,
-} from '@material-ui/core'
 import get from 'lodash/get'
 import { MdLocalShipping } from 'react-icons/md'
 
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
-import theme from 'lib/theme'
 
+import CircularProgress from 'components/circular-progress'
+import IconButton from 'components/icon-button'
+import Input from 'components/input'
 import FormError from 'components/form-error'
 
 const OutOfStockForm = ({ sku, quantity }) => {
@@ -25,7 +20,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
   const [formState, { text }] = useFormState()
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event && event.preventDefault()
     setHasError(false)
     setSending(true)
     setNotFound(false)
@@ -51,84 +46,65 @@ const OutOfStockForm = ({ sku, quantity }) => {
   }
 
   return showForm ? (
-    <form
-      css={{ marginTop: theme.spacing(2) }}
-      onSubmit={handleSubmit}
-      action="/frete_produto"
-    >
-      <TextField
-        id="zip"
+    <form className="mt-4" onSubmit={handleSubmit} action="/frete_produto">
+      <Input
         {...text('zip')}
-        css={{ display: 'flex', paddingRight: 5 }}
-        required
         autoFocus
+        required
+        bg="gray-100"
         label="Qual o seu CEP?"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              {sending ? (
-                <CircularProgress color="secondary" />
-              ) : (
-                <IconButton
-                  onClick={handleSubmit}
-                  aria-label="Enviar"
-                  type="submit"
-                  color="secondary"
-                >
-                  <MdLocalShipping />
-                </IconButton>
-              )}
-            </InputAdornment>
-          ),
-        }}
-      />
-      <Typography
-        component="div"
-        variany="body2"
-        css={{ marginTop: theme.spacing(2) }}
-      >
-        {notFound && <p>Endereço não encontrado</p>}
-        {results && (
-          <div>
-            <p>
-              <strong>Preços para:</strong> {results.neighborhood},{' '}
-              {results.city}
-            </p>
-            <ul>
-              {results.shippingMethods.map((method) => (
-                <li key={method.shipping_method_id}>
-                  <strong>{method.name}: </strong>
-                  {toCurrency(method.price)} (até {method.delivery_days} dias
-                  para entrega)
-                  <br />
-                  {method.value_needed_to_discount && (
-                    <strong css={{ fontSize: '.9rem' }}>
-                      Frete grátis por mais{' '}
-                      {toCurrency(method.value_needed_to_discount)} em compras.
-                    </strong>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </Typography>
-      <FormError
-        message={
-          hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
+        button={
+          <IconButton type="submit" onClick={handleSubmit} aria-label="Enviar">
+            <MdLocalShipping />
+          </IconButton>
         }
+      />
+      {(sending || notFound || results) && !hasError && (
+        <div className="mt-4 py-3 px-4 bg-yellow-100 text-yellow-900 border-yellow-200 border-2 rounded">
+          {sending && <CircularProgress className="mx-auto text-yellow-900" />}
+          {notFound && <p className="font-semibold">Endereço não encontrado</p>}
+          {results && (
+            <div>
+              <p>
+                <strong>Preços para:</strong> {results.neighborhood},{' '}
+                {results.city}
+              </p>
+              <ul>
+                {results.shippingMethods.map((method) => (
+                  <li key={method.shipping_method_id}>
+                    <strong>{method.name}: </strong>
+                    {toCurrency(method.price)} (até {method.delivery_days} dias
+                    para entrega)
+                    <br />
+                    {method.value_needed_to_discount && (
+                      <strong css={{ fontSize: '.9rem' }}>
+                        Frete grátis por mais{' '}
+                        {toCurrency(method.value_needed_to_discount)} em
+                        compras.
+                      </strong>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+      <FormError
+        show={hasError}
+        message="Ocorreu um erro. Por favor, tente denovo mais tarde."
       />
     </form>
   ) : (
     <a
       href="#"
-      css={{ marginTop: theme.spacing(2), display: 'block' }}
+      className="mt-4 flex place-items-center text-sm font-semibold hover:underline"
       onClick={(ev) => {
         ev.preventDefault()
         setShowForm(true)
       }}
     >
-      Calcular frete
+      Calcular frete <MdLocalShipping className="ml-1 text-lg" />
     </a>
   )
 }

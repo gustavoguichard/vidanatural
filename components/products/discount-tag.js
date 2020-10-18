@@ -1,7 +1,6 @@
 import { Badge } from '@material-ui/core'
 
 import { toCurrency } from 'lib/utils'
-import theme from 'lib/theme'
 
 const DiscountTag = ({ product, small, ...props }) => {
   const isPercentage = product.discount_rule?.type === 'percentage'

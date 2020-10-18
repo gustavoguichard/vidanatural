@@ -18,7 +18,7 @@ const TeamMember = (props) => {
       <div>
         <h5 className="text-lg font-semibold tracking-tight">{name}</h5>
         <p className="mb-2 font-semibold text-gray-600">{role}</p>
-        <RichText className="text-gray-700">{bio}</RichText>
+        <RichText className="text-gray-700 leading-relaxed">{bio}</RichText>
         <SocialLinks {...socialLinks} />
       </div>
     </div>

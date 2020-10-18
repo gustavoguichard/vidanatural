@@ -1,6 +1,5 @@
 import clamp from 'lodash/clamp'
 
-import theme from 'lib/theme'
 import { getExcerpt } from 'lib/domain'
 import { useWindowDimensions } from 'lib/hooks'
 
@@ -42,7 +41,7 @@ const HomeFeed = ({ posts }) => {
                     post={post.data.body}
                     date={post.date}
                     disableLink
-                    css={{ margin: theme.spacing(3, 0, -1) }}
+                    className="mt-6 -mb-2"
                   />
                 </div>
               </a>

@@ -34,7 +34,7 @@ const SearchBar = () => {
       onClick={closeSearch}
     >
       <div
-        className="flex flex-col max-h-screen overflow-y-auto shadow-lg overflow-hidden relative rounded-b-lg  animate__animated animate__slideInDown"
+        className="flex flex-col max-h-screen overflow-y-auto shadow-lg overflow-hidden relative rounded-b-lg  animate__animated animate__fadeIn animate__faster"
         onClick={(event) => event.stopPropagation()}
         onKeyUp={(event) => {
           event.key === 'Escape' && closeSearch()
