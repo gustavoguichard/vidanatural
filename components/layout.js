@@ -36,15 +36,17 @@ const Layout = ({
     <SEO title={title} {...seo} />
     <SearchBar />
     <Header logoCompanion={logoCompanion} variant={variant} stick={stickBar} />
-    <main {...props} css={{ flex: 1 }}>
+    <main {...props} className="flex-grow">
       {children}
     </main>
     {hideCertifications || <Certifications />}
     <Footer variant={footerVariant} />
     <BottomCTA>
-      {hideChat ? null : (
-        <Chat css={{ bottom: 8, position: 'absolute', right: 8 }} />
-      )}
+      <Chat
+        className={`bottom-0 absolute right-0 transform -translate-x-2 -translate-y-2 md:flex ${
+          hideChat ? 'hidden' : ''
+        }`}
+      />
       {ctaChildren}
     </BottomCTA>
   </>

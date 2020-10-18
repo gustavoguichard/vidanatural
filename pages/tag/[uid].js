@@ -26,9 +26,9 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
   return (
     <Layout title={title} variant="secondary" stickBar={!hero}>
       {hero}
-      <div className="max-w-screen-lg m-auto border-b-8 border-white p-10">
+      <div className="max-w-screen-lg m-auto p-10">
         <Breadcrumbs>{title}</Breadcrumbs>
-        {router.isFallback || !isEmpty(posts) ? (
+        {(router.isFallback || !isEmpty(posts)) && (
           <>
             <h2 className="text-4xl font-bold leading-none tracking-tight mb-4">
               Posts no blog
@@ -37,12 +37,19 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
               ? [...Array(2).keys()].map(PostSkeleton)
               : posts.map((post) => <PostPreview key={post.id} {...post} />)}
           </>
-        ) : null}
-        {isEmpty(products) ? null : (
-          <ProductGrid products={products} title="Produtos relacionados" />
+        )}
+      </div>
+      <div className="max-w-screen-xl m-auto py-10 px-6 border-t-8 border-white">
+        {isEmpty(products) || (
+          <>
+            <h3 className="text-3xl font-semibold tracking-tight m-8 text-center">
+              Produtos relacionados
+            </h3>
+            <ProductGrid products={products} />
+          </>
         )}
         {emptyPage && (
-          <h2 className="text-4xl font-bold leading-none tracking-tight mb-4">
+          <h2 className="text-4xl text-center font-bold leading-none tracking-tight mx-4 mb-4">
             Nenhum conteúdo para a {title}
           </h2>
         )}

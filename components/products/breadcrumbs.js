@@ -1,16 +1,18 @@
+import { classes } from 'lib/utils'
 import { getCategoryTags } from 'lib/domain'
 
 import Breadcrumbs from 'components/breadcrumbs'
 
-const ProductBreadcrumbs = ({ product = {} }) => {
+const ProductBreadcrumbs = ({ product = {}, className }) => {
   const [category] = getCategoryTags([product], false)
   const categoryLink = category
     ? [{ title: category.title, href: `/produtos?filter=${category.name}` }]
     : []
 
+  const cx = classes('md:px-4', className)
   return (
     <Breadcrumbs
-      className="md:px-4"
+      className={cx}
       links={[{ title: 'Produtos', href: '/produtos' }, ...categoryLink]}
     >
       {product.name || 'Carregando...'}

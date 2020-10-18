@@ -1,28 +1,7 @@
 import { useCallback, useState, useRef, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
-import { useMediaQuery } from 'react-responsive'
 import { isClient } from 'lib/utils'
-import tailwindConfig from 'tailwind.config'
-// @ts-ignore
-import resolveConfig from 'tailwindcss/resolveConfig'
-
-const Tailwind = resolveConfig(tailwindConfig)
-
-export const useIsMobile = () => {
-  const matches = useBreakPoint('md')
-  return !matches
-}
-
-export const useBreakPoint = (breakpoint: string) =>
-  useMediaQuery({
-    query: `(min-width: ${Tailwind.theme.screens[breakpoint]})`,
-  })
-
-export const useIsDesktop = () => {
-  const matches = useBreakPoint('md')
-  return matches
-}
 
 export const useWindowDimensions = (delay = 300) => {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 })
@@ -121,16 +100,6 @@ export const useScrollDirection = (threeshold = 15, delay = 300) => {
   }
 
   return direction
-}
-
-export const useProcessOnce = (fn: (x: any) => any, value: any) => {
-  const [result, setResult] = useState()
-  useEffect(() => {
-    if (!result) {
-      setResult(fn(value))
-    }
-  }, [])
-  return result || value
 }
 
 export const useToggle = (initial = false) => {

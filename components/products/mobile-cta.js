@@ -1,30 +1,19 @@
-import { Paper } from '@material-ui/core'
-
-import theme from 'lib/theme'
+import { classes } from 'lib/utils'
 
 import Chat from 'components/chat'
 import ProductCTA from 'components/products/cta'
 
-const MobileCTA = ({ product, visible }) => (
-  <Paper
-    elevation={5}
-    css={{
-      backgroundColor: theme.palette.primary.main,
-      borderRadius: 0,
-      bottom: visible ? -100 : 0,
-      display: 'flex',
-      justifyContent: 'space-evenly',
-      left: 0,
-      padding: '.5rem',
-      position: 'fixed',
-      right: 0,
-      transition: 'all .45s ease-in-out',
-      zIndex: 200,
-    }}
-  >
-    <ProductCTA size="large" product={product} hideQuantity />
-    <Chat css={{ backgroundColor: 'transparent', boxShadow: 'none' }} />
-  </Paper>
-)
+const MobileCTA = ({ product, visible }) => {
+  const cx = classes(
+    'fixed flex md:hidden justify-evenly items-center inset-x-0 bottom-0 p-2 bg-white shadow-lg z-20 transition-all duration-500',
+    { 'transform translate-y-20': visible },
+  )
+  return (
+    <div className={cx}>
+      <ProductCTA product={product} hideQuantity />
+      <Chat bg="transparent" shadow={false} />
+    </div>
+  )
+}
 
 export default MobileCTA

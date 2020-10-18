@@ -1,8 +1,6 @@
 import { useState, useMemo } from 'react'
 import filter from 'lodash/filter'
 
-import { useIsMobile } from 'lib/hooks'
-
 import ProductSlide from 'components/home/slide'
 import Tabs from 'components/tabs'
 
@@ -22,7 +20,6 @@ const HomeProducts = ({ products }) => {
     const safeVal = newValue < 0 ? productsArray.length - 1 : newValue
     setValue(safeVal % productsArray.length)
   }
-  const isMobile = useIsMobile()
 
   return (
     <div className="border-white mb-12 border-t-8 border-b-8 max-w-screen-xl m-auto flex items-center relative min-h-full">
@@ -37,7 +34,6 @@ const HomeProducts = ({ products }) => {
         />
         {productsArray.map((product, idx) => (
           <ProductSlide
-            isMobile={isMobile}
             key={`product-${idx}`}
             show={value === idx}
             handleChange={handleChange}

@@ -22,8 +22,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@fullhuman/postcss-purgecss": "^2.3.0",
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/styles": "^4.10.0",
     "@types/accounting": "^0.4.1",
     "@zeit/next-source-maps": "^0.0.3",
     "accounting": "^0.4.1",
@@ -53,7 +51,6 @@
     "react-icons": "^3.11.0",
     "react-intersection-observer": "^8.26.2",
     "react-markdown": "^4.3.1",
-    "react-responsive": "^8.1.0",
     "react-swipeable": "^5.5.1",
     "react-use-form-state": "^0.13.1",
     "sitemap": "^6.2.0",

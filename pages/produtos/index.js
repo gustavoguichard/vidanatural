@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import get from 'lodash/get'
 import map from 'lodash/map'
-import { Box, Button, Container } from '@material-ui/core'
 
-import theme from 'lib/theme'
 import staticProps from 'lib/static-props/produtos'
 
 import Breadcrumbs from 'components/breadcrumbs'
@@ -54,26 +53,28 @@ const ProductsPage = ({ products, filters }) => {
 
   return (
     <Layout stickBar title="Conheça nossos produtos">
-      <Container css={{ marginTop: theme.spacing(9) }} maxWidth="md">
-        <Breadcrumbs links={links}>
-          {currentFilter ? currentFilter.title : 'Produtos'}
+      <div className="max-w-screen-xl px-6 m-auto mt-16">
+        <Breadcrumbs links={links} className="m-4">
+          {get(currentFilter, 'title', 'Produtos')}
         </Breadcrumbs>
-        <Box mb={3} display="flex" justifyContent="center">
+        <div className="flex justify-center mx-2 mb-6">
           <Scroller flex>
             {map(filters, (filter) => (
-              <Button
+              <button
+                type="button"
+                className={`m-1 uppercase bg-opacity-25 hover:bg-opacity-50 bg-gray-300 rounded text-sm px-2 py-1 text-${
+                  filter.name === selected ? 'green-500' : 'green-900'
+                }`}
                 onClick={setFilter(filter.name)}
-                color={filter.name === selected ? 'secondary' : 'primary'}
-                css={{ margin: theme.spacing() }}
                 key={filter.name}
               >
                 {filter.title}
-              </Button>
+              </button>
             ))}
           </Scroller>
-        </Box>
+        </div>
         <ProductGrid products={filteredProducts(products, selected)} />
-      </Container>
+      </div>
     </Layout>
   )
 }

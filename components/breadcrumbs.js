@@ -1,4 +1,4 @@
-import { memo, Fragment } from 'react'
+import { memo } from 'react'
 
 import { clipSentence, classes } from 'lib/utils'
 
@@ -9,11 +9,12 @@ const Breadcrumbs = ({
   children,
   className,
   clip = true,
+  separator = <span className="text-xs mx-1"> &gt; </span>,
   hideHome,
+  size = 'sm',
   ...props
 }) => {
-  const separator = <span className="text-xs mx-1"> &gt; </span>
-  const cx = classes('text-gray-700 text-sm my-4', className)
+  const cx = classes(className, 'text-gray-700 my-4', `text-${size}`)
   return (
     <p aria-label="breadcrumb" {...props} className={cx}>
       {hideHome || (
@@ -21,17 +22,24 @@ const Breadcrumbs = ({
           Vida Natural
         </Link>
       )}
-      {hideHome || separator}
       {links &&
-        links.map((link, idx) => (
-          <Fragment key={`link-${idx}`}>
-            <Link {...link} className="underline hover:text-green-600">
-              {link.title}
-            </Link>
-            {separator}
-          </Fragment>
-        ))}
-      <span>{clip ? clipSentence(children) : children}</span>
+        links.map(({ raw, ...link }, idx) => {
+          const Component = raw ? 'a' : Link
+          return (
+            <span key={`link-${idx}`}>
+              {(idx !== 0 || !hideHome) && separator}
+              <Component {...link} className="underline hover:text-green-600">
+                {link.title}
+              </Component>
+            </span>
+          )
+        })}
+      {children && (
+        <span>
+          {separator}
+          {clip ? clipSentence(children) : children}
+        </span>
+      )}
     </p>
   )
 }

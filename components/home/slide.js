@@ -1,9 +1,9 @@
-import ReactMarkdown from 'react-markdown'
 import { useSwipeable } from 'react-swipeable'
 
 import CTALink from 'components/cta-link'
 import Img from 'components/img'
 import Link from 'components/link'
+import Markdown from 'components/markdown'
 
 const ProductSlide = ({
   product,
@@ -71,11 +71,9 @@ const ProductSlide = ({
           <h3 className="text-3xl font-semibold tracking-tight">
             {product.title}
           </h3>
-          <ReactMarkdown
-            escapeHtml={false}
-            className="mt-2 mb-4 text-gray-700 text-lg"
-            source={product.subtitle}
-          />
+          <Markdown className="mt-2 mb-4 text-gray-700 text-lg">
+            {product.subtitle}
+          </Markdown>
           <CTALink
             color="secondary"
             href="/produtos/[slug]"

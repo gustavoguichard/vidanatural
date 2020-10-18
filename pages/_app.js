@@ -2,8 +2,6 @@ import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { ThemeProvider, StylesProvider } from '@material-ui/styles'
-import { CssBaseline } from '@material-ui/core'
 
 import {
   initTracking,
@@ -12,7 +10,6 @@ import {
   registerCoupon,
 } from 'lib/fx'
 import SEO from 'lib/next-seo.config'
-import theme from 'lib/theme'
 
 import Pixel from 'components/pixel'
 
@@ -43,12 +40,7 @@ const VidaNatural = ({ pageProps, Component }) => {
       </Head>
       <DefaultSeo {...SEO} />
       <Pixel />
-      <StylesProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </StylesProvider>
+      <Component {...pageProps} />
     </>
   )
 }

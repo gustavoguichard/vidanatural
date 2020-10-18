@@ -11,7 +11,7 @@ import accounting from 'accounting'
 accounting.settings = {
   currency: {
     symbol: 'R$',
-    format: '%s %v',
+    format: '%s%v',
     decimal: ',',
     thousand: '.',
     precision: 2,

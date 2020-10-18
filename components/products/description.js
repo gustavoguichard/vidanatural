@@ -1,102 +1,47 @@
-import { FaAngleRight } from 'react-icons/fa'
-import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
-
 import { useToggle } from 'lib/hooks'
-import theme from 'lib/theme'
 
-import LinearGradient from 'components/linear-gradient'
+import CTAButton from 'components/cta-button'
 
-const Description = ({ product, isDesktop }) => {
+const Description = ({ product }) => {
   const [isOpen, toggle] = useToggle()
   return (
-    <Container
-      maxWidth="lg"
+    <div
+      className="max-w-screen-xl border-t-8 border-white p-10"
       id="descricao"
-      css={{
-        borderTop: '10px solid white',
-        paddingBottom: theme.spacing(5),
-        paddingTop: theme.spacing(5),
-        paddingLeft: theme.spacing(5),
-        paddingRight: theme.spacing(5),
-        ul: { padding: 0, listStylePosition: 'inside' },
-      }}
     >
-      <Grid
-        css={{ color: theme.palette.text.hint }}
-        className="MuiTypography-root MuiTypography-body1"
-        container
-        spacing={2}
-        justify="center"
-      >
-        <Grid item xs={12} md={8}>
-          <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
-            Informações
-          </Typography>
-          <Typography
-            variant="body1"
-            component="div"
-            css={{
-              maxHeight: isOpen ? 'auto' : 300,
-              transition: 'all .45s ease-in-out',
-              overflow: 'hidden',
-            }}
+      <div className="text-gray-600 md:space-x-4 md:flex justify-center">
+        <div className="md:w-8/12">
+          <h3 className="mb-2 text-2xl font-semibold">Informações</h3>
+          <div
+            className="rich-text transition duration-500 overflow-hidden"
+            css={{ maxHeight: isOpen ? 'auto' : 300 }}
             dangerouslySetInnerHTML={{
               __html: product.description.information,
             }}
           />
-          {isOpen ? null : (
+          {isOpen || (
             <>
-              <LinearGradient
-                deg={0}
-                colors={['rgba(250,250,250,1)', 'rgba(250,250,250,0)']}
-              >
-                <Box
-                  pt={10}
-                  mt={-10}
-                  mb={2}
-                  position="relative"
-                  zIndex={2}
-                  css={{ pointerEvents: 'none' }}
-                />
-              </LinearGradient>
-              <Button
-                variant="text"
-                color="secondary"
-                onClick={(ev) => {
-                  ev.preventDefault()
-                  toggle()
-                }}
-              >
+              <div className="bg-gradient-to-t from-gray-100 h-20 -mt-20 mb-4 relative z-10 pointer-events-none" />
+              <CTAButton mini onClick={toggle}>
                 Ler mais
-                <FaAngleRight css={{ marginLeft: theme.spacing() }} />
-              </Button>
+              </CTAButton>
             </>
           )}
-        </Grid>
+        </div>
         {product.description.specifications && (
-          <Grid item xs={12} md={4}>
-            <hr
-              css={{
-                border: 'none',
-                borderTop: `5px solid #d8d8d8`,
-                marginBottom: theme.spacing(3),
-                display: isDesktop ? 'none' : 'block',
-              }}
-            />
-            <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
-              Especificações
-            </Typography>
-            <Typography
-              component="div"
-              css={{ fontSize: '0.941rem', lineHeight: '1.6rem' }}
+          <div className="md:w-4/12">
+            <hr className="my-6 border-t-2 border-gray-200 md:hidden" />
+            <h3 className="mb-2 text-2xl font-semibold">Especificações</h3>
+            <div
+              className="text-sm leading-relaxed"
               dangerouslySetInnerHTML={{
                 __html: product.description.specifications,
               }}
             />
-          </Grid>
+          </div>
         )}
-      </Grid>
-    </Container>
+      </div>
+    </div>
   )
 }
 

@@ -1,37 +1,24 @@
-import { Badge } from '@material-ui/core'
+import get from 'lodash/get'
 
-import { toCurrency } from 'lib/utils'
+import { classes, toCurrency } from 'lib/utils'
 
 const DiscountTag = ({ product, small, ...props }) => {
-  const isPercentage = product.discount_rule?.type === 'percentage'
+  const isPercentage = get(product, 'discount_rule.type') === 'percentage'
   const content = isPercentage
-    ? `-${product.discount_rule?.amount}%`
-    : `${toCurrency(-product.discount_rule?.amount)}`
+    ? `${get(product, 'discount_rule.amount', 0)}%`
+    : `${toCurrency(get(product, 'discount_rule.amount', 0))}`
 
-  const offset = small ? 30 : 50
-
+  const cx = classes(
+    'absolute flex justify-center items-center p-2 z-20 bg-white border border-gray-200 rounded tracking-tight font-semibold text-center leading-none top-0 right-0 transform',
+    {
+      '-translate-x-4 translate-y-4': !small,
+      'text-xs -translate-x-2 translate-y-2': small,
+    },
+  )
   return product.discount_rule ? (
-    <Badge
-      css={{
-        position: 'absolute',
-        right: offset,
-        top: offset,
-        zIndex: 4,
-        transform: small ? 'scale(0.8)' : null,
-        '.MuiBadge-badge': {
-          height: 60,
-          width: 60,
-          borderRadius: '50%',
-          color: 'white',
-          fontWeight: 'bold',
-          fontSize: isPercentage ? '1.2rem' : '.9rem',
-          textAlign: 'center',
-        },
-      }}
-      color="secondary"
-      badgeContent={content}
-      {...props}
-    />
+    <div className={cx} {...props}>
+      Poupe {content}
+    </div>
   ) : null
 }
 
