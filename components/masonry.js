@@ -3,20 +3,11 @@ import times from 'lodash/times'
 
 import { useWindowDimensions } from 'lib/hooks'
 
-const boxStyles = {
-  alignItems: 'stretch',
-  display: 'flex',
-  flexBasis: 0,
-  flexGrow: 1,
-  flexShrink: 1,
-  minHeight: 'min-content',
-}
-
 const Masonry = ({
   children,
   fallback = 2,
   adjust = 1,
-  minColumnWidth = 300,
+  minColumnWidth = 290,
   ...props
 }) => {
   const wrapper = useRef(null)
@@ -32,16 +23,14 @@ const Masonry = ({
     : fallback
 
   return (
-    <div {...props} style={boxStyles} ref={wrapper}>
+    <div {...props} className="items-stretch flex flex-grow" ref={wrapper}>
       {times(columns, (index) => {
         const isLast = index === columns - 1
         return (
           <div
-            css={{
-              ...boxStyles,
-              flexDirection: 'column',
-              marginRight: isLast ? -1 : 0,
-            }}
+            className={`items-stretch flex flex-col flex-grow -mr-${
+              isLast ? 'px' : 0
+            }`}
             key={`tile-${index}`}
           >
             {React.Children.toArray(children)

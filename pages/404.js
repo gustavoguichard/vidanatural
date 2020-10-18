@@ -1,7 +1,3 @@
-import { Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
-
 import Hero from 'components/hero'
 import Layout from 'components/layout'
 import Link from 'components/link'
@@ -13,16 +9,18 @@ const ErrorPage = ({
   code = 404,
   title = 'Página não encontrada',
 }) => {
-  const titleWithCode = [code, title].join(' - ')
+  const titleWithCode = [code, title].join('. ')
   return (
     <Layout hideCertifications title={titleWithCode}>
       <Hero size="full" background="/static/images/capa-pb.jpg">
-        <Typography variant="h2">{titleWithCode}</Typography>
-        <Typography css={{ marginTop: theme.spacing(4) }} variant="body1">
+        <h2 className="text-4xl font-bold">{titleWithCode}</h2>
+        <p className="mt-2 text-lg">
           {children}
           <br />
-          <Link href={href}>{linkText}</Link>
-        </Typography>
+          <Link href={href} className="font-semibold text-green-400">
+            {linkText}
+          </Link>
+        </p>
       </Hero>
     </Layout>
   )

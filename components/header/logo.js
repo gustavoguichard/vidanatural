@@ -1,39 +1,34 @@
-import theme from 'lib/theme'
-
-import ButtonLink from 'components/button-link'
+import { classes } from 'lib/utils'
 
 import logoImg from 'public/static/svgs/logo.svg'
 import brandImg from 'public/static/svgs/brand.svg'
+import Link from 'components/link'
 
 const Logo = ({ sticky, variant }) => {
   const secondary = variant === 'secondary'
+  const cx = classes('transition-all w-32', {
+    'opacity-0 duration-100 invisible absolute pointer-events-none': !sticky,
+    'opacity-100 duration-700': sticky,
+  })
+  const cxB = classes('transform w-20 transition-all', {
+    'm-4 duration-500 scale-100 opacity-100': !sticky,
+    'm-2 duration-100 scale-50 opacity-0 invisible absolute pointer-events-none': sticky,
+  })
   return (
-    <ButtonLink href="/" title="Ir para a página inicial">
-      {sticky ? (
-        <img
-          css={{
-            width: 130,
-            opacity: +sticky,
-            transition: 'all .3s',
-          }}
-          src={brandImg}
-          alt="Vida Natural"
-        />
-      ) : (
-        <img
-          css={{
-            filter: secondary ? 'invert(0.95)' : null,
-            margin: sticky ? theme.spacing() : theme.spacing(2),
-            opacity: sticky ? 0 : 1,
-            transform: sticky ? 'translateX(14px)' : null,
-            transition: 'all .3s',
-            width: sticky ? 40 : 80,
-          }}
-          src={logoImg}
-          alt="Vida Natural"
-        />
-      )}
-    </ButtonLink>
+    <Link href="/" title="Ir para a página inicial">
+      <img
+        css={{ filter: 'invert(0.95)' }}
+        className={cx}
+        src={brandImg}
+        alt="Vida Natural"
+      />
+      <img
+        className={cxB}
+        css={{ filter: secondary ? 'invert(0.95)' : null }}
+        src={logoImg}
+        alt="Vida Natural"
+      />
+    </Link>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default (CustomButton, onClick, DefaultBt) => {
+const RenderDefaultBt = (CustomButton, onClick, DefaultBt) => {
   switch (CustomButton) {
     case false:
       return null
@@ -14,3 +14,5 @@ export default (CustomButton, onClick, DefaultBt) => {
       )
   }
 }
+
+export default RenderDefaultBt

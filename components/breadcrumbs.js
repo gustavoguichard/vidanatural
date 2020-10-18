@@ -1,44 +1,46 @@
 import { memo } from 'react'
-import { Breadcrumbs as MuiBreadcrumbs, Typography } from '@material-ui/core'
 
-import { clipSentence } from 'lib/utils'
-import theme from 'lib/theme'
+import { clipSentence, classes } from 'lib/utils'
 
 import Link from 'components/link'
 
-const Breadcrumbs = ({ links, children, clip = true, hideHome, ...props }) => {
-  const linkStyle = {
-    color: 'inherit',
-    textDecoration: 'underline',
-    '&:hover': {
-      color: theme.palette.text.primary,
-    },
-  }
+const Breadcrumbs = ({
+  links,
+  children,
+  className,
+  clip = true,
+  separator = <span className="text-xs mx-1"> &gt; </span>,
+  hideHome,
+  size = 'sm',
+  ...props
+}) => {
+  const cx = classes(className, 'text-gray-700 my-4', `text-${size}`)
   return (
-    <MuiBreadcrumbs
-      separator="›"
-      css={{
-        color: theme.palette.text.hint,
-        fontSize: '0.85rem',
-        margin: theme.spacing(2, 0),
-      }}
-      aria-label="breadcrumb"
-      {...props}
-    >
+    <p aria-label="breadcrumb" {...props} className={cx}>
       {hideHome || (
-        <Link css={linkStyle} href="/">
+        <Link href="/" className="underline hover:text-green-600">
           Vida Natural
         </Link>
       )}
-      {links?.map((link, idx) => (
-        <Link key={`link-${idx}`} css={linkStyle} {...link}>
-          {link.title}
-        </Link>
-      ))}
-      <Typography color="inherit" css={{ fontSize: 'inherit' }}>
-        {clip ? clipSentence(children) : children}
-      </Typography>
-    </MuiBreadcrumbs>
+      {links &&
+        links.map(({ raw, ...link }, idx) => {
+          const Component = raw ? 'a' : Link
+          return (
+            <span key={`link-${idx}`}>
+              {(idx !== 0 || !hideHome) && separator}
+              <Component {...link} className="underline hover:text-green-600">
+                {link.title}
+              </Component>
+            </span>
+          )
+        })}
+      {children && (
+        <span>
+          {separator}
+          {clip ? clipSentence(children) : children}
+        </span>
+      )}
+    </p>
   )
 }
 

@@ -1,22 +1,14 @@
-import { Box } from '@material-ui/core'
-
 import { useScrollDirection } from 'lib/hooks'
 
 const BottomCTA = ({ children }) => {
   const scrollDirection = useScrollDirection()
   return (
-    <Box
-      position="fixed"
-      css={{
-        transition: 'all .45s ease-in-out',
-      }}
-      bottom={scrollDirection === 'DOWN' ? 0 : -100}
-      right={0}
-      left={0}
-      zIndex={1000}
+    <div
+      className="fixed transition-all duration-500 ease-in-out right-0 left-0 z-50"
+      style={{ bottom: scrollDirection === 'DOWN' ? 0 : -100 }}
     >
       {children}
-    </Box>
+    </div>
   )
 }
 

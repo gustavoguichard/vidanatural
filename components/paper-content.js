@@ -1,34 +1,18 @@
 import React from 'react'
-import { Box, Container, Paper } from '@material-ui/core'
 
-import { useIsMobile } from 'lib/hooks'
-import theme from 'lib/theme'
+import { classes } from 'lib/utils'
 
-const PaperContent = ({ children, maxWidth = 'lg', overlap = true }) => {
-  const isMobile = useIsMobile()
+const PaperContent = ({ children, maxWidth = 'xl', overlap = true }) => {
+  const cx = classes(
+    'relative z-10 sm:shadow-lg sm:bg-white sm:rounded-lg',
+    overlap && 'sm:-mb-4 sm:-mt-20',
+  )
   return (
-    <Container
-      maxWidth={maxWidth}
-      css={{ paddingLeft: theme.spacing(5), paddingRight: theme.spacing(5) }}
-    >
-      {isMobile ? (
-        <Box py={8}>{children}</Box>
-      ) : (
-        <Paper
-          css={{
-            zIndex: 3,
-            position: 'relative',
-            marginBottom: overlap ? '-1rem' : 0,
-            marginTop: overlap ? '-5rem' : 0,
-          }}
-          elevation={5}
-        >
-          <Box my={4} py={8} px={5}>
-            {children}
-          </Box>
-        </Paper>
-      )}
-    </Container>
+    <div className={`max-w-screen-${maxWidth} m-auto px-10`}>
+      <div className={cx}>
+        <div className="py-16 sm:my-8 sm:px-10">{children}</div>
+      </div>
+    </div>
   )
 }
 

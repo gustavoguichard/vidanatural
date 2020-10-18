@@ -1,47 +1,27 @@
 import { memo } from 'react'
 import get from 'lodash/get'
-import {
-  Card,
-  CardActions,
-  CardMedia,
-  CardContent,
-  Grid,
-  Typography,
-} from '@material-ui/core'
-import { RichText } from 'prismic-reactjs'
 
+import Img from 'components/img'
 import SocialLinks from 'components/social-links'
+import RichText from 'components/rich-text'
 
 const TeamMember = (props) => {
   const { name, bio, picture, role, ...socialLinks } = props
   return (
-    <Grid
-      css={{ marginTop: '1rem', marginBottom: '1rem' }}
-      item
-      xs={12}
-      sm={6}
-      md={4}
-    >
-      <Card elevation={0}>
-        <CardMedia
-          css={{ height: 240, backgroundPositionY: 'top' }}
-          image={get(picture, 'url')}
-          alt={get(picture, 'alt')}
-          title={name}
-        />
-        <CardContent css={{ paddingBottom: 0 }}>
-          <Typography component="div" variant="body1">
-            <strong>{name}</strong>
-            <br />
-            <Typography variant="subtitle2">{role}</Typography>
-            <RichText render={bio} />
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <SocialLinks {...socialLinks} />
-        </CardActions>
-      </Card>
-    </Grid>
+    <div className="my-4 flex flex-col sm:flex-row md:flex-col lg:flex-row items-start sm:space-x-4 md:space-x-0 lg:space-x-4 space-y-2 sm:space-y-0 md:space-y-2 lg:space-y-0">
+      <Img
+        className="sm:w-1/3 md:w-auto lg:w-1/3 md: rounded-lg self-stretch object-cover object-top"
+        src={get(picture, 'url')}
+        alt={get(picture, 'alt')}
+        title={name}
+      />
+      <div>
+        <h5 className="text-lg font-semibold tracking-tight">{name}</h5>
+        <p className="mb-2 font-semibold text-gray-600">{role}</p>
+        <RichText className="text-gray-700 leading-relaxed">{bio}</RichText>
+        <SocialLinks {...socialLinks} />
+      </div>
+    </div>
   )
 }
 

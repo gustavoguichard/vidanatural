@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react'
-import { Box, useTheme } from '@material-ui/core'
 import * as customTypes from 'types/prop-types'
 
 export const getItemWidth = (itemWidth) => {
@@ -25,24 +24,19 @@ const Scroller = (
   { flex, snap = 'mandatory', gap = 0, itemWidth = 'auto', children, ...props },
   ref,
 ) => {
-  const theme = useTheme()
   const width = getItemWidth(itemWidth)
 
-  const baseStyles = getBaseStyles(children, flex, width, theme.spacing(gap))
+  const baseStyles = getBaseStyles(children, flex, width, `${gap / 2}rem`)
   const itemStyles = flex ? { flexShrink: 0 } : {}
 
   return (
-    <Box
+    <div
       ref={ref}
+      className="overflow-x-scroll w-full max-w-full"
       css={{
         ...baseStyles,
-        maxWidth: '100vw',
-        overflowX: 'scroll',
         scrollSnapType: snap ? `x ${snap}` : null,
-        width: '100%',
-        '&::-webkit-scrollbar': {
-          display: 'none',
-        },
+        '&::-webkit-scrollbar': { display: 'none' },
       }}
       {...props}
     >
@@ -56,7 +50,7 @@ const Scroller = (
           },
         }),
       )}
-    </Box>
+    </div>
   )
 }
 

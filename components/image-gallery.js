@@ -1,27 +1,22 @@
 import { useState, useRef } from 'react'
 import get from 'lodash/get'
-import { Box, Typography } from '@material-ui/core'
 
 import api from 'lib/api'
-import theme from 'lib/theme'
 
 import DiscountTag from 'components/products/discount-tag'
 import Carousel from 'components/carousel'
 
-const ImageGallery = ({ product, isDesktop }) => {
+const ImageGallery = ({ product }) => {
   const [index, setIndex] = useState(0)
   const imagesLenght = get(product, 'images.length', 2)
 
   const gallery = useRef()
 
   return (
-    <Box display="flex" flexDirection={isDesktop ? 'row' : 'column'}>
-      <Box
-        position="relative"
-        display="flex"
-        alignItems="start"
-        justifyContent="center"
-        css={{ width: '100%', minHeight: 300 }}
+    <div className="flex flex-col md:flex-row">
+      <div
+        className="relative flex items-start justify-center w-full md:ml-4"
+        css={{ minHeight: 300 }}
       >
         <Carousel
           ref={gallery}
@@ -30,70 +25,37 @@ const ImageGallery = ({ product, isDesktop }) => {
           onChange={({ current }) => setIndex(current - 1)}
         >
           {product.images.map((img, i) => (
-            <Box
-              key={`img-${i}`}
-              display="flex"
-              justifyContent="center"
-              position="relative"
-            >
+            <div className="flex justify-center relative" key={`img-${i}`}>
               <DiscountTag product={product} />
               <img
-                className="responsive"
+                className="max-w-full object-contain relative z-10"
                 alt={product.name}
-                css={{
-                  objectFit: 'contain',
-                  position: 'relative',
-                  zIndex: 2,
-                }}
                 src={api.vnda.getResizedImg(img.url, 600)}
               />
-            </Box>
+            </div>
           ))}
         </Carousel>
-      </Box>
-      {isDesktop ? null : (
-        <Typography
-          variant="h2"
-          css={{
-            textAlign: 'center',
-            marginBottom: theme.spacing(2),
-            marginTop: theme.spacing(2),
-          }}
-        >
-          {product.name}
-        </Typography>
-      )}
+      </div>
+      <h2 className="md:hidden text-center my-4 text-2xl font-bold tracking-tight">
+        {product.name}
+      </h2>
       {imagesLenght > 1 ? (
-        <Box
-          css={{ order: isDesktop ? -1 : 0 }}
-          px={isDesktop ? 0 : 1}
-          display="flex"
-          flexWrap="wrap"
-          flexDirection={isDesktop ? 'column' : 'row'}
-          justifyContent="center"
-        >
+        <div className="flex space-y-2 md:space-x-0 space-x-2 flex-wrap justify-center md:flex-col px-2 md:px-0 md:order-first">
           {product.images.map((img, i) => (
             <img
               key={i}
               onClick={() => gallery.current.goTo(i)}
               alt={product.name}
+              className="w-24 md:w-32 max-w-full cursor-pointer transition-all duration-700"
               css={{
-                margin: theme.spacing(),
-                width: 100,
-                maxWidth: isDesktop ? 100 : `${100 / imagesLenght}%`,
-                cursor: 'pointer',
-                transition: 'all .6s',
-                boxShadow:
-                  i === index
-                    ? `0 0 0 2px ${theme.palette.common.black}`
-                    : `0 0 0 0 black`,
+                boxShadow: i === index ? `0 0 0 2px black` : `0 0 0 0 black`,
               }}
               src={api.vnda.getResizedImg(img.url, 100)}
             />
           ))}
-        </Box>
+        </div>
       ) : null}
-    </Box>
+    </div>
   )
 }
 

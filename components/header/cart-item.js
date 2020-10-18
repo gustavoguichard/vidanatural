@@ -1,13 +1,7 @@
-import { useRouter } from 'next/router'
-import {
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Typography,
-} from '@material-ui/core'
-
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
+
+import Link from 'components/link'
 
 const CartItem = ({
   product_name,
@@ -17,26 +11,27 @@ const CartItem = ({
   price,
   quantity,
 }) => {
-  const router = useRouter()
   const fixedUrl = product_url.replace('/produto/', '/produtos/')
   const path = api.vnda.getOwnPath(fixedUrl)
   return (
-    <ListItem button onClick={() => router.push('/produtos/[slug]', path)}>
-      <ListItemAvatar>
-        <img
-          alt={product_name}
-          src={api.vnda.getResizedImg(image_url, 30)}
-          width="30"
-        />
-      </ListItemAvatar>
-      <ListItemText>
-        <Typography variant="body2">{product_name}</Typography>
-        <Typography component="span" variant="caption">
+    <Link
+      className="flex px-4 py-2 hover:bg-gray-200 space-x-2"
+      href="/produtos/[slug]"
+      as={path}
+    >
+      <img
+        alt={product_name}
+        src={api.vnda.getResizedImg(image_url, 60)}
+        width="60"
+      />
+      <div>
+        <p className="text-sm leading-snug">{product_name}</p>
+        <p className="text-xs">
           {quantity > 1 ? `${quantity} x ${toCurrency(price)} = ` : null}
           <strong>{toCurrency(total)}</strong>
-        </Typography>
-      </ListItemText>
-    </ListItem>
+        </p>
+      </div>
+    </Link>
   )
 }
 

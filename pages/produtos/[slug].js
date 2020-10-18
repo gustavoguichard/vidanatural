@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router'
 import isEmpty from 'lodash/isEmpty'
-import { Container } from '@material-ui/core'
 
-import { useIsMobile } from 'lib/hooks'
 import staticPaths from 'lib/static-paths/produtos-uid'
 import staticProps from 'lib/static-props/produtos-uid'
 
@@ -24,13 +22,11 @@ const ProductPage = ({
   cmsData,
   slug,
 }) => {
-  const isMobile = useIsMobile()
   const { isFallback } = useRouter()
   return isFallback || foundProduct ? (
     <ProductLayout
       hasLocalContent={hasLocalContent}
       slug={slug}
-      isMobile={isMobile}
       product={product}
       faqItems={faqItems}
       testimonials={testimonials}
@@ -42,15 +38,16 @@ const ProductPage = ({
         <ProductSale
           hasTestimonials={!isEmpty(testimonials)}
           hasFaqItems={!isEmpty(faqItems)}
-          isMobile={isMobile}
           product={product}
           cmsData={cmsData}
         />
       )}
-      <Container maxWidth="md">
+      <div className="max-w-screen-lg m-auto">
         <IncludedProducts products={includedProducts} />
+      </div>
+      <div className="max-w-screen-xl px-6 m-auto">
         <RelatedProducts products={relatedProducts} />
-      </Container>
+      </div>
     </ProductLayout>
   ) : (
     <ErrorPage

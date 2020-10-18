@@ -1,19 +1,7 @@
 import { useCallback, useState, useRef, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
-import { useMediaQuery } from '@material-ui/core'
 import { isClient } from 'lib/utils'
-import theme from 'lib/theme'
-
-export const useIsMobile = () => {
-  const matches = useMediaQuery(theme.breakpoints.up('sm'))
-  return !matches
-}
-
-export const useIsDesktop = () => {
-  const matches = useMediaQuery(theme.breakpoints.up('md'))
-  return matches
-}
 
 export const useWindowDimensions = (delay = 300) => {
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 })
@@ -114,18 +102,29 @@ export const useScrollDirection = (threeshold = 15, delay = 300) => {
   return direction
 }
 
-export const useProcessOnce = (fn: (x: any) => any, value: any) => {
-  const [result, setResult] = useState()
-  useEffect(() => {
-    if (!result) {
-      setResult(fn(value))
-    }
-  }, [])
-  return result || value
-}
-
 export const useToggle = (initial = false) => {
   const [value, setValue] = useState(initial)
   const toggler = () => setValue(!value)
   return [value, toggler]
+}
+
+export const useOnClickOutside = (ref: any, handler: (e: any) => null) => {
+  useEffect(() => {
+    const listener = (event: any) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return
+      }
+      handler(event)
+    }
+
+    document.addEventListener('focusin', listener)
+    document.addEventListener('mousedown', listener)
+    document.addEventListener('touchstart', listener)
+
+    return () => {
+      document.removeEventListener('focusin', listener)
+      document.removeEventListener('mousedown', listener)
+      document.removeEventListener('touchstart', listener)
+    }
+  }, [ref, handler])
 }

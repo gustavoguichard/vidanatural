@@ -1,105 +1,60 @@
 import clamp from 'lodash/clamp'
-import {
-  Box,
-  Card,
-  CardContent,
-  Container,
-  Typography,
-} from '@material-ui/core'
 
-import theme from 'lib/theme'
 import { getExcerpt } from 'lib/domain'
 import { useWindowDimensions } from 'lib/hooks'
 
 import AuthorCard from 'components/author-card'
 import Carousel from 'components/carousel'
-import Link from 'components/link'
+import Link from 'next/link'
 
 const HomeFeed = ({ posts }) => {
   const { width } = useWindowDimensions()
   const columns = clamp(Math.floor(width / 320), 1, 4)
   return (
-    <Box css={{ backgroundColor: 'white' }} id="feed" py={10}>
-      <Container maxWidth="lg">
-        <Typography align="center" variant="h3">
+    <section className="bg-white py-20" id="feed">
+      <div className="mx-auto max-w-screen-xl w-full px-4">
+        <h3 className="text-center tracking-tight text-4xl font-semibold">
           Blog
-        </Typography>
-        <Typography
-          align="center"
-          css={{
-            fontWeight: 400,
-            color: theme.palette.text.hint,
-            margin: theme.spacing(2, 2, 4),
-          }}
-        >
-          Últimos artigos
-        </Typography>
+        </h3>
+        <p className="text-center text-lg text-gray-600">Últimos artigos</p>
         <Carousel
-          itemWidth={`${100 / columns}%`}
+          className="mt-8"
+          itemWidth={`${96 / columns}%`}
           gap={2}
           NextButton={false}
           PrevButton={false}
         >
           {posts.map((post) => (
-            <Link
-              key={post.id}
-              href="/blog/[slug]"
-              as={`/blog/${post.uid}`}
-              css={{
-                textDecoration: 'none !important',
-                '& > div': {
-                  border: `1px solid rgb(226,230,233)`,
-                },
-                '&:hover > div': {
-                  borderColor: 'rgb(185, 191, 198)',
-                },
-                '&:focus > div': {
-                  borderColor: theme.palette.secondary.main,
-                  boxShadow: `${theme.palette.secondary.main} 0 0 0 1px inset`,
-                },
-              }}
-            >
-              <Card elevation={0} css={{ height: '100%' }}>
-                <CardContent
-                  css={{
-                    padding: theme.spacing(3),
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: '100%',
-                  }}
-                >
-                  <Box>
-                    <Typography
-                      variant="h4"
-                      css={{ fontWeight: 600, marginBottom: theme.spacing() }}
-                    >
+            <Link key={post.id} href="/blog/[slug]" as={`/blog/${post.uid}`}>
+              <a className="group block h-full rounded-lg border border-gray-300 hover:border-green-500 focus:outline-none focus:border-green-500 focus:border-2 hover:no-underline">
+                <div className="p-6 flex flex-col justify-between h-full">
+                  <div className="mb-3">
+                    <h4 className="font-bold tracking-tight mb-2 text-xl leading-tight">
                       {post.data.title}
-                    </Typography>
-                    <Typography css={{ color: theme.palette.text.hint }}>
+                    </h4>
+                    <p className="text-base text-gray-600">
                       {getExcerpt(post.data.body)}
-                    </Typography>
-                  </Box>
+                    </p>
+                  </div>
                   <AuthorCard
                     author={post.author}
                     post={post.data.body}
                     date={post.date}
                     disableLink
-                    css={{ margin: theme.spacing(3, 0, -1) }}
+                    className="mt-6 -mb-2"
                   />
-                </CardContent>
-              </Card>
+                </div>
+              </a>
             </Link>
           ))}
         </Carousel>
-        <Link
-          href="/blog"
-          css={{ marginTop: theme.spacing(2), display: 'block' }}
-        >
-          Ver tudo
+        <Link href="/blog">
+          <a className="ml-6 mt-4 inline-block font-semibold hover:underline">
+            + ver tudo
+          </a>
         </Link>
-      </Container>
-    </Box>
+      </div>
+    </section>
   )
 }
 

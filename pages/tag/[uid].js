@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import isEmpty from 'lodash/isEmpty'
 import startCase from 'lodash/startCase'
-import { Container, Typography, useTheme } from '@material-ui/core'
 
 import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'
@@ -16,7 +15,6 @@ import ProductFaq from 'components/products/faq'
 import Testimonials from 'components/testimonials'
 
 const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
-  const theme = useTheme()
   const router = useRouter()
   const title = `Tag: ${startCase(router.query.uid)}`
   const hero = isEmpty(banners) ? null : (
@@ -26,35 +24,36 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
     [banners, products, posts, testimonials, faqItems].every(isEmpty) &&
     !router.isFallback
   return (
-    <Layout title={title} stickBar>
+    <Layout title={title} variant="secondary" stickBar={!hero}>
       {hero}
-      <Container
-        css={{
-          padding: theme.spacing(hero ? 8 : 18, 3, 4),
-          borderBottom: '10px solid white',
-        }}
-        maxWidth="md"
-      >
+      <div className="max-w-screen-lg m-auto p-10">
         <Breadcrumbs>{title}</Breadcrumbs>
-        {router.isFallback || !isEmpty(posts) ? (
+        {(router.isFallback || !isEmpty(posts)) && (
           <>
-            <Typography gutterBottom variant="h2">
+            <h2 className="text-4xl font-bold leading-none tracking-tight mb-4">
               Posts no blog
-            </Typography>
+            </h2>
             {router.isFallback
               ? [...Array(2).keys()].map(PostSkeleton)
               : posts.map((post) => <PostPreview key={post.id} {...post} />)}
           </>
-        ) : null}
-        {isEmpty(products) ? null : (
-          <ProductGrid products={products} title="Produtos relacionados" />
+        )}
+      </div>
+      <div className="max-w-screen-xl m-auto py-10 px-6 border-t-8 border-white">
+        {isEmpty(products) || (
+          <>
+            <h3 className="text-3xl font-semibold tracking-tight m-8 text-center">
+              Produtos relacionados
+            </h3>
+            <ProductGrid products={products} />
+          </>
         )}
         {emptyPage && (
-          <Typography gutterBottom variant="h2">
+          <h2 className="text-4xl text-center font-bold leading-none tracking-tight mx-4 mb-4">
             Nenhum conteúdo para a {title}
-          </Typography>
+          </h2>
         )}
-      </Container>
+      </div>
       <ProductFaq items={faqItems} />
       <Testimonials testimonials={testimonials} />
     </Layout>

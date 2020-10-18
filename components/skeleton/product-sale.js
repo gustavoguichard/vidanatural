@@ -1,22 +1,21 @@
-import { Grid } from '@material-ui/core'
-
-import theme from 'lib/theme'
-
-import ProductContainer from 'components/products/container'
+import Breadcrumbs from 'components/products/breadcrumbs'
 import Skeleton from './index'
 
-const PostSkeleton = () => (
-  <ProductContainer>
-    <Grid item xs={12} md={6}>
-      <Skeleton height={400} />
-    </Grid>
-    <Grid item xs={12} md={6} style={{ padding: theme.spacing(2, 5) }}>
-      <Skeleton css={{ height: 40, marginBottom: theme.spacing() }} />
-      <Skeleton variant="text" css={{ width: '30%' }} />
-      <Skeleton css={{ height: 300, margin: theme.spacing(3, 0, 2) }} />
-      <Skeleton css={{ width: '50%', height: 50 }} />
-    </Grid>
-  </ProductContainer>
+const ProductSkeleton = () => (
+  <div className="max-w-screen-xl m-auto px-10 pt-16 md:pt-12 pb-12">
+    <Breadcrumbs className="hidden md:flex" />
+    <div className="md:space-x-8 md:flex justify-center">
+      <div className="md:w-1/2">
+        <Skeleton height={400} />
+      </div>
+      <div className="md:w-1/2 py-4">
+        <Skeleton className="mb-2 h-12" />
+        <Skeleton className="w-1/4" />
+        <Skeleton className="mt-6 mb-4 h-64" />
+        <Skeleton className="h-12 w-1/2" />
+      </div>
+    </div>
+  </div>
 )
 
-export default PostSkeleton
+export default ProductSkeleton

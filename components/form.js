@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
 import { useRouter } from 'next/router'
-import { Button, CircularProgress, TextField } from '@material-ui/core'
 
 import api from 'lib/api'
 
-import Alert from 'components/alert'
+import CTAButton from 'components/cta-button'
+import CircularProgress from 'components/circular-progress'
+import FormError from 'components/form-error'
 import Input from 'components/input'
 
 const Form = () => {
@@ -36,8 +37,8 @@ const Form = () => {
       action="/webform"
       data-webform="vidanatural-nova-mensagem-pelo-site-da-vn"
     >
-      <TextField {...raw('key')} type="hidden" />
-      <TextField {...raw('reply_to')} type="hidden" />
+      <input {...raw('key')} type="hidden" />
+      <input {...raw('reply_to')} type="hidden" />
       <input
         {...text('a_password')}
         css={{ display: 'none !important' }}
@@ -54,14 +55,14 @@ const Form = () => {
         rows="4"
         label="Mensagem"
       />
-      <Alert
-        message={
-          hasError && 'Ocorreu um erro. Por favor, tente denovo mais tarde.'
-        }
-      />
-      <Button type="submit" variant="contained" color="secondary">
-        {sending ? <CircularProgress /> : 'Enviar mensagem'}
-      </Button>
+      <FormError show={hasError} />
+      <CTAButton type="submit">
+        {sending ? (
+          <CircularProgress color="inherit" size="4" className="mx-6" />
+        ) : (
+          'Enviar mensagem'
+        )}
+      </CTAButton>
     </form>
   )
 }

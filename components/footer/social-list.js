@@ -1,65 +1,31 @@
 import { FiFacebook, FiInstagram } from 'react-icons/fi'
-import theme from 'lib/theme'
 
 const icons = {
-  facebook: (props) => <FiFacebook {...props} />,
-  instagram: (props) => <FiInstagram {...props} />,
+  facebook: (cx) => <FiFacebook className={cx} />,
+  instagram: (cx) => <FiInstagram className={cx} />,
 }
 
-const css = {
-  margin: theme.spacing(),
-  transition: 'all .3s',
-  '&:hover': {
-    color: theme.palette.secondary.main,
-  },
-}
-
-const Icon = ({
-  site,
-  children,
-  color = theme.pallete.primary.contrastText,
-  size = 20,
-  ...props
-}) => (
+const Icon = ({ site, children, href }) => (
   <a
-    css={{ display: 'inline-block' }}
-    {...props}
+    className="inline-block"
+    href={href}
     title={children}
     target="_blank"
-    rel="noopener"
+    rel="noreferrer noopener"
   >
-    {icons[site]({ css, color, size })}
+    {icons[site]('w-5 h-5 m-2 hover:text-green-300 transition duration-300')}
   </a>
 )
 
-const SocialList = ({ className, ...props }) => {
-  return (
-    <div
-      css={{
-        [theme.breakpoints.up('md')]: {
-          alignItems: 'flex-end',
-          display: 'flex',
-          flexDirection: 'column',
-        },
-      }}
-      className={`social-list ${className}`}
-    >
-      <Icon
-        site="instagram"
-        href="https://instagram.com/vidanatural.eco"
-        {...props}
-      >
-        Ir para nosso Instagram
-      </Icon>
-      <Icon
-        site="facebook"
-        href="http://facebook.com/vidanatural.eco"
-        {...props}
-      >
-        Ir para nosso Facebook
-      </Icon>
-    </div>
-  )
-}
+const SocialList = () => (
+  <div className="social-list lg:items-end lg:flex lg:flex-col">
+    <Icon site="instagram" href="https://instagram.com/vidanatural.eco">
+      Ir para nosso Instagram
+    </Icon>
+    <Icon site="facebook" href="http://facebook.com/vidanatural.eco">
+      Ir para nosso Facebook
+    </Icon>
+  </div>
+)
 
 export default SocialList

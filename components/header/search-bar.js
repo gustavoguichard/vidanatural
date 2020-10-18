@@ -1,19 +1,10 @@
 import { useRef, useEffect, useState } from 'react'
 import throttle from 'lodash/throttle'
-import {
-  CircularProgress,
-  InputBase,
-  Divider,
-  List,
-  ListSubheader,
-  Card,
-} from '@material-ui/core'
 
 import api from 'lib/api'
-import theme from 'lib/theme'
 import useGlobal from 'lib/use-global'
-import { descend } from 'lib/css'
 
+import CircularProgress from 'components/circular-progress'
 import SearchItem from './search-item'
 
 const doSearch = throttle(async (text, setResults, setFetching) => {
@@ -29,7 +20,6 @@ const SearchBar = () => {
   const [results, setResults] = useState([])
   const [fetching, setFetching] = useState(false)
   const field = useRef()
-  const radius = `${theme.shape.borderRadius}px`
   const hasQuery = query && query.length > 2
 
   useEffect(() => {
@@ -40,75 +30,48 @@ const SearchBar = () => {
 
   return searchOpen ? (
     <div
-      css={{
-        position: 'fixed',
-        zIndex: 10000,
-        top: 0,
-        right: 0,
-        left: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0,0,0,.3)',
-        transition: 'all .3s',
-      }}
+      className="fixed z-50 inset-0 bg-black bg-opacity-25 transition duration-300"
       onClick={closeSearch}
     >
       <div
-        css={{
-          display: 'flex',
-          alignItems: 'stretch',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          position: 'relative',
-          animation: `${descend} .3s ease-out`,
-        }}
+        className="flex flex-col max-h-screen overflow-y-auto shadow-lg overflow-hidden relative rounded-b-lg  animate__animated animate__fadeIn animate__faster"
         onClick={(event) => event.stopPropagation()}
         onKeyUp={(event) => {
           event.key === 'Escape' && closeSearch()
         }}
       >
-        <Card
-          css={{
-            borderRadius: `0 0 ${radius} ${radius}`,
-          }}
-        >
-          <InputBase
+        <div className="relative flex justify-between items-center">
+          <input
+            type="text"
             autoFocus
             id="search-field"
             ref={field}
-            css={{ background: 'white', padding: 20, width: '100%' }}
+            className="bg-white p-6 w-full"
             placeholder="Buscar..."
-            inputProps={{ 'aria-label': 'search' }}
+            aria-label="search"
             onChange={(ev) => setQuery(ev.target.value)}
           />
           {fetching && (
             <CircularProgress
-              size={25}
-              color="inherit"
-              css={{
-                position: 'absolute',
-                top: 21,
-                right: 15,
-                pointerEvents: 'none',
-              }}
+              color="text-black"
+              size={8}
+              className="absolute pointer-events-none mr-3 right-0"
             />
           )}
-          {(hasQuery || !!results.length) && (
-            <>
-              <Divider />
-              <List>
-                {results.length ? (
-                  results.map((item) => (
-                    <SearchItem key={item.id} onClick={closeSearch} {...item} />
-                  ))
-                ) : (
-                  <ListSubheader color="inherit">
-                    Nenhum resultado similar
-                  </ListSubheader>
-                )}
-              </List>
-            </>
-          )}
-        </Card>
+        </div>
+        {(hasQuery || !!results.length) && (
+          <div className="divide-y divide-gray-200 bg-white">
+            {results.length ? (
+              results.map((item) => (
+                <SearchItem key={item.id} onClick={closeSearch} {...item} />
+              ))
+            ) : (
+              <p className="p-5 font-semibold text-gray-700 text-sm">
+                Nenhum resultado similar
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   ) : null

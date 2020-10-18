@@ -1,12 +1,10 @@
-import { Box, Typography } from '@material-ui/core'
-import { RichText } from 'prismic-reactjs'
-
 import staticProps from 'lib/static-props/faq-uid'
 import staticPaths from 'lib/static-paths/faq-uid'
 
 import Breadcrumbs from 'components/breadcrumbs'
 import DocumentDetails from 'components/document-details'
 import PostTags from 'components/post-tags'
+import RichText from 'components/rich-text'
 import SinglePageLayout from 'components/single-page-layout'
 
 const breadcrumbs = [
@@ -18,13 +16,15 @@ const FaqPage = ({ item }) => {
   const { data, last_publication_date } = item
 
   return (
-    <SinglePageLayout title={data.title}>
-      <Typography variant="h2">{data.title}</Typography>
-      <Box my={2}>
+    <SinglePageLayout variant="secondary" title={data.title}>
+      <h2 className="text-4xl font-bold tracking-tight leading-none">
+        {data.title}
+      </h2>
+      <div className="my-4">
         <DocumentDetails date={last_publication_date} post={data.answer} />
-      </Box>
+      </div>
       <Breadcrumbs links={breadcrumbs}>{data.title}</Breadcrumbs>
-      <RichText render={data.answer} />
+      <RichText>{data.answer}</RichText>
       <PostTags tags={item.tags} />
     </SinglePageLayout>
   )

@@ -1,10 +1,10 @@
 import { memo } from 'react'
-import { Box } from '@material-ui/core'
 import dynamic from 'next/dynamic'
 import Router from 'next/router'
 
 import Header from 'components/header'
 import SEO from 'components/seo'
+import SearchBar from 'components/header/search-bar'
 import Skeleton from 'components/skeleton'
 
 const BottomCTA = dynamic(() => import('components/bottom-cta'), { ssr: false })
@@ -34,20 +34,19 @@ const Layout = ({
 }) => (
   <>
     <SEO title={title} {...seo} />
+    <SearchBar />
     <Header logoCompanion={logoCompanion} variant={variant} stick={stickBar} />
-    <main {...props} css={{ flex: 1 }}>
+    <main {...props} className="flex-grow">
       {children}
     </main>
-    {hideCertifications || (
-      <Box css={{ width: '100%' }}>
-        <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
-      </Box>
-    )}
+    {hideCertifications || <Certifications />}
     <Footer variant={footerVariant} />
     <BottomCTA>
-      {hideChat ? null : (
-        <Chat css={{ bottom: 8, position: 'absolute', right: 8 }} />
-      )}
+      <Chat
+        className={`bottom-0 absolute right-0 transform -translate-x-2 -translate-y-2 md:flex ${
+          hideChat ? 'hidden' : ''
+        }`}
+      />
       {ctaChildren}
     </BottomCTA>
   </>

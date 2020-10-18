@@ -1,71 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from 'react'
-import PropTypes from 'prop-types'
-import clsx from 'clsx'
+import { forwardRef } from 'react'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
-import MuiLink from '@material-ui/core/Link'
 
-const NextComposed = React.forwardRef((props, ref) => {
-  const { as, href, prefetch, ...other } = props
+import { classes } from 'lib/utils'
 
-  return (
-    <NextLink href={href} prefetch={prefetch} as={as}>
-      <a ref={ref} {...other} />
-    </NextLink>
-  )
-})
-
-NextComposed.propTypes = {
-  as: PropTypes.string,
-  href: PropTypes.string,
-  prefetch: PropTypes.bool,
-}
-
-function Link({
-  activeClassName,
-  className: classNameProps,
-  innerRef,
-  naked,
-  color = 'secondary',
-  ...props
-}) {
+function Link({ activeClassName, className, href, as, ...props }, ref) {
   const router = useRouter()
-  const className = clsx(classNameProps, {
-    [activeClassName]: router.pathname === props.href && activeClassName,
+  const cx = classes(className, {
+    [activeClassName]: router.pathname === href && activeClassName,
   })
 
-  if (naked) {
-    return <NextComposed className={className} ref={innerRef} {...props} />
-  }
-
-  return (
-    <MuiLink
-      color={color}
-      component={NextComposed}
-      className={className}
-      ref={innerRef}
-      {...props}
-    />
+  return href.startsWith('http') ? (
+    <a ref={ref} href={href} className={cx} {...props} />
+  ) : (
+    <NextLink href={href} as={as}>
+      <a ref={ref} className={cx} {...props} />
+    </NextLink>
   )
 }
 
-Link.propTypes = {
-  activeClassName: PropTypes.string,
-  as: PropTypes.string,
-  color: PropTypes.string,
-  className: PropTypes.string,
-  href: PropTypes.string,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  naked: PropTypes.bool,
-  onClick: PropTypes.func,
-  prefetch: PropTypes.bool,
-}
-
-Link.defaultProps = {
-  activeClassName: 'active',
-}
-
-export default React.forwardRef((props, ref) => (
-  <Link {...props} innerRef={ref} />
-))
+export default forwardRef(Link)

@@ -1,36 +1,23 @@
 import map from 'lodash/map'
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Box,
-  Divider,
-  Typography,
-} from '@material-ui/core'
-import { ExpandMore } from '@material-ui/icons'
 
 import Distributor from 'components/distributor'
+import Pannel from 'components/pannel'
 
-const StatePannel = ({ region, title }) => (
-  <Accordion square>
-    <AccordionSummary
-      expandIcon={<ExpandMore />}
-      aria-controls={`state-${title}`}
-    >
-      {title}
-    </AccordionSummary>
-    <AccordionDetails css={{ flexDirection: 'column' }}>
-      {map(region, (places, name) => (
-        <Box key={`place-${name}`}>
-          <Typography variant="h4">{name}</Typography>
-          <Divider />
-          {map(places, (place) => (
-            <Distributor place={place} key={place.name} />
-          ))}
-        </Box>
-      ))}
-    </AccordionDetails>
-  </Accordion>
-)
+const StatePannel = ({ region, title }) => {
+  return (
+    <Pannel title={title}>
+      <div className="divide-y space-y-4">
+        {map(region, (places, name) => (
+          <div key={`place-${name}`} className="first:pt-0 pt-6 pb-2">
+            <h4 className="text-xl mb-2">{name}</h4>
+            {map(places, (place) => (
+              <Distributor place={place} key={place.name} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </Pannel>
+  )
+}
 
 export default StatePannel

@@ -7,8 +7,8 @@ import React, {
 } from 'react'
 import Router from 'next/router'
 import clamp from 'lodash/clamp'
-import { Box } from '@material-ui/core'
 
+import { classes } from 'lib/utils'
 import { useElScroll } from 'lib/hooks'
 
 import Scroller from 'components/scroller'
@@ -25,7 +25,7 @@ const Carousel = (
     onChange,
     NextButton,
     PrevButton,
-    ...props
+    className,
   },
   innerRef,
 ) => {
@@ -73,8 +73,9 @@ const Carousel = (
     goTo: goToPage,
   }))
 
+  const cx = classes('flex relative items-center', className)
   return (
-    <Box position="relative" alignItems="center" display="flex" {...props}>
+    <div className={cx}>
       {childrenCount > 1
         ? renderDefaultBt(PrevButton, doScroll(-1), PrevBt)
         : null}
@@ -88,7 +89,7 @@ const Carousel = (
           </div>
         ))}
       </Scroller>
-    </Box>
+    </div>
   )
 }
 

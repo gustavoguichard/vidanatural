@@ -1,37 +1,24 @@
 import { memo } from 'react'
 import startCase from 'lodash/startCase'
-import { Box, Chip } from '@material-ui/core'
-import { Label } from '@material-ui/icons'
-
-import theme from 'lib/theme'
+import { FiTag } from 'react-icons/fi'
 
 import Link from 'components/link'
 
-const PostTags = ({ tags }) => {
-  return (
-    <Box mt={4} mb={2}>
-      {tags
-        .filter((t) => t !== 'institucional')
-        .map((tag, idx) => (
-          <Chip
-            css={{
-              color: theme.palette.text.hint,
-              margin: 2,
-              fontSize: '.75rem',
-            }}
-            component={Link}
-            clickable
-            href="/tag/[uid]"
-            as={`/tag/${tag}`}
-            size="small"
-            variant="outlined"
-            icon={<Label />}
-            key={idx}
-            label={startCase(tag)}
-          />
-        ))}
-    </Box>
-  )
-}
+const PostTags = ({ tags }) => (
+  <div className="my-4">
+    {tags
+      .filter((t) => t !== 'institucional')
+      .map((tag, idx) => (
+        <Link
+          className="inline-flex border hover:underline hover:border-gray-500 border-gray-400 hover:bg-gray-100 rounded-lg px-1 items-center text-gray-700 m-1 text-xs"
+          href="/tag/[uid]"
+          as={`/tag/${tag}`}
+          key={`tag-${idx}`}
+        >
+          <FiTag className="mr-1" /> {startCase(tag)}
+        </Link>
+      ))}
+  </div>
+)
 
 export default memo(PostTags)

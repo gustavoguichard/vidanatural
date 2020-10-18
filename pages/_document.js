@@ -1,14 +1,12 @@
-import Document, { Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheets } from '@material-ui/styles'
-import theme from 'lib/theme'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class VidaNatural extends Document {
   render() {
     return (
-      <html amp="" lang="pt-BR">
+      <Html amp="" lang="pt-BR">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta name="theme-color" content="#32333d" />
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="shortcut icon"
@@ -30,7 +28,7 @@ class VidaNatural extends Document {
             href="/sitemap.xml"
           />
         </Head>
-        <body>
+        <body className="bg-gray-100">
           <Main />
           <NextScript />
           <link
@@ -39,31 +37,8 @@ class VidaNatural extends Document {
             rel="stylesheet"
           />
         </body>
-      </html>
+      </Html>
     )
-  }
-}
-
-VidaNatural.getInitialProps = async (ctx) => {
-  const sheets = new ServerStyleSheets()
-  const originalRenderPage = ctx.renderPage
-
-  ctx.renderPage = () =>
-    originalRenderPage({
-      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
-    })
-
-  const initialProps = await Document.getInitialProps(ctx)
-
-  return {
-    ...initialProps,
-    // Styles fragment is rendered after the app and page rendering finish.
-    styles: (
-      <>
-        {initialProps.styles}
-        {sheets.getStyleElement()}
-      </>
-    ),
   }
 }
 

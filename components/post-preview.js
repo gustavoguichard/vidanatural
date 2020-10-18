@@ -1,7 +1,4 @@
 import { memo } from 'react'
-import { Grid, Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
 
 import AuthorCard from 'components/author-card'
 import Img from 'components/img'
@@ -15,35 +12,30 @@ const PostPreview = ({
   thumbUrl,
   imgAlt,
   permalink,
-}) => {
-  return (
-    <Grid container spacing={3} css={{ marginBottom: theme.spacing(6) }}>
-      {thumbUrl && (
-        <Grid item sm={3}>
-          <Link {...permalink}>
-            <Img className="responsive" src={thumbUrl} alt={imgAlt} />
-          </Link>
-        </Grid>
-      )}
-      <Grid
-        item
-        sm={thumbUrl ? 9 : 12}
-        md={9}
-        css={{ 'a:link, a:visited': { color: 'inherit' } }}
-      >
+}) => (
+  <div className="sm:flex mb-12 sm:space-x-6">
+    {thumbUrl && (
+      <div className="sm:w-1/4 mb-4">
         <Link {...permalink}>
-          <Typography variant="h3">{data.title}</Typography>
+          <Img className="max-w-full" src={thumbUrl} alt={imgAlt} />
         </Link>
+      </div>
+    )}
+    <div className="sm:w-3/4">
+      <Link {...permalink}>
+        <h3 className="text-3xl hover:underline font-bold tracking-tight leading-none">
+          {data.title}
+        </h3>
+      </Link>
+      <div className="mt-2 mb-4">
         <AuthorCard author={author} post={data.body} date={date} />
-        <Typography css={{ marginBottom: theme.spacing() }} variant="body1">
-          {excerpt}
-        </Typography>
-        <Typography variant="caption">
-          <Link {...permalink}>Ler mais</Link>
-        </Typography>
-      </Grid>
-    </Grid>
-  )
-}
+      </div>
+      <div className="mb-2 text-lg">{excerpt}</div>
+      <Link {...permalink} className="text-sm hover:underline">
+        Ler mais
+      </Link>
+    </div>
+  </div>
+)
 
 export default memo(PostPreview)

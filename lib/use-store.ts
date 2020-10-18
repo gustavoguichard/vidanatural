@@ -47,7 +47,7 @@ function associateActions(store: Store, actions: Actions) {
   return associatedActions
 }
 
-export default (actions: Actions, initialState: GlobalState = {}) => {
+const useStore = (actions: Actions, initialState: GlobalState = {}) => {
   if (!actions) {
     throw new Error('You need to set up some actions')
   }
@@ -61,3 +61,5 @@ export default (actions: Actions, initialState: GlobalState = {}) => {
   store.actions = associateActions(store, actions)
   return useCustom.bind(store)
 }
+
+export default useStore

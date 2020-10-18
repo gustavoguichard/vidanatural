@@ -1,10 +1,7 @@
 import { memo } from 'react'
 import take from 'lodash/take'
-import { Box, Container, Grid } from '@material-ui/core'
 
-import theme from 'lib/theme'
-
-import CTAButton from 'components/cta-button'
+import CTALink from 'components/cta-link'
 import Img from 'components/img'
 import Testimonial from 'components/short-testimonial'
 
@@ -13,42 +10,24 @@ import sloganImg from 'public/static/svgs/slogan.svg'
 const Testimonials = ({ testimonials: items, show = 3 }) => {
   const testimonials = take(items, show)
   return testimonials.length ? (
-    <Box
-      css={{
-        paddingBottom: theme.spacing(8),
-        paddingTop: theme.spacing(8),
-        borderBottom: '10px solid white',
-      }}
-    >
-      <Container maxWidth="lg">
-        <Box mx={2} mb={2} p={3} textAlign="center">
-          <Img
-            className="responsive"
-            css={{
-              height: 70,
-              width: 350,
-              marginBottom: theme.spacing(2),
-              filter: 'brightness(0.2)',
-            }}
-            src={sloganImg}
-            alt="Eu uso cosmética consciente"
-          />
-        </Box>
-        <Grid container spacing={4} justify="center" alignItems="stretch">
-          {testimonials.map((testimonial) => (
-            <Grid key={testimonial.uid} sm={6} md={4} item>
-              <Testimonial {...testimonial} />
-            </Grid>
-          ))}
-        </Grid>
-        <CTAButton
-          href="/eu-uso-cosmetica-consciente"
-          css={{ marginTop: theme.spacing(4) }}
-        >
-          Mais depoimentos
-        </CTAButton>
-      </Container>
-    </Box>
+    <div className="py-16 border-b-8 border-white max-w-screen-xl mx-auto">
+      <div className="mx-4 text-center">
+        <Img
+          className="max-w-full w-3/4 sm:w-1/2 md:w-4/12 lg:w-3/12 mx-auto mb-4"
+          css={{ filter: 'brightness(0.2)' }}
+          src={sloganImg}
+          alt="Eu uso cosmética consciente"
+        />
+      </div>
+      <div className="flex justify-center items-stretch flex-wrap">
+        {testimonials.map((testimonial) => (
+          <Testimonial key={testimonial.uid} {...testimonial} />
+        ))}
+      </div>
+      <div className="text-center">
+        <CTALink href="/eu-uso-cosmetica-consciente">Mais depoimentos</CTALink>
+      </div>
+    </div>
   ) : null
 }
 

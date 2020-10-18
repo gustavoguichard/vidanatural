@@ -1,7 +1,6 @@
 import get from 'lodash/get'
 import map from 'lodash/map'
 import { ProductJsonLd } from 'next-seo'
-import { Box } from '@material-ui/core'
 
 import api from 'lib/api'
 
@@ -17,7 +16,6 @@ const ProductLayout = ({
   faqItems,
   slug,
   children,
-  isMobile,
 }) => {
   const images = map(product.images, 'url')
 
@@ -27,7 +25,7 @@ const ProductLayout = ({
       logoCompanion={
         product.packing ? `/static/svgs/${product.packing}.svg` : null
       }
-      hideChat={isMobile}
+      hideChat
       title={product.name}
       seo={{
         description: product.presentation,

@@ -1,5 +1,6 @@
 import compact from 'lodash/compact'
 import isArray from 'lodash/isArray'
+import isObject from 'lodash/isObject'
 import isEmpty from 'lodash/isEmpty'
 import map from 'lodash/map'
 import take from 'lodash/take'
@@ -10,7 +11,7 @@ import accounting from 'accounting'
 accounting.settings = {
   currency: {
     symbol: 'R$',
-    format: '%s %v',
+    format: '%s%v',
     decimal: ',',
     thousand: '.',
     precision: 2,
@@ -77,4 +78,18 @@ export function clipSentence(text: string, size = 5) {
   const shouldClip = wordsArray.length > size
   const sentence = shouldClip ? take(wordsArray, size).join(' ') : text
   return shouldClip ? `${sentence}...` : sentence
+}
+
+type possibleValues = string | possibleValues[] | object
+export function classes(...args: possibleValues[]): string {
+  const result = map(args, (rule) => {
+    if (isArray(rule)) {
+      return classes(...rule)
+    }
+    if (isObject(rule)) {
+      return classes(map(rule, (value, key) => (value ? key : false)))
+    }
+    return typeof rule === 'string' ? rule : false
+  })
+  return result.filter((rule) => rule).join(' ')
 }

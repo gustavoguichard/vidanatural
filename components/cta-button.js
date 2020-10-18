@@ -1,35 +1,33 @@
+import { forwardRef } from 'react'
 import { FaAngleRight } from 'react-icons/fa'
 
-import theme from 'lib/theme'
+import { classes } from 'lib/utils'
 
-import ButtonLink from 'components/button-link'
-
-const CTAButton = ({
-  color = 'secondary',
-  size = 'large',
-  variant = 'text',
-  center = true,
-  children,
-  disableIcon,
-  IconComponent = FaAngleRight,
-  ...props
-}) => {
+const CTAButton = (
+  {
+    children,
+    mini,
+    disableIcon,
+    IconComponent = FaAngleRight,
+    onClick = () => null,
+    className,
+    ...props
+  },
+  ref,
+) => {
+  const cx = classes(
+    'group tracking-wide transition duration-200 inline-flex relative text-white rounded-sm items-center justify-center hover:bg-opacity-75 hover:shadow-lg bg-gray-900',
+    className,
+    { 'text-xs p-2': mini, 'p-4': !mini },
+  )
   return (
-    <ButtonLink
-      color={color}
-      size={size}
-      variant={variant}
-      css={{
-        display: 'flex',
-        margin: center ? 'auto' : null,
-        color: theme.palette.primary,
-      }}
-      {...props}
-    >
+    <button ref={ref} type="button" {...props} onClick={onClick} className={cx}>
       {children}
-      {disableIcon || <IconComponent css={{ marginLeft: theme.spacing() }} />}
-    </ButtonLink>
+      {disableIcon || (
+        <IconComponent className="transition-all duration-200 ml-1 group-hover:ml-2" />
+      )}
+    </button>
   )
 }
 
-export default CTAButton
+export default forwardRef(CTAButton)

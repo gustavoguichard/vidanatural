@@ -1,6 +1,3 @@
-import { Box, Typography } from '@material-ui/core'
-
-import theme from 'lib/theme'
 import staticProps from 'lib/static-props/eu-uso'
 
 import Hero from 'components/hero'
@@ -13,19 +10,16 @@ const Page = ({ testimonials }) => {
   return (
     <Layout title="Eu uso cosmética consciente!">
       <Hero size="small" background="/static/images/banner.jpg">
-        <Box mb={2} p={3}>
+        <div className="my-12 py-6 px-16 max-w-screen-md">
           <img
-            css={{
-              maxWidth: 600,
-              width: '80vw',
-            }}
+            className="max-w-full h-24 m-auto"
             src={sloganImg}
-            alt="Eu uso cosmética consciente"
+            alt="Eu uso | cosmética consciente"
           />
-        </Box>
-        <Typography variant="body1" css={{ marginBottom: theme.spacing(5) }}>
-          Descubra o que motiva as pessoas a usarem os produtos da VN
-        </Typography>
+          <div className="m-4 text-lg">
+            Descubra o que motiva as pessoas a usarem os produtos da VN
+          </div>
+        </div>
       </Hero>
       <People testimonials={testimonials} />
     </Layout>

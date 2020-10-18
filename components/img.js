@@ -26,7 +26,7 @@ const Img = ({
           width={width}
           height={height}
           variant={circle ? 'circle' : 'rect'}
-          css={{ visibility: hideSpinner ? 'hidden' : 'visible' }}
+          style={{ visibility: hideSpinner ? 'hidden' : 'visible' }}
           className={className}
         />
       )}

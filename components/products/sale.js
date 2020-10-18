@@ -1,29 +1,18 @@
-import ReactMarkdown from 'react-markdown'
 import { useInView } from 'react-intersection-observer'
 import isEmpty from 'lodash/isEmpty'
-import { Breadcrumbs as BCrumbs, Grid, Typography } from '@material-ui/core'
 
-import { useIsDesktop } from 'lib/hooks'
-import theme from 'lib/theme'
-
+import Markdown from 'components/markdown'
 import ImageGallery from 'components/image-gallery'
+import BCrumbs from 'components/breadcrumbs'
 import Breadcrumbs from './breadcrumbs'
 import Description from './description'
 import PriceTag from './price-tag'
-import ProductContainer from './container'
 import ProductCTA from './cta'
 import MobileCTA from './mobile-cta'
 
-const ProductSale = ({
-  product,
-  isMobile,
-  hasTestimonials,
-  hasFaqItems,
-  cmsData,
-}) => {
+const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
   const [variant] = product.variants || [{}]
-  const isDesktop = useIsDesktop()
 
   const hasInformation = !!product.description.information
   const hasIngredinets = !(
@@ -32,65 +21,59 @@ const ProductSale = ({
 
   return (
     <>
-      {isMobile && product.inStock && (
-        <MobileCTA visible={visible} product={product} />
-      )}
-      <ProductContainer product={product} isMobile={isMobile}>
-        <Grid item xs={12} md={6}>
-          <ImageGallery product={product} isDesktop={isDesktop} />
-        </Grid>
-        <Grid item xs={12} md={6} style={{ padding: theme.spacing(2, 5) }}>
-          {isDesktop && (
-            <Typography variant="h3" css={{ marginBottom: theme.spacing() }}>
+      {product.inStock && <MobileCTA visible={visible} product={product} />}
+      <div className="max-w-screen-xl m-auto px-10 pt-16 md:pt-12 pb-12">
+        <Breadcrumbs className="hidden md:flex" product={product} />
+        <div className="md:space-x-8 md:flex justify-center">
+          <div className="md:w-1/2">
+            <ImageGallery product={product} />
+          </div>
+          <div className="md:w-1/2 py-4">
+            <h3 className="hidden md:flex text-3xl font-bold tracking-tight">
               {product.name}
-            </Typography>
-          )}
-          <PriceTag item={variant} />
-          {isMobile && <Breadcrumbs isMobile product={product} />}
-          {product.description.featured && (
-            <ReactMarkdown
-              escapeHtml={false}
-              css={{
-                marginTop: theme.spacing(3),
-                fontWeight: 600,
-                color: theme.palette.text.hint,
-                p: {
-                  marginBottom: 0,
+            </h3>
+            <PriceTag big item={variant} />
+            <Breadcrumbs className="md:hidden" product={product} />
+            {product.description.featured && (
+              <Markdown>{product.description.featured}</Markdown>
+            )}
+            <BCrumbs
+              separator={<span className="text-gray-400"> - </span>}
+              size="xs"
+              className="text-green-500"
+              hideHome
+              links={[
+                hasInformation && {
+                  title: 'Mais detalhes',
+                  href: '#descricao',
+                  raw: true,
                 },
-              }}
-              className="MuiTypography-root MuiTypography-body1"
-              source={product.description.featured}
+                hasIngredinets && {
+                  title: 'Ver ingredientes',
+                  href: '#ingredientes',
+                  raw: true,
+                },
+                hasFaqItems && {
+                  title: 'Dúvidas',
+                  href: '#faq',
+                  raw: true,
+                },
+                hasTestimonials && {
+                  title: 'Depoimentos',
+                  href: '#depoiments',
+                  raw: true,
+                },
+              ].filter((a) => !!a)}
             />
-          )}
-          <BCrumbs
-            variant="caption"
-            color="primary"
-            separator="-"
-            css={{ fontSize: '.8rem', margin: theme.spacing(1, 0) }}
-          >
-            {hasInformation && <a href="#descricao">Mais detalhes</a>}
-            {hasIngredinets && <a href="#ingredientes">Ver ingredientes</a>}
-            {hasFaqItems && <a href="#faq">Dúvidas</a>}
-            {hasTestimonials && <a href="#depoimentos">Depoimentos</a>}
-          </BCrumbs>
-          <ReactMarkdown
-            escapeHtml={false}
-            css={{
-              marginTop: theme.spacing(3),
-              marginBottom: theme.spacing(2),
-              fontWeight: 400,
-              color: theme.palette.text.hint,
-            }}
-            className="MuiTypography-root MuiTypography-body1"
-            source={product.description.presentation}
-          />
-          <PriceTag item={variant} />
-          <ProductCTA ref={ref} product={product} />
-        </Grid>
-      </ProductContainer>
-      {hasInformation && (
-        <Description product={product} isDesktop={isDesktop} />
-      )}
+            <Markdown className="text-gray-600 my-4">
+              {product.description.presentation}
+            </Markdown>
+            <PriceTag big item={variant} />
+            <ProductCTA ref={ref} product={product} />
+          </div>
+        </div>
+      </div>
+      {hasInformation && <Description product={product} />}
     </>
   )
 }

@@ -11,6 +11,7 @@ module.exports = {
     'arrow-parens': [0, 'as-needed'],
     camelcase: 0,
     'class-methods-use-this': 0,
+    'no-nested-ternary': 0,
     'global-require': 0,
     'import/no-unresolved': 0,
     'prettier/prettier': [

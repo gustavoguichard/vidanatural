@@ -1,90 +1,57 @@
-import { useState, useEffect } from 'react'
-import get from 'lodash/get'
-import {
-  AppBar,
-  Toolbar,
-  useScrollTrigger,
-  useMediaQuery,
-} from '@material-ui/core'
+import { useEffect } from 'react'
 
-import { useScrollDirection } from 'lib/hooks'
-import theme from 'lib/theme'
 import { useTagsMenu } from 'lib/domain-hooks'
+import { useScroll } from 'lib/hooks'
+import { classes } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
 import CartIcon from './cart-icon'
 import DesktopMenu from './desktop-menu'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
-import SearchBar from './search-bar'
 import SearchIcon from './search-icon'
 
 const Header = ({ stick, logoCompanion, variant }) => {
   const tags = useTagsMenu()
 
-  const secondary = variant === 'secondary'
-  const isDesktop = useMediaQuery('(min-width: 790px)')
-  const scrollDirection = useScrollDirection()
-  const hasScrolled = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: isDesktop ? 80 : 20,
-    target: process.env.browser ? window() : undefined,
-  })
-  const sticky = stick || hasScrolled
-  const elevation = sticky ? 4 : 0
+  const { y } = useScroll()
+  const sticky = stick || y > 0
   const companionSize = sticky ? 35 : 60
-  const isOnTop =
-    typeof document !== 'undefined' &&
-    get(document, 'documentElement.scrollTop', 0) < 20
 
   const [, actions] = useGlobal()
   useEffect(actions.getCartItems, [])
 
-  const MenuComponent = isDesktop ? DesktopMenu : MobileMenu
+  const cx = classes('px-4 md:px-6 fixed inset-x-0 top-0 z-40', {
+    'bg-white shadow-sm': sticky,
+    'bg-transparent h-32': !sticky,
+    'text-white': variant === 'primary' && !sticky,
+  })
   return (
-    <>
-      <AppBar
-        css={{
-          backgroundColor: sticky ? null : 'transparent',
-          top: !isOnTop && sticky && scrollDirection === 'DOWN' ? -64 : 0,
-          transition: 'all .3s',
-        }}
-        position="fixed"
-        elevation={elevation}
-      >
-        <Toolbar
-          css={{
-            color:
-              secondary && !sticky
-                ? theme.palette.secondary.contrastText
-                : theme.palette.primary.contrastText,
-            transition: 'all .3s',
-          }}
-          variant="dense"
-        >
+    <div className={cx}>
+      <div className="flex items-center duration-500">
+        <MobileMenu tags={tags} />
+        <div className="w-1/3 md:w-auto md:flex-grow flex items-center justify-center md:justify-start">
           <Logo sticky={sticky} variant={variant} />
-          {logoCompanion && isDesktop && (
+          {logoCompanion && (
             <img
+              className="hidden md:block relative transition-all duration-500"
               css={{
                 maxWidth: companionSize,
                 maxHeight: companionSize,
-                position: 'relative',
                 left: sticky ? 0 : -20,
-                transition: 'all .4s ease-in-out',
               }}
               src={logoCompanion}
               alt="Embalagem"
             />
           )}
-          <div css={{ flexGrow: 1 }} />
-          <MenuComponent tags={tags}>
-            <SearchIcon />
-            <CartIcon />
-          </MenuComponent>
-        </Toolbar>
-      </AppBar>
-      <SearchBar />
-    </>
+        </div>
+        <DesktopMenu tags={tags} />
+        <div className="flex justify-end flex-grow md:flex-grow-0">
+          <SearchIcon />
+          <CartIcon />
+        </div>
+      </div>
+    </div>
   )
 }
 

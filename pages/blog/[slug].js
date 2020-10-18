@@ -1,13 +1,10 @@
-import { Box, Typography } from '@material-ui/core'
-import { RichText } from 'prismic-reactjs'
-
-import theme from 'lib/theme'
 import staticProps from 'lib/static-props/blog-uid'
 import staticPaths from 'lib/static-paths/blog-uid'
 
 import AuthorCard from 'components/author-card'
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
+import RichText from 'components/rich-text'
 import RelatedProducts from 'components/related-products'
 import PostTags from 'components/post-tags'
 import SinglePageLayout from 'components/single-page-layout'
@@ -32,36 +29,36 @@ const SinglePostPage = ({
       hero={
         hasFeatured && (
           <Hero filter="brightness(0.4)" size="medium" background={featuredUrl}>
-            <Typography variant="h2">{data.title}</Typography>
+            <h2 className="text-4xl sm:text-5xl px-6 font-bold tracking-tight leading-none">
+              {data.title}
+            </h2>
           </Hero>
         )
       }
     >
       {hasFeatured ? null : (
-        <Typography variant="h3" css={{ marginBottom: theme.spacing(2) }}>
+        <h3 className="mb-4 text-4xl leading-none tracking-tight font-bold">
           {data.title}
-        </Typography>
+        </h3>
       )}
       <AuthorCard
         author={author}
         post={data.body}
         date={date}
         showAvatar
-        top={hasFeatured ? theme.spacing(-3) : 0}
+        className={hasFeatured ? 'transform -translate-y-6' : 'my-3'}
       />
       <Breadcrumbs
-        css={{ margin: theme.spacing(hasFeatured ? 1 : 3, 0, 2) }}
+        className={hasFeatured ? 'my-2' : 'mt-6 mb-4'}
         links={[{ title: 'Blog', href: '/blog' }]}
       >
         {data.title}
       </Breadcrumbs>
-      <Typography component="div" variant="body1">
-        <RichText render={data.body} />
-      </Typography>
+      <RichText>{data.body}</RichText>
       <PostTags tags={tags} />
-      <Box mt={6}>
+      <div className="mt-12">
         <RelatedProducts products={products} maxPerPage={3} />
-      </Box>
+      </div>
     </SinglePageLayout>
   )
 }

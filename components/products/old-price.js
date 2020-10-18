@@ -1,18 +1,12 @@
-import { toCurrency } from 'lib/utils'
-import theme from 'lib/theme'
+import { classes, toCurrency } from 'lib/utils'
 
 const OldPrice = ({ price, salePrice, lineBreak = true }) => {
   const hasDiscont = salePrice < price
+  const cx = classes('text-xs text-gray-600 line-through', {
+    'pr-2': !lineBreak,
+  })
   return hasDiscont ? (
-    <span
-      className="old-price"
-      css={{
-        fontSize: '80%',
-        color: theme.palette.text.disabled,
-        textDecoration: 'line-through',
-        paddingRight: lineBreak ? undefined : theme.spacing(),
-      }}
-    >
+    <span className={cx}>
       De: {toCurrency(price)}
       {lineBreak && <br />}
     </span>
