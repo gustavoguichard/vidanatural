@@ -59,14 +59,14 @@ const ProductsPage = ({ products, filters }) => {
         </Breadcrumbs>
         <div className="flex justify-center mx-2 mb-6">
           <Scroller flex>
-            {map(filters, (filter) => (
+            {map(filters, (filter, idx) => (
               <button
+                key={filter.name + idx}
                 type="button"
                 className={`m-1 uppercase bg-opacity-25 hover:bg-opacity-50 bg-gray-300 rounded text-sm px-2 py-1 text-${
                   filter.name === selected ? 'green-500' : 'green-900'
                 }`}
                 onClick={setFilter(filter.name)}
-                key={filter.name}
               >
                 {filter.title}
               </button>

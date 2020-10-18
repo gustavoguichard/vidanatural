@@ -1,9 +1,9 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class VidaNatural extends Document {
   render() {
     return (
-      <html amp="" lang="pt-BR">
+      <Html amp="" lang="pt-BR">
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#32333d" />
@@ -37,7 +37,7 @@ class VidaNatural extends Document {
             rel="stylesheet"
           />
         </body>
-      </html>
+      </Html>
     )
   }
 }
