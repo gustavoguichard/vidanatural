@@ -15,7 +15,7 @@ const ImageGallery = ({ product }) => {
   return (
     <div className="flex flex-col md:flex-row">
       <div
-        className="relative flex items-start justify-center w-full md:ml-4"
+        className="relative flex items-start justify-center -mx-6 md:mr-auto md:ml-4"
         css={{ minHeight: 300 }}
       >
         <Carousel
@@ -46,7 +46,7 @@ const ImageGallery = ({ product }) => {
               key={i}
               onClick={() => gallery.current.goTo(i)}
               alt={product.name}
-              className="w-24 md:w-32 max-w-full cursor-pointer transition-all duration-700"
+              className="w-24 md:w-64 cursor-pointer transition-all duration-700"
               css={{
                 boxShadow: i === index ? `0 0 0 2px black` : `0 0 0 0 black`,
               }}
