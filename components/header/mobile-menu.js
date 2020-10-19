@@ -48,7 +48,7 @@ const MobileMenu = ({ tags }) => {
   const [open, setOpen] = useState(false)
   const toggleDrawer = (nextState) => () => setOpen(nextState)
   return (
-    <div className="w-1/3 md:hidden">
+    <div className="w-1/3 lg:hidden">
       <IconButton
         className="text-xl -ml-2"
         onClick={toggleDrawer(true)}
@@ -64,7 +64,6 @@ const MobileMenu = ({ tags }) => {
         <Link className="border-b" href="/">
           <Img
             className="w-32 m-auto mb-4 mt-6"
-            css={{ filter: 'invert(0.95)' }}
             src={brandImg}
             alt="Home | Vida Natural"
           />

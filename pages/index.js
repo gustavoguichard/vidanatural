@@ -12,7 +12,7 @@ const Home = ({ banners, testimonials, posts, products }) => {
   return (
     <Layout variant="secondary" hideCertifications>
       <Banners banners={banners} />
-      <Certifications css={{ '& img': { filter: 'brightness(0.35)' } }} />
+      <Certifications />
       <Products products={products} />
       <About />
       <Testimonials testimonials={testimonials} />

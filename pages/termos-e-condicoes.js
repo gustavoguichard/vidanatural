@@ -165,17 +165,19 @@ export default function Index() {
             </strong>
             .
           </p>
-          <h5>Recuse a mercadoria se ocorrer alguma das hipóteses abaixo:</h5>
+          <p className="font-semibold transform translate-y-2">
+            Recuse a mercadoria se ocorrer alguma das hipóteses abaixo:
+          </p>
           <ul>
             <li>Embalagem aberta ou avariada;</li>
             <li>Produto avariado;</li>
             <li>Produto em desacordo com o pedido; e/ou</li>
             <li>Falta de acessórios.</li>
           </ul>
-          <h5>
+          <p className="font-semibold transform translate-y-2">
             Para Devolução por Arrependimento ou Desistência, as seguintes
             condições devem ser respeitadas:
-          </h5>
+          </p>
           <ul>
             <li>
               O prazo para desistência da compra do produto é de até 07 (sete)
@@ -194,7 +196,9 @@ export default function Index() {
               reembolso do valor total do seu pedido.
             </li>
           </ul>
-          <h5>Para devolução por insatisfação</h5>
+          <p className="font-semibold transform translate-y-2">
+            Para devolução por insatisfação
+          </p>
           <ul>
             <li>
               Para devolução ou troca por motivos de insatisfação, a Vida
@@ -202,10 +206,10 @@ export default function Index() {
               como outras despesas associadas à sua devolução.
             </li>
           </ul>
-          <h5>
+          <p className="font-semibold transform translate-y-2">
             Para Devolução de Produtos com Defeito, as seguintes condições devem
             ser respeitadas:
-          </h5>
+          </p>
           <ul>
             <li>
               Nos casos que forem constatados defeitos de fabricação, o cliente
@@ -223,11 +227,11 @@ export default function Index() {
               cliente. Os custos de reenvio serão de obrigação do cliente.
             </li>
           </ul>
-          <h5>
+          <p className="font-semibold transform translate-y-2">
             A Restituição de Valores, caso o produto atenda às exigências acima,
             a restituição do valor pago será conforme as opções de pagamento
             abaixo:
-          </h5>
+          </p>
           <ul>
             <li>
               Cartões de crédito: será solicitado o cancelamento do débito à
@@ -235,7 +239,9 @@ export default function Index() {
               faturas subseqüentes.
             </li>
           </ul>
-          <h5>Considerações finais:</h5>
+          <p className="font-semibold transform translate-y-2">
+            Considerações finais:
+          </p>
           <p>
             A Vida Natural não tem obrigação de consertar, trocar ou restituir
             produtos que apresentem sinais claros de mau uso. Confira sempre o

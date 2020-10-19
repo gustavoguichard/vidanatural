@@ -23,8 +23,8 @@ const OndeEncontrar = () => (
       </div>
     </Hero>
     <PaperContent>
-      <div className="flex flex-col md:flex-row justify-between">
-        <div className="md:w-8/12">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between">
+        <div className="lg:w-8/12">
           <Breadcrumbs
             links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
             className="-mt-6 mb-6"
@@ -54,9 +54,9 @@ const OndeEncontrar = () => (
             <StatePannel title={state} region={region} key={state} />
           ))}
         </div>
-        <div className="md:w-3/12 flex justify-center">
+        <div className="lg:w-3/12 lg:flex">
           <Img
-            className="max-w-full w-64"
+            className="max-w-full mt-3 m-auto w-64"
             src="/static/svgs/where-to-find.svg"
             alt="Onde encontrar"
           />

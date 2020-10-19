@@ -22,18 +22,18 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
   return (
     <>
       {product.inStock && <MobileCTA visible={visible} product={product} />}
-      <div className="max-w-screen-xl m-auto px-10 pt-16 md:pt-12 pb-12">
-        <Breadcrumbs className="hidden md:flex" product={product} />
-        <div className="md:space-x-8 md:flex justify-center">
-          <div className="md:w-1/2">
+      <div className="max-w-screen-xl m-auto px-10 pt-16 lg:pt-12 pb-12">
+        <Breadcrumbs className="hidden lg:flex" product={product} />
+        <div className="lg:space-x-8 lg:flex justify-center">
+          <div className="lg:w-1/2">
             <ImageGallery product={product} />
           </div>
-          <div className="md:w-1/2 py-4">
-            <h3 className="hidden md:flex text-3xl font-bold tracking-tight">
+          <div className="lg:w-1/2 py-4">
+            <h3 className="hidden lg:flex text-3xl font-bold tracking-tight">
               {product.name}
             </h3>
             <PriceTag big item={variant} />
-            <Breadcrumbs className="md:hidden" product={product} />
+            <Breadcrumbs className="lg:hidden" product={product} />
             {product.description.featured && (
               <Markdown>{product.description.featured}</Markdown>
             )}

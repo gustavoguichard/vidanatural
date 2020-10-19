@@ -1,7 +1,6 @@
 const Icon = ({ path, title, size = 75 }) => (
   <img
     className="m-6"
-    style={{ filter: 'brightness(0.35)' }}
     width={size}
     height={size}
     src={`/static/svgs/${path}.svg`}

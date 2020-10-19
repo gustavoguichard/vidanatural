@@ -13,9 +13,9 @@ const ImageGallery = ({ product }) => {
   const gallery = useRef()
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col lg:flex-row">
       <div
-        className="relative flex items-start justify-center -mx-6 md:mr-auto md:ml-4"
+        className="relative flex items-start justify-center -mx-6 lg:mr-auto lg:ml-4"
         css={{ minHeight: 300 }}
       >
         <Carousel
@@ -36,17 +36,17 @@ const ImageGallery = ({ product }) => {
           ))}
         </Carousel>
       </div>
-      <h2 className="md:hidden text-center my-4 text-2xl font-bold leading-tight tracking-tight">
+      <h2 className="lg:hidden text-center my-4 text-2xl font-bold leading-tight tracking-tight">
         {product.name}
       </h2>
       {imagesLenght > 1 ? (
-        <div className="flex space-y-2 md:space-x-0 space-x-2 flex-wrap justify-center md:flex-col px-2 md:px-0 md:order-first">
+        <div className="flex space-y-2 lg:space-x-0 space-x-2 flex-wrap justify-center lg:flex-col px-2 lg:px-0 lg:order-first">
           {product.images.map((img, i) => (
             <img
               key={i}
               onClick={() => gallery.current.goTo(i)}
               alt={product.name}
-              className="w-24 md:w-64 cursor-pointer transition-all duration-700"
+              className="w-24 lg:w-64 cursor-pointer transition-all duration-700"
               css={{
                 boxShadow: i === index ? `0 0 0 2px black` : `0 0 0 0 black`,
               }}

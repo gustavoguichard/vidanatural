@@ -21,20 +21,21 @@ const Header = ({ stick, logoCompanion, variant }) => {
   const [, actions] = useGlobal()
   useEffect(actions.getCartItems, [])
 
-  const cx = classes('px-4 md:px-6 fixed inset-x-0 top-0 z-40', {
+  const cx = classes('px-4 lg:px-6 fixed inset-x-0 top-0 z-40', {
     'bg-white shadow-sm': sticky,
     'bg-transparent h-32': !sticky,
     'text-white': variant === 'primary' && !sticky,
+    'text-gray-900': variant !== 'primary' || sticky,
   })
   return (
     <div className={cx}>
       <div className="flex items-center duration-500">
         <MobileMenu tags={tags} />
-        <div className="w-1/3 md:w-auto md:flex-grow flex items-center justify-center md:justify-start">
+        <div className="w-1/3 lg:w-auto lg:flex-grow flex items-center justify-center lg:justify-start">
           <Logo sticky={sticky} variant={variant} />
           {logoCompanion && (
             <img
-              className="hidden md:block relative transition-all duration-500"
+              className="hidden lg:block relative transition-all duration-500"
               css={{
                 maxWidth: companionSize,
                 maxHeight: companionSize,
@@ -46,7 +47,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
           )}
         </div>
         <DesktopMenu tags={tags} />
-        <div className="flex justify-end flex-grow md:flex-grow-0">
+        <div className="flex justify-end flex-grow lg:flex-grow-0">
           <SearchIcon />
           <CartIcon />
         </div>

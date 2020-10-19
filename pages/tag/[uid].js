@@ -7,9 +7,8 @@ import staticPaths from 'lib/static-paths/tag-uid'
 
 import Banners from 'components/banners'
 import Breadcrumbs from 'components/breadcrumbs'
+import FeedSlider from 'components/feed-slider'
 import Layout from 'components/layout'
-import PostPreview from 'components/post-preview'
-import PostSkeleton from 'components/skeleton/blog-post'
 import ProductGrid from 'components/product-grid'
 import ProductFaq from 'components/products/faq'
 import Testimonials from 'components/testimonials'
@@ -26,16 +25,16 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
   return (
     <Layout title={title} variant="secondary" stickBar={!hero}>
       {hero}
-      <div className="max-w-screen-lg m-auto p-10">
-        <Breadcrumbs>{title}</Breadcrumbs>
+      <div className="max-w-screen-xl m-auto p-10">
+        <div className="max-w-screen-lg m-auto text-center">
+          <Breadcrumbs>{title}</Breadcrumbs>
+        </div>
         {(router.isFallback || !isEmpty(posts)) && (
           <>
-            <h2 className="text-4xl font-bold leading-none tracking-tight mb-4">
+            <h3 className="text-3xl font-semibold tracking-tight m-8 text-center">
               Posts no blog
-            </h2>
-            {router.isFallback
-              ? [...Array(2).keys()].map(PostSkeleton)
-              : posts.map((post) => <PostPreview key={post.id} {...post} />)}
+            </h3>
+            <FeedSlider posts={posts} />
           </>
         )}
       </div>

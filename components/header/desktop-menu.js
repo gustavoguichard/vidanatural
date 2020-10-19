@@ -46,7 +46,7 @@ const SubMenu = ({ name, path, as, links }) => {
 
 const DesktopMenu = ({ tags }) => {
   return (
-    <div className="hidden md:flex">
+    <div className="hidden lg:flex">
       {[tags, ...menu.links].map((item) => {
         const hasSubmenu = !!item.links
         return hasSubmenu ? (

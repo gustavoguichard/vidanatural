@@ -35,7 +35,7 @@ const MemberPage = ({ name, ...props }) => {
           >
             {firstName}
           </Breadcrumbs>
-          <TeamMember {...props} name={name} />
+          <TeamMember full {...props} name={name} />
         </div>
       </PaperContent>
     </Layout>

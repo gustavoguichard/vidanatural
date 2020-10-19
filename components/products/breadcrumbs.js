@@ -9,7 +9,7 @@ const ProductBreadcrumbs = ({ product = {}, className }) => {
     ? [{ title: category.title, href: `/produtos?filter=${category.name}` }]
     : []
 
-  const cx = classes('md:px-4', className)
+  const cx = classes('lg:px-4', className)
   return (
     <Breadcrumbs
       className={cx}
