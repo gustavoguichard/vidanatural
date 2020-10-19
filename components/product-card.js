@@ -47,7 +47,7 @@ const ProductCard = ({ product }) => {
           <Img
             alt={product.name}
             height="250"
-            src={api.vnda.getResizedImg(image.url, 600)}
+            src={api.vnda.getResizedImg(image.url, 300)}
             title={product.name}
           />
           <DiscountTag small product={product} />
