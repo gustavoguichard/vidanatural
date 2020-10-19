@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { classes } from 'lib/utils'
 
 import BackgroundImg from 'components/background-img'

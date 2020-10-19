@@ -66,7 +66,7 @@ const ProductPreview = ({ product }) => {
             <button
               type="button"
               onClick={onClick}
-              className="flex mt-2 text-sm font-semibold justify-between p-3 border hover:border-gray-500 transition duration-500 bg-white rounded"
+              className="flex flex-wrap mt-2 text-sm font-semibold justify-between p-3 border hover:border-gray-500 transition duration-500 bg-white rounded"
             >
               {adding ? (
                 <CircularProgress className="text-gray-800 m-auto" />
