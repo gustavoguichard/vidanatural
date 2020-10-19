@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 
 import {
   initTracking,
@@ -11,11 +12,11 @@ import {
 } from 'lib/fx'
 import SEO from 'lib/next-seo.config'
 
-import Pixel from 'components/pixel'
-
 import 'animate.css/animate.min.css'
 import 'styles/app.scss'
 import 'styles/tailwind.css'
+
+const Pixel = dynamic(() => import('components/pixel'), { ssr: false })
 
 const didMount = async (router) => {
   await intersectionPolyfill()

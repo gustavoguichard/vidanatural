@@ -33,7 +33,7 @@ export const useElScroll = (el?: HTMLElement, delay = 300) => {
 
   useEffect(() => {
     if (typeof el === 'undefined') return
-    el.addEventListener('scroll', updateScroll)
+    el.addEventListener('scroll', updateScroll, { passive: true })
     return () => {
       el.removeEventListener('scroll', updateScroll)
     }
@@ -117,9 +117,9 @@ export const useOnClickOutside = (ref: any, handler: (e: any) => null) => {
       handler(event)
     }
 
-    document.addEventListener('focusin', listener)
-    document.addEventListener('mousedown', listener)
-    document.addEventListener('touchstart', listener)
+    document.addEventListener('focusin', listener, { passive: true })
+    document.addEventListener('mousedown', listener, { passive: true })
+    document.addEventListener('touchstart', listener, { passive: true })
 
     return () => {
       document.removeEventListener('focusin', listener)

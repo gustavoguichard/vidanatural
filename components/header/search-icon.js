@@ -7,7 +7,7 @@ import IconButton from 'components/icon-button'
 const SearchIcon = () => {
   const [, { openSearch }] = useGlobal()
   return (
-    <IconButton onClick={openSearch}>
+    <IconButton aria-label="Buscar" onClick={openSearch}>
       <FaSearch />
     </IconButton>
   )

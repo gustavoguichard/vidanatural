@@ -6,12 +6,13 @@ import Carousel from 'components/carousel'
 
 const HomeHero = ({ banners }) => (
   <Carousel>
-    {banners.map(({ data, id }) => (
+    {banners.map(({ data, id }, idx) => (
       <div className="relative flex md:flex-row flex-col min-h-screen" key={id}>
         <Img
           className="max-h-screen object-cover md:w-7/12 lg:w-8/12"
           src={data.image.url}
-          alwaysShow
+          alt={data.title}
+          alwaysShow={idx === 0}
           css={{ minHeight: '70vh' }}
         />
         <div className="flex flex-col items-start md:items-stretch md:w-5/12 lg:w-4/12 bg-white md:border-l-8 border-gray-100 py-12 px-10 sm:px-12 justify-end text-black">

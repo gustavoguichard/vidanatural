@@ -27,13 +27,7 @@ const CartIcon = () => {
   }, [showCart])
   return (
     <div className="relative">
-      <IconButton
-        ref={cartRef}
-        aria-label="Carrinho"
-        aria-haspopup="true"
-        aria-controls="cart-popover"
-        href={api.vnda.CART_URL}
-      >
+      <IconButton ref={cartRef} aria-label="Carrinho" href={api.vnda.CART_URL}>
         {!!safeCart.length && (
           <span className="absolute flex h-2 w-2 right-0 top-0 transform translate-y-1 -translate-x-1">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full border-2 border-green-500 bg-green-400 opacity-75" />
@@ -42,12 +36,7 @@ const CartIcon = () => {
         )}
         <FaShoppingCart />
       </IconButton>
-      <Dropdown
-        id="cart-popover"
-        className="divide-y"
-        onClose={actions.hideCart}
-        open={showCart}
-      >
+      <Dropdown className="divide-y" onClose={actions.hideCart} open={showCart}>
         <p className="text-sm py-2 px-4">Adicionado recentemente</p>
         {take(safeCart, 3).map((cartItem) => (
           <CartItem key={cartItem.id} {...cartItem} />
