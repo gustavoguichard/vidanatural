@@ -17,7 +17,7 @@ const SinglePageLayout = ({
       'pt-32 px-10 pb-8': !hero,
     },
   )
-  const cx2 = classes('flex flex-col w-full md:w-8/12', className)
+  const cx2 = classes('flex flex-col w-full lg:w-8/12', className)
   return (
     <Layout
       variant={variant}
