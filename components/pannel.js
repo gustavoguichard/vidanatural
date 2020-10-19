@@ -26,7 +26,11 @@ const Pannel = ({ className, children, title }) => {
         <span>{title}</span>
         <FaAngleDown className={cx} />
       </div>
-      {open && <div className="px-4">{children}</div>}
+      {open && (
+        <div id={`pannel-${title}`} className="px-4">
+          {children}
+        </div>
+      )}
     </div>
   )
 }
