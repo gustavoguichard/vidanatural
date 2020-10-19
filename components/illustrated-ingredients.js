@@ -1,4 +1,4 @@
-import CTALink from 'components/cta-link'
+import CTAButton from 'components/cta-button'
 import FeaturedIngredients from 'components/featured-ingredients'
 import RichText from 'components/rich-text'
 
@@ -20,9 +20,9 @@ const IllustratedIngredients = ({
             </RichText>
           </div>
           <FeaturedIngredients ingredients={ingredients} />
-          <CTALink href="/produtos" className="mt-8 self-start sm:self-auto">
+          <CTAButton href="/produtos" className="mt-8 self-start sm:self-auto">
             Conhecer os produtos
-          </CTALink>
+          </CTAButton>
         </div>
       </div>
     </div>

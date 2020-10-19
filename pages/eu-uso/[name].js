@@ -2,7 +2,7 @@ import staticPaths from 'lib/static-paths/eu-uso-uid'
 import staticProps from 'lib/static-props/eu-uso-uid'
 
 import Breadcrumbs from 'components/breadcrumbs'
-import CTALink from 'components/cta-link'
+import CTAButton from 'components/cta-button'
 import Hero from 'components/hero'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
@@ -48,9 +48,9 @@ const ContentPage = ({ data }) => {
               </span>
             }
           >
-            <CTALink className="mt-2" href="/eu-uso-cosmetica-consciente">
+            <CTAButton className="mt-2" href="/eu-uso-cosmetica-consciente">
               Mais depoimentos
-            </CTALink>
+            </CTAButton>
           </PersonCard>
         </div>
       </PaperContent>

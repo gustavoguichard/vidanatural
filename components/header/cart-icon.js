@@ -7,7 +7,7 @@ import api from 'lib/api'
 import { sleep } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
-import CTALink from 'components/cta-link'
+import CTAButton from 'components/cta-button'
 import Dropdown from 'components/dropdown'
 import IconButton from 'components/icon-button'
 import CartItem from './cart-item'
@@ -53,7 +53,7 @@ const CartIcon = () => {
           <CartItem key={cartItem.id} {...cartItem} />
         ))}
         <p className="flex flex-col p-2 pb-1">
-          <CTALink href={api.vnda.CART_URL}>Ver carrinho</CTALink>
+          <CTAButton href={api.vnda.CART_URL}>Ver carrinho</CTAButton>
         </p>
       </Dropdown>
     </div>

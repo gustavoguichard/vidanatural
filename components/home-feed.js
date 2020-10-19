@@ -1,5 +1,5 @@
 import FeedSlider from 'components/feed-slider'
-import Link from 'components/link'
+import CTAButton from 'components/cta-button'
 
 const HomeFeed = ({ posts }) => (
   <section className="bg-white py-20" id="feed">
@@ -9,12 +9,11 @@ const HomeFeed = ({ posts }) => (
       </h3>
       <p className="text-center text-lg text-gray-600">Últimos artigos</p>
       <FeedSlider posts={posts} />
-      <Link
-        className="ml-6 mt-4 inline-block font-semibold hover:underline"
-        href="/blog"
-      >
-        + ver tudo
-      </Link>
+      <p className="mt-4">
+        <CTAButton mini href="/blog">
+          ver tudo
+        </CTAButton>
+      </p>
     </div>
   </section>
 )

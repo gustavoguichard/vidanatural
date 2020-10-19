@@ -3,14 +3,17 @@ import { FaAngleRight } from 'react-icons/fa'
 
 import { classes } from 'lib/utils'
 
+import Link from 'components/link'
+
 const CTAButton = (
   {
-    children,
+    href,
     mini,
+    children,
     disableIcon,
     IconComponent = FaAngleRight,
-    onClick = () => null,
     className,
+    external,
     ...props
   },
   ref,
@@ -20,13 +23,15 @@ const CTAButton = (
     className,
     { 'text-xs p-2': mini, 'p-4': !mini },
   )
+
+  const Component = href ? (external ? 'a' : Link) : 'button'
   return (
-    <button ref={ref} type="button" {...props} onClick={onClick} className={cx}>
+    <Component ref={ref} {...props} href={href} className={cx}>
       {children}
       {disableIcon || (
         <IconComponent className="transition-all duration-200 ml-1 group-hover:ml-2" />
       )}
-    </button>
+    </Component>
   )
 }
 
