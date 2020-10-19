@@ -31,11 +31,6 @@ class VidaNatural extends Document {
         <body className="bg-gray-100">
           <Main />
           <NextScript />
-          <link
-            async
-            href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap"
-            rel="stylesheet"
-          />
         </body>
       </Html>
     )

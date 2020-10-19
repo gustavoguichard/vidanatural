@@ -12,35 +12,13 @@ html {
 
 .rich-text {
   address,
-  area,
-  article,
-  aside,
-  audio,
-  blockquote,
-  datalist,
-  details,
   dl,
-  fieldset,
-  figure,
-  form,
-  iframe,
   img,
-  input,
-  meter,
-  nav,
   ol,
-  optgroup,
-  option,
-  output,
   p,
   pre,
-  progress,
-  ruby,
-  section,
   table,
-  textarea,
-  ul,
-  video {
+  ul {
     margin-bottom: 1rem;
   }
   h1,
@@ -103,107 +81,6 @@ html {
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  a button,
-  button,
-  input[type='button'],
-  input[type='reset'],
-  input[type='submit'] {
-    font-size: 1rem;
-    display: inline-block;
-    padding: 6px 12px;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    background: #0070f3;
-    color: white;
-    border: 0;
-    border-radius: 4px;
-    box-sizing: border-box;
-    cursor: pointer;
-    color: white;
-  }
-  a button[disabled],
-  button[disabled],
-  input[type='button'][disabled],
-  input[type='reset'][disabled],
-  input[type='submit'][disabled] {
-    cursor: default;
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  .button:focus,
-  .button:hover,
-  button:focus,
-  button:hover,
-  input[type='button']:focus,
-  input[type='button']:hover,
-  input[type='reset']:focus,
-  input[type='reset']:hover,
-  input[type='submit']:focus,
-  input[type='submit']:hover {
-    background: #0366d6;
-  }
-  code,
-  kbd,
-  pre,
-  samp {
-    font-family: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono',
-      'Courier New', Courier, monospace;
-  }
-  code,
-  kbd,
-  pre,
-  samp {
-    background: #eee;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 3px 6px;
-    font-size: 0.9rem;
-  }
-  kbd {
-    border-bottom: 3px solid #ddd;
-  }
-  pre {
-    padding: 1rem 1.4rem;
-    max-width: 100%;
-    overflow: auto;
-  }
-  pre code {
-    background: inherit;
-    font-size: inherit;
-    color: inherit;
-    border: 0;
-    padding: 0;
-    margin: 0;
-  }
-  code pre {
-    display: inline;
-    background: inherit;
-    font-size: inherit;
-    color: inherit;
-    border: 0;
-    padding: 0;
-    margin: 0;
-  }
-  details {
-    padding: 0.6rem 1rem;
-    background: #eee;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  summary {
-    cursor: pointer;
-    font-weight: 700;
-  }
-  details[open] {
-    padding-bottom: 0.75rem;
-  }
-  details[open] summary {
-    margin-bottom: 6px;
-  }
-  details[open] > :last-child {
-    margin-bottom: 0;
-  }
   dt {
     font-weight: 700;
   }
@@ -214,15 +91,6 @@ html {
     border: 0;
     border-bottom: 1px solid #ddd;
     margin: 1rem auto;
-  }
-  fieldset {
-    margin-top: 1rem;
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  legend {
-    padding: auto 0.5rem;
   }
   table {
     border-collapse: collapse;
@@ -263,16 +131,6 @@ html {
   }
   mark {
     padding: 3px 6px;
-  }
-  input,
-  select,
-  textarea {
-    padding: 6px 12px;
-    margin-bottom: 0.5rem;
-    border: 1px solid;
-    border-radius: 4px;
-    box-shadow: none;
-    box-sizing: border-box;
   }
   img {
     max-width: 100%;
