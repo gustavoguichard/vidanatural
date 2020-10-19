@@ -1,6 +1,6 @@
 import { memo } from 'react'
 
-import { calculatePostReadTime, getFromDate } from 'lib/domain'
+import { calculatePostReadTime, timeSince } from 'lib/domain'
 
 import Link from 'components/link'
 
@@ -31,7 +31,7 @@ const DocumentDetails = ({
       )}
       <em className="text-xs">
         {prepend && `${prepend} `}
-        {getFromDate(date)} · {calculatePostReadTime(post)} de leitura
+        há {timeSince(date)} · {calculatePostReadTime(post)} de leitura
       </em>
     </div>
   )
