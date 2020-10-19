@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
     <span key="add">Adicionar</span>,
     <span key="price" className="flex flex-wrap items-baseline">
       {variant.price > variant.sale_price && (
-        <span className="mr-1 line-through text-xs text-gray-400">
+        <span className="mr-1 line-through text-xs text-gray-500">
           {toCurrency(variant.price)}
         </span>
       )}
