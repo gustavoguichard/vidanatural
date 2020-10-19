@@ -9,14 +9,16 @@ export default function Index() {
   return (
     <Layout title={title}>
       <Hero size="small" background="/static/images/banner.jpg">
-        <h2 className="text-5xl mt-12 tracking-tighter font-bold leading-none">
-          {title}
-        </h2>
-        <p className="m-4 text-lg mb-12 max-w-2xl">
-          Comprar na Vida Natural é seguro e fácil. Aqui você encontra toda a
-          linha de produtos, basta clicar nas imagens para conhecer os detalhes
-          de cada produto.
-        </p>
+        <div className="px-10">
+          <h2 className="text-5xl mt-12 tracking-tighter font-bold leading-none">
+            {title}
+          </h2>
+          <p className="m-4 text-lg mb-12 max-w-2xl">
+            Comprar na Vida Natural é seguro e fácil. Aqui você encontra toda a
+            linha de produtos, basta clicar nas imagens para conhecer os
+            detalhes de cada produto.
+          </p>
+        </div>
       </Hero>
       <PaperContent>
         <div className="max-w-screen-md m-auto">

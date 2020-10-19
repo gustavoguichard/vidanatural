@@ -13,10 +13,12 @@ const ContentPage = ({ page }) =>
   get(page, 'id') ? (
     <Layout title={page.title} seo={{ description: page.description }}>
       <Hero size="small" background="/static/images/banner.jpg">
-        <h2 className="text-5xl mt-12 tracking-tighter font-bold leading-none">
-          {page.title}
-        </h2>
-        <p className="m-4 text-lg mb-12 max-w-2xl">{page.description}</p>
+        <div className="px-10">
+          <h2 className="text-5xl mt-12 tracking-tighter font-bold leading-none">
+            {page.title}
+          </h2>
+          <p className="m-4 text-lg mb-12 max-w-2xl">{page.description}</p>
+        </div>
       </Hero>
       <PaperContent>
         <div className="max-w-screen-md m-auto">
