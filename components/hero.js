@@ -18,7 +18,7 @@ const Hero = ({
   )
   return (
     <div
-      className="relative flex flex-col items-center justify-center bg-green-400"
+      className="relative flex flex-col items-center justify-center bg-gray-800"
       css={{ minHeight: sizes[size] }}
     >
       {background && (
