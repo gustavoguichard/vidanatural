@@ -36,7 +36,7 @@ const ImageGallery = ({ product }) => {
           ))}
         </Carousel>
       </div>
-      <h2 className="md:hidden text-center my-4 text-2xl font-bold tracking-tight">
+      <h2 className="md:hidden text-center my-4 text-2xl font-bold leading-tight tracking-tight">
         {product.name}
       </h2>
       {imagesLenght > 1 ? (

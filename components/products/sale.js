@@ -60,7 +60,7 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
                 },
                 hasTestimonials && {
                   title: 'Depoimentos',
-                  href: '#depoiments',
+                  href: '#depoimentos',
                   raw: true,
                 },
               ].filter((a) => !!a)}

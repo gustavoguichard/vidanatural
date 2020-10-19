@@ -1,5 +1,6 @@
 import { useState, forwardRef } from 'react'
 
+import { classes } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
 import CTAButton from 'components/cta-button'
@@ -18,9 +19,10 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
   }
   const inStock = variant.stock > 0
 
+  const cx = classes('flex', { 'flex-col flex-grow mr-2': hideQuantity })
   return variant ? (
     <>
-      <div className="flex">
+      <div className={cx}>
         {inStock && !hideQuantity && (
           <div className="flex shadow border bg-white text-center text-lg border-gray-100 font-semibold">
             <button

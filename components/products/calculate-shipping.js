@@ -46,7 +46,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
   }
 
   return showForm ? (
-    <form className="mt-4" onSubmit={handleSubmit} action="/frete_produto">
+    <form className="mt-6" onSubmit={handleSubmit} action="/frete_produto">
       <Input
         {...text('zip')}
         autoFocus

@@ -9,7 +9,7 @@ import DiscountTag from 'components/products/discount-tag'
 import Img from 'components/img'
 import Link from 'components/link'
 
-const ProductPreview = ({ product }) => {
+const ProductCard = ({ product }) => {
   const [adding, setAdding] = useState(false)
   const [, { addToCart }] = useGlobal()
   const [variant] = product.variants || [{}]
@@ -25,8 +25,8 @@ const ProductPreview = ({ product }) => {
   }
 
   const priceTag = [
-    <span>Adicionar</span>,
-    <span>
+    <span key="add">Adicionar</span>,
+    <span key="price">
       {variant.price > variant.sale_price && (
         <span className="mr-1 line-through text-xs text-gray-400">
           {toCurrency(variant.price)}
@@ -83,4 +83,4 @@ const ProductPreview = ({ product }) => {
   )
 }
 
-export default ProductPreview
+export default ProductCard
