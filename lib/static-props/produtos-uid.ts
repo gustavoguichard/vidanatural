@@ -24,12 +24,15 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     products,
     map(product.tags, 'name'),
   )
-  const relatedProducts = allRelatedProducts.filter(
-    (p) =>
-      p.id !== product.id &&
-      // filter related products to Kits
-      !product.tags.reduce((sum, tag) => sum || tag.name === 'kit', false),
-  )
+  const relatedProducts = allRelatedProducts
+    .filter(
+      (p) =>
+        p.id !== product.id &&
+        // filter related products to Kits
+        !product.tags.reduce((sum, tag) => sum || tag.name === 'kit', false),
+    )
+    .map(parseProduct)
+    .filter((p) => p.inStock)
 
   const id = get(product, 'id')
   const localData = find(productsData, (p) => id === p.vndaId)

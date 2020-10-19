@@ -12,7 +12,7 @@ function Dropdown({ children, open, onClose, className, ...props }) {
     <div
       ref={ref}
       {...props}
-      className="animate__animated animate__faster animate__fadeIn origin-top-right z-10 absolute right-0 mt-2 min-w-max rounded-md shadow-lg"
+      className="animate__animated animate__faster animate__fadeIn origin-top-right z-10 absolute right-0 mt-2 w-72 sm:w-auto sm:min-w-max rounded-md shadow-lg"
     >
       <div className="rounded-md bg-white shadow-xs">
         <div

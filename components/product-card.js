@@ -56,12 +56,7 @@ const ProductCard = ({ product }) => {
               <h3 className="font-semibold tracking-tight mb-1">
                 {product.name}
               </h3>
-              <p
-                className="text-sm text-gray-600"
-                dangerouslySetInnerHTML={{
-                  __html: product.description.featured,
-                }}
-              />
+              <p className="text-sm text-gray-600">{variant.name}</p>
             </div>
             <button
               type="button"
