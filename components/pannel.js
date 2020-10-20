@@ -18,19 +18,11 @@ const Pannel = ({ className, children, title }) => {
   )
   return (
     <div className={wCx}>
-      <div
-        onClick={toggle}
-        className="flex p-4 justify-between cursor-pointer"
-        aria-controls={`pannel-${title}`}
-      >
+      <div onClick={toggle} className="flex p-4 justify-between cursor-pointer">
         <span>{title}</span>
         <FaAngleDown className={cx} />
       </div>
-      {open && (
-        <div id={`pannel-${title}`} className="px-4">
-          {children}
-        </div>
-      )}
+      {open && <div className="px-4">{children}</div>}
     </div>
   )
 }

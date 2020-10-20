@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import kebabCase from 'lodash/kebabCase'
 
 import Dropdown from 'components/dropdown'
 import Link from 'components/link'
@@ -10,7 +9,6 @@ import menu from 'data/menu'
 const SubMenu = ({ name, path, as, links }) => {
   const [open, setOpen] = useState(false)
   const router = useRouter()
-  const id = `menu-appbar-${kebabCase(name)}`
   const active = [path, as].includes(router.pathname)
   return (
     <div className="relative inline-block text-left">
@@ -20,8 +18,6 @@ const SubMenu = ({ name, path, as, links }) => {
           active ? 'text-green-600' : 'inherit'
         }`}
         aria-label={name}
-        aria-haspopup="true"
-        aria-controls={id}
         onClick={() => setOpen(true)}
       >
         {name}
