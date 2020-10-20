@@ -128,3 +128,22 @@ export const useOnClickOutside = (ref: any, handler: (e: any) => null) => {
     }
   }, [ref, handler])
 }
+
+export function useInterval(callback: () => void, delay: null | number) {
+  const savedCallback = useRef(() => {})
+
+  useEffect(() => {
+    savedCallback.current = callback
+  }, [callback])
+
+  useEffect(() => {
+    function tick() {
+      savedCallback.current()
+    }
+    if (delay !== null) {
+      const id = setInterval(tick, delay)
+      return () => clearInterval(id)
+    }
+    return undefined
+  }, [delay])
+}
