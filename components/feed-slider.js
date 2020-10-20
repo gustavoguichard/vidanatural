@@ -20,7 +20,7 @@ const FeedSlider = ({ posts }) => {
     >
       {posts.map((post) => (
         <Link
-          className="group block h-full rounded-lg border border-gray-300 hover:border-green-500 focus:outline-none focus:border-green-500 focus:border-2 hover:no-underline"
+          className="group block h-full rounded-lg border border-gray-300 hover:border-green-600 focus:outline-none focus:border-green-600 focus:border-2 hover:no-underline"
           key={post.id}
           href="/blog/[slug]"
           as={`/blog/${post.uid}`}

@@ -4,7 +4,7 @@ const InciLink = ({ link, inci_title }) =>
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-green-500 hover:underline"
+      className="text-green-600 hover:underline"
       title="Obter mais informações"
     >
       {inci_title}

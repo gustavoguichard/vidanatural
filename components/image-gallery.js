@@ -46,11 +46,11 @@ const ImageGallery = ({ product }) => {
               key={i}
               onClick={() => gallery.current.goTo(i)}
               alt={product.name}
-              className="w-24 lg:w-64 cursor-pointer transition-all duration-700"
+              className="w-24 lg:w-64 object-contain cursor-pointer transition-all duration-700"
               css={{
                 boxShadow: i === index ? `0 0 0 2px black` : `0 0 0 0 black`,
               }}
-              src={api.vnda.getResizedImg(img.url, 100)}
+              src={api.vnda.getResizedImg(img.url, 250)}
             />
           ))}
         </div>

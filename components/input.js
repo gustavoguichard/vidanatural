@@ -4,7 +4,7 @@ const Input = ({
   text = 'gray-900',
   button,
   errorColor = 'red-600',
-  focusBorder = 'green-500',
+  focusBorder = 'green-600',
   bg = 'white',
   label,
   type = 'text',
