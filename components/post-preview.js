@@ -16,8 +16,12 @@ const PostPreview = ({
   <div className="sm:flex mb-12 sm:space-x-6">
     {thumbUrl && (
       <div className="sm:w-1/4 mb-4">
-        <Link {...permalink}>
-          <Img className="max-w-full" src={thumbUrl} alt={imgAlt} />
+        <Link title="Ir para o post" {...permalink}>
+          <Img
+            className="max-w-full"
+            src={thumbUrl}
+            alt={imgAlt || data.title}
+          />
         </Link>
       </div>
     )}
