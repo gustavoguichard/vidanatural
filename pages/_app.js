@@ -4,13 +4,9 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
-import {
-  initTracking,
-  intersectionPolyfill,
-  removeServerStyles,
-  registerCoupon,
-} from 'lib/fx'
+import { initTracking, intersectionPolyfill, removeServerStyles } from 'lib/fx'
 import SEO from 'lib/next-seo.config'
+import { useCoupon } from 'lib/domain-hooks'
 
 import 'animate.css/animate.min.css'
 import 'styles/app.scss'
@@ -22,7 +18,6 @@ const didMount = async (router) => {
   await intersectionPolyfill()
   await removeServerStyles()
   await initTracking(router)
-  await registerCoupon(router)
 }
 
 const VidaNatural = ({ pageProps, Component }) => {
@@ -30,6 +25,7 @@ const VidaNatural = ({ pageProps, Component }) => {
   useEffect(() => {
     router && didMount(router)
   }, [router])
+  useCoupon()
 
   return (
     <>

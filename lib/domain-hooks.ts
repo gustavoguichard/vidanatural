@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 import api from 'lib/api'
+import useGlobal from 'lib/use-global'
 import { getCategoryTags } from 'lib/domain'
 import { VndaProduct, ProductTag } from '../types/vnda'
 
@@ -30,4 +32,18 @@ export const useTagsMenu = () => {
       })),
     ],
   }
+}
+
+export const useCoupon = () => {
+  const [, { notify }] = useGlobal()
+  const router = useRouter()
+  useEffect(() => {
+    console.log(process.browser, router, 'FOOO')
+    if (router.query.ccc) {
+      notify(
+        `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado no checkout. Aproveite!</span>`,
+      )
+      api.vnda.registerCoupon(router.query.ccc as string)
+    }
+  }, [router])
 }

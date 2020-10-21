@@ -20,10 +20,3 @@ export const initTracking = async (router: NextRouter) => {
   logPageView()
   router?.events.on('routeChangeComplete', logPageView)
 }
-
-export const registerCoupon = async ({ query }: NextRouter) => {
-  const { ccc } = query
-  if (ccc) {
-    api.vnda.registerCoupon(ccc as string)
-  }
-}

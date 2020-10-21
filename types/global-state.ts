@@ -3,11 +3,11 @@ export interface GlobalState {
 }
 
 export interface Action {
-  (t: Store, ...args: any[]): any
+  (...args: any[]): any
 }
 
 export interface Actions {
-  [key: string]: Action | Actions
+  [key: string]: Action
 }
 
 export type Listener = [string | undefined, React.Dispatch<any>]
