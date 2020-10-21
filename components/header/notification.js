@@ -4,9 +4,9 @@ import useGlobal from 'lib/use-global'
 
 import Countdown from 'components/countdown'
 
-const Notification = () => {
+const Notification = ({ notification }) => {
   const [shrink, toggle] = useToggle()
-  const [{ notification }, actions] = useGlobal()
+  const [, { dismissNotification }] = useGlobal()
 
   const cx = classes(
     'flex transition-all duration-500 items-center justify-center relative lg:px-8 px-6 text-center',
@@ -16,20 +16,29 @@ const Notification = () => {
     },
   )
 
-  return notification ? (
+  const shouldPersist = notification?.persist
+
+  const dismiss = () => dismissNotification(notification)
+  const onFinish = shouldPersist ? toggle : dismiss
+
+  return (
     <div className={cx}>
-      <Countdown active time={3} onFinish={toggle} />
-      <span dangerouslySetInnerHTML={{ __html: notification }} />
+      <Countdown active time={shouldPersist ? 3 : 5} onFinish={onFinish} />
+      {notification.htmlMessage ? (
+        <span dangerouslySetInnerHTML={{ __html: notification.htmlMessage }} />
+      ) : (
+        notification.message
+      )}
       <button
         type="button"
         title="Fechar"
-        onClick={actions.dismissNotification}
+        onClick={dismiss}
         className="font-bold text-lg absolute right-0 mr-3"
       >
         &times;
       </button>
     </div>
-  ) : null
+  )
 }
 
 export default Notification

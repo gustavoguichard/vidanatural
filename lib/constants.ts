@@ -5,6 +5,7 @@ export const initialState = {
   cart: [],
   showCart: false,
   searchOpen: false,
+  notifications: [],
 }
 
 // SEO Texts

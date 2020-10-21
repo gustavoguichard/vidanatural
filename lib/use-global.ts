@@ -59,12 +59,33 @@ export default useStore(
     subscribe: (store: Store) => {
       store.setState({ subscribed: true })
     },
-    notify: (store: Store, notification: string) => {
-      store.setState({ notification })
+    notify: (store: Store, notification: Notification) => {
+      store.setState({
+        notifications: [
+          ...store.state.notifications,
+          {
+            ...notification,
+            id: new Date().getTime(),
+            type: notification.type || 'info',
+          },
+        ],
+      })
     },
-    dismissNotification: (store: Store) => {
-      store.setState({ notification: null })
+    dismissNotification: (store: Store, notification: Notification) => {
+      store.setState({
+        notifications: store.state.notifications.filter(
+          (n: Notification) => n.id !== notification.id,
+        ),
+      })
     },
   },
   initialState,
 )
+
+interface Notification {
+  id: number
+  message?: string
+  htmlMessage?: string
+  persist?: boolean
+  type: 'alert' | 'info'
+}

@@ -9,7 +9,7 @@ import CartIcon from './cart-icon'
 import DesktopMenu from './desktop-menu'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
-import Notification from './notification'
+import Notifications from './notifications'
 import SearchIcon from './search-icon'
 
 const Header = ({ stick, logoCompanion, variant }) => {
@@ -30,7 +30,7 @@ const Header = ({ stick, logoCompanion, variant }) => {
   })
   return (
     <div className={cx}>
-      <Notification />
+      <Notifications />
       <div className="lg:px-6 px-4">
         <div className="flex items-center duration-500">
           <MobileMenu tags={tags} />
