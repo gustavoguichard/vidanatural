@@ -1,6 +1,5 @@
 import { NextRouter } from 'next/router'
 
-import api from 'lib/api'
 import { initGA, logPageView } from 'lib/analytics'
 import { isClient } from 'lib/utils'
 
