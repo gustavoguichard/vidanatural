@@ -20,3 +20,4 @@ s3/
 
 .vercel
 yarn-error.log
+.env.local
