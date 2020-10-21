@@ -7,9 +7,9 @@ import { getCategoryTags } from 'lib/domain'
 import { VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async () => {
-  const serverData = await api.vnda.search()
+  const serverData = await api.vndaV2.fetch('/products')
   const products = serverData.map(parseProduct).sort((p: VndaProduct) => {
-    const tags = p.tags.map((t) => t.name)
+    const tags = p.tag_names
     return tags.includes('desodorante') ? -1 : tags.includes('kit') ? 1 : 0
   })
 

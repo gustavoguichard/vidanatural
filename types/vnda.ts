@@ -15,6 +15,7 @@ export interface VndaProduct {
   image_url: string
   url: string
   tags: ProductTag[]
+  tag_names: string[]
   price: number
   on_sale: boolean
   sale_price: number
