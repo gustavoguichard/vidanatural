@@ -38,7 +38,7 @@ export const useCoupon = () => {
   const [, { notify }] = useGlobal()
   const router = useRouter()
   useEffect(() => {
-    if (router.query.ccc) {
+    if (router.query.ccc && typeof notify === 'function') {
       notify(
         `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado no checkout. Aproveite!</span>`,
       )

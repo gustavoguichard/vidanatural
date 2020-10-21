@@ -7,7 +7,7 @@ export interface Action {
 }
 
 export interface Actions {
-  [key: string]: Action
+  [key: string]: Action | Actions
 }
 
 export type Listener = [string | undefined, React.Dispatch<any>]
