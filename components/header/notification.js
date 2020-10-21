@@ -12,7 +12,7 @@ const Notification = () => {
     'flex transition-all duration-500 items-center justify-center relative lg:px-8 px-6 text-center',
     {
       'text-lg py-4 bg-orange-700 text-white': !shrink,
-      'py-2 bg-yellow-100 text-yellow-900': shrink,
+      'text-sm py-1 bg-yellow-100 text-yellow-900': shrink,
     },
   )
 
