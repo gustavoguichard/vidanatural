@@ -59,6 +59,12 @@ export default useStore(
     subscribe: (store: Store) => {
       store.setState({ subscribed: true })
     },
+    notify: (store: Store, notification: string) => {
+      store.setState({ notification })
+    },
+    dismissNotification: (store: Store) => {
+      store.setState({ notification: null })
+    },
   },
   initialState,
 )
