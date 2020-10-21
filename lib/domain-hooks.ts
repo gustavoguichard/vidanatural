@@ -40,7 +40,7 @@ export const useCoupon = () => {
   useEffect(() => {
     if (router.query.ccc && typeof notify === 'function') {
       notify(
-        `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado no checkout. Aproveite!</span>`,
+        `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</span>`,
       )
       api.vnda.registerCoupon(router.query.ccc as string)
     }
