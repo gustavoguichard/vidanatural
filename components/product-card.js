@@ -49,8 +49,8 @@ const ProductCard = ({ product }) => {
     <div className="flex rounded hover:shadow items-start group overflow-hidden bg-gray-200 bg-opacity-50">
       <Link
         className="flex h-full"
-        href="/produtos/[slug]"
-        as={`/produtos/${product.slug}`}
+        href="/produto/[slug]"
+        as={`/produto/${product.slug}`}
       >
         <div className="flex flex-col flex-grow relative">
           <Img
