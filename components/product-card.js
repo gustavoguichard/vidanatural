@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
   const [hovering, setHovering] = useState(false)
   const [index, setIndex] = useState(0)
   const nextImage = () => setIndex((index + 1) % product.images.length)
-  useInterval(nextImage, hovering ? 900 : null)
+  useInterval(nextImage, hovering ? 500 : null)
 
   const onClick = async (ev) => {
     if (product.inStock) {
