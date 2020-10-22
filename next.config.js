@@ -8,16 +8,9 @@ const nextConfig = {
       {
         source: '/black-friday',
         destination: '/produtos?ccc=BLACKFRIDAY',
-        permanent: true,
+        permanent: false,
       },
     ]
-  },
-  publicRuntimeConfig: {},
-  serverRuntimeConfig: {
-    api: {
-      host: process.env.API_HOST,
-      token: process.env.VNDA_API_TOKEN,
-    },
   },
 }
 

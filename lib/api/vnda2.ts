@@ -1,5 +1,4 @@
 import isObject from 'lodash/isObject'
-
 import { API2Response } from 'types/vnda'
 
 const normalizeBody = (body: undefined | string | object, method: string) => {
@@ -13,16 +12,18 @@ const fetcher = async (
   method = 'GET',
   body?: string | object,
 ): Promise<API2Response> => {
+  const host = process.env.NEXT_PUBLIC_API_DOMAIN
+
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Host: process.env.NEXT_PUBLIC_API_DOMAIN,
+    Host: host,
     Authorization: `Token token="${process.env.VNDA_API_TOKEN}"`,
   }
 
-  const url = `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/api/v2/${path}`
+  const url = `https://${host}/api/v2/${path}`
   const options = { headers, method, body: normalizeBody(body, method) }
-  // console.log(url, options)
+  console.log(url, options)
   const result = await fetch(url, options as RequestInit)
   try {
     const { status } = result
