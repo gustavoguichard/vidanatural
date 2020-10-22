@@ -27,6 +27,7 @@ const fetcher = async (
   const result = await fetch(url, options as RequestInit)
   try {
     const { status } = result
+    console.log(result.body)
     if ([104, 204, 304].includes(status)) {
       return { data: {}, status }
     }

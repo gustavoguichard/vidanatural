@@ -94,8 +94,6 @@ const textSearch = (text: string) => fetchApi('busca', { q: text }, true)
 
 const listCart = () => fetchApi('carrinho/popup', {}, true, false)
 
-const listProduct = (slug: string) => vnda.fetch(`products/${slug}`)
-
 const listPage = (slug: string) => fetchApi(`p/${slug}`, {}, true)
 
 const registerCoupon = (coupon: string) =>
@@ -140,7 +138,6 @@ export default {
   addToCart,
   calculateShipping,
   listCart,
-  listProduct,
   listPage,
   registerCoupon,
   sendForm,
