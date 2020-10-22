@@ -3,7 +3,7 @@ import trim from 'lodash/trim'
 import { VndaProduct } from 'types/vnda'
 
 export default (product: VndaProduct) => {
-  const brokenDesc = product.html_description.split(`\n<hr/>\n`).map(trim)
+  const brokenDesc = product.description.split(`\n<hr/>\n`).map(trim)
   const stock = +(product.variants[0]?.stock || 0)
   const inStock = stock > 0
   const description =
