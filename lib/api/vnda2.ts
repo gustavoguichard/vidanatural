@@ -16,11 +16,11 @@ const fetcher = async (
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Host: process.env.API_HOST,
+    Host: process.env.NEXT_PUBLIC_API_DOMAIN,
     Authorization: `Token token="${process.env.VNDA_API_TOKEN}"`,
   }
 
-  const url = `https://${process.env.API_HOST}/api/v2/${path}`
+  const url = `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/api/v2/${path}`
   const options = { headers, method, body: normalizeBody(body, method) }
   // console.log(url, options)
   const result = await fetch(url, options as RequestInit)
