@@ -12,7 +12,7 @@ const fetcher = async (
   method = 'GET',
   body?: string | object,
 ): Promise<API2Response> => {
-  const host = process.env.NEXT_PUBLIC_API_DOMAIN
+  const host = process.env.API_HOST
 
   const headers = {
     Accept: 'application/json',
@@ -27,7 +27,6 @@ const fetcher = async (
   const result = await fetch(url, options as RequestInit)
   try {
     const { status } = result
-    console.log(result.body)
     if ([104, 204, 304].includes(status)) {
       return { data: {}, status }
     }
@@ -51,9 +50,15 @@ const fetchBFFApi = async (
       (typeof window !== 'undefined'
         ? window.location.origin
         : process.env.LOCAL_HOST) + `api/${path}`.replace('//', '/')
-
+    console.log(
+      process.env.LOCAL_HOST,
+      process.env.API_HOST,
+      process.env.VNDA_API_TOKEN,
+    )
+    console.log(fullPath)
     const body = rawBody ? JSON.stringify(rawBody) : undefined
     const response = await fetch(fullPath, { method, body })
+    console.log(fullPath, { method, body })
     return response.json()
   } catch (error) {
     return { error, status: 500 }

@@ -48,7 +48,8 @@
     "react-markdown": "^5.0.1",
     "react-use-form-state": "^0.13.2",
     "sitemap": "^6.3.2",
-    "tailwindcss": "^1.9.5"
+    "tailwindcss": "^1.9.5",
+    "vercel": "^20.1.2"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
