@@ -47,7 +47,7 @@ export async function getServerSideProps({ res }) {
 
     productList.forEach((product) => {
       smStream.write({
-        url: product.url.replace('/produto/', '/produtos/'),
+        url: product.url,
         changefreq: 'daily',
         priority: 0.8,
         img: {
