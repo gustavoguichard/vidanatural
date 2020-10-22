@@ -1,4 +1,3 @@
-import find from 'lodash/find'
 import get from 'lodash/get'
 import map from 'lodash/map'
 import shuffle from 'lodash/shuffle'
@@ -10,8 +9,6 @@ import { getProductsByTag } from 'lib/domain'
 import parseProduct from 'lib/parsers/product'
 
 import { VndaProduct } from 'types/vnda'
-
-import productsData from 'data/products'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
