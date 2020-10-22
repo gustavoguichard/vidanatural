@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next'
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parsePost from 'lib/parsers/blog-post'
-import parseProduct from 'lib/parsers/product'
+import parseProducts from 'lib/parsers/products'
 
 import { BlogPost } from 'types/cms'
 
@@ -20,7 +20,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   })
   const post = response ? parsePost(response as BlogPost) : { tags: [] }
   const vndaProducts = await api.vnda.search()
-  const products = getProductsByTag(vndaProducts, post.tags).map(parseProduct)
+  const products = parseProducts(getProductsByTag(vndaProducts, post.tags))
   return { props: { ...post, products } }
 }
 

@@ -1,20 +1,18 @@
 import get from 'lodash/get'
 import map from 'lodash/map'
 import shuffle from 'lodash/shuffle'
-import isArray from 'lodash/isArray'
+import isEmpty from 'lodash/isEmpty'
 import { GetStaticProps } from 'next'
 
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parseProduct from 'lib/parsers/product'
 
-import { VndaProduct } from 'types/vnda'
+import { ProductTag, VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
-  const response = await api.vnda.listProduct(slug as string)
-  const serverData = isArray(response) ? response[0] : response
-  const product = parseProduct(serverData)
+  const product = await api.vnda.fetch(`products/${slug}`)
 
   const products = await api.vnda.search()
   const allRelatedProducts = getProductsByTag(
@@ -26,7 +24,10 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       (p) =>
         p.id !== product.id &&
         // filter related products to Kits
-        !product.tags.reduce((sum, tag) => sum || tag.name === 'kit', false),
+        !product.tags.reduce(
+          (sum: boolean, tag: ProductTag) => sum || tag.name === 'kit',
+          false,
+        ),
     )
     .map(parseProduct)
     .filter((p) => p.inStock)
@@ -73,7 +74,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     props: {
       product,
       slug,
-      foundProduct: !!serverData,
+      foundProduct: !isEmpty(product),
       tags,
       faqItems,
       testimonials,

@@ -1,11 +1,6 @@
 import isObject from 'lodash/isObject'
-import getConfig from 'next/config'
-import { NextApiRequest, NextApiResponse } from 'next'
 
-const notAllowed = (res: NextApiResponse) => () => {
-  res.status(400).end()
-  return false
-}
+import { API2Response } from 'types/vnda'
 
 const normalizeBody = (body: undefined | string | object, method: string) => {
   if (['HEAD', 'GET', 'DELETE'].includes(method)) return undefined
@@ -13,52 +8,35 @@ const normalizeBody = (body: undefined | string | object, method: string) => {
   return isObject(body) ? JSON.stringify(body) : body
 }
 
-const setup = async (
-  req: NextApiRequest,
-  res: NextApiResponse,
-  allowedMethod = 'GET',
-) => {
-  if (req.method !== allowedMethod) {
-    return { fetcher: notAllowed(res) }
-  }
-
-  const {
-    serverRuntimeConfig: {
-      api: { host, token },
-    },
-  } = getConfig()
-
+const fetcher = async (
+  path: string,
+  method = 'GET',
+  body?: string | object,
+): Promise<API2Response> => {
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
     Host: process.env.API_HOST,
-    Authorization: `Token token="${token}"`,
+    Authorization: `Token token="${process.env.VNDA_API_TOKEN}"`,
   }
 
-  const fetcher = async (
-    path: string,
-    method = 'GET',
-    body?: string | object,
-  ) => {
-    const url = `https://${host}/api/v2/${path}`
-    const options = { headers, method, body: normalizeBody(body, method) }
-    console.log(url, options)
-    const result = await fetch(url, options as RequestInit)
-    try {
-      const { status } = result
-      if ([104, 204, 304].includes(status)) {
-        return { data: {}, status }
-      }
-      const data = await result.json()
-      if (!result.ok) {
-        return { error: data.error, status }
-      }
-      return { data, status }
-    } catch (error) {
-      return { error, status: 500 }
+  const url = `https://${process.env.API_HOST}/api/v2/${path}`
+  const options = { headers, method, body: normalizeBody(body, method) }
+  // console.log(url, options)
+  const result = await fetch(url, options as RequestInit)
+  try {
+    const { status } = result
+    if ([104, 204, 304].includes(status)) {
+      return { data: {}, status }
     }
+    const data = await result.json()
+    if (!result.ok) {
+      return { error: data.error, status }
+    }
+    return { data, status }
+  } catch (error) {
+    return { error, status: 500 }
   }
-  return { fetcher }
 }
 
 const fetchBFFApi = async (
@@ -70,7 +48,7 @@ const fetchBFFApi = async (
     const fullPath =
       (typeof window !== 'undefined'
         ? window.location.origin
-        : process.env.LOCAL_HOST) + `api${path}`.replace('//', '/')
+        : process.env.LOCAL_HOST) + `api/${path}`.replace('//', '/')
 
     const body = rawBody ? JSON.stringify(rawBody) : undefined
     const response = await fetch(fullPath, { method, body })
@@ -80,4 +58,4 @@ const fetchBFFApi = async (
   }
 }
 
-export default { fetch: fetchBFFApi, setup }
+export default { fetch: fetchBFFApi, fetcher }

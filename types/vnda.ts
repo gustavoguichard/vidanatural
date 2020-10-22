@@ -12,6 +12,7 @@ export interface VndaProduct {
   reference: string
   name: string
   description: string
+  html_description: string
   image_url: string
   url: string
   tags: ProductTag[]
@@ -47,4 +48,10 @@ export interface ProductVariant {
   available: boolean
   available_quantity: number
   stock: number
+}
+
+export interface API2Response {
+  data?: any
+  error?: string
+  status: number
 }

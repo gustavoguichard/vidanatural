@@ -3,6 +3,7 @@ import flatten from 'lodash/flatten'
 import Cookies from 'js-cookie'
 
 import { buildQuery, joinWith } from 'lib/utils'
+import vnda from 'lib/api/vnda2'
 
 import { FormKeys } from 'types/vnda'
 
@@ -93,7 +94,7 @@ const textSearch = (text: string) => fetchApi('busca', { q: text }, true)
 
 const listCart = () => fetchApi('carrinho/popup', {}, true, false)
 
-const listProduct = (slug: string) => fetchApi(`produto/${slug}`, {}, true)
+const listProduct = (slug: string) => vnda.fetch(`products/${slug}`)
 
 const listPage = (slug: string) => fetchApi(`p/${slug}`, {}, true)
 
@@ -134,7 +135,7 @@ const getOwnPath = (url: string) => {
 export default {
   getOwnPath,
   getResizedImg,
-  fetch: fetchApi,
+  fetch: vnda.fetch,
   post,
   addToCart,
   calculateShipping,

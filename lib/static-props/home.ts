@@ -3,7 +3,7 @@ import take from 'lodash/take'
 
 import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
-import parseProduct from 'lib/parsers/product'
+import parseProducts from 'lib/parsers/products'
 
 import { BlogPost } from 'types/cms'
 import { ParsedProduct } from 'types/vnda'
@@ -27,8 +27,7 @@ export default async () => {
   })
   const serverData = await api.vnda.search()
   const products = take(
-    serverData
-      .map(parseProduct)
+    parseProducts(serverData)
       .filter((p: ParsedProduct) => p.inStock)
       .sort((p: ParsedProduct) => {
         const tags = p.tags.map((t) => t.name)
