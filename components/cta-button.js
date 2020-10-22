@@ -19,7 +19,7 @@ const CTAButton = (
   ref,
 ) => {
   const cx = classes(
-    'group tracking-wide transition duration-200 inline-flex relative text-white rounded-sm items-center justify-center hover:bg-opacity-75 hover:shadow-lg bg-gray-900',
+    'group tracking-wide transition duration-200 inline-flex relative text-white rounded-sm items-center justify-center hover:bg-opacity-75 hover:shadow-lg bg-gray-900 focus:outline-none focus:shadow-outline',
     className,
     { 'text-xs p-2': mini, 'p-4': !mini },
   )

@@ -41,6 +41,7 @@ export const useCoupon = () => {
     if (router.query.ccc && typeof notify === 'function') {
       notify({
         htmlMessage: `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</span>`,
+        big: true,
         type: 'alert',
         persist: true,
       })

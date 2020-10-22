@@ -8,13 +8,14 @@ const Notification = ({ notification }) => {
   const [shrink, toggle] = useToggle()
   const [, { dismissNotification }] = useGlobal()
 
-  const cx = classes(
-    'flex transition-all duration-500 items-center justify-center relative lg:px-8 px-6 text-center',
-    {
-      'text-lg py-4 bg-orange-700 text-white': !shrink,
-      'text-sm py-1 bg-yellow-100 text-yellow-900': shrink,
-    },
-  )
+  const isBig = notification.big && !shrink
+
+  const cx = classes('transition-all duration-500', {
+    'text-lg': isBig,
+    'text-sm': !isBig,
+    'bg-yellow-100 text-yellow-900': notification.type === 'info',
+    'bg-orange-700 text-white': notification.type === 'alert',
+  })
 
   const shouldPersist = notification?.persist
 
@@ -24,19 +25,62 @@ const Notification = ({ notification }) => {
   return (
     <div className={cx}>
       <Countdown active time={shouldPersist ? 3 : 5} onFinish={onFinish} />
-      {notification.htmlMessage ? (
-        <span dangerouslySetInnerHTML={{ __html: notification.htmlMessage }} />
-      ) : (
-        notification.message
-      )}
-      <button
-        type="button"
-        title="Fechar"
-        onClick={dismiss}
-        className="font-bold text-lg absolute right-0 mr-3"
+      <div
+        className={`max-w-screen-xl mx-auto py-${
+          isBig ? 3 : 1
+        } px-3 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap`}
       >
-        &times;
-      </button>
+        <div className="w-0 flex-1 flex items-center">
+          <span className="flex p-2 rounded-lg bg-gray-300 bg-opacity-25">
+            <svg
+              className={isBig ? 'h-6 w-6' : 'h-4 w-4'}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+              />
+            </svg>
+          </span>
+          <p className="ml-3 font-medium">
+            {notification.htmlMessage ? (
+              <span
+                dangerouslySetInnerHTML={{ __html: notification.htmlMessage }}
+              />
+            ) : (
+              notification.message
+            )}
+          </p>
+        </div>
+        <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+          <button
+            type="button"
+            className="-mr-1 flex p-2 rounded-md hover:bg-gray-400 hover:bg-opacity-25 focus:outline-none focus:shadow-outline focus:bg-gray-400 focus:bg-opacity-25 sm:-mr-2 transition duration-150"
+            aria-label="Dismiss"
+            onClick={dismiss}
+          >
+            <svg
+              className="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
