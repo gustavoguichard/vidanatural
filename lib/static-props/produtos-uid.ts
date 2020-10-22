@@ -2,6 +2,7 @@ import get from 'lodash/get'
 import map from 'lodash/map'
 import shuffle from 'lodash/shuffle'
 import isEmpty from 'lodash/isEmpty'
+import isArray from 'lodash/isArray'
 import { GetStaticProps } from 'next'
 
 import api from 'lib/api'
@@ -12,7 +13,9 @@ import { ProductTag, VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
-  const product = await api.vnda.fetch(`products/${slug}`)
+  const response = await api.vnda.listProduct(slug as string)
+  const serverData = isArray(response) ? response[0] : response
+  const product = parseProduct(serverData)
 
   const products = await api.vnda.search()
   const allRelatedProducts = getProductsByTag(
