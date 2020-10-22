@@ -23,7 +23,8 @@ accounting.settings = {
   },
 }
 
-export const toCurrency = (n: number = 0) => accounting.formatMoney(+n)
+export const toCurrency = (n: number = 0) =>
+  accounting.formatMoney(+n).replace(',00', '')
 
 export const buildQuery = (query?: object) => {
   if (isEmpty(query)) return null
