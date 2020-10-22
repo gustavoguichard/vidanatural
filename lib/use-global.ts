@@ -1,4 +1,5 @@
 import find from 'lodash/find'
+import uniqBy from 'lodash/uniqBy'
 import useStore from 'lib/use-store'
 import Cookies from 'js-cookie'
 
@@ -61,14 +62,17 @@ export default useStore(
     },
     notify: (store: Store, notification: Notification) => {
       store.setState({
-        notifications: [
-          ...store.state.notifications,
-          {
-            ...notification,
-            id: new Date().getTime(),
-            type: notification.type || 'info',
-          },
-        ],
+        notifications: uniqBy(
+          [
+            ...store.state.notifications,
+            {
+              ...notification,
+              id: notification.id || new Date().getTime(),
+              type: notification.type || 'info',
+            },
+          ],
+          'id',
+        ),
       })
     },
     dismissNotification: (store: Store, notification: Notification) => {
