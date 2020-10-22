@@ -52,7 +52,6 @@ const fetchBFFApi = async (
         : process.env.LOCAL_HOST) + `api/${path}`.replace('//', '/')
     const body = rawBody ? JSON.stringify(rawBody) : undefined
     const response = await fetch(fullPath, { method, body })
-    console.log(fullPath, { method, body })
     return response.json()
   } catch (error) {
     return { error, status: 500 }

@@ -14,7 +14,6 @@ const ProductLayout = ({
   testimonials,
   cmsData,
   faqItems,
-  slug,
   children,
 }) => {
   const images = map(product.images, 'url')
@@ -27,7 +26,7 @@ const ProductLayout = ({
       seo={{
         description: product.presentation,
         openGraph: {
-          url: `https://vidanatural.eco.br/produtos/${slug}`,
+          url: product ? product.url : '',
           type: 'product',
           product: {
             price: get(product, 'variants.0.sale_price', 0),
