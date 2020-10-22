@@ -46,7 +46,6 @@
     "react-icons": "^3.11.0",
     "react-intersection-observer": "^8.29.0",
     "react-markdown": "^4.3.1",
-    "react-swipeable": "^5.5.1",
     "react-use-form-state": "^0.13.2",
     "sitemap": "^6.3.2",
     "tailwindcss": "^1.9.4"

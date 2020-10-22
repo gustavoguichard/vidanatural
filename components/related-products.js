@@ -8,7 +8,7 @@ import Carousel from 'components/carousel'
 
 const RelatedProducts = ({ products, maxPerPage = 4 }) => {
   const { width } = useWindowDimensions()
-  const columns = clamp(Math.floor(width / 200), 1, maxPerPage)
+  const columns = clamp(Math.floor(width / 185), 1, maxPerPage)
   return isEmpty(products) ? null : (
     <Carousel
       itemWidth={`${100 / columns}%`}

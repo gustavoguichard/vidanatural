@@ -35,7 +35,6 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     .filter((p) => p.inStock)
 
   const id = get(product, 'id')
-  const localData = find(productsData, (p) => id === p.vndaId)
   const tags = map(get(product, 'tags'), 'name')
   const testimonialsData = await api.cms.getByTypeAndTags(
     'testimonial',
@@ -75,13 +74,9 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
 
   return {
     props: {
+      product,
       slug,
       foundProduct: !!serverData,
-      hasLocalContent: !!localData,
-      product: {
-        ...localData,
-        ...product,
-      },
       tags,
       faqItems,
       testimonials,

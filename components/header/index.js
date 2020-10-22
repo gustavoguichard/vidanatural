@@ -12,7 +12,7 @@ import MobileMenu from './mobile-menu'
 import Notifications from './notifications'
 import SearchIcon from './search-icon'
 
-const Header = ({ stick, logoCompanion, variant }) => {
+const Header = ({ stick, variant }) => {
   const tags = useTagsMenu()
 
   const { y } = useScroll()
@@ -36,18 +36,6 @@ const Header = ({ stick, logoCompanion, variant }) => {
           <MobileMenu tags={tags} />
           <div className="w-1/3 lg:w-auto lg:flex-grow flex items-center justify-center lg:justify-start">
             <Logo sticky={sticky} variant={variant} />
-            {logoCompanion && (
-              <img
-                className="hidden lg:block relative transition-all duration-500"
-                css={{
-                  maxWidth: companionSize,
-                  maxHeight: companionSize,
-                  left: sticky ? 0 : -20,
-                }}
-                src={logoCompanion}
-                alt="Embalagem"
-              />
-            )}
           </div>
           <DesktopMenu tags={tags} />
           <div className="flex justify-end flex-grow lg:flex-grow-0">

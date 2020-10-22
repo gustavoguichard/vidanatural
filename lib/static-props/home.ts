@@ -1,4 +1,5 @@
 import shuffle from 'lodash/shuffle'
+import take from 'lodash/take'
 
 import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
@@ -25,9 +26,16 @@ export default async () => {
     pageSize: 4,
   })
   const serverData = await api.vnda.search()
-  const products = serverData
-    .map(parseProduct)
-    .filter((p: ParsedProduct) => p.inStock)
+  const products = take(
+    serverData
+      .map(parseProduct)
+      .filter((p: ParsedProduct) => p.inStock)
+      .sort((p: ParsedProduct) => {
+        const tags = p.tags.map((t) => t.name)
+        return tags.includes('mais-vendidos') ? -1 : 1
+      }),
+    6,
+  )
   const posts = (postsResponse as BlogPost[]).map(parsePost)
   const testimonials = shuffle(testimonialsData)
   return {

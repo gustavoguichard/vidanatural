@@ -4,7 +4,7 @@ import About from 'components/home/about'
 import Banners from 'components/banners'
 import Certifications from 'components/certifications'
 import Layout from 'components/layout'
-import Products from 'components/home/products'
+import HomeProducts from 'components/home/products'
 import Testimonials from 'components/testimonials'
 import HomeFeed from 'components/home-feed'
 
@@ -13,7 +13,7 @@ const Home = ({ banners, testimonials, posts, products }) => {
     <Layout variant="secondary" hideCertifications>
       <Banners banners={banners} />
       <Certifications />
-      <Products products={products} />
+      <HomeProducts products={products} />
       <About />
       <Testimonials testimonials={testimonials} />
       <HomeFeed posts={posts} />

@@ -22,9 +22,6 @@ const ProductLayout = ({
   return (
     <Layout
       stickBar
-      logoCompanion={
-        product.packing ? `/static/svgs/${product.packing}.svg` : null
-      }
       hideChat
       title={product.name}
       seo={{

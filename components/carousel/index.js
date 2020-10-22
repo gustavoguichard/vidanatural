@@ -84,7 +84,7 @@ const Carousel = (
         : null}
       <Scroller ref={scroller} gap={gap} snap={snap} itemWidth={itemWidth}>
         {React.Children.map(children, (child, idx) => (
-          <div key={`carousel-${idx}`} className="item">
+          <div key={`carousel-${idx}`} className="item flex justify-center">
             {child}
           </div>
         ))}

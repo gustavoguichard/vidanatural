@@ -21,7 +21,6 @@ Router.events.on('routeChangeComplete', () => {
 
 const Layout = ({
   children,
-  logoCompanion,
   variant = 'primary',
   footerVariant = variant,
   hideCertifications,
@@ -35,7 +34,7 @@ const Layout = ({
   <>
     <SEO title={title} {...seo} />
     <SearchBar />
-    <Header logoCompanion={logoCompanion} variant={variant} stick={stickBar} />
+    <Header variant={variant} stick={stickBar} />
     <main {...props} className="flex-grow">
       {children}
     </main>

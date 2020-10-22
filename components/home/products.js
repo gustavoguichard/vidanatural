@@ -1,55 +1,29 @@
-import { useState, useMemo } from 'react'
-import filter from 'lodash/filter'
+import Link from 'components/link'
+import RelatedProducts from 'components/related-products'
 
-import ProductSlide from 'components/home/slide'
-import Tabs from 'components/tabs'
-
-import productsData from 'data/products'
-
-const HomeProducts = ({ products }) => {
-  const [value, setValue] = useState(0)
-
-  const productsArray = useMemo(() => {
-    return filter(productsData, (product) => {
-      const vndaProduct = products.find((p) => p.id === product.vndaId)
-      return product.showHome && vndaProduct
-    })
-  }, [products])
-
-  const handleChange = (newValue) => {
-    const safeVal = newValue < 0 ? productsArray.length - 1 : newValue
-    setValue(safeVal % productsArray.length)
-  }
-
-  return (
-    <div className="border-white mb-12 border-t-8 border-b-8 max-w-screen-xl m-auto flex items-center relative min-h-full">
-      <div className="flex pt-8">
-        <ProductSlide
-          key="product---1"
-          hidden
-          show
-          index={value}
-          product={productsArray[value]}
-          handleChange={handleChange}
-        />
-        {productsArray.map((product, idx) => (
-          <ProductSlide
-            key={`product-${idx}`}
-            show={value === idx}
-            handleChange={handleChange}
-            index={idx}
-            product={product}
-          >
-            <Tabs
-              handleChange={handleChange}
-              size={productsArray.length}
-              current={value}
-            />
-          </ProductSlide>
-        ))}
+const HomeProducts = ({ products }) => (
+  <section className="border-t-8 border-b-8 border-white py-4">
+    <div className="max-w-screen-xl m-auto px-6">
+      <div className="flex text-gray-700 justify-between mb-2 px-2">
+        <h5 className="font-semibold leading-tight tracking-tight text-lg">
+          Produtos mais populares
+        </h5>
+        <Link
+          href="/produtos"
+          className="underline text-sm hover:text-green-700 hidden sm:flex"
+        >
+          todos os produtos
+        </Link>
       </div>
+      <RelatedProducts products={products} />
+      <Link
+        href="/produtos"
+        className="underline text-sm hover:text-green-700 sm:hidden px-2 mt-2 inline-block"
+      >
+        todos os produtos
+      </Link>
     </div>
-  )
-}
+  </section>
+)
 
 export default HomeProducts

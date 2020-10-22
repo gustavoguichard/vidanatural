@@ -53,17 +53,15 @@ const ProductCard = ({ product }) => {
         as={`/produtos/${product.slug}`}
       >
         <div className="flex flex-col flex-grow relative">
-          <div
+          <Img
+            alt={product.name}
+            height="250"
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-          >
-            <Img
-              alt={product.name}
-              height="250"
-              src={api.vnda.getResizedImg(thumbnail, 300)}
-              title={product.name}
-            />
-          </div>
+            src={api.vnda.getResizedImg(thumbnail, 300)}
+            title={product.name}
+            className="object-cover"
+          />
           <DiscountTag small product={product} />
           <div className="flex flex-col flex-grow justify-between p-2">
             <div className="leading-snug">

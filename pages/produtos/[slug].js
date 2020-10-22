@@ -16,7 +16,6 @@ const ProductPage = ({
   testimonials,
   faqItems,
   foundProduct,
-  hasLocalContent,
   relatedProducts,
   includedProducts,
   cmsData,
@@ -25,7 +24,6 @@ const ProductPage = ({
   const { isFallback } = useRouter()
   return isFallback || foundProduct ? (
     <ProductLayout
-      hasLocalContent={hasLocalContent}
       slug={slug}
       product={product}
       faqItems={faqItems}
