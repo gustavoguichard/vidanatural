@@ -50,11 +50,6 @@ const fetchBFFApi = async (
       (typeof window !== 'undefined'
         ? window.location.origin
         : process.env.LOCAL_HOST) + `api/${path}`.replace('//', '/')
-    console.log(
-      process.env.LOCAL_HOST,
-      process.env.API_HOST,
-      process.env.VNDA_API_TOKEN,
-    )
     console.log(fullPath)
     const body = rawBody ? JSON.stringify(rawBody) : undefined
     const response = await fetch(fullPath, { method, body })
