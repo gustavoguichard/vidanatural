@@ -10,11 +10,6 @@ const nextConfig = {
         destination: '/produtos?ccc=BLACKFRIDAY',
         permanent: false,
       },
-      {
-        source: '/produtos/:slug',
-        destination: '/produto/:slug',
-        permanent: true,
-      },
     ]
   },
 }

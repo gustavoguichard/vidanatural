@@ -11,11 +11,12 @@ const CartItem = ({
   price,
   quantity,
 }) => {
-  const path = api.vnda.getOwnPath(product_url)
+  const fixedUrl = product_url.replace('/produto/', '/produtos/')
+  const path = api.vnda.getOwnPath(fixedUrl)
   return (
     <Link
       className="flex px-4 py-2 hover:bg-gray-200 space-x-2"
-      href="/produto/[slug]"
+      href="/produtos/[slug]"
       as={path}
     >
       <img
