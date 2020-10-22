@@ -1,4 +1,7 @@
 import isObject from 'lodash/isObject'
+
+import { isClient } from 'lib/utils'
+
 import { API2Response } from 'types/vnda'
 
 const normalizeBody = (body: undefined | string | object, method: string) => {
@@ -47,9 +50,8 @@ const fetchBFFApi = async (
 ) => {
   try {
     const fullPath =
-      (typeof window !== 'undefined'
-        ? window.location.origin
-        : process.env.LOCAL_HOST) + `api/${path}`.replace('//', '/')
+      (isClient ? `${window.location.origin}/` : process.env.LOCAL_HOST) +
+      `api/${path}`.replace('//', '/')
     const body = rawBody ? JSON.stringify(rawBody) : undefined
     const response = await fetch(fullPath, { method, body })
     return response.json()

@@ -110,24 +110,18 @@ const calculateShipping = ({ sku, quantity, zip }: ShippingParams) =>
 const addToCart = (sku: string, quantity = 1) =>
   post('carrinho/adicionar', { sku, quantity }, {}, true)
 
-const getUrlObject = (url: string) => {
-  const formattedUrl = url.startsWith('//')
-    ? joinWith([window.location.protocol, url])
-    : url.startsWith('http')
-    ? url
-    : joinWith([window.location.origin, url])
-  const urlObject = new URL(formattedUrl)
-  return urlObject
-}
-
 const getResizedImg = (url: string, w = 200, h = w) => {
   const DOMAIN_REG = /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
   return url.replace(DOMAIN_REG, `$1/${w}x${h}`)
 }
 
 const getOwnPath = (url: string) => {
-  const urlObj = getUrlObject(url)
-  return joinWith([urlObj.pathname, urlObj.search])
+  try {
+    const urlObj = new URL(url)
+    return urlObj.pathname + urlObj.search
+  } catch (e) {
+    return url
+  }
 }
 
 export default {
