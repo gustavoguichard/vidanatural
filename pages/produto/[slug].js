@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import get from 'lodash/get'
 import isEmpty from 'lodash/isEmpty'
 
 import staticPaths from 'lib/static-paths/produtos-uid'
@@ -43,7 +44,7 @@ const ProductPage = ({
       <div className="max-w-screen-lg m-auto">
         <IncludedProducts products={includedProducts} />
       </div>
-      {product.isKit || (
+      {get(product, 'isKit') || (
         <div className="max-w-screen-xl px-6 m-auto">
           <RelatedProducts products={relatedProducts} />
         </div>
