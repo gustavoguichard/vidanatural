@@ -43,9 +43,11 @@ const ProductPage = ({
       <div className="max-w-screen-lg m-auto">
         <IncludedProducts products={includedProducts} />
       </div>
-      <div className="max-w-screen-xl px-6 m-auto">
-        <RelatedProducts products={relatedProducts} />
-      </div>
+      {product.isKit || (
+        <div className="max-w-screen-xl px-6 m-auto">
+          <RelatedProducts products={relatedProducts} />
+        </div>
+      )}
     </ProductLayout>
   ) : (
     <ErrorPage

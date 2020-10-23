@@ -1,12 +1,8 @@
-import get from 'lodash/get'
-
-import { classes, toCurrency } from 'lib/utils'
+import { classes } from 'lib/utils'
+import { getDiscount } from 'lib/domain'
 
 const DiscountTag = ({ product, small, ...props }) => {
-  const isPercentage = get(product, 'discount_rule.type') === 'percentage'
-  const content = isPercentage
-    ? `${get(product, 'discount_rule.amount', 0)}%`
-    : `${toCurrency(get(product, 'discount_rule.amount', 0))}`
+  const content = getDiscount(product)
 
   const cx = classes(
     'absolute flex justify-center items-center p-2 z-20 bg-white border border-gray-200 rounded tracking-tight font-semibold text-center leading-none top-0 right-0 transform',

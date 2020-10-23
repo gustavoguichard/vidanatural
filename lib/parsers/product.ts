@@ -6,6 +6,7 @@ export default (product: VndaProduct) => {
   const brokenDesc = product.html_description.split(`\n<hr/>\n`).map(trim)
   const stock = +(product.variants[0]?.stock || 0)
   const inStock = stock > 0
+  const isKit = product.tag_names.includes('kit')
   const description =
     brokenDesc.length > 1
       ? {
@@ -21,6 +22,7 @@ export default (product: VndaProduct) => {
     ...product,
     slug: `${product.slug}-${product.id}`,
     stock,
+    isKit,
     inStock,
     description,
   }

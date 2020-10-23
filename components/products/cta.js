@@ -3,6 +3,7 @@ import { useState, forwardRef } from 'react'
 import { classes } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
+import CircularProgress from 'components/circular-progress'
 import CTAButton from 'components/cta-button'
 import CalculateShipping from './calculate-shipping'
 import OutOfStockForm from './out-of-stock-form'
@@ -52,7 +53,13 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
               setAdding(false)
             }}
           >
-            {adding ? 'Boa escolha 😉' : 'Adicionar ao carrinho'}
+            {adding ? (
+              <CircularProgress className="mx-8" />
+            ) : product.isKit ? (
+              'Adicionar items ao carrinho'
+            ) : (
+              'Adicionar ao carrinho'
+            )}
           </CTAButton>
         ) : (
           <OutOfStockForm innerRef={innerRef} product={variant} />

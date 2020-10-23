@@ -1,6 +1,8 @@
 import { useInView } from 'react-intersection-observer'
 import isEmpty from 'lodash/isEmpty'
 
+import { getDiscount } from 'lib/domain'
+
 import Markdown from 'components/markdown'
 import ImageGallery from 'components/image-gallery'
 import BCrumbs from 'components/breadcrumbs'
@@ -32,7 +34,9 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
             <h3 className="hidden lg:flex text-3xl font-bold tracking-tight">
               {product.name}
             </h3>
-            <PriceTag big item={variant} />
+            <p className="text-gray-700 uppercase text-sm transform -translate-y-1">
+              {variant.name}
+            </p>
             <Breadcrumbs className="lg:hidden" product={product} />
             {product.description.featured && (
               <Markdown>{product.description.featured}</Markdown>
@@ -69,6 +73,15 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
               {product.description.presentation}
             </Markdown>
             <PriceTag big item={variant} />
+            {product.isKit && product.discount_rule && (
+              <p className="text-xs mb-1">
+                Você economiza{' '}
+                <span className="text-sm font-semibold">
+                  {getDiscount(product)}
+                </span>{' '}
+                ao comprar estes produtos juntos.
+              </p>
+            )}
             <ProductCTA ref={ref} product={product} />
           </div>
         </div>

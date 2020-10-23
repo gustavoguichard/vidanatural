@@ -1,9 +1,10 @@
+import get from 'lodash/get'
 import map from 'lodash/map'
 import truncate from 'lodash/truncate'
 import reduce from 'lodash/reduce'
 import uniqBy from 'lodash/uniqBy'
 
-import { getReadTime } from 'lib/utils'
+import { getReadTime, toCurrency } from 'lib/utils'
 
 import { PostBody } from 'types/cms'
 import { VndaProduct, ProductTag } from 'types/vnda'
@@ -84,6 +85,13 @@ export const getCategoryTags = (products: VndaProduct[], addSales = true) => {
       cat.name === 'kit' ? -1 : 1,
     ),
   ]
+}
+
+export const getDiscount = (product: VndaProduct) => {
+  const isPercentage = get(product, 'discount_rule.type') === 'percentage'
+  return isPercentage
+    ? `${get(product, 'discount_rule.amount', 0)}%`
+    : `${toCurrency(get(product, 'discount_rule.amount', 0))}`
 }
 
 export const getProductsByTag = (products: VndaProduct[], tags: string[]) => {

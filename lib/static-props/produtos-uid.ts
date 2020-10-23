@@ -7,33 +7,27 @@ import { GetStaticProps } from 'next'
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parseProduct from 'lib/parsers/product'
+import parseProducts from 'lib/parsers/products'
 
-import { ProductTag, VndaProduct } from 'types/vnda'
+import { VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
-  const product = await api.vnda.fetch(`products/${slug}`)
+  const response = await api.vnda.fetch(`products/${slug}`)
+  const product = parseProduct(response)
 
   const products = await api.vnda.search()
-  const allRelatedProducts = getProductsByTag(
-    products,
-    map(product.tags, 'name'),
+  const categoryTags = get(product, 'category_tags')
+  const tags = map(
+    categoryTags.filter((c: any) => c.tag_type !== 'filter'),
+    'name',
   )
-  const relatedProducts = allRelatedProducts
-    .filter(
-      (p) =>
-        p.id !== product.id &&
-        // filter related products to Kits
-        !product.tags.reduce(
-          (sum: boolean, tag: ProductTag) => sum || tag.name === 'kit',
-          false,
-        ),
-    )
-    .map(parseProduct)
-    .filter((p) => p.inStock)
+  const allRelatedProducts = getProductsByTag(products, tags)
+  const relatedProducts = parseProducts(
+    allRelatedProducts.filter((p) => p.id !== product.id),
+  ).filter((p) => p.inStock)
 
   const id = get(product, 'id')
-  const tags = map(get(product, 'tags'), 'name')
   const testimonialsData = await api.cms.getByTypeAndTags(
     'testimonial',
     {
@@ -44,7 +38,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
         'testimonial.short_content',
       ],
     },
-    [...tags, 'institucional'],
+    [...product.tag_names, 'institucional'],
   )
   const testimonials = shuffle(testimonialsData)
 
@@ -54,7 +48,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
       orderings: '[my.faq_item.title]',
       fetch: ['faq_item.title', 'faq_item.answer'],
     },
-    tags,
+    product.tag_names,
   )
 
   const cmsProduct = await api.cms.getExact('product', 'vnda_id', String(id), {
