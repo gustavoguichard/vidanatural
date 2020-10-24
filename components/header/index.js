@@ -17,7 +17,6 @@ const Header = ({ stick, variant }) => {
 
   const { y } = useScroll()
   const sticky = stick || y > 0
-  const companionSize = sticky ? 35 : 60
 
   const [, actions] = useGlobal()
   useEffect(actions.getCartItems, [])

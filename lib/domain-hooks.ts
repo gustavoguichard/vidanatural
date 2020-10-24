@@ -21,6 +21,7 @@ export const useTagsMenu = () => {
 
   return {
     name: 'Loja',
+    path: '/produto',
     links: [
       {
         name: 'Todos os produtos',

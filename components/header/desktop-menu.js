@@ -6,10 +6,8 @@ import Link from 'components/link'
 
 import menu from 'data/menu'
 
-const SubMenu = ({ name, path, as, links }) => {
+const SubMenu = ({ name, active, links }) => {
   const [open, setOpen] = useState(false)
-  const router = useRouter()
-  const active = [path, as].includes(router.pathname)
   return (
     <div className="relative inline-block text-left">
       <button
@@ -41,15 +39,19 @@ const SubMenu = ({ name, path, as, links }) => {
 }
 
 const DesktopMenu = ({ tags }) => {
+  const router = useRouter()
   return (
     <div className="hidden lg:flex">
       {[tags, ...menu.links].map((item) => {
         const hasSubmenu = !!item.links
+        const active = router.pathname.startsWith(item.path)
         return hasSubmenu ? (
-          <SubMenu key={item.name} {...item} />
+          <SubMenu active={active} key={item.name} {...item} />
         ) : (
           <Link
-            className="rounded p-3 text-sm uppercase hover:bg-gray-500 hover:bg-opacity-25"
+            className={`rounded p-3 text-sm uppercase hover:bg-gray-500 hover:bg-opacity-25  ${
+              active ? 'text-green-600' : 'inherit'
+            }`}
             key={item.name}
             href={item.path}
             as={item.as}
