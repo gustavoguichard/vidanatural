@@ -20,7 +20,9 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
   }
   const inStock = variant.stock > 0
 
-  const cx = classes('flex', { 'flex-col flex-grow mr-2': hideQuantity })
+  const cx = classes('flex overflow-hidden', {
+    'flex-col flex-grow mr-2': hideQuantity,
+  })
   return variant ? (
     <>
       <div className={cx}>
@@ -47,7 +49,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
           <CTAButton
             ref={innerRef}
             disableIcon={adding}
-            className="truncate whitespace-no-wrap max-w-full"
+            className="overflow-hidden"
             onClick={async () => {
               setAdding(true)
               await addToCart(variant.sku, quantity)
@@ -57,9 +59,9 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
             {adding ? (
               <CircularProgress className="mx-8" />
             ) : product.isKit ? (
-              'Adicionar items ao carrinho'
+              <span className="truncate">Adicionar items ao carrinho</span>
             ) : (
-              'Adicionar ao carrinho'
+              <span className="truncate">Adicionar ao carrinho</span>
             )}
           </CTAButton>
         ) : (
