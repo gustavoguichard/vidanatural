@@ -12,7 +12,7 @@ const CartItem = ({
   actions,
 }) => (
   <div className="flex p-1 w-1/2">
-    <div className="border rounded-sm bg-white w-full sm:h-72 overflow-hidden flex flex-col">
+    <div className="border rounded-sm bg-white w-full max-h-72 overflow-hidden flex flex-col">
       <p className="bg-white text-sm font-semibold p-3 leading-snug">
         {quantity}x{' '}
         <Link
