@@ -27,7 +27,7 @@ const Cart = () => {
           <p className="flex-grow ml-2 font-semibold">Seu carrinho</p>
           <span>{quantity} ítens</span>
         </div>
-        <div className="flex flex-wrap items-start bg-gray-50 flex-grow">
+        <div className="flex flex-wrap p-1 sm:items-start bg-gray-50 flex-grow">
           {safeCart.map((cartItem) => (
             <CartItem actions={actions} key={cartItem.id} {...cartItem} />
           ))}
