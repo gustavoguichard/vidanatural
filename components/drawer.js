@@ -1,8 +1,9 @@
 import { classes } from 'lib/utils'
 
-function Drawer({ children, anchor = 'left', open, onClose }) {
+function Drawer({ children, className, anchor = 'left', open, onClose }) {
   const cx = classes(
-    'animate__animated animate__faster text-gray-900 bg-white shadow-lg absolute top-0 bottom-0 overflow-y-auto',
+    'animate__animated animate__faster text-gray-900 bg-white shadow-lg absolute top-0 bottom-0 overflow-y-auto overscroll-contain',
+    className,
     {
       'right-0 animate__fadeInRight': anchor === 'right',
       'left-0 animate__fadeInLeft': anchor === 'left',
@@ -11,7 +12,7 @@ function Drawer({ children, anchor = 'left', open, onClose }) {
   return open ? (
     <div
       onClick={onClose}
-      className="z-50 fixed bg-black bg-opacity-25 inset-0 overscroll-contain"
+      className="z-50 fixed bg-black bg-opacity-25 inset-0"
     >
       <div onClick={(ev) => ev.stopPropagation()} className={cx}>
         {children}

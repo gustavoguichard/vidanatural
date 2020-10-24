@@ -3,6 +3,7 @@ import { useToggle } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
 
 import Countdown from 'components/countdown'
+import CloseButton from 'components/close-button'
 
 const Notification = ({ notification }) => {
   const [shrink, toggle] = useToggle()
@@ -58,27 +59,7 @@ const Notification = ({ notification }) => {
           </p>
         </div>
         <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
-          <button
-            type="button"
-            className="-mr-1 flex p-2 rounded-md hover:bg-gray-400 hover:bg-opacity-25 focus:outline-none focus:shadow-outline focus:bg-gray-400 focus:bg-opacity-25 sm:-mr-2 transition duration-150"
-            aria-label="Dismiss"
-            onClick={dismiss}
-          >
-            <svg
-              className="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+          <CloseButton onClick={dismiss} className="-mr-1 sm:-mr-2" />
         </div>
       </div>
     </div>
