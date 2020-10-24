@@ -8,7 +8,7 @@ const SocialLink = ({ Icon, title, url, target }) =>
       href={url}
       target={target}
       rel="noopener noreferrer"
-      className="text-gray-600 hover:text-green-600 rounded-full inline-flex p-1 hover:bg-gray-200 transition duration-300"
+      className="text-gray-600 hover:text-teal-600 rounded-full inline-flex p-1 hover:bg-gray-200 transition duration-300"
     >
       <Icon className="h-5 w-5" />
     </a>

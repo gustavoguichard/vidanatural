@@ -20,7 +20,7 @@ const Footer = () => (
         Vida Natural&reg; {year} • Florianópolis / SC
         <br />
         <a
-          className="font-semibold hover:text-green-300"
+          className="font-semibold hover:text-teal-300"
           href="mailto:falecom@vidanatural.eco.br"
         >
           falecom@vidanatural.eco.br

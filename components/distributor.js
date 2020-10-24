@@ -10,7 +10,7 @@ const InfoDisplay = ({ title, children }) =>
 
 const LinkInfo = ({ Icon, children, ...props }) => (
   <a
-    className="underline inline-flex items-center hover:text-green-600"
+    className="underline inline-flex items-center hover:text-teal-600"
     target="_blank"
     rel="noreferrer noopener"
     {...props}

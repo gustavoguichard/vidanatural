@@ -11,7 +11,7 @@ import brandImg from 'public/static/svgs/brand.svg'
 
 const MenuButton = ({ name, path, as, onClose }) => (
   <Link
-    className="flex py-3 px-4 hover:bg-gray-200"
+    className="flex py-3 px-4 hover:bg-gray-100"
     href={path}
     as={as}
     onClick={onClose}

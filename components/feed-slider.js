@@ -20,14 +20,14 @@ const FeedSlider = ({ posts }) => {
     >
       {posts.map((post) => (
         <Link
-          className="group block h-full rounded-lg border border-gray-300 hover:border-green-600 focus:outline-none focus:border-green-600 focus:border-2 hover:no-underline"
+          className="group block h-full rounded-lg border border-gray-300 hover:border-teal-500 focus:outline-none focus:border-teal-400 focus:border-2 hover:no-underline"
           key={post.id}
           href="/blog/[slug]"
           as={`/blog/${post.uid}`}
         >
           <div className="p-6 flex flex-col justify-between h-full">
             <div className="mb-3">
-              <h4 className="font-bold tracking-tight mb-2 text-xl leading-tight">
+              <h4 className="font-bold tracking-tight mb-2 text-xl leading-tight group-hover:text-teal-600">
                 {post.data.title}
               </h4>
               <p className="text-base text-gray-600">

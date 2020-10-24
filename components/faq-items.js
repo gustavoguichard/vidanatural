@@ -8,7 +8,7 @@ import Link from 'components/link'
 const FaqItem = ({ last_publication_date, uid, data }) => {
   return (
     <Link
-      className="flex flex-col py-6 px-4 transition duration-500 hover:bg-gray-200"
+      className="flex flex-col py-6 px-4 transition duration-500 hover:bg-gray-100"
       href="/faq/[slug]"
       as={`/faq/${uid}`}
     >

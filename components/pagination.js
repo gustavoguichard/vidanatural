@@ -11,7 +11,7 @@ const Pagination = ({ page, count, path = '/', className }) => {
       {times(count, (index) => {
         const idx = index + 1
         const cx = classes(
-          'flex mx-1 justify-center items-center rounded-full h-8 w-8 p-2 hover:bg-gray-200',
+          'flex mx-1 justify-center items-center rounded-full h-8 w-8 p-2 hover:bg-gray-100',
           { 'bg-gray-900 text-white': page === idx },
         )
         return (

@@ -30,8 +30,8 @@ const CartIcon = () => {
       <IconButton ref={cartRef} aria-label="Carrinho" href={api.vnda.CART_URL}>
         {!!safeCart.length && (
           <span className="absolute flex h-2 w-2 right-0 top-0 transform translate-y-1 -translate-x-1">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full border-2 border-green-600 bg-green-500 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-600" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full border-2 border-teal-600 bg-teal-500 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-600" />
           </span>
         )}
         <FaShoppingCart />

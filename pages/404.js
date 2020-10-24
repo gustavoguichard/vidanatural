@@ -17,7 +17,7 @@ const ErrorPage = ({
         <p className="mt-2 text-lg">
           {children}
           <br />
-          <Link href={href} className="font-semibold text-green-400">
+          <Link href={href} className="font-semibold text-teal-400">
             {linkText}
           </Link>
         </p>

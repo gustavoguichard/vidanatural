@@ -10,7 +10,7 @@ const Page = () => (
         Retornaremos assim que possível.
         <br />
         <Link href="/">
-          <a className="font-semibold text-green-400">Voltar para a Homepage</a>
+          <a className="font-semibold text-teal-400">Voltar para a Homepage</a>
         </Link>
       </p>
     </Hero>

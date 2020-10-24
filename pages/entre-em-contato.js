@@ -48,7 +48,7 @@ const Page = () => (
             <br />
             <span className="inline-flex items-center">
               <a
-                className="inline-block text-green-600 mr-1"
+                className="inline-block text-teal-600 mr-1"
                 href="https://wa.me/5548991039557"
                 title="Enviar mensagem de whatsapp"
                 rel="noopener noreferrer"

@@ -18,7 +18,7 @@ const Breadcrumbs = ({
   return (
     <p aria-label="breadcrumb" {...props} className={cx}>
       {hideHome || (
-        <Link href="/" className="underline hover:text-green-600">
+        <Link href="/" className="underline hover:text-teal-600">
           Vida Natural
         </Link>
       )}
@@ -28,7 +28,7 @@ const Breadcrumbs = ({
           return (
             <span key={`link-${idx}`}>
               {(idx !== 0 || !hideHome) && separator}
-              <Component {...link} className="underline hover:text-green-600">
+              <Component {...link} className="underline hover:text-teal-600">
                 {link.title}
               </Component>
             </span>

@@ -26,7 +26,7 @@ const fetcher = async (
 
   const url = `https://${host}/api/v2/${path}`
   const options = { headers, method, body: normalizeBody(body, method) }
-  console.log(url, options)
+  // console.log(url, options)
   const result = await fetch(url, options as RequestInit)
   try {
     const { status } = result

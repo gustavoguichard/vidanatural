@@ -12,7 +12,7 @@ const CartItem = ({
   quantity,
 }) => (
   <Link
-    className="flex px-4 py-2 hover:bg-gray-200 space-x-2"
+    className="flex px-4 py-2 hover:bg-gray-100 space-x-2"
     href="/produto/[slug]"
     as={api.vnda.getOwnPath(product_url)}
   >

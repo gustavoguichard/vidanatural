@@ -10,7 +10,7 @@ const HomeProducts = ({ products }) => (
         </h5>
         <Link
           href="/produtos"
-          className="underline text-sm hover:text-green-700 hidden sm:flex"
+          className="underline text-sm hover:text-teal-700 hidden sm:flex"
         >
           todos os produtos
         </Link>
@@ -18,7 +18,7 @@ const HomeProducts = ({ products }) => (
       <RelatedProducts products={products} />
       <Link
         href="/produtos"
-        className="underline text-sm hover:text-green-700 sm:hidden px-2 mt-2 inline-block"
+        className="underline text-sm hover:text-teal-700 sm:hidden px-2 mt-2 inline-block"
       >
         todos os produtos
       </Link>

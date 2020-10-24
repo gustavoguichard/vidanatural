@@ -9,7 +9,7 @@ const IconButton = (
 ) => {
   const router = useRouter()
   const cx = classes(
-    `text-inherit hover:bg-opacity-25 rounded-full inline-flex p-3 hover:bg-gray-500 transition duration-300`,
+    `text-inherit hover:bg-opacity-25 rounded-full inline-flex p-3 hover:bg-gray-400 transition duration-300`,
     className,
   )
   const handleClick = () => {

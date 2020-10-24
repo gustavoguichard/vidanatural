@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
   const thumbnail = hovering ? product.images[index].url : image.url
 
   return (
-    <div className="flex rounded hover:shadow items-start group overflow-hidden bg-gray-200 bg-opacity-50">
+    <div className="flex rounded border border-transparent hover:border-gray-200 items-start group overflow-hidden bg-gray-100 bg-opacity-50">
       <Link
         className="flex h-full"
         href="/produto/[slug]"
@@ -65,7 +65,7 @@ const ProductCard = ({ product }) => {
           <DiscountTag small product={product} />
           <div className="flex flex-col flex-grow justify-between p-2">
             <div className="leading-snug">
-              <h3 className="font-semibold tracking-tight mb-1">
+              <h3 className="font-semibold text-gray-800 tracking-tight mb-1">
                 {product.name}
               </h3>
               <p className="text-sm text-gray-600">{variant.name}</p>

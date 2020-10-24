@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       transformOrigin: {
-        '0': '0%',
+        0: '0%',
       },
       zIndex: {
         '-1': '-1',
@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+    backgroundColor: ['responsive', 'odd', 'hover', 'focus', 'active'],
     borderColor: [
       'responsive',
       'hover',

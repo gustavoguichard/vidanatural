@@ -13,7 +13,7 @@ const Icon = ({ site, children, href }) => (
     target="_blank"
     rel="noreferrer noopener"
   >
-    {icons[site]('w-5 h-5 m-2 hover:text-green-300 transition duration-300')}
+    {icons[site]('w-5 h-5 m-2 hover:text-teal-300 transition duration-300')}
   </a>
 )
 

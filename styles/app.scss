@@ -21,6 +21,18 @@ html {
   ul {
     margin-bottom: 1rem;
   }
+  &.no-margin {
+    address,
+    dl,
+    img,
+    ol,
+    p,
+    pre,
+    table,
+    ul {
+      margin-bottom: 0;
+    }
+  }
   h1,
   h2,
   h3,
@@ -61,7 +73,7 @@ html {
     font-size: 0.875rem;
   }
   a {
-    color: #057a55;
+    color: #047481;
   }
   a:hover {
     text-decoration: underline;

@@ -10,7 +10,7 @@ const Icon = ({ path, title, size = 75 }) => (
 )
 
 const Certifications = () => (
-  <div className="max-w-screen-xl w-full flex justify-around flex-wrap mb-6 mt-6 mx-auto">
+  <div className="max-w-screen-xl bg-gray-100 w-full flex justify-around flex-wrap py-6 mx-auto">
     <Icon title="Certificados pela ANVISA" path="anvisa" size={68} />
     <Icon
       title="Investimos na compensação ambiental das embalagens que produzimos"

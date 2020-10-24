@@ -10,7 +10,7 @@ const FooterMenu = () => (
           {tree.map((item, i) => (
             <li key={`item-${i}`}>
               <Link href={item.path} as={item.as}>
-                <a className="block py-1 text-current text-sm hover:text-green-300">
+                <a className="block py-1 text-current text-sm hover:text-teal-300">
                   {item.name}
                 </a>
               </Link>

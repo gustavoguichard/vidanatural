@@ -44,7 +44,7 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
             <BCrumbs
               separator={<span className="text-gray-400"> - </span>}
               size="xs"
-              className="text-green-600"
+              className="text-teal-600"
               hideHome
               links={[
                 hasInformation && {

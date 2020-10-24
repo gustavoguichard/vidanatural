@@ -63,8 +63,8 @@ const ProductsPage = ({ products, filters }) => {
               <button
                 key={filter.name + idx}
                 type="button"
-                className={`m-1 uppercase bg-opacity-25 hover:bg-opacity-50 bg-gray-300 rounded text-sm px-2 py-1 text-${
-                  filter.name === selected ? 'green-600' : 'green-900'
+                className={`m-1 uppercase bg-gray-100 hover:bg-gray-200 rounded text-sm px-2 py-1 text-${
+                  filter.name === selected ? 'teal-600' : 'teal-900'
                 }`}
                 onClick={setFilter(filter.name)}
               >

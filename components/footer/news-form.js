@@ -60,7 +60,7 @@ const NewsForm = () => {
                 aria-label="Enviar"
                 className="hover:bg-opacity-25 hover:bg-gray-500 rounded-full p-2 flex"
               >
-                <FiSend className="text-green-700 w-6 h-6" />
+                <FiSend className="text-teal-700 w-6 h-6" />
               </button>
             )
           }
