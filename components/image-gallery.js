@@ -3,8 +3,9 @@ import get from 'lodash/get'
 
 import api from 'lib/api'
 
-import DiscountTag from 'components/products/discount-tag'
 import Carousel from 'components/carousel'
+import DiscountTag from 'components/products/discount-tag'
+import ProductTitle from 'components/products/title'
 
 const ImageGallery = ({ product }) => {
   const [index, setIndex] = useState(0)
@@ -14,6 +15,9 @@ const ImageGallery = ({ product }) => {
 
   return (
     <div className="flex flex-col lg:flex-row">
+      <div className="lg:hidden">
+        <ProductTitle product={product} />
+      </div>
       <div
         className="relative flex items-start justify-center -mx-6 lg:mr-auto lg:ml-4"
         css={{ minHeight: 300 }}
@@ -36,9 +40,6 @@ const ImageGallery = ({ product }) => {
           ))}
         </Carousel>
       </div>
-      <h2 className="lg:hidden text-center my-4 text-2xl font-bold leading-tight tracking-tight">
-        {product.name}
-      </h2>
       {imagesLenght > 1 ? (
         <div className="flex space-y-2 lg:space-x-0 space-x-2 flex-wrap justify-center lg:flex-col px-2 lg:px-0 lg:order-first">
           {product.images.map((img, i) => (

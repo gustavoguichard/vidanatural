@@ -8,6 +8,7 @@ import ImageGallery from 'components/image-gallery'
 import BCrumbs from 'components/breadcrumbs'
 import Breadcrumbs from './breadcrumbs'
 import Description from './description'
+import ProductTitle from './title'
 import PriceTag from './price-tag'
 import ProductCTA from './cta'
 import MobileCTA from './mobile-cta'
@@ -31,12 +32,9 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
             <ImageGallery product={product} />
           </div>
           <div className="lg:w-1/2 py-4">
-            <h3 className="hidden lg:flex text-3xl font-bold tracking-tight">
-              {product.name}
-            </h3>
-            <p className="text-gray-700 uppercase text-sm transform -translate-y-1">
-              {variant.name}
-            </p>
+            <div className="hidden lg:block">
+              <ProductTitle product={product} />
+            </div>
             <Breadcrumbs className="lg:hidden" product={product} />
             {product.description.featured && (
               <Markdown>{product.description.featured}</Markdown>

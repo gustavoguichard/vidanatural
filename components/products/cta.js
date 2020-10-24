@@ -47,6 +47,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
           <CTAButton
             ref={innerRef}
             disableIcon={adding}
+            className="truncate whitespace-no-wrap max-w-full"
             onClick={async () => {
               setAdding(true)
               await addToCart(variant.sku, quantity)
