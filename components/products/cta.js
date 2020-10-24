@@ -27,7 +27,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
     <>
       <div className={cx}>
         {inStock && !hideQuantity && (
-          <div className="flex shadow border bg-white text-center text-lg border-gray-100 font-semibold">
+          <div className="flex shadow border bg-white text-center text-lg border-gray-200 font-semibold mr-1">
             <button
               type="button"
               className="h-full w-8 hover:bg-gray-100"
