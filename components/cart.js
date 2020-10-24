@@ -21,13 +21,13 @@ const Cart = () => {
       anchor="right"
       className="w-full sm:max-w-md flex flex-col"
     >
-      <div className="relative max-h-full overflow-scroll overscroll-contain">
+      <div className="relative flex-grow flex flex-col max-h-full overflow-scroll overscroll-contain">
         <div className="sticky top-0 bg-white shadow-sm border-b text-sm py-2 px-4 flex items-center">
           <CloseButton onClick={actions.hideCart} />
           <p className="flex-grow ml-2 font-semibold">Seu carrinho</p>
           <span>{quantity} ítens</span>
         </div>
-        <div className="flex flex-wrap bg-gray-50 flex-grow">
+        <div className="flex flex-wrap items-start bg-gray-50 flex-grow">
           {safeCart.map((cartItem) => (
             <CartItem key={cartItem.id} {...cartItem} />
           ))}
