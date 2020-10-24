@@ -5,7 +5,6 @@ import Hero from 'components/hero'
 import IllustratedIngredients from 'components/illustrated-ingredients'
 import Layout from 'components/layout'
 import TeamMember from 'components/team-member'
-import PaperContent from 'components/paper-content'
 import RichText from 'components/rich-text'
 
 import sloganImg from 'public/static/svgs/eufaco.svg'
@@ -31,24 +30,27 @@ const AboutPage = ({ team, page }) => {
           </RichText>
         </div>
       </Hero>
-      <PaperContent>
-        <div className="flex flex-col items-center">
-          <div className="sm:w-8/12">
-            <Breadcrumbs className="-mt-6 mb-6">Sobre a VN</Breadcrumbs>
-            <RichText>{page.data.content}</RichText>
-          </div>
-          <div id="quem-somos">
-            <h4 className="text-2xl mb-4 mt-8 font-bold tracking-tight leading-none">
-              Quem somos?
-            </h4>
-            <div className="grid gap-8 md:grid-cols-2">
-              {team.map((member) => (
-                <TeamMember key={member.uid} {...member.data} />
-              ))}
-            </div>
+      <div className="flex flex-col items-center">
+        <div className="sm:w-8/12 px-10">
+          <Breadcrumbs className="-mt-6 mb-6">Sobre a VN</Breadcrumbs>
+          <RichText>{page.data.content}</RichText>
+        </div>
+      </div>
+      <div className="max-w-screen-xl bg-white sm:bg-transparent px-10 py-6 mt-6">
+        <div
+          id="quem-somos"
+          className="relative z-10 sm:px-10 sm:py-6 sm:shadow-lg sm:bg-white sm:rounded-lg"
+        >
+          <h4 className="text-2xl mb-4 font-bold tracking-tight leading-none">
+            Quem somos?
+          </h4>
+          <div className="grid gap-8 md:grid-cols-2">
+            {team.map((member) => (
+              <TeamMember key={member.uid} {...member.data} />
+            ))}
           </div>
         </div>
-      </PaperContent>
+      </div>
       <IllustratedIngredients {...page.data} />
     </Layout>
   )

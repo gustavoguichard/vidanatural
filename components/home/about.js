@@ -19,11 +19,12 @@ const About = () => (
               fórmulas minimalistas e livre de crueldade contra animais.
             </p>
             <p className="mb-4">
-              Com nossos cosméticos queremos incentivar um movimento para
-              desconstruir ideias, propor mudanças no comportamento e nos
-              valores para favorecer um consumo + simples + consciente e em
-              maior equilíbrio com a saúde do seu corpo e do meio ambiente.
+              Queremos que você possa usar no seu dia a dia produtos naturais,
+              sustentáveis e altamente eficientes!
             </p>
+            <CTAButton mini href="/sobre-a-vida-natural#quem-somos">
+              Conheça nosso time
+            </CTAButton>
           </div>
         </div>
       </div>
@@ -38,13 +39,16 @@ const About = () => (
           </h3>
           <div className="text-gray-700">
             <p className="mb-4">
-              Queremos que vc possa usar no seu dia a dia produtos naturais,
-              sustentáveis e altamente eficientes!
+              Com nossos cosméticos queremos provar que é possível obter um alto
+              nível de eficiência sem prejudicar o corpo e o meio ambiente.
             </p>
             <p className="mb-4">
-              Acreditamos no poder desse movimento! Vamos junt@s?
+              Afinal, você usa cosméticos diariamente por toda a sua vida. É bom
+              ter completa noção do que vai neles, certo?
             </p>
-            <CTAButton href="/sobre-a-vida-natural">Saiba mais</CTAButton>
+            <CTAButton mini href="/sobre-a-vida-natural#ingredientes">
+              Veja nossos ingredientes
+            </CTAButton>
           </div>
         </div>
       </div>
