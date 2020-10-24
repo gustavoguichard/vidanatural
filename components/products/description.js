@@ -21,7 +21,7 @@ const Description = ({ product }) => {
           />
           {isOpen || (
             <>
-              <div className="bg-gradient-to-t from-gray-100 h-20 -mt-20 mb-4 relative z-10 pointer-events-none" />
+              <div className="bg-gradient-to-t from-gray-50 h-20 -mt-20 mb-4 relative z-10 pointer-events-none" />
               <CTAButton mini onClick={toggle}>
                 Ler mais
               </CTAButton>
