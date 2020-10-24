@@ -25,7 +25,7 @@ const Cart = () => {
         <div className="sticky top-0 bg-white shadow-sm border-b text-sm py-2 px-4 flex items-center">
           <CloseButton onClick={actions.hideCart} />
           <p className="flex-grow ml-2 font-semibold">Seu carrinho</p>
-          <span>{quantity} ítens</span>
+          <span>{quantity} itens</span>
         </div>
         <div className="flex flex-wrap p-1 items-start bg-gray-50 flex-grow">
           {safeCart.map((cartItem) => (
