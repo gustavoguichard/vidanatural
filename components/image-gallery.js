@@ -41,13 +41,13 @@ const ImageGallery = ({ product }) => {
         </Carousel>
       </div>
       {imagesLenght > 1 ? (
-        <div className="flex space-y-2 lg:space-x-0 space-x-2 flex-wrap justify-center lg:flex-col px-2 lg:px-0 lg:order-first">
+        <div className="flex flex-wrap justify-center items-center lg:flex-col px-2 lg:px-0 lg:order-first">
           {product.images.map((img, i) => (
             <img
               key={i}
               onClick={() => gallery.current.goTo(i)}
               alt={product.name}
-              className="w-24 lg:w-64 object-contain cursor-pointer transition-all duration-700"
+              className="w-24 h-24 m-1 lg:w-80 lg:h-auto object-contain cursor-pointer transition-all duration-700"
               css={{
                 boxShadow: i === index ? `0 0 0 2px black` : `0 0 0 0 black`,
               }}
