@@ -41,7 +41,7 @@ const ImageGallery = ({ product }) => {
         </Carousel>
       </div>
       {imagesLenght > 1 ? (
-        <div className="flex flex-wrap justify-center items-center lg:flex-col px-2 lg:px-0 lg:order-first mt-3 lg:mt-0">
+        <div className="flex flex-wrap justify-center items-center lg:flex-col px-2 lg:px-0 lg:order-first mt-2 lg:mt-0">
           {product.images.map((img, i) => (
             <img
               key={i}
