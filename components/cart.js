@@ -33,7 +33,7 @@ const Cart = () => {
           ))}
         </div>
         <p className="sticky bottom-0 bg-white border flex flex-col p-2 pb-1 px-4">
-          <CTAButton href={api.vnda.CART_URL}>Ver carrinho</CTAButton>
+          <CTAButton href={api.vnda.CART_URL}>Fechar pedido</CTAButton>
         </p>
       </div>
     </Drawer>
