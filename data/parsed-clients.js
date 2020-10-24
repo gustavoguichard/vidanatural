@@ -12,17 +12,13 @@ import states from 'data/states'
 const formatLink = (url) => (url.startsWith('http') ? url : `https://${url}`)
 
 const formatted = map(clients, (client) => {
-  const shortAddress = client['Observações']
-    ? client['Observações'].split('\n')
-    : [compact([client['Endereço'], client['Número']]).join(', ')]
+  const shortAddress = [
+    compact([client['Endereço'], client['Número']]).join(', '),
+  ]
 
-  const address = client['Observações']
-    ? shortAddress
-    : [
-        compact([shortAddress[0], client.Complemento, client.Bairro]).join(
-          ' - ',
-        ),
-      ]
+  const address = [
+    compact([shortAddress[0], client.Complemento, client.Bairro]).join(' - '),
+  ]
   const fullAddress = address.map((addr) =>
     compact([addr, client.Cidade, client.Estado]).join(' - '),
   )
