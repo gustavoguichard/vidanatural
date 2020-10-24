@@ -29,7 +29,7 @@ const Cart = () => {
         </div>
         <div className="flex flex-wrap items-start bg-gray-50 flex-grow">
           {safeCart.map((cartItem) => (
-            <CartItem key={cartItem.id} {...cartItem} />
+            <CartItem actions={actions} key={cartItem.id} {...cartItem} />
           ))}
         </div>
         <p className="sticky bottom-0 bg-white border flex flex-col p-2 pb-1 px-4">

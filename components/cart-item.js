@@ -9,12 +9,14 @@ const CartItem = ({
   product_url,
   total,
   quantity,
+  actions,
 }) => (
   <div className="flex p-2 w-1/2">
     <div className="border rounded-sm bg-white">
       <p className="bg-white text-sm font-semibold p-3 leading-snug">
         {quantity}x{' '}
         <Link
+          onClick={actions.hideCart}
           href="/produto/[slug]"
           as={api.vnda.getOwnPath(product_url)}
           className="hover:text-teal-600"
