@@ -59,7 +59,7 @@ const OutOfStockForm = ({ product, innerRef }) => {
           required
           label="Seu e-mail"
           autoFocus
-          bg="gray-100"
+          bg="gray-50"
           button={
             sending ? (
               <CircularProgress className="mx-2 text-gray-900" />

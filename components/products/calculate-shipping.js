@@ -51,7 +51,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
         {...text('zip')}
         autoFocus
         required
-        bg="gray-100"
+        bg="gray-50"
         label="Qual o seu CEP?"
         button={
           <IconButton type="submit" onClick={handleSubmit} aria-label="Enviar">
