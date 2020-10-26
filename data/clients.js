@@ -1,14 +1,5 @@
 export default [
   {
-    "address": "R SETE DE SETEMBRO, 122 - CENTRO",
-    "fullAddress": "R SETE DE SETEMBRO, 122 - CENTRO - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "GRAOS E ERVAS NATURAIS",
-    "fone": "(48) 3364-8370",
-    "url": null
-  },
-  {
     "address": "R MOACYR PEREIRA JUNIOR, 11 - LAGOA DA CONCEICAO",
     "fullAddress": "R MOACYR PEREIRA JUNIOR, 11 - LAGOA DA CONCEICAO - Florianópolis - SC",
     "state": "SC",
@@ -27,24 +18,6 @@ export default [
     "url": null
   },
   {
-    "address": "AVENIDA ESTEFANO JOSE VANOLLI, 702 - SALA 3A - SAO VICENTE",
-    "fullAddress": "AVENIDA ESTEFANO JOSE VANOLLI, 702 - SALA 3A - SAO VICENTE - Itajaí - SC",
-    "state": "SC",
-    "city": "Itajaí",
-    "name": "CAPIM LIMAO PRODUTOS NATURAIS",
-    "fone": "",
-    "url": null
-  },
-  {
-    "address": "Rua Deputa Antônio Edu Vieira, 523 - Pantanal",
-    "fullAddress": "Rua Deputa Antônio Edu Vieira, 523 - Pantanal",
-    "state": "",
-    "city": "",
-    "name": "",
-    "fone": "(48) 3024-8170 / (48) 99116-1388",
-    "url": null
-  },
-  {
     "address": "",
     "fullAddress": " ",
     "state": " ",
@@ -60,69 +33,6 @@ export default [
     "city": "",
     "name": "",
     "fone": "",
-    "url": null
-  },
-  {
-    "address": "Rua Intendente João Nunes Vieira, 650 - loja 1 - Ingleses do Rio Vermelho",
-    "fullAddress": "Rua Intendente João Nunes Vieira, 650 - loja 1 - Ingleses do Rio Vermelho - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "NatuFit",
-    "fone": "(48) 3025-3526 / (48) 99652-5328",
-    "url": null
-  },
-  {
-    "address": "RUA LÉO AUGUSTO DA SILVA, 88 - Loja 04 - SERRARIA",
-    "fullAddress": "RUA LÉO AUGUSTO DA SILVA, 88 - Loja 04 - SERRARIA - São José - SC",
-    "state": "SC",
-    "city": "São José",
-    "name": "Divino Grão ",
-    "fone": "(48) 99626-2312",
-    "url": null
-  },
-  {
-    "address": "AVENIDA LUIZ BOITEUX PIAZZA, 2592 - Nao Informado - CACHOEIRA DO BOM JESUS",
-    "fullAddress": "AVENIDA LUIZ BOITEUX PIAZZA, 2592 - Nao Informado - CACHOEIRA DO BOM JESUS - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Alecrim e Mel",
-    "fone": "(48) 9914-9948",
-    "url": null
-  },
-  {
-    "address": "Avenida Pequeno Príncipe, 1820 - Campeche",
-    "fullAddress": "Avenida Pequeno Príncipe, 1820 - Campeche - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "EMPORIO VITTA",
-    "fone": "(48) 9990-4691",
-    "url": null
-  },
-  {
-    "address": "Rua Sebastião Laurentino da Silva, 1801 - sala 01 - Córrego Grande",
-    "fullAddress": "Rua Sebastião Laurentino da Silva, 1801 - sala 01 - Córrego Grande - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Intergrãos ",
-    "fone": "(48) 9621-2808 / (48) 9621-2808",
-    "url": null
-  },
-  {
-    "address": "RUA CAPITAO ADELINO PLATT, 61 - LOJA 02 BLOCO B - KOBRASOL",
-    "fullAddress": "RUA CAPITAO ADELINO PLATT, 61 - LOJA 02 BLOCO B - KOBRASOL - São José - SC",
-    "state": "SC",
-    "city": "São José",
-    "name": "Vida Natural Campinas",
-    "fone": "(48) 9936-4110 / (48) 9936-4110",
-    "url": null
-  },
-  {
-    "address": "RUA ADHEMAR DA SILVA, 1072 - CASA - KOBRASOL",
-    "fullAddress": "RUA ADHEMAR DA SILVA, 1072 - CASA - KOBRASOL - São José - SC",
-    "state": "SC",
-    "city": "São José",
-    "name": "Vida Natural Kobrasol ",
-    "fone": "(48) 9159-3810 / (48) 9807-4110",
     "url": null
   },
   {
@@ -189,15 +99,6 @@ export default [
     "url": "http://yogashalars.blogspot.com/"
   },
   {
-    "address": "Rodovia Doutor Antônio Luiz Moura Gonzaga, 2471 - Rio Tavares",
-    "fullAddress": "Rodovia Doutor Antônio Luiz Moura Gonzaga, 2471 - Rio Tavares - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Grão Mestre - Naturais e Orgân",
-    "fone": "(48) 3733-5200",
-    "url": "https://www.armazemgraomestre.com/"
-  },
-  {
     "address": "RODOVIA SC 434, S/N - KM 10 - CAMPO D UNA",
     "fullAddress": "RODOVIA SC 434, S/N - KM 10 - CAMPO D UNA - Garopaba - SC",
     "state": "SC",
@@ -213,15 +114,6 @@ export default [
     "city": "Criciúma",
     "name": "Emporium & Cia",
     "fone": "(48) 3437-1037 / (48) 9992-1947",
-    "url": null
-  },
-  {
-    "address": "",
-    "fullAddress": "",
-    "state": "",
-    "city": "",
-    "name": "Olho de Tigre",
-    "fone": "(48) 9120-0004 / (48) 9120-0004",
     "url": null
   },
   {
@@ -252,33 +144,6 @@ export default [
     "url": null
   },
   {
-    "address": "AVENIDA MADRE BENVENUTA, 1093 - LOJA 03 E 04 - SANTA MONICA",
-    "fullAddress": "AVENIDA MADRE BENVENUTA, 1093 - LOJA 03 E 04 - SANTA MONICA - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "",
-    "fone": "(48) 3244-7684",
-    "url": null
-  },
-  {
-    "address": "AV PEQUENO PRINCIPE, 1257 - CAMPECHE",
-    "fullAddress": "AV PEQUENO PRINCIPE, 1257 - CAMPECHE - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "CASARAO",
-    "fone": "",
-    "url": null
-  },
-  {
-    "address": "AVENIDA OSMAR CUNHA, 281 - LOJA 02 - CENTRO",
-    "fullAddress": "AVENIDA OSMAR CUNHA, 281 - LOJA 02 - CENTRO - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Vida Natural Centro",
-    "fone": "(48) 3222-8179 / (48) 98431-0841",
-    "url": null
-  },
-  {
     "address": "Rua Waldomiro Correia Neto, 0 - Qd 24 lt 324c - Jardim Alexandrina",
     "fullAddress": "Rua Waldomiro Correia Neto, 0 - Qd 24 lt 324c - Jardim Alexandrina - Anápolis - GO",
     "state": "GO",
@@ -306,30 +171,12 @@ export default [
     "url": null
   },
   {
-    "address": "RUA MARECHAL DEODORO, 630 - LJ 80-V;  COND CENTRO COMERCIAL ITA - CENTRO",
-    "fullAddress": "RUA MARECHAL DEODORO, 630 - LJ 80-V;  COND CENTRO COMERCIAL ITA - CENTRO - CURITIBA - PR",
-    "state": "PR",
-    "city": "CURITIBA",
-    "name": "FLOR DE AROEIRA",
-    "fone": "(41) 99270-0409",
-    "url": "https://www.flordearoeira.com.br/"
-  },
-  {
     "address": "Rua Desembargador Pedro Silva, 79 - Victor Konder",
     "fullAddress": "Rua Desembargador Pedro Silva, 79 - Victor Konder - Blumenau - SC",
     "state": "SC",
     "city": "Blumenau",
     "name": "",
     "fone": "(47) 99120-7225",
-    "url": null
-  },
-  {
-    "address": "AV PEQUENO PRINCIPE, 2072 - CAMPECHE",
-    "fullAddress": "AV PEQUENO PRINCIPE, 2072 - CAMPECHE - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Armazem campeche",
-    "fone": "(48) 9626-5573 / (48) 9626-5573",
     "url": null
   },
   {
@@ -387,15 +234,6 @@ export default [
     "url": null
   },
   {
-    "address": "AV PEQUENO PRINCIPE, 1202 - CAMPECHE",
-    "fullAddress": "AV PEQUENO PRINCIPE, 1202 - CAMPECHE - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Aldeia Indigo",
-    "fone": "(48) 3365-8720",
-    "url": null
-  },
-  {
     "address": "30 de dezembro, 50 - sala 9 - centro",
     "fullAddress": "30 de dezembro, 50 - sala 9 - centro - Garopaba - SC",
     "state": "SC",
@@ -411,15 +249,6 @@ export default [
     "city": "Curitiba",
     "name": "Beaute Organique",
     "fone": "(41) 98493-4012",
-    "url": null
-  },
-  {
-    "address": "RUA HARMONIA, 123 - SUMAREZINHO",
-    "fullAddress": "RUA HARMONIA, 123 - SUMAREZINHO - SAO PAULO - SP",
-    "state": "SP",
-    "city": "SAO PAULO",
-    "name": "Instituto CHAO",
-    "fone": "(11) 3819-4205",
     "url": null
   },
   {
@@ -459,15 +288,6 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Estefano José Vanolli, 1460 - sala 01 - São Vicente",
-    "fullAddress": "Rua Estefano José Vanolli, 1460 - sala 01 - São Vicente - Itajaí - SC",
-    "state": "SC",
-    "city": "Itajaí",
-    "name": "Capim Limão",
-    "fone": "(47) 9159-8719",
-    "url": null
-  },
-  {
     "address": "RUA 1528, 135 - Nao Informado - CENTRO",
     "fullAddress": "RUA 1528, 135 - Nao Informado - CENTRO - Balneário Camboriú - SC",
     "state": "SC",
@@ -491,15 +311,6 @@ export default [
     "state": "RS",
     "city": "Porto Alegre",
     "name": "RESTAURANTE MANTRA GASTRONOMIA",
-    "fone": "",
-    "url": null
-  },
-  {
-    "address": "RUA LAURO LINHARES, 898 - TRINDADE",
-    "fullAddress": "RUA LAURO LINHARES, 898 - TRINDADE - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Divina Terra",
     "fone": "",
     "url": null
   },
@@ -594,15 +405,6 @@ export default [
     "url": null
   },
   {
-    "address": "RUA JOAO PIO DUARTE SILVA, 359 - LOJA  06 - CORREGO GRANDE",
-    "fullAddress": "RUA JOAO PIO DUARTE SILVA, 359 - LOJA  06 - CORREGO GRANDE - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Alma Vida Saudável",
-    "fone": "(48) 9806-9377 / (48) 9806-9377",
-    "url": null
-  },
-  {
     "address": "Rodovia Amaro Antônio Vieira, 2312 - Itacorubi",
     "fullAddress": "Rodovia Amaro Antônio Vieira, 2312 - Itacorubi - Florianópolis - SC",
     "state": "SC",
@@ -627,24 +429,6 @@ export default [
     "city": "Balneário Camboriú",
     "name": "DETRIA COSMETICOS",
     "fone": "(47) 9619-3855 / (47) 99619-3855",
-    "url": null
-  },
-  {
-    "address": "RUA DAS ALGAS, 733 - LOJA 02 - JURERÊ",
-    "fullAddress": "RUA DAS ALGAS, 733 - LOJA 02 - JURERÊ - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Emporio Salz",
-    "fone": "(48) 8846-5150",
-    "url": null
-  },
-  {
-    "address": "AV ENGENHEIRO MAX DE SOUZA, 1011 - COQUEIROS",
-    "fullAddress": "AV ENGENHEIRO MAX DE SOUZA, 1011 - COQUEIROS - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "ESTACAO DA SEMENTE",
-    "fone": "(48) 3364-4963 / (48) 9962-9631",
     "url": null
   },
   {
@@ -693,24 +477,6 @@ export default [
     "url": null
   },
   {
-    "address": "R CRISTOVAO MACHADO DE CAMPOS, 327 - LOJA 02 - CANASVIEIRAS",
-    "fullAddress": "R CRISTOVAO MACHADO DE CAMPOS, 327 - LOJA 02 - CANASVIEIRAS - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "SOL DA ILHA PRODUTOS NATURAIS",
-    "fone": "(48) 3266-8037 / (48) 99158-1651",
-    "url": null
-  },
-  {
-    "address": "R SANTOS SARAIVA, 238 - LOJA 08 - ESTREITO",
-    "fullAddress": "R SANTOS SARAIVA, 238 - LOJA 08 - ESTREITO - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "SUPER NATURAL",
-    "fone": "",
-    "url": null
-  },
-  {
     "address": "Rua Francois Teles de Menezes, 188 - Apt 704 - Fátima",
     "fullAddress": "Rua Francois Teles de Menezes, 188 - Apt 704 - Fátima - Fortaleza - CE",
     "state": "CE",
@@ -747,15 +513,6 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Maestro Aldo Krieger, 54 - loja 06 - Córrego Grande",
-    "fullAddress": "Rua Maestro Aldo Krieger, 54 - loja 06 - Córrego Grande - Florianópolis - SC",
-    "state": "SC",
-    "city": "Florianópolis",
-    "name": "Boutique Hair & Nails",
-    "fone": "(48) 3207-5632 / (48) 9919-8715",
-    "url": null
-  },
-  {
     "address": "AV PRES. ARTHUR DA SILVA BERNARDES, 713 - LOJA 19 - SANTA QUITERIA",
     "fullAddress": "AV PRES. ARTHUR DA SILVA BERNARDES, 713 - LOJA 19 - SANTA QUITERIA - Curitiba - PR",
     "state": "PR",
@@ -780,15 +537,6 @@ export default [
     "city": "Rio de Janeiro",
     "name": "HERBORISTA ",
     "fone": "(21) 2547-1555",
-    "url": null
-  },
-  {
-    "address": "",
-    "fullAddress": "",
-    "state": "",
-    "city": "",
-    "name": "",
-    "fone": "(51) 9103-8310",
     "url": null
   },
   {
@@ -826,5 +574,257 @@ export default [
     "name": "   Libelula Cosméticos",
     "fone": "(61) 98123-1819 / (61) 98123-1819",
     "url": null
+  },
+  {
+    "address": "AV PEQUENO PRINCIPE, 1202 - CAMPECHE",
+    "fullAddress": "AV PEQUENO PRINCIPE, 1202 - CAMPECHE - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Aldeia Indigo",
+    "fone": "(48) 3365-8720",
+    "url": null
+  },
+  {
+    "address": "RUA JOAO PIO DUARTE SILVA, 359 - LOJA  06 - CORREGO GRANDE",
+    "fullAddress": "RUA JOAO PIO DUARTE SILVA, 359 - LOJA  06 - CORREGO GRANDE - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Alma Vida Saudável",
+    "fone": "(48) 9806-9377 / (48) 9806-9377",
+    "url": null
+  },
+  {
+    "address": "AV PEQUENO PRINCIPE, 2072 - CAMPECHE",
+    "fullAddress": "AV PEQUENO PRINCIPE, 2072 - CAMPECHE - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Armazem campeche",
+    "fone": "(48) 9626-5573 / (48) 9626-5573",
+    "url": null
+  },
+  {
+    "address": "Rua Maestro Aldo Krieger, 54 - loja 06 - Córrego Grande",
+    "fullAddress": "Rua Maestro Aldo Krieger, 54 - loja 06 - Córrego Grande - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Boutique Hair & Nails",
+    "fone": "(48) 3207-5632 / (48) 9919-8715",
+    "url": null
+  },
+  {
+    "address": "Rua Estefano José Vanolli, 1460 - sala 01 - São Vicente",
+    "fullAddress": "Rua Estefano José Vanolli, 1460 - sala 01 - São Vicente - Itajaí - SC",
+    "state": "SC",
+    "city": "Itajaí",
+    "name": "Capim Limão",
+    "fone": "(47) 9159-8719",
+    "url": null
+  },
+  {
+    "address": "AV PEQUENO PRINCIPE, 1257 - CAMPECHE",
+    "fullAddress": "AV PEQUENO PRINCIPE, 1257 - CAMPECHE - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "CASARAO",
+    "fone": "",
+    "url": null
+  },
+  {
+    "address": "AVENIDA OSMAR CUNHA, 281 - LOJA 02 - CENTRO",
+    "fullAddress": "AVENIDA OSMAR CUNHA, 281 - LOJA 02 - CENTRO - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Vida Natural Centro",
+    "fone": "(48) 3222-8179 / (48) 98431-0841",
+    "url": null
+  },
+  {
+    "address": "RUA DAS ALGAS, 733 - LOJA 02 - JURERÊ",
+    "fullAddress": "RUA DAS ALGAS, 733 - LOJA 02 - JURERÊ - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Emporio Salz",
+    "fone": "(48) 8846-5150",
+    "url": null
+  },
+  {
+    "address": "R SETE DE SETEMBRO, 122 - CENTRO",
+    "fullAddress": "R SETE DE SETEMBRO, 122 - CENTRO - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "GRAOS E ERVAS NATURAIS",
+    "fone": "(48) 3364-8370",
+    "url": null
+  },
+  {
+    "address": "",
+    "fullAddress": "",
+    "state": "",
+    "city": "",
+    "name": "Olho de Tigre",
+    "fone": "(48) 9120-0004 / (48) 9120-0004",
+    "url": null
+  },
+  {
+    "address": "AVENIDA MADRE BENVENUTA, 1093 - LOJA 03 E 04 - SANTA MONICA",
+    "fullAddress": "AVENIDA MADRE BENVENUTA, 1093 - LOJA 03 E 04 - SANTA MONICA - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "",
+    "fone": "(48) 3244-7684",
+    "url": null
+  },
+  {
+    "address": "AV ENGENHEIRO MAX DE SOUZA, 1011 - COQUEIROS",
+    "fullAddress": "AV ENGENHEIRO MAX DE SOUZA, 1011 - COQUEIROS - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "ESTACAO DA SEMENTE",
+    "fone": "(48) 3364-4963 / (48) 9962-9631",
+    "url": null
+  },
+  {
+    "address": "Avenida Pequeno Príncipe, 1820 - Campeche",
+    "fullAddress": "Avenida Pequeno Príncipe, 1820 - Campeche - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "EMPORIO VITTA",
+    "fone": "(48) 9990-4691",
+    "url": null
+  },
+  {
+    "address": "Rua Sebastião Laurentino da Silva, 1801 - sala 01 - Córrego Grande",
+    "fullAddress": "Rua Sebastião Laurentino da Silva, 1801 - sala 01 - Córrego Grande - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Intergrãos ",
+    "fone": "(48) 9621-2808 / (48) 9621-2808",
+    "url": null
+  },
+  {
+    "address": "AVENIDA LUIZ BOITEUX PIAZZA, 2592 - Nao Informado - CACHOEIRA DO BOM JESUS",
+    "fullAddress": "AVENIDA LUIZ BOITEUX PIAZZA, 2592 - Nao Informado - CACHOEIRA DO BOM JESUS - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Alecrim e Mel",
+    "fone": "(48) 9914-9948",
+    "url": null
+  },
+  {
+    "address": "RUA CAPITAO ADELINO PLATT, 61 - LOJA 02 BLOCO B - KOBRASOL",
+    "fullAddress": "RUA CAPITAO ADELINO PLATT, 61 - LOJA 02 BLOCO B - KOBRASOL - São José - SC",
+    "state": "SC",
+    "city": "São José",
+    "name": "Vida Natural Campinas",
+    "fone": "(48) 9936-4110 / (48) 9936-4110",
+    "url": null
+  },
+  {
+    "address": "Rua Intendente João Nunes Vieira, 650 - loja 1 - Ingleses do Rio Vermelho",
+    "fullAddress": "Rua Intendente João Nunes Vieira, 650 - loja 1 - Ingleses do Rio Vermelho - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "NatuFit",
+    "fone": "(48) 3025-3526 / (48) 99652-5328",
+    "url": null
+  },
+  {
+    "address": "RUA LÉO AUGUSTO DA SILVA, 88 - Loja 04 - SERRARIA",
+    "fullAddress": "RUA LÉO AUGUSTO DA SILVA, 88 - Loja 04 - SERRARIA - São José - SC",
+    "state": "SC",
+    "city": "São José",
+    "name": "Divino Grão ",
+    "fone": "(48) 99626-2312",
+    "url": null
+  },
+  {
+    "address": "R SANTOS SARAIVA, 238 - LOJA 08 - ESTREITO",
+    "fullAddress": "R SANTOS SARAIVA, 238 - LOJA 08 - ESTREITO - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "SUPER NATURAL",
+    "fone": "",
+    "url": null
+  },
+  {
+    "address": "AVENIDA ESTEFANO JOSE VANOLLI, 702 - SALA 3A - SAO VICENTE",
+    "fullAddress": "AVENIDA ESTEFANO JOSE VANOLLI, 702 - SALA 3A - SAO VICENTE - Itajaí - SC",
+    "state": "SC",
+    "city": "Itajaí",
+    "name": "CAPIM LIMAO PRODUTOS NATURAIS",
+    "fone": "",
+    "url": null
+  },
+  {
+    "address": "RUA ADHEMAR DA SILVA, 1072 - CASA - KOBRASOL",
+    "fullAddress": "RUA ADHEMAR DA SILVA, 1072 - CASA - KOBRASOL - São José - SC",
+    "state": "SC",
+    "city": "São José",
+    "name": "Vida Natural Kobrasol ",
+    "fone": "(48) 9159-3810 / (48) 9807-4110",
+    "url": null
+  },
+  {
+    "address": "Rua Deputa Antônio Edu Vieira, 523 - Pantanal",
+    "fullAddress": "Rua Deputa Antônio Edu Vieira, 523 - Pantanal",
+    "state": "",
+    "city": "",
+    "name": "",
+    "fone": "(48) 3024-8170 / (48) 99116-1388",
+    "url": null
+  },
+  {
+    "address": "RUA LAURO LINHARES, 898 - TRINDADE",
+    "fullAddress": "RUA LAURO LINHARES, 898 - TRINDADE - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Divina Terra",
+    "fone": "",
+    "url": null
+  },
+  {
+    "address": "R CRISTOVAO MACHADO DE CAMPOS, 327 - LOJA 02 - CANASVIEIRAS",
+    "fullAddress": "R CRISTOVAO MACHADO DE CAMPOS, 327 - LOJA 02 - CANASVIEIRAS - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "SOL DA ILHA PRODUTOS NATURAIS",
+    "fone": "(48) 3266-8037 / (48) 99158-1651",
+    "url": null
+  },
+  {
+    "address": "Rodovia Doutor Antônio Luiz Moura Gonzaga, 2471 - Rio Tavares",
+    "fullAddress": "Rodovia Doutor Antônio Luiz Moura Gonzaga, 2471 - Rio Tavares - Florianópolis - SC",
+    "state": "SC",
+    "city": "Florianópolis",
+    "name": "Grão Mestre - Naturais e Orgân",
+    "fone": "(48) 3733-5200",
+    "url": "https://www.armazemgraomestre.com/"
+  },
+  {
+    "address": "Rua Sapê, 800 - Passo da Areia",
+    "fullAddress": "Rua Sapê, 800 - Passo da Areia - Porto Alegre - RS",
+    "state": "RS",
+    "city": "Porto Alegre",
+    "name": "Casa Natural",
+    "fone": "(51) 99103-8310",
+    "url": null
+  },
+  {
+    "address": "Rua Harmonia, 123 - Sumarezinho",
+    "fullAddress": "Rua Harmonia, 123 - Sumarezinho - São Paulo - SP",
+    "state": "SP",
+    "city": "São Paulo",
+    "name": "Instituto CHAO",
+    "fone": "(11) 3819-4205",
+    "url": null
+  },
+  {
+    "address": "Rua Marechal Deodoro, 630 - LJ 80-V;  COND CENTRO COMERCIAL ITA - Centro",
+    "fullAddress": "Rua Marechal Deodoro, 630 - LJ 80-V;  COND CENTRO COMERCIAL ITA - Centro - Curitiba - PR",
+    "state": "PR",
+    "city": "Curitiba",
+    "name": "FLOR DE AROEIRA",
+    "fone": "(41) 99270-0409",
+    "url": "https://www.flordearoeira.com.br/"
   }
 ]
