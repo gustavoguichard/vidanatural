@@ -1,5 +1,7 @@
-import map from 'lodash/map'
+import capitalize from 'lodash/capitalize'
 import { FaMapPin, FaExternalLinkAlt } from 'react-icons/fa'
+
+const titleCase = (string) => string.split(' ').map(capitalize).join(' ')
 
 const InfoDisplay = ({ title, children }) =>
   children ? (
@@ -19,33 +21,35 @@ const LinkInfo = ({ Icon, children, ...props }) => (
   </a>
 )
 
-const Distributor = ({ place }) => (
-  <div className="pb-3">
-    <h6 className="font-semibold text-lg tracking-tight">{place.name}</h6>
-    {map(place.address, (addr, index) => (
-      <div key={`addr-${addr}`}>
+const Distributor = ({ place }) => {
+  return (
+    <div className="pb-3">
+      <h6 className="font-semibold text-lg tracking-tight">
+        {titleCase(place.name)}
+      </h6>
+      <div>
         <LinkInfo
           title="Ver no mapa"
-          href={`https://www.google.com.br/maps/place/${place.fullAddress[index]}`}
+          href={`https://www.google.com.br/maps/place/${place.fullAddress}`}
           Icon={FaMapPin}
         >
-          {addr}
+          {place.address}
         </LinkInfo>
       </div>
-    ))}
-    <InfoDisplay title="telefone">{place.phone}</InfoDisplay>
-    <InfoDisplay title="website">
-      {place.url ? (
-        <LinkInfo
-          href={place.url}
-          title={`Ir para o site de ${place.name}`}
-          Icon={FaExternalLinkAlt}
-        >
-          {place.url}
-        </LinkInfo>
-      ) : null}
-    </InfoDisplay>
-  </div>
-)
+      <InfoDisplay title="telefone">{place.phone}</InfoDisplay>
+      <InfoDisplay title="website">
+        {place.url ? (
+          <LinkInfo
+            href={place.url}
+            title={`Ir para o site de ${place.name}`}
+            Icon={FaExternalLinkAlt}
+          >
+            {place.url}
+          </LinkInfo>
+        ) : null}
+      </InfoDisplay>
+    </div>
+  )
+}
 
 export default Distributor

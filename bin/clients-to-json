@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'active_support'
+
+require 'csv'
+require 'json'
+
+if ARGV.size != 1
+  puts 'Usage: csv_to_json input_file.csv'
+  puts 'This script uses the first line of the csv file as the keys for the JSON properties of the objects'
+  exit(1)
+end
+
+lines = CSV.open(ARGV[0]).readlines
+keys = lines.delete lines.first
+
+def clean(arr)
+  arr.reject(&:empty?)
+end
+
+def link(url)
+  return nil if url.empty?
+
+  url.start_with?('http') ? url : "https://#{url}"
+end
+
+current_dir = File.dirname(__FILE__)
+output = File.expand_path(File.join(current_dir, '..', 'data/clients.js'))
+
+File.open(output, 'w') do |f|
+  data = lines.map do |values|
+    Hash[keys.zip(values)]
+  end
+  filtered = data.map do |client|
+    street = clean([client['Endereço'], client['Número']]).join(', ')
+    address = clean([street, client['Complemento'], client['Bairro']]).join(' - ')
+    hash = {
+      address: address,
+      fullAddress: clean([address, client['Cidade'], client['Estado']]).join(' - '),
+      state: client['Estado'],
+      city: client['Cidade'],
+      name: client['Fantasia'] || h['Nome'],
+      fone: clean([client['Fone'], client['Celular']]).join(' / '),
+      url: link(client['Web Site'])
+    }
+    hash
+  end
+  f.puts "export default #{JSON.pretty_generate(filtered)}"
+end
