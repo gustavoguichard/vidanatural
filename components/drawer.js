@@ -5,8 +5,8 @@ function Drawer({ children, className, anchor = 'left', open, onClose }) {
     'animate__animated animate__faster text-gray-900 bg-white shadow-lg absolute top-0 bottom-0 overflow-y-auto overscroll-contain',
     className,
     {
-      'right-0 animate__fadeInRight': anchor === 'right',
-      'left-0 animate__fadeInLeft': anchor === 'left',
+      'right-0 animate__slideInRight': anchor === 'right',
+      'left-0 animate__slideInLeft': anchor === 'left',
     },
   )
   return open ? (
