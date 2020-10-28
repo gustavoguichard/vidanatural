@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import React, { memo } from 'react'
 import dynamic from 'next/dynamic'
 import Router from 'next/router'
 

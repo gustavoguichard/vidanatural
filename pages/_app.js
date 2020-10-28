@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'

@@ -1,4 +1,4 @@
-import { useState, forwardRef } from 'react'
+import React, { useState, forwardRef } from 'react'
 
 import { classes } from 'lib/utils'
 import useGlobal from 'lib/use-global'

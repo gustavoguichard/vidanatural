@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 
 import Drawer from 'components/drawer'
