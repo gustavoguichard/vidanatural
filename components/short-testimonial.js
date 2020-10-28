@@ -13,11 +13,7 @@ const ShortTestimonial = ({ data, uid, className }) => {
   )
   return (
     <div className={cx}>
-      <Link
-        href="/eu-uso/[name]"
-        as={`/eu-uso/${uid}`}
-        title="Ver depoimento completo"
-      >
+      <Link href={`/eu-uso/${uid}`} title="Ver depoimento completo">
         <Img
           className="h-24 w-24 m-auto mb-4 rounded-full"
           alt={name}

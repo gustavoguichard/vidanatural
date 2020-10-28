@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 
 import { classes } from 'lib/utils'
 
-function Link({ activeClassName, className, href, as, ...props }, ref) {
+function Link({ activeClassName, className, href, ...props }, ref) {
   const router = useRouter()
   const cx = classes(className, {
     [activeClassName]: router.pathname === href && activeClassName,
@@ -14,7 +14,7 @@ function Link({ activeClassName, className, href, as, ...props }, ref) {
   return href.startsWith('http') ? (
     <a ref={ref} href={href} className={cx} {...props} />
   ) : (
-    <NextLink href={href} as={as}>
+    <NextLink href={href}>
       <a ref={ref} className={cx} {...props} />
     </NextLink>
   )

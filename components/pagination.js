@@ -17,8 +17,7 @@ const Pagination = ({ page, count, path = '/', className }) => {
         return (
           <Link
             type="button"
-            href={idx === 1 ? path : `${path}/page/[number]`}
-            as={idx === 1 ? path : `${path}/page/${idx}`}
+            href={idx === 1 ? path : `${path}/page/${idx}`}
             key={`page-index-${idx}`}
             className={cx}
           >

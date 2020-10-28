@@ -16,7 +16,7 @@ const PostPreview = ({
   <div className="sm:flex mb-12 sm:space-x-6">
     {thumbUrl && (
       <div className="sm:w-1/4 mb-4">
-        <Link title="Ir para o post" {...permalink}>
+        <Link title="Ir para o post" href={permalink}>
           <Img
             className="max-w-full"
             src={thumbUrl}
@@ -26,7 +26,7 @@ const PostPreview = ({
       </div>
     )}
     <div className="sm:w-3/4">
-      <Link {...permalink}>
+      <Link href={permalink}>
         <h3 className="text-3xl hover:underline font-bold tracking-tight leading-none">
           {data.title}
         </h3>
@@ -35,7 +35,7 @@ const PostPreview = ({
         <AuthorCard author={author} post={data.body} date={date} />
       </div>
       <div className="mb-2 text-lg">{excerpt}</div>
-      <Link {...permalink} className="text-sm hover:underline">
+      <Link href={permalink} className="text-sm hover:underline">
         Ler mais
       </Link>
     </div>

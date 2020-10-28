@@ -11,8 +11,7 @@ const PostTags = ({ tags }) => (
       .map((tag, idx) => (
         <Link
           className="inline-flex border hover:underline hover:border-gray-500 border-gray-400 hover:bg-gray-100 rounded-lg px-1 items-center text-gray-700 m-1 text-xs"
-          href="/tag/[uid]"
-          as={`/tag/${tag}`}
+          href={`/tag/${tag}`}
           key={`tag-${idx}`}
         >
           <FiTag className="mr-1" /> {startCase(tag)}

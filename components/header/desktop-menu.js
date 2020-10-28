@@ -24,7 +24,6 @@ const SubMenu = ({ name, active, links }) => {
         {links.map((subItem, idx) => (
           <Link
             href={subItem.path}
-            as={subItem.as}
             onClick={() => setOpen(false)}
             key={`submenu-${idx}`}
             className="flex px-4 py-2  text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-200 focus:text-gray-900"
@@ -54,7 +53,6 @@ const DesktopMenu = ({ tags }) => {
             }`}
             key={item.name}
             href={item.path}
-            as={item.as}
           >
             {item.name}
           </Link>

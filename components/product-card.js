@@ -47,11 +47,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="flex rounded border border-transparent hover:border-gray-200 items-start group overflow-hidden bg-gray-100 bg-opacity-50">
-      <Link
-        className="flex h-full"
-        href="/produto/[slug]"
-        as={`/produto/${product.slug}`}
-      >
+      <Link className="flex h-full" href={`/produto/${product.slug}`}>
         <div className="flex flex-col flex-grow relative">
           <Img
             alt={product.name}

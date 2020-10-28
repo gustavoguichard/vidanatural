@@ -9,11 +9,10 @@ import Link from 'components/link'
 import menu from 'data/menu'
 import brandImg from 'public/static/svgs/brand.svg'
 
-const MenuButton = ({ name, path, as, onClose }) => (
+const MenuButton = ({ name, path, onClose }) => (
   <Link
     className="flex py-3 px-4 hover:bg-gray-100"
     href={path}
-    as={as}
     onClick={onClose}
   >
     {name}
@@ -38,7 +37,7 @@ const MenuItem = ({ name, as, onClose, path, links }) => {
           ))}
         </div>
       ) : (
-        <MenuButton onClose={onClose} name={name} path={path} as={as} />
+        <MenuButton onClose={onClose} name={name} path={path} />
       )}
     </>
   )

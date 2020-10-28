@@ -17,8 +17,7 @@ const CartItem = ({
         {quantity}x{' '}
         <Link
           onClick={actions.hideCart}
-          href="/produto/[slug]"
-          as={api.vnda.getOwnPath(product_url)}
+          href={api.vnda.getOwnPath(product_url)}
           className="hover:text-teal-600"
         >
           {product_name}

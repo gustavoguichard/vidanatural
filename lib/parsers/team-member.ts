@@ -7,8 +7,5 @@ export default (member: TeamMember) => ({
   thumbUrl: get(member, 'data.picture.url'),
   imgAlt: get(member, 'data.picture.alt'),
   firstName: member.data.name.split(' '),
-  permalink: {
-    href: '/equipe/[name]',
-    as: `/equipe/${member.uid}`,
-  },
+  permalink: `/equipe/${member.uid}`,
 })

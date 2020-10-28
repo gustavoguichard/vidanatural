@@ -12,7 +12,7 @@ export default (post: BlogPost) => {
   const featuredUrl = get(header_image, 'url', null)
   const imgAlt = get(header_image, 'alt', title)
   const author = parseMember(data.author)
-  const permalink = { href: '/blog/[slug]', as: `/blog/${uid}` }
+  const permalink = `/blog/${uid}`
   return {
     ...post,
     thumbUrl,

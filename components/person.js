@@ -7,7 +7,7 @@ import Link from 'components/link'
 const Person = ({ data, uid }) => {
   const { is_long, picture, name } = data
   return (
-    <Link href="/eu-uso/[name]" as={`/eu-uso/${uid}`}>
+    <Link href={`/eu-uso/${uid}`}>
       <figure
         className="cursor-pointer transition-all duration-300 m-0 mb-px w-full flex relative flex-col pr-px"
         css={{

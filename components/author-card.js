@@ -18,7 +18,7 @@ const AuthorCard = ({
   return (
     <div className={cx}>
       {showAvatar && (
-        <Link {...author.permalink}>
+        <Link href={author.permalink}>
           <Img
             className="h-10 w-10 rounded-full"
             alt={author.imgAlt}

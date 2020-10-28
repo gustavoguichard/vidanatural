@@ -21,7 +21,7 @@ const DocumentDetails = ({
             {disableLink ? (
               author.data.name
             ) : (
-              <Link {...author.permalink} className="hover:underline">
+              <Link href={author.permalink} className="hover:underline">
                 {author.data.name}
               </Link>
             )}
