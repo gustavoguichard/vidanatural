@@ -28,7 +28,12 @@ const Page = () => (
             🙌
           </span>
         </p>
-        <CTAButton primary className="mt-6" href="/produtos?ccc=BLACKFRIDAY">
+        <CTAButton
+          primary
+          outlined
+          className="mt-6"
+          href="/produtos?ccc=BLACKFRIDAY"
+        >
           Comprar com o cupom
         </CTAButton>
       </div>
