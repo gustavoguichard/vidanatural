@@ -10,21 +10,27 @@ const Page = () => (
       size="full"
       background="/static/images/bf/banner.jpg"
     >
-      <h2 className="text-6xl uppercase tracking-tight font-extrabold">
-        Black friday <span className="text-teal-300">VN</span>
-      </h2>
-      <p className="text-2xl font-semibold">
-        Preparamos uma oferta especial para você que já conhece nossos produtos.
-        <br />
-        Ao clicar nos links desta página você receberá um cupom de desconto que
-        será aplicado na finalização da compra.{' '}
-        <span aria-label="Emoji de mãos celbrando" role="img">
-          🙌
-        </span>
-      </p>
-      <CTAButton primary className="mt-4" href="/produtos?ccc=BLACKFRIDAY">
-        Comprar com o cupom
-      </CTAButton>
+      <div className="max-w-screen-md px-10">
+        <h2 className="text-6xl uppercase tracking-tighter font-extrabold leading-none">
+          Black friday <span className="text-teal-300">VN</span>
+        </h2>
+        <p className="text-2xl leading-snug tracking-tight">
+          Preparamos uma{' '}
+          <strong className="font-extrabold">oferta especial</strong> para você
+          que já conhece a VN.
+          <br />
+          Ao clicar nos links desta página você receberá um{' '}
+          <strong className="font-extrabold">cupom de desconto</strong> que será
+          aplicado na <strong className="font-extrabold">finalização</strong> da
+          compra.{' '}
+          <span aria-label="Emoji de mãos celbrando" role="img">
+            🙌
+          </span>
+        </p>
+        <CTAButton primary className="mt-4" href="/produtos?ccc=BLACKFRIDAY">
+          Comprar com o cupom
+        </CTAButton>
+      </div>
     </Hero>
     <div className="max-w-screen-xl p-2 m-auto flex flex-col lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0">
       <div className="flex-grow border-2 border-teal-500 relative overflow-hidden bg-gray-900 text-white">

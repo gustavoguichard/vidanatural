@@ -27,7 +27,7 @@ const CTAButton = (
     {
       'text-white bg-teal-600': primary && !outlined,
       'text-white bg-gray-900': !primary && !outlined,
-      'border-2 border-current': outlined,
+      'border-2 border-current font-semibold': outlined,
       'text-teal-300': outlined && primary,
       'hover:bg-opacity-75 hover:shadow-lg': !outlined,
     },
