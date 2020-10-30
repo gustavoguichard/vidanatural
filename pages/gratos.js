@@ -1,6 +1,6 @@
 import Hero from 'components/hero'
 import Layout from 'components/layout'
-import Link from 'next/link'
+import Link from 'components/link'
 
 const Page = () => (
   <Layout title="Gratos pelo contato">
@@ -9,8 +9,8 @@ const Page = () => (
       <p className="mt-2 text-lg">
         Retornaremos assim que possível.
         <br />
-        <Link href="/">
-          <a className="font-semibold text-teal-400">Voltar para a Homepage</a>
+        <Link className="font-semibold text-teal-400" href="/">
+          Voltar para a Homepage
         </Link>
       </p>
     </Hero>
