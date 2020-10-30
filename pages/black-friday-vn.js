@@ -10,7 +10,7 @@ const Page = () => (
       size="full"
       background="/static/images/bf/banner.jpg"
     >
-      <div className="max-w-screen-md px-10">
+      <div className="max-w-screen-md px-10 pt-12">
         <h2 className="text-6xl uppercase tracking-tighter font-extrabold leading-none">
           Black friday <span className="text-teal-300">VN</span>
         </h2>
@@ -18,7 +18,8 @@ const Page = () => (
           Preparamos uma{' '}
           <strong className="font-extrabold">oferta especial</strong> para você
           que já conhece a VN.
-          <br />
+        </p>
+        <p className="text-2xl mt-2 leading-snug tracking-tight">
           Ao clicar nos links desta página você receberá um{' '}
           <strong className="font-extrabold">cupom de desconto</strong> que será
           aplicado na <strong className="font-extrabold">finalização</strong> da
@@ -27,7 +28,7 @@ const Page = () => (
             🙌
           </span>
         </p>
-        <CTAButton primary className="mt-4" href="/produtos?ccc=BLACKFRIDAY">
+        <CTAButton primary className="mt-6" href="/produtos?ccc=BLACKFRIDAY">
           Comprar com o cupom
         </CTAButton>
       </div>
