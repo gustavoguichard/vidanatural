@@ -11,7 +11,8 @@ const CTAButton = (
     mini,
     children,
     disableIcon,
-    inverted,
+    primary,
+    outlined,
     IconComponent = FaAngleRight,
     className,
     external,
@@ -20,10 +21,16 @@ const CTAButton = (
   ref,
 ) => {
   const cx = classes(
-    'group tracking-wide transition duration-200 inline-flex relative rounded-sm items-center justify-center hover:bg-opacity-75 hover:shadow-lg focus:outline-none focus:shadow-outline',
+    'group tracking-wide transition duration-200 inline-flex relative rounded-sm items-center justify-center focus:outline-none focus:shadow-outline',
     className,
     { 'text-xs p-2': mini, 'p-4': !mini },
-    { 'text-gray-900 bg-white': inverted, 'text-white bg-gray-900': !inverted },
+    {
+      'text-white bg-teal-600': primary && !outlined,
+      'text-white bg-gray-900': !primary && !outlined,
+      'border-2 border-current': outlined,
+      'text-teal-300': outlined && primary,
+      'hover:bg-opacity-75 hover:shadow-lg': !outlined,
+    },
   )
 
   const Component = href ? (external ? 'a' : Link) : 'button'
