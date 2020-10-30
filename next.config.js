@@ -3,17 +3,11 @@ const optimizedImages = require('next-optimized-images')
 const sourceMaps = require('@zeit/next-source-maps')
 
 const nextConfig = {
-  async redirects() {
+  async rewrites() {
     return [
-      {
-        source: '/black-friday',
-        destination: '/produtos?ccc=BLACKFRIDAY',
-        permanent: false,
-      },
       {
         source: '/produtos/:slug',
         destination: '/produto/:slug',
-        permanent: true,
       },
     ]
   },
