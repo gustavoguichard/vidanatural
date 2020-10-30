@@ -9,6 +9,10 @@ const nextConfig = {
         source: '/produtos/:slug',
         destination: '/produto/:slug',
       },
+      {
+        source: '/black-friday',
+        destination: '/black-friday-vn',
+      },
     ]
   },
 }
