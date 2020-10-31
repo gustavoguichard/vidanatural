@@ -4,14 +4,16 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaExternalLinkAlt } from 'react-icons/fa'
 const titleCase = (string) => string.split(' ').map(capitalize).join(' ')
 
 const LinkInfo = ({ Icon, children, ...props }) => (
-  <a
-    className="text-gray-500 hover:underline text-sm inline-flex items-center hover:text-teal-600"
-    target="_blank"
-    rel="noreferrer noopener"
-    {...props}
-  >
-    <Icon className="w-3 mr-1 text-gray-600" /> {children}
-  </a>
+  <p>
+    <a
+      className="text-gray-500 hover:underline text-sm inline-flex items-center hover:text-teal-600"
+      target="_blank"
+      rel="noreferrer noopener"
+      {...props}
+    >
+      <Icon className="w-3 mr-1 text-gray-600" /> {children}
+    </a>
+  </p>
 )
 
 const Distributor = ({ place }) => {
@@ -20,15 +22,13 @@ const Distributor = ({ place }) => {
       <h6 className="font-semibold leading-snug text-gray-600">
         {titleCase(place.name)}
       </h6>
-      <div>
-        <LinkInfo
-          title="Ver no mapa"
-          href={`https://www.google.com.br/maps/place/${place.fullAddress}`}
-          Icon={FaMapMarkerAlt}
-        >
-          {place.address}
-        </LinkInfo>
-      </div>
+      <LinkInfo
+        title="Ver no mapa"
+        href={`https://www.google.com.br/maps/place/${place.fullAddress}`}
+        Icon={FaMapMarkerAlt}
+      >
+        {place.address}
+      </LinkInfo>
       {place.phone && (
         <p className="text-gray-500 text-sm inline-flex items-center">
           <FaPhoneAlt className="w-3 mr-1 text-gray-600" /> {place.phone}
