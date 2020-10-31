@@ -33,15 +33,15 @@ File.open(output, 'w') do |f|
     Hash[keys.zip(values)]
   end
   filtered = data.map do |client|
-    street = clean([client['Endereço'], client['Número']]).join(', ')
-    address = clean([street, client['Complemento'], client['Bairro']]).join(' - ')
+    street = clean([client['Endereço'], client['Número']]).map(&:strip).join(', ')
+    address = clean([street, client['Complemento'], client['Bairro']]).map(&:strip).join(' - ')
     hash = {
       address: address,
-      fullAddress: clean([address, client['Cidade'], client['Estado']]).join(' - '),
+      fullAddress: clean([address, client['Cidade'], client['Estado']]).map(&:strip).join(' - '),
       state: client['Estado'],
       city: client['Cidade'],
       name: client['Fantasia'] || h['Nome'],
-      phone: clean([client['Fone'], client['Celular']]).join(' / '),
+      phone: clean([client['Fone'], client['Celular']]).map(&:strip).join(' / '),
       url: link(client['Web Site'])
     }
     hash
