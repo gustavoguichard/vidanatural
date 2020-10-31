@@ -1,4 +1,4 @@
-import { FaSearch } from 'react-icons/fa'
+import { FiSearch } from 'react-icons/fi'
 
 import useGlobal from 'lib/use-global'
 
@@ -8,7 +8,7 @@ const SearchIcon = () => {
   const [, { openSearch }] = useGlobal()
   return (
     <IconButton aria-label="Buscar" onClick={openSearch}>
-      <FaSearch />
+      <FiSearch />
     </IconButton>
   )
 }

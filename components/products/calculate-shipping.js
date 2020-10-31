@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
 import get from 'lodash/get'
-import { MdLocalShipping } from 'react-icons/md'
+import { FiTruck } from 'react-icons/fi'
 
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
@@ -55,7 +55,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
         label="Qual o seu CEP?"
         button={
           <IconButton type="submit" onClick={handleSubmit} aria-label="Enviar">
-            <MdLocalShipping />
+            <FiTruck />
           </IconButton>
         }
       />
@@ -104,7 +104,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
         setShowForm(true)
       }}
     >
-      Calcular frete <MdLocalShipping className="ml-1 text-lg" />
+      Calcular frete <FiTruck className="ml-1" />
     </a>
   )
 }

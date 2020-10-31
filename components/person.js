@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { BsEyeFill } from 'react-icons/bs'
+import { FiEye } from 'react-icons/fi'
 
 import Img from 'components/img'
 import Link from 'components/link'
@@ -23,7 +23,7 @@ const Person = ({ data, uid }) => {
         />
         <div className="text-white bg-black bg-opacity-50 absolute p-4 inset-x-0 bottom-0 flex">
           <h5 className="flex-grow">{name}</h5>
-          <BsEyeFill />
+          <FiEye />
         </div>
       </figure>
     </Link>

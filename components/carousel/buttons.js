@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
 export const PageBt = ({ onClick, Icon, ...props }) => {
   return (
@@ -15,9 +15,9 @@ export const PageBt = ({ onClick, Icon, ...props }) => {
 }
 
 export const PrevBt = ({ onClick }) => (
-  <PageBt style={{ left: 20 }} onClick={onClick} Icon={FaAngleLeft} />
+  <PageBt style={{ left: 20 }} onClick={onClick} Icon={FiArrowLeft} />
 )
 
 export const NextBt = ({ onClick }) => (
-  <PageBt style={{ right: 20 }} onClick={onClick} Icon={FaAngleRight} />
+  <PageBt style={{ right: 20 }} onClick={onClick} Icon={FiArrowRight} />
 )

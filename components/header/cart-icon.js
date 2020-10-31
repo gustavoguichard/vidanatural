@@ -1,18 +1,14 @@
 import { useRef } from 'react'
-import take from 'lodash/take'
 import isArray from 'lodash/isArray'
-import { FaShoppingCart } from 'react-icons/fa'
+import { FiShoppingBag } from 'react-icons/fi'
 
-import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 
 import Cart from 'components/cart'
-import CTAButton from 'components/cta-button'
-import Drawer from 'components/drawer'
 import IconButton from 'components/icon-button'
 
 const CartIcon = () => {
-  const [{ cart, showCart }, actions] = useGlobal()
+  const [{ cart }, actions] = useGlobal()
   const safeCart = isArray(cart) ? cart : []
   const cartRef = useRef(null)
   return (
@@ -28,7 +24,7 @@ const CartIcon = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-600" />
           </span>
         )}
-        <FaShoppingCart />
+        <FiShoppingBag />
       </IconButton>
       <Cart />
     </div>

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { FaAngleRight } from 'react-icons/fa'
+import { FiChevronRight } from 'react-icons/fi'
 
 import { classes } from 'lib/utils'
 
@@ -13,7 +13,7 @@ const CTAButton = (
     disableIcon,
     primary,
     outlined,
-    IconComponent = FaAngleRight,
+    IconComponent = FiChevronRight,
     className,
     external,
     ...props
@@ -23,7 +23,7 @@ const CTAButton = (
   const cx = classes(
     'group tracking-wide transition duration-200 inline-flex relative rounded-sm items-center justify-center focus:outline-none focus:shadow-outline',
     className,
-    { 'text-xs p-2': mini, 'p-4': !mini },
+    { 'text-xs p-2 px-3': mini, 'p-4': !mini },
     {
       'text-white bg-teal-600': primary && !outlined,
       'text-white bg-gray-900': !primary && !outlined,
@@ -38,7 +38,11 @@ const CTAButton = (
     <Component ref={ref} {...props} href={href} className={cx}>
       {children}
       {disableIcon || (
-        <IconComponent className="transition-all duration-200 ml-1 group-hover:ml-2" />
+        <IconComponent
+          className={`transition-all duration-200 ml-1 group-hover:ml-2 ${
+            mini ? '' : '-mb-px'
+          }`}
+        />
       )}
     </Component>
   )

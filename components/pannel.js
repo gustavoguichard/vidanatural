@@ -1,4 +1,4 @@
-import { FaAngleDown } from 'react-icons/fa'
+import { FiChevronDown } from 'react-icons/fi'
 
 import { classes } from 'lib/utils'
 import { useToggle } from 'lib/hooks'
@@ -20,7 +20,7 @@ const Pannel = ({ className, children, title }) => {
     <div className={wCx}>
       <div onClick={toggle} className="flex p-4 justify-between cursor-pointer">
         <span>{title}</span>
-        <FaAngleDown className={cx} />
+        <FiChevronDown className={cx} />
       </div>
       {open && <div className="px-4">{children}</div>}
     </div>
