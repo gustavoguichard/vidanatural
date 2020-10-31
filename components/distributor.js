@@ -1,5 +1,5 @@
 import capitalize from 'lodash/capitalize'
-import { FaMapMarkerAlt, FaPhoneAlt, FaExternalLinkAlt } from 'react-icons/fa'
+import { FiMapPin, FiPhone, FiLink } from 'react-icons/fi'
 
 const titleCase = (string) => string.split(' ').map(capitalize).join(' ')
 
@@ -25,20 +25,20 @@ const Distributor = ({ place }) => {
       <LinkInfo
         title="Ver no mapa"
         href={`https://www.google.com.br/maps/place/${place.fullAddress}`}
-        Icon={FaMapMarkerAlt}
+        Icon={FiMapPin}
       >
         {place.address}
       </LinkInfo>
       {place.phone && (
         <p className="text-gray-500 text-sm inline-flex items-center">
-          <FaPhoneAlt className="w-3 mr-1 text-gray-600" /> {place.phone}
+          <FiPhone className="w-3 mr-1 text-gray-600" /> {place.phone}
         </p>
       )}
       {place.url && (
         <LinkInfo
           href={place.url}
           title={`Ir para o site de ${place.name}`}
-          Icon={FaExternalLinkAlt}
+          Icon={FiLink}
         >
           {place.url}
         </LinkInfo>
