@@ -9,8 +9,8 @@ const StatePannel = ({ region, title }) => (
       {map(region, (places, name) => (
         <div key={`place-${name}`} className="first:pt-0 pt-6 pb-2">
           <h4 className="text-xl font-semibold tracking-tight mb-2">{name}</h4>
-          {map(places, (place) => (
-            <Distributor place={place} key={place.name} />
+          {map(places, (place, idx) => (
+            <Distributor place={place} key={place.name + idx} />
           ))}
         </div>
       ))}

@@ -23,6 +23,7 @@ module.exports = {
       'focus-within',
       'group-hover',
     ],
+    borderWidth: ['responsive', 'first', 'hover', 'focus'],
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
     margin: ['responsive', 'hover', 'focus', 'group-hover'],
     padding: ['responsive', 'first', 'hover', 'focus'],

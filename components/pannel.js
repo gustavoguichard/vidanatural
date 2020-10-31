@@ -6,20 +6,22 @@ import { useToggle } from 'lib/hooks'
 const Pannel = ({ className, children, title }) => {
   const [open, toggle] = useToggle()
 
-  const cx = classes('transition duration-200', {
+  const cx = classes('transition duration-200 text-xl text-gray-400', {
     'transform rotate-180': open,
   })
   const wCx = classes(
     className,
-    '-mx-4 sm:mx-0 flex flex-col bg-white border border-gray-200',
+    '-mx-4 sm:mx-0 flex flex-col rounded bg-white border my-1 border-gray-200 transition-all duration-300',
     {
-      'shadow my-4': open,
+      'shadow my-4 rounded-lg': open,
     },
   )
   return (
     <div className={wCx}>
       <div onClick={toggle} className="flex p-4 justify-between cursor-pointer">
-        <span>{title}</span>
+        <span className="font-semibold text-gray-600 tracking-tight">
+          {title}
+        </span>
         <FiChevronDown className={cx} />
       </div>
       {open && <div className="px-4">{children}</div>}
