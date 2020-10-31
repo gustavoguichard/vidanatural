@@ -41,7 +41,7 @@ File.open(output, 'w') do |f|
       state: client['Estado'],
       city: client['Cidade'],
       name: client['Fantasia'] || h['Nome'],
-      fone: clean([client['Fone'], client['Celular']]).join(' / '),
+      phone: clean([client['Fone'], client['Celular']]).join(' / '),
       url: link(client['Web Site'])
     }
     hash
