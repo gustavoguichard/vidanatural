@@ -4,7 +4,7 @@ export default [
     "fullAddress": "",
     "state": " ",
     "city": "",
-    "name": "",
+    "name": "Saúde Natural (Imbituba)",
     "phone": "",
     "url": null
   },
@@ -13,7 +13,7 @@ export default [
     "fullAddress": "",
     "state": " ",
     "city": "",
-    "name": "",
+    "name": "Samadhi",
     "phone": "",
     "url": null
   },
@@ -40,7 +40,7 @@ export default [
     "fullAddress": "Rua Coronel Tedim, 148 - Ap 508 - Bloco 1 - Pechincha - Rio de Janeiro - RJ",
     "state": "RJ",
     "city": "Rio de Janeiro",
-    "name": "",
+    "name": "Flavia Pontes",
     "phone": "(19) 9772-2844 / (19) 9772-2844",
     "url": null
   },
@@ -85,7 +85,7 @@ export default [
     "fullAddress": "Rua 10 de maio, centro médico, 604 - 402 - Vinhosa - Itaperuna - RJ",
     "state": "RJ",
     "city": "Itaperuna",
-    "name": "",
+    "name": "João Carlos Soares Martins",
     "phone": "(22) 99983-3131",
     "url": null
   },
@@ -103,7 +103,7 @@ export default [
     "fullAddress": "Rua Waldomiro Correia Neto, 0 - Qd 24 lt 324c - Jardim Alexandrina - Anápolis - GO",
     "state": "GO",
     "city": "Anápolis",
-    "name": "",
+    "name": "Cora Slow",
     "phone": "(62) 99816-7779 / (62) 99816-7779",
     "url": null
   },
@@ -130,7 +130,7 @@ export default [
     "fullAddress": "Rua Desembargador Pedro Silva, 79 - Victor Konder - Blumenau - SC",
     "state": "SC",
     "city": "Blumenau",
-    "name": "",
+    "name": "Com Sumo Consciente",
     "phone": "(47) 99120-7225",
     "url": null
   },
@@ -157,7 +157,7 @@ export default [
     "fullAddress": "Rua Martim Francisco, 182 - Sala 7 - Vila Buarque - São Paulo - SP",
     "state": "SP",
     "city": "São Paulo",
-    "name": "",
+    "name": "Meu Cabelo Natural",
     "phone": "(11) 97699-1666",
     "url": null
   },
@@ -292,7 +292,7 @@ export default [
     "fullAddress": "Rua Francois Teles de Menezes, 188 - Apt 704 - Fátima - Fortaleza - CE",
     "state": "CE",
     "city": "Fortaleza",
-    "name": "",
+    "name": "Raquel Dias Magalhães",
     "phone": "(85) 99600-3366",
     "url": null
   },
@@ -364,7 +364,7 @@ export default [
     "fullAddress": "AVENIDA MADRE BENVENUTA, 1093 - LOJA 03 E 04 - SANTA MONICA - Florianópolis - SC",
     "state": "SC",
     "city": "Florianópolis",
-    "name": "",
+    "name": "ARMAZEM NATURAL COMERCIO VAREJISTA DE PRODUTOS ALIMENTICIOS ",
     "phone": "(48) 3244-7684",
     "url": null
   },
@@ -400,7 +400,7 @@ export default [
     "fullAddress": "Rua Deputa Antônio Edu Vieira, 523 - Pantanal",
     "state": "",
     "city": "",
-    "name": "",
+    "name": "Viver Bem",
     "phone": "(48) 3024-8170 / (48) 99116-1388",
     "url": null
   },
@@ -454,7 +454,7 @@ export default [
     "fullAddress": "",
     "state": "",
     "city": "",
-    "name": "",
+    "name": "LD Pilates e Reabilitação",
     "phone": "",
     "url": null
   },
@@ -463,7 +463,7 @@ export default [
     "fullAddress": "",
     "state": "",
     "city": "",
-    "name": "",
+    "name": "Laura Bohmann",
     "phone": "",
     "url": null
   },
@@ -472,7 +472,7 @@ export default [
     "fullAddress": "",
     "state": "",
     "city": "",
-    "name": "",
+    "name": "Iamara Pereira da Silva",
     "phone": "",
     "url": null
   },
@@ -481,7 +481,7 @@ export default [
     "fullAddress": "",
     "state": "",
     "city": "",
-    "name": "",
+    "name": "Purve",
     "phone": "",
     "url": null
   },
@@ -490,7 +490,7 @@ export default [
     "fullAddress": "",
     "state": "",
     "city": "",
-    "name": "",
+    "name": "Aline B. Nunes",
     "phone": "",
     "url": null
   },
@@ -499,7 +499,7 @@ export default [
     "fullAddress": "",
     "state": "",
     "city": "",
-    "name": "",
+    "name": "Jusciane Cherini",
     "phone": "",
     "url": null
   },
@@ -508,7 +508,7 @@ export default [
     "fullAddress": "Rua Almirante Alexandrino, 3780 - G3 Apto S201 - Santa Teresa - Rio de Janeiro - RJ",
     "state": "RJ",
     "city": "Rio de Janeiro",
-    "name": "",
+    "name": "Ana Rotondaro Fonseca",
     "phone": "(21) 98244-1333",
     "url": null
   },
@@ -517,7 +517,7 @@ export default [
     "fullAddress": "Rafael Lima, 153 - Centro - Nova Santa Rita - RS",
     "state": "RS",
     "city": "Nova Santa Rita",
-    "name": "",
+    "name": "Denise Silveira Franco",
     "phone": "(51) 8220-9484",
     "url": null
   },
@@ -526,7 +526,7 @@ export default [
     "fullAddress": "Rua 21, 1682 - Cidade Claret - Rio Claro - SP",
     "state": "SP",
     "city": "Rio Claro",
-    "name": "",
+    "name": "Bruno Padoveze",
     "phone": "(48) 98822-8337",
     "url": null
   },
@@ -535,7 +535,7 @@ export default [
     "fullAddress": "Avenida Luiz Boiteux Piazza, 4214 - casa 15 - Residencial Condor - Canasvieiras - Florianópolis - SC",
     "state": "SC",
     "city": "Florianópolis",
-    "name": "",
+    "name": "Angela Dagostin",
     "phone": "(48) 8847-6996",
     "url": null
   },

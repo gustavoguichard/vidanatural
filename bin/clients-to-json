@@ -40,7 +40,7 @@ File.open(output, 'w') do |f|
       fullAddress: clean([address, client['Cidade'], client['Estado']]).map(&:strip).join(' - '),
       state: client['Estado'],
       city: client['Cidade'],
-      name: client['Fantasia'] || h['Nome'],
+      name: clean([client['Fantasia'], client['Nome']]).first,
       phone: clean([client['Fone'], client['Celular']]).map(&:strip).join(' / '),
       url: link(client['Web Site'])
     }
