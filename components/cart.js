@@ -1,4 +1,4 @@
-import isArray from 'lodash/isArray'
+import get from 'lodash/get'
 import sumBy from 'lodash/sumBy'
 
 import api from 'lib/api'
@@ -11,8 +11,8 @@ import CartItem from 'components/cart-item'
 
 const Cart = () => {
   const [{ cart, showCart }, actions] = useGlobal()
-  const safeCart = isArray(cart) ? cart : []
-  const quantity = sumBy(safeCart, 'quantity')
+  const safeItems = get(cart, 'items', [])
+  const quantity = sumBy(safeItems, 'quantity')
   return (
     <Drawer
       open={showCart}
@@ -28,11 +28,11 @@ const Cart = () => {
           <span>{quantity} itens</span>
         </div>
         <div className="flex flex-wrap p-1 items-start bg-gray-50 flex-grow">
-          {safeCart.map((cartItem) => (
+          {safeItems.map((cartItem) => (
             <CartItem actions={actions} key={cartItem.id} {...cartItem} />
           ))}
         </div>
-        <p className="sticky bottom-0 bg-white border flex flex-col p-2 pb-1 px-4">
+        <p className="sticky bottom-0 bg-white border flex flex-col p-2 pb-1">
           <CTAButton href={api.vnda.CART_URL}>Fechar pedido</CTAButton>
         </p>
       </div>

@@ -3,7 +3,9 @@ import map from 'lodash/map'
 import truncate from 'lodash/truncate'
 import reduce from 'lodash/reduce'
 import uniqBy from 'lodash/uniqBy'
+import Cookies from 'js-cookie'
 
+import api from 'lib/api'
 import { getReadTime, toCurrency } from 'lib/utils'
 
 import { PostBody } from 'types/cms'
@@ -101,4 +103,46 @@ export const getProductsByTag = (products: VndaProduct[], tags: string[]) => {
       false,
     ),
   )
+}
+
+export const clearCartInfo = () => {
+  Cookies.remove('cart_id')
+  localStorage.removeItem('vn_cart_token')
+}
+
+export const localCartInfo = () => ({
+  id: Cookies.get('cart_id'),
+  token: localStorage.getItem('vn_cart_token'),
+})
+
+export const getCartToken = async () => {
+  const { token } = localCartInfo()
+  if (token) return token
+  const cart = await getCart()
+  return cart.token
+}
+
+export const getCart = async () => {
+  const { id, token } = localCartInfo()
+  let result
+  if (id || token) {
+    try {
+      if (token) {
+        result = await api.vnda.fetch(`cart/${token}`)
+      } else if (id) {
+        result = await api.vnda.listCart()
+      }
+      if (!result || result.status === 404) {
+        clearCartInfo()
+      }
+    } catch (err) {
+      clearCartInfo()
+    }
+  }
+  if (!result || result.status === 404) {
+    result = await api.vnda.fetch('cart/create')
+  }
+  localStorage.setItem('vn_cart_token', result.token)
+  console.log(result)
+  return result
 }

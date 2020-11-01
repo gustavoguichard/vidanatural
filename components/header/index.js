@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import { localCartInfo } from 'lib/domain'
 import { useTagsMenu } from 'lib/domain-hooks'
 import { useScroll } from 'lib/hooks'
 import { classes } from 'lib/utils'
@@ -19,7 +20,12 @@ const Header = ({ stick, variant }) => {
   const sticky = stick || y > 0
 
   const [, actions] = useGlobal()
-  useEffect(actions.getCartItems, [])
+  useEffect(() => {
+    const { id, token } = localCartInfo()
+    if (id || token) {
+      actions.listCart()
+    }
+  }, [])
 
   const cx = classes('fixed inset-x-0 top-0 z-40', {
     'bg-white shadow-sm': sticky,

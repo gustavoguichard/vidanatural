@@ -128,7 +128,7 @@ export default {
   getOwnPath,
   getResizedImg,
   fetch: vnda.fetch,
-  post,
+  post: vnda.post,
   addToCart,
   calculateShipping,
   listCart,
