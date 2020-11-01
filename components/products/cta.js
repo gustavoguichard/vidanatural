@@ -3,8 +3,9 @@ import React, { useState, forwardRef } from 'react'
 import { classes } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
-import Spinner from 'components/spinner'
 import CTAButton from 'components/cta-button'
+import NumericStepper from 'components/numeric-stepper'
+import Spinner from 'components/spinner'
 import CalculateShipping from './calculate-shipping'
 import OutOfStockForm from './out-of-stock-form'
 
@@ -15,7 +16,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
 
   const [quantity, setQuantity] = useState(1)
   const handleChange = (increment) => () => {
-    const newValue = Math.max(quantity + increment, 0)
+    const newValue = Math.max(quantity + increment, 1)
     setQuantity(Math.min(newValue, variant.stock))
   }
   const inStock = variant.stock > 0
@@ -27,23 +28,11 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
     <>
       <div className={cx}>
         {inStock && !hideQuantity && (
-          <div className="flex shadow border bg-white text-center text-lg border-gray-200 font-semibold mr-1">
-            <button
-              type="button"
-              className="h-full w-8 hover:bg-gray-100"
-              onClick={handleChange(-1)}
-            >
-              -
-            </button>
-            <span className="flex items-center px-1 h-full">{quantity}</span>
-            <button
-              type="button"
-              className="h-full w-8 hover:bg-gray-100"
-              onClick={handleChange(1)}
-            >
-              +
-            </button>
-          </div>
+          <NumericStepper
+            current={quantity}
+            onDecrease={handleChange(-1)}
+            onIncrease={handleChange(1)}
+          />
         )}
         {inStock ? (
           <CTAButton

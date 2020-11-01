@@ -1,20 +1,18 @@
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
-import useGlobal from 'lib/use-global'
 
 import Link from 'components/link'
 
-const CartItem = ({
-  id,
-  product_name,
-  image_url,
-  product_url,
-  price,
-  variant_price,
-  quantity,
-  actions,
-}) => {
-  const [, { removeFromCart }] = useGlobal()
+const CartItem = ({ onEdit, item, actions }) => {
+  const {
+    id,
+    product_name,
+    image_url,
+    product_url,
+    price,
+    variant_price,
+    quantity,
+  } = item
   const hasDiscont = variant_price > price
   return (
     <div className="flex p-1 w-1/2">
@@ -47,12 +45,16 @@ const CartItem = ({
           />
         </div>
         <div className="w-full text-xs flex mt-px">
-          <button type="button" className="flex-grow py-2 border-t border-r">
+          <button
+            onClick={() => onEdit(item)}
+            type="button"
+            className="flex-grow py-2 border-t border-r"
+          >
             Editar
           </button>
           <button
             type="button"
-            onClick={() => removeFromCart(id)}
+            onClick={() => actions.removeFromCart(id)}
             className="flex-grow py-2 border-t"
           >
             Remover
