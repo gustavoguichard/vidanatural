@@ -13,20 +13,25 @@ const Input = ({
   error,
   className,
   required,
+  wrapperClasses,
   ...props
 }) => {
   const cx = classes(
-    'block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent rounded',
+    'block w-full p-4 text-lg appearance-none focus:outline-none bg-transparent rounded',
     className,
+  )
+  const wCx = classes(
+    'flex items-center outline relative border rounded mb-4',
+    {
+      [`border-${errorColor}`]: error,
+    },
+    `focus-within:border-${focusBorder}`,
+    wrapperClasses,
   )
   const Component = props.multiline ? 'textarea' : 'input'
   return (
     <>
-      <div
-        className={`flex items-center outline relative border border-${
-          error ? errorColor : 'inherit'
-        } focus-within:border-${focusBorder} rounded mb-4`}
-      >
+      <div className={wCx}>
         <Component
           required={required}
           placeholder=" "

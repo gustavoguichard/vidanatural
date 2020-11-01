@@ -5,6 +5,7 @@ import useGlobal from 'lib/use-global'
 
 import Drawer from 'components/drawer'
 import CartCTA from './cta'
+import CartCoupon from './coupon'
 import CartEditing from './editing'
 import CartEmpty from './empty'
 import CartHeader from './header'
@@ -44,6 +45,7 @@ const Cart = () => {
             />
           ))}
         </div>
+        <CartCoupon actions={actions} cart={cart} items={safeItems} />
         <CartSummary cart={cart} items={safeItems} />
         <CartCTA cart={cart} items={safeItems} />
       </div>

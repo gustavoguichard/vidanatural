@@ -96,9 +96,6 @@ const listCart = () => fetchApi('carrinho/popup', {}, true, false)
 
 const listPage = (slug: string) => fetchApi(`p/${slug}`, {}, true)
 
-const registerCoupon = (coupon: string) =>
-  fetchApi(`cep/88060100?ccc=${coupon}`, {}, true)
-
 interface ShippingParams {
   sku: number
   zip: string
@@ -177,7 +174,6 @@ export default {
   calculateShipping,
   listCart,
   listPage,
-  registerCoupon,
   sendForm,
   search,
   textSearch,

@@ -36,7 +36,7 @@ export const useTagsMenu = () => {
 }
 
 export const useCoupon = () => {
-  const [, { notify }] = useGlobal()
+  const [, { notify, addCoupon }] = useGlobal()
   const router = useRouter()
   useEffect(() => {
     if (router.query.ccc && typeof notify === 'function') {
@@ -47,7 +47,7 @@ export const useCoupon = () => {
         type: 'alert',
         persist: true,
       })
-      api.vnda.registerCoupon(router.query.ccc as string)
+      typeof addCoupon === 'function' && addCoupon(router.query.ccc as string)
     }
   }, [router])
 }
