@@ -4,6 +4,7 @@ export const BLOG_PAGE_SIZE = 10
 export const initialState = {
   cart: [],
   showCart: false,
+  updatingCart: false,
   searchOpen: false,
   notifications: [],
 }

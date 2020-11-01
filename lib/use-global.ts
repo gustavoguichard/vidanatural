@@ -3,23 +3,26 @@ import useStore from 'lib/use-store'
 
 import api from 'lib/api'
 import { initialState } from 'lib/constants'
-import { getCartToken, getCart } from 'lib/domain'
 
 import { Store } from 'types/global-state'
 
 export default useStore(
   {
     addToCart: async (store: Store, sku: string, quantity = 1) => {
-      const token = await getCartToken()
+      store.setState({ showCart: true, updatingCart: true })
+      const token = await api.vnda.getCartToken()
       const result = await api.vnda.post(`cart/${token}/add`, { sku, quantity })
-      store.setState({
-        cart: result,
-        showCart: true,
-      })
+      store.setState({ cart: result, updatingCart: false })
       return true
     },
+    removeFromCart: async (store: Store, id: number) => {
+      store.setState({ updatingCart: true })
+      const token = await api.vnda.getCartToken()
+      const cart = await api.vnda.fetch(`cart/${token}/remove`, 'POST', { id })
+      store.setState({ cart, updatingCart: false })
+    },
     listCart: async (store: Store) => {
-      const cart = await getCart()
+      const cart = await api.vnda.getCart()
       store.setState({ cart })
     },
     openCart: async (store: Store) => {

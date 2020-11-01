@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { localCartInfo } from 'lib/domain'
+import api from 'lib/api'
 import { useTagsMenu } from 'lib/domain-hooks'
 import { useScroll } from 'lib/hooks'
 import { classes } from 'lib/utils'
@@ -21,7 +21,7 @@ const Header = ({ stick, variant }) => {
 
   const [, actions] = useGlobal()
   useEffect(() => {
-    const { id, token } = localCartInfo()
+    const { id, token } = api.vnda.localCartInfo()
     if (id || token) {
       actions.listCart()
     }

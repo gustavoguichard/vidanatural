@@ -124,9 +124,53 @@ const getOwnPath = (url: string) => {
   }
 }
 
+const clearCartInfo = () => {
+  Cookies.remove('cart_id')
+  localStorage.removeItem('vn_cart_token')
+}
+
+const localCartInfo = () => ({
+  id: Cookies.get('cart_id'),
+  token: localStorage.getItem('vn_cart_token'),
+})
+
+const getCartToken = async () => {
+  const { token } = localCartInfo()
+  if (token) return token
+  const cart = await getCart()
+  return cart.token
+}
+
+const getCart = async () => {
+  const { id, token } = localCartInfo()
+  let result
+  if (id || token) {
+    try {
+      if (token) {
+        result = await vnda.fetch(`cart/${token}`)
+      } else if (id) {
+        result = await listCart()
+      }
+      if (!result || result.status === 404) {
+        clearCartInfo()
+      }
+    } catch (err) {
+      clearCartInfo()
+    }
+  }
+  if (!result || result.status === 404) {
+    result = await vnda.fetch('cart/create')
+  }
+  localStorage.setItem('vn_cart_token', result.token)
+  return result
+}
+
 export default {
+  getCart,
+  getCartToken,
   getOwnPath,
   getResizedImg,
+  localCartInfo,
   fetch: vnda.fetch,
   post: vnda.post,
   addToCart,
