@@ -45,7 +45,11 @@ const CartCoupon = ({ actions, cart, items }) => {
       {editing && (
         <form onSubmit={handleSubmit} className="flex flex-col">
           <Input
-            button={<CTAButton disableIcon>Aplicar</CTAButton>}
+            button={
+              <CTAButton disableIcon className="-mr-1">
+                Aplicar
+              </CTAButton>
+            }
             label="Cupom"
             wrapperClasses="transform translate-y-2"
             bg="gray-50"
