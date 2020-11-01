@@ -5,7 +5,7 @@ import { FiSend } from 'react-icons/fi'
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 
-import CircularProgress from 'components/circular-progress'
+import Spinner from 'components/spinner'
 import Input from 'components/input'
 
 const NewsForm = () => {
@@ -52,7 +52,7 @@ const NewsForm = () => {
           error={hasError}
           button={
             sending ? (
-              <CircularProgress className="mx-2" />
+              <Spinner className="mx-2" />
             ) : (
               <button
                 type="submit"

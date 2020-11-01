@@ -4,7 +4,7 @@ import throttle from 'lodash/throttle'
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 
-import CircularProgress from 'components/circular-progress'
+import Spinner from 'components/spinner'
 import SearchItem from './search-item'
 
 const doSearch = throttle(async (text, setResults, setFetching) => {
@@ -52,7 +52,7 @@ const SearchBar = () => {
             onChange={(ev) => setQuery(ev.target.value)}
           />
           {fetching && (
-            <CircularProgress
+            <Spinner
               color="text-black"
               size={8}
               className="absolute pointer-events-none mr-3 right-0"

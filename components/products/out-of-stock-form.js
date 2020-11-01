@@ -4,7 +4,7 @@ import { FiSend } from 'react-icons/fi'
 
 import api from 'lib/api'
 
-import CircularProgress from 'components/circular-progress'
+import Spinner from 'components/spinner'
 import CTAButton from 'components/cta-button'
 import IconButton from 'components/icon-button'
 import Input from 'components/input'
@@ -62,7 +62,7 @@ const OutOfStockForm = ({ product, innerRef }) => {
           bg="gray-50"
           button={
             sending ? (
-              <CircularProgress className="mx-2 text-gray-900" />
+              <Spinner className="mx-2 text-gray-900" />
             ) : (
               <IconButton
                 type="submit"

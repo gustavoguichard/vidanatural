@@ -5,7 +5,7 @@ import { toCurrency } from 'lib/utils'
 import { useInterval } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
 
-import CircularProgress from 'components/circular-progress'
+import Spinner from 'components/spinner'
 import DiscountTag from 'components/products/discount-tag'
 import Img from 'components/img'
 import Link from 'components/link'
@@ -72,7 +72,7 @@ const ProductCard = ({ product }) => {
               className="flex flex-wrap mt-2 text-sm font-semibold justify-between p-3 border hover:border-gray-500 transition duration-500 bg-white rounded"
             >
               {adding ? (
-                <CircularProgress className="text-gray-800 m-auto" />
+                <Spinner className="text-gray-800 m-auto" />
               ) : product.inStock ? (
                 priceTag
               ) : (

@@ -1,6 +1,6 @@
 import { classes } from 'lib/utils'
 
-const CircularProgress = ({ color = 'text-white', size = 5, className }) => {
+const Spinner = ({ color = 'text-white', size = 5, className }) => {
   const cx = classes(`animate-spin ${color} h-${size} w-${size}`, className)
   return (
     <svg
@@ -25,4 +25,4 @@ const CircularProgress = ({ color = 'text-white', size = 5, className }) => {
     </svg>
   )
 }
-export default CircularProgress
+export default Spinner

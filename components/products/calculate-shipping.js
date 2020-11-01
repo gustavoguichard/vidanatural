@@ -6,7 +6,7 @@ import { FiTruck } from 'react-icons/fi'
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
 
-import CircularProgress from 'components/circular-progress'
+import Spinner from 'components/spinner'
 import IconButton from 'components/icon-button'
 import Input from 'components/input'
 import FormError from 'components/form-error'
@@ -61,7 +61,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
       />
       {(sending || notFound || results) && !hasError && (
         <div className="mt-4 py-3 px-4 bg-yellow-100 text-yellow-900 border-yellow-200 border-2 rounded">
-          {sending && <CircularProgress className="mx-auto text-yellow-900" />}
+          {sending && <Spinner className="mx-auto text-yellow-900" />}
           {notFound && <p className="font-semibold">Endereço não encontrado</p>}
           {results && (
             <div>

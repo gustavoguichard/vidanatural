@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import api from 'lib/api'
 
 import CTAButton from 'components/cta-button'
-import CircularProgress from 'components/circular-progress'
+import Spinner from 'components/spinner'
 import FormError from 'components/form-error'
 import Input from 'components/input'
 
@@ -58,7 +58,7 @@ const Form = () => {
       <FormError show={hasError} />
       <CTAButton type="submit">
         {sending ? (
-          <CircularProgress color="inherit" size="4" className="mx-6" />
+          <Spinner color="inherit" size="4" className="mx-6" />
         ) : (
           'Enviar mensagem'
         )}
