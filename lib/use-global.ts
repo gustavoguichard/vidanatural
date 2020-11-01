@@ -8,6 +8,16 @@ import { Store } from 'types/global-state'
 
 export default useStore(
   {
+    updateItem: async (store: Store, id: number, quantity = 1) => {
+      store.setState({ updatingCart: true })
+      const token = await api.vnda.getCartToken()
+      const result = await api.vnda.post(`cart/${token}/update-quantity`, {
+        id,
+        quantity,
+      })
+      store.setState({ cart: result, updatingCart: false })
+      return true
+    },
     addToCart: async (store: Store, sku: string, quantity = 1) => {
       store.setState({ showCart: true, updatingCart: true })
       const token = await api.vnda.getCartToken()
