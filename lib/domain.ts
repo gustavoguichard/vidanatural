@@ -3,9 +3,7 @@ import map from 'lodash/map'
 import truncate from 'lodash/truncate'
 import reduce from 'lodash/reduce'
 import uniqBy from 'lodash/uniqBy'
-import Cookies from 'js-cookie'
 
-import api from 'lib/api'
 import { getReadTime, toCurrency } from 'lib/utils'
 
 import { PostBody } from 'types/cms'
