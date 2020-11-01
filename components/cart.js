@@ -10,9 +10,12 @@ import CTAButton from 'components/cta-button'
 import CloseButton from 'components/close-button'
 import Drawer from 'components/drawer'
 import Link from 'components/link'
+import Spinner from 'components/spinner'
+
+import logoImg from 'public/static/svgs/logo.svg'
 
 const Cart = () => {
-  const [{ cart, showCart }, actions] = useGlobal()
+  const [{ cart, showCart, updatingCart }, actions] = useGlobal()
   const safeItems = get(cart, 'items', [])
   const quantity = sumBy(safeItems, 'quantity')
   const subtotal = safeItems.reduce(
@@ -28,6 +31,11 @@ const Cart = () => {
       anchor="right"
       className="w-full sm:max-w-sm flex flex-col"
     >
+      {updatingCart && (
+        <div className="absolute flex justify-center items-center inset-0 bg-opacity-50 z-10 bg-gray-100">
+          <Spinner color="text-teal-600" size={6} />
+        </div>
+      )}
       <div className="relative flex-grow flex flex-col max-h-full overflow-scroll overscroll-contain">
         <div className="sticky top-0 bg-white shadow-sm border-b text-sm py-1 px-4 flex items-center">
           <CloseButton onClick={actions.hideCart} />
@@ -35,46 +43,56 @@ const Cart = () => {
           <span>{quantity} itens</span>
         </div>
         <div className="flex flex-wrap p-1 items-start bg-gray-50 flex-grow">
+          {!!safeItems.length || (
+            <div className="flex flex-col flex-grow self-stretch items-center justify-center">
+              <img className="w-16 mb-2" src={logoImg} alt="Vida Natural" />
+              <p className="text-xs">Seu carrinho está vazio</p>
+            </div>
+          )}
           {safeItems.map((cartItem) => (
             <CartItem actions={actions} key={cartItem.id} {...cartItem} />
           ))}
         </div>
-        <div className="bg-gray-50 mx-4 mt-2 py-4 text-sm flex flex-col">
-          <p className="flex justify-between mb-1">
-            <span className="font-semibold">Subtotal</span>
-            <span className="font-semibold">{toCurrency(subtotal)}</span>
-          </p>
-          {hasDisconts && (
+        {!!safeItems.length && (
+          <div className="bg-gray-50 mx-4 mt-2 py-4 text-sm flex flex-col">
             <p className="flex justify-between mb-1">
-              <span className="font-semibold">Descontos</span>
-              <span className="font-semibold">
-                {toCurrency(-subtotal + cart.total)}
-              </span>
+              <span className="font-semibold">Subtotal</span>
+              <span className="font-semibold">{toCurrency(subtotal)}</span>
             </p>
-          )}
-          <p className="text-xs my-1 text-gray-500 leading-tight">
-            Promoções e custos com frete serão calculados na finalização da
-            compra.
-          </p>
-          <p className="text-xs text-gray-700 leading-tight">
-            Ao prosseguir para a finalização da compra eu concordo que tenho
-            conhecimento dos{' '}
-            <Link
-              href="/termos-e-condicoes"
-              className="underline hover:text-teal-600"
-            >
-              Termos e condições
-            </Link>
-            .
-          </p>
-        </div>
-        <footer className="sticky bottom-0 bg-white border flex flex-col p-2 pb-1">
-          <p className="flex justify-between font-semibold mb-2 px-2">
-            <span>Total estimado</span>
-            <span>{toCurrency(cart.total)}</span>
-          </p>
-          <CTAButton href={api.vnda.CART_URL}>Fechar pedido</CTAButton>
-        </footer>
+            {hasDisconts && (
+              <p className="flex justify-between mb-1">
+                <span className="font-semibold">Descontos</span>
+                <span className="font-semibold">
+                  {toCurrency(-subtotal + cart.total)}
+                </span>
+              </p>
+            )}
+            <p className="text-xs my-1 text-gray-500 leading-tight">
+              Promoções e custos com frete serão calculados na finalização da
+              compra.
+            </p>
+            <p className="text-xs text-gray-700 leading-tight">
+              Ao prosseguir para a finalização da compra eu concordo que tenho
+              conhecimento dos{' '}
+              <Link
+                href="/termos-e-condicoes"
+                className="underline hover:text-teal-600"
+              >
+                Termos e condições
+              </Link>
+              .
+            </p>
+          </div>
+        )}
+        {!!safeItems.length && (
+          <footer className="sticky bottom-0 bg-white border flex flex-col p-2 pb-1">
+            <p className="flex justify-between font-semibold mb-2 px-2">
+              <span>Total estimado</span>
+              <span>{toCurrency(cart.total)}</span>
+            </p>
+            <CTAButton href={api.vnda.CART_URL}>Fechar pedido</CTAButton>
+          </footer>
+        )}
       </div>
     </Drawer>
   )

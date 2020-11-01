@@ -1,9 +1,11 @@
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
+import useGlobal from 'lib/use-global'
 
 import Link from 'components/link'
 
 const CartItem = ({
+  id,
   product_name,
   image_url,
   product_url,
@@ -12,10 +14,11 @@ const CartItem = ({
   quantity,
   actions,
 }) => {
+  const [, { removeFromCart }] = useGlobal()
   const hasDiscont = variant_price > price
   return (
     <div className="flex p-1 w-1/2">
-      <div className="border tracking-tight rounded-sm bg-white w-full max-h-72 overflow-hidden flex flex-col">
+      <div className="border tracking-tight rounded-sm bg-white w-full h-72 overflow-hidden flex flex-col justify-between">
         <p className="bg-white text-sm font-semibold p-2 leading-snug">
           {quantity}x{' '}
           <Link
@@ -36,11 +39,25 @@ const CartItem = ({
             )}
           </span>
         </p>
-        <img
-          alt={product_name}
-          src={api.vnda.getResizedImg(image_url, 200)}
-          className="w-full object-cover"
-        />
+        <div className="flex-grow overflow-hidden">
+          <img
+            alt={product_name}
+            src={api.vnda.getResizedImg(image_url, 200)}
+            className="w-full object-cover"
+          />
+        </div>
+        <div className="w-full text-xs flex mt-px">
+          <button type="button" className="flex-grow py-2 border-t border-r">
+            Editar
+          </button>
+          <button
+            type="button"
+            onClick={() => removeFromCart(id)}
+            className="flex-grow py-2 border-t"
+          >
+            Remover
+          </button>
+        </div>
       </div>
     </div>
   )
