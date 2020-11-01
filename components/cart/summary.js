@@ -9,7 +9,7 @@ const CartSummary = ({ cart, items }) => {
   )
   const hasDisconts = subtotal > cart.total
   return items.length ? (
-    <div className="bg-gray-50 mx-4 mt-2 py-4 text-sm flex flex-col">
+    <div className="bg-gray-50 mt-2 p-4 text-sm flex flex-col">
       <p className="flex justify-between mb-1">
         <span className="font-semibold">Subtotal</span>
         <span className="font-semibold">{toCurrency(subtotal)}</span>

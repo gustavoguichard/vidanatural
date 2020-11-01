@@ -37,7 +37,12 @@ const CartEditing = ({ item, onClose, actions }) => {
         <div className="flex flex-grow flex-col justify-between">
           <div className="flex items-start justify-between">
             <p className="font-semibold tracking-tight leading-snug">
-              {item.product_name} <br />
+              {item.product_name}
+              <br />
+              <span className="font-normal text-gray-500">
+                {item.variant_name}
+              </span>
+              <br />
               <span className="font-normal">{toCurrency(item.price)}</span>
             </p>
             <CloseButton className="-mr-3 -mt-3" onClick={onClose} />
@@ -45,10 +50,9 @@ const CartEditing = ({ item, onClose, actions }) => {
           <div className="flex w-full items-center">
             <img
               alt={item.product_name}
-              src={api.vnda.getResizedImg(item.image_url, 200)}
-              className="w-1/3 object-cover"
+              src={api.vnda.getResizedImg(item.image_url, 360)}
+              className="object-cover w-full"
             />
-            <span className="ml-2">{item.variant_name}</span>
           </div>
           <div className="flex">
             <NumericStepper
