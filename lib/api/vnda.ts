@@ -181,6 +181,5 @@ export default {
   sendForm,
   search,
   textSearch,
-  CART_URL:
-    process.env.NODE_ENV === 'development' ? getUrl('carrinho') : '/carrinho',
+  CART_URL: getUrl('carrinho'),
 }
