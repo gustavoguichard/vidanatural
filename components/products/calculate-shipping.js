@@ -5,13 +5,15 @@ import { FiTruck } from 'react-icons/fi'
 
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
+import useGlobal from 'lib/use-global'
 
 import Spinner from 'components/spinner'
 import IconButton from 'components/icon-button'
 import Input from 'components/input'
 import FormError from 'components/form-error'
 
-const OutOfStockForm = ({ sku, quantity }) => {
+const CalculateShipping = ({ sku, quantity }) => {
+  const [, { updateZip }] = useGlobal()
   const [showForm, setShowForm] = useState(false)
   const [sending, setSending] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -29,6 +31,7 @@ const OutOfStockForm = ({ sku, quantity }) => {
     const zip = get(formState, 'values.zip', '').replaceAll(/\D/g, '')
     if (zip.length >= 8) {
       const result = await api.vnda.calculateShipping({ sku, quantity, zip })
+      updateZip(zip)
       if (!result) {
         setHasError(true)
         return null
@@ -109,4 +112,4 @@ const OutOfStockForm = ({ sku, quantity }) => {
   )
 }
 
-export default OutOfStockForm
+export default CalculateShipping

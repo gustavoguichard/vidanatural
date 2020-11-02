@@ -45,8 +45,9 @@ const CartCoupon = ({ actions, cart, items }) => {
       {editing && (
         <form onSubmit={handleSubmit} className="flex flex-col">
           <Input
+            autoFocus
             button={
-              <CTAButton disableIcon className="-mr-1">
+              <CTAButton mini disableIcon>
                 Aplicar
               </CTAButton>
             }

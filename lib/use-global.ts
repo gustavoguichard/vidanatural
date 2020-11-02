@@ -33,6 +33,13 @@ export default useStore(
       store.setState({ cart: result, updatingCart: false })
       return true
     },
+    updateZip: async (store: Store, zip: string) => {
+      store.setState({ updatingCart: true })
+      const token = await api.vnda.getCartToken()
+      const cart = await api.vnda.post(`cart/${token}/zip`, { zip })
+      store.setState({ cart, updatingCart: false })
+      return cart
+    },
     removeFromCart: async (store: Store, id: number) => {
       store.setState({ updatingCart: true })
       const token = await api.vnda.getCartToken()

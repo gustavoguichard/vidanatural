@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import get from 'lodash/get'
 
 import useGlobal from 'lib/use-global'
@@ -11,6 +11,7 @@ import CartEmpty from './empty'
 import CartHeader from './header'
 import CartItem from './item'
 import CartLoading from './loading'
+import CartShipping from './shipping'
 import CartSummary from './summary'
 
 const Cart = () => {
@@ -34,6 +35,7 @@ const Cart = () => {
       <CartLoading />
       <div className="relative flex-grow flex flex-col max-h-full overflow-scroll overscroll-contain">
         <CartHeader actions={actions} items={safeItems} />
+        <CartShipping actions={actions} cart={cart} items={safeItems} />
         <div className="flex flex-wrap p-1 items-start bg-gray-50 flex-grow">
           {!!safeItems.length || <CartEmpty />}
           {safeItems.map((cartItem) => (
@@ -53,4 +55,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default memo(Cart)
