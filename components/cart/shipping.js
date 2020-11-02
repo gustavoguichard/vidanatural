@@ -79,7 +79,7 @@ const CartShipping = ({ cart, items }) => {
       <p className="text-gray-600 text-xs py-2 font-semibold">
         {completed ? (
           <span>
-            <strong>Parabéns!</strong> Você tem direito à frete grátis!
+            <strong>Feito!</strong> Você tem direito à frete grátis!
           </span>
         ) : (
           `Compre mais ${toCurrency(valueNeeded)} para ganhar frete grátis.`
@@ -117,7 +117,7 @@ const CartShipping = ({ cart, items }) => {
           }}
           className="text-xs underline hover:text-teal-600"
         >
-          Quanto preciso para ganhar frete grátis?
+          Falta quanto para o frete grátis?
         </a>
       )}
     </div>
