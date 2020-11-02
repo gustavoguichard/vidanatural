@@ -148,17 +148,19 @@ const getCart = async () => {
       } else if (id) {
         result = await listCart()
       }
-      if (!result || result.status === 404) {
+      if (!(result && result.id) || result.status === 404) {
         clearCartInfo()
       }
     } catch (err) {
       clearCartInfo()
     }
   }
-  if (!result || result.status === 404) {
+  if (!(result && result.id) || result.status === 404) {
     result = await vnda.fetch('cart/create')
   }
-  localStorage.setItem('vn_cart_token', result.token)
+  if (result && result.token) {
+    localStorage.setItem('vn_cart_token', result.token)
+  }
   return result
 }
 
