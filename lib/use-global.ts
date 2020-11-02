@@ -20,10 +20,7 @@ export default useStore(
         existing ? existing.quantity + quantity : quantity,
       )
       const result = await api.vnda.listCart()
-      store.setState({
-        cart: result,
-        showCart: true,
-      })
+      store.setState({ cart: result.items, showCart: true })
       return true
     },
     getCartItems: (store: Store) => {
