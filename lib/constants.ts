@@ -7,6 +7,7 @@ export const initialState = {
   updatingCart: false,
   searchOpen: false,
   notifications: [],
+  freeShippingPrice: undefined,
 }
 
 // SEO Texts

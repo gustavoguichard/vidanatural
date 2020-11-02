@@ -5,17 +5,26 @@ import api from 'lib/api'
 import { initialState } from 'lib/constants'
 
 import { Store } from 'types/global-state'
+import { Cart } from 'types/vnda'
+
+const updateCart = (store: Store, cart: Cart) => {
+  if (cart.id) {
+    store.setState({ cart, updatingCart: false })
+  } else {
+    store.setState({ updatingCart: false })
+  }
+}
 
 export default useStore(
   {
     updateItem: async (store: Store, id: number, quantity = 1) => {
       store.setState({ updatingCart: true })
       const token = await api.vnda.getCartToken()
-      const result = await api.vnda.post(`cart/${token}/update-quantity`, {
+      const cart = await api.vnda.post(`cart/${token}/update-quantity`, {
         id,
         quantity,
       })
-      store.setState({ cart: result, updatingCart: false })
+      updateCart(store, cart)
       return true
     },
     addCoupon: async (store: Store, coupon: string) => {
@@ -23,21 +32,29 @@ export default useStore(
       const token = await api.vnda.getCartToken()
       await api.vnda.post(`cart/${token}/coupon`, { coupon })
       const cart = await api.vnda.getCart()
-      store.setState({ cart, updatingCart: false })
+      updateCart(store, cart)
       return cart
     },
     addToCart: async (store: Store, sku: string, quantity = 1) => {
       store.setState({ showCart: true, updatingCart: true })
       const token = await api.vnda.getCartToken()
-      const result = await api.vnda.post(`cart/${token}/add`, { sku, quantity })
-      store.setState({ cart: result, updatingCart: false })
+      const cart = await api.vnda.post(`cart/${token}/add`, { sku, quantity })
+      updateCart(store, cart)
       return true
     },
     updateZip: async (store: Store, zip: string) => {
       store.setState({ updatingCart: true })
       const token = await api.vnda.getCartToken()
       const cart = await api.vnda.post(`cart/${token}/zip`, { zip })
-      store.setState({ cart, updatingCart: false })
+      if (cart.id) {
+        store.setState({
+          cart,
+          updatingCart: false,
+          freeShippingPrice: undefined,
+        })
+      } else {
+        store.setState({ updatingCart: false, freeShippingPrice: undefined })
+      }
       return cart
     },
     removeFromCart: async (store: Store, id: number) => {
@@ -45,6 +62,9 @@ export default useStore(
       const token = await api.vnda.getCartToken()
       const cart = await api.vnda.fetch(`cart/${token}/remove`, 'POST', { id })
       store.setState({ cart, updatingCart: false })
+    },
+    updateShippingPrice: (store: Store, freeShippingPrice?: number) => {
+      store.setState({ freeShippingPrice })
     },
     listCart: async (store: Store) => {
       const cart = await api.vnda.getCart()

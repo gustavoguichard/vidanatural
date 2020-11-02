@@ -4,6 +4,11 @@ export interface FormKeys {
   [key: string]: string | undefined
 }
 
+export interface Cart {
+  id: number
+  client_id?: number
+}
+
 export interface VndaProduct {
   id: number
   active: boolean

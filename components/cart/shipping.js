@@ -1,25 +1,34 @@
 import { useState, useEffect } from 'react'
 import get from 'lodash/get'
+import isNan from 'lodash/isNan'
 import isNil from 'lodash/isNil'
 import { useFormState } from 'react-use-form-state'
 
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
+import useGlobal from 'lib/use-global'
 
 import CTAButton from 'components/cta-button'
 import Input from 'components/input'
 
-const CartShipping = ({ actions, cart, items }) => {
+const CartShipping = ({ cart, items }) => {
+  const [
+    { freeShippingPrice },
+    { updateZip, updateShippingPrice },
+  ] = useGlobal()
   const [methods, setMethods] = useState([])
   const [requesting, setRequesting] = useState(false)
 
   const getShippingMethods = async () => {
+    if (freeShippingPrice) return null
     setRequesting(true)
     const token = await api.vnda.getCartToken()
     const response = await api.vnda.fetch(`cart/${token}/shipping-methods`)
     setMethods(response || [])
     setRequesting(false)
+    return null
   }
+
   useEffect(() => {
     getShippingMethods()
   }, [cart.subtotal])
@@ -40,22 +49,27 @@ const CartShipping = ({ actions, cart, items }) => {
       ? curr.value_needed_to_discount
       : Math.min(sum, curr.value_needed_to_discount)
   }, undefined)
-  const needed = cart.subtotal + valueNeededToDiscount
+  const needed = freeShippingPrice || cart.subtotal + valueNeededToDiscount
+  const valueNeeded = Math.max(needed - cart.subtotal, 0)
   const percentage = Math.min((cart.subtotal * 100) / needed, 100)
   const completed = percentage >= 100
+
+  useEffect(() => {
+    if (!isNil(needed) && !isNan(needed)) updateShippingPrice(needed)
+  }, [needed])
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
     const zip = get(formState, 'values.zip', '').replaceAll(/\D/g, '')
     if (zip.length === 8) {
-      actions.updateZip(zip)
+      updateZip(zip)
       setEditing(false)
     }
   }
 
   const bg = completed ? 'bg-green-500' : 'bg-blue-400'
 
-  return !isNil(valueNeededToDiscount) ? (
+  return !isNil(valueNeeded || freeShippingPrice) ? (
     <div
       className={`bg-gray-50 p-2 px-4 text-sm flex flex-col opacity-${
         requesting ? 25 : 100
@@ -67,9 +81,7 @@ const CartShipping = ({ actions, cart, items }) => {
             <strong>Parabéns!</strong> Você tem direito à frete grátis!
           </span>
         ) : (
-          `Compre mais ${toCurrency(
-            valueNeededToDiscount,
-          )} para ganhar frete grátis.`
+          `Compre mais ${toCurrency(valueNeeded)} para ganhar frete grátis.`
         )}
       </p>
       <div className="bg-white w-full border rounded-lg p-px pr-1">
