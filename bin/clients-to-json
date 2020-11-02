@@ -33,8 +33,9 @@ File.open(output, 'w') do |f|
     Hash[keys.zip(values)]
   end
   filtered = data.map do |client|
-    street = clean([client['Endereço'], client['Número']]).map(&:strip).join(', ')
-    address = clean([street, client['Complemento'], client['Bairro']]).map(&:strip).join(' - ')
+    isPerson = client['Tipo pessoa'] == 'Pessoa Física'
+    street = isPerson ? '' : clean([client['Endereço'], client['Número']]).map(&:strip).join(', ')
+    address = clean([street, isPerson ? '' : client['Complemento'], client['Bairro']]).map(&:strip).join(' - ')
     hash = {
       address: address,
       fullAddress: clean([address, client['Cidade'], client['Estado']]).map(&:strip).join(' - '),

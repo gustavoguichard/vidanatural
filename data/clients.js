@@ -18,8 +18,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Demétrio Ribeiro, 1182 - Centro Histórico",
-    "fullAddress": "Rua Demétrio Ribeiro, 1182 - Centro Histórico - Porto Alegre - RS",
+    "address": "Centro Histórico",
+    "fullAddress": "Centro Histórico - Porto Alegre - RS",
     "state": "RS",
     "city": "Porto Alegre",
     "name": "Nova Vida Restaurante",
@@ -36,8 +36,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Coronel Tedim, 148 - Ap 508 - Bloco 1 - Pechincha",
-    "fullAddress": "Rua Coronel Tedim, 148 - Ap 508 - Bloco 1 - Pechincha - Rio de Janeiro - RJ",
+    "address": "Pechincha",
+    "fullAddress": "Pechincha - Rio de Janeiro - RJ",
     "state": "RJ",
     "city": "Rio de Janeiro",
     "name": "Flavia Pontes",
@@ -63,8 +63,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Independência, 1227 - Sala C - Centro",
-    "fullAddress": "Rua Independência, 1227 - Sala C - Centro - São Leopoldo - RS",
+    "address": "Centro",
+    "fullAddress": "Centro - São Leopoldo - RS",
     "state": "RS",
     "city": "São Leopoldo",
     "name": "Yoga Shala",
@@ -81,8 +81,8 @@ export default [
     "url": "http://www.canteirosaromaterapia.com/"
   },
   {
-    "address": "Rua 10 de maio, centro médico, 604 - 402 - Vinhosa",
-    "fullAddress": "Rua 10 de maio, centro médico, 604 - 402 - Vinhosa - Itaperuna - RJ",
+    "address": "Vinhosa",
+    "fullAddress": "Vinhosa - Itaperuna - RJ",
     "state": "RJ",
     "city": "Itaperuna",
     "name": "João Carlos Soares Martins",
@@ -108,8 +108,8 @@ export default [
     "url": null
   },
   {
-    "address": "Avenida Helvino Moraes, 895 - Bloco 2 Apto 403 - Vila São José",
-    "fullAddress": "Avenida Helvino Moraes, 895 - Bloco 2 Apto 403 - Vila São José - Taubaté - SP",
+    "address": "Vila São José",
+    "fullAddress": "Vila São José - Taubaté - SP",
     "state": "SP",
     "city": "Taubaté",
     "name": "Mulher de Fases",
@@ -117,8 +117,8 @@ export default [
     "url": null
   },
   {
-    "address": "Avenida Xavantina, 000 - Quadra 05; Lote 18A - Jardim das Américas 1ª Etapa",
-    "fullAddress": "Avenida Xavantina, 000 - Quadra 05; Lote 18A - Jardim das Américas 1ª Etapa - Anápolis - GO",
+    "address": "Jardim das Américas 1ª Etapa",
+    "fullAddress": "Jardim das Américas 1ª Etapa - Anápolis - GO",
     "state": "GO",
     "city": "Anápolis",
     "name": "Cora Slow",
@@ -135,8 +135,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Antonio Kaesemodel, 264 - Boehmerwald",
-    "fullAddress": "Rua Antonio Kaesemodel, 264 - Boehmerwald - São Bento do Sul - SC",
+    "address": "Boehmerwald",
+    "fullAddress": "Boehmerwald - São Bento do Sul - SC",
     "state": "SC",
     "city": "São Bento do Sul",
     "name": "Gege Cosmeticos Naturais",
@@ -162,8 +162,8 @@ export default [
     "url": null
   },
   {
-    "address": "30 de dezembro, 50 - sala 9 - centro",
-    "fullAddress": "30 de dezembro, 50 - sala 9 - centro - Garopaba - SC",
+    "address": "centro",
+    "fullAddress": "centro - Garopaba - SC",
     "state": "SC",
     "city": "Garopaba",
     "name": "Nutrilar",
@@ -216,8 +216,8 @@ export default [
     "url": null
   },
   {
-    "address": "Praça Sete de Julho, 179 - loja 39,45,65 - Centro",
-    "fullAddress": "Praça Sete de Julho, 179 - loja 39,45,65 - Centro - Pelotas - RS",
+    "address": "Centro",
+    "fullAddress": "Centro - Pelotas - RS",
     "state": "RS",
     "city": "Pelotas",
     "name": "Belle Epoque Coffe Shop",
@@ -225,8 +225,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Bagé, 136 - A/C Estela - Anita Garibaldi",
-    "fullAddress": "Rua Bagé, 136 - A/C Estela - Anita Garibaldi - Joinville - SC",
+    "address": "Anita Garibaldi",
+    "fullAddress": "Anita Garibaldi - Joinville - SC",
     "state": "SC",
     "city": "Joinville",
     "name": "Bela Orgânica",
@@ -234,8 +234,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Romário Vidal, 816 - casa - Yolanda",
-    "fullAddress": "Rua Romário Vidal, 816 - casa - Yolanda - Foz do Iguaçu - PR",
+    "address": "Yolanda",
+    "fullAddress": "Yolanda - Foz do Iguaçu - PR",
     "state": "PR",
     "city": "Foz do Iguaçu",
     "name": "Casa Florir",
@@ -288,8 +288,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Francois Teles de Menezes, 188 - Apt 704 - Fátima",
-    "fullAddress": "Rua Francois Teles de Menezes, 188 - Apt 704 - Fátima - Fortaleza - CE",
+    "address": "Fátima",
+    "fullAddress": "Fátima - Fortaleza - CE",
     "state": "CE",
     "city": "Fortaleza",
     "name": "Raquel Dias Magalhães",
@@ -297,8 +297,8 @@ export default [
     "url": null
   },
   {
-    "address": "Francisco Loup, 740 - Maresias",
-    "fullAddress": "Francisco Loup, 740 - Maresias - São Sebastião - SP",
+    "address": "Maresias",
+    "fullAddress": "Maresias - São Sebastião - SP",
     "state": "SP",
     "city": "São Sebastião",
     "name": "Bendita Feirinha",
@@ -306,8 +306,8 @@ export default [
     "url": null
   },
   {
-    "address": "Avenida Itaqui, 269 - ap 302 - Petrópolis",
-    "fullAddress": "Avenida Itaqui, 269 - ap 302 - Petrópolis - Porto Alegre - RS",
+    "address": "Petrópolis",
+    "fullAddress": "Petrópolis - Porto Alegre - RS",
     "state": "RS",
     "city": "Porto Alegre",
     "name": "Bijam Yoga",
@@ -324,8 +324,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua 700, 60 - sala 2 - Centro",
-    "fullAddress": "Rua 700, 60 - sala 2 - Centro - Balneário Camboriú - SC",
+    "address": "Centro",
+    "fullAddress": "Centro - Balneário Camboriú - SC",
     "state": "SC",
     "city": "Balneário Camboriú",
     "name": "Gaiia Natural",
@@ -414,8 +414,8 @@ export default [
     "url": "https://www.armazemgraomestre.com/"
   },
   {
-    "address": "Rua Sapê, 800 - Passo da Areia",
-    "fullAddress": "Rua Sapê, 800 - Passo da Areia - Porto Alegre - RS",
+    "address": "Passo da Areia",
+    "fullAddress": "Passo da Areia - Porto Alegre - RS",
     "state": "RS",
     "city": "Porto Alegre",
     "name": "Casa Natural",
@@ -432,8 +432,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Frei Caneca, 785 - sala 1 - Consolação",
-    "fullAddress": "Rua Frei Caneca, 785 - sala 1 - Consolação - São Paulo - SP",
+    "address": "Consolação",
+    "fullAddress": "Consolação - São Paulo - SP",
     "state": "SP",
     "city": "São Paulo",
     "name": "Olive Natural",
@@ -504,8 +504,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Almirante Alexandrino, 3780 - G3 Apto S201 - Santa Teresa",
-    "fullAddress": "Rua Almirante Alexandrino, 3780 - G3 Apto S201 - Santa Teresa - Rio de Janeiro - RJ",
+    "address": "Santa Teresa",
+    "fullAddress": "Santa Teresa - Rio de Janeiro - RJ",
     "state": "RJ",
     "city": "Rio de Janeiro",
     "name": "Ana Rotondaro Fonseca",
@@ -513,8 +513,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rafael Lima, 153 - Centro",
-    "fullAddress": "Rafael Lima, 153 - Centro - Nova Santa Rita - RS",
+    "address": "Centro",
+    "fullAddress": "Centro - Nova Santa Rita - RS",
     "state": "RS",
     "city": "Nova Santa Rita",
     "name": "Denise Silveira Franco",
@@ -522,8 +522,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua 21, 1682 - Cidade Claret",
-    "fullAddress": "Rua 21, 1682 - Cidade Claret - Rio Claro - SP",
+    "address": "Cidade Claret",
+    "fullAddress": "Cidade Claret - Rio Claro - SP",
     "state": "SP",
     "city": "Rio Claro",
     "name": "Bruno Padoveze",
@@ -531,8 +531,8 @@ export default [
     "url": null
   },
   {
-    "address": "Avenida Luiz Boiteux Piazza, 4214 - casa 15 - Residencial Condor - Canasvieiras",
-    "fullAddress": "Avenida Luiz Boiteux Piazza, 4214 - casa 15 - Residencial Condor - Canasvieiras - Florianópolis - SC",
+    "address": "Canasvieiras",
+    "fullAddress": "Canasvieiras - Florianópolis - SC",
     "state": "SC",
     "city": "Florianópolis",
     "name": "Angela Dagostin",
@@ -603,8 +603,8 @@ export default [
     "url": null
   },
   {
-    "address": "Rua Santo Antônio, 308 - Floresta",
-    "fullAddress": "Rua Santo Antônio, 308 - Floresta - Porto Alegre - RS",
+    "address": "Floresta",
+    "fullAddress": "Floresta - Porto Alegre - RS",
     "state": "RS",
     "city": "Porto Alegre",
     "name": "Luz da Aurora",
