@@ -36,10 +36,6 @@ const CartShipping = ({ cart, items }) => {
   const [editing, setEditing] = useState(false)
   const [formState, { text }] = useFormState()
 
-  if (!items.length) {
-    return null
-  }
-
   const valueNeededToDiscount = methods.reduce((sum, curr) => {
     if (curr.value === 'retirar-na-loja' || sum === 0) return sum
     if (curr.price === 0) return 0
@@ -68,6 +64,10 @@ const CartShipping = ({ cart, items }) => {
   }
 
   const bg = completed ? 'bg-green-500' : 'bg-blue-400'
+
+  if (!items.length) {
+    return null
+  }
 
   return !isNil(valueNeeded || freeShippingPrice) ? (
     <div
