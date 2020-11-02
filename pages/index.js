@@ -8,18 +8,16 @@ import HomeProducts from 'components/home/products'
 import Testimonials from 'components/testimonials'
 import HomeFeed from 'components/home-feed'
 
-const Home = ({ banners, testimonials, posts, products }) => {
-  return (
-    <Layout variant="secondary" hideCertifications>
-      <Banners banners={banners} />
-      <Certifications />
-      <HomeProducts products={products} />
-      <About />
-      <Testimonials testimonials={testimonials} />
-      <HomeFeed posts={posts} />
-    </Layout>
-  )
-}
+const Home = ({ banners, testimonials, posts, products }) => (
+  <Layout variant="secondary" hideCertifications>
+    <Banners banners={banners} />
+    <Certifications />
+    <HomeProducts products={products} />
+    <About />
+    <Testimonials testimonials={testimonials} />
+    <HomeFeed posts={posts} />
+  </Layout>
+)
 
 export const getStaticProps = staticProps
 export default Home
