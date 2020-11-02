@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import get from 'lodash/get'
-import isNan from 'lodash/isNan'
+import isNaN from 'lodash/isNaN'
 import isNil from 'lodash/isNil'
 import { useFormState } from 'react-use-form-state'
 
@@ -51,7 +51,7 @@ const CartShipping = ({ cart, items }) => {
   const completed = percentage >= 100
 
   useEffect(() => {
-    if (!isNil(needed) && !isNan(needed)) updateShippingPrice(needed)
+    if (!isNil(needed) && !isNaN(needed)) updateShippingPrice(needed)
   }, [needed])
 
   const handleSubmit = (ev) => {
