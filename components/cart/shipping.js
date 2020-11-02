@@ -24,7 +24,7 @@ const CartShipping = ({ actions, cart, items }) => {
   const [editing, setEditing] = useState(false)
   const [formState, { text }] = useFormState()
 
-  if (!items.length || !methods.length) {
+  if (!items.length) {
     return null
   }
 
