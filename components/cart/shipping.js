@@ -53,6 +53,8 @@ const CartShipping = ({ actions, cart, items }) => {
     }
   }
 
+  const bg = completed ? 'bg-green-500' : 'bg-blue-400'
+
   return !isNil(valueNeededToDiscount) ? (
     <div
       className={`bg-gray-50 p-2 px-4 text-sm flex flex-col opacity-${
@@ -72,9 +74,7 @@ const CartShipping = ({ actions, cart, items }) => {
       </p>
       <div className="bg-white w-full border rounded-lg p-px pr-1">
         <div
-          className={`bg-${
-            completed ? 'green-500' : 'blue-400'
-          } m-px h-1 rounded transition-all duration-300`}
+          className={`${bg} m-px h-1 rounded transition-all duration-300`}
           style={{ width: `${percentage}%` }}
         />
       </div>
