@@ -36,7 +36,7 @@ export default useStore(
               Cookies.remove('cart_id')
             } else {
               store.setState({
-                cart: result.items || [],
+                cart: result || [],
               })
             }
           })
