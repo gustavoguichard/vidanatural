@@ -54,11 +54,12 @@ const CartShipping = ({ cart, items }) => {
     if (!isNil(needed) && !isNaN(needed)) updateShippingPrice(needed)
   }, [needed])
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault()
     const zip = get(formState, 'values.zip', '').replaceAll(/\D/g, '')
     if (zip.length === 8) {
-      updateZip(zip)
+      await updateZip(zip)
+      getShippingMethods()
       setEditing(false)
     }
   }
