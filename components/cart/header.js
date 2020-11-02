@@ -6,7 +6,7 @@ const CartHeader = ({ actions, items }) => {
   const quantity = sumBy(items, 'quantity')
   return (
     <div className="sticky top-0 bg-white shadow-sm border-b text-sm py-1 px-4 flex items-center z-10">
-      <CloseButton onClick={actions.hideCart} />
+      <CloseButton className="-ml-3" onClick={actions.hideCart} />
       <p className="flex-grow ml-2 font-semibold">Seu carrinho</p>
       <span>{quantity} itens</span>
     </div>
