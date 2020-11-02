@@ -11,11 +11,14 @@ import Input from 'components/input'
 
 const CartShipping = ({ actions, cart, items }) => {
   const [methods, setMethods] = useState([])
+  const [requesting, setRequesting] = useState(false)
 
   const getShippingMethods = async () => {
+    setRequesting(true)
     const token = await api.vnda.getCartToken()
     const response = await api.vnda.fetch(`cart/${token}/shipping-methods`)
     setMethods(response || [])
+    setRequesting(false)
   }
   useEffect(() => {
     getShippingMethods()
@@ -38,7 +41,7 @@ const CartShipping = ({ actions, cart, items }) => {
       : Math.min(sum, curr.value_needed_to_discount)
   }, undefined)
   const needed = cart.subtotal + valueNeededToDiscount
-  const percentage = (cart.subtotal * 100) / needed
+  const percentage = Math.min((cart.subtotal * 100) / needed, 100)
   const completed = percentage >= 100
 
   const handleSubmit = (ev) => {
@@ -51,17 +54,27 @@ const CartShipping = ({ actions, cart, items }) => {
   }
 
   return !isNil(valueNeededToDiscount) ? (
-    <div className="bg-gray-50 p-2 px-4 text-sm flex flex-col">
+    <div
+      className={`bg-gray-50 p-2 px-4 text-sm flex flex-col opacity-${
+        requesting ? 25 : 100
+      }`}
+    >
       <p className="text-gray-600 text-xs py-2 font-semibold">
-        {completed
-          ? 'Parabéns! Você tem direito à frete grátis!'
-          : `Compre mais ${toCurrency(
-              valueNeededToDiscount,
-            )} para ganhar frete grátis.`}
+        {completed ? (
+          <span>
+            <strong>Parabéns!</strong> Você tem direito à frete grátis!
+          </span>
+        ) : (
+          `Compre mais ${toCurrency(
+            valueNeededToDiscount,
+          )} para ganhar frete grátis.`
+        )}
       </p>
-      <div className="bg-white w-full border rounded-lg p-px">
+      <div className="bg-white w-full border rounded-lg p-px pr-1">
         <div
-          className="bg-green-500 m-px h-1 rounded transition-all duration-300"
+          className={`bg-${
+            completed ? 'green-500' : 'blue-400'
+          } m-px h-1 rounded transition-all duration-300`}
           style={{ width: `${percentage}%` }}
         />
       </div>
