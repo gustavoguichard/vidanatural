@@ -1,18 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import get from 'lodash/get'
 import isNil from 'lodash/isNil'
 import { useFormState } from 'react-use-form-state'
 
+import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
 
 import CTAButton from 'components/cta-button'
 import Input from 'components/input'
 
 const CartShipping = ({ actions, cart, items }) => {
+  const [methods, setMethods] = useState([])
+
+  const getShippingMethods = async () => {
+    const token = await api.vnda.getCartToken()
+    const response = await api.vnda.fetch(`cart/${token}/shipping-methods`)
+    setMethods(response || [])
+  }
+  useEffect(() => {
+    getShippingMethods()
+  }, [cart.subtotal])
+
   const [editing, setEditing] = useState(false)
   const [formState, { text }] = useFormState()
 
-  const valueNeededToDiscount = (cart.methods || []).reduce((sum, curr) => {
+  if (!items.length || !methods.length) {
+    return null
+  }
+
+  const valueNeededToDiscount = methods.reduce((sum, curr) => {
     if (curr.value === 'retirar-na-loja' || sum === 0) return sum
     if (curr.price === 0) return 0
     return isNil(curr.value_needed_to_discount)
@@ -34,7 +50,7 @@ const CartShipping = ({ actions, cart, items }) => {
     }
   }
 
-  return !isNil(valueNeededToDiscount) && items.length ? (
+  return !isNil(valueNeededToDiscount) ? (
     <div className="bg-gray-50 p-2 px-4 text-sm flex flex-col">
       <p className="text-gray-600 text-xs py-2 font-semibold">
         {completed
