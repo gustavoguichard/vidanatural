@@ -14,10 +14,12 @@ const fetcher = async (
   path: string,
   method = 'GET',
   body?: string | object,
+  givenHeaders?: object,
 ): Promise<API2Response> => {
   const host = process.env.API_HOST
 
   const headers = {
+    ...givenHeaders,
     Accept: 'application/json',
     'Content-Type': 'application/json',
     Host: host,
@@ -60,4 +62,7 @@ const fetchBFFApi = async (
   }
 }
 
-export default { fetch: fetchBFFApi, fetcher }
+const postBFFApi = async (path: string, body?: string | object) =>
+  fetchBFFApi(path, 'POST', body)
+
+export default { fetch: fetchBFFApi, post: postBFFApi, fetcher }
