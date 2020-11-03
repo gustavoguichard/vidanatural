@@ -167,6 +167,7 @@ const getCart = async () => {
 export default {
   getCart,
   getCartToken,
+  getUrl,
   getOwnPath,
   getResizedImg,
   localCartInfo,
@@ -179,5 +180,4 @@ export default {
   sendForm,
   search,
   textSearch,
-  CART_URL: getUrl('carrinho'),
 }
