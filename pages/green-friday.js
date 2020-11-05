@@ -6,8 +6,9 @@ import Layout from 'components/layout'
 const Page = () => (
   <Layout title="Green Friday">
     <Hero
-      filter="brightness(0.6)"
+      filter="opacity(0.85)"
       size="full"
+      className="bg-green-700"
       background="/static/images/bf/banner.jpg"
     >
       <div className="max-w-screen-md px-10 pt-12">

@@ -9,6 +9,7 @@ const Hero = ({
   style = {},
   size = 'medium',
   background,
+  className,
   filter,
 }) => {
   const cx = classes(
@@ -16,11 +17,12 @@ const Hero = ({
     'text-center text-white',
     'pb-10 pt-16 z-10 max-w-4xl text-shadow-lg',
   )
+  const wCx = classes(
+    className,
+    'relative flex flex-col items-center justify-center bg-gray-800',
+  )
   return (
-    <div
-      className="relative flex flex-col items-center justify-center bg-gray-800"
-      css={{ minHeight: sizes[size] }}
-    >
+    <div className={wCx} css={{ minHeight: sizes[size] }}>
       {background && (
         <BackgroundImg filter={filter} alwaysShow src={background} />
       )}
