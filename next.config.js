@@ -11,7 +11,7 @@ const nextConfig = {
       },
       {
         source: '/black-friday',
-        destination: '/black-friday-vn',
+        destination: '/green-friday',
       },
     ]
   },

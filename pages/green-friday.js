@@ -4,7 +4,7 @@ import Hero from 'components/hero'
 import Layout from 'components/layout'
 
 const Page = () => (
-  <Layout title="Black Friday">
+  <Layout title="Green Friday">
     <Hero
       filter="brightness(0.6)"
       size="full"
@@ -12,7 +12,7 @@ const Page = () => (
     >
       <div className="max-w-screen-md px-10 pt-12">
         <h2 className="text-6xl uppercase tracking-tighter font-extrabold leading-none">
-          Black friday <span className="text-teal-300">VN</span>
+          Green friday <span className="text-teal-300">VN</span>
         </h2>
         <p className="text-2xl leading-snug tracking-tight">
           Preparamos uma{' '}
@@ -32,7 +32,7 @@ const Page = () => (
           primary
           outlined
           className="mt-6"
-          href="/produtos?ccc=BLACKFRIDAY"
+          href="/produtos?ccc=GREENFRIDAY"
         >
           Comprar com o cupom
         </CTAButton>
@@ -62,7 +62,7 @@ const Page = () => (
             mini
             primary
             outlined
-            href="/produtos?filter=desodorante&ccc=BLACKFRIDAY"
+            href="/produtos?filter=desodorante&ccc=GREENFRIDAY"
           >
             Comprar com o cupom
           </CTAButton>
@@ -91,7 +91,7 @@ const Page = () => (
             mini
             primary
             outlined
-            href="/produtos?filter=hidratante&ccc=BLACKFRIDAY"
+            href="/produtos?filter=hidratante&ccc=GREENFRIDAY"
           >
             Comprar com o cupom
           </CTAButton>
@@ -120,7 +120,7 @@ const Page = () => (
             mini
             outlined
             primary
-            href="/produto/xampu-em-barra-6?ccc=BLACKFRIDAY"
+            href="/produto/xampu-em-barra-6?ccc=GREENFRIDAY"
           >
             Comprar com o cupom
           </CTAButton>
