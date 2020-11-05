@@ -12,6 +12,9 @@ import 'animate.css/animate.min.css'
 import 'styles/app.scss'
 import 'styles/tailwind.css'
 
+const ClarityScript = dynamic(() => import('components/clarity-script'), {
+  ssr: false,
+})
 const Pixel = dynamic(() => import('components/pixel'), { ssr: false })
 
 const didMount = async (router) => {
@@ -37,6 +40,7 @@ const VidaNatural = ({ pageProps, Component }) => {
       </Head>
       <DefaultSeo {...SEO} />
       <Pixel />
+      <ClarityScript />
       <Component {...pageProps} />
     </>
   )
