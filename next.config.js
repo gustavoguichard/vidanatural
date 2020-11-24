@@ -15,15 +15,6 @@ const nextConfig = {
       },
     ]
   },
-  async redirects() {
-    return [
-      {
-        source: '/green-week',
-        destination: '/produtos?ccc=GREENWEEK',
-        permanent: false,
-      },
-    ]
-  },
 }
 
 module.exports = withPlugins(
