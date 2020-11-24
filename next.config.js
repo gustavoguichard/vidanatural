@@ -3,7 +3,7 @@ const optimizedImages = require('next-optimized-images')
 const sourceMaps = require('@zeit/next-source-maps')
 
 const nextConfig = {
-  rewrites: async () => {
+  async rewrites() {
     return [
       {
         source: '/produtos/:slug',
@@ -15,11 +15,12 @@ const nextConfig = {
       },
     ]
   },
-  redirects: async () => {
+  async redirects() {
     return [
       {
         source: '/green-week',
         destination: '/produtos?ccc=GREENWEEK',
+        permanent: false,
       },
     ]
   },
