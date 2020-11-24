@@ -13,6 +13,10 @@ const nextConfig = {
         source: '/black-friday',
         destination: '/green-friday',
       },
+    ]
+  },
+  async redirects() {
+    return [
       {
         source: '/green-week',
         destination: '/produtos?ccc=GREENWEEK',
