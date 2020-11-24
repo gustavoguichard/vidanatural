@@ -16,9 +16,9 @@ const Page = () => (
           Green week <span className="text-teal-300">VN</span>
         </h2>
         <p className="text-2xl leading-snug tracking-tight">
-          Aproveira para comprar nossos{' '}
+          Aproveite para comprar nossos{' '}
           <strong className="font-extrabold">produtos mais queridos</strong> com
-          desconto somente nessa semana!
+          desconto, somente nesta semana!
         </p>
         <p className="text-2xl mt-2 leading-snug tracking-tight">
           Ao clicar nos links desta página você receberá um{' '}
