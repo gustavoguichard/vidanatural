@@ -10,9 +10,7 @@ export default function Index() {
     <Layout title={title}>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="px-10">
-          <h2 className="text-5xl mt-12 tracking-tighter font-bold leading-none">
-            {title}
-          </h2>
+          <h2 className="text-5xl mt-12 tracking-tighter font-bold">{title}</h2>
           <p className="m-4 text-lg mb-12 max-w-2xl">
             Comprar na Vida Natural é seguro e fácil. Aqui você encontra toda a
             linha de produtos, basta clicar nas imagens para conhecer os

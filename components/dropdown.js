@@ -14,7 +14,7 @@ function Dropdown({ children, open, onClose, className, ...props }) {
       {...props}
       className="animate__animated animate__faster animate__fadeIn origin-top-right z-10 absolute right-0 mt-2 w-72 sm:w-auto sm:min-w-max rounded-md shadow-lg"
     >
-      <div className="rounded-md bg-white shadow-xs">
+      <div className="rounded-md bg-white ring-1 ring-black ring-opacity-5">
         <div
           className={cx}
           role="menu"

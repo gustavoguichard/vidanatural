@@ -3,7 +3,7 @@ import { classes, toCurrency } from 'lib/utils'
 import OldPrice from './old-price'
 
 const PriceTag = ({ item, big, inline, lineBreak, ...props }) => {
-  const cx = classes('text-gray-900 leading-tight', {
+  const cx = classes('text-gray-900', {
     'mb-2 mt-0': !inline,
     'inline-block': inline,
     'text-sm': !big,

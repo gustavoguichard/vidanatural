@@ -36,7 +36,7 @@ const CartEditing = ({ item, onClose, actions }) => {
       >
         <div className="flex flex-grow flex-col justify-between">
           <div className="flex items-start justify-between">
-            <p className="font-semibold tracking-tight leading-snug">
+            <p className="font-semibold tracking-tight">
               {item.product_name}
               <br />
               <span className="font-normal text-gray-500">

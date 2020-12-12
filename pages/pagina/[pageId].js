@@ -14,7 +14,7 @@ const ContentPage = ({ page }) =>
     <Layout title={page.title} seo={{ description: page.description }}>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="px-10">
-          <h2 className="text-5xl mt-12 tracking-tighter font-bold leading-none">
+          <h2 className="text-5xl mt-12 tracking-tighter font-bold">
             {page.title}
           </h2>
           <p className="m-4 text-lg mb-12 max-w-2xl">{page.description}</p>

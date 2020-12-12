@@ -23,7 +23,7 @@ const ShortTestimonial = ({ data, uid, className }) => {
       <h4 className="tracking-tight font-semibold text-lg">
         {name.split(' ')[0]}
       </h4>
-      <div className="tracking-wide text-gray-700 leading-relaxed mt-2">
+      <div className="tracking-wide text-gray-700 mt-2">
         <RichText>
           {isEmptyBody(short_content) ? content : short_content}
         </RichText>

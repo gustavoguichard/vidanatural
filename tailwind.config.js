@@ -1,8 +1,12 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
-  experimental: 'all',
   purge: false,
   theme: {
     extend: {
+      colors: {
+        teal: colors.teal,
+      },
       transformOrigin: {
         0: '0%',
       },

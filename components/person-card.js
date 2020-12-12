@@ -13,8 +13,8 @@ const PersonMember = ({ name, image, content, title, children }) => (
     />
     <div>
       <h5 className="text-lg font-semibold tracking-tight">{name}</h5>
-      <p className="mb-2 font-semibold leading-tight text-gray-600">{title}</p>
-      <RichText className="text-gray-700 leading-relaxed">{content}</RichText>
+      <p className="mb-2 font-semibold text-gray-600">{title}</p>
+      <RichText className="text-gray-700">{content}</RichText>
       {children}
     </div>
   </div>

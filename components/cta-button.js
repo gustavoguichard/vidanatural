@@ -21,7 +21,7 @@ const CTAButton = (
   ref,
 ) => {
   const cx = classes(
-    'group tracking-wide transition duration-200 inline-flex relative rounded-sm items-center justify-center focus:outline-none focus:shadow-outline',
+    'group tracking-wide transition duration-200 inline-flex relative rounded-sm items-center justify-center focus:outline-none focus:ring',
     className,
     { 'text-xs p-2 px-3': mini, 'p-4': !mini },
     {

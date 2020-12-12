@@ -5,7 +5,7 @@ const HomeProducts = ({ products }) => (
   <section className="border-t-8 border-b-8 border-white py-4">
     <div className="max-w-screen-xl m-auto px-6">
       <div className="flex text-gray-700 justify-between mb-2 px-2">
-        <h5 className="font-semibold leading-tight tracking-tight text-lg">
+        <h5 className="font-semibold tracking-tight text-lg">
           Produtos mais populares
         </h5>
         <Link

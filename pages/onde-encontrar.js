@@ -31,7 +31,7 @@ const OndeEncontrar = () => (
           >
             Onde encontrar?
           </Breadcrumbs>
-          <h3 className="text-3xl font-bold tracking-tight leading-none">
+          <h3 className="text-3xl font-bold tracking-tight">
             Procure pelo estado na lista abaixo
           </h3>
           <div className="mt-4 mb-8 rich-text">

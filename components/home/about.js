@@ -9,7 +9,7 @@ const About = () => (
           className="h-64 md:h-auto bg-cover bg-center md:w-6/12 transform lg:-translate-x-16  lg:-translate-y-16"
         />
         <div className="m-10 s:m-16 lg:mb-0 md:w-6/12 transform lg:-translate-x-8">
-          <h3 className="text-3xl tracking-tight leading-none font-semibold mb-4">
+          <h3 className="text-3xl tracking-tight font-semibold mb-4">
             Uma ideia, um movimento
           </h3>
           <div className="text-gray-700">
@@ -34,7 +34,7 @@ const About = () => (
           className="h-64 md:h-auto bg-cover bg-center md:w-6/12 order-first md:order-1 transform lg:translate-x-16  lg:translate-y-16"
         />
         <div className="m-10 s:m-16 md:w-6/12 transform lg:translate-x-8">
-          <h3 className="text-3xl tracking-tight leading-none font-semibold mb-4">
+          <h3 className="text-3xl tracking-tight font-semibold mb-4">
             Produtos de alta qualidade
           </h3>
           <div className="text-gray-700">

@@ -17,9 +17,7 @@ const FaqPage = ({ item }) => {
 
   return (
     <SinglePageLayout variant="secondary" title={data.title}>
-      <h2 className="text-4xl font-bold tracking-tight leading-none">
-        {data.title}
-      </h2>
+      <h2 className="text-4xl font-bold tracking-tight">{data.title}</h2>
       <div className="my-4">
         <DocumentDetails date={last_publication_date} post={data.answer} />
       </div>

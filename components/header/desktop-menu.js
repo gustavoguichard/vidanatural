@@ -26,7 +26,7 @@ const SubMenu = ({ name, active, links }) => {
             href={subItem.path}
             onClick={() => setOpen(false)}
             key={`submenu-${idx}`}
-            className="flex px-4 py-2  text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-200 focus:text-gray-900"
+            className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-200 focus:text-gray-900"
             role="menuitem"
           >
             {subItem.name}

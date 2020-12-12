@@ -9,7 +9,7 @@ const FaqPage = ({ items }) => {
   const title = 'Dúvidas Frequentes'
   return (
     <SinglePageLayout variant="secondary" gray title={title}>
-      <h2 className="text-5xl font-bold tracking-tighter leading-none text-center">
+      <h2 className="text-5xl font-bold tracking-tighter text-center">
         {title}
       </h2>
       <div className="py-6">

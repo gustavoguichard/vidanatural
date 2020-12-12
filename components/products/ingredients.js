@@ -17,9 +17,7 @@ const ProductIngredients = ({
       <div className="flex flex-col items-center max-w-screen-xl px-10">
         <div className="md:w-10/12 py-16 flex flex-col items-center">
           <div className="self-start max-w-3xl md:self-auto md:text-center">
-            <h3 className="text-4xl font-bold tracking-tight leading-none">
-              Ingredientes
-            </h3>
+            <h3 className="text-4xl font-bold tracking-tight">Ingredientes</h3>
             <RichText className="my-2 max-w-sceen-xs mx-auto">
               {ingredients_description}
             </RichText>

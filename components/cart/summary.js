@@ -22,10 +22,10 @@ const CartSummary = ({ cart, items }) => {
           </span>
         </p>
       )}
-      <p className="text-xs my-1 text-gray-500 leading-tight">
+      <p className="text-xs my-1 text-gray-500">
         Promoções e custos com frete serão calculados na finalização da compra.
       </p>
-      <p className="text-xs text-gray-700 leading-tight">
+      <p className="text-xs text-gray-700">
         Ao prosseguir para a finalização da compra eu concordo que tenho
         conhecimento dos{' '}
         <Link

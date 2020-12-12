@@ -49,7 +49,7 @@ const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
           </>
         )}
         {emptyPage && (
-          <h2 className="text-4xl text-center font-bold leading-none tracking-tight mx-4 mb-4">
+          <h2 className="text-4xl text-center font-bold tracking-tight mx-4 mb-4">
             Nenhum conteúdo para a {title}
           </h2>
         )}

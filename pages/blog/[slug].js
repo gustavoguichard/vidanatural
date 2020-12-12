@@ -29,7 +29,7 @@ const SinglePostPage = ({
       hero={
         hasFeatured && (
           <Hero filter="brightness(0.4)" size="medium" background={featuredUrl}>
-            <h2 className="text-4xl sm:text-5xl px-6 font-bold tracking-tight leading-none">
+            <h2 className="text-4xl sm:text-5xl px-6 font-bold tracking-tight">
               {data.title}
             </h2>
           </Hero>
@@ -37,9 +37,7 @@ const SinglePostPage = ({
       }
     >
       {hasFeatured ? null : (
-        <h3 className="mb-4 text-4xl leading-none tracking-tight font-bold">
-          {data.title}
-        </h3>
+        <h3 className="mb-4 text-4xl tracking-tight font-bold">{data.title}</h3>
       )}
       <AuthorCard
         author={author}
