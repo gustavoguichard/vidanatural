@@ -17,7 +17,7 @@ const CartItem = ({ item, actions }) => {
     price,
     variant_price,
   } = item
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(item.quantity)
   const hasDiscont = variant_price > price
 
   const debouncedUpdate = useMemo(
