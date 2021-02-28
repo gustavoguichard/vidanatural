@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       colors: {
         teal: colors.teal,
+        orange: colors.orange,
+        yellow: colors.yellow,
       },
       transformOrigin: {
         0: '0%',
