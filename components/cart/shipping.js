@@ -1,32 +1,11 @@
-import { useState, useEffect } from 'react'
-import get from 'lodash/get'
+import { useEffect } from 'react'
 import isNil from 'lodash/isNil'
 
-import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
-const CartShipping = ({ cart, items }) => {
+const CartShipping = ({ cart, items, loading, methods }) => {
   const [{ freeShippingPrice }, { updateShippingPrice }] = useGlobal()
-  const [methods, setMethods] = useState([])
-  const [requesting, setRequesting] = useState(false)
-
-  const getShippingMethods = async () => {
-    setRequesting(true)
-    const token = await api.vnda.getCartToken()
-    const response = await api.vnda.fetch(`cart/${token}/shipping-methods`)
-    setMethods(response || [])
-    setRequesting(false)
-    return null
-  }
-
-  useEffect(() => {
-    if (cart.shipping_address_id) {
-      getShippingMethods()
-    } else {
-      updateShippingPrice()
-    }
-  }, [cart.shipping_address_id, cart.subtotal])
 
   const valueNeededToDiscount = methods.reduce((sum, curr) => {
     if (curr.value === 'retirar-na-loja' || sum === 0) return sum
@@ -50,14 +29,10 @@ const CartShipping = ({ cart, items }) => {
     updateShippingPrice(needed)
   }, [needed])
 
-  if (!items.length) {
-    return null
-  }
-
-  return !isNil(valueNeeded || freeShippingPrice) ? (
+  return !!items.length && !isNil(valueNeeded || freeShippingPrice) ? (
     <div
       className={`bg-gray-50 p-2 px-4 text-sm flex flex-col opacity-${
-        requesting ? 25 : 100
+        loading ? 25 : 100
       }`}
     >
       <p className="text-gray-600 text-xs py-2 font-semibold">

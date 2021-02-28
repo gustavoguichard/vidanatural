@@ -1,6 +1,7 @@
-import { useState, memo } from 'react'
+import { useState, useEffect, memo } from 'react'
 import get from 'lodash/get'
 
+import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 
 import Drawer from 'components/drawer'
@@ -17,6 +18,20 @@ import CartSummary from './summary'
 const Cart = () => {
   const [{ cart, showCart }, actions] = useGlobal()
   const [editing, setEditing] = useState()
+  const [shipping, setShipping] = useState({ loading: false, methods: [] })
+
+  const getShipping = async () => {
+    setShipping({ loading: true, methods: shipping.methods })
+    const token = await api.vnda.getCartToken()
+    const response = await api.vnda.fetch(`cart/${token}/shipping-methods`)
+    setShipping({ loading: false, methods: response || [] })
+  }
+
+  useEffect(() => {
+    if (cart.shipping_address_id) {
+      getShipping()
+    }
+  }, [cart.shipping_address_id, cart.subtotal])
 
   const safeItems = get(cart, 'items', [])
   return (
@@ -35,7 +50,7 @@ const Cart = () => {
       <CartLoading />
       <div className="relative flex-grow flex flex-col max-h-full overflow-scroll overscroll-contain">
         <CartHeader actions={actions} items={safeItems} />
-        <CartShipping cart={cart} items={safeItems} />
+        <CartShipping cart={cart} items={safeItems} {...shipping} />
         <div className="flex flex-wrap p-1 items-start bg-gray-50 flex-grow">
           {!!safeItems.length || <CartEmpty />}
           {safeItems.map((cartItem) => (
