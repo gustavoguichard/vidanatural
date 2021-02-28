@@ -45,7 +45,6 @@ export const useCoupon = () => {
         htmlMessage: `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</span>`,
         big: true,
         type: 'alert',
-        persist: true,
       })
       typeof addCoupon === 'function' && addCoupon(router.query.ccc as string)
     }

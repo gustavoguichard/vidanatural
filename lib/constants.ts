@@ -6,7 +6,16 @@ export const initialState = {
   showCart: false,
   updatingCart: false,
   searchOpen: false,
-  notifications: [],
+  notifications: [
+    {
+      id: 1,
+      htmlMessage: `<span class="text-center w-full">Frete grátis para todo o Brasil a partir de R$ 160,00.</span>`,
+      type: 'black',
+      center: true,
+      persist: true,
+      hideIcon: true,
+    },
+  ],
   freeShippingPrice: 160,
 }
 

@@ -106,10 +106,10 @@ export default useStore(
         ),
       })
     },
-    dismissNotification: (store: Store, notification: Notification) => {
+    dismissNotification: (store: Store, id: any) => {
       store.setState({
         notifications: store.state.notifications.filter(
-          (n: Notification) => n.id !== notification.id,
+          (n: Notification) => n.id !== id,
         ),
       })
     },
