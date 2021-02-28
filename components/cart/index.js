@@ -7,7 +7,6 @@ import useGlobal from 'lib/use-global'
 import Drawer from 'components/drawer'
 import CartCTA from './cta'
 import CartCoupon from './coupon'
-import CartEditing from './editing'
 import CartEmpty from './empty'
 import CartHeader from './header'
 import CartItem from './item'
@@ -17,7 +16,6 @@ import CartSummary from './summary'
 
 const Cart = () => {
   const [{ cart, showCart }, actions] = useGlobal()
-  const [editing, setEditing] = useState()
   const [shipping, setShipping] = useState({ loading: false, methods: [] })
 
   const getShipping = async () => {
@@ -42,11 +40,6 @@ const Cart = () => {
       anchor="right"
       className="w-full sm:max-w-sm flex flex-col"
     >
-      <CartEditing
-        actions={actions}
-        item={editing}
-        onClose={() => setEditing()}
-      />
       <CartLoading />
       <div className="relative flex-grow flex flex-col max-h-full overflow-scroll overscroll-contain">
         <CartHeader actions={actions} items={safeItems} />
@@ -54,12 +47,7 @@ const Cart = () => {
         <div className="flex flex-wrap p-1 items-start bg-gray-50 flex-grow">
           {!!safeItems.length || <CartEmpty />}
           {safeItems.map((cartItem) => (
-            <CartItem
-              onEdit={setEditing}
-              actions={actions}
-              key={cartItem.id}
-              item={cartItem}
-            />
+            <CartItem actions={actions} key={cartItem.id} item={cartItem} />
           ))}
         </div>
         <CartCoupon actions={actions} cart={cart} items={safeItems} />

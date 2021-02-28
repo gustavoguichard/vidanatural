@@ -1,21 +1,24 @@
-const NumericStepper = ({ current, onIncrease, onDecrease }) => (
-  <div className="flex shadow border bg-white text-center text-lg border-gray-200 font-semibold mr-1">
-    <button
-      type="button"
-      className="h-full w-8 hover:bg-gray-100"
-      onClick={onDecrease}
-    >
-      -
-    </button>
-    <span className="flex items-center px-1 h-full">{current}</span>
-    <button
-      type="button"
-      className="h-full w-8 hover:bg-gray-100"
-      onClick={onIncrease}
-    >
-      +
-    </button>
-  </div>
-)
+import React from 'react'
+
+import { classes } from 'lib/utils'
+
+const NumericStepper = ({ current, onIncrease, onDecrease, fixed }) => {
+  const cx = classes('h-full hover:bg-gray-100 flex-grow', { 'w-8': fixed })
+  const nCx = classes('flex items-center h-full', {
+    'px-1': fixed,
+    'px-3': !fixed,
+  })
+  return (
+    <>
+      <button type="button" className={cx} onClick={onDecrease}>
+        -
+      </button>
+      <span className={nCx}>{current}</span>
+      <button type="button" className={cx} onClick={onIncrease}>
+        +
+      </button>
+    </>
+  )
+}
 
 export default NumericStepper

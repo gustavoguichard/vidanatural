@@ -28,11 +28,14 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
     <>
       <div className={cx}>
         {inStock && !hideQuantity && (
-          <NumericStepper
-            current={quantity}
-            onDecrease={handleChange(-1)}
-            onIncrease={handleChange(1)}
-          />
+          <div className="flex shadow border bg-white text-center text-lg border-gray-200 font-semibold mr-1">
+            <NumericStepper
+              fixed
+              current={quantity}
+              onDecrease={handleChange(-1)}
+              onIncrease={handleChange(1)}
+            />
+          </div>
         )}
         {inStock ? (
           <CTAButton

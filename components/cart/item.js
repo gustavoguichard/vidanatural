@@ -1,19 +1,48 @@
+import { useState, useEffect, useMemo } from 'react'
+import debounce from 'lodash/debounce'
+
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
 
 import Link from 'components/link'
+import NumericStepper from 'components/numeric-stepper'
 
-const CartItem = ({ onEdit, item, actions }) => {
+const CartItem = ({ item, actions }) => {
   const {
     id,
+    available_quantity,
     product_name,
     image_url,
     product_url,
     price,
     variant_price,
-    quantity,
   } = item
+  const [quantity, setQuantity] = useState(0)
   const hasDiscont = variant_price > price
+
+  const debouncedUpdate = useMemo(
+    () =>
+      debounce((qtty) => {
+        if (item.quantity !== qtty) {
+          actions.updateItem(item.id, qtty)
+        }
+      }, 500),
+    [],
+  )
+
+  useEffect(() => {
+    setQuantity(item.quantity)
+  }, [item.quantity])
+
+  useEffect(() => {
+    debouncedUpdate(quantity)
+  }, [quantity])
+
+  const handleChange = (increment) => () => {
+    const value = Math.max(quantity + increment, 1)
+    setQuantity(Math.min(value, available_quantity))
+  }
+
   return (
     <div className="flex p-1 w-1/2">
       <div className="border tracking-tight rounded-sm bg-white w-full h-72 overflow-hidden flex flex-col justify-between">
@@ -45,17 +74,17 @@ const CartItem = ({ onEdit, item, actions }) => {
           />
         </div>
         <div className="w-full text-xs flex mt-px">
-          <button
-            onClick={() => onEdit(item)}
-            type="button"
-            className="flex-grow py-2 border-t border-r"
-          >
-            Editar
-          </button>
+          <div className="flex flex-grow border-t border-r">
+            <NumericStepper
+              onIncrease={handleChange(1)}
+              onDecrease={handleChange(-1)}
+              current={quantity}
+            />
+          </div>
           <button
             type="button"
             onClick={() => actions.removeFromCart(id)}
-            className="flex-grow py-2 border-t"
+            className="p-2 border-t hover:bg-gray-100"
           >
             Remover
           </button>
