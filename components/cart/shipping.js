@@ -1,26 +1,17 @@
 import { useState, useEffect } from 'react'
 import get from 'lodash/get'
-import isNaN from 'lodash/isNaN'
 import isNil from 'lodash/isNil'
-import { useFormState } from 'react-use-form-state'
 
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
-import CTAButton from 'components/cta-button'
-import Input from 'components/input'
-
 const CartShipping = ({ cart, items }) => {
-  const [
-    { freeShippingPrice },
-    { updateZip, updateShippingPrice },
-  ] = useGlobal()
+  const [{ freeShippingPrice }, { updateShippingPrice }] = useGlobal()
   const [methods, setMethods] = useState([])
   const [requesting, setRequesting] = useState(false)
 
   const getShippingMethods = async () => {
-    if (freeShippingPrice) return null
     setRequesting(true)
     const token = await api.vnda.getCartToken()
     const response = await api.vnda.fetch(`cart/${token}/shipping-methods`)
@@ -30,11 +21,12 @@ const CartShipping = ({ cart, items }) => {
   }
 
   useEffect(() => {
-    getShippingMethods()
-  }, [cart.subtotal])
-
-  const [editing, setEditing] = useState(false)
-  const [formState, { text }] = useFormState()
+    if (cart.shipping_address_id) {
+      getShippingMethods()
+    } else {
+      updateShippingPrice()
+    }
+  }, [cart.shipping_address_id, cart.subtotal])
 
   const valueNeededToDiscount = methods.reduce((sum, curr) => {
     if (curr.value === 'retirar-na-loja' || sum === 0) return sum
@@ -45,26 +37,18 @@ const CartShipping = ({ cart, items }) => {
       ? curr.value_needed_to_discount
       : Math.min(sum, curr.value_needed_to_discount)
   }, undefined)
-  const needed = freeShippingPrice || cart.subtotal + valueNeededToDiscount
+  const needed = isNil(valueNeededToDiscount)
+    ? freeShippingPrice
+    : cart.subtotal + valueNeededToDiscount
   const valueNeeded = Math.max(needed - cart.subtotal, 0)
   const percentage = Math.min((cart.subtotal * 100) / needed, 100)
   const completed = percentage >= 100
 
-  useEffect(() => {
-    if (!isNil(needed) && !isNaN(needed)) updateShippingPrice(needed)
-  }, [needed])
-
-  const handleSubmit = async (ev) => {
-    ev.preventDefault()
-    const zip = get(formState, 'values.zip', '').replaceAll(/\D/g, '')
-    if (zip.length === 8) {
-      await updateZip(zip)
-      getShippingMethods()
-      setEditing(false)
-    }
-  }
-
   const bg = completed ? 'bg-green-500' : 'bg-blue-400'
+
+  useEffect(() => {
+    updateShippingPrice(needed)
+  }, [needed])
 
   if (!items.length) {
     return null
@@ -91,35 +75,6 @@ const CartShipping = ({ cart, items }) => {
           style={{ width: `${percentage}%` }}
         />
       </div>
-    </div>
-  ) : !cart.shipping_address_id ? (
-    <div className="bg-gray-50 pt-2 px-4 text-sm flex flex-col">
-      {editing ? (
-        <form onSubmit={handleSubmit} className="mt-2">
-          <Input
-            label="CEP"
-            bg="gray-50"
-            autoFocus
-            {...text('zip')}
-            button={
-              <CTAButton disableIcon mini>
-                Calcular
-              </CTAButton>
-            }
-          />
-        </form>
-      ) : (
-        <a
-          href="#"
-          onClick={(ev) => {
-            ev.preventDefault()
-            setEditing(true)
-          }}
-          className="text-xs underline hover:text-teal-600"
-        >
-          Falta quanto para o frete grátis?
-        </a>
-      )}
     </div>
   ) : null
 }

@@ -50,10 +50,13 @@ export default useStore(
         store.setState({
           cart,
           updatingCart: false,
-          freeShippingPrice: undefined,
+          freeShippingPrice: initialState.freeShippingPrice,
         })
       } else {
-        store.setState({ updatingCart: false, freeShippingPrice: undefined })
+        store.setState({
+          updatingCart: false,
+          freeShippingPrice: initialState.freeShippingPrice,
+        })
       }
       return cart
     },
@@ -63,7 +66,10 @@ export default useStore(
       const cart = await api.vnda.fetch(`cart/${token}/remove`, 'POST', { id })
       store.setState({ cart, updatingCart: false })
     },
-    updateShippingPrice: (store: Store, freeShippingPrice?: number) => {
+    updateShippingPrice: (
+      store: Store,
+      freeShippingPrice = initialState.freeShippingPrice,
+    ) => {
       store.setState({ freeShippingPrice })
     },
     listCart: async (store: Store) => {
