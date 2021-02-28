@@ -23,9 +23,7 @@ const CartItem = ({ item, actions }) => {
   const debouncedUpdate = useMemo(
     () =>
       debounce((qtty) => {
-        if (item.quantity !== qtty) {
-          actions.updateItem(item.id, qtty)
-        }
+        actions.updateItem(item.id, qtty)
       }, 500),
     [],
   )
@@ -35,7 +33,9 @@ const CartItem = ({ item, actions }) => {
   }, [item.quantity])
 
   useEffect(() => {
-    debouncedUpdate(quantity)
+    if (item.quantity !== quantity) {
+      debouncedUpdate(quantity)
+    }
   }, [quantity])
 
   const handleChange = (increment) => () => {
