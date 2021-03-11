@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 const Pixel = () => {
-  const pixelId = process.env.FB_PIXEL_ID
+  const pixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID
   return pixelId ? (
     <Head>
       <script
