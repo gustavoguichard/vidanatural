@@ -1,5 +1,6 @@
 import { FaWhatsapp, FaFacebookMessenger } from 'react-icons/fa'
 
+import analytics from 'lib/analytics'
 import { classes } from 'lib/utils'
 
 const Chat = ({ className, bg = 'gray-900', shadow = true }) => {
@@ -9,9 +10,12 @@ const Chat = ({ className, bg = 'gray-900', shadow = true }) => {
     `bg-${bg}`,
     { 'shadow-xl': shadow },
   )
+  const track = (service) => () =>
+    analytics.track('Contact', { location: 'FloatingButtons', service })
   return (
     <div className={cx}>
       <a
+        onClick={track('Whatsapp')}
         className="inline-block"
         href="https://wa.me/5548991039557"
         title="Fale conosco por whatsapp"
@@ -21,6 +25,7 @@ const Chat = ({ className, bg = 'gray-900', shadow = true }) => {
         <FaWhatsapp color="#26CC63" size={33} />
       </a>
       <a
+        onClick={track('Messenger')}
         className="inline-block"
         href="https://m.me/vidanatural.eco"
         title="Fale conosco no messenger"

@@ -3,7 +3,7 @@ import { FiChevronDown } from 'react-icons/fi'
 import { classes } from 'lib/utils'
 import { useToggle } from 'lib/hooks'
 
-const Pannel = ({ className, children, title }) => {
+const Pannel = ({ onClick, className, children, title }) => {
   const [open, toggle] = useToggle()
 
   const cx = classes('transition duration-200 text-xl text-gray-400', {
@@ -16,9 +16,16 @@ const Pannel = ({ className, children, title }) => {
       'shadow my-4 rounded-lg': open,
     },
   )
+  const handleClick = () => {
+    toggle()
+    onClick && onClick(title)
+  }
   return (
     <div className={wCx}>
-      <div onClick={toggle} className="flex p-4 justify-between cursor-pointer">
+      <div
+        onClick={handleClick}
+        className="flex p-4 justify-between cursor-pointer"
+      >
         <span className="font-semibold text-gray-600 tracking-tight">
           {title}
         </span>

@@ -2,6 +2,7 @@ import React, { useState, forwardRef } from 'react'
 
 import { classes } from 'lib/utils'
 import useGlobal from 'lib/use-global'
+import analytics from 'lib/analytics'
 
 import CTAButton from 'components/cta-button'
 import NumericStepper from 'components/numeric-stepper'
@@ -44,6 +45,12 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
             className="overflow-hidden"
             onClick={async () => {
               setAdding(true)
+              analytics.addToCart({
+                product,
+                variant,
+                quantity,
+                location: 'ProductPage',
+              })
               await addToCart(variant.sku, quantity)
               setAdding(false)
             }}

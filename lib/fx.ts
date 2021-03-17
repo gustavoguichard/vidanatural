@@ -1,6 +1,6 @@
 import { NextRouter } from 'next/router'
 
-import { initGA, logPageView } from 'lib/analytics'
+import analytics from 'lib/analytics'
 import { isClient } from 'lib/utils'
 
 export const intersectionPolyfill = async () => {
@@ -15,7 +15,7 @@ export const removeServerStyles = async () => {
 }
 
 export const initTracking = async (router: NextRouter) => {
-  initGA()
-  logPageView()
-  router?.events.on('routeChangeComplete', logPageView)
+  analytics.init()
+  analytics.pageView()
+  router?.events.on('routeChangeComplete', analytics.pageView)
 }

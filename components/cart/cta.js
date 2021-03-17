@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import api from 'lib/api'
+import analytics from 'lib/analytics'
 import { toCurrency } from 'lib/utils'
 
 import CTAButton from 'components/cta-button'
@@ -13,6 +14,9 @@ const CartCTA = ({ cart, items }) => {
       setCartUrl(url)
     }
   }, [cart.token])
+  const handleClick = () => {
+    analytics.track('InitiateCheckout')
+  }
 
   return items.length ? (
     <footer className="sticky bottom-0 bg-white border flex flex-col p-2">
@@ -20,7 +24,9 @@ const CartCTA = ({ cart, items }) => {
         <span>Total estimado</span>
         <span>{toCurrency(cart.total)}</span>
       </p>
-      <CTAButton href={cartUrl}>Fechar pedido</CTAButton>
+      <CTAButton onClick={handleClick} href={cartUrl}>
+        Fechar pedido
+      </CTAButton>
     </footer>
   ) : null
 }

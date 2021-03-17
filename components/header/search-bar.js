@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import throttle from 'lodash/throttle'
 
 import api from 'lib/api'
+import analytics from 'lib/analytics'
 import useGlobal from 'lib/use-global'
 
 import Spinner from 'components/spinner'
@@ -11,6 +12,7 @@ const doSearch = throttle(async (text, setResults, setFetching) => {
   setFetching(true)
   const result = await api.vnda.textSearch(text)
   setResults(result)
+  analytics.track('Search', { text })
   setFetching(false)
 }, 1300)
 

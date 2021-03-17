@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import api from 'lib/api'
+import analytics from 'lib/analytics'
 import { toCurrency } from 'lib/utils'
 import { useInterval } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
@@ -26,6 +27,7 @@ const ProductCard = ({ product }) => {
       ev.preventDefault()
       ev.stopPropagation()
       setAdding(true)
+      analytics.addToCart({ product, variant, location: 'ProductCard' })
       await addToCart(variant.sku, 1)
       setAdding(false)
     }

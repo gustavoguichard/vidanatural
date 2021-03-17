@@ -3,6 +3,7 @@ import { useFormState } from 'react-use-form-state'
 import { useRouter } from 'next/router'
 
 import api from 'lib/api'
+import analytics from 'lib/analytics'
 
 import CTAButton from 'components/cta-button'
 import Spinner from 'components/spinner'
@@ -25,6 +26,7 @@ const Form = () => {
     setSending(true)
 
     const values = { ...formState.values, reply_to: formState.values.email }
+    analytics.track('Contact', { location: 'ContactForm', values })
     const isSent = await api.vnda.sendForm(values)
 
     isSent ? router.push({ pathname: '/gratos' }) : setHasError(true)
