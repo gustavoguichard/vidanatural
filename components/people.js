@@ -4,7 +4,7 @@ import Masonry from 'components/masonry'
 import Person from 'components/person'
 
 const People = ({ testimonials }) => (
-  <div className="max-w-screen-xl m-auto px-10">
+  <div className="max-w-screen-xl m-auto px-10 relative z-10">
     <div
       className="sm:bg-gray-900 overflow-hidden sm:shadow-lg rounded-lg -mt-20 -mb-4"
       style={{

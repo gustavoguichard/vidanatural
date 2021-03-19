@@ -3,6 +3,10 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   purge: ['./components/**/*.{js,jsx,ts,tsx}', './pages/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    filter: {
+      none: 'none',
+      grayscale: 'grayscale(1)',
+    },
     extend: {
       colors: {
         teal: colors.teal,
@@ -20,5 +24,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-filters')],
 }
