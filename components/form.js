@@ -43,7 +43,7 @@ const Form = () => {
       <input {...raw('reply_to')} type="hidden" />
       <input
         {...text('a_password')}
-        css={{ display: 'none !important' }}
+        className="hidden"
         tabIndex={-1}
         autoComplete="false"
       />

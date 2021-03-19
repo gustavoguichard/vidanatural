@@ -14,7 +14,7 @@ const Testimonials = ({ testimonials: items, show = 3 }) => {
       <div className="mx-4 text-center">
         <Img
           className="max-w-full w-3/4 sm:w-1/2 md:w-4/12 lg:w-3/12 mx-auto mb-4"
-          css={{ filter: 'brightness(0.2)' }}
+          style={{ filter: 'brightness(0.2)' }}
           src={sloganImg}
           alt="Eu uso cosmética consciente"
         />

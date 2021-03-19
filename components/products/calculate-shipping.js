@@ -80,7 +80,7 @@ const CalculateShipping = ({ sku, quantity }) => {
                     para entrega)
                     <br />
                     {method.value_needed_to_discount && (
-                      <strong css={{ fontSize: '.9rem' }}>
+                      <strong className="text-sm">
                         Frete grátis por mais{' '}
                         {toCurrency(method.value_needed_to_discount)} em
                         compras.

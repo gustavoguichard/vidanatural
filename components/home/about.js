@@ -5,7 +5,7 @@ const About = () => (
     <div className="max-w-screen-xl m-auto sm:p-24">
       <div className="bg-gray-100 flex-col md:flex-row flex justify-center items-stretch">
         <div
-          css={{ backgroundImage: 'url("/static/images/afro.jpg" )' }}
+          style={{ backgroundImage: 'url("/static/images/afro.jpg" )' }}
           className="h-64 md:h-auto bg-cover bg-center md:w-6/12 transform lg:-translate-x-16  lg:-translate-y-16"
         />
         <div className="m-10 s:m-16 lg:mb-0 md:w-6/12 transform lg:-translate-x-8">
@@ -30,7 +30,7 @@ const About = () => (
       </div>
       <div className="bg-gray-100 flex-col md:flex-row flex justify-center items-stretch">
         <div
-          css={{ backgroundImage: 'url("/static/images/folhas.jpg")' }}
+          style={{ backgroundImage: 'url("/static/images/folhas.jpg")' }}
           className="h-64 md:h-auto bg-cover bg-center md:w-6/12 order-first md:order-1 transform lg:translate-x-16  lg:translate-y-16"
         />
         <div className="m-10 s:m-16 md:w-6/12 transform lg:translate-x-8">

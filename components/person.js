@@ -9,11 +9,10 @@ const Person = ({ data, uid }) => {
   return (
     <Link href={`/eu-uso/${uid}`}>
       <figure
-        className="cursor-pointer transition-all duration-300 m-0 mb-px w-full flex relative flex-col pr-px"
+        className="cursor-pointer transition-all duration-300 m-0 mb-px w-full flex relative flex-col pr-px min-h-[250px]"
         css={{
           filter: 'saturate(0)',
           '&:hover, a:focus & ': { filter: 'saturate(1)' },
-          minHeight: 250,
         }}
       >
         <Img

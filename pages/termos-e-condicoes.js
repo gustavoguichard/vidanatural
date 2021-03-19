@@ -29,11 +29,8 @@ export default function Index() {
         </div>
         <div className="rich-text max-w-screen-sm m-auto">
           <Img
-            className="max-w-full m-auto my-20 block"
-            css={{
-              width: 320,
-              minHeight: 300,
-            }}
+            className="max-w-full m-auto my-20 block min-h-[300px]"
+            width={320}
             src="/static/svgs/delivery.svg"
             alt="Entregas"
           />
@@ -54,11 +51,8 @@ export default function Index() {
             cidades por SEDEX.
           </p>
           <Img
-            className="max-w-full m-auto mb-20 mt-32 block"
-            css={{
-              width: 340,
-              minHeight: 300,
-            }}
+            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
+            width={340}
             src="/static/svgs/security.svg"
             alt="Segurança"
           />
@@ -107,11 +101,8 @@ export default function Index() {
             </li>
           </ul>
           <Img
-            className="max-w-full m-auto mb-20 mt-32 block"
-            css={{
-              width: 320,
-              minHeight: 300,
-            }}
+            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
+            width={320}
             src="/static/svgs/terms.svg"
             alt="Termos de uso"
           />
@@ -135,11 +126,8 @@ export default function Index() {
             tradicionais e/ou eletrônico.
           </p>
           <Img
-            className="max-w-full m-auto mb-20 mt-32 block"
-            css={{
-              width: 320,
-              minHeight: 300,
-            }}
+            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
+            width={320}
             src="/static/svgs/returns.svg"
             alt="Trocas e devoluções"
           />
@@ -249,11 +237,8 @@ export default function Index() {
             entrega foi realizada.
           </p>
           <Img
-            className="max-w-full m-auto mb-20 mt-32 block"
-            css={{
-              width: 200,
-              minHeight: 300,
-            }}
+            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
+            width={200}
             src="/static/svgs/terms-end.svg"
             alt="Fim dos termos"
           />

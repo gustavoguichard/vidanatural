@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
-    "@fullhuman/postcss-purgecss": "^4.0.2",
+    "@tailwindcss/jit": "^0.1.4",
     "@types/accounting": "^0.4.1",
     "accounting": "^0.4.1",
     "animate.css": "^4.1.1",

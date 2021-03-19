@@ -18,10 +18,7 @@ const ImageGallery = ({ product }) => {
       <div className="lg:hidden">
         <ProductTitle product={product} />
       </div>
-      <div
-        className="relative flex items-start justify-center -mx-6 lg:mr-auto lg:ml-4"
-        css={{ minHeight: 300 }}
-      >
+      <div className="relative flex items-start justify-center -mx-6 lg:mr-auto lg:ml-4 min-h-[300px]">
         <Carousel
           ref={gallery}
           NextButton={false}
@@ -47,10 +44,9 @@ const ImageGallery = ({ product }) => {
               key={i}
               onClick={() => gallery.current.goTo(i)}
               alt={product.name}
-              className="w-24 h-24 m-1 lg:w-80 lg:h-auto object-contain cursor-pointer transition-all duration-700"
-              css={{
-                boxShadow: i === index ? `0 0 0 2px black` : `0 0 0 0 black`,
-              }}
+              className={`w-24 h-24 m-1 lg:w-80 lg:h-auto object-contain cursor-pointer transition-all duration-700 ${
+                i === index && 'ring-2 ring-gray-900'
+              }`}
               src={api.vnda.getResizedImg(img.url, 250)}
             />
           ))}

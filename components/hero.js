@@ -2,7 +2,11 @@ import { classes } from 'lib/utils'
 
 import BackgroundImg from 'components/background-img'
 
-const sizes = { small: '40vh', medium: '65vh', full: '100vh' }
+const sizes = {
+  small: 'min-h-[40vh]',
+  medium: 'min-h-[65vh]',
+  full: 'min-h-screen',
+}
 
 const Hero = ({
   children,
@@ -20,9 +24,10 @@ const Hero = ({
   const wCx = classes(
     className,
     'relative flex flex-col items-center justify-center bg-gray-800',
+    sizes[size],
   )
   return (
-    <div className={wCx} css={{ minHeight: sizes[size] }}>
+    <div className={wCx}>
       {background && (
         <BackgroundImg filter={filter} alwaysShow src={background} />
       )}
