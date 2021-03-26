@@ -1,6 +1,20 @@
 import { init, track } from 'fbq'
+import { useEffect } from 'react'
 import ReactGA from 'react-ga'
 import TagManager from 'react-gtm-module'
+
+type TrackType =
+  | 'AddPaymentInfo'
+  | 'AddToCart'
+  | 'CompleteRegistration'
+  | 'Contact'
+  | 'FindLocation'
+  | 'InitiateCheckout'
+  | 'Lead'
+  | 'Purchase'
+  | 'Search'
+  | 'ViewContent'
+  | 'PageView'
 
 const initGA = () => {
   ReactGA.initialize(process.env.NEXT_PUBLIC_ANALYTICS_ID ?? '')
@@ -22,8 +36,18 @@ const logPageView = () => {
   track('PageView')
 }
 
-const addToCart = (options: any) => {
+const addToCart = (options: Record<string, any>) => {
   track('AddToCart', options)
+}
+
+export const useTrack = (
+  event: TrackType,
+  options?: Record<string, any>,
+  shouldTrack = true,
+) => {
+  useEffect(() => {
+    shouldTrack && track(event, options)
+  }, [shouldTrack])
 }
 
 export default {

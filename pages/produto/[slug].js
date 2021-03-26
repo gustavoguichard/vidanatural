@@ -4,6 +4,7 @@ import isEmpty from 'lodash/isEmpty'
 
 import staticPaths from 'lib/static-paths/produtos-uid'
 import staticProps from 'lib/static-props/produtos-uid'
+import { useTrack } from 'lib/analytics'
 
 import ErrorPage from 'pages/404'
 import ProductLayout from 'components/products/layout'
@@ -23,6 +24,7 @@ const ProductPage = ({
   slug,
 }) => {
   const { isFallback } = useRouter()
+  useTrack('ViewContent')
   return isFallback || foundProduct ? (
     <ProductLayout
       slug={slug}
