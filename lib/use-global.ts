@@ -37,7 +37,7 @@ export default useStore(
     },
     addToCart: async (store: Store, sku: string, quantity = 1) => {
       store.setState({ showCart: true, updatingCart: true })
-      const token = await api.vnda.getCartToken()
+      const { token } = await api.vnda.getCart()
       const cart = await api.vnda.post(`cart/${token}/add`, { sku, quantity })
       updateCart(store, cart)
       return true
