@@ -10,7 +10,6 @@ import { useCoupon } from 'lib/domain-hooks'
 
 import 'animate.css/animate.min.css'
 import 'styles/app.scss'
-import 'styles/tailwind.css'
 
 const ClarityScript = dynamic(() => import('components/clarity-script'), {
   ssr: false,

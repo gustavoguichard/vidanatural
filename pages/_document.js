@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class VidaNatural extends Document {
   render() {
     return (
-      <Html amp="" lang="pt-BR">
+      <Html className="max-w-screen" lang="pt-BR">
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#32333d" />
@@ -28,7 +28,7 @@ class VidaNatural extends Document {
             href="/sitemap.xml"
           />
         </Head>
-        <body className="bg-gray-50">
+        <body className="bg-gray-50 max-w-screen">
           <Main />
           <NextScript />
         </body>

@@ -7,10 +7,10 @@ import Link from 'components/link'
 const Person = ({ data, uid }) => {
   const { is_long, picture, name } = data
   return (
-    <Link href={`/eu-uso/${uid}`}>
-      <figure className="cursor-pointer transition-all duration-300 m-0 mb-px w-full flex relative flex-col pr-px min-h-[250px] filter-grayscale hover:filter-none">
+    <Link className={is_long ? 'tall' : 'short'} href={`/eu-uso/${uid}`}>
+      <figure className="cursor-pointer transition-all duration-300 w-full h-full relative filter-grayscale hover:filter-none">
         <Img
-          className="w-full object-conver"
+          className="w-full h-full object-cover"
           src={picture[is_long ? 'long' : 'square'].url}
           alt={name}
         />

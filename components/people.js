@@ -1,6 +1,5 @@
 import { memo } from 'react'
 
-import Masonry from 'components/masonry'
 import Person from 'components/person'
 
 const People = ({ testimonials }) => (
@@ -12,11 +11,11 @@ const People = ({ testimonials }) => (
           'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)',
       }}
     >
-      <Masonry>
+      <div className="people-masonry gap-px auto-rows-[150px] grid">
         {testimonials.map((testimonial, index) => (
           <Person key={index} {...testimonial} />
         ))}
-      </Masonry>
+      </div>
     </div>
   </div>
 )
