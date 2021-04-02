@@ -32,7 +32,7 @@ const Carousel = (
   const scroller = useRef()
   const childrenCount = React.Children.count(children)
   const [page, setPage] = useState(0)
-  const getPageStats = calculatePages(childrenCount, itemWidth)
+  const getPageStats = calculatePages(childrenCount)
   const { x } = useElScroll(scroller.current, 300)
 
   const reset = () => {
@@ -41,7 +41,7 @@ const Carousel = (
   }
 
   const goToPage = (newPage) => {
-    const { width } = widthInPixels(itemWidth, scroller.current)
+    const { width } = widthInPixels(scroller.current)
     const { total, perPage } = getPageStats(scroller.current)
     const next = clamp(newPage, 0, total - 1)
     setPage(next)

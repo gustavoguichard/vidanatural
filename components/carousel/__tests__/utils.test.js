@@ -3,16 +3,19 @@ import * as subject from '../utils'
 describe('Carousel utils', () => {
   const el = {
     getBoundingClientRect: () => ({ width: 300 }),
+    children: [{ getBoundingClientRect: () => ({ width: 120 }) }],
     scroll: jest.fn(),
   }
 
   describe('widthInPixels', () => {
-    it('returns the width in pixels if the width is a percentage', () => {
-      expect(subject.widthInPixels(100, el)).toMatchObject({ width: 100 })
-      expect(subject.widthInPixels('33%', el)).toMatchObject({ width: 99 })
-      expect(subject.widthInPixels(100, null)).toMatchObject({
-        width: 100,
-        containerWidth: 100,
+    it("returns the width in pixels based on container's first child", () => {
+      expect(subject.widthInPixels(el)).toMatchObject({
+        width: 120,
+        containerWidth: 300,
+      })
+      expect(subject.widthInPixels(null)).toMatchObject({
+        width: 0,
+        containerWidth: 0,
       })
     })
   })
@@ -26,7 +29,7 @@ describe('Carousel utils', () => {
 
   describe('calculatePages', () => {
     it('returns the ', () => {
-      expect(subject.calculatePages(10, 120)(el)).toEqual({
+      expect(subject.calculatePages(10)(el)).toEqual({
         perPage: 2,
         total: 5,
         width: 120,
