@@ -23,7 +23,7 @@ const CTAButton = (
   const cx = classes(
     'group tracking-wide transition duration-200 inline-flex relative rounded-sm items-center justify-center focus:outline-none focus:ring',
     className,
-    { 'text-xs p-2 px-3': mini, 'p-4': !mini },
+    mini ? 'text-xs p-2 px-3' : 'p-4',
     {
       'text-white bg-teal-600': primary && !outlined,
       'text-white bg-gray-900': !primary && !outlined,
@@ -35,13 +35,20 @@ const CTAButton = (
 
   const Component = href ? (external ? 'a' : Link) : 'button'
   return (
-    <Component ref={ref} {...props} href={href} className={cx}>
+    <Component
+      type={href ? undefined : 'submit'}
+      ref={ref}
+      {...props}
+      href={href}
+      className={cx}
+    >
       {children}
       {disableIcon || (
         <IconComponent
-          className={`transition-all duration-200 ml-1 group-hover:ml-2 ${
-            mini ? '' : '-mb-px'
-          }`}
+          className={classes(
+            'transition-all duration-200 ml-1 group-hover:ml-2',
+            mini || '-mb-px',
+          )}
         />
       )}
     </Component>

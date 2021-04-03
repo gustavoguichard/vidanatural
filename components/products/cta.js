@@ -21,13 +21,31 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
     setQuantity(Math.min(newValue, variant.stock))
   }
   const inStock = variant.stock > 0
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setAdding(true)
+    analytics.addToCart({
+      product,
+      variant,
+      quantity,
+      location: 'ProductPage',
+    })
+    await addToCart(variant.sku, quantity)
+    setAdding(false)
+  }
 
   const cx = classes('flex overflow-hidden', {
     'flex-col flex-grow mr-2': hideQuantity,
   })
   return variant ? (
     <>
-      <div className={cx}>
+      <form
+        method="post"
+        onSubmit={handleSubmit}
+        action="/api/add-to-cart"
+        className={cx}
+      >
+        <input type="hidden" name="sku" value={variant.sku} />
         {inStock && !hideQuantity && (
           <div className="flex shadow border bg-white text-center text-lg border-gray-200 font-semibold mr-1">
             <NumericStepper
@@ -43,17 +61,6 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
             ref={innerRef}
             disableIcon={adding}
             className="overflow-hidden"
-            onClick={async () => {
-              setAdding(true)
-              analytics.addToCart({
-                product,
-                variant,
-                quantity,
-                location: 'ProductPage',
-              })
-              await addToCart(variant.sku, quantity)
-              setAdding(false)
-            }}
           >
             {adding ? (
               <Spinner className="mx-8" />
@@ -66,7 +73,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
         ) : (
           <OutOfStockForm innerRef={innerRef} product={variant} />
         )}
-      </div>
+      </form>
       {hideQuantity || (
         <CalculateShipping sku={variant.sku} quantity={quantity} />
       )}

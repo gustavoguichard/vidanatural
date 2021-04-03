@@ -19,7 +19,7 @@ const MenuButton = ({ name, path, onClose }) => (
   </Link>
 )
 
-const MenuItem = ({ name, as, onClose, path, links }) => {
+const MenuItem = ({ name, onClose, path, links }) => {
   const hasSubmenu = !!links
   return (
     <>
