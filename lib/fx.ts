@@ -9,11 +9,6 @@ export const intersectionPolyfill = async () => {
   }
 }
 
-export const removeServerStyles = async () => {
-  const jssStyles = document.querySelector('#jss-server-side')
-  jssStyles?.parentElement?.removeChild(jssStyles)
-}
-
 export const initTracking = async (router: NextRouter) => {
   analytics.init()
   analytics.pageView()
