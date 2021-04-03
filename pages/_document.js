@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import NoScript from 'components/no-script'
 
 class VidaNatural extends Document {
   render() {
@@ -29,6 +30,7 @@ class VidaNatural extends Document {
           />
         </Head>
         <body className="bg-gray-50 max-w-screen">
+          <NoScript />
           <Main />
           <NextScript />
         </body>
