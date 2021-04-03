@@ -16,6 +16,10 @@ html {
   text-shadow: 0 15px 30px rgba(0, 0, 0, 0.11), 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .people-masonry {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-auto-flow: dense;

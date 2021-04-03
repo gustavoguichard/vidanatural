@@ -1,23 +1,11 @@
 import React, { forwardRef } from 'react'
 import * as customTypes from 'types/prop-types'
 
+import { classes } from 'lib/utils'
+
 export const getItemWidth = (itemWidth) => {
   const isPercent = customTypes.regex.test(itemWidth)
   return itemWidth === 'auto' || isPercent ? itemWidth : `${itemWidth}px`
-}
-
-export const getBaseStyles = (children, flex, width, gridColumnGap) => {
-  const count = React.Children.count(children)
-  return flex
-    ? {
-        display: 'flex',
-        flexWrap: 'nowrap',
-      }
-    : {
-        display: 'grid',
-        gridColumnGap,
-        gridTemplateColumns: `repeat(${count}, ${width})`,
-      }
 }
 
 const Scroller = (
@@ -25,27 +13,29 @@ const Scroller = (
   ref,
 ) => {
   const width = getItemWidth(itemWidth)
-
-  const baseStyles = getBaseStyles(children, flex, width, `${gap / 2}rem`)
-  const itemStyles = flex ? { flexShrink: 0 } : {}
+  const count = React.Children.count(children)
+  const gridTemplateColumns = flex ? undefined : `repeat(${count}, ${width})`
 
   return (
     <div
       ref={ref}
-      className="overflow-x-scroll w-full max-w-full"
-      css={{
-        ...baseStyles,
+      className={classes(
+        'overflow-x-scroll w-full max-w-full hide-scrollbar',
+        flex ? 'flex flex-nowrap' : `grid`,
+      )}
+      style={{
+        gridTemplateColumns,
+        gridColumnGap: `${gap / 2}rem`,
         scrollSnapType: snap ? `x ${snap}` : null,
-        '&::-webkit-scrollbar': { display: 'none' },
       }}
       {...props}
     >
       {React.Children.map(children, (child) =>
         React.cloneElement(child, {
           ...child.props,
+          className: classes(child.props.className, flex && 'flex-shrink-0'),
           style: {
             ...child.props.style,
-            ...itemStyles,
             scrollSnapAlign: 'start',
           },
         }),
