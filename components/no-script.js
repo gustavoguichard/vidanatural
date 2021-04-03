@@ -14,6 +14,7 @@ const NoScript = () => (
         borderRadius: 5,
         fontFamily: 'sans-serif',
         fontSize: 20,
+        zIndex: 1000,
       }}
     >
       <p>
