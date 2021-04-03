@@ -42,7 +42,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
       <form
         method="post"
         onSubmit={handleSubmit}
-        action="/api/add-to-cart"
+        action="/api/cart/add-to-cart"
         className={cx}
       >
         <input type="hidden" name="sku" value={variant.sku} />
