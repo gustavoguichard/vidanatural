@@ -43,8 +43,8 @@ const doRequest = async (
       ...get(params, 'headers'),
       Accept: 'application/json',
     },
-    ...params,
     credentials: proxy ? 'include' : undefined,
+    ...params,
   } as any
   const res = await fetch(url, requestParams)
   const data = res.status >= 400 ? (returnArray ? [] : res) : await res.json()
@@ -57,9 +57,10 @@ const fetchApi = async (
   query?: object,
   proxy = false,
   returnArray = true,
+  params = {},
 ) => {
   const url = getUrl(path, query, proxy)
-  return doRequest(url, {}, proxy, returnArray)
+  return doRequest(url, params, proxy, returnArray)
 }
 
 const post = async (
@@ -88,7 +89,8 @@ const sendForm = async (values: FormKeys) => {
   return response.status < 400
 }
 
-const search = (params?: object) => fetchApi('busca', params, true)
+const search = (params?: object) =>
+  fetchApi('busca', params, true, true, { credentials: undefined })
 
 const textSearch = (text: string) => fetchApi('busca', { q: text }, true)
 
