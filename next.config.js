@@ -1,16 +1,7 @@
 const withPlugins = require('next-compose-plugins')
 const optimizedImages = require('next-optimized-images')
-const CompressionPlugin = require('compression-webpack-plugin')
 
 const nextConfig = {
-  webpack: (config) => {
-    config.plugins.push(
-      new CompressionPlugin({
-        exclude: /\/webpack/,
-      }),
-    )
-    return config
-  },
   async rewrites() {
     return [
       {
