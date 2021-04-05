@@ -1,8 +1,8 @@
 const withPlugins = require('next-compose-plugins')
 const optimizedImages = require('next-optimized-images')
-const preCompression = require('@moxy/next-pre-compression')
 
 const nextConfig = {
+  compress: false,
   async rewrites() {
     return [
       {
@@ -14,6 +14,6 @@ const nextConfig = {
 }
 
 module.exports = withPlugins(
-  [[optimizedImages, { optimizeImagesInDev: true }], preCompression],
+  [[optimizedImages, { optimizeImagesInDev: true }]],
   nextConfig,
 )

@@ -12,7 +12,6 @@
     "start": "next"
   },
   "dependencies": {
-    "@moxy/next-pre-compression": "^3.0.1",
     "@tailwindcss/jit": "^0.1.4",
     "@types/accounting": "^0.4.1",
     "accounting": "^0.4.1",
