@@ -6,20 +6,16 @@ import Img from 'components/img'
 import Layout from 'components/layout'
 import Link from 'components/link'
 import PaperContent from 'components/paper-content'
+import SloganSvg from 'components/svg/slogan-quero'
 import StatePannel from 'components/state-pannel'
 
 import parsedClients from 'data/parsed-clients'
-import sloganImg from 'public/static/svgs/euquero.svg'
 
 const OndeEncontrar = () => (
   <Layout title="Onde encontrar">
     <Hero size="small" background="/static/images/onde-encontrar.jpg">
       <div className="my-12 py-6 px-16 max-w-screen-sm">
-        <img
-          className="max-w-full h-24"
-          src={sloganImg}
-          alt="Eu quero | cosmética consciente"
-        />
+        <SloganSvg className="max-w-full h-24" />
       </div>
     </Hero>
     <PaperContent>

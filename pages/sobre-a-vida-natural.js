@@ -6,8 +6,7 @@ import IllustratedIngredients from 'components/illustrated-ingredients'
 import Layout from 'components/layout'
 import TeamMember from 'components/team-member'
 import RichText from 'components/rich-text'
-
-import sloganImg from 'public/static/svgs/eufaco.svg'
+import SloganSvg from 'components/svg/slogan-faco'
 
 const AboutPage = ({ team, page }) => (
   <Layout
@@ -19,11 +18,7 @@ const AboutPage = ({ team, page }) => (
   >
     <Hero size="small" background="/static/images/banner.jpg">
       <div className="my-12 py-6 px-16 max-w-screen-md">
-        <img
-          className="max-w-full h-24 m-auto"
-          src={sloganImg}
-          alt="Eu faço | cosmética consciente"
-        />
+        <SloganSvg className="max-w-full h-24 m-auto" />
         <RichText className="m-4 text-lg">
           {page.data.banner_description}
         </RichText>

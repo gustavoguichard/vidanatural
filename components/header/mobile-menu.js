@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 
+import BrandSvg from 'components/svg/brand'
 import Drawer from 'components/drawer'
 import IconButton from 'components/icon-button'
 import Img from 'components/img'
 import Link from 'components/link'
 
 import menu from 'data/menu'
-import brandImg from 'public/static/svgs/brand.svg'
 
 const MenuButton = ({ name, path, onClose }) => (
   <Link
@@ -61,11 +61,7 @@ const MobileMenu = ({ tags }) => {
         onOpen={toggleDrawer(true)}
       >
         <Link className="border-b" href="/">
-          <Img
-            className="w-32 m-auto mb-4 mt-6"
-            src={brandImg}
-            alt="Home | Vida Natural"
-          />
+          <BrandSvg className="w-32 m-auto mb-4 mt-6" />
         </Link>
         <div className="divide-y min-w-screen-3/4">
           {[tags].map((item) => (

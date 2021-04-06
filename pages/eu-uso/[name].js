@@ -7,8 +7,7 @@ import Hero from 'components/hero'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
 import PersonCard from 'components/person-card'
-
-import sloganImg from 'public/static/svgs/slogan.svg'
+import SloganSvg from 'components/svg/slogan'
 
 const ContentPage = ({ data }) => {
   const { content, name, picture, role, location, is_long } = data
@@ -17,11 +16,7 @@ const ContentPage = ({ data }) => {
     <Layout title={`${firstName} usa cosmética consciente!`}>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="my-12 py-6 px-16 max-w-screen-sm">
-          <img
-            className="max-w-full h-24"
-            src={sloganImg}
-            alt="Eu uso | cosmética consciente"
-          />
+          <SloganSvg className="max-w-full h-24" />
           <p className="m-4 text-lg max-w-2xl">
             Descubra o que motiva <strong>{firstName}</strong> a usar os
             produtos da VN
