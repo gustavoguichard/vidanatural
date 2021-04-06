@@ -9,9 +9,8 @@ import Hero from 'components/hero'
 import Pagination from 'components/pagination'
 import PostPreview from 'components/post-preview'
 import SinglePageLayout from 'components/single-page-layout'
+import SloganSvg from 'components/svg/slogan-amo'
 import Skeleton from 'components/skeleton/blog-post'
-
-import sloganImg from 'public/static/svgs/euamo.svg'
 
 const BlogPage = ({ posts, page = 1, pages }) => {
   const router = useRouter()
@@ -23,11 +22,7 @@ const BlogPage = ({ posts, page = 1, pages }) => {
       hero={
         <Hero size="small" background="/static/images/banner.jpg">
           <div className="my-12 py-6 px-16 max-w-screen-sm">
-            <img
-              className="max-w-full h-24"
-              src={sloganImg}
-              alt="Eu amo | cosmética consciente"
-            />
+            <SloganSvg className="max-w-full h-24" />
             <p className="mt-8 text-lg">
               {title} da VN - leia artigos sobre cosmética natural, produtos
               orgânicos, veganos, artesanais e dicas de estilo de{' '}

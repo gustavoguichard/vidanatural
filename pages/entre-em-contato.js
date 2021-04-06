@@ -5,18 +5,13 @@ import Form from 'components/form'
 import Hero from 'components/hero'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
-
-import sloganImg from 'public/static/svgs/euconecto.svg'
+import SloganSvg from 'components/svg/slogan-conecto'
 
 const Page = () => (
   <Layout title="Entre em contato">
     <Hero size="small" background="/static/images/banner.jpg">
       <div className="my-12 py-6 px-16 max-w-screen-sm">
-        <img
-          className="max-w-full h-24"
-          src={sloganImg}
-          alt="Eu conecto | cosmética consciente"
-        />
+        <SloganSvg className="max-w-full h-24" />
       </div>
     </Hero>
     <PaperContent>

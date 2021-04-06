@@ -5,9 +5,8 @@ import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
+import SloganSvg from 'components/svg/slogan-faco'
 import TeamMember from 'components/team-member'
-
-import sloganImg from 'public/static/svgs/eufaco.svg'
 
 const MemberPage = ({ name, ...props }) => {
   const [firstName] = name.split(' ')
@@ -15,11 +14,7 @@ const MemberPage = ({ name, ...props }) => {
     <Layout title={`${firstName} faz cosmética consciente!`}>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="my-12 py-6 px-16 max-w-screen-sm">
-          <img
-            className="max-w-full h-24"
-            src={sloganImg}
-            alt="Eu faço | cosmética consciente"
-          />
+          <SloganSvg className="max-w-full h-24" />
           <p className="m-4 text-lg max-w-2xl">
             Conheça quem faz a <strong>Vida Natural</strong> acontecer!
           </p>

@@ -1,12 +1,11 @@
 import { classes } from 'lib/utils'
 
-import logoImg from 'public/static/svgs/logo.svg'
-import logoWhiteImg from 'public/static/svgs/logo-white.svg'
-import brandImg from 'public/static/svgs/brand.svg'
+import LogoSvg from 'components/svg/logo'
+import BrandSvg from 'components/svg/brand'
 import Link from 'components/link'
 
 const Logo = ({ sticky, variant }) => {
-  const secondary = variant === 'secondary'
+  // const secondary = variant === 'secondary'
   const cx = classes(
     'transition-all py-3 w-32',
     sticky
@@ -21,12 +20,8 @@ const Logo = ({ sticky, variant }) => {
   )
   return (
     <Link href="/" title="Ir para a página inicial">
-      <img className={cx} src={brandImg} alt="Vida Natural" />
-      <img
-        className={cxB}
-        src={secondary ? logoImg : logoWhiteImg}
-        alt="Vida Natural"
-      />
+      <BrandSvg className={cx} title="Vida Natural" />
+      <LogoSvg className={cxB} title="Vida Natural" />
     </Link>
   )
 }
