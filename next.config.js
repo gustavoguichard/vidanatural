@@ -1,5 +1,4 @@
 module.exports = {
-  compress: false,
   async rewrites() {
     return [
       {
