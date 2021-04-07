@@ -1,9 +1,9 @@
 import { memo } from 'react'
+import Img from 'next/image'
 
 import { classes } from 'lib/utils'
 
 import DocumentDetails from 'components/document-details'
-import Img from 'components/img'
 import Link from 'components/link'
 
 const AuthorCard = ({
@@ -19,11 +19,15 @@ const AuthorCard = ({
     <div className={cx}>
       {showAvatar && (
         <Link href={author.permalink}>
-          <Img
-            className="h-10 w-10 rounded-full"
-            alt={author.imgAlt}
-            src={author.thumbUrl}
-          />
+          <div className="h-10 w-10 rounded-full relative overflow-hidden">
+            <Img
+              layout="fill"
+              unoptimized
+              objectFit="cover"
+              alt={author.imgAlt}
+              src={author.thumbUrl}
+            />
+          </div>
         </Link>
       )}
       <DocumentDetails

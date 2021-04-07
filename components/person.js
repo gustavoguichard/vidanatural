@@ -1,7 +1,7 @@
 import { memo } from 'react'
+import Img from 'next/image'
 import { FiEye } from 'react-icons/fi'
 
-import Img from 'components/img'
 import Link from 'components/link'
 
 const Person = ({ data, uid }) => {
@@ -10,7 +10,9 @@ const Person = ({ data, uid }) => {
     <Link className={is_long ? 'tall' : 'short'} href={`/eu-uso/${uid}`}>
       <figure className="cursor-pointer transition-all duration-300 w-full h-full relative filter-grayscale hover:filter-none">
         <Img
-          className="w-full h-full object-cover"
+          layout="fill"
+          objectFit="cover"
+          unoptimized
           src={picture[is_long ? 'long' : 'square'].url}
           alt={name}
         />

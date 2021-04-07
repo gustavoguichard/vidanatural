@@ -1,6 +1,7 @@
+import Img from 'next/image'
+
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
-import Img from 'components/img'
 import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
 
@@ -28,12 +29,14 @@ export default function Index() {
           </Breadcrumbs>
         </div>
         <div className="rich-text max-w-screen-sm m-auto">
-          <Img
-            className="max-w-full m-auto my-20 block min-h-[300px]"
-            width={320}
-            src="/static/svgs/delivery.svg"
-            alt="Entregas"
-          />
+          <div className="mt-20 mx-auto text-center">
+            <Img
+              width={320}
+              height={300}
+              src="/static/svgs/delivery.svg"
+              alt="Entregas"
+            />
+          </div>
           <h4>Serviço de Entregas</h4>
           <p>
             A loja online da Vida Natural utiliza os serviços de entregas dos
@@ -50,12 +53,14 @@ export default function Index() {
             entrega em todo o território nacional por PAC e nas principais
             cidades por SEDEX.
           </p>
-          <Img
-            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
-            width={340}
-            src="/static/svgs/security.svg"
-            alt="Segurança"
-          />
+          <div className="mb-10 mt-20 mx-auto text-center">
+            <Img
+              width={340}
+              height={300}
+              src="/static/svgs/security.svg"
+              alt="Segurança"
+            />
+          </div>
           <h4>Segurança e Privacidade</h4>
           <p>
             A Vida Natural garante a segurança e privacidade de identidade dos
@@ -100,12 +105,14 @@ export default function Index() {
               cliente de alguma lista de envio de informativos promocionais.
             </li>
           </ul>
-          <Img
-            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
-            width={320}
-            src="/static/svgs/terms.svg"
-            alt="Termos de uso"
-          />
+          <div className="mb-10 mt-20 mx-auto text-center">
+            <Img
+              width={320}
+              height={300}
+              src="/static/svgs/terms.svg"
+              alt="Termos de uso"
+            />
+          </div>
           <h4>Termos de uso</h4>
           <p>
             Ao se cadastrar, os clientes determinam voluntariamente que desejam
@@ -125,12 +132,14 @@ export default function Index() {
             e comerciais relativas aos produtos e serviços, por meios
             tradicionais e/ou eletrônico.
           </p>
-          <Img
-            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
-            width={320}
-            src="/static/svgs/returns.svg"
-            alt="Trocas e devoluções"
-          />
+          <div className="mb-10 mt-20 mx-auto text-center">
+            <Img
+              width={320}
+              height={300}
+              src="/static/svgs/returns.svg"
+              alt="Trocas e devoluções"
+            />
+          </div>
           <h4>Trocas e devoluções</h4>
           <p>
             Os procedimentos abaixo foram baseados no Código de Defesa do
@@ -236,12 +245,15 @@ export default function Index() {
             produto será obrigatoriamente retirado no mesmo endereço onde a
             entrega foi realizada.
           </p>
-          <Img
-            className="max-w-full m-auto mb-20 mt-32 block min-h-[300px]"
-            width={200}
-            src="/static/svgs/terms-end.svg"
-            alt="Fim dos termos"
-          />
+          <div className="mb-20 mt-32 mx-auto text-center">
+            <Img
+              layout="intrinsic"
+              width={220}
+              height={300}
+              src="/static/svgs/terms-end.svg"
+              alt="Fim dos termos"
+            />
+          </div>
         </div>
       </PaperContent>
     </Layout>

@@ -1,17 +1,22 @@
 import { memo } from 'react'
+import Img from 'next/image'
 
-import Img from 'components/img'
 import RichText from 'components/rich-text'
 
 const PersonMember = ({ name, image, content, title, children }) => (
-  <div className="my-4 flex flex-col sm:flex-row md:flex-col lg:flex-row items-start sm:space-x-4 md:space-x-0 lg:space-x-4 space-y-2 sm:space-y-0 md:space-y-2 lg:space-y-0">
-    <Img
-      className="sm:w-1/3 md:w-auto lg:w-1/3 md: rounded-lg self-stretch object-cover object-top"
-      src={image}
-      alt={name}
-      title={name}
-    />
-    <div>
+  <div className="grid grid-flow-row sm:grid-cols-3 my-4 gap-4">
+    <div className="h-80 sm:h-auto row-span-1 sm:col-span-1 rounded-lg overflow-hidden relative">
+      <Img
+        unoptimized
+        layout="fill"
+        objectFit="cover"
+        objectPosition="top"
+        src={image}
+        alt={name}
+        title={name}
+      />
+    </div>
+    <div className="sm:col-span-2">
       <h5 className="text-lg font-semibold tracking-tight">{name}</h5>
       <p className="mb-2 font-semibold text-gray-600">{title}</p>
       <RichText className="text-gray-700">{content}</RichText>

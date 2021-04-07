@@ -4,7 +4,6 @@ import { FiMenu } from 'react-icons/fi'
 import BrandSvg from 'components/svg/brand'
 import Drawer from 'components/drawer'
 import IconButton from 'components/icon-button'
-import Img from 'components/img'
 import Link from 'components/link'
 
 import menu from 'data/menu'

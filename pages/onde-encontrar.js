@@ -1,8 +1,8 @@
 import map from 'lodash/map'
+import Img from 'next/image'
 
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
-import Img from 'components/img'
 import Layout from 'components/layout'
 import Link from 'components/link'
 import PaperContent from 'components/paper-content'
@@ -50,9 +50,11 @@ const OndeEncontrar = () => (
             <StatePannel title={state} region={region} key={state} />
           ))}
         </div>
-        <div className="lg:w-3/12 lg:flex">
+        <div className="lg:w-3/12 lg:flex pt-3 text-center">
           <Img
-            className="max-w-full mt-3 m-auto w-64"
+            height={250}
+            width={300}
+            layout="intrinsic"
             src="/static/svgs/where-to-find.svg"
             alt="Onde encontrar"
           />

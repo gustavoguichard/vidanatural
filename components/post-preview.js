@@ -1,7 +1,7 @@
 import { memo } from 'react'
+import Img from 'next/image'
 
 import AuthorCard from 'components/author-card'
-import Img from 'components/img'
 import Link from 'components/link'
 
 const PostPreview = ({
@@ -16,9 +16,15 @@ const PostPreview = ({
   <div className="sm:flex mb-12 sm:space-x-6">
     {thumbUrl && (
       <div className="sm:w-1/4 mb-4">
-        <Link title="Ir para o post" href={permalink}>
+        <Link
+          className="relative block w-full h-64 sm:h-full"
+          title="Ir para o post"
+          href={permalink}
+        >
           <Img
-            className="max-w-full"
+            layout="fill"
+            objectFit="cover"
+            unoptimized
             src={thumbUrl}
             alt={imgAlt || data.title}
           />

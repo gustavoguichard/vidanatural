@@ -28,7 +28,11 @@ const SinglePostPage = ({
       }}
       hero={
         hasFeatured && (
-          <Hero filter="brightness(0.4)" size="medium" background={featuredUrl}>
+          <Hero
+            bgClass="filter brightness-50"
+            size="medium"
+            background={featuredUrl}
+          >
             <h2 className="text-4xl sm:text-5xl px-6 font-bold tracking-tight">
               {data.title}
             </h2>

@@ -1,7 +1,8 @@
+import Img from 'next/image'
+
 import { isEmptyBody } from 'lib/domain'
 import { classes } from 'lib/utils'
 
-import Img from 'components/img'
 import Link from 'components/link'
 import RichText from 'components/rich-text'
 
@@ -14,11 +15,15 @@ const ShortTestimonial = ({ data, uid, className }) => {
   return (
     <div className={cx}>
       <Link href={`/eu-uso/${uid}`} title="Ver depoimento completo">
-        <Img
-          className="h-24 w-24 m-auto mb-4 rounded-full"
-          alt={name}
-          src={picture.url}
-        />
+        <div className="h-24 w-24 m-auto mb-4 rounded-full relative overflow-hidden">
+          <Img
+            layout="fill"
+            objectFit="cover"
+            unoptimized
+            alt={name}
+            src={picture.url}
+          />
+        </div>
       </Link>
       <h4 className="tracking-tight font-semibold text-lg">
         {name.split(' ')[0]}

@@ -1,8 +1,9 @@
+import Img from 'next/image'
+
 import staticProps from 'lib/static-props/faq'
 
 import Breadcrumbs from 'components/breadcrumbs'
 import FaqItems from 'components/faq-items'
-import Img from 'components/img'
 import SinglePageLayout from 'components/single-page-layout'
 
 const FaqPage = ({ items }) => {
@@ -21,11 +22,16 @@ const FaqPage = ({ items }) => {
         </Breadcrumbs>
         <FaqItems items={items} />
       </div>
-      <Img
-        className="max-w-full w-64 md:w-1/3 my-6 mx-auto"
-        src="/static/svgs/faq.svg"
-        alt="Dúvidas frequentes"
-      />
+      <div className="max-w-full w-64 my-6 mx-auto">
+        <Img
+          layout="intrinsic"
+          unoptimized
+          width={300}
+          height={240}
+          src="/static/svgs/faq.svg"
+          alt="Dúvidas frequentes"
+        />
+      </div>
     </SinglePageLayout>
   )
 }

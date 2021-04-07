@@ -1,6 +1,6 @@
-import { classes } from 'lib/utils'
+import Img from 'next/image'
 
-import BackgroundImg from 'components/background-img'
+import { classes } from 'lib/utils'
 
 const sizes = {
   small: 'min-h-[40vh]',
@@ -14,7 +14,7 @@ const Hero = ({
   size = 'medium',
   background,
   className,
-  filter,
+  bgClass,
 }) => {
   const cx = classes(
     'relative',
@@ -29,7 +29,12 @@ const Hero = ({
   return (
     <div className={wCx}>
       {background && (
-        <BackgroundImg filter={filter} alwaysShow src={background} />
+        <div
+          aria-hidden="true"
+          className={classes('absolute inset-0', bgClass)}
+        >
+          <Img layout="fill" objectFit="cover" unoptimized src={background} />
+        </div>
       )}
       <div className={cx} style={style}>
         {children}
