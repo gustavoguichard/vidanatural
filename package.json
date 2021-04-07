@@ -12,7 +12,6 @@
     "start": "next"
   },
   "dependencies": {
-    "@tailwindcss/jit": "^0.1.18",
     "@types/accounting": "^0.4.1",
     "accounting": "^0.4.1",
     "animate.css": "^4.1.1",

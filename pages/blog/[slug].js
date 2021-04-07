@@ -29,7 +29,7 @@ const SinglePostPage = ({
       hero={
         hasFeatured && (
           <Hero
-            bgClass="filter brightness-50"
+            bgClass="filter brightness-[0.4]"
             size="medium"
             background={featuredUrl}
           >
