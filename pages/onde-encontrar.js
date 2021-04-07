@@ -1,8 +1,8 @@
 import map from 'lodash/map'
-import Img from 'next/image'
 
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
+import Img from 'components/img'
 import Layout from 'components/layout'
 import Link from 'components/link'
 import PaperContent from 'components/paper-content'
@@ -54,7 +54,6 @@ const OndeEncontrar = () => (
           <Img
             height={250}
             width={300}
-            layout="intrinsic"
             src="/static/svgs/where-to-find.svg"
             alt="Onde encontrar"
           />

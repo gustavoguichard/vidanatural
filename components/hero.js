@@ -1,4 +1,4 @@
-import Img from 'next/image'
+import Image from 'next/image'
 
 import { classes } from 'lib/utils'
 
@@ -33,7 +33,7 @@ const Hero = ({
           aria-hidden="true"
           className={classes('absolute inset-0', bgClass)}
         >
-          <Img layout="fill" objectFit="cover" unoptimized src={background} />
+          <Image layout="fill" objectFit="cover" unoptimized src={background} />
         </div>
       )}
       <div className={cx} style={style}>

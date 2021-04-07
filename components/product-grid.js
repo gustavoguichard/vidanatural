@@ -2,8 +2,8 @@ import isEmpty from 'lodash/isEmpty'
 
 import ProductCard from 'components/product-card'
 
-const ProductGrid = ({ products }) => {
-  return isEmpty(products) ? null : (
+const ProductGrid = ({ products }) =>
+  isEmpty(products) ? null : (
     <div className="flex flex-wrap">
       {products.map((product, index) => (
         <div
@@ -15,6 +15,5 @@ const ProductGrid = ({ products }) => {
       ))}
     </div>
   )
-}
 
 export default ProductGrid

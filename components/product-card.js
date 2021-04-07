@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Img from 'next/image'
 
 import api from 'lib/api'
 import analytics from 'lib/analytics'
@@ -7,9 +6,10 @@ import { toCurrency } from 'lib/utils'
 import { useInterval } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
 
-import Spinner from 'components/spinner'
 import DiscountTag from 'components/products/discount-tag'
+import Img from 'components/img'
 import Link from 'components/link'
+import Spinner from 'components/spinner'
 
 const ProductCard = ({ product }) => {
   const [adding, setAdding] = useState(false)
@@ -51,18 +51,14 @@ const ProductCard = ({ product }) => {
     <div className="flex rounded border border-transparent hover:border-gray-200 items-start group overflow-hidden bg-gray-100 bg-opacity-50 w-full">
       <Link className="flex h-full w-full" href={`/produto/${product.slug}`}>
         <div className="flex flex-col flex-grow relative">
-          <div className="relative w-full h-64">
-            <Img
-              alt={product.name}
-              layout="fill"
-              objectFit="cover"
-              unoptimized
-              onMouseEnter={() => setHovering(true)}
-              onMouseLeave={() => setHovering(false)}
-              src={api.vnda.getResizedImg(thumbnail, 300)}
-              title={product.name}
-            />
-          </div>
+          <Img
+            className="w-full h-64"
+            alt={product.name}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            src={api.vnda.getResizedImg(thumbnail, 300)}
+            title={product.name}
+          />
           <DiscountTag small product={product} />
           <div className="flex flex-col flex-grow justify-between p-2">
             <div className="leading-snug">

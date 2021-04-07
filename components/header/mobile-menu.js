@@ -62,7 +62,7 @@ const MobileMenu = ({ tags }) => {
         <Link className="border-b" href="/">
           <BrandSvg className="w-32 m-auto mb-4 mt-6" />
         </Link>
-        <div className="divide-y min-w-screen-3/4">
+        <div className="divide-y min-w-[75vw]">
           {[tags].map((item) => (
             <MenuItem key={item.name} onClose={toggleDrawer(false)} {...item} />
           ))}
