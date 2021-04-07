@@ -8,7 +8,7 @@ const Person = ({ data, uid }) => {
   const { is_long, picture, name } = data
   return (
     <Link className={is_long ? 'tall' : 'short'} href={`/eu-uso/${uid}`}>
-      <figure className="cursor-pointer transition-all duration-300 w-full h-full relative filter-grayscale hover:filter-none">
+      <figure className="cursor-pointer transition-all duration-300 w-full h-full relative filter grayscale hover:filter-none">
         <Img
           layout="fill"
           objectFit="cover"
