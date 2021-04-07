@@ -1,6 +1,5 @@
 import React, { memo } from 'react'
 import dynamic from 'next/dynamic'
-import Router from 'next/router'
 
 import Header from 'components/header'
 import SEO from 'components/seo'
@@ -13,10 +12,6 @@ const Footer = dynamic(() => import('components/footer'))
 const Certifications = dynamic(() => import('components/certifications'), {
   loading: () => <Skeleton />,
   ssr: false,
-})
-
-Router.events.on('routeChangeComplete', () => {
-  window.scrollTo(0, 0)
 })
 
 const Layout = ({
