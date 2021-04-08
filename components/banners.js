@@ -5,12 +5,11 @@ import Carousel from 'components/carousel'
 
 const HomeBanners = ({ banners }) => (
   <Carousel>
-    {banners.map(({ data, id }, idx) => (
+    {banners.map(({ data, id }) => (
       <Banner
         key={id}
         src={data.image.url}
         title={data.title}
-        alwaysShow={idx === 0}
         subtitle={data.subtitle}
         url={resolveLink(data.link.url)}
         cta={data.button_text}

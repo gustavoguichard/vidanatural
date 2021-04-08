@@ -1,10 +1,9 @@
 import CTAButton from 'components/cta-button'
 import Img from 'components/img'
 
-const Banner = ({ src, url, title, alwaysShow, subtitle, cta = 'Comprar' }) => (
+const Banner = ({ src, url, title, subtitle, cta = 'Comprar' }) => (
   <div className="relative flex md:flex-row flex-col min-h-screen w-full">
     <Img
-      alwaysShow={alwaysShow}
       className="max-h-screen md:w-7/12 lg:w-8/12 min-h-[70vh]"
       src={src}
       alt={title}
