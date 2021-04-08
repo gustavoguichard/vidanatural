@@ -31,7 +31,6 @@ const Img = ({
           <Image
             layout={isFill ? 'fill' : 'intrinsic'}
             objectFit={isFill ? 'cover' : undefined}
-            unoptimized
             {...props}
             width={width}
             height={height}

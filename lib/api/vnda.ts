@@ -111,7 +111,8 @@ const addToCart = (sku: string, quantity = 1) =>
 
 const getResizedImg = (url: string, w = 200, h = w) => {
   const DOMAIN_REG = /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
-  return url.replace(DOMAIN_REG, `$1/${w}x${h}`)
+  const result = url.replace(DOMAIN_REG, `$1/${w}x${h}`)
+  return result.match(/^\/\//) ? `https:${result}` : result
 }
 
 const getOwnPath = (url: string) => {
