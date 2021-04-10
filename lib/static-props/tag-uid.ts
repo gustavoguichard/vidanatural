@@ -22,7 +22,15 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const products = parseProducts(
     getProductsByTag(vndaProducts, [uid as string]),
   )
-  return { props: { products, banners, testimonials, posts, faqItems } }
+  return {
+    props: {
+      products,
+      banner: banners.length ? banners[0] : null,
+      testimonials,
+      posts,
+      faqItems,
+    },
+  }
 }
 
 export default getStaticProps

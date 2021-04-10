@@ -6,7 +6,7 @@ import startCase from 'lodash/startCase'
 import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'
 
-import Banners from 'components/banners'
+import Banner from 'components/banner'
 import Breadcrumbs from 'components/breadcrumbs'
 import FeedSlider from 'components/feed-slider'
 import Layout from 'components/layout'
@@ -14,14 +14,12 @@ import ProductGrid from 'components/product-grid'
 import ProductFaq from 'components/products/faq'
 import Testimonials from 'components/testimonials'
 
-const TagPage = ({ banners, products, posts, testimonials, faqItems }) => {
+const TagPage = ({ banner, products, posts, testimonials, faqItems }) => {
   const router = useRouter()
   const title = `Tag: ${startCase(router.query.uid)}`
-  const hero = isEmpty(banners) ? null : (
-    <Banners banners={banners} setVariant={() => {}} />
-  )
+  const hero = banner ? <Banner {...banner} /> : null
   const emptyPage =
-    [banners, products, posts, testimonials, faqItems].every(isEmpty) &&
+    [banner, products, posts, testimonials, faqItems].every(isEmpty) &&
     !router.isFallback
   return (
     <Layout title={title} variant="secondary" stickBar={!hero}>
