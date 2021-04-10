@@ -1,11 +1,13 @@
+import { resolveLink } from 'lib/domain'
+
 import CTAButton from 'components/cta-button'
 import Img from 'components/img'
 
-const Banner = ({ src, url, title, subtitle, cta = 'Comprar' }) => (
+const Banner = ({ data: { image, title, subtitle, link, button_text } }) => (
   <div className="relative flex md:flex-row flex-col min-h-screen w-full">
     <Img
       className="max-h-screen md:w-7/12 lg:w-8/12 min-h-[70vh]"
-      src={src}
+      src={image.url}
       alt={title}
     />
     <div className="flex flex-col items-start md:items-stretch md:w-5/12 lg:w-4/12 bg-white md:border-l-8 border-gray-100 py-12 px-10 sm:px-12 justify-end text-black">
@@ -13,7 +15,7 @@ const Banner = ({ src, url, title, subtitle, cta = 'Comprar' }) => (
         {title}
       </h3>
       {subtitle && <p className="mt-2 mb-4">{subtitle}</p>}
-      <CTAButton href={url}>{cta}</CTAButton>
+      <CTAButton href={resolveLink(link.url)}>{button_text}</CTAButton>
     </div>
   </div>
 )

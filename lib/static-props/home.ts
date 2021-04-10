@@ -38,7 +38,7 @@ export default async () => {
   const posts = (postsResponse as BlogPost[]).map(parsePost)
   const testimonials = shuffle(testimonialsData)
   return {
-    props: { banners, testimonials, posts, products },
+    props: { banner: banners[0], testimonials, posts, products },
     revalidate: 60 * 10,
   }
 }

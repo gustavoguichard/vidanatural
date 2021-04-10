@@ -12,21 +12,10 @@ import { classes } from 'lib/utils'
 import { useElScroll } from 'lib/hooks'
 
 import Scroller from 'components/scroller'
-import { NextBt, PrevBt } from './buttons'
-import renderDefaultBt from './render-default-bt'
 import { calculatePages, scrollToPage, widthInPixels } from './utils'
 
 const Carousel = (
-  {
-    children,
-    itemWidth = '100%',
-    gap,
-    snap,
-    onChange,
-    NextButton,
-    PrevButton,
-    className,
-  },
+  { children, itemWidth = '100%', gap, snap, onChange, className },
   innerRef,
 ) => {
   const scroller = useRef()
@@ -76,12 +65,6 @@ const Carousel = (
   const cx = classes('flex relative items-center', className)
   return (
     <div className={cx}>
-      {childrenCount > 1
-        ? renderDefaultBt(PrevButton, doScroll(-1), PrevBt)
-        : null}
-      {childrenCount > 1
-        ? renderDefaultBt(NextButton, doScroll(1), NextBt)
-        : null}
       <Scroller ref={scroller} gap={gap} snap={snap} itemWidth={itemWidth}>
         {React.Children.map(children, (child, idx) => (
           <div key={`carousel-${idx}`} className="item flex justify-center">
