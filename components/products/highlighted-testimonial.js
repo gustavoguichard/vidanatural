@@ -30,7 +30,7 @@ const HighlightedTestimonial = ({ product }) =>
             sintéticos é muito segura.
             <br />
             Parabéns pelo esmero, e pela linda dedicação em oferecer produtos
-            biologicamente éticos.&#8221
+            biologicamente éticos.&#8221;
           </p>
           <p className="text-xs font-semibold">
             Dr.Rodrigo Debiasi
