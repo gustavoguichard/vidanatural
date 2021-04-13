@@ -68,16 +68,15 @@ const Page = ({ nfs }) => {
 }
 
 export const getServerSideProps = async () => {
-  // const response = await vnda.fetch(`proxy/orders?status=confirmed`)
-  // const ordersWithoutTracking = response
-  //   .filter((order) => order.tracking_code_list.length === 0)
-  //   .map(({ code }) => code)
+  const response = await vnda.fetch(`proxy/orders?status=confirmed`)
+  const ordersWithoutTracking = response
+    .filter((order) => order.tracking_code_list.length === 0)
+    .map(({ code }) => code)
 
   const res = await vnda.fetch('proxy/tex')
   const parsed = res
     .map(({ nota_fiscal }) => nota_fiscal)
-    // .filter((nf) => ordersWithoutTracking.includes(nf.numero_ecommerce))
-    .filter((nf) => nf.numero_ecommerce)
+    .filter((nf) => ordersWithoutTracking.includes(nf.numero_ecommerce))
 
   return { props: { nfs: parsed.reverse() } }
 }
