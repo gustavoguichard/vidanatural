@@ -17,6 +17,7 @@ Disallow: /*?*typedtags__*
 Disallow: /api/*
 
 User-Agent: *
+Disallow: /tex
 Disallow: /admin
 Disallow: /carrinho
 Disallow: /checkout
