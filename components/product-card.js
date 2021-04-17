@@ -1,13 +1,11 @@
 import { useState } from 'react'
 
-import api from 'lib/api'
 import analytics from 'lib/analytics'
 import { toCurrency } from 'lib/utils'
-import { useInterval } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
 
 import DiscountTag from 'components/products/discount-tag'
-import Img from 'components/img'
+import CardImage from 'components/card-image'
 import Link from 'components/link'
 import Spinner from 'components/spinner'
 
@@ -15,12 +13,6 @@ const ProductCard = ({ product }) => {
   const [adding, setAdding] = useState(false)
   const [, { addToCart }] = useGlobal()
   const [variant] = product.variants || [{}]
-
-  const [image] = product.images
-  const [hovering, setHovering] = useState(false)
-  const [index, setIndex] = useState(0)
-  const nextImage = () => setIndex((index + 1) % product.images.length)
-  useInterval(nextImage, hovering ? 900 : null)
 
   const onClick = async (ev) => {
     if (product.inStock) {
@@ -45,20 +37,11 @@ const ProductCard = ({ product }) => {
     </span>,
   ]
 
-  const thumbnail = hovering ? product.images[index].url : image.url
-
   return (
     <div className="flex rounded border border-transparent hover:border-gray-200 items-start group overflow-hidden bg-gray-100 bg-opacity-50 w-full">
       <Link className="flex h-full w-full" href={`/produto/${product.slug}`}>
         <div className="flex flex-col flex-grow relative">
-          <Img
-            className="w-full h-64"
-            alt={product.name}
-            onMouseEnter={() => setHovering(true)}
-            onMouseLeave={() => setHovering(false)}
-            src={api.vnda.getResizedImg(thumbnail, 300)}
-            title={product.name}
-          />
+          <CardImage product={product} />
           <DiscountTag small product={product} />
           <div className="flex flex-col flex-grow justify-between p-2">
             <div className="leading-snug">
