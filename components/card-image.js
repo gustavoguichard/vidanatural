@@ -23,13 +23,13 @@ const CardImage = ({ product }) => {
     >
       <div
         className={classes(
-          'absolute transition-all bg-gray-50 inset-0 duration-300 z-10',
-          hovering ? 'bg-opacity-100' : 'bg-opacity-0',
+          'absolute transition-all bg-white inset-0 duration-300 z-10',
+          hovering ? 'opacity-20' : 'opacity-0',
         )}
         style={{
           clipPath: hovering
             ? 'polygon(0% 0%, 0% 100%, 50% 100%, 50% 98%, 2% 2%, 98% 2%, 50% 98%, 50% 100%, 100% 100%, 100% 0%)'
-            : 'polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 100%, 100% 100%, 100% 0%)',
+            : 'polygon(0% 0%, 0% 100%, 0% 100%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 100% 0%)',
         }}
       />
       <Img
