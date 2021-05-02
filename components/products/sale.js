@@ -4,7 +4,6 @@ import isEmpty from 'lodash/isEmpty'
 
 import { getDiscount } from 'lib/domain'
 
-import Markdown from 'components/markdown'
 import ImageGallery from 'components/image-gallery'
 import BCrumbs from 'components/breadcrumbs'
 import Breadcrumbs from './breadcrumbs'
@@ -38,7 +37,12 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
             </div>
             <Breadcrumbs className="lg:hidden" product={product} />
             {product.description.featured && (
-              <Markdown>{product.description.featured}</Markdown>
+              <div
+                className="rich-text"
+                dangerouslySetInnerHTML={{
+                  __html: product.description.featured,
+                }}
+              />
             )}
             <BCrumbs
               separator={<span className="text-gray-400"> - </span>}
@@ -68,9 +72,12 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
                 },
               ].filter((a) => !!a)}
             />
-            <Markdown className="text-gray-600 my-4">
-              {product.description.presentation}
-            </Markdown>
+            <div
+              className="text-gray-600 my-4 rich-text"
+              dangerouslySetInnerHTML={{
+                __html: product.description.presentation,
+              }}
+            />
             <PriceTag big item={variant} />
             {product.isKit && product.discount_rule && (
               <p className="text-xs mb-1">
