@@ -32,11 +32,11 @@ const Page = () => (
           <p>
             <strong>Endereço</strong>
             <br />
-            Manoel Petronilho da Silveira, 451
+            Antolino E. Martins, 106
             <br />
-            São João do Rio Vermelho, Florianópolis / SC
+            Vila Esperança, Imbituba / SC
             <br />
-            88060-100
+            88780-000
           </p>
           <p>
             <strong>Ligue ou envie uma mensagem</strong>
