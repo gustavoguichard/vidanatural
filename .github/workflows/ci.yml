@@ -19,6 +19,16 @@ jobs:
 
   build:
     name: Build
+    env:
+      API_HOST: ${{ secrets.API_HOST }}
+      API_IP: ${{ secrets.API_IP }}
+      LOCAL_HOST: ${{ secrets.LOCAL_HOST }}
+      NEXT_PUBLIC_API_DOMAIN: ${{ secrets.NEXT_PUBLIC_API_DOMAIN }}
+      NEXT_PUBLIC_API_PROXY: ${{ secrets.NEXT_PUBLIC_API_PROXY }}
+      PRISMIC_API: ${{ secrets.PRISMIC_API }}
+      PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
+      TINY_API_TOKEN: ${{ secrets.TINY_API_TOKEN }}
+      VNDA_API_TOKEN: ${{ secrets.VNDA_API_TOKEN }}
     needs: typecheck
     runs-on: ubuntu-latest
     steps:
@@ -38,6 +48,16 @@ jobs:
   test:
     name: Test
     needs: build
+    env:
+      API_HOST: ${{ secrets.API_HOST }}
+      API_IP: ${{ secrets.API_IP }}
+      LOCAL_HOST: ${{ secrets.LOCAL_HOST }}
+      NEXT_PUBLIC_API_DOMAIN: ${{ secrets.NEXT_PUBLIC_API_DOMAIN }}
+      NEXT_PUBLIC_API_PROXY: ${{ secrets.NEXT_PUBLIC_API_PROXY }}
+      PRISMIC_API: ${{ secrets.PRISMIC_API }}
+      PRISMIC_TOKEN: ${{ secrets.PRISMIC_TOKEN }}
+      TINY_API_TOKEN: ${{ secrets.TINY_API_TOKEN }}
+      VNDA_API_TOKEN: ${{ secrets.VNDA_API_TOKEN }}
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
