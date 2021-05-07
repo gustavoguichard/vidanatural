@@ -15,7 +15,9 @@ const Banner = ({ data: { image, title, subtitle, link, button_text } }) => (
         {title}
       </h3>
       {subtitle && <p className="mt-2 mb-4">{subtitle}</p>}
-      <CTAButton href={resolveLink(link.url)}>{button_text}</CTAButton>
+      <CTAButton id="banner-cta" href={resolveLink(link.url)}>
+        {button_text}
+      </CTAButton>
     </div>
   </div>
 )
