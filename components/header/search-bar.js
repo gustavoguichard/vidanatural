@@ -6,6 +6,7 @@ import analytics from 'lib/analytics'
 import useGlobal from 'lib/use-global'
 
 import Spinner from 'components/spinner'
+import Transition from 'components/transition'
 import SearchItem from './search-item'
 
 const doSearch = throttle(async (text, setResults, setFetching) => {
@@ -30,13 +31,23 @@ const SearchBar = () => {
     }
   }, [query])
 
-  return searchOpen ? (
-    <div
+  return (
+    <Transition
+      show={searchOpen}
+      enter="transition-opacity ease-in duration-200"
+      leave="delay-200 transition-opacity ease-in duration-200"
+      hidden="opacity-0"
+      shown="opacity-100"
       className="fixed z-50 inset-0 bg-black bg-opacity-25 transition duration-300"
       onClick={closeSearch}
     >
-      <div
-        className="flex flex-col max-h-screen overflow-y-auto shadow-lg overflow-hidden relative rounded-b-lg  animate__animated animate__fadeIn animate__faster"
+      <Transition.Child
+        className="flex flex-col max-h-screen overflow-y-auto shadow-lg overflow-hidden relative rounded-b-lg"
+        enter="delay-200 transition-all ease-in-out duration-100 transform"
+        leave="transition-all ease-in-out duration-100 transform"
+        hidden="-translate-y-full"
+        shown="translate-y-0"
+        afterEnter={() => field.current.focus()}
         onClick={(event) => event.stopPropagation()}
         onKeyUp={(event) => {
           event.key === 'Escape' && closeSearch()
@@ -45,7 +56,6 @@ const SearchBar = () => {
         <div className="relative flex justify-between items-center">
           <input
             type="text"
-            autoFocus
             id="search-field"
             ref={field}
             className="bg-white p-6 w-full"
@@ -74,9 +84,9 @@ const SearchBar = () => {
             )}
           </div>
         )}
-      </div>
-    </div>
-  ) : null
+      </Transition.Child>
+    </Transition>
+  )
 }
 
 export default SearchBar
