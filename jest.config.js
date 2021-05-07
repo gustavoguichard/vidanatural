@@ -1,20 +1,19 @@
 module.exports = {
+  verbose: true,
   collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
+    '**/*.{js,jsx,ts,tsx}$',
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],
-  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  setupFilesAfterEnv: ['./setupTests.js'],
+  testPathIgnorePatterns: ['/node_modules/', '/.next/', './test'],
   moduleDirectories: ['node_modules', './'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
-    '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
+    '^.+\\.jsx?$': './node_modules/babel-jest',
+    '^.+\\.css$': './config/jest/cssTransform.js',
+    '^.+\\.tsx?$': './node_modules/ts-jest',
   },
-  transformIgnorePatterns: [
-    '/node_modules/',
-    '^.+\\.module\\.(css|sass|scss)$',
-  ],
+  transformIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
   },

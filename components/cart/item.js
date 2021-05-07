@@ -44,7 +44,7 @@ const CartItem = ({ item, actions }) => {
   }
 
   return (
-    <div className="flex p-1 w-1/2">
+    <div className="cart-item flex p-1 w-1/2">
       <div className="border tracking-tight rounded-sm bg-white w-full h-72 overflow-hidden flex flex-col justify-between">
         <p className="bg-white text-sm font-semibold p-2">
           {quantity}x{' '}
