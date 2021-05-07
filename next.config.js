@@ -10,7 +10,11 @@ module.exports = {
     ]
   },
   images: {
-    domains: ['images.prismic.io', ...times(9, (i) => `a${i}.vnda.com.br`)],
+    domains: [
+      'images.prismic.io',
+      ...times(9, (i) => `a${i}.vnda.com.br`),
+      ...times(9, (i) => `b${i}.vnda.com.br`),
+    ],
   },
   future: {
     webpack5: true,
