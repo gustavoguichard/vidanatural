@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 import { getCategoryTags } from 'lib/domain'
+import { useTimeout } from 'lib/hooks'
 import { VndaProduct, ProductTag } from '../types/vnda'
 
 export const useTagsMenu = () => {
@@ -37,17 +38,16 @@ export const useTagsMenu = () => {
 
 export const useInitialBanner = () => {
   const [, { notify }] = useGlobal()
-  useEffect(() => {
+  useTimeout(() => {
     if (typeof notify === 'function') {
       notify({
         htmlMessage: `<span class="text-center w-full">Frete grátis para todo o Brasil a partir de R$ 160,00.</span>`,
         type: 'black',
         center: true,
-        persist: true,
         hideIcon: true,
       })
     }
-  }, [])
+  }, 5000)
 }
 
 export const useCoupon = () => {

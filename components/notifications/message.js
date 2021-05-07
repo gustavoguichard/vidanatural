@@ -6,10 +6,12 @@ import AlertIcon from 'components/notifications/alert-icon'
 import InfoIcon from 'components/notifications/info-icon'
 import Countdown from 'components/countdown'
 import CloseButton from 'components/close-button'
+import Transition from 'components/transition'
 
 const Message = ({ notification }) => {
   const { id, big, type, persist, message, htmlMessage } = notification
   const [shrink, toggle] = useToggle()
+  const [visible, toggleVisibility] = useToggle(true)
   const [, { dismissNotification }] = useGlobal()
 
   const isBig = big && !shrink
@@ -23,10 +25,19 @@ const Message = ({ notification }) => {
   })
 
   const dismiss = () => dismissNotification(id)
-  const onFinish = persist ? toggle : dismiss
+  const onFinish = persist ? toggle : toggleVisibility
 
   return (
-    <div className={cx}>
+    <Transition
+      show={visible}
+      appear
+      during="transition-all duration-300 ease-out transform"
+      leave="transition-all duration-300 ease-in transform"
+      hidden="max-h-0 opacity-20"
+      shown="max-h-24 opacity-100"
+      afterLeave={dismiss}
+      className={cx}
+    >
       <Countdown active time={persist ? 3 : 5} onFinish={onFinish} />
       <div
         className={`max-w-screen-xl mx-auto py-${
@@ -52,10 +63,10 @@ const Message = ({ notification }) => {
           </p>
         </div>
         <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
-          <CloseButton onClick={dismiss} className="-mr-1 sm:-mr-2" />
+          <CloseButton onClick={toggleVisibility} className="-mr-1 sm:-mr-2" />
         </div>
       </div>
-    </div>
+    </Transition>
   )
 }
 

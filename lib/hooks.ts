@@ -147,3 +147,22 @@ export function useInterval(callback: () => void, delay: null | number) {
     return undefined
   }, [delay])
 }
+
+export function useTimeout(callback: () => void, delay: null | number) {
+  const savedCallback = useRef(() => {})
+
+  useEffect(() => {
+    savedCallback.current = callback
+  }, [callback])
+
+  useEffect(() => {
+    function tick() {
+      savedCallback.current()
+    }
+    if (delay !== null) {
+      const id = setTimeout(tick, delay)
+      return () => clearTimeout(id)
+    }
+    return undefined
+  }, [delay])
+}
