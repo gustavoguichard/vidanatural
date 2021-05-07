@@ -2,8 +2,8 @@ import get from 'lodash/get'
 
 import FaqItems from 'components/faq-items'
 
-const ProductFaq = ({ items }) => {
-  return get(items, 'length') ? (
+const ProductFaq = ({ items }) =>
+  get(items, 'length') ? (
     <div
       id="faq"
       className="max-w-screen-xl pt-4 px-10 pb-8 bg-white flex justify-center"
@@ -16,6 +16,5 @@ const ProductFaq = ({ items }) => {
       </div>
     </div>
   ) : null
-}
 
 export default ProductFaq

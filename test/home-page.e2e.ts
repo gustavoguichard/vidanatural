@@ -1,9 +1,11 @@
 import type { Browser, Page } from 'playwright'
+
 const { firefox } = require('playwright')
 
 jest.setTimeout(35e3)
 
-let browser: Browser, page: Page
+let browser: Browser
+let page: Page
 beforeAll(async () => {
   browser = await firefox.launch({ headless: !!process.env.CI })
   page = await browser.newPage()

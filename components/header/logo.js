@@ -4,8 +4,7 @@ import LogoSvg from 'components/svg/logo'
 import BrandSvg from 'components/svg/brand'
 import Link from 'components/link'
 
-const Logo = ({ sticky, variant }) => {
-  // const secondary = variant === 'secondary'
+const Logo = ({ sticky }) => {
   const cx = classes(
     'transition-all py-3 w-32',
     sticky

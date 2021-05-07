@@ -15,7 +15,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Check types
-        run: yarn check:types
+        run: yarn lint
 
   build:
     name: Build

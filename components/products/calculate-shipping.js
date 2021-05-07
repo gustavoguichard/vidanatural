@@ -45,7 +45,7 @@ const CalculateShipping = ({ sku, quantity }) => {
         setNotFound(true)
       }
     }
-    setSending(false)
+    return setSending(false)
   }
 
   return showForm ? (

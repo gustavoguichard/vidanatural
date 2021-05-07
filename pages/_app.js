@@ -37,7 +37,7 @@ const VidaNatural = ({ pageProps, Component }) => {
 }
 
 export function reportWebVitals(metric) {
-  console.log(metric)
+  console.log(metric) // eslint-disable-line
 }
 
 export default VidaNatural

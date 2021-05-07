@@ -35,6 +35,7 @@ export default function Bruno() {
             }}
           >
             <img
+              alt="Bruno"
               src="https://vidanatural.eco.br/static/images/team/bruno.png"
               style={{
                 border: '0px',
@@ -159,6 +160,7 @@ export default function Bruno() {
                       }}
                       target="_blank"
                       data-saferedirecturl="https://www.google.com/url?q=https://vidanatural.eco.br/&source=gmail&ust=1600448445505000&usg=AFQjCNF3rIWnEC-iqIu0x9aDsRW-k838Zg"
+                      rel="noreferrer"
                     >
                       <span
                         style={{
@@ -188,6 +190,7 @@ export default function Bruno() {
                         display: 'inline-block',
                       }}
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <span
                         style={{
