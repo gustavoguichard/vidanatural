@@ -68,7 +68,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run tests
-        run: yarn test:ci
+        run: yarn test
 
       # - name: Upload coverage
       #   uses: codecov/codecov-action@v1.0.14
