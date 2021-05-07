@@ -7,8 +7,9 @@
   "author": "Gustavo Guichard <gustavoguichard@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
-    "start": "next",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint ./",
     "lint:prettier": "prettier --check \"{**/*.js,**/*.jsx}\"",
