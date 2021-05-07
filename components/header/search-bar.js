@@ -23,13 +23,12 @@ const SearchBar = () => {
   const [results, setResults] = useState([])
   const [fetching, setFetching] = useState(false)
   const field = useRef()
-  const hasQuery = query && query.length > 2
+  const hasQuery = query && query.trim().length > 2
 
-  useEffect(() => {
-    if (hasQuery) {
-      doSearch(query, setResults, setFetching)
-    }
-  }, [query])
+  const searchCB = () => {
+    hasQuery && doSearch(query, setResults, setFetching)
+  }
+  useEffect(searchCB, [query])
 
   return (
     <Transition
@@ -53,9 +52,20 @@ const SearchBar = () => {
           event.key === 'Escape' && closeSearch()
         }}
       >
-        <div className="relative flex justify-between items-center">
+        <form
+          autoComplete="off_hack"
+          onSubmit={(event) => {
+            event.preventDefault()
+            searchCB()
+          }}
+          action="/search"
+          className="relative flex justify-between items-center"
+        >
           <input
-            type="text"
+            type="search"
+            autoComplete="off_hack"
+            name="search"
+            spellCheck="false"
             id="search-field"
             ref={field}
             className="bg-white p-6 w-full"
@@ -70,7 +80,7 @@ const SearchBar = () => {
               className="absolute pointer-events-none mr-3 right-0"
             />
           )}
-        </div>
+        </form>
         {(hasQuery || !!results.length) && (
           <div className="divide-y divide-gray-200 bg-white">
             {results.length ? (
