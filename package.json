@@ -16,7 +16,8 @@
     "test:e2e": "start-server-and-test dev http://localhost:3000 test:playwright",
     "test:playwright:ci": "CI=true yarn test:playwright --ci",
     "test:e2e:ci": "start-server-and-test dev http://localhost:3000 test:playwright:ci",
-    "test:ci": "CI=true yarn test:unit --ci && yarn test:e2e:ci"
+    "test:ci": "CI=true yarn test:unit --ci && yarn test:e2e:ci",
+    "check:types": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
     "@headlessui/react": "1.1.1",
