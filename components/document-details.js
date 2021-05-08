@@ -11,30 +11,28 @@ const DocumentDetails = ({
   post,
   date,
   ...props
-}) => {
-  return (
-    <div className="text-sm" {...props}>
-      {author && (
-        <div>
-          Escrito por{' '}
-          <strong>
-            {disableLink ? (
-              author.data.name
-            ) : (
-              <Link href={author.permalink} className="hover:underline">
-                {author.data.name}
-              </Link>
-            )}
-          </strong>
-          <br />
-        </div>
-      )}
-      <em className="text-xs">
-        {prepend && `${prepend} `}
-        há {timeSince(date)} · {calculatePostReadTime(post)} de leitura
-      </em>
-    </div>
-  )
-}
+}) => (
+  <div className="text-sm" {...props}>
+    {author && (
+      <div>
+        Escrito por{' '}
+        <strong>
+          {disableLink ? (
+            author.data.name
+          ) : (
+            <Link href={author.permalink} className="hover:underline">
+              {author.data.name}
+            </Link>
+          )}
+        </strong>
+        <br />
+      </div>
+    )}
+    <em className="text-xs">
+      {prepend && `${prepend} `}
+      há {timeSince(date)} · {calculatePostReadTime(post)} de leitura
+    </em>
+  </div>
+)
 
 export default memo(DocumentDetails)

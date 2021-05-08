@@ -3,8 +3,8 @@ import get from 'lodash/get'
 
 import type { DocumentType, QueryOptions } from 'types/cms'
 
-export const apiEndpoint = process.env.PRISMIC_API || ''
-export const accessToken = process.env.PRISMIC_TOKEN || ''
+export const apiEndpoint = process.env.PRISMIC_API ?? ''
+export const accessToken = process.env.PRISMIC_TOKEN ?? ''
 const client = Prismic.client(apiEndpoint, { accessToken })
 
 export const query = async (predicates: string | string[], options: any) => {
@@ -45,7 +45,7 @@ export const getExact = async (
   value: string,
   options: QueryOptions = {},
 ) => {
-  const fieldString = 'my.' + type + '.' + field
+  const fieldString = `my.${type}.${field}`
   const response = await query(
     [
       Prismic.Predicates.at('document.type', type),

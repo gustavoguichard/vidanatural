@@ -2,8 +2,8 @@ import isEmpty from 'lodash/isEmpty'
 
 import SearchItem from 'components/header/search-item'
 
-const RelatedProducts = ({ products }) => {
-  return isEmpty(products) ? null : (
+const RelatedProducts = ({ products }) =>
+  isEmpty(products) ? null : (
     <div className="max-w-screen-md mx-auto mt-2 mb-6 px-6">
       <div className="bg-white rounded-lg shadow">
         <h3 className="text-center py-2 text-3xl font-semibold tracking-tight">
@@ -15,6 +15,5 @@ const RelatedProducts = ({ products }) => {
       </div>
     </div>
   )
-}
 
 export default RelatedProducts

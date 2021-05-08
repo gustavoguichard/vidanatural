@@ -14,23 +14,17 @@ const SocialLink = ({ Icon, title, url, target }) =>
     </a>
   ) : null
 
-const SocialLinks = ({ facebook, instagram, linkedin, github }) => {
-  return (
-    <div className="flex items-center space-x-1 -mt-2">
-      <SocialLink title="Abrir github" {...github} Icon={FaGithub} />
-      <SocialLink
-        title="Ir para perfil do LinkedIn"
-        {...linkedin}
-        Icon={FaLinkedin}
-      />
-      <SocialLink
-        title="Seguir no Instagram"
-        {...instagram}
-        Icon={FaInstagram}
-      />
-      <SocialLink title="Ver no Facebook" {...facebook} Icon={FaFacebook} />
-    </div>
-  )
-}
+const SocialLinks = ({ facebook, instagram, linkedin, github }) => (
+  <div className="flex items-center space-x-1 -mt-2">
+    <SocialLink title="Abrir github" {...github} Icon={FaGithub} />
+    <SocialLink
+      title="Ir para perfil do LinkedIn"
+      {...linkedin}
+      Icon={FaLinkedin}
+    />
+    <SocialLink title="Seguir no Instagram" {...instagram} Icon={FaInstagram} />
+    <SocialLink title="Ver no Facebook" {...facebook} Icon={FaFacebook} />
+  </div>
+)
 
 export default memo(SocialLinks)
