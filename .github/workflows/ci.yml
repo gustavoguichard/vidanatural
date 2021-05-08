@@ -12,7 +12,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile && yarn add playwright
+        run: yarn install --frozen-lockfile
 
   typecheck:
     name: Type check
@@ -78,6 +78,9 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install playwright
+        run: npx playwright install chromium
 
       - name: Run tests
         run: yarn test
