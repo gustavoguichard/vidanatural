@@ -1,8 +1,8 @@
 on: push
 name: CI
 jobs:
-  typecheck:
-    name: Type check
+  install:
+    name: Install packages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,6 +13,17 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile && yarn add playwright
+
+  typecheck:
+    name: Type check
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Check types, eslint and prettier
         run: yarn lint
@@ -48,6 +59,7 @@ jobs:
   test:
     name: Test
     # needs: build
+    needs: install
     env:
       API_HOST: ${{ secrets.API_HOST }}
       API_IP: ${{ secrets.API_IP }}
@@ -69,10 +81,3 @@ jobs:
 
       - name: Run tests
         run: yarn test
-
-      # - name: Upload coverage
-      #   uses: codecov/codecov-action@v1.0.14
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     file: ./coverage/lcov.info
-      #     fail_ci_if_error: true
