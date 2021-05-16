@@ -12,7 +12,7 @@ const Description = ({ product }) => {
   })
   return (
     <div
-      className="max-w-screen-xl border-t-8 border-white p-10"
+      className="max-w-screen-xl mx-auto border-t-8 border-white p-10"
       id="descricao"
     >
       <div className="text-gray-600 md:space-x-4 md:flex justify-center">

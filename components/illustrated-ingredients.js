@@ -8,7 +8,7 @@ const IllustratedIngredients = ({
   ingredients,
 }) => (
   <div className="border-white border-t-8 border-b-8" id="ingredientes">
-    <div className="flex flex-col items-center max-w-screen-xl px-10">
+    <div className="flex flex-col items-center mx-auto max-w-screen-xl px-10">
       <div className="md:w-10/12 py-16 flex flex-col items-center">
         <div className="self-start md:self-auto md:text-center">
           <h3 className="text-4xl font-bold tracking-tight">
