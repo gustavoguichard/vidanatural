@@ -2,14 +2,14 @@ import get from 'lodash/get'
 import map from 'lodash/map'
 import shuffle from 'lodash/shuffle'
 import isEmpty from 'lodash/isEmpty'
-import { GetStaticProps } from 'next'
 
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parseProduct from 'lib/parsers/product'
 import parseProducts from 'lib/parsers/products'
 
-import { VndaProduct } from 'types/vnda'
+import type { GetStaticProps } from 'next'
+import type { VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params

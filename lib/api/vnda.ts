@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import { buildQuery, joinWith } from 'lib/utils'
 import vnda from 'lib/api/vnda2'
 
-import { FormKeys } from 'types/vnda'
+import type { FormKeys } from 'types/vnda'
 
 const saveCookie = (headers: Headers) => {
   const cookie = headers.get('Biscuit')

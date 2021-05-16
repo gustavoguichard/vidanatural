@@ -1,4 +1,4 @@
-import { VndaProduct } from 'types/vnda'
+import type { VndaProduct } from 'types/vnda'
 
 export default (products: VndaProduct[]) =>
   products.map((product) => {

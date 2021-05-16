@@ -1,10 +1,9 @@
-import { GetStaticProps } from 'next'
-
 import api from 'lib/api'
 import parseProducts from 'lib/parsers/products'
 import { getCategoryTags } from 'lib/domain'
 
-import { VndaProduct } from 'types/vnda'
+import type { GetStaticProps } from 'next'
+import type { VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async () => {
   const serverData = await api.vnda.search()

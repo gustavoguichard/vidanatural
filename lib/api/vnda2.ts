@@ -2,7 +2,7 @@ import isObject from 'lodash/isObject'
 
 import { isClient } from 'lib/utils'
 
-import { API2Response } from 'types/vnda'
+import type { API2Response } from 'types/vnda'
 
 const normalizeBody = (body: undefined | string | object, method: string) => {
   if (['HEAD', 'GET', 'DELETE'].includes(method)) return undefined

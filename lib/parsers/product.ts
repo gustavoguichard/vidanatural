@@ -1,6 +1,6 @@
 import trim from 'lodash/trim'
 
-import { VndaProduct } from 'types/vnda'
+import type { VndaProduct } from 'types/vnda'
 
 export default (product: VndaProduct) => {
   const brokenDesc = product.html_description.split(`\n<hr/>\n`).map(trim)

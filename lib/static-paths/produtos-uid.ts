@@ -1,6 +1,6 @@
-import { GetStaticPaths } from 'next'
-
 import api from 'lib/api'
+
+import type { GetStaticPaths } from 'next'
 
 const getStaticPaths: GetStaticPaths = async () => {
   const products = await api.vnda.search()

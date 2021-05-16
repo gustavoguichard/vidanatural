@@ -5,8 +5,8 @@ import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
 import parseProducts from 'lib/parsers/products'
 
-import { BlogPost } from 'types/cms'
-import { ParsedProduct } from 'types/vnda'
+import type { BlogPost } from 'types/cms'
+import type { ParsedProduct } from 'types/vnda'
 
 export default async () => {
   const testimonialsData = await api.cms.getByTypeAndTags('testimonial', {

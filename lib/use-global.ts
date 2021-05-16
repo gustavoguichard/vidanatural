@@ -4,8 +4,8 @@ import useStore from 'lib/use-store'
 import api from 'lib/api'
 import { initialState } from 'lib/constants'
 
-import { Store } from 'types/global-state'
-import { Cart } from 'types/vnda'
+import type { Store } from 'types/global-state'
+import type { Cart } from 'types/vnda'
 
 const updateCart = (store: Store, cart: Cart) => {
   if (cart.id) {

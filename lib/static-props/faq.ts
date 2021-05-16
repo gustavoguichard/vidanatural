@@ -1,6 +1,6 @@
-import { GetStaticProps } from 'next'
-
 import api from 'lib/api'
+
+import type { GetStaticProps } from 'next'
 
 const getStaticProps: GetStaticProps = async () => {
   const items = await api.cms.getByTypeAndTags(

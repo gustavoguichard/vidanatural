@@ -5,7 +5,8 @@ import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 import { getCategoryTags } from 'lib/domain'
 import { useTimeout } from 'lib/hooks'
-import { VndaProduct, ProductTag } from '../types/vnda'
+
+import type { VndaProduct, ProductTag } from 'types/vnda'
 
 export const useTagsMenu = () => {
   const [tags, setTags] = useState([] as ProductTag[])

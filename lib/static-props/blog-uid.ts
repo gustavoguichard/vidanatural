@@ -1,11 +1,10 @@
-import { GetStaticProps } from 'next'
-
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parsePost from 'lib/parsers/blog-post'
 import parseProducts from 'lib/parsers/products'
 
-import { BlogPost } from 'types/cms'
+import type { GetStaticProps } from 'next'
+import type { BlogPost } from 'types/cms'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params

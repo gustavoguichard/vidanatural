@@ -3,7 +3,7 @@ import get from 'lodash/get'
 import { getExcerpt } from 'lib/domain'
 import parseMember from './team-member'
 
-import { BlogPost, PostBody } from 'types/cms'
+import type { BlogPost, PostBody } from 'types/cms'
 
 export default (post: BlogPost) => {
   const { uid, first_publication_date, data } = post

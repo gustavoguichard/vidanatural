@@ -6,8 +6,8 @@ import uniqBy from 'lodash/uniqBy'
 
 import { getReadTime, toCurrency } from 'lib/utils'
 
-import { PostBody } from 'types/cms'
-import { VndaProduct, ProductTag } from 'types/vnda'
+import type { PostBody } from 'types/cms'
+import type { VndaProduct, ProductTag } from 'types/vnda'
 
 export const timeSince = (date: number) => {
   const now = new Date()

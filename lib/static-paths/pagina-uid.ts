@@ -1,4 +1,4 @@
-import { GetStaticPaths } from 'next'
+import type { GetStaticPaths } from 'next'
 
 const getStaticPaths: GetStaticPaths = async () => ({
   paths: ['termos-e-condicoes'].map((pageId) => ({
