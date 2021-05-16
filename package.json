@@ -15,10 +15,12 @@
     "lint:prettier": "prettier --check \"{**/*.js,**/*.jsx}\"",
     "lint:types": "tsc --project tsconfig.json --noEmit",
     "test": "yarn test:unit && yarn test:e2e",
+    "test:ci": "yarn test:unit && yarn test:e2e:ci",
     "test:unit": "jest",
     "test:watch": "yarn test:unit -- --watch",
     "test:playwright": "jest -c=jest.e2e.config.js",
-    "test:e2e": "start-server-and-test dev http://127.0.0.1:3000 test:playwright"
+    "test:e2e": "start-server-and-test dev http://127.0.0.1:3000 test:playwright",
+    "test:e2e:ci": "start-server-and-test start http://127.0.0.1:3000 test:playwright"
   },
   "dependencies": {
     "@headlessui/react": "1.2.0",
