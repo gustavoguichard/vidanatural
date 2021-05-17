@@ -79,8 +79,8 @@ export const useScroll = (delay = 300) => {
   return state
 }
 
-export const usePrevious = (value: any) => {
-  const ref = useRef()
+export const usePrevious = (value: unknown) => {
+  const ref = useRef<unknown>()
   useEffect(() => {
     ref.current = value
   })
@@ -90,7 +90,7 @@ export const usePrevious = (value: any) => {
 export const useScrollDirection = (threeshold = 15, delay = 300) => {
   const [direction, setDirection] = useState('UP')
   const { y } = useScroll(delay) || { y: 0 }
-  const prevY = usePrevious(y) ?? 0
+  const prevY = (usePrevious(y) as number) ?? 0
 
   if (direction !== 'DOWN' && y > prevY + threeshold) {
     setDirection('DOWN')

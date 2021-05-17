@@ -7,7 +7,7 @@ export const apiEndpoint = process.env.PRISMIC_API || ''
 export const accessToken = process.env.PRISMIC_TOKEN || ''
 const client = Prismic.client(apiEndpoint, { accessToken })
 
-export const query = async (predicates: any, options: any) => {
+export const query = async (predicates: string | string[], options: any) => {
   const response = await client.query(predicates, options)
   return response
 }

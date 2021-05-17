@@ -36,13 +36,13 @@ const logPageView = () => {
   track('PageView')
 }
 
-const addToCart = (options: Record<string, any>) => {
+const addToCart = (options: Record<string, unknown>) => {
   track('AddToCart', options)
 }
 
 export const useTrack = (
   event: TrackType,
-  options?: Record<string, any>,
+  options?: Record<string, unknown>,
   shouldTrack = true,
 ) => {
   useEffect(() => {
