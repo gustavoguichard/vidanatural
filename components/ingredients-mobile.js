@@ -2,8 +2,8 @@ import InciLink from 'components/inci-link'
 import Pannel from 'components/pannel'
 import RichText from 'components/rich-text'
 
-const IngredientsMobile = ({ data }) => {
-  return data.map((item, i) => (
+const IngredientsMobile = ({ data }) =>
+  data.map((item, i) => (
     <Pannel
       className="md:hidden"
       key={`item-${i}`}
@@ -19,6 +19,5 @@ const IngredientsMobile = ({ data }) => {
       </div>
     </Pannel>
   ))
-}
 
 export default IngredientsMobile

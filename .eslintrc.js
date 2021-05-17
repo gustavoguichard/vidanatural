@@ -4,10 +4,14 @@ module.exports = {
     node: true,
     jest: true,
   },
+  parser: 'babel-eslint',
+  parserOptions: {
+    sourceType: 'module',
+    allowImportExportEverywhere: true,
+  },
   extends: ['airbnb', 'prettier'],
   plugins: ['react', 'prettier'],
   rules: {
-    semi: ['error', 'never'],
     'arrow-parens': [0, 'as-needed'],
     camelcase: 0,
     'class-methods-use-this': 0,
