@@ -20,7 +20,7 @@ describe('Home page', () => {
     await page.goto('http://localhost:3000')
 
     await page.click('text=Ver produtos')
-    await page.waitForNavigation()
+    await page.waitForURL(/\/produtos/g)
     await page.click('text=Adicionar')
     await page.waitForSelector('.cart-item')
   })
