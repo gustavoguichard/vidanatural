@@ -20,7 +20,7 @@ const FeedSlider = ({ posts }) => {
     >
       {posts.map((post) => (
         <Link
-          className="group block h-full rounded-lg border border-gray-300 hover:border-teal-500 focus:outline-none focus:border-teal-400 focus:border-2 hover:no-underline"
+          className="post-card group block h-full rounded-lg border border-gray-300 hover:border-teal-500 focus:outline-none focus:border-teal-400 focus:border-2 hover:no-underline"
           key={post.id}
           href={`/blog/${post.uid}`}
         >
