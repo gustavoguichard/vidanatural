@@ -45,11 +45,15 @@ const CalculateShipping = ({ sku, quantity }) => {
         setNotFound(true)
       }
     }
-    setSending(false)
+    return setSending(false)
   }
 
   return showForm ? (
-    <form className="mt-6" onSubmit={handleSubmit} action="/frete_produto">
+    <form
+      className="mt-6 relative z-10"
+      onSubmit={handleSubmit}
+      action="/frete_produto"
+    >
       <Input
         {...text('zip')}
         autoFocus
@@ -101,7 +105,7 @@ const CalculateShipping = ({ sku, quantity }) => {
   ) : (
     <a
       href="#"
-      className="mt-4 flex place-items-center text-sm font-semibold hover:underline"
+      className="mt-4 flex place-items-center text-sm font-semibold hover:underline relative z-10"
       onClick={(ev) => {
         ev.preventDefault()
         setShowForm(true)
