@@ -1,12 +1,6 @@
-import isObject from 'lodash/isObject'
+import utils from 'lib/api/vnda-utils'
 
 import type { API2Response } from 'types/vnda'
-
-const normalizeBody = (body: undefined | string | object, method: string) => {
-  if (['HEAD', 'GET', 'DELETE'].includes(method)) return undefined
-
-  return isObject(body) ? JSON.stringify(body) : body
-}
 
 const fetcher = async (
   path: string,
@@ -22,8 +16,8 @@ const fetcher = async (
     ...givenHeaders,
   }
 
-  const url = getAPIPath(path)
-  const options = { headers, method, body: normalizeBody(body, method) }
+  const url = utils.getAPIPath(path)
+  const options = { headers, method, body: utils.normalizeBody(body, method) }
   // console.log(url, options)
   const result = await fetch(url, options as RequestInit)
   try {
@@ -40,12 +34,6 @@ const fetcher = async (
     return { error, status: 500 }
   }
 }
-
-const getAPIPath = (path: string, bff = false) =>
-  [
-    bff ? 'api/' : `https://${process.env.API_HOST}/api/v2/`,
-    path.replace(/^\//, ''),
-  ].join('')
 
 const processFetch = async (
   path: string,
@@ -65,7 +53,7 @@ const clientFetchBFFApi = async (
   method = 'GET',
   rawBody?: object,
 ) => {
-  const fullPath = `${window.location.origin}/` + getAPIPath(path, true)
+  const fullPath = `${window.location.origin}/` + utils.getAPIPath(path, true)
   const body = rawBody ? JSON.stringify(rawBody) : undefined
   return processFetch(fullPath, method, body)
 }
@@ -75,12 +63,12 @@ const serverFetchBFFApi = async (
   method = 'GET',
   body?: BodyInit | null,
 ) => {
-  const fullPath = process.env.LOCAL_HOST + getAPIPath(path, true)
+  const fullPath = process.env.LOCAL_HOST + utils.getAPIPath(path, true)
   return processFetch(fullPath, method, body)
 }
 
 export default {
+  fetcher,
   fetch: serverFetchBFFApi,
   clientFetch: clientFetchBFFApi,
-  fetcher,
 }

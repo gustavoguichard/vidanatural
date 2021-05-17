@@ -6,13 +6,13 @@ import useGlobal from 'lib/use-global'
 import { getCategoryTags } from 'lib/domain'
 import { useTimeout } from 'lib/hooks'
 
-import type { VndaProduct, ProductTag } from 'types/vnda'
+import type { ProductTag } from 'types/vnda'
 
 export const useTagsMenu = () => {
   const [tags, setTags] = useState([] as ProductTag[])
 
   const fetchTags = async () => {
-    const products: VndaProduct[] = await api.vnda.listProducts()
+    const products = await api.vnda.clientFetch('products/list')
     const parsed = getCategoryTags(products)
     setTags(parsed as ProductTag[])
   }

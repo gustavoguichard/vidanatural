@@ -10,7 +10,7 @@ const CartCTA = ({ cart, items }) => {
   const [cartUrl, setCartUrl] = useState()
   useEffect(() => {
     if (cart.token) {
-      const url = api.vnda.getUrl(`pagamento/${cart.token}`)
+      const url = api.vnda.utils.getUrl(`pagamento/${cart.token}`)
       setCartUrl(url)
     }
   }, [cart.token])

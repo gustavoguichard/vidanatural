@@ -1,7 +1,6 @@
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parsePost from 'lib/parsers/blog-post'
-import parseProducts from 'lib/parsers/products'
 
 import type { GetStaticProps } from 'next'
 import type { BlogPost } from 'types/cms'
@@ -18,8 +17,8 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
   })
   const post = response ? parsePost(response as BlogPost) : { tags: [] }
-  const vndaProducts = await api.vnda.listProducts()
-  const products = parseProducts(getProductsByTag(vndaProducts, post.tags))
+  const vndaProducts = await api.vnda.endpoints.productsList()
+  const products = getProductsByTag(vndaProducts, post.tags)
   return { props: { ...post, products } }
 }
 

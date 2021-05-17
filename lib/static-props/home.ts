@@ -3,7 +3,6 @@ import take from 'lodash/take'
 
 import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
-import parseProducts from 'lib/parsers/products'
 
 import type { BlogPost } from 'types/cms'
 import type { ParsedProduct } from 'types/vnda'
@@ -25,13 +24,12 @@ export default async () => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
     pageSize: 4,
   })
-  const serverData = await api.vnda.listProducts()
+  const serverData = await api.vnda.endpoints.productsList()
   const products = take(
-    parseProducts(serverData)
+    serverData
       .filter((p: ParsedProduct) => p.inStock)
       .sort((p: ParsedProduct) => {
-        const tags = p.tags.map((t) => t.name)
-        return tags.includes('mais-vendidos') ? -1 : 1
+        return p.tag_names.includes('mais-vendidos') ? -1 : 1
       }),
     6,
   )

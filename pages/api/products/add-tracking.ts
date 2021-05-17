@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import vnda from 'lib/api/vnda2'
+import api from 'lib/api'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { url, order } = JSON.parse(req.body)
-  const response = await vnda.fetcher(
+  const response = await api.vnda.fetchFromAPI(
     `orders/${order}/packages/${order}-01/trackings`,
     'POST',
     {

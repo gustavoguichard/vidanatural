@@ -31,7 +31,7 @@ const ImageGallery = ({ product }) => {
               <img
                 className="max-w-full object-contain relative z-10"
                 alt={product.name}
-                src={api.vnda.getResizedImg(img.url, 600)}
+                src={api.vnda.utils.getResizedImg(img.url, 600)}
               />
             </div>
           ))}
@@ -47,7 +47,7 @@ const ImageGallery = ({ product }) => {
               className={`w-24 h-24 m-1 lg:w-80 lg:h-auto object-contain cursor-pointer transition-all duration-700 ${
                 i === index && 'ring-2 ring-gray-900'
               }`}
-              src={api.vnda.getResizedImg(img.url, 250)}
+              src={api.vnda.utils.getResizedImg(img.url, 250)}
             />
           ))}
         </div>

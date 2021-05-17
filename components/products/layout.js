@@ -33,7 +33,7 @@ const ProductLayout = ({
             currency: 'BRL',
           },
           images: map(images, (img) => ({
-            url: api.vnda.getResizedImg(img, 500),
+            url: api.vnda.utils.getResizedImg(img, 500),
             width: 500,
             height: 500,
             alt: product.name,

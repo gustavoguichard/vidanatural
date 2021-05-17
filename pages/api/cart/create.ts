@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import publicIp from 'public-ip'
 
-import vnda from 'lib/api/vnda2'
+import api from 'lib/api'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let ip = '127.0.0.1'
@@ -16,7 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (error) {
     console.log(error)
   }
-  const response = await vnda.fetcher('carts', 'POST', undefined, {
+  const response = await api.vnda.fetchFromAPI('carts', 'POST', undefined, {
     'X-User-Agent': userAgent,
     'X-Browser-Ip': ip,
   })

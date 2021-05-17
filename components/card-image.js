@@ -35,7 +35,7 @@ const CardImage = ({ product }) => {
       <Img
         className="w-full h-64"
         alt={product.name}
-        src={api.vnda.getResizedImg(thumbnail, 300)}
+        src={api.vnda.utils.getResizedImg(thumbnail, 300)}
         title={product.name}
       />
     </div>

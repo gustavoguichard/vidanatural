@@ -30,7 +30,11 @@ const CalculateShipping = ({ sku, quantity }) => {
 
     const zip = get(formState, 'values.zip', '').replaceAll(/\D/g, '')
     if (zip.length >= 8) {
-      const result = await api.vnda.calculateShipping({ sku, quantity, zip })
+      const result = await api.vnda.endpoints.calculateShipping({
+        sku,
+        quantity,
+        zip,
+      })
       updateZip(zip)
       if (!result) {
         setHasError(true)

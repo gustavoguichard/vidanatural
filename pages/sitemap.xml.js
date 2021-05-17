@@ -3,7 +3,6 @@ import forEach from 'lodash/forEach'
 import { SitemapStream, streamToPromise } from 'sitemap'
 
 import api from 'lib/api'
-import vnda from 'lib/api/vnda2'
 
 const pages = {
   produtos: ['daily', 1.0],
@@ -21,7 +20,7 @@ const Sitemap = ({ xml }) => xml
 
 export async function getServerSideProps({ res }) {
   try {
-    const productsResponse = await vnda.fetcher('products')
+    const productsResponse = await api.vnda.fetchFromAPI('products')
     const smStream = new SitemapStream({
       hostname: process.env.API_IP,
       cacheTime: 600000,

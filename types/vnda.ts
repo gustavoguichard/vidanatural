@@ -33,12 +33,14 @@ export interface VndaProduct {
 export interface ParsedProduct extends VndaProduct {
   stock: number
   inStock: boolean
+  category_tags?: ProductTag[]
 }
 
 export interface ProductTag {
   name: string
   title: string
   type: string
+  tag_type?: string
 }
 
 export interface ProductImg {

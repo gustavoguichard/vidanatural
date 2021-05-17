@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import vnda from 'lib/api/vnda2'
+import api from 'lib/api'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const response = await vnda.fetcher(`carts/${req.query.token}`)
+  const response = await api.vnda.fetchFromAPI(`carts/${req.query.token}`)
   if (response.data) {
     res.send(response.data)
   } else {

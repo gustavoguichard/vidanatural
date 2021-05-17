@@ -19,7 +19,7 @@ export default useStore(
   {
     updateItem: async (store: Store, id: number, quantity = 1) => {
       store.setState({ updatingCart: true })
-      const token = await api.vnda.getCartToken()
+      const token = await api.vnda.cart.getCartToken()
       const cart = await api.vnda.clientFetch(
         `cart/${token}/update-quantity`,
         'POST',
@@ -33,15 +33,15 @@ export default useStore(
     },
     addCoupon: async (store: Store, coupon: string) => {
       store.setState({ updatingCart: true })
-      const token = await api.vnda.getCartToken()
+      const token = await api.vnda.cart.getCartToken()
       await api.vnda.clientFetch(`cart/${token}/coupon`, 'POST', { coupon })
-      const cart = await api.vnda.getCart()
+      const cart = await api.vnda.cart.getCart()
       updateCart(store, cart)
       return cart
     },
     addToCart: async (store: Store, sku: string, quantity = 1) => {
       store.setState({ showCart: true, updatingCart: true })
-      const { token } = await api.vnda.getCart()
+      const { token } = await api.vnda.cart.getCart()
       const cart = await api.vnda.clientFetch(`cart/${token}/add`, 'POST', {
         sku,
         quantity,
@@ -51,7 +51,7 @@ export default useStore(
     },
     updateZip: async (store: Store, zip: string) => {
       store.setState({ updatingCart: true })
-      const token = await api.vnda.getCartToken()
+      const token = await api.vnda.cart.getCartToken()
       const cart = await api.vnda.clientFetch(`cart/${token}/zip`, 'POST', {
         zip,
       })
@@ -71,7 +71,7 @@ export default useStore(
     },
     removeFromCart: async (store: Store, id: number) => {
       store.setState({ updatingCart: true })
-      const token = await api.vnda.getCartToken()
+      const token = await api.vnda.cart.getCartToken()
       const cart = await api.vnda.clientFetch(`cart/${token}/remove`, 'POST', {
         id,
       })
@@ -84,7 +84,7 @@ export default useStore(
       store.setState({ freeShippingPrice })
     },
     listCart: async (store: Store) => {
-      const cart = await api.vnda.getCart()
+      const cart = await api.vnda.cart.getCart()
       store.setState({ cart })
     },
     openCart: async (store: Store) => {

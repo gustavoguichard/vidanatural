@@ -1,19 +1,19 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import vnda from 'lib/api/vnda2'
+import api from 'lib/api'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const cartData = await vnda.fetch(`cart/${req.query.token}`)
+  const cartData = await api.vnda.fetch(`cart/${req.query.token}`)
   const { id, quantity } = JSON.parse(req.body)
 
-  const response = await vnda.fetcher(
+  const response = await api.vnda.fetchFromAPI(
     `carts/${cartData?.id}/items/${id}`,
     'PATCH',
     { quantity },
   )
 
   if (response.data) {
-    const cartUpdatedData = await vnda.fetch(`cart/${req.query.token}`)
+    const cartUpdatedData = await api.vnda.fetch(`cart/${req.query.token}`)
     res.send(cartUpdatedData)
   } else {
     res.send({

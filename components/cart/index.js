@@ -20,7 +20,7 @@ const Cart = () => {
 
   const getShipping = async () => {
     setShipping({ loading: true, methods: shipping.methods })
-    const token = await api.vnda.getCartToken()
+    const token = await api.vnda.cart.getCartToken()
     const response = await api.vnda.clientFetch(
       `cart/${token}/shipping-methods`,
     )

@@ -7,7 +7,7 @@ import uniqBy from 'lodash/uniqBy'
 import { getReadTime, toCurrency } from 'lib/utils'
 
 import type { PostBody } from 'types/cms'
-import type { VndaProduct, ProductTag } from 'types/vnda'
+import type { ParsedProduct, ProductTag, VndaProduct } from 'types/vnda'
 
 export const timeSince = (date: number) => {
   const now = new Date()
@@ -68,13 +68,13 @@ export const resolveLink = (link: string) => {
   return result
 }
 
-export const getCategoryTags = (products: VndaProduct[], addSales = true) => {
-  const isCategoryType = (cat: ProductTag) => cat.type === 'product_cat'
+export const getCategoryTags = (products: ParsedProduct[], addSales = true) => {
+  const isCategoryType = (cat: ProductTag) => cat.tag_type === 'product_cat'
   const allCategoryTags = reduce(
     products,
     (result, product) => [
       ...result,
-      ...(product.tags || []).filter(isCategoryType),
+      ...(product.category_tags || []).filter(isCategoryType),
     ],
     [] as ProductTag[],
   )
@@ -94,10 +94,10 @@ export const getDiscount = (product: VndaProduct) => {
     : `${toCurrency(get(product, 'discount_rule.amount', 0))}`
 }
 
-export const getProductsByTag = (products: VndaProduct[], tags: string[]) => {
-  return products.filter((p: VndaProduct) =>
-    p.tags.reduce(
-      (res: boolean, tag: ProductTag) => tags.includes(tag.name) || res,
+export const getProductsByTag = (products: ParsedProduct[], tags: string[]) => {
+  return products.filter((p: ParsedProduct) =>
+    p.tag_names.reduce(
+      (res: boolean, tag: string) => tags.includes(tag) || res,
       false,
     ),
   )

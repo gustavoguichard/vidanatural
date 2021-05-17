@@ -18,7 +18,7 @@ const NewsForm = () => {
     setHasError(null)
     setSending(true)
 
-    const isSent = await api.vnda.sendForm(formState.values)
+    const isSent = await api.vnda.endpoints.sendForm(formState.values)
     if (isSent) {
       formState.clear()
       subscribe()

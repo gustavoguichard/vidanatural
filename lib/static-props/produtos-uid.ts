@@ -6,26 +6,25 @@ import isEmpty from 'lodash/isEmpty'
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parseProduct from 'lib/parsers/product'
-import parseProducts from 'lib/parsers/products'
 
 import type { GetStaticProps } from 'next'
-import type { VndaProduct } from 'types/vnda'
+import type { ParsedProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
   const response = await api.vnda.fetch(`products/${slug}`)
   const product = parseProduct(response)
 
-  const products = await api.vnda.listProducts()
+  const products = await api.vnda.endpoints.productsList()
   const categoryTags = get(product, 'category_tags')
   const tags = map(
     categoryTags.filter((c: any) => c.tag_type !== 'filter'),
     'name',
   )
   const allRelatedProducts = getProductsByTag(products, tags)
-  const relatedProducts = parseProducts(
-    allRelatedProducts.filter((p) => p.id !== product.id),
-  ).filter((p) => p.inStock)
+  const relatedProducts = allRelatedProducts
+    .filter((p) => p.id !== product.id)
+    .filter((p) => p.inStock)
 
   const id = get(product, 'id')
   const testimonialsData = await api.cms.getByTypeAndTags(
@@ -61,7 +60,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   )
 
   const includedProducts = cmsProduct?.data?.related_products
-    ? products.filter((p: VndaProduct) => includedIds.includes(String(p.id)))
+    ? products.filter((p: ParsedProduct) => includedIds.includes(String(p.id)))
     : null
 
   return {
