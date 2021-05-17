@@ -1,76 +1,49 @@
-import get from 'lodash/get'
-import flatten from 'lodash/flatten'
-import Cookies from 'js-cookie'
-
-import { buildQuery, joinWith } from 'lib/utils'
+import { joinWith } from 'lib/utils'
 import vnda from 'lib/api/vnda2'
 
 import type { FormKeys } from 'types/vnda'
 
-const saveCookie = (headers: Headers) => {
-  const cookie = headers.get('Biscuit')
-  if (cookie && typeof window !== 'undefined') {
-    const entries = cookie.split(', ')
-    const values = flatten(entries.map((val) => val.split('; ')))
-    values.forEach((value) => {
-      const [key, val] = value.split('=')
-      if (!!val) {
-        Cookies.set(key, val)
-      }
-    })
-  }
-}
-
-const getUrl = (path: string, params?: object, proxy?: boolean) => {
+const getUrl = (path: string, params?: URLSearchParams, proxy?: boolean) => {
   const base = proxy
     ? process.env.NEXT_PUBLIC_API_PROXY
     : `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/`
   const formattedPath = proxy ? path.replace('/', '::') : path
-  const query = buildQuery(params)
+  const query = new URLSearchParams(params).toString()
   const url = joinWith([base, formattedPath])
   return joinWith([url, query], '?')
 }
 
 const doRequest = async (
   url: string,
-  params = {},
-  proxy?: boolean,
+  method = 'GET',
   returnArray?: boolean,
 ) => {
   const requestParams = {
-    method: 'GET',
-    headers: {
-      ...get(params, 'headers'),
-      Accept: 'application/json',
-    },
-    credentials: proxy ? 'include' : undefined,
-    ...params,
-  } as any
+    headers: { Accept: 'application/json' },
+    method,
+  } as RequestInit
   const res = await fetch(url, requestParams)
   const data = res.status >= 400 ? (returnArray ? [] : res) : await res.json()
-  saveCookie(res.headers)
   return data
 }
 
-const fetchApi = async (
-  path = '',
-  query?: object,
-  proxy = false,
-  returnArray = true,
-  params = {},
-) => {
-  const url = getUrl(path, query, proxy)
-  return doRequest(url, params, proxy, returnArray)
+interface ShippingParams {
+  sku: number
+  zip: string
+  quantity?: number
+}
+const calculateShipping = async ({ sku, quantity, zip }: ShippingParams) => {
+  const url = getUrl('frete_produto', ({
+    sku,
+    quantity,
+    zip,
+  } as unknown) as URLSearchParams)
+  return doRequest(url, 'POST')
 }
 
-const post = async (
-  path = '',
-  query?: object,
-  params?: object,
-  proxy = false,
-) => {
-  const url = getUrl(path, query, proxy)
-  return doRequest(url, { ...params, method: 'POST' }, proxy)
+const textSearch = async (q: string) => {
+  const url = getUrl('busca', ({ q } as unknown) as URLSearchParams)
+  return doRequest(url)
 }
 
 const sendForm = async (values: FormKeys) => {
@@ -80,7 +53,10 @@ const sendForm = async (values: FormKeys) => {
     return false
   }
 
-  const url = getUrl('webform', { key, ...otherValues })
+  const url = getUrl('webform', ({
+    key,
+    ...otherValues,
+  } as unknown) as URLSearchParams)
   const response = await fetch(url, {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
@@ -89,25 +65,10 @@ const sendForm = async (values: FormKeys) => {
   return response.status < 400
 }
 
-const search = (params?: object) =>
-  fetchApi('busca', params, true, true, { credentials: undefined })
-
-const textSearch = (text: string) => fetchApi('busca', { q: text }, true)
-
-const listCart = () => fetchApi('carrinho/popup', {}, true, false)
-
-const listPage = (slug: string) => fetchApi(`p/${slug}`, {}, true)
-
-interface ShippingParams {
-  sku: number
-  zip: string
-  quantity?: number
+const search = async (params?: Record<string, unknown>) => {
+  const url = getUrl('busca', (params as unknown) as URLSearchParams, true)
+  return doRequest(url, 'GET', true)
 }
-const calculateShipping = ({ sku, quantity, zip }: ShippingParams) =>
-  post(`frete_produto`, { sku, quantity, zip }, {}, true)
-
-const addToCart = (sku: string, quantity = 1) =>
-  post('carrinho/adicionar', { sku, quantity }, {}, true)
 
 const getResizedImg = (url: string, w = 200, h = w) => {
   const DOMAIN_REG = /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
@@ -125,32 +86,24 @@ const getOwnPath = (url: string) => {
 }
 
 const clearCartInfo = () => {
-  Cookies.remove('cart_id')
   localStorage.removeItem('vn_cart_token')
 }
 
-const localCartInfo = () => ({
-  id: Cookies.get('cart_id'),
-  token: localStorage.getItem('vn_cart_token'),
-})
+const getLocalToken = () => localStorage.getItem('vn_cart_token')
 
 const getCartToken = async () => {
-  const { token } = localCartInfo()
+  const token = getLocalToken()
   if (token) return token
   const cart = await getCart()
   return cart.token
 }
 
 const getCart = async () => {
-  const { id, token } = localCartInfo()
+  const token = getLocalToken()
   let result
-  if (id || token) {
+  if (token) {
     try {
-      if (token) {
-        result = await vnda.fetch(`cart/${token}`)
-      } else if (id) {
-        result = await listCart()
-      }
+      result = await vnda.clientFetch(`cart/${token}`)
       if (!(result && result.id) || result.status === 404) {
         clearCartInfo()
       }
@@ -159,7 +112,7 @@ const getCart = async () => {
     }
   }
   if (!(result && result.id) || result.status === 404) {
-    result = await vnda.fetch('cart/create')
+    result = await vnda.clientFetch('cart/create')
   }
   if (result && result.token) {
     localStorage.setItem('vn_cart_token', result.token)
@@ -173,13 +126,10 @@ export default {
   getUrl,
   getOwnPath,
   getResizedImg,
-  localCartInfo,
+  getLocalToken,
   fetch: vnda.fetch,
-  post: vnda.post,
-  addToCart,
+  clientFetch: vnda.clientFetch,
   calculateShipping,
-  listCart,
-  listPage,
   sendForm,
   search,
   textSearch,

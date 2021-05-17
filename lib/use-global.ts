@@ -20,17 +20,21 @@ export default useStore(
     updateItem: async (store: Store, id: number, quantity = 1) => {
       store.setState({ updatingCart: true })
       const token = await api.vnda.getCartToken()
-      const cart = await api.vnda.post(`cart/${token}/update-quantity`, {
-        id,
-        quantity,
-      })
+      const cart = await api.vnda.clientFetch(
+        `cart/${token}/update-quantity`,
+        'POST',
+        {
+          id,
+          quantity,
+        },
+      )
       updateCart(store, cart)
       return true
     },
     addCoupon: async (store: Store, coupon: string) => {
       store.setState({ updatingCart: true })
       const token = await api.vnda.getCartToken()
-      await api.vnda.post(`cart/${token}/coupon`, { coupon })
+      await api.vnda.clientFetch(`cart/${token}/coupon`, 'POST', { coupon })
       const cart = await api.vnda.getCart()
       updateCart(store, cart)
       return cart
@@ -38,14 +42,19 @@ export default useStore(
     addToCart: async (store: Store, sku: string, quantity = 1) => {
       store.setState({ showCart: true, updatingCart: true })
       const { token } = await api.vnda.getCart()
-      const cart = await api.vnda.post(`cart/${token}/add`, { sku, quantity })
+      const cart = await api.vnda.clientFetch(`cart/${token}/add`, 'POST', {
+        sku,
+        quantity,
+      })
       updateCart(store, cart)
       return true
     },
     updateZip: async (store: Store, zip: string) => {
       store.setState({ updatingCart: true })
       const token = await api.vnda.getCartToken()
-      const cart = await api.vnda.post(`cart/${token}/zip`, { zip })
+      const cart = await api.vnda.clientFetch(`cart/${token}/zip`, 'POST', {
+        zip,
+      })
       if (cart.id) {
         store.setState({
           cart,
@@ -63,7 +72,9 @@ export default useStore(
     removeFromCart: async (store: Store, id: number) => {
       store.setState({ updatingCart: true })
       const token = await api.vnda.getCartToken()
-      const cart = await api.vnda.fetch(`cart/${token}/remove`, 'POST', { id })
+      const cart = await api.vnda.clientFetch(`cart/${token}/remove`, 'POST', {
+        id,
+      })
       store.setState({ cart, updatingCart: false })
     },
     updateShippingPrice: (

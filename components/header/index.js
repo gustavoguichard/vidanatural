@@ -21,8 +21,8 @@ const Header = ({ stick, variant }) => {
 
   const [, actions] = useGlobal()
   useEffect(() => {
-    const { id, token } = api.vnda.localCartInfo()
-    if (id || token) {
+    const token = api.vnda.getLocalToken()
+    if (token) {
       actions.listCart()
     }
   }, [])

@@ -1,7 +1,5 @@
 import isObject from 'lodash/isObject'
 
-import { isClient } from 'lib/utils'
-
 import type { API2Response } from 'types/vnda'
 
 const normalizeBody = (body: undefined | string | object, method: string) => {
@@ -14,19 +12,17 @@ const fetcher = async (
   path: string,
   method = 'GET',
   body?: string | object,
-  givenHeaders?: object,
+  givenHeaders?: Record<string, string>,
 ): Promise<API2Response> => {
-  const host = process.env.API_HOST
-
   const headers = {
-    ...givenHeaders,
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Host: host,
+    Host: process.env.API_HOST,
     Authorization: `Token token="${process.env.VNDA_API_TOKEN}"`,
+    ...givenHeaders,
   }
 
-  const url = `https://${host}/api/v2/${path}`
+  const url = getAPIPath(path)
   const options = { headers, method, body: normalizeBody(body, method) }
   // console.log(url, options)
   const result = await fetch(url, options as RequestInit)
@@ -45,24 +41,46 @@ const fetcher = async (
   }
 }
 
-const fetchBFFApi = async (
+const getAPIPath = (path: string, bff = false) =>
+  [
+    bff ? 'api/' : `https://${process.env.API_HOST}/api/v2/`,
+    path.replace(/^\//, ''),
+  ].join('')
+
+const processFetch = async (
   path: string,
-  method = 'GET',
-  rawBody?: string | object,
+  method: string,
+  body?: BodyInit | null,
 ) => {
   try {
-    const fullPath =
-      (isClient ? `${window.location.origin}/` : process.env.LOCAL_HOST) +
-      `api/${path}`.replace('//', '/')
-    const body = rawBody ? JSON.stringify(rawBody) : undefined
-    const response = await fetch(fullPath, { method, body })
+    const response = await fetch(path, { method, body } as RequestInit)
     return response.json()
   } catch (error) {
     return { error, status: 500 }
   }
 }
 
-const postBFFApi = async (path: string, body?: string | object) =>
-  fetchBFFApi(path, 'POST', body)
+const clientFetchBFFApi = async (
+  path: string,
+  method = 'GET',
+  rawBody?: object,
+) => {
+  const fullPath = `${window.location.origin}/` + getAPIPath(path, true)
+  const body = rawBody ? JSON.stringify(rawBody) : undefined
+  return processFetch(fullPath, method, body)
+}
 
-export default { fetch: fetchBFFApi, post: postBFFApi, fetcher }
+const serverFetchBFFApi = async (
+  path: string,
+  method = 'GET',
+  body?: BodyInit | null,
+) => {
+  const fullPath = process.env.LOCAL_HOST + getAPIPath(path, true)
+  return processFetch(fullPath, method, body)
+}
+
+export default {
+  fetch: serverFetchBFFApi,
+  clientFetch: clientFetchBFFApi,
+  fetcher,
+}
