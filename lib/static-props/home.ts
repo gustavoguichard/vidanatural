@@ -24,9 +24,12 @@ export default async () => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
     pageSize: 4,
   })
-  const serverData = await api.vnda.endpoints.productsList()
+  const productsRes = await api.vnda.fetchFromAPI('products')
+  const parsedProducts: ParsedProduct[] = await Promise.all(
+    productsRes.data.map(api.vnda.endpoints.populateProducts),
+  )
   const products = take(
-    serverData
+    parsedProducts
       .filter((p: ParsedProduct) => p.inStock)
       .sort((p: ParsedProduct) => {
         return p.tag_names.includes('mais-vendidos') ? -1 : 1

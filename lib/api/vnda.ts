@@ -9,5 +9,5 @@ export default {
   endpoints,
   fetch: vnda.fetch,
   clientFetch: vnda.clientFetch,
-  fetchFromAPI: vnda.fetcher,
+  fetchFromAPI: vnda.fetchFromAPI,
 }

@@ -14,14 +14,14 @@ import ProductSale from 'components/products/sale'
 import Skeleton from 'components/skeleton/product-sale'
 
 const ProductPage = ({
-  product,
-  testimonials,
+  cmsData,
   faqItems,
   foundProduct,
-  relatedProducts,
   includedProducts,
-  cmsData,
+  product,
+  relatedProducts,
   slug,
+  testimonials,
 }) => {
   const { isFallback } = useRouter()
   useTrack('ViewContent')

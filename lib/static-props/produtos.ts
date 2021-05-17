@@ -2,11 +2,14 @@ import api from 'lib/api'
 import { getCategoryTags } from 'lib/domain'
 
 import type { GetStaticProps } from 'next'
-import type { VndaProduct } from 'types/vnda'
+import type { ParsedProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async () => {
-  const serverData = await api.vnda.endpoints.productsList()
-  const products = serverData.sort((p: VndaProduct) => {
+  const response = await api.vnda.fetchFromAPI('products')
+  const serverData: ParsedProduct[] = await Promise.all(
+    response.data.map(api.vnda.endpoints.populateProducts),
+  )
+  const products = serverData.sort((p) => {
     const tags = p.tag_names
     return tags.includes('desodorante') ? -1 : tags.includes('kit') ? 1 : 0
   })

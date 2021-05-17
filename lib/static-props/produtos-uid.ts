@@ -1,4 +1,3 @@
-import get from 'lodash/get'
 import map from 'lodash/map'
 import shuffle from 'lodash/shuffle'
 import isEmpty from 'lodash/isEmpty'
@@ -14,19 +13,23 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params
   const response = await api.vnda.fetch(`products/${slug}`)
   const product = parseProduct(response)
-
-  const products = await api.vnda.endpoints.productsList()
-  const categoryTags = get(product, 'category_tags')
-  const tags = map(
-    categoryTags.filter((c: any) => c.tag_type !== 'filter'),
-    'name',
+  const productsRes = await api.vnda.fetchFromAPI('products')
+  const products: ParsedProduct[] = await Promise.all(
+    productsRes.data.map(api.vnda.endpoints.populateProducts),
   )
+  const categoryTags = product?.category_tags
+  const tags = categoryTags
+    ? map(
+        categoryTags.filter((c: any) => c.tag_type !== 'filter'),
+        'name',
+      )
+    : []
   const allRelatedProducts = getProductsByTag(products, tags)
   const relatedProducts = allRelatedProducts
     .filter((p) => p.id !== product.id)
     .filter((p) => p.inStock)
 
-  const id = get(product, 'id')
+  const id = product?.id
   const testimonialsData = await api.cms.getByTypeAndTags(
     'testimonial',
     {
@@ -65,15 +68,14 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
 
   return {
     props: {
-      product,
-      slug,
-      foundProduct: !isEmpty(product),
-      tags,
-      faqItems,
-      testimonials,
-      relatedProducts,
-      includedProducts,
       cmsData: cmsProduct?.data ?? {},
+      faqItems,
+      foundProduct: !isEmpty(product),
+      includedProducts,
+      product,
+      relatedProducts,
+      slug,
+      testimonials,
     },
     revalidate: 15,
   }

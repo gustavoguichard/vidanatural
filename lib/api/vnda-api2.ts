@@ -68,7 +68,7 @@ const serverFetchBFFApi = async (
 }
 
 export default {
-  fetcher,
+  fetchFromAPI: fetcher,
   fetch: serverFetchBFFApi,
   clientFetch: clientFetchBFFApi,
 }

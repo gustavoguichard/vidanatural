@@ -1,7 +1,11 @@
+import flatMap from 'lodash/flatMap'
+import values from 'lodash/values'
+
 import utils from 'lib/api/vnda-utils'
 import vnda from 'lib/api/vnda-api2'
+import parseProduct from 'lib/parsers/product'
 
-import type { FormKeys } from 'types/vnda'
+import type { FormKeys, VndaProduct, ParsedProduct } from 'types/vnda'
 
 const doRequest = async (url: string, method = 'GET') => {
   const requestParams = { headers: { Accept: 'application/json' }, method }
@@ -48,11 +52,23 @@ const sendForm = async (values: FormKeys) => {
   return response.status < 400
 }
 
-const productsList = async () => vnda.fetch('products/list')
+const populateProducts = async (
+  product: VndaProduct,
+): Promise<ParsedProduct> => {
+  const images = await vnda.fetchFromAPI(`products/${product.id}/images`)
+  const discount = await vnda.fetchFromAPI(`products/${product.id}/discount`)
+  const variants = flatMap(product.variants, values)
+  return parseProduct({
+    ...product,
+    images: images.data,
+    variants,
+    ...discount.data,
+  })
+}
 
 export default {
   calculateShipping,
-  productsList,
+  populateProducts,
   sendForm,
   textSearch,
 }

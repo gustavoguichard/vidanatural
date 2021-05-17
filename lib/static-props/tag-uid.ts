@@ -1,10 +1,10 @@
 import api from 'lib/api'
 import { getProductsByTag } from 'lib/domain'
 import parsePost from 'lib/parsers/blog-post'
-import parseProducts from 'lib/parsers/products'
 
 import type { GetStaticProps } from 'next'
 import type { BlogPost } from 'types/cms'
+import type { ParsedProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { uid } = params
@@ -17,10 +17,11 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     (r) => r.type === 'blog_post',
   ) as BlogPost[]).map(parsePost)
   const faqItems = results.filter((r) => r.type === 'faq_item')
-  const vndaProducts = await api.vnda.endpoints.productsList()
-  const products = parseProducts(
-    getProductsByTag(vndaProducts, [uid as string]),
+  const productsRes = await api.vnda.fetchFromAPI('products')
+  const parsedProducts: ParsedProduct[] = await Promise.all(
+    productsRes.data.map(api.vnda.endpoints.populateProducts),
   )
+  const products = getProductsByTag(parsedProducts, [uid as string])
   return {
     props: {
       products,
