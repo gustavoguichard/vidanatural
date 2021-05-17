@@ -30,7 +30,7 @@ const AboutPage = ({ team, page }) => (
         <RichText>{page.data.content}</RichText>
       </div>
     </div>
-    <div className="max-w-screen-xl bg-white sm:bg-transparent px-10 py-6 mt-6">
+    <div className="max-w-screen-xl mx-auto bg-white sm:bg-transparent px-10 py-6 mt-6">
       <div
         id="quem-somos"
         className="relative z-10 sm:px-10 sm:py-6 sm:shadow-lg sm:bg-white sm:rounded-lg"

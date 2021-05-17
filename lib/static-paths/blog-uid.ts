@@ -1,8 +1,7 @@
-import { GetStaticPaths } from 'next'
-
 import api from 'lib/api'
 
-import { BlogPost } from 'types/cms'
+import type { GetStaticPaths } from 'next'
+import type { BlogPost } from 'types/cms'
 
 const getStaticPaths: GetStaticPaths = async () => {
   const items = await api.cms.getByTypeAndTags('blog_post', {

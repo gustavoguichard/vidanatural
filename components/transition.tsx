@@ -1,7 +1,6 @@
-import {
-  Transition as HUITransition,
-  TransitionClasses,
-} from '@headlessui/react'
+import { Transition as HUITransition } from '@headlessui/react'
+
+import type { TransitionClasses } from '@headlessui/react'
 
 interface IProps extends TransitionClasses {
   during?: string

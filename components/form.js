@@ -27,7 +27,7 @@ const Form = () => {
 
     const values = { ...formState.values, reply_to: formState.values.email }
     analytics.track('Contact', { location: 'ContactForm', values })
-    const isSent = await api.vnda.sendForm(values)
+    const isSent = await api.vnda.endpoints.sendForm(values)
 
     isSent ? router.push({ pathname: '/gratos' }) : setHasError(true)
     setSending(false)

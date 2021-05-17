@@ -14,7 +14,7 @@ const Page = ({ nfs }) => {
   const handleClick = (nf) => async (ev) => {
     ev.preventDefault()
     setList(list.filter((item) => item.id !== nf.id))
-    const response = await vnda.post('proxy/add-tracking', {
+    const response = await vnda.post('products/add-tracking', {
       url: getTracking(nf),
       order: nf.numero_ecommerce,
     })
@@ -75,12 +75,12 @@ const Page = ({ nfs }) => {
 }
 
 export const getServerSideProps = async () => {
-  const response = await vnda.fetch(`proxy/last-confirmed-orders`)
+  const response = await vnda.fetch(`products/last-confirmed-orders`)
   const ordersWithoutTracking = response
     .filter((order) => order.tracking_code_list.length === 0)
     .map(({ code }) => code)
 
-  const res = await vnda.fetch('proxy/tex')
+  const res = await vnda.fetch('products/tex')
   const parsed = res
     .map(({ nota_fiscal }) => nota_fiscal)
     .filter((nf) => ordersWithoutTracking.includes(nf.numero_ecommerce))

@@ -20,9 +20,9 @@ const Sitemap = ({ xml }) => xml
 
 export async function getServerSideProps({ res }) {
   try {
-    const productList = await api.vnda.search()
+    const productsResponse = await api.vnda.fetchFromAPI('products')
     const smStream = new SitemapStream({
-      hostname: process.env.API_IP,
+      hostname: `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/`,
       cacheTime: 600000,
     })
 
@@ -45,7 +45,7 @@ export async function getServerSideProps({ res }) {
       priority: 1.0,
     })
 
-    productList.forEach((product) => {
+    productsResponse.data.forEach((product) => {
       smStream.write({
         url: product.url,
         changefreq: 'daily',

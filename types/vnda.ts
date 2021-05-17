@@ -16,7 +16,7 @@ export interface VndaProduct {
   slug: string
   reference: string
   name: string
-  description: string
+  description: any
   html_description: string
   image_url: string
   url: string
@@ -31,14 +31,17 @@ export interface VndaProduct {
 }
 
 export interface ParsedProduct extends VndaProduct {
+  isKit: boolean
   stock: number
   inStock: boolean
+  category_tags?: ProductTag[]
 }
 
 export interface ProductTag {
   name: string
   title: string
   type: string
+  tag_type?: string
 }
 
 export interface ProductImg {

@@ -3,10 +3,9 @@ import take from 'lodash/take'
 
 import api from 'lib/api'
 import parsePost from 'lib/parsers/blog-post'
-import parseProducts from 'lib/parsers/products'
 
-import { BlogPost } from 'types/cms'
-import { ParsedProduct } from 'types/vnda'
+import type { BlogPost } from 'types/cms'
+import type { ParsedProduct } from 'types/vnda'
 
 export default async () => {
   const testimonialsData = await api.cms.getByTypeAndTags('testimonial', {
@@ -25,13 +24,15 @@ export default async () => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
     pageSize: 4,
   })
-  const serverData = await api.vnda.search()
+  const productsRes = await api.vnda.fetchFromAPI('products')
+  const parsedProducts: ParsedProduct[] = await Promise.all(
+    productsRes.data.map(api.vnda.endpoints.populateProducts),
+  )
   const products = take(
-    parseProducts(serverData)
+    parsedProducts
       .filter((p: ParsedProduct) => p.inStock)
       .sort((p: ParsedProduct) => {
-        const tags = p.tags.map((t) => t.name)
-        return tags.includes('mais-vendidos') ? -1 : 1
+        return p.tag_names.includes('mais-vendidos') ? -1 : 1
       }),
     6,
   )

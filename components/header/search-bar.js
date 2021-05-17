@@ -11,7 +11,7 @@ import SearchItem from './search-item'
 
 const doSearch = throttle(async (text, setResults, setFetching) => {
   setFetching(true)
-  const result = await api.vnda.textSearch(text)
+  const result = await api.vnda.endpoints.textSearch(text)
   setResults(result)
   analytics.track('Search', { text })
   setFetching(false)

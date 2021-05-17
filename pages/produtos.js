@@ -18,10 +18,7 @@ const filteredProducts = (products, filter) => {
     case 'promocoes':
       return products.filter((p) => p.on_sale)
     default:
-      return products.filter((p) => {
-        const tags = map(p.tags, 'name')
-        return tags.includes(filter)
-      })
+      return products.filter((p) => p.tag_names.includes(filter))
   }
 }
 

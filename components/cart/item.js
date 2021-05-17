@@ -50,7 +50,7 @@ const CartItem = ({ item, actions }) => {
           {quantity}x{' '}
           <Link
             onClick={actions.hideCart}
-            href={api.vnda.getOwnPath(product_url)}
+            href={api.vnda.utils.getOwnPath(product_url)}
             className="hover:text-teal-600"
           >
             {product_name}
@@ -69,7 +69,7 @@ const CartItem = ({ item, actions }) => {
         <div className="flex-grow overflow-hidden">
           <img
             alt={product_name}
-            src={api.vnda.getResizedImg(image_url, 200)}
+            src={api.vnda.utils.getResizedImg(image_url, 200)}
             className="w-full object-cover"
           />
         </div>

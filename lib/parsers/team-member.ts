@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 
-import { TeamMember } from 'types/cms'
+import type { TeamMember } from 'types/cms'
 
 export default (member: TeamMember) => ({
   ...member,

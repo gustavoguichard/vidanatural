@@ -1,7 +1,7 @@
-import { NextRouter } from 'next/router'
-
 import analytics from 'lib/analytics'
 import { isClient } from 'lib/utils'
+
+import type { NextRouter } from 'next/router'
 
 export const intersectionPolyfill = async () => {
   if (isClient && typeof window.IntersectionObserver === 'undefined') {

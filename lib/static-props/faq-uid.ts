@@ -1,6 +1,6 @@
-import { GetStaticProps } from 'next'
-
 import api from 'lib/api'
+
+import type { GetStaticProps } from 'next'
 
 const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const { slug } = params

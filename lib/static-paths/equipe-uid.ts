@@ -1,8 +1,7 @@
-import { GetStaticPaths } from 'next'
-
 import api from 'lib/api'
 
-import { TeamMember } from 'types/cms'
+import type { GetStaticPaths } from 'next'
+import type { TeamMember } from 'types/cms'
 
 const getStaticPaths: GetStaticPaths = async () => {
   const items = await api.cms.getByTypeAndTags('team_member', {

@@ -1,7 +1,7 @@
-import { GetStaticPaths } from 'next'
-
 import api from 'lib/api'
 import { BLOG_PAGE_SIZE } from 'lib/constants'
+
+import type { GetStaticPaths } from 'next'
 
 const getStaticPaths: GetStaticPaths = async () => {
   const response = await api.cms.getPaginated('blog_post', {

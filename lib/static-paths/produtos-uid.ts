@@ -1,11 +1,12 @@
-import { GetStaticPaths } from 'next'
-
 import api from 'lib/api'
 
+import type { GetStaticPaths } from 'next'
+import type { VndaProduct } from 'types/vnda'
+
 const getStaticPaths: GetStaticPaths = async () => {
-  const products = await api.vnda.search()
+  const response = await api.vnda.fetchFromAPI('products')
   return {
-    paths: products.map((p: any) => ({
+    paths: response.data.map((p: VndaProduct) => ({
       params: { slug: [p.slug, p.id].join('-') },
     })),
     fallback: true,

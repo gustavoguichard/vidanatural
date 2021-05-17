@@ -10,7 +10,12 @@ module.exports = {
     ]
   },
   images: {
-    domains: ['images.prismic.io', ...times(9, (i) => `a${i}.vnda.com.br`)],
+    domains: [
+      'images.prismic.io',
+      ...['a', 'b', 'c'].flatMap((l) =>
+        times(9, (i) => `${l}${i}.vnda.com.br`),
+      ),
+    ],
   },
   future: {
     webpack5: true,
