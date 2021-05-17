@@ -17,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (response.data) {
       res.redirect(
         301,
-        `https://${process.env.API_HOST}/pagamento/${cartData?.token}`,
+        `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/pagamento/${cartData?.token}`,
       )
     } else {
       res.send({

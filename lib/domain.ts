@@ -96,9 +96,6 @@ export const getDiscount = (product: VndaProduct) => {
 
 export const getProductsByTag = (products: ParsedProduct[], tags: string[]) => {
   return products.filter((p: ParsedProduct) =>
-    p.tag_names.reduce(
-      (res: boolean, tag: string) => tags.includes(tag) || res,
-      false,
-    ),
+    p.tag_names.some((tag: string) => tags.includes(tag)),
   )
 }

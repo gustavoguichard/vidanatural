@@ -22,7 +22,7 @@ export async function getServerSideProps({ res }) {
   try {
     const productsResponse = await api.vnda.fetchFromAPI('products')
     const smStream = new SitemapStream({
-      hostname: `https://${process.env.API_HOST}/`,
+      hostname: `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/`,
       cacheTime: 600000,
     })
 

@@ -10,7 +10,7 @@ const normalizeBody = (body: undefined | string | object, method: string) => {
 
 const getAPIPath = (path: string, bff = false) =>
   [
-    bff ? 'api/' : `https://${process.env.API_HOST}/api/v2/`,
+    bff ? 'api/' : `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/api/v2/`,
     path.replace(/^\//, ''),
   ].join('')
 

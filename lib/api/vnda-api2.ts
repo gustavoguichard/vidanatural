@@ -11,7 +11,7 @@ const fetcher = async (
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Host: process.env.API_HOST,
+    Host: process.env.NEXT_PUBLIC_API_DOMAIN,
     Authorization: `Token token="${process.env.VNDA_API_TOKEN}"`,
     ...givenHeaders,
   }
