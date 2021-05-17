@@ -18,7 +18,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
   })
   const post = response ? parsePost(response as BlogPost) : { tags: [] }
-  const vndaProducts = await api.vnda.search()
+  const vndaProducts = await api.vnda.listProducts()
   const products = parseProducts(getProductsByTag(vndaProducts, post.tags))
   return { props: { ...post, products } }
 }

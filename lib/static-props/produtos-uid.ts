@@ -16,7 +16,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const response = await api.vnda.fetch(`products/${slug}`)
   const product = parseProduct(response)
 
-  const products = await api.vnda.search()
+  const products = await api.vnda.listProducts()
   const categoryTags = get(product, 'category_tags')
   const tags = map(
     categoryTags.filter((c: any) => c.tag_type !== 'filter'),

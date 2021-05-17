@@ -25,7 +25,7 @@ export default async () => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
     pageSize: 4,
   })
-  const serverData = await api.vnda.search()
+  const serverData = await api.vnda.listProducts()
   const products = take(
     parseProducts(serverData)
       .filter((p: ParsedProduct) => p.inStock)

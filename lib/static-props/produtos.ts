@@ -6,7 +6,7 @@ import type { GetStaticProps } from 'next'
 import type { VndaProduct } from 'types/vnda'
 
 const getStaticProps: GetStaticProps = async () => {
-  const serverData = await api.vnda.search()
+  const serverData = await api.vnda.listProducts()
   const products = parseProducts(serverData).sort((p: VndaProduct) => {
     const tags = p.tags.map((t) => t.name)
     return tags.includes('desodorante') ? -1 : tags.includes('kit') ? 1 : 0

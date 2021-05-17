@@ -17,7 +17,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     (r) => r.type === 'blog_post',
   ) as BlogPost[]).map(parsePost)
   const faqItems = results.filter((r) => r.type === 'faq_item')
-  const vndaProducts = await api.vnda.search()
+  const vndaProducts = await api.vnda.listProducts()
   const products = parseProducts(
     getProductsByTag(vndaProducts, [uid as string]),
   )

@@ -65,8 +65,8 @@ const sendForm = async (values: FormKeys) => {
   return response.status < 400
 }
 
-const search = async (params?: Record<string, unknown>) => {
-  const url = getUrl('busca', (params as unknown) as URLSearchParams, true)
+const listProducts = async () => {
+  const url = getUrl('busca')
   return doRequest(url, 'GET', true)
 }
 
@@ -131,6 +131,6 @@ export default {
   clientFetch: vnda.clientFetch,
   calculateShipping,
   sendForm,
-  search,
+  listProducts,
   textSearch,
 }

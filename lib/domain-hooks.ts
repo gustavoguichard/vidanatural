@@ -12,7 +12,7 @@ export const useTagsMenu = () => {
   const [tags, setTags] = useState([] as ProductTag[])
 
   const fetchTags = async () => {
-    const products: VndaProduct[] = await api.vnda.search()
+    const products: VndaProduct[] = await api.vnda.listProducts()
     const parsed = getCategoryTags(products)
     setTags(parsed as ProductTag[])
   }
