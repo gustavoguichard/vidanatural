@@ -37,10 +37,11 @@ export async function getServerSideProps({ res }) {
       pubDate: lastPost.date,
     })
     posts.forEach((post) => {
+      const url = `https://${process.env.API_HOST}/blog/${post.uid}`
       feed.item({
+        url,
         title: post.data.title,
         description: post.excerpt,
-        url: `${process.env.API_IP}/blog/${post.uid}`,
         guid: post.id,
         categories: post.tags,
         author: post.author.data.name,
@@ -55,7 +56,7 @@ export async function getServerSideProps({ res }) {
           ? {
               title: post.data.title,
               url: post.thumbUrl,
-              link: `${process.env.API_IP}/blog/${post.uid}`,
+              link: url,
             }
           : null,
       })
