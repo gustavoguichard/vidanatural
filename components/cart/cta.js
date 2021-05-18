@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-
 import api from 'lib/api'
 import analytics from 'lib/analytics'
 import { toCurrency } from 'lib/utils'
@@ -7,13 +5,6 @@ import { toCurrency } from 'lib/utils'
 import CTAButton from 'components/cta-button'
 
 const CartCTA = ({ cart, items }) => {
-  const [cartUrl, setCartUrl] = useState()
-  useEffect(() => {
-    if (cart.token) {
-      const url = api.vnda.utils.getUrl(`pagamento/${cart.token}`)
-      setCartUrl(url)
-    }
-  }, [cart.token])
   const handleClick = () => {
     analytics.track('InitiateCheckout')
   }
@@ -24,7 +15,10 @@ const CartCTA = ({ cart, items }) => {
         <span>Total estimado</span>
         <span>{toCurrency(cart.total)}</span>
       </p>
-      <CTAButton onClick={handleClick} href={cartUrl}>
+      <CTAButton
+        onClick={handleClick}
+        href={api.vnda.utils.getUrl(`checkout/${cart?.token}`)}
+      >
         Fechar pedido
       </CTAButton>
     </footer>
