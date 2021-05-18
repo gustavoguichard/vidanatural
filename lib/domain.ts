@@ -1,7 +1,7 @@
 import get from 'lodash/get'
 import map from 'lodash/map'
 import truncate from 'lodash/truncate'
-import reduce from 'lodash/reduce'
+import flatMap from 'lodash/flatMap'
 import uniqBy from 'lodash/uniqBy'
 
 import { getReadTime, toCurrency } from 'lib/utils'
@@ -69,21 +69,15 @@ export const resolveLink = (link: string) => {
 }
 
 export const getCategoryTags = (products: ParsedProduct[], addSales = true) => {
-  const isCategoryType = (cat: ProductTag) => cat.tag_type === 'product_cat'
-  const allCategoryTags = reduce(
-    products,
-    (result, product) => [
-      ...result,
-      ...(product.category_tags || []).filter(isCategoryType),
-    ],
-    [] as ProductTag[],
+  const isProductCategory = (cat: ProductTag) => cat.tag_type === 'product_cat'
+  const allCategoryTags = flatMap(products, (product) =>
+    (product.category_tags || []).filter(isProductCategory),
   )
+  const withoutRepetition = uniqBy(allCategoryTags, 'name')
   const prepend = addSales ? [{ name: 'promocoes', title: 'Promoções' }] : []
   return [
     ...prepend,
-    ...uniqBy(allCategoryTags, 'name').sort((cat) =>
-      cat.name === 'kit' ? -1 : 1,
-    ),
+    ...withoutRepetition.sort((cat) => (cat.name === 'kit' ? -1 : 1)),
   ]
 }
 
