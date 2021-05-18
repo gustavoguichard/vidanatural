@@ -29,8 +29,8 @@ describe('Home page', () => {
     await page.click('[aria-label="Carrinho"]')
     await page.waitForSelector('.cart-item')
     await page.click('text=Fechar pedido')
-    await page.waitForURL(/\/carrinho/g)
-    await page.waitForSelector('td.product')
+    await page.waitForURL(/\/checkout\//g)
+    await page.waitForSelector('tr.line-item')
   })
 
   test('As a client I want to see blog posts and go to the blog', async () => {
