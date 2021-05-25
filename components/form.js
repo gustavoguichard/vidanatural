@@ -24,12 +24,21 @@ const Form = () => {
     event.preventDefault()
     setHasError(false)
     setSending(true)
-
-    const values = { ...formState.values, reply_to: formState.values.email }
-    analytics.track('Contact', { location: 'ContactForm', values })
-    const isSent = await api.vnda.endpoints.sendForm(values)
-
-    isSent ? router.push({ pathname: '/gratos' }) : setHasError(true)
+    if (typeof window.grecaptcha !== 'undefined') {
+      window.grecaptcha.enterprise.ready(async () => {
+        await window.grecaptcha.enterprise.execute(
+          process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA,
+          { action: 'Submit Contact Form' },
+        )
+        const values = { ...formState.values, reply_to: formState.values.email }
+        analytics.track('Contact', { location: 'ContactForm', values })
+        if (await api.vnda.endpoints.sendForm(values)) {
+          router.push({ pathname: '/gratos' })
+        } else {
+          setHasError(true)
+        }
+      })
+    }
     setSending(false)
   }
   return (
@@ -58,13 +67,7 @@ const Form = () => {
         label="Mensagem"
       />
       <FormError show={hasError} />
-      <CTAButton
-        type="submit"
-        className="g-recaptcha"
-        data-sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}
-        data-callback="onSubmit"
-        data-action="submit"
-      >
+      <CTAButton>
         {sending ? (
           <Spinner color="inherit" size="4" className="mx-6" />
         ) : (
