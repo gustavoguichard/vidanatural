@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { FaWhatsapp } from 'react-icons/fa'
 
 import Breadcrumbs from 'components/breadcrumbs'
@@ -9,6 +10,11 @@ import SloganSvg from 'components/svg/slogan-conecto'
 
 const Page = () => (
   <Layout title="Entre em contato">
+    <Head>
+      <script
+        src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}`}
+      />
+    </Head>
     <Hero size="small" background="/static/images/banner.jpg">
       <div className="my-12 py-6 px-16 max-w-screen-sm">
         <SloganSvg className="max-w-full h-24" />

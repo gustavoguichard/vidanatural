@@ -58,7 +58,13 @@ const Form = () => {
         label="Mensagem"
       />
       <FormError show={hasError} />
-      <CTAButton type="submit">
+      <CTAButton
+        type="submit"
+        className="g-recaptcha"
+        data-sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}
+        data-callback="onSubmit"
+        data-action="submit"
+      >
         {sending ? (
           <Spinner color="inherit" size="4" className="mx-6" />
         ) : (
