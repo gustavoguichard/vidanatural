@@ -36,8 +36,6 @@ const HighlightedTestimonial = ({ product }) =>
             Dr.Rodrigo Debiasi
             <br />
             Triatleta e Oncologista
-            <br />
-            Membro Titular da Sociedade Brasileira de Oncologia Clínica - SBOC
           </p>
         </blockquote>
       </div>
