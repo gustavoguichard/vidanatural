@@ -33,7 +33,7 @@ const HighlightedTestimonial = ({ product }) =>
             biologicamente éticos.&#8221;
           </p>
           <p className="text-xs font-semibold">
-            Dr.Rodrigo Debiasi
+            Dr.Rodrigo Benedetti Debiasi
             <br />
             Triatleta e Oncologista
           </p>
