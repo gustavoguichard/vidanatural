@@ -43,7 +43,7 @@ export const timeSince = (date: number) => {
 
   const [label, plural] = labels[idx]
   const total = Math.floor(interval)
-  return `${total} ${total > 1 ? plural || label + 's' : label}`
+  return `${total} ${total > 1 ? plural || `${label}s` : label}`
 }
 
 export const calculatePostReadTime = (body: PostBody[]) => {
@@ -57,9 +57,8 @@ export const getExcerpt = (body: PostBody[], length = 200) => {
   return truncate(paragraph.text, { length })
 }
 
-export const isEmptyBody = (body?: PostBody[]) => {
-  return !body || getExcerpt(body) === ''
-}
+export const isEmptyBody = (body?: PostBody[]) =>
+  !body || getExcerpt(body) === ''
 
 export const resolveLink = (link: string) => {
   const url = new URL(link)
@@ -88,8 +87,7 @@ export const getDiscount = (product: VndaProduct) => {
     : `${toCurrency(get(product, 'discount_rule.amount', 0))}`
 }
 
-export const getProductsByTag = (products: ParsedProduct[], tags: string[]) => {
-  return products.filter((p: ParsedProduct) =>
+export const getProductsByTag = (products: ParsedProduct[], tags: string[]) =>
+  products.filter((p: ParsedProduct) =>
     p.tag_names.some((tag: string) => tags.includes(tag)),
   )
-}

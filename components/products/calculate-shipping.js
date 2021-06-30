@@ -22,7 +22,7 @@ const CalculateShipping = ({ sku, quantity }) => {
   const [formState, { text }] = useFormState()
 
   const handleSubmit = async (event) => {
-    event && event.preventDefault()
+    if (event) event.preventDefault()
     setHasError(false)
     setSending(true)
     setNotFound(false)
@@ -107,8 +107,8 @@ const CalculateShipping = ({ sku, quantity }) => {
       />
     </form>
   ) : (
-    <a
-      href="#"
+    <button
+      type="button"
       className="mt-4 flex place-items-center text-sm font-semibold hover:underline relative z-10"
       onClick={(ev) => {
         ev.preventDefault()
@@ -116,7 +116,7 @@ const CalculateShipping = ({ sku, quantity }) => {
       }}
     >
       Calcular frete <FiTruck className="ml-1" />
-    </a>
+    </button>
   )
 }
 

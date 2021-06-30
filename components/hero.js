@@ -33,7 +33,13 @@ const Hero = ({
           aria-hidden="true"
           className={classes('absolute inset-0', bgClass)}
         >
-          <Image layout="fill" objectFit="cover" unoptimized src={background} />
+          <Image
+            alt="Fundo"
+            layout="fill"
+            objectFit="cover"
+            unoptimized
+            src={background}
+          />
         </div>
       )}
       <div className={cx} style={style}>

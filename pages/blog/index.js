@@ -32,9 +32,7 @@ const BlogPage = ({ posts, page = 1, pages }) => {
         </Hero>
       }
     >
-      <Breadcrumbs className="transform -translate-y-2 self-start">
-        Blog
-      </Breadcrumbs>
+      <Breadcrumbs className="-translate-y-2 self-start">Blog</Breadcrumbs>
       {router.isFallback
         ? [...Array(4).keys()].map((i) => <Skeleton key={`skel-${i}`} />)
         : posts.map((post) => <PostPreview key={post.id} {...post} />)}

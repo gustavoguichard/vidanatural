@@ -55,13 +55,8 @@ const ProductCard = ({ product }) => {
               onClick={onClick}
               className="flex flex-wrap mt-2 text-sm font-semibold justify-between p-3 border hover:border-gray-500 transition duration-500 bg-white rounded"
             >
-              {adding ? (
-                <Spinner className="text-gray-800 m-auto" />
-              ) : product.inStock ? (
-                priceTag
-              ) : (
-                'Sem estoque'
-              )}
+              {adding && <Spinner className="text-gray-800 m-auto" />}
+              {!adding && (product.inStock ? priceTag : 'Sem estoque')}
             </button>
           </div>
         </div>

@@ -21,7 +21,8 @@ const getUrl = (path: string, params?: URLSearchParams) => {
 }
 
 const getResizedImg = (url: string, w = 200, h = w) => {
-  const DOMAIN_REG = /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
+  const DOMAIN_REG =
+    /((http(s)?:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
   const result = url.replace(DOMAIN_REG, `$1/${w}x${h}`)
   return result.match(/^\/\//) ? `https:${result}` : result
 }

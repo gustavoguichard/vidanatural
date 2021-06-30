@@ -20,30 +20,30 @@ interface ShippingParams {
   quantity?: number
 }
 const calculateShipping = async ({ sku, quantity, zip }: ShippingParams) => {
-  const url = utils.getUrl('frete_produto', ({
+  const url = utils.getUrl('frete_produto', {
     sku,
     quantity,
     zip,
-  } as unknown) as URLSearchParams)
+  } as unknown as URLSearchParams)
   return doRequest(url, 'POST')
 }
 
 const textSearch = async (q: string) => {
-  const url = utils.getUrl('busca', ({ q } as unknown) as URLSearchParams)
+  const url = utils.getUrl('busca', { q } as unknown as URLSearchParams)
   return doRequest(url)
 }
 
-const sendForm = async (values: FormKeys) => {
-  const { a_password, key, ...otherValues } = values
+const sendForm = async (vals: FormKeys) => {
+  const { a_password, key, ...otherValues } = vals
 
   if (!!a_password || !key) {
     return false
   }
 
-  const url = utils.getUrl('webform', ({
+  const url = utils.getUrl('webform', {
     key,
     ...otherValues,
-  } as unknown) as URLSearchParams)
+  } as unknown as URLSearchParams)
   const response = await fetch(url, {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',

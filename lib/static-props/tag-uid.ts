@@ -13,9 +13,9 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   })
   const banners = results.filter((r) => r.type === 'home_banner')
   const testimonials = results.filter((r) => r.type === 'testimonial')
-  const posts = (results.filter(
-    (r) => r.type === 'blog_post',
-  ) as BlogPost[]).map(parsePost)
+  const posts = (
+    results.filter((r) => r.type === 'blog_post') as BlogPost[]
+  ).map(parsePost)
   const faqItems = results.filter((r) => r.type === 'faq_item')
   const productsRes = await api.vnda.fetchFromAPI('products')
   const parsedProducts: ParsedProduct[] = await Promise.all(

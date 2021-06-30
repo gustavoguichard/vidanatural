@@ -31,9 +31,9 @@ export default async () => {
   const products = take(
     parsedProducts
       .filter((p: ParsedProduct) => p.inStock)
-      .sort((p: ParsedProduct) => {
-        return p.tag_names.includes('mais-vendidos') ? -1 : 1
-      }),
+      .sort((p: ParsedProduct) =>
+        p.tag_names.includes('mais-vendidos') ? -1 : 1,
+      ),
     6,
   )
   const posts = (postsResponse as BlogPost[]).map(parsePost)

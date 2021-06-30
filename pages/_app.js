@@ -1,24 +1,19 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
-import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Script from 'next/script'
 
-import { initTracking, intersectionPolyfill } from 'lib/fx'
+import { useTracking, intersectionPolyfill } from 'lib/fx'
 import SEO from 'lib/next-seo.config'
 import { useCoupon, useInitialBanner } from 'lib/domain-hooks'
 
-import 'styles/app.scss'
-
-const didMount = async (router) => {
-  await intersectionPolyfill()
-  await initTracking(router)
-}
+import 'styles/app.css'
 
 const VidaNatural = ({ pageProps, Component }) => {
-  const router = useRouter()
   useEffect(() => {
-    router && didMount(router)
-  }, [router])
+    intersectionPolyfill()
+  }, [])
+  useTracking()
   useInitialBanner()
   useCoupon()
 
@@ -29,9 +24,8 @@ const VidaNatural = ({ pageProps, Component }) => {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
         />
-        <script
-          defer
-          type="text/javascript"
+        <Script
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

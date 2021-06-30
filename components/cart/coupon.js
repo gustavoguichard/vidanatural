@@ -26,24 +26,28 @@ const CartCoupon = ({ actions, cart, items }) => {
   }
 
   return items.length ? (
-    <div className="bg-gray-50 mt-2 p-4 text-sm flex flex-col">
+    <div className="bg-gray-50 mt-2 p-4 text-sm flex flex-col items-start">
       {cart.coupon_code && !editing && (
-        <p className="flex justify-between items-baseline">
+        <p className="flex justify-between items-baseline self-stretch">
           <span>
             Cupom: <strong>{cart.coupon_code}</strong>
           </span>
-          <a className="text-xs underline" href="#" onClick={openForm}>
+          <button
+            type="button"
+            className="text-xs underline"
+            onClick={openForm}
+          >
             editar
-          </a>
+          </button>
         </p>
       )}
       {!editing && !cart.coupon_code && (
-        <a className="text-sm underline" href="#" onClick={openForm}>
+        <button type="button" className="text-sm underline" onClick={openForm}>
           + Aplicar cupom
-        </a>
+        </button>
       )}
       {editing && (
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form onSubmit={handleSubmit} className="flex flex-col self-stretch">
           <Input
             autoFocus
             button={
@@ -52,7 +56,7 @@ const CartCoupon = ({ actions, cart, items }) => {
               </CTAButton>
             }
             label="Cupom"
-            wrapperClasses="transform translate-y-2"
+            wrapperClasses="translate-y-2"
             bg="gray-50"
             {...text('coupon')}
             error={error}

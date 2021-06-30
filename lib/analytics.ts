@@ -25,18 +25,18 @@ const initFB = () => {
   init(process.env.NEXT_PUBLIC_FB_PIXEL_ID ?? '')
 }
 
-const initAnalytics = () => {
+const initAnalytics = (): void => {
   initGA()
   initFB()
 }
 
-const logPageView = () => {
+const logPageView = (): void => {
   ReactGA.set({ page: window.location.pathname })
   ReactGA.pageview(window.location.pathname)
   track('PageView')
 }
 
-const addToCart = (options: Record<string, unknown>) => {
+const addToCart = (options: Record<string, unknown>): void => {
   track('AddToCart', options)
 }
 
@@ -44,15 +44,18 @@ export const useTrack = (
   event: TrackType,
   options?: Record<string, unknown>,
   shouldTrack = true,
-) => {
+): void => {
   useEffect(() => {
-    shouldTrack && track(event, options)
+    if (shouldTrack) track(event, options)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldTrack])
 }
 
-export default {
+const analytics = {
   init: initAnalytics,
   pageView: logPageView,
   addToCart,
   track,
 }
+
+export default analytics

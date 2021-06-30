@@ -26,7 +26,7 @@ const SearchBar = () => {
   const hasQuery = query && query.trim().length > 2
 
   const searchCB = () => {
-    hasQuery && doSearch(query, setResults, setFetching)
+    if (hasQuery) doSearch(query, setResults, setFetching)
   }
   useEffect(searchCB, [query])
 
@@ -42,14 +42,14 @@ const SearchBar = () => {
     >
       <Transition.Child
         className="flex flex-col max-h-screen overflow-y-auto shadow-lg overflow-hidden relative rounded-b-lg"
-        enter="delay-200 transition-all ease-in-out duration-100 transform"
-        leave="transition-all ease-in-out duration-100 transform"
+        enter="delay-200 transition-all ease-in-out duration-100"
+        leave="transition-all ease-in-out duration-100"
         hidden="-translate-y-full"
         shown="translate-y-0"
         afterEnter={() => field.current.focus()}
         onClick={(event) => event.stopPropagation()}
         onKeyUp={(event) => {
-          event.key === 'Escape' && closeSearch()
+          if (event.key === 'Escape') closeSearch()
         }}
       >
         <form

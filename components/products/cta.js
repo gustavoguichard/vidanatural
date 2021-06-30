@@ -62,11 +62,11 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
             disableIcon={adding}
             className="overflow-hidden"
           >
-            {adding ? (
-              <Spinner className="mx-8" />
-            ) : product.isKit ? (
+            {adding && <Spinner className="mx-8" />}
+            {!adding && product.isKit && (
               <span className="truncate">Adicionar items ao carrinho</span>
-            ) : (
+            )}
+            {!(adding || product.isKit) && (
               <span className="truncate">Adicionar ao carrinho</span>
             )}
           </CTAButton>

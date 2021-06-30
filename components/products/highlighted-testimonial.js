@@ -7,7 +7,7 @@ const HighlightedTestimonial = ({ product }) =>
       <div className="bg-white sm:bg-transparent overflow-hidden sm:overflow-visible flex flex-col sm:grid sm:grid-rows-3 sm:grid-cols-4 max-w-screen-md sm:text-white border-8 sm:border-0 p-4 gap-3 relative sm:items-end rounded-sm">
         <div className="order-last sm:order-first sm:row-span-3 sm:col-span-1 flex justify-center">
           <Img
-            className="-mb-32 sm:-mb-4 sm:-ml-4 transform sm:-translate-x-6 translate-y-[6px]"
+            className="-mb-32 sm:-mb-4 sm:-ml-4 sm:-translate-x-6 translate-y-[6px]"
             src="/static/images/rodrigo-debiasi.png"
             width={200}
             height={400}

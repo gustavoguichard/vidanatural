@@ -6,6 +6,7 @@ interface CountdownProps {
   active: boolean
   time: number
   timeout?: number
+  // eslint-disable-next-line no-unused-vars
   onTick?: (t: number) => void
   onFinish: () => void
   stop?: boolean

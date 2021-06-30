@@ -155,7 +155,7 @@ export default function Index() {
             </strong>
             .
           </p>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Recuse a mercadoria se ocorrer alguma das hipóteses abaixo:
           </p>
           <ul>
@@ -164,7 +164,7 @@ export default function Index() {
             <li>Produto em desacordo com o pedido; e/ou</li>
             <li>Falta de acessórios.</li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Para Devolução por Arrependimento ou Desistência, as seguintes
             condições devem ser respeitadas:
           </p>
@@ -186,7 +186,7 @@ export default function Index() {
               reembolso do valor total do seu pedido.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Para devolução por insatisfação
           </p>
           <ul>
@@ -196,7 +196,7 @@ export default function Index() {
               como outras despesas associadas à sua devolução.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Para Devolução de Produtos com Defeito, as seguintes condições devem
             ser respeitadas:
           </p>
@@ -217,7 +217,7 @@ export default function Index() {
               cliente. Os custos de reenvio serão de obrigação do cliente.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             A Restituição de Valores, caso o produto atenda às exigências acima,
             a restituição do valor pago será conforme as opções de pagamento
             abaixo:
@@ -229,9 +229,7 @@ export default function Index() {
               faturas subseqüentes.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
-            Considerações finais:
-          </p>
+          <p className="font-semibold translate-y-2">Considerações finais:</p>
           <p>
             A Vida Natural não tem obrigação de consertar, trocar ou restituir
             produtos que apresentem sinais claros de mau uso. Confira sempre o

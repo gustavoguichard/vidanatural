@@ -18,7 +18,7 @@ const Page = ({ nfs }) => {
       url: getTracking(nf),
       order: nf.numero_ecommerce,
     })
-    response && setList(list.filter((item) => item.id !== nf.id))
+    if (response) setList(list.filter((item) => item.id !== nf.id))
   }
 
   return (
@@ -51,11 +51,10 @@ const Page = ({ nfs }) => {
                     <td className="px-6 py-4">{nf.data_emissao}</td>
                     <td className="px-6 py-4">{nf.cliente.nome}</td>
                     <td className="px-6 py-4">{nf.numero}</td>
-                    <td
-                      onClick={handleClick(nf)}
-                      className="cursor-pointer px-6 py-4 text-blue-600 underline hover:bg-gray-100"
-                    >
-                      {tracking}
+                    <td className="px-6 py-4 text-blue-600 underline hover:bg-gray-100">
+                      <button type="button" onClick={handleClick(nf)}>
+                        {tracking}
+                      </button>
                     </td>
                   </tr>
                 )

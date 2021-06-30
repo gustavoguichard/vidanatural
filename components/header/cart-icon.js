@@ -18,7 +18,7 @@ const CartIcon = () => {
         onClick={actions.openCart}
       >
         {get(cart, 'items.length', 0) > 0 && (
-          <span className="absolute flex h-2 w-2 right-0 top-0 transform translate-y-1 -translate-x-1">
+          <span className="absolute flex h-2 w-2 right-0 top-0 translate-y-1 -translate-x-1">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full border-2 border-teal-600 bg-teal-500 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-600" />
           </span>

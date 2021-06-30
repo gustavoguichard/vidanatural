@@ -11,7 +11,7 @@ function Dropdown({ children, open, onClose, className, ...props }) {
   return (
     <Transition
       {...props}
-      during="transition-all duration-100 transform ease-in"
+      during="transition-all duration-100 ease-in"
       hidden="scale-y-50 scale-x-50 opacity-0"
       shown="opacity-100 scale-y-1 scale-x-1"
       show={open}

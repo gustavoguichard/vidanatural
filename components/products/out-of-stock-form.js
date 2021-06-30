@@ -21,13 +21,14 @@ const OutOfStockForm = ({ product, innerRef }) => {
   })
 
   const handleSubmit = async (event) => {
-    event && event.preventDefault()
+    if (event) event.preventDefault()
     setHasError(false)
     setSending(true)
 
     const values = { ...formState.values, produto: product.name }
     const isSent = await api.vnda.endpoints.sendForm(values)
-    isSent ? setSent(true) : setHasError(true)
+    if (isSent) setSent(true)
+    else setHasError(true)
     setSending(false)
   }
 

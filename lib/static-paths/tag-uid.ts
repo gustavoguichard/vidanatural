@@ -1,10 +1,8 @@
 import type { GetStaticPaths } from 'next'
 
-const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  }
-}
+const getStaticPaths: GetStaticPaths = async () => ({
+  paths: [],
+  fallback: true,
+})
 
 export default getStaticPaths

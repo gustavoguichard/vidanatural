@@ -20,8 +20,8 @@ const Drawer = ({ children, className, anchor = 'left', open, onClose }) => (
         anchor === 'right' && 'right-0',
         anchor === 'left' && 'left-0',
       )}
-      enter="delay-200 transition-all duration-200 ease-out transform"
-      leave="transition-all duration-200 ease-in transform"
+      enter="delay-200 transition-all duration-200 ease-out"
+      leave="transition-all duration-200 ease-in"
       hidden={classes(
         anchor === 'right' && 'translate-x-full',
         anchor === 'left' && '-translate-x-full',

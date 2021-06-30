@@ -4,6 +4,7 @@ import debounce from 'lodash/debounce'
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
 
+import Img from 'components/img'
 import Link from 'components/link'
 import NumericStepper from 'components/numeric-stepper'
 
@@ -67,10 +68,10 @@ const CartItem = ({ item, actions }) => {
           </span>
         </p>
         <div className="flex-grow overflow-hidden">
-          <img
+          <Img
             alt={product_name}
             src={api.vnda.utils.getResizedImg(image_url, 200)}
-            className="w-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
         <div className="w-full text-xs flex mt-px">

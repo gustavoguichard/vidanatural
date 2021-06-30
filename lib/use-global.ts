@@ -1,5 +1,5 @@
 import uniqBy from 'lodash/uniqBy'
-import useStore from 'lib/use-store'
+import createStore from 'lib/create-store'
 
 import api from 'lib/api'
 import { initialState } from 'lib/constants'
@@ -15,7 +15,15 @@ const updateCart = (store: Store, cart: Cart) => {
   }
 }
 
-export default useStore(
+interface Notification {
+  id: number
+  message?: string
+  htmlMessage?: string
+  persist?: boolean
+  type: 'alert' | 'info'
+}
+
+export default createStore(
   {
     updateItem: async (store: Store, id: number, quantity = 1) => {
       store.setState({ updatingCart: true })
@@ -127,11 +135,3 @@ export default useStore(
   },
   initialState,
 )
-
-interface Notification {
-  id: number
-  message?: string
-  htmlMessage?: string
-  persist?: boolean
-  type: 'alert' | 'info'
-}

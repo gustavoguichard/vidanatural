@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef, useEffect } from 'react'
+import React, { useCallback, useState, useRef, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
 import { isClient } from 'lib/utils'
@@ -34,6 +34,7 @@ export const useElScroll = (el?: HTMLElement, delay = 300) => {
   useEffect(() => {
     if (typeof el === 'undefined') return
     el.addEventListener('scroll', updateScroll, { passive: true })
+    // eslint-disable-next-line consistent-return
     return () => {
       el.removeEventListener('scroll', updateScroll)
     }
@@ -108,7 +109,10 @@ export const useToggle = (initial = false) => {
   return [value, toggler]
 }
 
-export const useOnClickOutside = (ref: any, handler: (e: any) => null) => {
+export const useOnClickOutside = (
+  ref: any,
+  handler: React.MouseEventHandler,
+) => {
   useEffect(() => {
     const listener = (event: any) => {
       if (!ref.current || ref.current.contains(event.target)) {
