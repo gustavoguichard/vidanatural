@@ -1,3 +1,5 @@
+import Img from 'components/img'
+
 export default function Bruno() {
   return (
     <table
@@ -34,7 +36,7 @@ export default function Bruno() {
               width: '100px',
             }}
           >
-            <img
+            <Img
               alt="Bruno"
               src="https://vidanatural.eco.br/static/images/team/bruno.png"
               style={{

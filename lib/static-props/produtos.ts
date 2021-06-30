@@ -11,7 +11,8 @@ const getStaticProps: GetStaticProps = async () => {
   )
   const products = serverData.sort((p) => {
     const tags = p.tag_names
-    return tags.includes('desodorante') ? -1 : tags.includes('kit') ? 1 : 0
+    if (tags.includes('desodorante')) return -1
+    return tags.includes('kit') ? 1 : 0
   })
 
   const filters = getCategoryTags(products)

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Script from 'next/script'
 import { FaWhatsapp } from 'react-icons/fa'
 
 import Breadcrumbs from 'components/breadcrumbs'
@@ -11,7 +12,8 @@ import SloganSvg from 'components/svg/slogan-conecto'
 const Page = () => (
   <Layout title="Entre em contato">
     <Head>
-      <script
+      <Script
+        strategy="afterInteractive"
         src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}`}
       />
     </Head>

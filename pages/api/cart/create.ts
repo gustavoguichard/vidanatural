@@ -9,11 +9,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     userAgent = req.headers['user-agent'] as string
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
   }
   try {
     ip = await publicIp.v4()
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
   }
   const response = await api.vnda.fetchFromAPI('carts', 'POST', undefined, {

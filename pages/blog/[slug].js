@@ -48,7 +48,7 @@ const SinglePostPage = ({
         post={data.body}
         date={date}
         showAvatar
-        className={hasFeatured ? 'transform -translate-y-6' : 'my-3'}
+        className={hasFeatured ? '-translate-y-6' : 'my-3'}
       />
       <Breadcrumbs
         className={hasFeatured ? 'my-2' : 'mt-6 mb-4'}

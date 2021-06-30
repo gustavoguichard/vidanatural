@@ -20,6 +20,7 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
     const results = await response.json()
     res.send(results?.retorno?.notas_fiscais)
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
 
     res.writeHead(500).end('Ocorreu um erro... fala com o Guga =)')

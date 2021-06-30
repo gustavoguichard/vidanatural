@@ -13,8 +13,8 @@ const IconButton = (
     className,
   )
   const handleClick = () => {
-    onClick && onClick()
-    href && router.push(href)
+    if (onClick) onClick()
+    if (href) router.push(href)
   }
   return (
     <button

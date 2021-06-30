@@ -62,7 +62,7 @@ export const useCoupon = () => {
         big: true,
         type: 'alert',
       })
-      typeof addCoupon === 'function' && addCoupon(router.query.ccc as string)
+      if (typeof addCoupon === 'function') addCoupon(router.query.ccc as string)
     }
   }, [router])
 }

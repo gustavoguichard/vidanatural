@@ -1,6 +1,6 @@
 import api from 'lib/api'
 
-export default async () => {
+async function getStaticProps() {
   const team = await api.cms.getByTypeAndTags('team_member', {
     orderings: '[document.first_publication_date]',
     fetch: [
@@ -18,3 +18,5 @@ export default async () => {
   const page = await api.cms.getPage('about_page')
   return { props: { team, page } }
 }
+
+export default getStaticProps

@@ -14,7 +14,4 @@ module.exports = {
     '^.+\\.tsx?$': './node_modules/ts-jest',
   },
   transformIgnorePatterns: ['/node_modules/'],
-  moduleNameMapper: {
-    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
-  },
 }

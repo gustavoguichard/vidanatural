@@ -26,7 +26,7 @@ const Carousel = (
 
   const reset = () => {
     setPage(0)
-    scroller.current && scroller.current.scroll({ left: 0, behavior: 'auto' })
+    if (scroller.current) scroller.current.scroll({ left: 0, behavior: 'auto' })
   }
 
   const goToPage = (newPage) => {
@@ -43,7 +43,7 @@ const Carousel = (
 
   useEffect(() => {
     const { total, perPage } = getPageStats(scroller.current)
-    onChange && onChange({ total, perPage, current: page + 1 })
+    if (onChange) onChange({ total, perPage, current: page + 1 })
   }, [onChange, page])
 
   useEffect(() => {

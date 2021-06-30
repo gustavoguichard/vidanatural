@@ -1,5 +1,7 @@
+import Img from 'components/img'
+
 const Icon = ({ path, title, size = 75 }) => (
-  <img
+  <Img
     className="m-6"
     width={size}
     height={size}

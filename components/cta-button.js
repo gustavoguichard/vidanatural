@@ -33,7 +33,8 @@ const CTAButton = (
     },
   )
 
-  const Component = href ? (external ? 'a' : Link) : 'button'
+  const LinkComponent = external ? 'a' : Link
+  const Component = href ? LinkComponent : 'button'
   return (
     <Component
       type={href ? undefined : 'submit'}

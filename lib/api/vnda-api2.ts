@@ -19,6 +19,7 @@ const fetcher = async (
   const url = utils.getAPIPath(path)
   const options = { headers, method, body: utils.normalizeBody(body, method) }
   // console.log(url, options)
+  // eslint-disable-next-line no-undef
   const result = await fetch(url, options as RequestInit)
   try {
     const { status } = result
@@ -38,9 +39,11 @@ const fetcher = async (
 const processFetch = async (
   path: string,
   method: string,
+  // eslint-disable-next-line no-undef
   body?: BodyInit | null,
 ) => {
   try {
+    // eslint-disable-next-line no-undef
     const response = await fetch(path, { method, body } as RequestInit)
     return response.json()
   } catch (error) {
@@ -53,7 +56,7 @@ const clientFetchBFFApi = async (
   method = 'GET',
   rawBody?: object,
 ) => {
-  const fullPath = `${window.location.origin}/` + utils.getAPIPath(path, true)
+  const fullPath = `${window.location.origin}/${utils.getAPIPath(path, true)}`
   const body = rawBody ? JSON.stringify(rawBody) : undefined
   return processFetch(fullPath, method, body)
 }
@@ -61,6 +64,7 @@ const clientFetchBFFApi = async (
 const serverFetchBFFApi = async (
   path: string,
   method = 'GET',
+  // eslint-disable-next-line no-undef
   body?: BodyInit | null,
 ) => {
   const fullPath = process.env.LOCAL_HOST + utils.getAPIPath(path, true)

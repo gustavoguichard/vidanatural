@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FiChevronDown } from 'react-icons/fi'
 
 import { classes } from 'lib/utils'
@@ -7,7 +9,7 @@ const Pannel = ({ onClick, className, children, title }) => {
   const [open, toggle] = useToggle()
 
   const cx = classes('transition duration-200 text-xl text-gray-400', {
-    'transform rotate-180': open,
+    'rotate-180': open,
   })
   const wCx = classes(
     className,
@@ -18,7 +20,7 @@ const Pannel = ({ onClick, className, children, title }) => {
   )
   const handleClick = () => {
     toggle()
-    onClick && onClick(title)
+    if (onClick) onClick(title)
   }
   return (
     <div className={wCx}>

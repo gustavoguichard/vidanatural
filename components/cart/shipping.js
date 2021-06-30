@@ -10,9 +10,8 @@ const CartShipping = ({ cart, items, loading, methods }) => {
   const valueNeededToDiscount = methods.reduce((sum, curr) => {
     if (curr.value === 'retirar-na-loja' || sum === 0) return sum
     if (curr.price === 0) return 0
-    return isNil(curr.value_needed_to_discount)
-      ? sum
-      : isNil(sum)
+    if (isNil(curr.value_needed_to_discount)) return sum
+    return isNil(sum)
       ? curr.value_needed_to_discount
       : Math.min(sum, curr.value_needed_to_discount)
   }, undefined)
