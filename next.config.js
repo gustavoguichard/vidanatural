@@ -9,6 +9,9 @@ module.exports = {
       },
     ]
   },
+  async redirects() {
+    return [{ source: '/link-da-caixa', destination: '/', permanent: false }]
+  },
   images: {
     domains: [
       'images.prismic.io',
