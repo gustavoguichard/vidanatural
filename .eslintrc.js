@@ -4,13 +4,9 @@ module.exports = {
     node: true,
     jest: true,
   },
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module',
-    allowImportExportEverywhere: true,
-  },
+  parser: '@typescript-eslint/parser',
   extends: ['airbnb', 'prettier'],
-  plugins: ['react', 'prettier'],
+  plugins: ['prettier', '@typescript-eslint'],
   rules: {
     'arrow-parens': [0, 'as-needed'],
     camelcase: 0,
@@ -44,7 +40,6 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     semi: ['error', 'never'],
     'sort-keys': 0,
-
     'jsx-a11y/anchor-is-valid': 0,
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/no-static-element-interactions': 0,

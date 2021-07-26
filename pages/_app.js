@@ -7,7 +7,7 @@ import { initTracking, intersectionPolyfill } from 'lib/fx'
 import SEO from 'lib/next-seo.config'
 import { useCoupon, useInitialBanner } from 'lib/domain-hooks'
 
-import 'styles/app.scss'
+import 'styles/app.css'
 
 const didMount = async (router) => {
   await intersectionPolyfill()

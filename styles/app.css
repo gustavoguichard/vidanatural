@@ -1,5 +1,5 @@
 @import './tailwind.css';
-@import './rich-text.scss';
+@import './rich-text.css';
 
 body,
 html {
@@ -23,11 +23,10 @@ html {
 .people-masonry {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-auto-flow: dense;
-
-  .short {
-    grid-row: span 2 / auto;
-  }
-  .tall {
-    grid-row: span 3 / auto;
-  }
+}
+.people-masonry .short {
+  grid-row: span 2 / auto;
+}
+.people-masonry .tall {
+  grid-row: span 3 / auto;
 }
