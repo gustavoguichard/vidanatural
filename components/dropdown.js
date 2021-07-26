@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 import { useOnClickOutside } from 'lib/hooks'
 
 import Transition from 'components/transition'
@@ -22,7 +22,7 @@ function Dropdown({ children, open, onClose, className, ...props }) {
         className="rounded-md bg-white ring-1 ring-black ring-opacity-5"
       >
         <div
-          className={classes('py-1', className)}
+          className={cx('py-1', className)}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"

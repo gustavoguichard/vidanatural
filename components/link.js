@@ -3,19 +3,17 @@ import { forwardRef } from 'react'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 function Link({ activeClassName, className, href, ...props }, ref) {
   const router = useRouter()
-  const cx = classes(className, {
-    [activeClassName]: router.pathname === href && activeClassName,
-  })
+  const classes = cx(className, router.pathname === href && activeClassName)
 
   return href.startsWith('http') ? (
-    <a ref={ref} href={href} className={cx} {...props} />
+    <a ref={ref} href={href} className={classes} {...props} />
   ) : (
     <NextLink href={href}>
-      <a ref={ref} className={cx} {...props} />
+      <a ref={ref} className={classes} {...props} />
     </NextLink>
   )
 }

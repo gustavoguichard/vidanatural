@@ -1,4 +1,4 @@
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 import Layout from 'components/layout'
 
@@ -9,27 +9,24 @@ const SinglePageLayout = ({
   hero,
   className,
   ...props
-}) => {
-  const cx = classes(
-    'flex flex-col items-center max-w-screen-xl m-auto border-b-8 border-white',
-    {
-      'p-10': !!hero,
-      'pt-32 px-10 pb-8': !hero,
-    },
-  )
-  const cx2 = classes('flex flex-col w-full lg:w-8/12', className)
-  return (
-    <Layout
-      variant={variant}
-      className={gray ? 'bg-gray-100' : 'bg-white'}
-      {...props}
+}) => (
+  <Layout
+    variant={variant}
+    className={gray ? 'bg-gray-100' : 'bg-white'}
+    {...props}
+  >
+    {hero}
+    <div
+      className={cx(
+        'flex flex-col items-center max-w-screen-xl m-auto border-b-8 border-white',
+        hero ? 'p-10' : 'pt-32 px-10 pb-8',
+      )}
     >
-      {hero}
-      <div className={cx}>
-        <div className={cx2}>{children}</div>
+      <div className={cx('flex flex-col w-full lg:w-8/12', className)}>
+        {children}
       </div>
-    </Layout>
-  )
-}
+    </div>
+  </Layout>
+)
 
 export default SinglePageLayout

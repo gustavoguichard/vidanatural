@@ -1,4 +1,4 @@
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 import { useToggle } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
 
@@ -16,14 +16,6 @@ const Message = ({ notification }) => {
 
   const isBig = big && !shrink
 
-  const cx = classes('transition-all duration-500', {
-    'text-lg': isBig,
-    'text-sm': !isBig,
-    'bg-yellow-100 text-yellow-900': type === 'info',
-    'bg-orange-700 text-white': type === 'alert',
-    'bg-gray-800 text-white': type === 'black',
-  })
-
   const dismiss = () => dismissNotification(id)
   const onFinish = persist ? toggle : toggleVisibility
 
@@ -36,7 +28,13 @@ const Message = ({ notification }) => {
       hidden="max-h-0 opacity-20"
       shown="max-h-24 opacity-100"
       afterLeave={dismiss}
-      className={cx}
+      className={cx(
+        'transition-all duration-500',
+        isBig ? 'text-lg' : 'text-sm',
+        type === 'info' && 'bg-yellow-100 text-yellow-900',
+        type === 'alert' && 'bg-orange-700 text-white',
+        type === 'black' && 'bg-gray-800 text-white',
+      )}
     >
       <Countdown active time={persist ? 3 : 5} onFinish={onFinish} />
       <div

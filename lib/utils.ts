@@ -1,9 +1,14 @@
-import compact from 'lodash/compact'
-import isArray from 'lodash/isArray'
-import isObject from 'lodash/isObject'
-import map from 'lodash/map'
-import take from 'lodash/take'
 import words from 'lodash/words'
+import {
+  compose,
+  reject,
+  isNil,
+  isBoolean,
+  flatten,
+  join,
+  trim,
+} from 'lodash/fp'
+
 import accounting from 'accounting'
 
 accounting.settings = {
@@ -21,42 +26,19 @@ accounting.settings = {
   },
 }
 
-export const toCurrency = (n: number = 0) =>
+const toCurrency = (n: number = 0) =>
   accounting.formatMoney(+n).replace(',00', '')
 
-export const joinWith = (args: unknown[], mark = '') => compact(args).join(mark)
+const isClient = typeof window === 'object'
 
-export const isClient = typeof window === 'object'
-
-export const isOdd = (num: number) => num % 2
-
-export const sleep = (time: number) =>
-  new Promise((resolve) => setTimeout(resolve, time))
-
-export const getReadTime = (text: string) => {
+const getReadTime = (text: string) => {
   const AVG_WORDS_PER_MINUTE = 265
   const totalWords = words(text)
   const minutes = totalWords.length / AVG_WORDS_PER_MINUTE
   return Math.ceil(minutes)
 }
 
-export function clipSentence(text: string, size = 5) {
-  const wordsArray = words(text)
-  const shouldClip = wordsArray.length > size
-  const sentence = shouldClip ? take(wordsArray, size).join(' ') : text
-  return shouldClip ? `${sentence}...` : sentence
-}
+const cx = (...args: unknown[]) =>
+  compose(trim, join(' '), reject(isBoolean), reject(isNil), flatten)(args)
 
-type possibleValues = string | possibleValues[] | object
-export function classes(...args: possibleValues[]): string {
-  const result = map(args, (rule) => {
-    if (isArray(rule)) {
-      return classes(...rule)
-    }
-    if (isObject(rule)) {
-      return classes(map(rule, (value, key) => (value ? key : false)))
-    }
-    return typeof rule === 'string' ? rule : false
-  })
-  return result.filter((rule) => rule).join(' ')
-}
+export { cx, getReadTime, isClient, toCurrency }

@@ -1,4 +1,4 @@
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 import Transition from 'components/transition'
 
@@ -14,18 +14,14 @@ const Drawer = ({ children, className, anchor = 'left', open, onClose }) => (
   >
     <Transition.Child
       onClick={(ev) => ev.stopPropagation()}
-      className={classes(
+      className={cx(
         className,
         'text-gray-900 bg-white shadow-lg absolute top-0 bottom-0 overflow-y-auto overscroll-contain',
-        anchor === 'right' && 'right-0',
-        anchor === 'left' && 'left-0',
+        anchor === 'right' ? 'right-0' : 'left-0',
       )}
       enter="delay-200 transition-all duration-200 ease-out transform"
       leave="transition-all duration-200 ease-in transform"
-      hidden={classes(
-        anchor === 'right' && 'translate-x-full',
-        anchor === 'left' && '-translate-x-full',
-      )}
+      hidden={cx(anchor === 'right' ? 'translate-x-full' : '-translate-x-full')}
       shown="translate-x-0"
     >
       {children}

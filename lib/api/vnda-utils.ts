@@ -1,6 +1,5 @@
 import isObject from 'lodash/isObject'
-
-import { joinWith } from 'lib/utils'
+import compact from 'lodash/compact'
 
 const normalizeBody = (body: undefined | string | object, method: string) => {
   if (['HEAD', 'GET', 'DELETE'].includes(method)) return undefined
@@ -17,11 +16,12 @@ const getAPIPath = (path: string, bff = false) =>
 const getUrl = (path: string, params?: URLSearchParams) => {
   const url = `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/${path}`
   const query = new URLSearchParams(params).toString()
-  return joinWith([url, query], '?')
+  return compact([url, query]).join('?')
 }
 
 const getResizedImg = (url: string, w = 200, h = w) => {
-  const DOMAIN_REG = /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
+  const DOMAIN_REG =
+    /((http(s)?\:\/\/)?(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?)/
   const result = url.replace(DOMAIN_REG, `$1/${w}x${h}`)
   return result.match(/^\/\//) ? `https:${result}` : result
 }

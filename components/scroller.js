@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import * as customTypes from 'types/prop-types'
 
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 export const getItemWidth = (itemWidth) => {
   const isPercent = customTypes.regex.test(itemWidth)
@@ -19,7 +19,7 @@ const Scroller = (
   return (
     <div
       ref={ref}
-      className={classes(
+      className={cx(
         'overflow-x-scroll w-full max-w-full hide-scrollbar',
         flex ? 'flex flex-nowrap' : `grid`,
       )}
@@ -33,7 +33,7 @@ const Scroller = (
       {React.Children.map(children, (child) =>
         React.cloneElement(child, {
           ...child.props,
-          className: classes(child.props.className, flex && 'flex-shrink-0'),
+          className: cx(child.props.className, flex && 'flex-shrink-0'),
           style: {
             ...child.props.style,
             scrollSnapAlign: 'start',

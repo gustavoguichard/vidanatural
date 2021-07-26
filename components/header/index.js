@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import api from 'lib/api'
 import { useTagsMenu } from 'lib/domain-hooks'
 import { useScroll } from 'lib/hooks'
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 
 import Notifications from 'components/notifications'
@@ -27,14 +27,15 @@ const Header = ({ stick, variant }) => {
     }
   }, [])
 
-  const cx = classes('fixed inset-x-0 top-0 z-40 flex flex-col', {
-    'bg-white shadow-sm': sticky,
-    'bg-transparent h-32': !sticky,
-    'text-white': variant === 'primary' && !sticky,
-    'text-gray-900': variant !== 'primary' || sticky,
-  })
   return (
-    <div className={cx}>
+    <div
+      className={cx(
+        'fixed inset-x-0 top-0 z-40 flex flex-col',
+        sticky ? 'bg-white shadow-sm' : 'bg-transparent h-32',
+        variant === 'primary' && !sticky && 'text-white',
+        (variant !== 'primary' || sticky) && 'text-gray-900',
+      )}
+    >
       <Notifications />
       <div className={`lg:px-6 px-4 ${sticky && 'order-first'}`}>
         <div className="flex items-center duration-500">

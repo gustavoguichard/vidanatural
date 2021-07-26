@@ -1,6 +1,6 @@
 import React, { useState, forwardRef } from 'react'
 
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 import useGlobal from 'lib/use-global'
 import analytics from 'lib/analytics'
 
@@ -34,16 +34,16 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
     setAdding(false)
   }
 
-  const cx = classes('flex overflow-hidden', {
-    'flex-col flex-grow mr-2': hideQuantity,
-  })
   return variant ? (
     <>
       <form
         method="post"
         onSubmit={handleSubmit}
         action="/api/cart/add-to-cart"
-        className={cx}
+        className={cx(
+          'flex overflow-hidden',
+          hideQuantity && 'flex-col flex-grow mr-2',
+        )}
       >
         <input type="hidden" name="sku" value={variant.sku} />
         {inStock && !hideQuantity && (

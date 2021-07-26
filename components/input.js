@@ -1,5 +1,5 @@
 import React from 'react'
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 const Input = ({
   text = 'gray-900',
@@ -16,29 +16,26 @@ const Input = ({
   wrapperClasses,
   ...props
 }) => {
-  const cx = classes(
-    'block w-full p-4 text-lg appearance-none focus:outline-none bg-transparent rounded',
-    className,
-  )
-  const wCx = classes(
-    'flex items-center outline relative border rounded mb-4',
-    {
-      [`border-${errorColor}`]: error,
-    },
-    `focus-within:border-${focusBorder}`,
-    wrapperClasses,
-  )
   const Component = props.multiline ? 'textarea' : 'input'
   return (
     <>
-      <div className={wCx}>
+      <div
+        className={cx(
+          `flex items-center outline relative border rounded mb-4 focus-within:border-${focusBorder}`,
+          error && `border-${errorColor}`,
+          wrapperClasses,
+        )}
+      >
         <Component
           required={required}
           placeholder=" "
           type={type}
           id={name}
           name={name}
-          className={cx}
+          className={cx(
+            'block w-full p-4 text-lg appearance-none focus:outline-none bg-transparent rounded',
+            className,
+          )}
           {...props}
         />
         {label && (

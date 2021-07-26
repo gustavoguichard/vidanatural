@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import api from 'lib/api'
 import { useInterval } from 'lib/hooks'
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 import Img from 'components/img'
 
@@ -22,7 +22,7 @@ const CardImage = ({ product }) => {
       className="relative"
     >
       <div
-        className={classes(
+        className={cx(
           'absolute transition-all bg-white inset-0 duration-300 z-10',
           hovering ? 'opacity-20' : 'opacity-0',
         )}

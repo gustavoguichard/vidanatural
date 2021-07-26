@@ -1,19 +1,20 @@
 import { FaWhatsapp, FaFacebookMessenger } from 'react-icons/fa'
 
 import analytics from 'lib/analytics'
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 const Chat = ({ className, bg = 'gray-900', shadow = true }) => {
-  const cx = classes(
-    'grid grid-flow-col gap-2 p-1 rounded-lg',
-    className,
-    `bg-${bg}`,
-    { 'shadow-xl': shadow },
-  )
   const track = (service) => () =>
     analytics.track('Contact', { location: 'FloatingButtons', service })
   return (
-    <div className={cx}>
+    <div
+      className={cx(
+        'grid grid-flow-col gap-2 p-1 rounded-lg',
+        className,
+        `bg-${bg}`,
+        shadow && 'shadow-xl',
+      )}
+    >
       <a
         onClick={track('Whatsapp')}
         className="inline-block"

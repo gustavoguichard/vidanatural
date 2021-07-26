@@ -8,7 +8,7 @@ import React, {
 import Router from 'next/router'
 import clamp from 'lodash/clamp'
 
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 import { useElScroll } from 'lib/hooks'
 
 import Scroller from 'components/scroller'
@@ -62,9 +62,8 @@ const Carousel = (
     goTo: goToPage,
   }))
 
-  const cx = classes('flex relative items-center', className)
   return (
-    <div className={cx}>
+    <div className={cx('flex relative items-center', className)}>
       <Scroller ref={scroller} gap={gap} snap={snap} itemWidth={itemWidth}>
         {React.Children.map(children, (child, idx) => (
           <div key={`carousel-${idx}`} className="item flex justify-center">

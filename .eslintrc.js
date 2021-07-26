@@ -27,6 +27,7 @@ module.exports = {
       },
     ],
     'no-unused-expressions': 0,
+    'no-use-before-define': 0,
     'react/display-name': 0,
     'react/no-array-index-key': 0,
     'react/no-danger': 0,

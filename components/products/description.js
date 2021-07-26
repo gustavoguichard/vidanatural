@@ -1,15 +1,12 @@
 import React from 'react'
 
 import { useToggle } from 'lib/hooks'
-import { classes } from 'lib/utils'
+import { cx } from 'lib/utils'
 
 import CTAButton from 'components/cta-button'
 
 const Description = ({ product }) => {
   const [isOpen, toggle] = useToggle()
-  const cx = classes('rich-text transition duration-500 overflow-hidden', {
-    'max-h-[300px]': !isOpen,
-  })
   return (
     <div className="w-full border-t-8 border-white">
       <div className="max-w-screen-xl mx-auto p-10" id="descricao">
@@ -17,7 +14,10 @@ const Description = ({ product }) => {
           <div className="md:w-8/12">
             <h3 className="mb-2 text-2xl font-semibold">Informações</h3>
             <div
-              className={cx}
+              className={cx(
+                'rich-text transition duration-500 overflow-hidden',
+                isOpen || 'max-h-[300px]',
+              )}
               dangerouslySetInnerHTML={{
                 __html: product.description.information,
               }}
