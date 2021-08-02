@@ -1,4 +1,4 @@
-export default function Samira() {
+export default function Julie() {
   return (
     <table
       width="100%"
@@ -35,8 +35,8 @@ export default function Samira() {
             }}
           >
             <img
-              alt="Samira"
-              src="https://vidanatural.eco.br/static/images/team/samira.png"
+              alt="Julie"
+              src="https://vidanatural.eco.br/static/images/team/julie.png"
               style={{
                 border: '0px',
                 verticalAlign: 'middle',
@@ -78,7 +78,7 @@ export default function Samira() {
                         fontSize: '16px',
                       }}
                     >
-                      Samira
+                      Julie
                     </span>
                     &nbsp;
                     <span
@@ -88,7 +88,7 @@ export default function Samira() {
                         fontSize: '16px',
                       }}
                     >
-                      Abdalah
+                      Camolesi
                     </span>
                   </td>
                 </tr>
@@ -103,7 +103,7 @@ export default function Samira() {
                       lineHeight: 1,
                     }}
                   >
-                    Administração
+                    Customer Success
                   </td>
                 </tr>
                 <tr>
@@ -142,7 +142,7 @@ export default function Samira() {
                           marginRight: '10px',
                         }}
                       >
-                        (51) 98227 7820
+                        (16) 99636 2716
                       </span>
                     </span>
                   </td>
@@ -182,7 +182,7 @@ export default function Samira() {
                       </span>
                     </a>
                     <a
-                      href="mailto:samira@vidanatural.eco.br"
+                      href="mailto:julie@vidanatural.eco.br"
                       style={{
                         backgroundColor: 'transparent',
                         color: 'rgb(221, 32, 34)',
@@ -209,7 +209,7 @@ export default function Samira() {
                           fontSize: '12px',
                         }}
                       >
-                        samira@vidanatural.eco.br
+                        julie@vidanatural.eco.br
                       </span>
                     </a>
                   </td>
