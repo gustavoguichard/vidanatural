@@ -40,7 +40,6 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-ga": "3.3.0",
-    "react-gtm-module": "2.0.11",
     "react-icons": "4.2.0",
     "react-intersection-observer": "8.32.0",
     "react-use-form-state": "0.13.2",

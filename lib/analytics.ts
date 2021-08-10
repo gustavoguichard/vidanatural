@@ -1,7 +1,6 @@
 import { init, track } from 'fbq'
 import { useEffect } from 'react'
 import ReactGA from 'react-ga'
-import TagManager from 'react-gtm-module'
 
 type TrackType =
   | 'AddPaymentInfo'
@@ -18,7 +17,6 @@ type TrackType =
 
 const initGA = () => {
   ReactGA.initialize(process.env.NEXT_PUBLIC_ANALYTICS_ID ?? '')
-  TagManager.initialize({ gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? '' })
 }
 
 const initFB = () => {
