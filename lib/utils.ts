@@ -9,25 +9,10 @@ import {
   trim,
 } from 'lodash/fp'
 
-import accounting from 'accounting'
-
-accounting.settings = {
-  currency: {
-    symbol: 'R$',
-    format: '%s%v',
-    decimal: ',',
-    thousand: '.',
-    precision: 2,
-  },
-  number: {
-    precision: 0,
-    decimal: ',',
-    thousand: '.',
-  },
-}
-
 const toCurrency = (n: number = 0) =>
-  accounting.formatMoney(+n).replace(',00', '')
+  new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+    .format(~~n)
+    .replace(/\$\s/, '$')
 
 const isClient = typeof window === 'object'
 
