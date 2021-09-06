@@ -16,12 +16,9 @@ module.exports = {
     domains: [
       'images.prismic.io',
       ...['a', 'b', 'c'].flatMap((l) =>
-        times(9, (i) => `${l}${i}.vnda.com.br`),
+        times(9, (i) => `${l}${i}.vnda.com.br`)
       ),
     ],
   },
-  future: {
-    webpack5: true,
-    strictPostcssConfiguration: true,
-  },
+  experimental: { esmExternals: true },
 }

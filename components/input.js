@@ -23,7 +23,7 @@ const Input = ({
         className={cx(
           `flex items-center outline relative border rounded mb-4 focus-within:border-${focusBorder}`,
           error && `border-${errorColor}`,
-          wrapperClasses,
+          wrapperClasses
         )}
       >
         <Component
@@ -34,7 +34,7 @@ const Input = ({
           name={name}
           className={cx(
             'block w-full p-4 text-lg appearance-none focus:outline-none bg-transparent rounded',
-            className,
+            className
           )}
           {...props}
         />
@@ -43,7 +43,7 @@ const Input = ({
             htmlFor={name}
             className={`absolute top-0 pointer-events-none text-${
               error ? errorColor : text
-            } text-lg bg-${bg} p-4 duration-150 origin-0 rounded`}
+            } text-lg bg-${bg} p-4 duration-150 origin-[0%] rounded`}
           >
             {label}
             {required ? ' *' : ''}

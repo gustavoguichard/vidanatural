@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  html {
+    overflow-anchor: auto;
+  }
+
+  #__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .outline input:focus-within ~ label,
+  .outline input:not(:placeholder-shown) ~ label,
+  .outline textarea:focus-within ~ label,
+  .outline textarea:not(:placeholder-shown) ~ label {
+    @apply scale-75 -translate-y-4 z-0 ml-3 px-1 py-0;
+  }
+}
+
+@layer components {
+  .text-shadow-lg {
+    text-shadow: 0 15px 30px rgba(0, 0, 0, 0.11), 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .people-masonry {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-auto-flow: dense;
+  }
+  .people-masonry .short {
+    grid-row: span 2 / auto;
+  }
+  .people-masonry .tall {
+    grid-row: span 3 / auto;
+  }
+
+  .rich-text address,
+  .rich-text dl,
+  .rich-text img,
+  .rich-text ol,
+  .rich-text p,
+  .rich-text pre,
+  .rich-text table,
+  .rich-text ul {
+    margin-bottom: 1rem;
+  }
+  .rich-text.no-margin address,
+  .rich-text.no-margin dl,
+  .rich-text.no-margin img,
+  .rich-text.no-margin ol,
+  .rich-text.no-margin p,
+  .rich-text.no-margin pre,
+  .rich-text.no-margin table,
+  .rich-text.no-margin ul {
+    margin-bottom: 0;
+  }
+  .rich-text h1,
+  .rich-text h2,
+  .rich-text h3,
+  .rich-text h4,
+  .rich-text h5,
+  .rich-text h6 {
+    line-height: 1;
+    color: #1a1a1a;
+    padding-top: 0.875rem;
+  }
+  .rich-text h1,
+  .rich-text h2,
+  .rich-text h3 {
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+  }
+  .rich-text h4,
+  .rich-text h5,
+  .rich-text h6 {
+    margin-bottom: 0.3rem;
+  }
+  .rich-text h1 {
+    font-size: 2.25rem;
+  }
+  .rich-text h2 {
+    font-size: 1.85rem;
+  }
+  .rich-text h3 {
+    font-size: 1.55rem;
+  }
+  .rich-text h4 {
+    font-size: 1.25rem;
+  }
+  .rich-text h5 {
+    font-size: 1rem;
+  }
+  .rich-text h6 {
+    font-size: 0.875rem;
+  }
+  .rich-text a {
+    color: #047481;
+  }
+  .rich-text a:hover {
+    text-decoration: underline;
+  }
+  .rich-text abbr:hover {
+    cursor: help;
+  }
+  .rich-text blockquote {
+    padding: 1.5rem;
+    background: #eee;
+    border-left: 5px solid #ddd;
+  }
+  .rich-text abbr {
+    cursor: help;
+  }
+  .rich-text blockquote :last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .rich-text dt {
+    font-weight: 700;
+  }
+  .rich-text dd::before {
+    content: '→ ';
+  }
+  .rich-text hr {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    margin: 1rem auto;
+  }
+  .rich-text table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .rich-text td,
+  .rich-text th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 0.5rem;
+  }
+  .rich-text th {
+    background: #eee;
+  }
+  .rich-text tr:nth-child(even) {
+    background: #eee;
+  }
+  .rich-text table caption {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .rich-text textarea {
+    max-width: 100%;
+  }
+  .rich-text ol,
+  .rich-text ul {
+    padding-left: 1rem;
+    list-style-type: disc;
+  }
+  .rich-text li {
+    margin-top: 0.4rem;
+  }
+  .rich-text ol ol,
+  .rich-text ol ul,
+  .rich-text ul ol,
+  .rich-text ul ul {
+    margin-bottom: 0;
+  }
+  .rich-text mark {
+    padding: 3px 6px;
+  }
+  .rich-text img {
+    max-width: 100%;
+  }
+}
