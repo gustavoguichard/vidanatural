@@ -8,6 +8,10 @@
     overflow-anchor: auto;
   }
 
+  *:focus {
+    @apply outline-none focus:ring ring-teal-500;
+  }
+
   #__next {
     min-height: 100vh;
     display: flex;
