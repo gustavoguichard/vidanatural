@@ -5,7 +5,7 @@ import { cx } from 'lib/utils'
 
 const IconButton = (
   { label, href, children, className, onClick, ...props },
-  ref,
+  ref
 ) => {
   const router = useRouter()
   const handleClick = () => {
@@ -17,7 +17,7 @@ const IconButton = (
       ref={ref}
       className={cx(
         `text-inherit hover:bg-opacity-25 rounded-full inline-flex p-3 hover:bg-gray-400 transition duration-300`,
-        className,
+        className
       )}
       type="button"
       onClick={handleClick}

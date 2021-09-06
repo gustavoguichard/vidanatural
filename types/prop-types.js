@@ -5,6 +5,6 @@ export const percent = (value, key, componentName, _location, propFullName) => {
     return undefined
   }
   return new Error(
-    `Invalid prop ${propFullName} supplied to ${componentName}. Validation failed.`,
+    `Invalid prop ${propFullName} supplied to ${componentName}. Validation failed.`
   )
 }

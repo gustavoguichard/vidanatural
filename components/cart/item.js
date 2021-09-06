@@ -25,7 +25,7 @@ const CartItem = ({ item, actions }) => {
       debounce((qtty) => {
         actions.updateItem(item.id, qtty)
       }, 500),
-    [],
+    []
   )
 
   useEffect(() => {

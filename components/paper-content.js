@@ -8,7 +8,7 @@ const PaperContent = ({ children, maxWidth = 'xl', overlap = true }) => (
       <div
         className={cx(
           'relative z-10 sm:shadow-lg sm:bg-white sm:rounded-lg',
-          overlap && 'sm:-mb-4 sm:-mt-20',
+          overlap && 'sm:-mb-4 sm:-mt-20'
         )}
       >
         <div className="py-16 sm:my-8 sm:px-10">{children}</div>

@@ -12,7 +12,7 @@ const compoundName = (client) =>
 
 const filtered = filter(
   clients,
-  (client) => client.state && client.city && client.name,
+  (client) => client.state && client.city && client.name
 )
 
 const sorted = sortBy(filtered, compoundName)
@@ -28,5 +28,5 @@ export default reduce(
       [key]: groupBy(cities, 'city'),
     }
   },
-  {},
+  {}
 )

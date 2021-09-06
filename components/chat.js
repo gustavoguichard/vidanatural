@@ -12,7 +12,7 @@ const Chat = ({ className, bg = 'gray-900', shadow = true }) => {
         'grid grid-flow-col gap-2 p-1 rounded-lg',
         className,
         `bg-${bg}`,
-        shadow && 'shadow-xl',
+        shadow && 'shadow-xl'
       )}
     >
       <a

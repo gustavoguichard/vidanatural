@@ -24,7 +24,7 @@ const CardImage = ({ product }) => {
       <div
         className={cx(
           'absolute transition-all bg-white inset-0 duration-300 z-10',
-          hovering ? 'opacity-20' : 'opacity-0',
+          hovering ? 'opacity-20' : 'opacity-0'
         )}
         style={{
           clipPath: hovering

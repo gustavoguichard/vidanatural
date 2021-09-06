@@ -12,7 +12,7 @@ const ProductTestimonials = ({ testimonials, product, ...props }) => {
         intersection(product.tag_names, item.tags).length > 0
       return hasProductTag ? [[...spec, item], gener] : [spec, [...gener, item]]
     },
-    [[], []],
+    [[], []]
   )
   const items = [...specific, ...general]
   return (

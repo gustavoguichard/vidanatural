@@ -7,7 +7,7 @@ const Skeleton = ({ variant = 'rect', className, ...props }, ref) => (
     className={cx(
       className,
       'bg-gray-200 animate-pulse',
-      variant === 'circle' ? 'rounded-full' : 'circle',
+      variant === 'circle' ? 'rounded-full' : 'circle'
     )}
     ref={ref}
     {...props}

@@ -33,7 +33,7 @@ const Header = ({ stick, variant }) => {
         'fixed inset-x-0 top-0 z-40 flex flex-col',
         sticky ? 'bg-white shadow-sm' : 'bg-transparent h-32',
         variant === 'primary' && !sticky && 'text-white',
-        (variant !== 'primary' || sticky) && 'text-gray-900',
+        (variant !== 'primary' || sticky) && 'text-gray-900'
       )}
     >
       <Notifications />

@@ -33,7 +33,7 @@ const Message = ({ notification }) => {
         isBig ? 'text-lg' : 'text-sm',
         type === 'info' && 'bg-yellow-100 text-yellow-900',
         type === 'alert' && 'bg-orange-700 text-white',
-        type === 'black' && 'bg-gray-800 text-white',
+        type === 'black' && 'bg-gray-800 text-white'
       )}
     >
       <Countdown active time={persist ? 3 : 5} onFinish={onFinish} />

@@ -24,7 +24,7 @@ const NewsForm = () => {
       subscribe()
     } else {
       setHasError(
-        'Não foi possível adicionar este e-mail nesse momento. Por favor, tente mais novamente.',
+        'Não foi possível adicionar este e-mail nesse momento. Por favor, tente mais novamente.'
       )
     }
     setSending(false)

@@ -16,7 +16,7 @@ const Pagination = ({ page, count, path = '/', className }) =>
             key={`page-index-${idx}`}
             className={cx(
               'flex mx-1 justify-center items-center rounded-full h-8 w-8 p-2 hover:bg-gray-100',
-              page === idx && 'bg-gray-900 text-white',
+              page === idx && 'bg-gray-900 text-white'
             )}
           >
             {idx}

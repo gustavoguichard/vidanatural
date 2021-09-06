@@ -16,7 +16,7 @@ import { calculatePages, scrollToPage, widthInPixels } from './utils'
 
 const Carousel = (
   { children, itemWidth = '100%', gap, snap, onChange, className },
-  innerRef,
+  innerRef
 ) => {
   const scroller = useRef()
   const childrenCount = React.Children.count(children)
