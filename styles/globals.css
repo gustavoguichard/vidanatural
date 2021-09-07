@@ -6,10 +6,11 @@
   body,
   html {
     overflow-anchor: auto;
+    font-family: theme('fontFamily.sans');
   }
 
   *:focus {
-    @apply outline-none focus:ring ring-teal-500;
+    @apply outline-none focus:ring ring-nature-400;
   }
 
   #__next {
