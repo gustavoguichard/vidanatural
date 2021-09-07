@@ -1,5 +1,5 @@
 import uniqBy from 'lodash/uniqBy'
-import useStore from 'lib/use-store'
+import createStore from 'lib/create-store'
 
 import api from 'lib/api'
 import { initialState } from 'lib/constants'
@@ -15,7 +15,7 @@ const updateCart = (store: Store, cart: Cart) => {
   }
 }
 
-export default useStore(
+export default createStore(
   {
     updateItem: async (store: Store, id: number, quantity = 1) => {
       store.setState({ updatingCart: true })
@@ -26,7 +26,7 @@ export default useStore(
         {
           id,
           quantity,
-        },
+        }
       )
       updateCart(store, cart)
       return true
@@ -79,7 +79,7 @@ export default useStore(
     },
     updateShippingPrice: (
       store: Store,
-      freeShippingPrice = initialState.freeShippingPrice,
+      freeShippingPrice = initialState.freeShippingPrice
     ) => {
       store.setState({ freeShippingPrice })
     },
@@ -113,19 +113,19 @@ export default useStore(
               type: notification.type || 'info',
             },
           ],
-          'id',
+          'id'
         ),
       })
     },
     dismissNotification: (store: Store, id: string | number) => {
       store.setState({
         notifications: store.state.notifications.filter(
-          (n: Notification) => n.id !== id,
+          (n: Notification) => n.id !== id
         ),
       })
     },
   },
-  initialState,
+  initialState
 )
 
 interface Notification {

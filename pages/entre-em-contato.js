@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Script from 'next/script'
 import { FaWhatsapp } from 'react-icons/fa'
 
 import Breadcrumbs from 'components/breadcrumbs'
@@ -10,19 +11,18 @@ import SloganSvg from 'components/svg/slogan-conecto'
 
 const Page = () => (
   <Layout title="Entre em contato">
-    <Head>
-      <script
-        src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}`}
-      />
-    </Head>
+    <Script
+      src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}`}
+      strategy="afterInteractive"
+    />
     <Hero size="small" background="/static/images/banner.jpg">
-      <div className="my-12 py-6 px-16 max-w-screen-sm">
-        <SloganSvg className="max-w-full h-24" />
+      <div className="max-w-screen-sm px-16 py-6 my-12">
+        <SloganSvg className="h-24 max-w-full" />
       </div>
     </Hero>
     <PaperContent>
-      <Breadcrumbs className="-mt-6 mb-6">Entre em contato</Breadcrumbs>
-      <h3 className="text-3xl tracking-tight font-bold">
+      <Breadcrumbs className="mb-6 -mt-6">Entre em contato</Breadcrumbs>
+      <h3 className="text-3xl font-bold tracking-tight">
         Queremos ouvir você!
       </h3>
       <p className="mt-2 mb-6">
@@ -30,8 +30,8 @@ const Page = () => (
         <br />
         Nós retornaremos o contato assim que possível.
       </p>
-      <div className="flex flex-col md:flex-row justify-between">
-        <div className="w-full md:w-7/12 mb-8">
+      <div className="flex flex-col justify-between md:flex-row">
+        <div className="w-full mb-8 md:w-7/12">
           <Form />
         </div>
         <div className="w-full md:w-1/3 rich-text">
@@ -49,7 +49,7 @@ const Page = () => (
             <br />
             <span className="inline-flex items-center">
               <a
-                className="inline-block text-teal-600 mr-1"
+                className="inline-block mr-1 text-teal-600"
                 href="https://wa.me/5548991039557"
                 title="Enviar mensagem de whatsapp"
                 rel="noopener noreferrer"

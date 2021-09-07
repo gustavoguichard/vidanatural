@@ -26,7 +26,7 @@ function useCustom(this: Store, context?: string): [GlobalState, Actions] {
     return () => {
       this.listeners = this.listeners
         ? this.listeners.filter(
-            ([, listener]: Listener) => listener !== newListener,
+            ([, listener]: Listener) => listener !== newListener
           )
         : []
     }
@@ -47,7 +47,7 @@ function associateActions(store: Store, actions: Actions) {
   return associatedActions
 }
 
-const useStore = (actions: Actions, initialState: GlobalState = {}) => {
+const createStore = (actions: Actions, initialState: GlobalState = {}) => {
   if (!actions) {
     throw new Error('You need to set up some actions')
   }
@@ -62,4 +62,4 @@ const useStore = (actions: Actions, initialState: GlobalState = {}) => {
   return useCustom.bind(store)
 }
 
-export default useStore
+export default createStore
