@@ -66,9 +66,11 @@ const populateProducts = async (
   })
 }
 
-export default {
+const vndaEndpoints = {
   calculateShipping,
   populateProducts,
   sendForm,
   textSearch,
 }
+
+export default vndaEndpoints

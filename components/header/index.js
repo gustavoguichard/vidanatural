@@ -25,6 +25,7 @@ const Header = ({ stick, variant }) => {
     if (token) {
       actions.listCart()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

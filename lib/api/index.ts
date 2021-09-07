@@ -1,7 +1,9 @@
 import vnda from './vnda'
 import * as cms from './cms'
 
-export default {
+const api = {
   vnda,
   cms,
 }
+
+export default api

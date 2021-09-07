@@ -3,7 +3,7 @@ import endpoints from 'lib/api/vnda-endpoints'
 import cart from 'lib/api/vnda-cart'
 import utils from 'lib/api/vnda-utils'
 
-export default {
+const vndaApi = {
   cart,
   utils,
   endpoints,
@@ -11,3 +11,5 @@ export default {
   clientFetch: vnda.clientFetch,
   fetchFromAPI: vnda.fetchFromAPI,
 }
+
+export default vndaApi

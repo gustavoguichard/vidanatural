@@ -1,4 +1,4 @@
-export default [
+const clients = [
   {
     address: '',
     fullAddress: '',
@@ -982,3 +982,5 @@ export default [
     url: null,
   },
 ]
+
+export default clients

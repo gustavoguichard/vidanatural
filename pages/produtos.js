@@ -37,10 +37,12 @@ const ProductsPage = ({ products, filters }) => {
 
   useEffect(() => {
     select(router.query.filter)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query.filter])
 
   useEffect(() => {
     setSelected(router.query.filter)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const links = selected

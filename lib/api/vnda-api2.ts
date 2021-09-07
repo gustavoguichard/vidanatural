@@ -68,8 +68,10 @@ const serverFetchBFFApi = async (
   return processFetch(fullPath, method, body)
 }
 
-export default {
+const vndaApi = {
   fetchFromAPI: fetcher,
   fetch: serverFetchBFFApi,
   clientFetch: clientFetchBFFApi,
 }
+
+export default vndaApi

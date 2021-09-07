@@ -1,5 +1,7 @@
+import Img from 'components/img'
+
 const Icon = ({ path, title, size = 75 }) => (
-  <img
+  <Img
     className="m-6"
     width={size}
     height={size}
@@ -10,8 +12,8 @@ const Icon = ({ path, title, size = 75 }) => (
 )
 
 const Certifications = () => (
-  <div className="bg-gray-100 w-full">
-    <div className="max-w-screen-xl w-full flex justify-around flex-wrap py-6 mx-auto">
+  <div className="w-full bg-gray-100">
+    <div className="flex flex-wrap justify-around w-full max-w-screen-xl py-6 mx-auto">
       <Icon title="Certificados pela ANVISA" path="anvisa" size={68} />
       <Icon
         title="Investimos na compensação ambiental das embalagens que produzimos"

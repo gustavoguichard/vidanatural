@@ -7,7 +7,7 @@ import parsePost from 'lib/parsers/blog-post'
 import type { BlogPost } from 'types/cms'
 import type { ParsedProduct } from 'types/vnda'
 
-export default async () => {
+async function Home() {
   const testimonialsData = await api.cms.getByTypeAndTags('testimonial', {
     fetch: [
       'name',
@@ -48,3 +48,5 @@ export default async () => {
     revalidate: 60 * 10,
   }
 }
+
+export default Home

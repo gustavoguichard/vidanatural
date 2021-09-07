@@ -31,6 +31,7 @@ const Cart = () => {
     if (cart.shipping_address_id) {
       getShipping()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart.shipping_address_id, cart.subtotal])
 
   const safeItems = get(cart, 'items', [])

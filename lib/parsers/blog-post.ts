@@ -5,7 +5,7 @@ import parseMember from './team-member'
 
 import type { BlogPost, PostBody } from 'types/cms'
 
-export default (post: BlogPost) => {
+function parseBlogPost(post: BlogPost) {
   const { uid, first_publication_date, data } = post
   const { title, date, body, header_image } = data
   const thumbUrl = get(header_image, 'thumb.url', null)
@@ -24,3 +24,5 @@ export default (post: BlogPost) => {
     excerpt: getExcerpt(body as PostBody[]),
   }
 }
+
+export default parseBlogPost

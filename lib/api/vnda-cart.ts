@@ -30,7 +30,9 @@ const getCart = async () => {
   return result
 }
 
-export default {
+const vndaCart = {
   getCart,
   getCartToken,
 }
+
+export default vndaCart

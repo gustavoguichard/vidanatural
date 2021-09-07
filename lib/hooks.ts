@@ -24,6 +24,7 @@ export const useElScroll = (el?: HTMLElement, delay = 300) => {
 
   const [state, setState] = useState(getPositions(el))
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateScroll = useCallback(
     throttle(() => {
       setState(getPositions(el))
@@ -37,6 +38,7 @@ export const useElScroll = (el?: HTMLElement, delay = 300) => {
     return () => {
       el.removeEventListener('scroll', updateScroll)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [el])
 
   return state
@@ -49,6 +51,7 @@ export const useScroll = (delay = 300) => {
     y: isClient ? window.scrollY : 0,
   })
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateScroll = useCallback(
     throttle(() => {
       setState({
@@ -74,6 +77,7 @@ export const useScroll = (delay = 300) => {
       cancelAnimationFrame(frame.current)
       window.removeEventListener('scroll', handler)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return state

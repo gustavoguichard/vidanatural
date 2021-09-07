@@ -64,5 +64,6 @@ export const useCoupon = () => {
       })
       typeof addCoupon === 'function' && addCoupon(router.query.ccc as string)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])
 }

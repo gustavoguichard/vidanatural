@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import api from 'lib/api'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+async function CartAdd(req: NextApiRequest, res: NextApiResponse) {
   const cartData = await api.vnda.fetch(`cart/${req.query.token}`)
   const { sku, quantity } = JSON.parse(req.body)
 
@@ -29,3 +29,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     })
   }
 }
+
+export default CartAdd

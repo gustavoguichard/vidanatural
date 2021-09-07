@@ -3,7 +3,7 @@ import publicIp from 'public-ip'
 
 import api from 'lib/api'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+async function CartCreate(req: NextApiRequest, res: NextApiResponse) {
   let ip = '127.0.0.1'
   let userAgent = 'not-found'
   try {
@@ -22,3 +22,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
   res.send(response.data)
 }
+
+export default CartCreate

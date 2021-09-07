@@ -27,6 +27,7 @@ const CartShipping = ({ cart, items, loading, methods }) => {
 
   useEffect(() => {
     updateShippingPrice(needed)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [needed])
 
   return !!items.length && !isNil(valueNeeded || freeShippingPrice) ? (

@@ -15,7 +15,7 @@ const Img = ({ src, style, className, width, height, alt = '', ...props }) => {
         {...props}
         width={width}
         height={height}
-        src={src}
+        src={src.replace(/^(\/\/.+)/, 'https:$1')}
       />
     </div>
   )

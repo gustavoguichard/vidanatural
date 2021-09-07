@@ -45,12 +45,15 @@ export const useTrack = (
 ) => {
   useEffect(() => {
     shouldTrack && track(event, options)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldTrack])
 }
 
-export default {
+const analytics = {
   init: initAnalytics,
   pageView: logPageView,
   addToCart,
   track,
 }
+
+export default analytics

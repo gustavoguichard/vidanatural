@@ -34,6 +34,7 @@ const Countdown = ({
     if (prev !== null && isActive === null && elapsedTime > 0) {
       onFinish()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isActive])
 
   return null

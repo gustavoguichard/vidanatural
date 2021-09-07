@@ -28,6 +28,7 @@ const SearchBar = () => {
   const searchCB = () => {
     hasQuery && doSearch(query, setResults, setFetching)
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(searchCB, [query])
 
   return (

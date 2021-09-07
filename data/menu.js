@@ -1,4 +1,4 @@
-export default {
+const menu = {
   links: [
     {
       name: 'Blog',
@@ -90,3 +90,5 @@ export default {
     ],
   ],
 }
+
+export default menu

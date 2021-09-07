@@ -10,7 +10,7 @@ const BottomCTA = dynamic(() => import('components/bottom-cta'), { ssr: false })
 const Chat = dynamic(() => import('components/chat'), { ssr: false })
 const Footer = dynamic(() => import('components/footer'))
 const Certifications = dynamic(() => import('components/certifications'), {
-  loading: () => <Skeleton />,
+  loading: Skeleton,
   ssr: false,
 })
 

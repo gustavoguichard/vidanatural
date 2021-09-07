@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 const TINY_API_BASE = 'https://api.tiny.com.br/api2'
 
-export default async (_req: NextApiRequest, res: NextApiResponse) => {
+async function Tex(_req: NextApiRequest, res: NextApiResponse) {
   const aMonthAgo = new Date()
   aMonthAgo.setDate(aMonthAgo.getDate() - 30)
   const params = new URLSearchParams({
@@ -25,3 +25,5 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
     res.writeHead(500).end('Ocorreu um erro... fala com o Guga =)')
   }
 }
+
+export default Tex

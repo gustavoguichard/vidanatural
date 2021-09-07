@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import api from 'lib/api'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+async function UpdateQuantity(req: NextApiRequest, res: NextApiResponse) {
   const cartData = await api.vnda.fetch(`cart/${req.query.token}`)
   const { id, quantity } = JSON.parse(req.body)
 
@@ -22,3 +22,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     })
   }
 }
+
+export default UpdateQuantity

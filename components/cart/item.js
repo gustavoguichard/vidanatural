@@ -25,6 +25,7 @@ const CartItem = ({ item, actions }) => {
       debounce((qtty) => {
         actions.updateItem(item.id, qtty)
       }, 500),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
 
@@ -36,6 +37,7 @@ const CartItem = ({ item, actions }) => {
     if (item.quantity !== quantity) {
       debouncedUpdate(quantity)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity])
 
   const handleChange = (increment) => () => {
@@ -44,9 +46,9 @@ const CartItem = ({ item, actions }) => {
   }
 
   return (
-    <div className="cart-item flex p-1 w-1/2">
-      <div className="border tracking-tight rounded-sm bg-white w-full h-72 overflow-hidden flex flex-col justify-between">
-        <p className="bg-white text-sm font-semibold p-2">
+    <div className="flex w-1/2 p-1 cart-item">
+      <div className="flex flex-col justify-between w-full overflow-hidden tracking-tight bg-white border rounded-sm h-72">
+        <p className="p-2 text-sm font-semibold bg-white">
           {quantity}x{' '}
           <Link
             onClick={actions.hideCart}
@@ -60,20 +62,21 @@ const CartItem = ({ item, actions }) => {
             {toCurrency(price)}
             {hasDiscont && ' '}
             {hasDiscont && (
-              <span className="line-through text-xs font-normal text-gray-500">
+              <span className="text-xs font-normal text-gray-500 line-through">
                 {toCurrency(variant_price)}
               </span>
             )}
           </span>
         </p>
         <div className="flex-grow overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt={product_name}
             src={api.vnda.utils.getResizedImg(image_url, 200)}
-            className="w-full object-cover"
+            className="object-cover w-full"
           />
         </div>
-        <div className="w-full text-xs flex mt-px">
+        <div className="flex w-full mt-px text-xs">
           <div className="flex flex-grow border-t border-r">
             <NumericStepper
               onIncrease={handleChange(1)}

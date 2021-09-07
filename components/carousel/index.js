@@ -44,6 +44,7 @@ const Carousel = (
   useEffect(() => {
     const { total, perPage } = getPageStats(scroller.current)
     onChange && onChange({ total, perPage, current: page + 1 })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange, page])
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const Carousel = (
   useEffect(() => {
     const { width } = getPageStats(scroller.current)
     setPage(Math.round(x / width))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [x])
 
   useImperativeHandle(innerRef, () => ({
@@ -66,7 +68,7 @@ const Carousel = (
     <div className={cx('flex relative items-center', className)}>
       <Scroller ref={scroller} gap={gap} snap={snap} itemWidth={itemWidth}>
         {React.Children.map(children, (child, idx) => (
-          <div key={`carousel-${idx}`} className="item flex justify-center">
+          <div key={`carousel-${idx}`} className="flex justify-center item">
             {child}
           </div>
         ))}

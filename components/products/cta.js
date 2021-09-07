@@ -10,7 +10,7 @@ import Spinner from 'components/spinner'
 import CalculateShipping from './calculate-shipping'
 import OutOfStockForm from './out-of-stock-form'
 
-const ProductCTA = ({ product, innerRef, hideQuantity }) => {
+const Component = ({ product, innerRef, hideQuantity }) => {
   const [adding, setAdding] = useState(false)
   const [, { addToCart }] = useGlobal()
   const [variant] = product.variants ? product.variants : []
@@ -47,7 +47,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
       >
         <input type="hidden" name="sku" value={variant.sku} />
         {inStock && !hideQuantity && (
-          <div className="flex shadow border bg-white text-center text-lg border-gray-200 font-semibold mr-1">
+          <div className="flex mr-1 text-lg font-semibold text-center bg-white border border-gray-200 shadow">
             <NumericStepper
               fixed
               current={quantity}
@@ -81,6 +81,10 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
   ) : null
 }
 
-export default forwardRef((props, ref) => (
-  <ProductCTA innerRef={ref} {...props} />
+const ProductCTA = forwardRef((props, ref) => (
+  <Component innerRef={ref} {...props} />
 ))
+
+ProductCTA.displayName = 'ProductCTA'
+
+export default ProductCTA
