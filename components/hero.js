@@ -25,7 +25,13 @@ const Hero = ({
   >
     {background && (
       <div aria-hidden="true" className={cx('absolute inset-0', bgClass)}>
-        <Image layout="fill" objectFit="cover" unoptimized src={background} />
+        <Image
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          unoptimized
+          src={background}
+        />
       </div>
     )}
     <div

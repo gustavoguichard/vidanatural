@@ -13,7 +13,7 @@ const Page = () => (
   <Layout title="Entre em contato">
     <Script
       src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}`}
-      strategy="afterInteractive"
+      strategy="lazyOnload"
     />
     <Hero size="small" background="/static/images/banner.jpg">
       <div className="max-w-screen-sm px-16 py-6 my-12">
