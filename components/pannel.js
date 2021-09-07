@@ -15,7 +15,7 @@ const Pannel = ({ onClick, className, children, title }) => {
       className={cx(
         className,
         '-mx-4 sm:mx-0 flex flex-col rounded bg-white border my-1 border-gray-200 transition-all duration-300',
-        open && 'shadow my-4 rounded-lg'
+        open && 'shadow my-4 rounded-lg',
       )}
     >
       <div
@@ -28,7 +28,7 @@ const Pannel = ({ onClick, className, children, title }) => {
         <FiChevronDown
           className={cx(
             'transition duration-200 text-xl text-gray-400',
-            open && 'transform rotate-180'
+            open && 'transform rotate-180',
           )}
         />
       </div>

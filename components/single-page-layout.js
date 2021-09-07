@@ -19,7 +19,7 @@ const SinglePageLayout = ({
     <div
       className={cx(
         'flex flex-col items-center max-w-screen-xl m-auto border-b-8 border-white',
-        hero ? 'p-10' : 'pt-32 px-10 pb-8'
+        hero ? 'p-10' : 'pt-32 px-10 pb-8',
       )}
     >
       <div className={cx('flex flex-col w-full lg:w-8/12', className)}>

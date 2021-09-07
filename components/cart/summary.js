@@ -5,7 +5,7 @@ import Link from 'components/link'
 const CartSummary = ({ cart, items }) => {
   const subtotal = items.reduce(
     (sum, curr) => sum + curr.variant_price * curr.quantity,
-    0
+    0,
   )
   const hasDisconts = subtotal > cart.total
   return items.length ? (

@@ -26,7 +26,7 @@ export default createStore(
         {
           id,
           quantity,
-        }
+        },
       )
       updateCart(store, cart)
       return true
@@ -79,7 +79,7 @@ export default createStore(
     },
     updateShippingPrice: (
       store: Store,
-      freeShippingPrice = initialState.freeShippingPrice
+      freeShippingPrice = initialState.freeShippingPrice,
     ) => {
       store.setState({ freeShippingPrice })
     },
@@ -113,19 +113,19 @@ export default createStore(
               type: notification.type || 'info',
             },
           ],
-          'id'
+          'id',
         ),
       })
     },
     dismissNotification: (store: Store, id: string | number) => {
       store.setState({
         notifications: store.state.notifications.filter(
-          (n: Notification) => n.id !== id
+          (n: Notification) => n.id !== id,
         ),
       })
     },
   },
-  initialState
+  initialState,
 )
 
 interface Notification {

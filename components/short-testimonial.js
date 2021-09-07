@@ -11,7 +11,7 @@ const ShortTestimonial = ({ data, uid, className }) => {
     <div
       className={cx(
         'py-8 px-10 max-w-md sm:text-center w-full sm:w-1/2 lg:w-1/3',
-        className
+        className,
       )}
     >
       <Link href={`/eu-uso/${uid}`} title="Ver depoimento completo">

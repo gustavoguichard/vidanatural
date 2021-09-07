@@ -16,7 +16,7 @@ const Description = ({ product }) => {
             <div
               className={cx(
                 'rich-text transition duration-500 overflow-hidden',
-                isOpen || 'max-h-[300px]'
+                isOpen || 'max-h-[300px]',
               )}
               dangerouslySetInnerHTML={{
                 __html: product.description.information,

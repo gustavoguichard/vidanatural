@@ -28,7 +28,7 @@ const Form = () => {
       window.grecaptcha.enterprise.ready(async () => {
         await window.grecaptcha.enterprise.execute(
           process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA,
-          { action: 'Contact' }
+          { action: 'Contact' },
         )
         const values = { ...formState.values, reply_to: formState.values.email }
         analytics.track('Contact', { location: 'ContactForm', values })

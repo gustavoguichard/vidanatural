@@ -26,7 +26,7 @@ function useCustom(this: Store, context?: string): [GlobalState, Actions] {
     return () => {
       this.listeners = this.listeners
         ? this.listeners.filter(
-            ([, listener]: Listener) => listener !== newListener
+            ([, listener]: Listener) => listener !== newListener,
           )
         : []
     }

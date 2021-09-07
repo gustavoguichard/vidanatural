@@ -10,7 +10,7 @@ export const getItemWidth = (itemWidth) => {
 
 const Scroller = (
   { flex, snap = 'mandatory', gap = 0, itemWidth = 'auto', children, ...props },
-  ref
+  ref,
 ) => {
   const width = getItemWidth(itemWidth)
   const count = React.Children.count(children)
@@ -21,7 +21,7 @@ const Scroller = (
       ref={ref}
       className={cx(
         'overflow-x-scroll w-full max-w-full hide-scrollbar',
-        flex ? 'flex flex-nowrap' : `grid`
+        flex ? 'flex flex-nowrap' : `grid`,
       )}
       style={{
         gridTemplateColumns,
@@ -38,7 +38,7 @@ const Scroller = (
             ...child.props.style,
             scrollSnapAlign: 'start',
           },
-        })
+        }),
       )}
     </div>
   )

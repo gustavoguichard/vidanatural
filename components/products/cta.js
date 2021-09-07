@@ -42,7 +42,7 @@ const ProductCTA = ({ product, innerRef, hideQuantity }) => {
         action="/api/cart/add-to-cart"
         className={cx(
           'flex overflow-hidden',
-          hideQuantity && 'flex-col flex-grow mr-2'
+          hideQuantity && 'flex-col flex-grow mr-2',
         )}
       >
         <input type="hidden" name="sku" value={variant.sku} />

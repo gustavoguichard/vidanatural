@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:types",
     "lint:eslint": "eslint ./",
-    "lint:prettier": "prettier --check \"{**/*.js,**/*.jsx}\"",
+    "lint:prettier": "prettier --check \"{**/*.js,**/*.jsx,**/*.ts,**/*.tsx}\"",
     "lint:types": "tsc --project tsconfig.json --noEmit",
     "test": "yarn test:unit --watch",
     "test:ci": "yarn test:unit",

@@ -20,7 +20,7 @@ const Breadcrumbs = ({
     className={cx(
       className,
       `text-gray-700 my-4 text-${size}`,
-      clip && 'truncate'
+      clip && 'truncate',
     )}
   >
     {hideHome || (

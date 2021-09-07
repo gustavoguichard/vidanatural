@@ -20,7 +20,7 @@ const Hero = ({
     className={cx(
       className,
       'relative flex flex-col items-center justify-center bg-gray-800',
-      sizes[size]
+      sizes[size],
     )}
   >
     {background && (
@@ -30,7 +30,7 @@ const Hero = ({
     )}
     <div
       className={cx(
-        'relative text-center text-white pb-10 pt-16 z-10 max-w-4xl text-shadow-lg'
+        'relative text-center text-white pb-10 pt-16 z-10 max-w-4xl text-shadow-lg',
       )}
       style={style}
     >

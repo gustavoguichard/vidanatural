@@ -7,7 +7,7 @@ const PriceTag = ({ item, big, inline, lineBreak, ...props }) => (
     className={cx(
       'text-gray-900',
       inline ? 'inline-block' : 'mb-2 mt-0',
-      big ? 'font-semibold text-2xl' : 'text-sm'
+      big ? 'font-semibold text-2xl' : 'text-sm',
     )}
     {...props}
   >

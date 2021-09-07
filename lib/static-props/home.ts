@@ -9,16 +9,21 @@ import type { ParsedProduct } from 'types/vnda'
 
 export default async () => {
   const testimonialsData = await api.cms.getByTypeAndTags('testimonial', {
-    fetch: ['name', 'picture', 'content', 'short_content'].map(
-      (field) => `testimonial.${field}`,
-    ),
+    fetch: [
+      'name',
+      'picture',
+      'content',
+      'short_content',
+      'role',
+      'location',
+    ].map((field) => `testimonial.${field}`),
   })
   const banners = await api.cms.getByTypeAndTags('home_banner', {
     orderings: '[my.home_banner.order]',
   })
   const postsResponse = await api.cms.getByTypeAndTags('blog_post', {
     orderings: '[my.blog_post.date desc]',
-    fetch: ['title', 'body', 'author', 'date'].map(
+    fetch: ['title', 'body', 'author', 'header_image', 'date'].map(
       (tag) => `blog_post.${tag}.`,
     ),
     fetchLinks: ['team_member.name', 'team_member.picture'],
