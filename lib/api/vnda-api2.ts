@@ -6,7 +6,7 @@ const fetcher = async (
   path: string,
   method = 'GET',
   body?: string | object,
-  givenHeaders?: Record<string, string>,
+  givenHeaders?: Record<string, string>
 ): Promise<API2Response> => {
   const headers = {
     Accept: 'application/json',
@@ -30,7 +30,8 @@ const fetcher = async (
       return { error: data.error, status }
     }
     return { data, status }
-  } catch (error) {
+  } catch (err) {
+    const error = err as string
     return { error, status: 500 }
   }
 }
@@ -38,7 +39,7 @@ const fetcher = async (
 const processFetch = async (
   path: string,
   method: string,
-  body?: BodyInit | null,
+  body?: BodyInit | null
 ) => {
   try {
     const response = await fetch(path, { method, body } as RequestInit)
@@ -51,7 +52,7 @@ const processFetch = async (
 const clientFetchBFFApi = async (
   path: string,
   method = 'GET',
-  rawBody?: object,
+  rawBody?: object
 ) => {
   const fullPath = `${window.location.origin}/` + utils.getAPIPath(path, true)
   const body = rawBody ? JSON.stringify(rawBody) : undefined
@@ -61,7 +62,7 @@ const clientFetchBFFApi = async (
 const serverFetchBFFApi = async (
   path: string,
   method = 'GET',
-  body?: BodyInit | null,
+  body?: BodyInit | null
 ) => {
   const fullPath = process.env.LOCAL_HOST + utils.getAPIPath(path, true)
   return processFetch(fullPath, method, body)
