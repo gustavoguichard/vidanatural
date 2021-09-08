@@ -1,0 +1,34 @@
+import staticProps from 'lib/static-props/home'
+
+import Banner from 'components/prototype/banner'
+import Blog from 'components/prototype/blog'
+import Footer from 'components/prototype/footer'
+import Incentives from 'components/prototype/incentives'
+import IntroVideo from 'components/prototype/intro-video'
+import FlashMessage from 'components/prototype/flash-message'
+import Navigation from 'components/prototype/navigation'
+import ShopConditions from 'components/prototype/shop-conditions'
+import Stats from 'components/prototype/stats'
+import Testimonial from 'components/prototype/testimonial'
+import TrendingProducts from 'components/prototype/trending-products'
+
+const Prototipo = ({ banner, testimonials, posts, products }) => {
+  return (
+    <div className="w-screen">
+      <FlashMessage />
+      <Navigation />
+      <Banner {...banner} />
+      <ShopConditions />
+      <Incentives />
+      <TrendingProducts products={products} />
+      <IntroVideo />
+      <Stats />
+      <Testimonial {...testimonials?.[0]} />
+      <Blog posts={posts} />
+      <Footer />
+    </div>
+  )
+}
+
+export const getStaticProps = staticProps
+export default Prototipo
