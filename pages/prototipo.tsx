@@ -2,7 +2,7 @@ import staticProps from 'lib/static-props/home'
 
 import Banner from 'components/prototype/banner'
 import Blog from 'components/prototype/blog'
-import Footer from 'components/prototype/footer'
+import Footer from 'components/footer'
 import Incentives from 'components/prototype/incentives'
 import IntroVideo from 'components/prototype/intro-video'
 import FlashMessage from 'components/prototype/flash-message'
@@ -22,19 +22,22 @@ type Props = {
 }
 const Prototipo = ({ banner, testimonials, posts, products }: Props) => {
   return (
-    <div className="w-screen">
-      <FlashMessage />
-      <Navigation />
-      <Banner {...banner} />
-      <ShopConditions />
-      <Incentives />
-      <TrendingProducts products={products} />
-      <IntroVideo />
-      <Stats />
-      <HomeTestimonial {...testimonials?.[0]} />
-      <Blog posts={posts} />
-      <Footer />
-    </div>
+    <>
+      <div className="w-screen">
+        <FlashMessage />
+        <Navigation />
+        <Banner {...banner} />
+        <ShopConditions />
+        <Incentives />
+        <TrendingProducts products={products} />
+        <IntroVideo />
+        <Stats />
+        <HomeTestimonial {...testimonials?.[0]} />
+        <Blog posts={posts} />
+        <Footer />
+      </div>
+      <Notifications />
+    </>
   )
 }
 
