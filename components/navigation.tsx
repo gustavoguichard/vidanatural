@@ -8,40 +8,42 @@ import {
 
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
+import useGlobal from 'lib/use-global'
+import Link from 'components/link'
 
 export const navigation = {
   categories: [
     {
       name: 'Kits',
       href: '#',
-      featured: [{ name: 'Sleep', href: '#' }],
-      collection: [{ name: 'Everything', href: '#' }],
-      categories: [{ name: 'Basic Tees', href: '#' }],
-      brands: [{ name: 'Full Nelson', href: '#' }],
+      featured: [],
+      collection: [],
+      categories: [],
+      brands: [],
     },
     {
       name: 'Desodorantes',
       href: '#',
-      featured: [{ name: 'Sleep', href: '#' }],
-      collection: [{ name: 'Everything', href: '#' }],
-      categories: [{ name: 'Basic Tees', href: '#' }],
-      brands: [{ name: 'Full Nelson', href: '#' }],
+      featured: [],
+      collection: [],
+      categories: [],
+      brands: [],
     },
     {
       name: 'Hidratantes',
       href: '#',
-      featured: [{ name: 'Casual', href: '#' }],
-      collection: [{ name: 'Everything', href: '#' }],
-      categories: [{ name: 'Artwork Tees', href: '#' }],
-      brands: [{ name: 'Significant Other', href: '#' }],
+      featured: [],
+      collection: [],
+      categories: [],
+      brands: [],
     },
     {
       name: 'Higiene',
       href: '#',
-      featured: [{ name: 'Casual', href: '#' }],
-      collection: [{ name: 'Everything', href: '#' }],
-      categories: [{ name: 'Artwork Tees', href: '#' }],
-      brands: [{ name: 'Significant Other', href: '#' }],
+      featured: [],
+      collection: [],
+      categories: [],
+      brands: [],
     },
   ],
   pages: [
@@ -52,6 +54,7 @@ export const navigation = {
 
 const Navigation = () => {
   const [open, setOpen] = useState(false)
+  const [, actions] = useGlobal()
   return (
     <div className="sticky top-0 z-30 bg-white border-b border-gray-200">
       <MobileMenu open={open} setOpen={setOpen} />
@@ -109,13 +112,13 @@ const Navigation = () => {
                   <div className="flex items-center lg:ml-8">
                     <div className="flex space-x-8">
                       <div className="hidden lg:flex">
-                        <a
-                          href="#"
+                        <button
+                          onClick={actions.openSearch}
                           className="p-2 -m-2 text-gray-400 hover:text-gray-500"
                         >
-                          <span className="sr-only">Search</span>
+                          <span className="sr-only">Buscar</span>
                           <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                        </a>
+                        </button>
                       </div>
 
                       <div className="flex">
@@ -123,7 +126,7 @@ const Navigation = () => {
                           href="#"
                           className="p-2 -m-2 text-gray-400 hover:text-gray-500"
                         >
-                          <span className="sr-only">Account</span>
+                          <span className="sr-only">Minha conta</span>
                           <UserIcon className="w-6 h-6" aria-hidden="true" />
                         </a>
                       </div>
@@ -135,7 +138,14 @@ const Navigation = () => {
                     />
 
                     <div className="flow-root">
-                      <a href="#" className="flex items-center p-2 -m-2 group">
+                      <Link
+                        href="#"
+                        onClick={(ev: React.MouseEvent) => {
+                          ev.preventDefault()
+                          actions.openCart()
+                        }}
+                        className="flex items-center p-2 -m-2 group"
+                      >
                         <ShoppingCartIcon
                           className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                           aria-hidden="true"
@@ -143,8 +153,10 @@ const Navigation = () => {
                         <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
                           0
                         </span>
-                        <span className="sr-only">items in cart, view bag</span>
-                      </a>
+                        <span className="sr-only">
+                          produtos adicionados, ver carrinho
+                        </span>
+                      </Link>
                     </div>
                   </div>
                 </div>

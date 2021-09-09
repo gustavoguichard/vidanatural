@@ -1,5 +1,5 @@
 import { VndaProduct } from 'types/vnda'
-import ProductCard from './product-card'
+import ProductCard from '../product-card'
 
 type Props = { products: VndaProduct[] }
 const TrendingProducts = ({ products }: Props) => {

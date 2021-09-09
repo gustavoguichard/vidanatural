@@ -37,19 +37,6 @@ export const useTagsMenu = () => {
   }
 }
 
-export const useInitialBanner = () => {
-  const [, { notify }] = useGlobal()
-  useTimeout(() => {
-    if (typeof notify === 'function') {
-      notify({
-        title: 'Frete grátis para todo o Brasil',
-        message: `A partir de R$ 160,00.`,
-        type: 'info',
-      })
-    }
-  }, 5000)
-}
-
 export const useCoupon = () => {
   const [, { notify, addCoupon }] = useGlobal()
   const router = useRouter()

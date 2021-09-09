@@ -6,7 +6,7 @@ import Script from 'next/script'
 
 import { initTracking, intersectionPolyfill } from 'lib/fx'
 import SEO from 'lib/next-seo.config'
-import { useCoupon, useInitialBanner } from 'lib/domain-hooks'
+import { useCoupon } from 'lib/domain-hooks'
 
 import 'styles/app.css'
 
@@ -20,7 +20,6 @@ const VidaNatural = ({ pageProps, Component }) => {
   useEffect(() => {
     router && didMount(router)
   }, [router])
-  useInitialBanner()
   useCoupon()
 
   return (

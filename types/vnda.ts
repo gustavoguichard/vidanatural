@@ -53,6 +53,7 @@ export interface ProductVariant {
   id: number
   sku: string
   name: string
+  price: number
   available: boolean
   available_quantity: number
   stock: number

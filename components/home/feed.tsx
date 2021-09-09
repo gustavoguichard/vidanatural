@@ -5,7 +5,7 @@ import type { BlogPost } from 'types/cms'
 import Link from 'components/link'
 
 type Props = { posts: BlogPost[] }
-const Blog = ({ posts }: Props) => {
+function Feed({ posts }: Props) {
   return (
     <div className="relative px-4 pt-16 pb-20 bg-gray-50 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="relative mx-auto max-w-7xl">
@@ -97,4 +97,4 @@ const Blog = ({ posts }: Props) => {
   )
 }
 
-export default Blog
+export default Feed

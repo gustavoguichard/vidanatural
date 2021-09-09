@@ -1,19 +1,22 @@
 import staticProps from 'lib/static-props/home'
 
-import Banner from 'components/prototype/banner'
-import Blog from 'components/prototype/blog'
+import Banner from 'components/banner'
+import Cart from 'components/cart'
+import Feed from 'components/home/feed'
+import FlashMessage from 'components/home/flash-message'
 import Footer from 'components/footer'
-import Incentives from 'components/prototype/incentives'
-import IntroVideo from 'components/prototype/intro-video'
-import FlashMessage from 'components/prototype/flash-message'
-import Navigation from 'components/prototype/navigation'
-import ShopConditions from 'components/prototype/shop-conditions'
-import Stats from 'components/prototype/stats'
-import HomeTestimonial from 'components/prototype/testimonial'
-import TrendingProducts from 'components/prototype/trending-products'
-import { HomeBanner, BlogPost, Testimonial } from 'types/cms'
-import { VndaProduct } from 'types/vnda'
+import HomeTestimonial from 'components/home/testimonial'
+import Incentives from 'components/home/incentives'
+import IntroVideo from 'components/home/intro-video'
+import Navigation from 'components/navigation'
 import Notifications from 'components/notifications'
+import SearchBar from 'components/header/search-bar'
+import ShopConditions from 'components/home/shop-conditions'
+import Stats from 'components/home/stats'
+import TrendingProducts from 'components/home/trending-products'
+
+import type { HomeBanner, BlogPost, Testimonial } from 'types/cms'
+import type { VndaProduct } from 'types/vnda'
 
 type Props = {
   banner: HomeBanner
@@ -24,6 +27,7 @@ type Props = {
 const Prototipo = ({ banner, testimonials, posts, products }: Props) => {
   return (
     <>
+      <SearchBar />
       <div className="w-screen">
         <FlashMessage />
         <Navigation />
@@ -34,9 +38,10 @@ const Prototipo = ({ banner, testimonials, posts, products }: Props) => {
         <IntroVideo />
         <Stats />
         <HomeTestimonial {...testimonials?.[0]} />
-        <Blog posts={posts} />
+        <Feed posts={posts} />
         <Footer />
       </div>
+      <Cart />
       <Notifications />
     </>
   )

@@ -4,7 +4,8 @@ import { XIcon } from '@heroicons/react/outline'
 
 import { navigation } from './navigation'
 
-const MobileMenu = ({ open, setOpen }) => {
+type Props = { open: boolean; setOpen: (b: boolean) => void }
+const MobileMenu = ({ open, setOpen }: Props) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog

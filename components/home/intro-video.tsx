@@ -14,7 +14,7 @@ const IntroVideo = () => {
           <p className="max-w-xl mx-auto mt-5 text-xl text-gray-500">
             Conheça um pouco da nossa missão.{' '}
             <Link
-              href="/sobre-a-vida-natural#quem-somos"
+              href="/sobre-a-vida-natural"
               className="font-medium group text-nature-500"
             >
               Saiba mais
