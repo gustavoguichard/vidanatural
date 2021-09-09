@@ -8,7 +8,7 @@ const Notifications = () => {
   return (
     <div
       aria-live="assertive"
-      className="fixed inset-0 z-50 grid justify-between grid-cols-2 grid-rows-2 px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+      className="fixed inset-0 z-50 grid justify-between grid-cols-1 grid-rows-2 gap-4 px-4 py-6 pointer-events-none sm:grid-cols-2 sm:p-6 sm:items-start"
     >
       <div className="relative flex flex-col items-start w-full h-full gap-4">
         {notifications
