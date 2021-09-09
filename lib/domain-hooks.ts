@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 import { getCategoryTags } from 'lib/domain'
-import { useTimeout } from 'lib/hooks'
 
 import type { ProductTag } from 'types/vnda'
 
