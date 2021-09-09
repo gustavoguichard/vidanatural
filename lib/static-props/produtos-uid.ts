@@ -35,6 +35,8 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
         'testimonial.picture',
         'testimonial.content',
         'testimonial.short_content',
+        'testimonial.role',
+        'testimonial.location',
       ],
     },
     [...(product?.tag_names || []), 'institucional'],

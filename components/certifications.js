@@ -12,7 +12,7 @@ const Icon = ({ path, title, size = 75 }) => (
 )
 
 const Certifications = () => (
-  <div className="w-full bg-gray-100">
+  <div className="w-full bg-gray-50">
     <div className="flex flex-wrap justify-around w-full max-w-screen-xl py-6 mx-auto">
       <Icon title="Certificados pela ANVISA" path="anvisa" size={68} />
       <Icon

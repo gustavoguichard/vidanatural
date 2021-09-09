@@ -5,7 +5,7 @@ import Cart from 'components/cart'
 import Feed from 'components/home/feed'
 import FlashMessage from 'components/home/flash-message'
 import Footer from 'components/footer'
-import HomeTestimonial from 'components/home/testimonial'
+import Testimonials from 'components/testimonials'
 import Incentives from 'components/home/incentives'
 import IntroVideo from 'components/home/intro-video'
 import Navigation from 'components/navigation'
@@ -37,7 +37,7 @@ const Prototipo = ({ banner, testimonials, posts, products }: Props) => {
         <TrendingProducts products={products} />
         <IntroVideo />
         <Stats />
-        <HomeTestimonial {...testimonials?.[0]} />
+        <Testimonials testimonials={testimonials} />
         <Feed posts={posts} />
         <Footer />
       </div>

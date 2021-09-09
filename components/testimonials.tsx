@@ -6,7 +6,9 @@ import Img from 'components/img'
 import SloganSvg from 'components/svg/slogan'
 import { Testimonial } from 'types/cms'
 
-const HomeTestimonial = ({ data }: Testimonial) => {
+type Props = { testimonials: Testimonial[] }
+const Testimonials = ({ testimonials }: Props) => {
+  const { data } = testimonials?.[0]
   return (
     <section className="py-12 overflow-hidden bg-white md:py-20 lg:py-24">
       <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -61,4 +63,4 @@ const HomeTestimonial = ({ data }: Testimonial) => {
   )
 }
 
-export default HomeTestimonial
+export default Testimonials
