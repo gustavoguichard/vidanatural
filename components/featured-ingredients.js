@@ -3,7 +3,7 @@ import InciLink from 'components/inci-link'
 import RichText from 'components/rich-text'
 
 const FeaturedIngredients = ({ ingredients }) => (
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
     {ingredients.map((ing) => (
       <div key={ing.inci_title}>
         <Img
@@ -13,7 +13,7 @@ const FeaturedIngredients = ({ ingredients }) => (
           alt={ing.title}
           src={ing.image.url}
         />
-        <div className="bg-gray-100 bg-opacity-75 py-1 relative z-10 rounded">
+        <div className="relative z-10 py-1 rounded bg-gray-100/75">
           <h4 className="text-lg font-semibold tracking-tight">{ing.title}</h4>
           <p className="text-xs">
             <InciLink {...ing} />

@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
     <span key="add">Adicionar</span>,
     <span key="price" className="flex flex-wrap items-baseline">
       {variant.price > variant.sale_price && (
-        <span className="mr-1 line-through text-xs text-gray-500">
+        <span className="mr-1 text-xs text-gray-500 line-through">
           {toCurrency(variant.price)}
         </span>
       )}
@@ -38,14 +38,14 @@ const ProductCard = ({ product }) => {
   ]
 
   return (
-    <div className="flex rounded border border-transparent hover:border-gray-200 items-start group overflow-hidden bg-gray-100 bg-opacity-50 w-full">
-      <Link className="flex h-full w-full" href={`/produto/${product.slug}`}>
-        <div className="flex flex-col flex-grow relative">
+    <div className="flex items-start w-full overflow-hidden border border-transparent rounded hover:border-gray-200 group bg-gray-100/50">
+      <Link className="flex w-full h-full" href={`/produto/${product.slug}`}>
+        <div className="relative flex flex-col flex-grow">
           <CardImage product={product} />
           <DiscountTag small product={product} />
-          <div className="flex flex-col flex-grow justify-between p-2">
+          <div className="flex flex-col justify-between flex-grow p-2">
             <div className="leading-snug">
-              <h3 className="font-semibold text-gray-800 tracking-tight mb-1">
+              <h3 className="mb-1 font-semibold tracking-tight text-gray-800">
                 {product.name}
               </h3>
               <p className="text-sm text-gray-600">{variant.name}</p>
@@ -53,10 +53,10 @@ const ProductCard = ({ product }) => {
             <button
               type="button"
               onClick={onClick}
-              className="flex flex-wrap mt-2 text-sm font-semibold justify-between p-3 border hover:border-gray-500 transition duration-500 bg-white rounded"
+              className="flex flex-wrap justify-between p-3 mt-2 text-sm font-semibold transition duration-500 bg-white border rounded hover:border-gray-500"
             >
               {adding ? (
-                <Spinner className="text-gray-800 m-auto" />
+                <Spinner className="m-auto text-gray-800" />
               ) : product.inStock ? (
                 priceTag
               ) : (

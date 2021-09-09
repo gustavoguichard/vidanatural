@@ -3,7 +3,8 @@ import get from 'lodash/get'
 import { getExcerpt } from 'lib/domain'
 import parseMember from './team-member'
 
-import type { BlogPost, PostBody } from 'types/cms'
+import type { BlogPost } from 'types/cms'
+import type { RichTextBlock } from 'prismic-reactjs'
 
 function parseBlogPost(post: BlogPost) {
   const { uid, first_publication_date, data } = post
@@ -21,7 +22,7 @@ function parseBlogPost(post: BlogPost) {
     permalink,
     author,
     date: date || first_publication_date,
-    excerpt: getExcerpt(body as PostBody[]),
+    excerpt: getExcerpt(body as RichTextBlock[]),
   }
 }
 

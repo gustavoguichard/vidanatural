@@ -6,10 +6,10 @@ import uniqBy from 'lodash/uniqBy'
 
 import { getReadTime, toCurrency } from 'lib/utils'
 
-import type { PostBody } from 'types/cms'
 import type { ParsedProduct, ProductTag, VndaProduct } from 'types/vnda'
+import { RichTextBlock } from 'prismic-reactjs'
 
-export const timeSince = (date: number) => {
+export const timeSince = (date: Date) => {
   const now = new Date()
   const then = new Date(date)
   const seconds = Math.floor((now.getTime() - then.getTime()) / 1000)
@@ -46,18 +46,18 @@ export const timeSince = (date: number) => {
   return `${total} ${total > 1 ? plural || label + 's' : label}`
 }
 
-export const calculatePostReadTime = (body: PostBody[]) => {
+export const calculatePostReadTime = (body: RichTextBlock[]) => {
   const paragraphs = body.filter((b) => b.type === 'paragraph')
   const text = map(paragraphs, 'text').join(' ')
   return `${getReadTime(text)} min`
 }
 
-export const getExcerpt = (body: PostBody[], length = 200) => {
+export const getExcerpt = (body: RichTextBlock[], length = 200) => {
   const paragraph = body.find((b) => b.type === 'paragraph') || { text: '' }
   return truncate(paragraph.text, { length })
 }
 
-export const isEmptyBody = (body?: PostBody[]) => {
+export const isEmptyBody = (body?: RichTextBlock[]) => {
   return !body || getExcerpt(body) === ''
 }
 

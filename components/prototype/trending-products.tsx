@@ -1,6 +1,8 @@
+import { VndaProduct } from 'types/vnda'
 import ProductCard from './product-card'
 
-const TrendingProducts = ({ products }) => {
+type Props = { products: VndaProduct[] }
+const TrendingProducts = ({ products }: Props) => {
   return (
     <div className="bg-white">
       <div className="max-w-2xl px-4 py-16 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">

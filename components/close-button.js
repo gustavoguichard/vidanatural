@@ -5,7 +5,7 @@ const CloseButton = ({ className, size = 5, onClick }) => (
     type="button"
     className={cx(
       className,
-      'flex p-2 rounded-md hover:bg-gray-400 hover:bg-opacity-25 focus:outline-none focus:ring focus:bg-gray-400 focus:bg-opacity-25 transition duration-150',
+      'flex p-2 rounded-md hover:bg-gray-400/25 focus:outline-none focus:ring focus:bg-gray-400/25 transition duration-150',
     )}
     aria-label="Dismiss"
     onClick={onClick}

@@ -38,7 +38,7 @@ const NewsForm = () => {
     </p>
   ) : (
     <form name="Newsletter" onSubmit={handleSubmit} action="/webform">
-      <h4 className="mb-1 uppercase tracking-wide font-semibold">
+      <h4 className="mb-1 font-semibold tracking-wide uppercase">
         Quer descontos exclusivos?
       </h4>
       <p>Assine nossa newsletter e receba ofertas no seu e-mail</p>
@@ -58,9 +58,9 @@ const NewsForm = () => {
                 type="submit"
                 onClick={handleSubmit}
                 aria-label="Enviar"
-                className="hover:bg-opacity-25 hover:bg-gray-500 rounded-full p-2 flex"
+                className="flex p-2 rounded-full hover:bg-gray-500/25"
               >
-                <FiSend className="text-teal-700 w-6 h-6" />
+                <FiSend className="w-6 h-6 text-teal-700" />
               </button>
             )
           }

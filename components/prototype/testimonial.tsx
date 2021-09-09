@@ -4,8 +4,9 @@ import { isEmptyBody } from 'lib/domain'
 
 import Img from 'components/img'
 import SloganSvg from 'components/svg/slogan'
+import { Testimonial } from 'types/cms'
 
-const Testimonial = ({ data, uid }) => {
+const HomeTestimonial = ({ data }: Testimonial) => {
   return (
     <section className="py-12 overflow-hidden bg-gray-50 md:py-20 lg:py-24">
       <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -60,4 +61,4 @@ const Testimonial = ({ data, uid }) => {
   )
 }
 
-export default Testimonial
+export default HomeTestimonial

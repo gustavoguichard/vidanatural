@@ -1,10 +1,21 @@
-import React from 'react'
-import Image from 'next/image'
+import React, { CSSProperties } from 'react'
+import Image, { ImageProps } from 'next/image'
 
 import { cx } from 'lib/utils'
 
-const Img = ({ src, style, className, width, height, alt = '', ...props }) => {
+type Props = ImageProps & { style?: CSSProperties }
+const Img = ({
+  src,
+  style,
+  className,
+  width,
+  height,
+  alt = '',
+  ...props
+}: Props) => {
   const isFill = !(width && height)
+  const safeSrc =
+    typeof src === 'string' && src.replace(/^(\/\/.+)/, 'https:$1')
 
   return (
     <div style={style} className={cx('relative overflow-hidden', className)}>
@@ -15,7 +26,7 @@ const Img = ({ src, style, className, width, height, alt = '', ...props }) => {
         {...props}
         width={width}
         height={height}
-        src={src.replace(/^(\/\/.+)/, 'https:$1')}
+        src={safeSrc || src}
       />
     </div>
   )

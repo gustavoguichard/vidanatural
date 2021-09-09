@@ -42,14 +42,14 @@ const Message = ({ notification }) => {
           isBig ? 3 : 1
         } px-3 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap`}
       >
-        <div className="w-0 flex-1 flex items-center">
+        <div className="flex items-center flex-1 w-0">
           {notification.hideIcon || (
-            <span className="flex p-2 rounded-lg bg-gray-300 bg-opacity-25">
+            <span className="flex p-2 rounded-lg bg-gray-300/25">
               {type === 'alert' && <AlertIcon isBig={isBig} />}
               {type === 'info' && <InfoIcon isBig={isBig} />}
             </span>
           )}
-          <p className="ml-3 flex flex-grow font-medium">
+          <p className="flex flex-grow ml-3 font-medium">
             {htmlMessage ? (
               <span
                 className="flex flex-grow"
@@ -60,7 +60,7 @@ const Message = ({ notification }) => {
             )}
           </p>
         </div>
-        <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+        <div className="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
           <CloseButton onClick={toggleVisibility} className="-mr-1 sm:-mr-2" />
         </div>
       </div>

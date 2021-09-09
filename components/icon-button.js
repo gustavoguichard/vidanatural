@@ -16,7 +16,7 @@ const IconButton = (
     <button
       ref={ref}
       className={cx(
-        `text-inherit hover:bg-opacity-25 rounded-full inline-flex p-3 hover:bg-gray-400 transition duration-300`,
+        `text-inherit rounded-full inline-flex p-3 hover:bg-gray-400/25 transition duration-300`,
         className,
       )}
       type="button"

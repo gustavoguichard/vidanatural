@@ -5,7 +5,7 @@ import Transition from 'components/transition'
 const Drawer = ({ children, className, anchor = 'left', open, onClose }) => (
   <Transition
     onClick={onClose}
-    className="z-50 fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm"
+    className="fixed inset-0 z-50 bg-black/10 backdrop-blur-sm"
     enter="transition-all duration-200 ease-in"
     leave="delay-200 transition-all duration-200 ease-in"
     hidden="opacity-0"

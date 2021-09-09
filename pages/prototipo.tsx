@@ -9,10 +9,18 @@ import FlashMessage from 'components/prototype/flash-message'
 import Navigation from 'components/prototype/navigation'
 import ShopConditions from 'components/prototype/shop-conditions'
 import Stats from 'components/prototype/stats'
-import Testimonial from 'components/prototype/testimonial'
+import HomeTestimonial from 'components/prototype/testimonial'
 import TrendingProducts from 'components/prototype/trending-products'
+import { HomeBanner, BlogPost, Testimonial } from 'types/cms'
+import { VndaProduct } from 'types/vnda'
 
-const Prototipo = ({ banner, testimonials, posts, products }) => {
+type Props = {
+  banner: HomeBanner
+  testimonials: Testimonial[]
+  posts: BlogPost[]
+  products: VndaProduct[]
+}
+const Prototipo = ({ banner, testimonials, posts, products }: Props) => {
   return (
     <div className="w-screen">
       <FlashMessage />
@@ -23,7 +31,7 @@ const Prototipo = ({ banner, testimonials, posts, products }) => {
       <TrendingProducts products={products} />
       <IntroVideo />
       <Stats />
-      <Testimonial {...testimonials?.[0]} />
+      <HomeTestimonial {...testimonials?.[0]} />
       <Blog posts={posts} />
       <Footer />
     </div>

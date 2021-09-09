@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 const incentives = [
   {
     name: 'Enviamos para todo Brasil',
@@ -32,6 +31,7 @@ const Incentives = () => {
             {incentives.map((incentive) => (
               <div key={incentive.name} className="sm:flex lg:block">
                 <div className="sm:flex-shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     className="w-16 h-16 mx-auto"
                     src={incentive.imageSrc}

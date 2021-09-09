@@ -12,7 +12,7 @@ const SubMenu = ({ name, active, links }) => {
     <div className="relative inline-block text-left">
       <button
         type="button"
-        className={`rounded p-3 text-sm uppercase hover:bg-gray-400 hover:bg-opacity-25 ${
+        className={`rounded p-3 text-sm uppercase hover:bg-gray-400/25 ${
           active ? 'text-teal-600' : 'inherit'
         }`}
         aria-label={name}
@@ -48,7 +48,7 @@ const DesktopMenu = ({ tags }) => {
           <SubMenu active={active} key={item.name} {...item} />
         ) : (
           <Link
-            className={`rounded p-3 text-sm uppercase hover:bg-gray-400 hover:bg-opacity-25  ${
+            className={`rounded p-3 text-sm uppercase hover:bg-gray-400/25  ${
               active ? 'text-teal-600' : 'inherit'
             }`}
             key={item.name}

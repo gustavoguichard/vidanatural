@@ -15,12 +15,9 @@ function Dropdown({ children, open, onClose, className, ...props }) {
       hidden="scale-y-50 scale-x-50 opacity-0"
       shown="opacity-100 scale-y-1 scale-x-1"
       show={open}
-      className="origin-top-right z-10 absolute right-0 mt-2 w-72 sm:w-auto sm:min-w-max rounded-md shadow-lg"
+      className="absolute right-0 z-10 mt-2 origin-top-right rounded-md shadow-lg w-72 sm:w-auto sm:min-w-max"
     >
-      <div
-        ref={ref}
-        className="rounded-md bg-white ring-1 ring-black ring-opacity-5"
-      >
+      <div ref={ref} className="bg-white rounded-md ring-1 ring-black/5">
         <div
           className={cx('py-1', className)}
           role="menu"

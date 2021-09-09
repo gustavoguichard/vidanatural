@@ -1,3 +1,5 @@
+import { SVGProps } from 'react'
+
 const navigation = {
   products: [
     { name: 'Kits', href: '#' },
@@ -25,7 +27,7 @@ const navigation = {
     {
       name: 'Facebook',
       href: '#',
-      icon: (props) => (
+      icon: (props: SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -38,7 +40,7 @@ const navigation = {
     {
       name: 'Instagram',
       href: '#',
-      icon: (props) => (
+      icon: (props: SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"

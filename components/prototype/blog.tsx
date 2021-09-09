@@ -1,7 +1,12 @@
 import { getExcerpt, timeSince, calculatePostReadTime } from 'lib/domain'
 import Img from 'components/img'
 
-const Blog = ({ posts }) => {
+import type { BlogPost } from 'types/cms'
+import Link from 'components/link'
+
+type Props = { posts: BlogPost[] }
+const Blog = ({ posts }: Props) => {
+  console.log({ posts })
   return (
     <div className="relative px-4 pt-16 pb-20 bg-gray-50 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="absolute inset-0">
@@ -33,45 +38,52 @@ const Blog = ({ posts }) => {
                 <div className="flex flex-col justify-between flex-1 p-6 bg-white">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-nature-600">
-                      <a href={post.category?.href} className="hover:underline">
-                        {post.category?.name}
-                      </a>
+                      <Link
+                        href={`/tag/${post.tags[0]}`}
+                        className="hover:underline"
+                      >
+                        {post.tags[0]}
+                      </Link>
                     </p>
-                    <a href={`/blog/${post.uid}`} className="block mt-2">
+                    <Link href={`/blog/${post.uid}`} className="block mt-2">
                       <p className="text-xl font-semibold text-gray-900">
                         {post.data.title}
                       </p>
                       <p className="mt-3 text-base text-gray-500">
                         {getExcerpt(post.data.body)}
                       </p>
-                    </a>
+                    </Link>
                   </div>
                   <div className="flex items-center mt-6">
                     <div className="flex-shrink-0">
-                      <a className="block" href={post.author?.permalink}>
+                      <Link className="block" href={post.author?.permalink}>
                         <span className="sr-only">
                           {post.author?.data?.name}
                         </span>
-                        <Img
-                          className="w-10 h-10 rounded-full"
-                          src={post.author?.thumbUrl}
-                          alt={post.author?.imageAlt}
-                        />
-                      </a>
+                        {post.author?.thumbUrl && (
+                          <Img
+                            className="w-10 h-10 rounded-full"
+                            src={post.author.thumbUrl}
+                            alt={post.author.imageAlt}
+                          />
+                        )}
+                      </Link>
                     </div>
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-900">
-                        <a
+                        <Link
                           href={post.author?.permalink}
                           className="hover:underline"
                         >
-                          {post.author.data?.name}
-                        </a>
+                          {post.author?.data?.name}
+                        </Link>
                       </p>
                       <div className="flex space-x-1 text-sm text-gray-500">
-                        <time dateTime={post.datetime}>
-                          há {timeSince(post.date)}
-                        </time>
+                        {post.date && (
+                          <time dateTime={post.date.toString()}>
+                            há {timeSince(post.date)}
+                          </time>
+                        )}
                         <span aria-hidden="true">&middot;</span>
                         <span>
                           {calculatePostReadTime(post.data.body)} de leitura
