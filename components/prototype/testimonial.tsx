@@ -8,7 +8,7 @@ import { Testimonial } from 'types/cms'
 
 const HomeTestimonial = ({ data }: Testimonial) => {
   return (
-    <section className="py-12 overflow-hidden bg-gray-50 md:py-20 lg:py-24">
+    <section className="py-12 overflow-hidden bg-white md:py-20 lg:py-24">
       <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative">
           <SloganSvg className="h-12 mx-auto" />
