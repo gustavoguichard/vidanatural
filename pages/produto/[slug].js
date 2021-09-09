@@ -30,7 +30,6 @@ const ProductPage = ({
   useEffect(() => {
     if (product.slug.includes('desodorante'))
       notify({
-        type: 'alert',
         title: 'O melhor desodorante que você conhecerá!',
         message: 'Sério mesmo, da uma olhada nos depoimentos mais abaixo! 😍',
         position: 'top-right',
