@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn tw --minify && next build",
-    "prebuild": "ts-node ./scripts/generate-sitemap.js",
+    "postbuild": "ts-node ./scripts/generate-sitemap.js",
     "start": "next start",
     "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:types",
     "lint:eslint": "eslint ./",

@@ -7,7 +7,7 @@ const app = next({ dev })
 
 app.prepare().then(async () => {
   await generate()
-  process.exit(1)
+  process.exit(0)
 })
 
 global.fetch = require('node-fetch')
