@@ -40,8 +40,7 @@
     "react-icons": "4.2.0",
     "react-intersection-observer": "8.32.1",
     "react-use-form-state": "0.13.2",
-    "rss": "1.2.2",
-    "sitemap": "7.0.0"
+    "rss": "1.2.2"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",
@@ -66,6 +65,7 @@
     "postcss-loader": "^6.1.1",
     "prettier": "2.3.2",
     "public-ip": "4.0.4",
+    "sitemap": "7.0.0",
     "tailwindcss": "2.2.14",
     "ts-jest": "27.0.5",
     "ts-node": "^10.2.1",

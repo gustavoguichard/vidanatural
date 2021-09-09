@@ -1,5 +1,5 @@
 import { writeFileSync } from 'fs'
-import prettier from 'prettier'
+import { SitemapStream, streamToPromise } from 'sitemap'
 const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -29,130 +29,103 @@ const pages = {
   'termos-e-condicoes': ['monthly', 0.3],
 }
 
-function endpoint({ path, changefreq = 'daily', priority = '0.8', image }) {
-  return `<url>
-  <loc>${path}</loc>
-  <changefreq>${changefreq}</changefreq>
-  <priority>${priority}</priority>
-  ${
-    image
-      ? `<image:image>
-          <image:loc>${image}</image:loc>
-        </image:image>`
-      : ''
-  }
-</url>
-`
-}
-
 async function generate() {
-  const prettierConfig = await prettier.resolveConfig(
-    __dirname + '/../.prettierrc',
-  )
-  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${endpoint({
-    path: 'https://www.vidanatural.eco.br/',
+  const smStream = new SitemapStream({
+    hostname: `https://${process.env.NEXT_PUBLIC_API_DOMAIN}/`,
+    cacheTime: 600000,
+  })
+  smStream.write({
+    url: `/`,
     changefreq: 'daily',
-    priority: '1.0',
-  })}`
+    priority: 1.0,
+  })
 
   try {
     const productsResponse = await api.vnda.fetchFromAPI('products')
-    sitemap += productsResponse.data
-      .map((product) =>
-        endpoint({
-          path: product.url,
-          changefreq: 'daily',
-          priority: '0.8',
-          image: product.image_url.replace(/^(\/\/.+)/, 'https:$1'),
-        }),
-      )
-      .join('')
+    productsResponse.data.forEach((product) => {
+      smStream.write({
+        url: product.url,
+        changefreq: 'daily',
+        priority: 0.8,
+        img: {
+          url: product.image_url,
+        },
+      })
+    })
 
-    sitemap += Object.entries(pages)
-      .map(([slug, [freq, pri]]) =>
-        endpoint({
-          path: `https://www.vidanatural.eco.br/${slug}`,
-          changefreq: freq ?? 'daily',
-          priority: pri ?? '0.6',
-        }),
-      )
-      .join('')
+    Object.entries(pages).forEach(([slug, [freq, priority]]) => {
+      smStream.write({
+        url: `/${slug}`,
+        changefreq: freq || 'weekly',
+        priority: priority || 0.6,
+      })
+    })
 
     const posts = await api.cms.getByTypeAndTags('blog_post', {
       fetch: ['blog_post.uid', 'blog_post.header_image'],
     })
-    sitemap += posts
-      .map((item) =>
-        endpoint({
-          path: `https://www.vidanatural.eco.br/blog/${item.uid}`,
-          changefreq: 'weekly',
-          priority: '0.8',
-          image: item.data?.header_image?.thumb?.url,
-        }),
-      )
-      .join('')
+    posts.forEach((item) => {
+      smStream.write({
+        ...(item.data?.header_image?.thumb?.url
+          ? {
+              img: {
+                url: item.data?.header_image?.thumb?.url,
+              },
+            }
+          : null),
+        url: `/blog/${item.uid}`,
+        changefreq: 'daily',
+        priority: 0.8,
+      })
+    })
 
     const testimonials = await api.cms.getByTypeAndTags('testimonial', {
       fetch: ['testimonial.picture', 'testimonial.uid'],
     })
-    sitemap += testimonials
-      .map((item) =>
-        endpoint({
-          path: `https://www.vidanatural.eco.br/eu-uso/${item.uid}`,
-          changefreq: 'monthly',
-          priority: '0.5',
-          image: item.data?.picture?.url,
-        }),
-      )
-      .join('')
+    testimonials.forEach((item) => {
+      smStream.write({
+        url: `/eu-uso/${item.uid}`,
+        changefreq: 'monthly',
+        priority: 0.5,
+        img: {
+          url: item.data?.picture?.url,
+        },
+      })
+    })
 
     const faqItems = await api.cms.getByTypeAndTags('faq_item', {
       fetch: 'faq_item.uid',
     })
-    sitemap += faqItems
-      .map((item) =>
-        endpoint({
-          path: `https://www.vidanatural.eco.br/faq/${item.uid}`,
-          changefreq: 'weekly',
-          priority: '0.4',
-        }),
-      )
-      .join('')
+    faqItems.forEach((item) => {
+      smStream.write({
+        url: `/faq/${item.uid}`,
+        changefreq: 'weekly',
+        priority: 0.4,
+      })
+    })
 
     const members = await api.cms.getByTypeAndTags('team_member', {
       fetch: ['team_member.picture', 'team_member.uid'],
     })
-    sitemap += members
-      .map((item) =>
-        endpoint({
-          path: `https://www.vidanatural.eco.br/equipe/${item.uid}`,
-          changefreq: 'monthly',
-          priority: '0.3',
-          image: item.data?.picture?.url,
-        }),
-      )
-      .join('')
-
-    sitemap += members
-      .map((item) =>
-        endpoint({
-          path: `https://www.vidanatural.eco.br/equipe/${item.uid}`,
-          changefreq: 'monthly',
-          priority: '0.3',
-          image: item.data?.picture?.url,
-        }),
-      )
-      .join('')
+    members.forEach((item) => {
+      smStream.write({
+        url: `/equipe/${item.uid}`,
+        changefreq: 'monthly',
+        priority: 0.3,
+        img: {
+          url: item.data?.picture?.url,
+        },
+      })
+    })
   } catch (err) {
     console.error(err)
   } finally {
-    sitemap += '</urlset>'
-    const formatted = prettier.format(sitemap, {
-      ...prettierConfig,
-      parser: 'html',
-    })
-    return writeFileSync(__dirname + '/../public/sitemap.xml', formatted)
+    smStream.end()
+    return writeFile(smStream)
   }
+}
+
+async function writeFile(stream) {
+  const xml = (await streamToPromise(stream)).toString()
+  return writeFileSync(__dirname + '/../public/sitemap.xml', xml)
 }
