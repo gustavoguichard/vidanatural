@@ -1,11 +1,11 @@
 import uniqBy from 'lodash/uniqBy'
-import createStore from 'lib/create-store'
+import createStore, { Store } from 'lib/create-store'
 
 import api from 'lib/api'
 import { initialState } from 'lib/constants'
 
-import type { Store } from 'types/global-state'
 import type { Cart } from 'types/vnda'
+import type { Notification } from 'types/global-state'
 
 const updateCart = (store: Store, cart: Cart) => {
   if (cart.id) {
@@ -102,7 +102,7 @@ export default createStore(
     subscribe: (store: Store) => {
       store.setState({ subscribed: true })
     },
-    notify: (store: Store, notification: Notification) => {
+    notify: (store: Store, notification: Partial<Notification>) => {
       store.setState({
         notifications: uniqBy(
           [
@@ -127,11 +127,3 @@ export default createStore(
   },
   initialState,
 )
-
-interface Notification {
-  id: number
-  message?: string
-  htmlMessage?: string
-  persist?: boolean
-  type: 'alert' | 'info'
-}

@@ -13,6 +13,7 @@ import HomeTestimonial from 'components/prototype/testimonial'
 import TrendingProducts from 'components/prototype/trending-products'
 import { HomeBanner, BlogPost, Testimonial } from 'types/cms'
 import { VndaProduct } from 'types/vnda'
+import Notifications from 'components/notifications'
 
 type Props = {
   banner: HomeBanner

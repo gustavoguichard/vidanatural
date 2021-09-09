@@ -42,10 +42,9 @@ export const useInitialBanner = () => {
   useTimeout(() => {
     if (typeof notify === 'function') {
       notify({
-        htmlMessage: `<span class="text-center w-full">Frete grátis para todo o Brasil a partir de R$ 160,00.</span>`,
-        type: 'black',
-        center: true,
-        hideIcon: true,
+        title: 'Frete grátis para todo o Brasil',
+        message: `A partir de R$ 160,00.`,
+        type: 'info',
       })
     }
   }, 5000)
@@ -58,9 +57,10 @@ export const useCoupon = () => {
     if (router.query.ccc && typeof notify === 'function') {
       notify({
         id: 10,
-        htmlMessage: `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</span>`,
-        big: true,
-        type: 'alert',
+        title: 'Cupom aceito!',
+        htmlMessage: `<p>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</p>`,
+        type: 'success',
+        persist: true,
       })
       typeof addCoupon === 'function' && addCoupon(router.query.ccc as string)
     }

@@ -1,21 +1,24 @@
-export interface GlobalState {
-  [key: string]: any
+type VPos = 'top' | 'bottom'
+type HPos = 'left' | 'right'
+type Notification = {
+  id: string | number
+  type: 'info' | 'alert' | 'error' | 'success'
+  persist?: boolean
+  title?: string
+  message?: string
+  htmlMessage?: string
+  position?: `${VPos}-${HPos}`
 }
 
-export interface Action {
-  (...args: any[]): any
+type State = {
+  cart: any[]
+  showCart: boolean
+  updatingCard: boolean
+  subscribed: boolean
+  freeShippingPrice: number
+  updatingCart: boolean
+  searchOpen: boolean
+  notifications: Notification[]
 }
 
-export interface Actions {
-  [key: string]: Action | Actions
-}
-
-export type Listener = [string | undefined, React.Dispatch<any>]
-
-export interface Store {
-  setState: Function
-  setGlobalState?: Function
-  actions?: Actions
-  state: GlobalState
-  listeners?: Listener[]
-}
+export type { Notification, State }

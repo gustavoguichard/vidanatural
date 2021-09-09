@@ -106,7 +106,7 @@ export const useScrollDirection = (threeshold = 15, delay = 300) => {
   return direction
 }
 
-export const useToggle = (initial = false) => {
+export const useToggle = (initial = false): [boolean, () => void] => {
   const [value, setValue] = useState(initial)
   const toggler = () => setValue(!value)
   return [value, toggler]
