@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn tw --minify && next build",
+    "postbuild": "ts-node ./scripts/generate-sitemap.js",
     "start": "next start",
     "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:types",
     "lint:eslint": "eslint ./",
@@ -54,6 +55,7 @@
     "@types/react": "^17.0.20",
     "@types/react-gtm-module": "2.0.1",
     "babel-jest": "27.1.1",
+    "dotenv": "^10.0.0",
     "eslint": "7.32.0",
     "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "^8.3.0",
@@ -66,6 +68,7 @@
     "public-ip": "4.0.4",
     "tailwindcss": "2.2.14",
     "ts-jest": "27.0.5",
+    "ts-node": "^10.2.1",
     "typescript": "4.4.2",
     "webp-loader": "0.6.0"
   }

@@ -1,5 +1,5 @@
-import vnda from 'lib/api/vnda-api2'
-import utils from 'lib/api/vnda-utils'
+import vnda from './vnda-api2'
+import utils from './vnda-utils'
 
 const getCartToken = async () => {
   const token = utils.getLocalToken()

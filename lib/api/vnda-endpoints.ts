@@ -1,11 +1,11 @@
 import flatMap from 'lodash/flatMap'
 import values from 'lodash/values'
 
-import utils from 'lib/api/vnda-utils'
-import vnda from 'lib/api/vnda-api2'
-import parseProduct from 'lib/parsers/product'
+import utils from './vnda-utils'
+import vnda from './vnda-api2'
+import parseProduct from '../parsers/product'
 
-import type { FormKeys, VndaProduct, ParsedProduct } from 'types/vnda'
+import type { FormKeys, VndaProduct, ParsedProduct } from '../../types/vnda'
 
 const doRequest = async (url: string, method = 'GET') => {
   const requestParams = { headers: { Accept: 'application/json' }, method }

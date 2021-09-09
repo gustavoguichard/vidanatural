@@ -1,6 +1,6 @@
-import utils from 'lib/api/vnda-utils'
+import utils from './vnda-utils'
 
-import type { API2Response } from 'types/vnda'
+import type { API2Response } from '../../types/vnda'
 
 const fetcher = async (
   path: string,

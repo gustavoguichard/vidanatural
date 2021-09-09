@@ -1,7 +1,7 @@
-import vnda from 'lib/api/vnda-api2'
-import endpoints from 'lib/api/vnda-endpoints'
-import cart from 'lib/api/vnda-cart'
-import utils from 'lib/api/vnda-utils'
+import vnda from './vnda-api2'
+import endpoints from './vnda-endpoints'
+import cart from './vnda-cart'
+import utils from './vnda-utils'
 
 const vndaApi = {
   cart,

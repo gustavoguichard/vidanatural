@@ -1,7 +1,7 @@
 import Prismic from 'prismic-javascript'
 import get from 'lodash/get'
 
-import type { DocumentType, QueryOptions } from 'types/cms'
+import type { DocumentType, QueryOptions } from '../../types/cms'
 
 export const apiEndpoint = process.env.PRISMIC_API ?? ''
 export const accessToken = process.env.PRISMIC_TOKEN ?? ''
