@@ -19,8 +19,8 @@ const Drawer = ({ children, className, anchor = 'left', open, onClose }) => (
         'text-gray-900 bg-white shadow-lg absolute top-0 bottom-0 overflow-y-auto overscroll-contain',
         anchor === 'right' ? 'right-0' : 'left-0',
       )}
-      enter="delay-200 transition-all duration-200 ease-out transform"
-      leave="transition-all duration-200 ease-in transform"
+      enter="delay-200 transition-all duration-200 ease-out"
+      leave="transition-all duration-200 ease-in"
       hidden={cx(anchor === 'right' ? 'translate-x-full' : '-translate-x-full')}
       shown="translate-x-0"
     >

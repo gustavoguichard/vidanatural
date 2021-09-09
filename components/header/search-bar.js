@@ -43,8 +43,8 @@ const SearchBar = () => {
     >
       <Transition.Child
         className="relative flex flex-col max-h-screen overflow-hidden overflow-y-auto rounded-b-lg shadow-lg"
-        enter="delay-200 transition-all ease-in-out duration-100 transform"
-        leave="transition-all ease-in-out duration-100 transform"
+        enter="delay-200 transition-all ease-in-out duration-100"
+        leave="transition-all ease-in-out duration-100"
         hidden="-translate-y-full"
         shown="translate-y-0"
         afterEnter={() => field.current.focus()}

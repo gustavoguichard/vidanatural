@@ -20,15 +20,15 @@ const Pannel = ({ onClick, className, children, title }) => {
     >
       <div
         onClick={handleClick}
-        className="flex p-4 justify-between cursor-pointer"
+        className="flex justify-between p-4 cursor-pointer"
       >
-        <span className="font-semibold text-gray-600 tracking-tight">
+        <span className="font-semibold tracking-tight text-gray-600">
           {title}
         </span>
         <FiChevronDown
           className={cx(
             'transition duration-200 text-xl text-gray-400',
-            open && 'transform rotate-180',
+            open && 'rotate-180',
           )}
         />
       </div>

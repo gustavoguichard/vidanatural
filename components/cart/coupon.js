@@ -26,9 +26,9 @@ const CartCoupon = ({ actions, cart, items }) => {
   }
 
   return items.length ? (
-    <div className="bg-gray-50 mt-2 p-4 text-sm flex flex-col">
+    <div className="flex flex-col p-4 mt-2 text-sm bg-gray-50">
       {cart.coupon_code && !editing && (
-        <p className="flex justify-between items-baseline">
+        <p className="flex items-baseline justify-between">
           <span>
             Cupom: <strong>{cart.coupon_code}</strong>
           </span>
@@ -52,7 +52,7 @@ const CartCoupon = ({ actions, cart, items }) => {
               </CTAButton>
             }
             label="Cupom"
-            wrapperClasses="transform translate-y-2"
+            wrapperClasses="translate-y-2"
             bg="gray-50"
             {...text('coupon')}
             error={error}

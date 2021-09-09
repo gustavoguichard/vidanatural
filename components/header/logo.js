@@ -17,7 +17,7 @@ const Logo = ({ sticky }) => (
     />
     <LogoSvg
       className={cx(
-        'transform w-20 transition-transform',
+        'w-20 transition-transform',
         sticky
           ? 'm-2 duration-100 scale-50 opacity-0 invisible absolute pointer-events-none'
           : 'm-4 duration-500 scale-100 opacity-100',

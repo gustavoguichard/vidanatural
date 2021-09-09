@@ -37,7 +37,7 @@ const Layout = ({
     <Footer variant={footerVariant} />
     <BottomCTA>
       <Chat
-        className={`bottom-0 absolute right-0 transform -translate-x-2 -translate-y-2 md:flex ${
+        className={`bottom-0 absolute right-0 -translate-x-2 -translate-y-2 md:flex ${
           hideChat ? 'hidden' : ''
         }`}
       />

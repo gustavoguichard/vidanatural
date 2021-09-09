@@ -2,14 +2,14 @@ import CTAButton from 'components/cta-button'
 import Img from 'components/img'
 
 const About = () => (
-  <div className="bg-white py-12 sm:p-0">
+  <div className="py-12 bg-white sm:p-0">
     <div className="max-w-screen-xl m-auto sm:p-24">
-      <div className="bg-gray-100 flex-col md:flex-row flex justify-center items-stretch">
-        <div className="h-64 md:h-auto relative md:w-6/12 transform lg:-translate-x-16  lg:-translate-y-16">
-          <Img className="inset-0 absolute" src="/static/images/afro.jpg" />
+      <div className="flex flex-col items-stretch justify-center bg-gray-100 md:flex-row">
+        <div className="relative h-64 md:h-auto md:w-6/12 lg:-translate-x-16 lg:-translate-y-16">
+          <Img className="absolute inset-0" src="/static/images/afro.jpg" />
         </div>
-        <div className="m-10 s:m-16 lg:mb-0 md:w-6/12 transform lg:-translate-x-8">
-          <h3 className="text-3xl tracking-tight font-semibold mb-4">
+        <div className="m-10 s:m-16 lg:mb-0 md:w-6/12 lg:-translate-x-8">
+          <h3 className="mb-4 text-3xl font-semibold tracking-tight">
             Uma ideia, um movimento
           </h3>
           <div className="text-gray-700">
@@ -28,12 +28,12 @@ const About = () => (
           </div>
         </div>
       </div>
-      <div className="bg-gray-100 flex-col md:flex-row flex justify-center items-stretch">
-        <div className="h-64 md:h-auto md:w-6/12 order-first md:order-1 transform lg:translate-x-16 relative lg:translate-y-16">
-          <Img className="inset-0 absolute" src="/static/images/folhas.jpg" />
+      <div className="flex flex-col items-stretch justify-center bg-gray-100 md:flex-row">
+        <div className="relative order-first h-64 md:h-auto md:w-6/12 md:order-1 lg:translate-x-16 lg:translate-y-16">
+          <Img className="absolute inset-0" src="/static/images/folhas.jpg" />
         </div>
-        <div className="m-10 s:m-16 md:w-6/12 transform lg:translate-x-8">
-          <h3 className="text-3xl tracking-tight font-semibold mb-4">
+        <div className="m-10 s:m-16 md:w-6/12 lg:translate-x-8">
+          <h3 className="mb-4 text-3xl font-semibold tracking-tight">
             Produtos de alta qualidade
           </h3>
           <div className="text-gray-700">

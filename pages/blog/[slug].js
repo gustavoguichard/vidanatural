@@ -29,11 +29,11 @@ const SinglePostPage = ({
       hero={
         hasFeatured && (
           <Hero
-            bgClass="filter brightness-[0.4]"
+            bgClass="brightness-[0.4]"
             size="medium"
             background={featuredUrl}
           >
-            <h2 className="text-4xl sm:text-5xl px-6 font-bold tracking-tight">
+            <h2 className="px-6 text-4xl font-bold tracking-tight sm:text-5xl">
               {data.title}
             </h2>
           </Hero>
@@ -41,14 +41,14 @@ const SinglePostPage = ({
       }
     >
       {hasFeatured ? null : (
-        <h3 className="mb-4 text-4xl tracking-tight font-bold">{data.title}</h3>
+        <h3 className="mb-4 text-4xl font-bold tracking-tight">{data.title}</h3>
       )}
       <AuthorCard
         author={author}
         post={data.body}
         date={date}
         showAvatar
-        className={hasFeatured ? 'transform -translate-y-6' : 'my-3'}
+        className={hasFeatured ? '-translate-y-6' : 'my-3'}
       />
       <Breadcrumbs
         className={hasFeatured ? 'my-2' : 'mt-6 mb-4'}

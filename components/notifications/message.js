@@ -23,8 +23,8 @@ const Message = ({ notification }) => {
     <Transition
       show={visible}
       appear
-      during="transition-all duration-300 ease-out transform"
-      leave="transition-all duration-300 ease-in transform"
+      during="transition-all duration-300 ease-out"
+      leave="transition-all duration-300 ease-in"
       hidden="max-h-0 opacity-20"
       shown="max-h-24 opacity-100"
       afterLeave={dismiss}

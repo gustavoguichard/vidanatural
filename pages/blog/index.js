@@ -21,8 +21,8 @@ const BlogPage = ({ posts, page = 1, pages }) => {
       seo={{ description: BLOG_DESCRIPTION }}
       hero={
         <Hero size="small" background="/static/images/banner.jpg">
-          <div className="my-12 py-6 px-16 max-w-screen-sm">
-            <SloganSvg className="max-w-full h-24" />
+          <div className="max-w-screen-sm px-16 py-6 my-12">
+            <SloganSvg className="h-24 max-w-full" />
             <p className="mt-8 text-lg">
               {title} da VN - leia artigos sobre cosmética natural, produtos
               orgânicos, veganos, artesanais e dicas de estilo de{' '}
@@ -32,9 +32,7 @@ const BlogPage = ({ posts, page = 1, pages }) => {
         </Hero>
       }
     >
-      <Breadcrumbs className="transform -translate-y-2 self-start">
-        Blog
-      </Breadcrumbs>
+      <Breadcrumbs className="self-start -translate-y-2">Blog</Breadcrumbs>
       {router.isFallback
         ? [...Array(4).keys()].map((i) => <Skeleton key={`skel-${i}`} />)
         : posts.map((post) => <PostPreview key={post.id} {...post} />)}

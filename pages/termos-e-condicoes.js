@@ -10,8 +10,8 @@ export default function Index() {
     <Layout title={title}>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="px-10">
-          <h2 className="text-5xl mt-12 tracking-tighter font-bold">{title}</h2>
-          <p className="m-4 text-lg mb-12 max-w-2xl">
+          <h2 className="mt-12 text-5xl font-bold tracking-tighter">{title}</h2>
+          <p className="max-w-2xl m-4 mb-12 text-lg">
             Comprar na Vida Natural é seguro e fácil. Aqui você encontra toda a
             linha de produtos, basta clicar nas imagens para conhecer os
             detalhes de cada produto.
@@ -21,15 +21,15 @@ export default function Index() {
       <PaperContent>
         <div className="max-w-screen-md m-auto">
           <Breadcrumbs
-            className="-mt-6 mb-6"
+            className="mb-6 -mt-6"
             links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
           >
             {title}
           </Breadcrumbs>
         </div>
-        <div className="rich-text max-w-screen-sm m-auto">
+        <div className="max-w-screen-sm m-auto rich-text">
           <Img
-            className="mt-20 mx-auto text-center"
+            className="mx-auto mt-20 text-center"
             width={320}
             height={300}
             src="/static/svgs/delivery.svg"
@@ -52,7 +52,7 @@ export default function Index() {
             cidades por SEDEX.
           </p>
           <Img
-            className="mb-10 mt-20 mx-auto text-center"
+            className="mx-auto mt-20 mb-10 text-center"
             width={340}
             height={300}
             src="/static/svgs/security.svg"
@@ -103,7 +103,7 @@ export default function Index() {
             </li>
           </ul>
           <Img
-            className="mb-10 mt-20 mx-auto text-center"
+            className="mx-auto mt-20 mb-10 text-center"
             width={320}
             height={300}
             src="/static/svgs/terms.svg"
@@ -129,7 +129,7 @@ export default function Index() {
             tradicionais e/ou eletrônico.
           </p>
           <Img
-            className="mb-10 mt-20 mx-auto text-center"
+            className="mx-auto mt-20 mb-10 text-center"
             width={320}
             height={300}
             src="/static/svgs/returns.svg"
@@ -155,7 +155,7 @@ export default function Index() {
             </strong>
             .
           </p>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Recuse a mercadoria se ocorrer alguma das hipóteses abaixo:
           </p>
           <ul>
@@ -164,7 +164,7 @@ export default function Index() {
             <li>Produto em desacordo com o pedido; e/ou</li>
             <li>Falta de acessórios.</li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Para Devolução por Arrependimento ou Desistência, as seguintes
             condições devem ser respeitadas:
           </p>
@@ -186,7 +186,7 @@ export default function Index() {
               reembolso do valor total do seu pedido.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Para devolução por insatisfação
           </p>
           <ul>
@@ -196,7 +196,7 @@ export default function Index() {
               como outras despesas associadas à sua devolução.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             Para Devolução de Produtos com Defeito, as seguintes condições devem
             ser respeitadas:
           </p>
@@ -217,7 +217,7 @@ export default function Index() {
               cliente. Os custos de reenvio serão de obrigação do cliente.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
+          <p className="font-semibold translate-y-2">
             A Restituição de Valores, caso o produto atenda às exigências acima,
             a restituição do valor pago será conforme as opções de pagamento
             abaixo:
@@ -229,9 +229,7 @@ export default function Index() {
               faturas subseqüentes.
             </li>
           </ul>
-          <p className="font-semibold transform translate-y-2">
-            Considerações finais:
-          </p>
+          <p className="font-semibold translate-y-2">Considerações finais:</p>
           <p>
             A Vida Natural não tem obrigação de consertar, trocar ou restituir
             produtos que apresentem sinais claros de mau uso. Confira sempre o
@@ -241,7 +239,7 @@ export default function Index() {
             entrega foi realizada.
           </p>
           <Img
-            className="mb-20 mt-32 mx-auto text-center"
+            className="mx-auto mt-32 mb-20 text-center"
             width={220}
             height={300}
             src="/static/svgs/terms-end.svg"
