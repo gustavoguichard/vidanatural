@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import get from 'lodash/get'
 import isEmpty from 'lodash/isEmpty'
 
 import staticPaths from 'lib/static-paths/produtos-uid'
 import staticProps from 'lib/static-props/produtos-uid'
+import useGlobal from 'lib/use-global'
 import { useTrack } from 'lib/analytics'
 
 import ErrorPage from 'pages/404'
@@ -24,6 +26,17 @@ const ProductPage = ({
   testimonials,
 }) => {
   const { isFallback } = useRouter()
+  const [, { notify }] = useGlobal()
+  useEffect(() => {
+    if (product.slug.includes('desodorante'))
+      notify({
+        type: 'alert',
+        title: 'O melhor desodorante que você conhecerá!',
+        message: 'Sério mesmo, da uma olhada nos depoimentos mais abaixo! 😍',
+        position: 'top-right',
+      })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   useTrack('ViewContent')
   return isFallback || foundProduct ? (
     <ProductLayout
