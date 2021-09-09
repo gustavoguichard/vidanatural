@@ -8,7 +8,9 @@ import { Testimonial } from 'types/cms'
 
 type Props = { testimonials: Testimonial[] }
 const Testimonials = ({ testimonials }: Props) => {
-  const data = testimonials?.[0]?.data ?? {}
+  const data = testimonials?.[0]?.data
+  if (!data) return null
+
   return (
     <section className="py-12 overflow-hidden bg-white md:py-20 lg:py-24">
       <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
