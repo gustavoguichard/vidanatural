@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 
-import { getExcerpt } from 'lib/domain'
+import { getExcerpt } from '../domain'
 import parseMember from './team-member'
 
 import type { BlogPost } from 'types/cms'

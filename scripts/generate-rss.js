@@ -1,7 +1,24 @@
-import api from 'lib/api'
-import parsePost from 'lib/parsers/blog-post'
+import { writeFileSync } from 'fs'
 import RSS from 'rss'
-import { BLOG_DESCRIPTION } from 'lib/constants'
+const next = require('next')
+
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+
+app.prepare().then(async () => {
+  await generate()
+  process.exit(0)
+})
+
+global.fetch = require('node-fetch')
+
+import api from '../lib/api'
+import parsePost from '../lib/parsers/blog-post'
+import { BLOG_DESCRIPTION } from '../lib/constants'
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({ path: __dirname + '/../.env.local' })
+}
 
 const config = {
   title: 'Blog da Vida Natural',
@@ -16,9 +33,7 @@ const config = {
   ttl: '300',
 }
 
-const Feed = ({ xml }) => xml
-
-export async function getServerSideProps({ res }) {
+async function generate() {
   try {
     const response = await api.cms.getByTypeAndTags('blog_post', {
       orderings: '[my.blog_post.date desc]',
@@ -62,17 +77,13 @@ export async function getServerSideProps({ res }) {
       })
     })
     const xml = feed.xml()
-    res.writeHead(200, {
-      'Content-Type': 'application/xml',
-    })
-    res.end(xml)
-    return { props: { xml } }
+    return writeFile(xml)
   } catch (e) {
-    // eslint-disable-next-line
     console.log(e)
-    res.end(JSON.stringify(e))
-    return { props: { xml: null } }
+    return false
   }
 }
 
-export default Feed
+async function writeFile(xml) {
+  return writeFileSync(__dirname + '/../public/feed.xml', xml)
+}

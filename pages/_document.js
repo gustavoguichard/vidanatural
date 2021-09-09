@@ -21,7 +21,7 @@ class VidaNatural extends Document {
             rel="alternate"
             type="application/rss+xml"
             title="Blog da Vida Natural"
-            href="https://vidanatural.eco.br/blog/feed/"
+            href="https://vidanatural.eco.br/feed.xml"
           />
           <link
             rel="sitemap"

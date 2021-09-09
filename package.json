@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn tw --minify && next build",
-    "postbuild": "ts-node ./scripts/generate-sitemap.js",
+    "postbuild": "ts-node ./scripts/generate-sitemap.js && ts-node ./scripts/generate-rss.js",
     "start": "next start",
     "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:types",
     "lint:eslint": "eslint ./",
@@ -39,8 +39,7 @@
     "react-ga": "3.3.0",
     "react-icons": "4.2.0",
     "react-intersection-observer": "8.32.1",
-    "react-use-form-state": "0.13.2",
-    "rss": "1.2.2"
+    "react-use-form-state": "0.13.2"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",
@@ -65,6 +64,7 @@
     "postcss-loader": "^6.1.1",
     "prettier": "2.3.2",
     "public-ip": "4.0.4",
+    "rss": "1.2.2",
     "sitemap": "7.0.0",
     "tailwindcss": "2.2.14",
     "ts-jest": "27.0.5",

@@ -23,3 +23,4 @@ s3/
 yarn-error.log
 styles/app.css
 public/sitemap.xml
+public/feed.xml

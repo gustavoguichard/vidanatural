@@ -4,7 +4,7 @@ import truncate from 'lodash/truncate'
 import flatMap from 'lodash/flatMap'
 import uniqBy from 'lodash/uniqBy'
 
-import { getReadTime, toCurrency } from 'lib/utils'
+import { getReadTime, toCurrency } from './utils'
 
 import type { ParsedProduct, ProductTag, VndaProduct } from 'types/vnda'
 import { RichTextBlock } from 'prismic-reactjs'
