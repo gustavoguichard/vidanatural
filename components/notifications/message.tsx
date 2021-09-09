@@ -1,5 +1,4 @@
 import React from 'react'
-import { cx } from 'lib/utils'
 import { useToggle } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
 
@@ -17,8 +16,7 @@ import type { Notification } from 'types/global-state'
 
 type Props = { notification: Notification }
 const Message = ({ notification }: Props) => {
-  const { id, type, persist, message, title, htmlMessage, position } =
-    notification
+  const { id, type, persist, message, title, htmlMessage } = notification
   const [visible, onFinish] = useToggle(true)
   const [, { dismissNotification }] = useGlobal()
 
@@ -36,12 +34,7 @@ const Message = ({ notification }: Props) => {
       leaveTo="opacity-0"
       afterLeave={dismiss}
     >
-      <div
-        className={cx(
-          'w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto ring-1 ring-black ring-opacity-5',
-          position?.includes('left') ? 'self-start' : 'self-end',
-        )}
-      >
+      <div className="w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto ring-1 ring-black ring-opacity-5">
         {persist || <Countdown active time={5} onFinish={onFinish} />}
         <div className="p-4">
           <div className="flex items-start">

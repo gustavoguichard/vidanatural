@@ -8,18 +8,32 @@ const Notifications = () => {
   return (
     <div
       aria-live="assertive"
-      className="fixed inset-0 z-50 flex flex-col justify-between px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+      className="fixed inset-0 z-50 grid justify-between grid-cols-2 grid-rows-2 px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
     >
-      <div className="relative flex flex-col items-center w-full space-y-4 sm:items-end">
+      <div className="relative flex flex-col items-start w-full h-full gap-4">
         {notifications
-          .filter(({ position }) => position?.includes('top') || !position)
+          .filter(({ position }) => position === 'top-left' || !position)
           .map((n) => (
             <Message key={n.id} notification={n} />
           ))}
       </div>
-      <div className="relative flex flex-col items-center w-full space-y-4 sm:items-end">
+      <div className="relative flex flex-col items-end w-full h-full gap-4">
         {notifications
-          .filter(({ position }) => position?.includes('bottom'))
+          .filter(({ position }) => position === 'top-right')
+          .map((n) => (
+            <Message key={n.id} notification={n} />
+          ))}
+      </div>
+      <div className="relative flex flex-col-reverse items-start w-full h-full gap-4">
+        {notifications
+          .filter(({ position }) => position === 'bottom-left')
+          .map((n) => (
+            <Message key={n.id} notification={n} />
+          ))}
+      </div>
+      <div className="relative flex flex-col-reverse items-end w-full h-full gap-4">
+        {notifications
+          .filter(({ position }) => position === 'bottom-right')
           .map((n) => (
             <Message key={n.id} notification={n} />
           ))}
