@@ -46,7 +46,7 @@ module.exports = {
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.facebook.net *.googletagmanager.com *.clarity.ms *.google-analytics.com *.googleadservices.com *.doubleclick.net;
-  child-src *.youtube.com *.google.com;
+  child-src *.youtube.com *.google.com *.doubleclick.net;
   style-src 'self' 'unsafe-inline' rsms.me;
   img-src * blob: data:;
   media-src 'none';
