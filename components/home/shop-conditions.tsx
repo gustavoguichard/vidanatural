@@ -1,21 +1,24 @@
-const offers = [
-  {
-    name: 'Para compras acima de R$ 120',
-    description: 'Frete grátis',
-  },
-  {
-    name: 'Pagamento em boleto, PIX ou cartão',
-    description: 'Em até 6x',
-  },
-  {
-    name: 'Inscreva-se na nossa newsletter',
-    description: '15% de desconto na primeira compra',
-  },
-]
+import useGlobal from 'lib/use-global'
+import { toCurrency } from 'lib/utils'
 
 const ShopConditions = () => {
+  const [{ freeShippingPrice }] = useGlobal()
+  const offers = [
+    {
+      name: `Para compras acima de ${toCurrency(freeShippingPrice)}`,
+      description: 'Frete grátis',
+    },
+    {
+      name: 'Pagamento em boleto, PIX ou cartão',
+      description: 'Em até 6x',
+    },
+    {
+      name: 'Inscreva-se na nossa newsletter',
+      description: '15% de desconto na primeira compra',
+    },
+  ]
   return (
-    <div className="bg-white">
+    <div className="bg-white sm:order-first">
       <div className="flex flex-col border-b border-gray-200 lg:border-0">
         <nav aria-label="Offers" className="order-last lg:order-first">
           <div className="mx-auto max-w-7xl lg:px-8">

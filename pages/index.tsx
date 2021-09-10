@@ -4,6 +4,7 @@ import Banner from 'components/banner'
 import Cart from 'components/cart'
 import Feed from 'components/home/feed'
 import FlashMessage from 'components/home/flash-message'
+import Certifications from 'components/certifications'
 import Footer from 'components/footer'
 import Testimonials from 'components/testimonials'
 import Incentives from 'components/home/incentives'
@@ -24,21 +25,24 @@ type Props = {
   posts: BlogPost[]
   products: VndaProduct[]
 }
-const Prototipo = ({ banner, testimonials, posts, products }: Props) => {
+const Home = ({ banner, testimonials, posts, products }: Props) => {
   return (
     <>
       <SearchBar />
       <div className="w-screen">
         <FlashMessage />
         <Navigation />
-        <Banner {...banner} />
-        <ShopConditions />
+        <div className="flex flex-col ">
+          <Banner {...banner} />
+          <ShopConditions />
+        </div>
         <Incentives />
         <TrendingProducts products={products} />
         <IntroVideo />
         <Stats />
         <Testimonials testimonials={testimonials} />
         <Feed posts={posts} />
+        <Certifications />
         <Footer />
       </div>
       <Cart />
@@ -48,4 +52,4 @@ const Prototipo = ({ banner, testimonials, posts, products }: Props) => {
 }
 
 export const getStaticProps = staticProps
-export default Prototipo
+export default Home
