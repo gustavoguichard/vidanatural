@@ -7,7 +7,7 @@ import Link from 'components/link'
 
 const FaqItem = ({ last_publication_date, uid, data }) => (
   <Link
-    className="flex flex-col py-6 px-4 transition duration-500 hover:bg-gray-100"
+    className="flex flex-col px-4 py-6 transition duration-500 hover:bg-gray-100"
     href={`/faq/${uid}`}
   >
     <h4 className="text-lg leading-tight">{data.title}</h4>
@@ -17,14 +17,14 @@ const FaqItem = ({ last_publication_date, uid, data }) => (
       date={last_publication_date}
       post={data.answer}
     />
-    <div className="mt-2 text-gray-700 text-sm">
-      {getExcerpt(data.answer, 100)}
+    <div className="mt-2 text-sm text-gray-700 line-clamp-3">
+      {getExcerpt(data.answer)}
     </div>
   </Link>
 )
 
 const FaqItems = ({ items }) => (
-  <div className="bg-white -mx-4 sm:mx-0 divide-y divide-gray-200 shadow rounded-lg border border-gray-100">
+  <div className="-mx-4 bg-white border border-gray-100 divide-y divide-gray-200 rounded-lg shadow sm:mx-0">
     {items.map((item) => (
       <FaqItem key={`item-${item.id}`} {...item} />
     ))}

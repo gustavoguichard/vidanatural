@@ -8,7 +8,7 @@ import staticPaths from 'lib/static-paths/tag-uid'
 
 import Banner from 'components/banner'
 import Breadcrumbs from 'components/breadcrumbs'
-import FeedSlider from 'components/feed-slider'
+import HomeFeed from 'components/home/feed'
 import Layout from 'components/layout'
 import ProductGrid from 'components/product-grid'
 import ProductFaq from 'components/products/faq'
@@ -24,30 +24,30 @@ const TagPage = ({ banner, products, posts, testimonials, faqItems }) => {
   return (
     <Layout title={title} variant="secondary" stickBar={!hero}>
       {hero}
-      <div className="max-w-screen-xl m-auto p-10">
+      <div className="max-w-screen-xl p-10 m-auto">
         <div className="max-w-screen-lg m-auto text-center">
           <Breadcrumbs>{title}</Breadcrumbs>
         </div>
         {(router.isFallback || !isEmpty(posts)) && (
           <>
-            <h3 className="text-3xl font-semibold tracking-tight m-8 text-center">
+            <h3 className="m-8 text-3xl font-semibold tracking-tight text-center">
               Posts no blog
             </h3>
-            <FeedSlider posts={posts} />
+            {posts?.length && <HomeFeed posts={posts} />}
           </>
         )}
       </div>
-      <div className="max-w-screen-xl m-auto py-10 px-6 border-t-8 border-white">
+      <div className="max-w-screen-xl px-6 py-10 m-auto border-t-8 border-white">
         {isEmpty(products) || (
           <>
-            <h3 className="text-3xl font-semibold tracking-tight m-8 text-center">
+            <h3 className="m-8 text-3xl font-semibold tracking-tight text-center">
               Produtos relacionados
             </h3>
             <ProductGrid products={products} />
           </>
         )}
         {emptyPage && (
-          <h2 className="text-4xl text-center font-bold tracking-tight mx-4 mb-4">
+          <h2 className="mx-4 mb-4 text-4xl font-bold tracking-tight text-center">
             Nenhum conteúdo para a {title}
           </h2>
         )}

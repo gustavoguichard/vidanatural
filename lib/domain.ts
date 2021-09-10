@@ -1,6 +1,5 @@
 import get from 'lodash/get'
 import map from 'lodash/map'
-import truncate from 'lodash/truncate'
 import flatMap from 'lodash/flatMap'
 import uniqBy from 'lodash/uniqBy'
 
@@ -52,9 +51,8 @@ export const calculatePostReadTime = (body: RichTextBlock[]) => {
   return `${getReadTime(text)} min`
 }
 
-export const getExcerpt = (body: RichTextBlock[], length = 200) => {
-  const paragraph = body.find((b) => b.type === 'paragraph') || { text: '' }
-  return truncate(paragraph.text, { length })
+export const getExcerpt = (body: RichTextBlock[]) => {
+  return body.find((b) => b.type === 'paragraph' && b.text?.length)?.text || ''
 }
 
 export const isEmptyBody = (body?: RichTextBlock[]) => {

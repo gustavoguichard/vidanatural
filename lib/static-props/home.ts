@@ -27,7 +27,7 @@ async function Home() {
       (tag) => `blog_post.${tag}.`,
     ),
     fetchLinks: ['team_member.name', 'team_member.picture'],
-    pageSize: 4,
+    pageSize: 3,
   })
   const productsRes = await api.vnda.fetchFromAPI('products')
   const parsedProducts: ParsedProduct[] = await Promise.all(
