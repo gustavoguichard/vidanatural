@@ -1,7 +1,16 @@
+import { LockClosedIcon } from '@heroicons/react/outline'
 import NewsForm from 'components/footer/news-form'
 import Link from 'components/link'
 import { FacebookIcon } from 'components/svg/facebook'
 import { InstagramIcon } from 'components/svg/instagram'
+import { AmexIcon } from 'components/svg/payments/amex'
+import { BoletoIcon } from 'components/svg/payments/boleto'
+import { DinnersIcon } from 'components/svg/payments/dinners'
+import { EloIcon } from 'components/svg/payments/elo'
+import { HipercardIcon } from 'components/svg/payments/hipercard'
+import { MastercardIcon } from 'components/svg/payments/master'
+import { PixIcon } from 'components/svg/payments/pix'
+import { VisaIcon } from 'components/svg/payments/visa'
 
 const navigation = {
   products: [
@@ -135,7 +144,7 @@ const Footer = () => {
             <NewsForm />
           </div>
         </div>
-        <div className="pt-8 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
+        <div className="pt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
               <Link
@@ -162,6 +171,37 @@ const Footer = () => {
             </a>{' '}
             <span aria-hidden="true">&middot;</span> CNPJ: 24.288.982/0001-27
           </p>
+        </div>
+      </div>
+      <div className="flex flex-col items-center justify-between px-4 py-2 bg-gray-100 sm:flex-row sm:px-6">
+        <p className="flex items-center gap-2 text-sm">
+          <LockClosedIcon className="inline-block w-4 h-4" /> Compra segura
+        </p>
+        <div className="flex items-center gap-2">
+          <span title="Pix">
+            <PixIcon className="w-6 h-6" />
+          </span>
+          <span title="Boleto">
+            <BoletoIcon className="w-6 h-6" />
+          </span>
+          <span title="Visa">
+            <VisaIcon className="w-8 h-8" />
+          </span>
+          <span title="MasterCard">
+            <MastercardIcon className="w-8 h-8" />
+          </span>
+          <span title="Dinners">
+            <DinnersIcon className="w-8 h-8" />
+          </span>
+          <span title="Elo">
+            <EloIcon className="w-8 h-8" />
+          </span>
+          <span title="American Express">
+            <AmexIcon className="w-8 h-8" />
+          </span>
+          <span title="Hipercard">
+            <HipercardIcon className="w-8 h-8" />
+          </span>
         </div>
       </div>
     </footer>
