@@ -1,40 +1,8 @@
-import { useState } from 'react'
-import { useFormState } from 'react-use-form-state'
-
-import api from 'lib/api'
-import useGlobal from 'lib/use-global'
 import { cx } from 'lib/utils'
+import { useNewsletterService } from 'lib/domain-hooks'
 
 const NewsForm = () => {
-  const [sending, setSending] = useState(false)
-  const [, { notify }] = useGlobal()
-  const [formState, { email }] = useFormState<{ email: string; key: string }>({
-    key: 'vidanatural-newsletter',
-  })
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
-    setSending(true)
-
-    const isSent = await api.vnda.endpoints.sendForm(formState.values)
-    if (isSent) {
-      formState.clear()
-      notify({
-        title: 'Gratos!',
-        message: 'Você começará a receber nossas ofertas em breve! 🌱',
-        type: 'success',
-        position: 'bottom-right',
-      })
-    } else {
-      notify({
-        title: 'Erro',
-        message:
-          'Não foi possível adicionar este e-mail nesse momento. Por favor, tente mais novamente.',
-        type: 'error',
-        position: 'bottom-right',
-      })
-    }
-    setSending(false)
-  }
+  const { handleSubmit, emailField, sending } = useNewsletterService()
 
   return (
     <form
@@ -50,7 +18,7 @@ const NewsForm = () => {
         E-mail
       </label>
       <input
-        {...email('email')}
+        {...emailField('email')}
         autoComplete="email"
         required
         className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-transparent rounded-md appearance-none"

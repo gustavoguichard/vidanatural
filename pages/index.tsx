@@ -18,6 +18,7 @@ import TrendingProducts from 'components/home/trending-products'
 
 import type { HomeBanner, BlogPost, Testimonial } from 'types/cms'
 import type { VndaProduct } from 'types/vnda'
+import NewsletterSection from 'components/newsletter-section'
 
 type Props = {
   banner: HomeBanner
@@ -41,6 +42,7 @@ const Home = ({ banner, testimonials, posts, products }: Props) => {
         <IntroVideo />
         <Stats />
         <Testimonials testimonials={testimonials} />
+        <NewsletterSection />
         <Feed posts={posts} />
         <Certifications />
         <Footer />
