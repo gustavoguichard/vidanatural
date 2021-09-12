@@ -22,7 +22,6 @@ const pages = {
   produtos: ['daily', 1.0],
   blog: ['daily', 0.9],
   'sobre-a-vida-natural': [],
-  'onde-encontrar': ['monthly', 0.5],
   faq: [],
   'eu-uso-cosmetica-consciente': [],
   'entre-em-contato': ['monthly', 0.4],
