@@ -28,9 +28,7 @@ const BlogPage = ({ posts }) => {
       <div className="flex flex-col items-center w-full bg-white border-b border-gray-200">
         <div className="w-full px-4 pt-12 pb-5 max-w-7xl sm:px-6 lg:px-8 sm:flex sm:items-end sm:justify-between">
           <div>
-            <h3 className="text-lg font-medium leading-6 text-gray-900">
-              Blog
-            </h3>
+            <h3 className="text-lg font-bold leading-6 text-gray-900">Blog</h3>
             <p className="max-w-4xl mt-2 text-sm text-gray-500">
               Cosmética natural, produtos orgânicos, veganos, artesanais e dicas
               de estilo de <strong>Vida Natural</strong>.
@@ -65,7 +63,14 @@ const BlogPage = ({ posts }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center max-w-4xl gap-3 px-4 py-12 mx-auto sm:px-6 lg:px-8">
+      <div className="flex flex-col items-center w-full max-w-4xl gap-3 px-4 py-12 mx-auto min-w-min sm:px-6 lg:px-8">
+        {!newPosts.length && (
+          <div className="block w-full p-12 text-center border-2 border-gray-300 border-dashed rounded-lg">
+            <span className="block mt-2 text-sm font-medium text-gray-900">
+              Nenhum resultado encontrado
+            </span>
+          </div>
+        )}
         {newPosts.map((post) => (
           <div
             key={post.uid}
