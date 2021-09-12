@@ -1,20 +1,18 @@
-import useGlobal from 'lib/use-global'
 import { toCurrency } from 'lib/utils'
 
 const ShopConditions = () => {
-  const [{ freeShippingPrice }] = useGlobal()
   const offers = [
     {
-      name: `Para compras acima de ${toCurrency(freeShippingPrice)}`,
-      description: 'Frete grátis',
+      name: `Para as regiões Sul e Sudeste`,
+      description: `Frete grátis acima de ${toCurrency(120)}`,
     },
     {
       name: 'Pagamento em boleto, PIX ou cartão',
-      description: 'Em até 6x',
+      description: 'Em até 6x sem juros',
     },
     {
       name: 'Inscreva-se na nossa newsletter',
-      description: '15% de desconto na primeira compra',
+      description: 'Ganhe 15% de desconto',
     },
   ]
   return (

@@ -77,7 +77,7 @@ const MobileMenu = ({ open, setOpen }: Props) => {
                   href="#"
                   className="block p-2 -m-2 font-medium text-gray-900"
                 >
-                  Create an account
+                  Criar uma conta
                 </a>
               </div>
               <div className="flow-root">
@@ -85,7 +85,7 @@ const MobileMenu = ({ open, setOpen }: Props) => {
                   href="#"
                   className="block p-2 -m-2 font-medium text-gray-900"
                 >
-                  Sign in
+                  Login
                 </a>
               </div>
             </div>

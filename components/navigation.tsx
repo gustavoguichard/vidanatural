@@ -15,7 +15,7 @@ export const navigation = {
   categories: [
     {
       name: 'Kits',
-      href: '#',
+      href: '/produtos?filter=kit',
       featured: [],
       collection: [],
       categories: [],
@@ -23,7 +23,7 @@ export const navigation = {
     },
     {
       name: 'Desodorantes',
-      href: '#',
+      href: '/produtos?filter=desodorante',
       featured: [],
       collection: [],
       categories: [],
@@ -31,7 +31,7 @@ export const navigation = {
     },
     {
       name: 'Hidratantes',
-      href: '#',
+      href: '/produtos?filter=hidratante',
       featured: [],
       collection: [],
       categories: [],
@@ -39,7 +39,7 @@ export const navigation = {
     },
     {
       name: 'Higiene',
-      href: '#',
+      href: '/produtos?filter=higiene',
       featured: [],
       collection: [],
       categories: [],
@@ -47,8 +47,8 @@ export const navigation = {
     },
   ],
   pages: [
-    { name: 'Sobre a VN', href: '#' },
-    { name: 'Lojas', href: '#' },
+    { name: 'Sobre a VN', href: '/sobre-a-vida-natural' },
+    { name: 'Blog', href: '/blog' },
   ],
 }
 
@@ -70,13 +70,13 @@ const Navigation = () => {
                   <div className="flex ml-6 space-x-4">
                     {[...navigation.categories, ...navigation.pages].map(
                       ({ href, name }) => (
-                        <a
+                        <Link
                           key={name}
                           href={href}
                           className="relative z-10 flex items-center px-2 text-sm font-medium text-gray-700 transition-colors duration-200 ease-out border-b-2 border-transparent hover:text-gray-800"
                         >
                           {name}
-                        </a>
+                        </Link>
                       ),
                     )}
                   </div>
@@ -94,13 +94,13 @@ const Navigation = () => {
                   </button>
 
                   {/* Search */}
-                  <a
-                    href="#"
+                  <button
+                    onClick={actions.openSearch}
                     className="p-2 ml-2 text-gray-400 hover:text-gray-500"
                   >
                     <span className="sr-only">Buscar</span>
                     <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                  </a>
+                  </button>
                 </div>
 
                 {/* Logo (lg-) */}
@@ -138,8 +138,7 @@ const Navigation = () => {
                     />
 
                     <div className="flow-root">
-                      <Link
-                        href="#"
+                      <button
                         onClick={(ev: React.MouseEvent) => {
                           ev.preventDefault()
                           actions.openCart()
@@ -156,7 +155,7 @@ const Navigation = () => {
                         <span className="sr-only">
                           produtos adicionados, ver carrinho
                         </span>
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
