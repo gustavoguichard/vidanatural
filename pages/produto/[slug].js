@@ -8,6 +8,7 @@ import staticProps from 'lib/static-props/produtos-uid'
 import useGlobal from 'lib/use-global'
 import { useTrack } from 'lib/analytics'
 
+import EcommerceLayout from 'layouts/ecommerce'
 import ErrorPage from 'pages/404'
 import ProductLayout from 'components/products/layout'
 import IncludedProducts from 'components/included-products'
@@ -73,6 +74,7 @@ const ProductPage = ({
   )
 }
 
+ProductPage.getLayout = EcommerceLayout
 export const getStaticPaths = staticPaths
 export const getStaticProps = staticProps
 export default ProductPage

@@ -1,23 +1,26 @@
 import staticProps from 'lib/static-props/eu-uso'
 
+import EcommerceLayout from 'layouts/ecommerce'
 import Hero from 'components/hero'
-import Layout from 'components/layout'
+import SEO from 'components/seo'
 import People from 'components/people'
 import SloganSvg from 'components/svg/slogan'
 
-const Page = ({ testimonials }) => (
-  <Layout title="Eu uso cosmética consciente!">
+const TestimonialsPage = ({ testimonials }) => (
+  <div>
+    <SEO title="Eu uso cosmética consciente!" />
     <Hero size="small" background="/static/images/banner.jpg">
-      <div className="my-12 py-6 px-16 max-w-screen-md">
-        <SloganSvg className="max-w-full h-24 m-auto" />
+      <div className="max-w-screen-md px-16 py-6 my-12">
+        <SloganSvg className="h-24 max-w-full m-auto" />
         <div className="m-4 text-lg">
           Descubra o que motiva as pessoas a usarem os produtos da VN
         </div>
       </div>
     </Hero>
     <People testimonials={testimonials} />
-  </Layout>
+  </div>
 )
 
+TestimonialsPage.getLayout = EcommerceLayout
 export const getStaticProps = staticProps
-export default Page
+export default TestimonialsPage

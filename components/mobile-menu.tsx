@@ -70,25 +70,6 @@ const MobileMenu = ({ open, setOpen }: Props) => {
                 </div>
               ))}
             </div>
-
-            <div className="px-4 py-6 space-y-6 border-t border-gray-200">
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="block p-2 -m-2 font-medium text-gray-900"
-                >
-                  Criar uma conta
-                </a>
-              </div>
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="block p-2 -m-2 font-medium text-gray-900"
-                >
-                  Login
-                </a>
-              </div>
-            </div>
           </div>
         </Transition.Child>
       </Dialog>

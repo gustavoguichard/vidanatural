@@ -13,8 +13,8 @@ const Hero = ({
   style = {},
   size = 'medium',
   background,
-  className,
-  bgClass,
+  className = '',
+  bgClass = '',
 }) => (
   <div
     className={cx(

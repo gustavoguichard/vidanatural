@@ -1,16 +1,17 @@
-import Head from 'next/head'
 import Script from 'next/script'
 import { FaWhatsapp } from 'react-icons/fa'
 
+import EcommerceLayout from 'layouts/ecommerce'
 import Breadcrumbs from 'components/breadcrumbs'
+import SEO from 'components/seo'
 import Form from 'components/form'
 import Hero from 'components/hero'
-import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
 import SloganSvg from 'components/svg/slogan-conecto'
 
-const Page = () => (
-  <Layout title="Entre em contato">
+const ContactPage = () => (
+  <>
+    <SEO title="Entre em contato" />
     <Script
       src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA}`}
       strategy="lazyOnload"
@@ -76,7 +77,8 @@ const Page = () => (
         </div>
       </div>
     </PaperContent>
-  </Layout>
+  </>
 )
 
-export default Page
+ContactPage.getLayout = EcommerceLayout
+export default ContactPage

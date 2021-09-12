@@ -4,7 +4,7 @@ import { ProductJsonLd } from 'next-seo'
 
 import api from 'lib/api'
 
-import Layout from 'components/layout'
+import SEO from 'components/seo'
 import ProductFaq from './faq'
 import ProductIngredients from './ingredients'
 import ProductTestimonials from './testimonials'
@@ -19,13 +19,11 @@ const ProductLayout = ({
   const images = map(product.images, 'url')
 
   return (
-    <Layout
-      stickBar
-      hideChat
-      title={product.name}
-      seo={{
-        description: product.presentation,
-        openGraph: {
+    <>
+      <SEO
+        title={product.name}
+        description={product.presentation}
+        openGraph={{
           url: product ? product.url : '',
           type: 'product',
           product: {
@@ -38,9 +36,8 @@ const ProductLayout = ({
             height: 500,
             alt: product.name,
           })),
-        },
-      }}
-    >
+        }}
+      />
       <ProductJsonLd
         productName={product.name}
         images={images}
@@ -60,7 +57,7 @@ const ProductLayout = ({
       <ProductIngredients {...cmsData} />
       <ProductFaq items={faqItems} />
       <ProductTestimonials product={product} testimonials={testimonials} />
-    </Layout>
+    </>
   )
 }
 

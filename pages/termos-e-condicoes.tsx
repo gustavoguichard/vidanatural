@@ -1,13 +1,13 @@
+import EcommerceLayout from 'layouts/ecommerce'
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Img from 'components/img'
-import Layout from 'components/layout'
 import PaperContent from 'components/paper-content'
 
-export default function Index() {
+function TermsAndConditions() {
   const title = 'Termos e Condições'
   return (
-    <Layout title={title}>
+    <>
       <Hero size="small" background="/static/images/banner.jpg">
         <div className="px-10">
           <h2 className="mt-12 text-5xl font-bold tracking-tighter">{title}</h2>
@@ -247,6 +247,9 @@ export default function Index() {
           />
         </div>
       </PaperContent>
-    </Layout>
+    </>
   )
 }
+
+TermsAndConditions.getLayout = EcommerceLayout
+export default TermsAndConditions

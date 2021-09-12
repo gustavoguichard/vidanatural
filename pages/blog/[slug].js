@@ -1,6 +1,8 @@
 import staticProps from 'lib/static-props/blog-uid'
 import staticPaths from 'lib/static-paths/blog-uid'
 
+import EcommerceLayout from 'layouts/ecommerce'
+import SEO from 'components/seo'
 import AuthorCard from 'components/author-card'
 import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
@@ -20,26 +22,8 @@ const SinglePostPage = ({
 }) => {
   const hasFeatured = !!featuredUrl
   return (
-    <SinglePageLayout
-      variant={hasFeatured ? 'primary' : 'secondary'}
-      title="Blog"
-      seo={{
-        description: excerpt,
-      }}
-      hero={
-        hasFeatured && (
-          <Hero
-            bgClass="brightness-[0.4]"
-            size="medium"
-            background={featuredUrl}
-          >
-            <h2 className="px-6 text-4xl font-bold tracking-tight sm:text-5xl">
-              {data.title}
-            </h2>
-          </Hero>
-        )
-      }
-    >
+    <>
+      <SEO title="Blog" description={excerpt} />
       {hasFeatured ? null : (
         <h3 className="mb-4 text-4xl font-bold tracking-tight">{data.title}</h3>
       )}
@@ -61,10 +45,11 @@ const SinglePostPage = ({
       <div className="mt-12">
         <RelatedProducts products={products} maxPerPage={3} />
       </div>
-    </SinglePageLayout>
+    </>
   )
 }
 
+SinglePostPage.getLayout = EcommerceLayout
 export const getStaticPaths = staticPaths
 export const getStaticProps = staticProps
 export default SinglePostPage

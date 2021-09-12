@@ -6,10 +6,11 @@ import startCase from 'lodash/startCase'
 import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'
 
+import EcommerceLayout from 'layouts/ecommerce'
 import Banner from 'components/banner'
 import Breadcrumbs from 'components/breadcrumbs'
 import HomeFeed from 'components/home/feed'
-import Layout from 'components/layout'
+import SEO from 'components/seo'
 import ProductGrid from 'components/product-grid'
 import ProductFaq from 'components/products/faq'
 import Testimonials from 'components/testimonials'
@@ -22,7 +23,8 @@ const TagPage = ({ banner, products, posts, testimonials, faqItems }) => {
     [banner, products, posts, testimonials, faqItems].every(isEmpty) &&
     !router.isFallback
   return (
-    <Layout title={title} variant="secondary" stickBar={!hero}>
+    <>
+      <SEO title={title} />
       {hero}
       <div className="max-w-screen-xl p-10 m-auto">
         <div className="max-w-screen-lg m-auto text-center">
@@ -54,10 +56,11 @@ const TagPage = ({ banner, products, posts, testimonials, faqItems }) => {
       </div>
       <ProductFaq items={faqItems} />
       <Testimonials testimonials={testimonials} />
-    </Layout>
+    </>
   )
 }
 
+TagPage.getLayout = EcommerceLayout
 export const getStaticPaths = staticPaths
 export const getStaticProps = staticProps
 export default TagPage

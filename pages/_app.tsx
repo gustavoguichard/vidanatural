@@ -3,24 +3,30 @@ import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
+import { identity } from 'lodash'
 
 import { initTracking, intersectionPolyfill } from 'lib/fx'
-import SEO from 'lib/next-seo.config'
 import { useCoupon } from 'lib/domain-hooks'
+import SEO from 'lib/next-seo.config'
+
+import type { AppProps } from 'next/app'
+import type { NextRouter } from 'next/router'
 
 import 'styles/app.css'
 
-const didMount = async (router) => {
+const didMount = async (router: NextRouter) => {
   await intersectionPolyfill()
   await initTracking(router)
 }
 
-const VidaNatural = ({ pageProps, Component }) => {
+const VidaNatural = ({ pageProps, Component }: AppProps) => {
   const router = useRouter()
   useEffect(() => {
     router && didMount(router)
   }, [router])
   useCoupon()
+  const getLayout: (c: JSX.Element) => JSX.Element =
+    (Component as any).getLayout || identity
 
   return (
     <>
@@ -79,13 +85,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </Head>
       <DefaultSeo {...SEO} />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </>
   )
 }
 
-export function reportWebVitals(metric) {
-  console.log(metric) // eslint-disable-line
+export function reportWebVitals(metric: any) {
+  console.log(metric)
 }
 
 export default VidaNatural

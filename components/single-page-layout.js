@@ -1,7 +1,5 @@
 import { cx } from 'lib/utils'
 
-import Layout from 'components/layout'
-
 const SinglePageLayout = ({
   children,
   variant,
@@ -10,11 +8,7 @@ const SinglePageLayout = ({
   className,
   ...props
 }) => (
-  <Layout
-    variant={variant}
-    className={gray ? 'bg-gray-100' : 'bg-white'}
-    {...props}
-  >
+  <div {...props}>
     {hero}
     <div
       className={cx(
@@ -26,7 +20,7 @@ const SinglePageLayout = ({
         {children}
       </div>
     </div>
-  </Layout>
+  </div>
 )
 
 export default SinglePageLayout

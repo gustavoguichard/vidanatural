@@ -3,7 +3,14 @@ import get from 'lodash/get'
 import SocialLinks from 'components/social-links'
 import PersonCard from 'components/person-card'
 
-const TeamMember = ({ name, bio, picture, role, full, ...socialLinks }) => (
+const TeamMember = ({
+  name,
+  bio,
+  picture = {},
+  role,
+  full,
+  ...socialLinks
+}) => (
   <PersonCard
     name={name}
     content={bio}

@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 
 import defaultConfig, { titleTemplate } from 'lib/next-seo.config'
 
-const SEO = ({ title, description, ...props }) => (
+const SEO = ({ title, description = '', ...props }) => (
   <NextSeo
     title={title || defaultConfig.title}
     description={description || defaultConfig.description}

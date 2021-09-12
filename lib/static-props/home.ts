@@ -7,7 +7,7 @@ import parsePost from 'lib/parsers/blog-post'
 import type { BlogPost } from 'types/cms'
 import type { ParsedProduct } from 'types/vnda'
 
-async function Home() {
+async function getStaticProps() {
   const testimonialsData = await api.cms.getByTypeAndTags('testimonial', {
     fetch: [
       'name',
@@ -49,4 +49,4 @@ async function Home() {
   }
 }
 
-export default Home
+export { getStaticProps }
