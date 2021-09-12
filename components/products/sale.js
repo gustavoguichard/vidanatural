@@ -5,8 +5,6 @@ import isEmpty from 'lodash/isEmpty'
 import { getDiscount } from 'lib/domain'
 
 import ImageGallery from 'components/image-gallery'
-import BCrumbs from 'components/breadcrumbs'
-import Breadcrumbs from './breadcrumbs'
 import Description from './description'
 import HighlightedTestimonial from './highlighted-testimonial'
 import ProductTitle from './title'
@@ -25,17 +23,15 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
   return (
     <>
       {product.inStock && <MobileCTA visible={visible} product={product} />}
-      <div className="max-w-screen-xl m-auto px-10 pt-16 lg:pt-12 pb-12">
-        <Breadcrumbs className="hidden lg:flex" product={product} />
-        <div className="lg:space-x-8 lg:flex justify-center">
+      <div className="max-w-screen-xl px-10 pt-16 pb-12 m-auto lg:pt-12">
+        <div className="justify-center lg:space-x-8 lg:flex">
           <div className="lg:w-1/2">
             <ImageGallery product={product} />
           </div>
-          <div className="lg:w-1/2 py-4">
+          <div className="py-4 lg:w-1/2">
             <div className="hidden lg:block">
               <ProductTitle product={product} />
             </div>
-            <Breadcrumbs className="lg:hidden" product={product} />
             {product.description.featured && (
               <div
                 className="rich-text"
@@ -44,43 +40,15 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
                 }}
               />
             )}
-            <BCrumbs
-              separator={<span className="text-gray-400"> - </span>}
-              size="xs"
-              className="text-teal-600"
-              hideHome
-              links={[
-                hasInformation && {
-                  title: 'Mais detalhes',
-                  href: '#descricao',
-                  raw: true,
-                },
-                hasIngredinets && {
-                  title: 'Ver ingredientes',
-                  href: '#ingredientes',
-                  raw: true,
-                },
-                hasFaqItems && {
-                  title: 'Dúvidas',
-                  href: '#faq',
-                  raw: true,
-                },
-                hasTestimonials && {
-                  title: 'Depoimentos',
-                  href: '#depoimentos',
-                  raw: true,
-                },
-              ].filter((a) => !!a)}
-            />
             <div
-              className="text-gray-600 my-4 rich-text"
+              className="my-4 text-gray-600 rich-text"
               dangerouslySetInnerHTML={{
                 __html: product.description.presentation,
               }}
             />
             <PriceTag big item={variant} />
             {product.isKit && product.discount_rule && (
-              <p className="text-xs mb-1">
+              <p className="mb-1 text-xs">
                 Você economiza{' '}
                 <span className="text-sm font-semibold">
                   {getDiscount(product)}

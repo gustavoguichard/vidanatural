@@ -8,7 +8,6 @@ import staticPaths from 'lib/static-paths/tag-uid'
 
 import EcommerceLayout from 'layouts/ecommerce'
 import Banner from 'components/banner'
-import Breadcrumbs from 'components/breadcrumbs'
 import HomeFeed from 'components/home/feed'
 import SEO from 'components/seo'
 import ProductGrid from 'components/product-grid'
@@ -27,9 +26,6 @@ const TagPage = ({ banner, products, posts, testimonials, faqItems }) => {
       <SEO title={title} />
       {hero}
       <div className="max-w-screen-xl p-10 m-auto">
-        <div className="max-w-screen-lg m-auto text-center">
-          <Breadcrumbs>{title}</Breadcrumbs>
-        </div>
         {(router.isFallback || !isEmpty(posts)) && (
           <>
             <h3 className="m-8 text-3xl font-semibold tracking-tight text-center">

@@ -3,7 +3,6 @@ import staticPaths from 'lib/static-paths/equipe-uid'
 
 import EcommerceLayout from 'layouts/ecommerce'
 import SEO from 'components/seo'
-import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import PaperContent from 'components/paper-content'
 import SloganSvg from 'components/svg/slogan-faco'
@@ -24,14 +23,6 @@ const MemberPage = ({ name, ...props }) => {
       </Hero>
       <PaperContent maxWidth="md">
         <div className="-mb-8">
-          <Breadcrumbs
-            className="mb-6 -mt-6"
-            links={[
-              { title: 'Equipe', href: '/sobre-a-vida-natural#quem-somos' },
-            ]}
-          >
-            {firstName}
-          </Breadcrumbs>
           <TeamMember full {...props} name={name} />
         </div>
       </PaperContent>

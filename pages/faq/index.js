@@ -1,7 +1,6 @@
 import staticProps from 'lib/static-props/faq'
 
 import EcommerceLayout from 'layouts/ecommerce'
-import Breadcrumbs from 'components/breadcrumbs'
 import SEO from 'components/seo'
 import FaqItems from 'components/faq-items'
 import Img from 'components/img'
@@ -16,12 +15,6 @@ const FaqPage = ({ items }) => {
         {title}
       </h2>
       <div className="py-6">
-        <Breadcrumbs
-          links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
-          className="sm:px-4"
-        >
-          {title}
-        </Breadcrumbs>
         <FaqItems items={items} />
       </div>
       <Img

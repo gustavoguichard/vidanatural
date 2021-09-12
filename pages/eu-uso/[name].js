@@ -3,7 +3,6 @@ import staticProps from 'lib/static-props/eu-uso-uid'
 
 import EcommerceLayout from 'layouts/ecommerce'
 import SEO from 'components/seo'
-import Breadcrumbs from 'components/breadcrumbs'
 import CTAButton from 'components/cta-button'
 import Hero from 'components/hero'
 import PaperContent from 'components/paper-content'
@@ -27,12 +26,6 @@ const ContentPage = ({ data }) => {
       </Hero>
       <PaperContent maxWidth="md">
         <div className="-mb-8">
-          <Breadcrumbs
-            className="mb-6 -mt-6"
-            links={[{ title: 'Eu uso', href: '/eu-uso-cosmetica-consciente' }]}
-          >
-            {name}
-          </Breadcrumbs>
           <PersonCard
             image={picture[is_long ? 'long' : 'square'].url}
             name={name}

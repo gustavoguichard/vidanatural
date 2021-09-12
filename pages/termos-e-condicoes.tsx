@@ -1,5 +1,4 @@
 import EcommerceLayout from 'layouts/ecommerce'
-import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import Img from 'components/img'
 import PaperContent from 'components/paper-content'
@@ -19,14 +18,6 @@ function TermsAndConditions() {
         </div>
       </Hero>
       <PaperContent>
-        <div className="max-w-screen-md m-auto">
-          <Breadcrumbs
-            className="mb-6 -mt-6"
-            links={[{ title: 'Sobre nós', href: '/sobre-a-vida-natural' }]}
-          >
-            {title}
-          </Breadcrumbs>
-        </div>
         <div className="max-w-screen-sm m-auto rich-text">
           <Img
             className="mx-auto mt-20 text-center"

@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import get from 'lodash/get'
 import map from 'lodash/map'
 
 import staticProps from 'lib/static-props/produtos'
 
 import EcommerceLayout from 'layouts/ecommerce'
-import Breadcrumbs from 'components/breadcrumbs'
 import Scroller from 'components/scroller'
 import ProductGrid from 'components/product-grid'
 import SEO from 'components/seo'
@@ -54,9 +52,6 @@ const ProductsPage = ({ products, filters }) => {
   return (
     <div className="max-w-screen-xl px-6 m-auto mt-16">
       <SEO title="Conheça nossos produtos" />
-      <Breadcrumbs links={links} className="m-4">
-        {get(currentFilter, 'title', 'Produtos')}
-      </Breadcrumbs>
       <div className="flex justify-center mx-2 mb-6">
         <Scroller flex>
           {map(filters, (filter, idx) => (

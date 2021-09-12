@@ -2,7 +2,6 @@ import Script from 'next/script'
 import { FaWhatsapp } from 'react-icons/fa'
 
 import EcommerceLayout from 'layouts/ecommerce'
-import Breadcrumbs from 'components/breadcrumbs'
 import SEO from 'components/seo'
 import Form from 'components/form'
 import Hero from 'components/hero'
@@ -22,7 +21,6 @@ const ContactPage = () => (
       </div>
     </Hero>
     <PaperContent>
-      <Breadcrumbs className="mb-6 -mt-6">Entre em contato</Breadcrumbs>
       <h3 className="text-3xl font-bold tracking-tight">
         Queremos ouvir você!
       </h3>

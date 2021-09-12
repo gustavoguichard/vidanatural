@@ -1,7 +1,6 @@
 import staticProps from 'lib/static-props/sobre-a-vida-natural'
 
 import EcommerceLayout from 'layouts/ecommerce'
-import Breadcrumbs from 'components/breadcrumbs'
 import Hero from 'components/hero'
 import IllustratedIngredients from 'components/illustrated-ingredients'
 import Layout from 'components/layout'
@@ -26,7 +25,6 @@ const AboutPage = ({ team, page }) => (
     </Hero>
     <div className="flex flex-col items-center">
       <div className="px-10 sm:w-8/12">
-        <Breadcrumbs className="mb-6 -mt-6">Sobre a VN</Breadcrumbs>
         <RichText>{page.data.content}</RichText>
       </div>
     </div>

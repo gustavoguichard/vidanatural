@@ -1,18 +1,16 @@
-import Breadcrumbs from 'components/products/breadcrumbs'
 import Skeleton from './index'
 
 const ProductSkeleton = () => (
-  <div className="max-w-screen-xl m-auto px-10 pt-16 md:pt-12 pb-12">
-    <Breadcrumbs className="hidden md:flex" />
-    <div className="md:space-x-8 md:flex justify-center">
+  <div className="max-w-screen-xl px-10 pt-16 pb-12 m-auto md:pt-12">
+    <div className="justify-center md:space-x-8 md:flex">
       <div className="md:w-1/2">
         <Skeleton height={400} />
       </div>
-      <div className="md:w-1/2 py-4">
-        <Skeleton className="mb-2 h-12" />
+      <div className="py-4 md:w-1/2">
+        <Skeleton className="h-12 mb-2" />
         <Skeleton className="w-1/4" />
-        <Skeleton className="mt-6 mb-4 h-64" />
-        <Skeleton className="h-12 w-1/2" />
+        <Skeleton className="h-64 mt-6 mb-4" />
+        <Skeleton className="w-1/2 h-12" />
       </div>
     </div>
   </div>
