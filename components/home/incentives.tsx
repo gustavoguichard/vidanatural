@@ -56,7 +56,7 @@ const Incentives = () => {
           <div className="grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-3">
             {sorted.map((incentive) => (
               <div key={incentive.name} className="sm:flex lg:block">
-                <div className="sm:flex-shrink-0">
+                <div className="flow-root sm:flex-shrink-0">
                   <Img
                     className="w-16 h-16 mx-auto"
                     src={incentive.imageSrc}

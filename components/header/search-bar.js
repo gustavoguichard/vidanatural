@@ -38,7 +38,7 @@ const SearchBar = () => {
       leave="delay-200 transition-opacity ease-in duration-200"
       hidden="opacity-0"
       shown="opacity-100"
-      className="fixed inset-0 z-50 transition-all duration-300 bg-black/10 backdrop-blur-sm"
+      className="fixed inset-0 z-50 transition-all duration-300 bg-black/30"
       onClick={closeSearch}
     >
       <Transition.Child
