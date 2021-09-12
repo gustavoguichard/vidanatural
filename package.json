@@ -46,7 +46,7 @@
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "@testing-library/jest-dom": "5.14.1",
-    "@testing-library/react": "12.0.0",
+    "@testing-library/react": "12.1.0",
     "@types/accounting": "0.4.2",
     "@types/jest": "27.0.1",
     "@types/js-cookie": "2.2.7",
@@ -63,14 +63,14 @@
     "jest": "^27.1.1",
     "postcss": "8.3.6",
     "postcss-loader": "^6.1.1",
-    "prettier": "2.3.2",
+    "prettier": "2.4.0",
     "public-ip": "4.0.4",
     "rss": "1.2.2",
     "sitemap": "7.0.0",
-    "tailwindcss": "2.2.14",
+    "tailwindcss": "2.2.15",
     "ts-jest": "27.0.5",
     "ts-node": "^10.2.1",
-    "typescript": "4.4.2",
+    "typescript": "4.4.3",
     "webp-loader": "0.6.0"
   }
 }

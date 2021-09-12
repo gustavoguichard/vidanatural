@@ -144,7 +144,7 @@ const Footer = () => {
             <NewsForm />
           </div>
         </div>
-        <div className="pt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
+        <div className="pt-8 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
               <Link
