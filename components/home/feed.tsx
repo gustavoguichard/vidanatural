@@ -3,6 +3,7 @@ import Img from 'components/img'
 
 import type { BlogPost } from 'types/cms'
 import Link from 'components/link'
+import Badge from 'components/badge'
 
 type Props = { posts: BlogPost[] }
 function Feed({ posts }: Props) {
@@ -34,13 +35,12 @@ function Feed({ posts }: Props) {
               )}
               <div className="flex flex-col justify-between flex-1 p-6 bg-white">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-nature-600">
-                    <Link
-                      href={`/tag/${post.tags[0]}`}
-                      className="hover:underline"
-                    >
-                      {post.tags[0]}
-                    </Link>
+                  <p className="flex flex-wrap gap-1 text-sm font-medium text-nature-600">
+                    {post.tags.map((tag) => (
+                      <Link key={`${post.id}-${tag}`} href={`/tag/${tag}`}>
+                        <Badge>{tag}</Badge>
+                      </Link>
+                    ))}
                   </p>
                   <Link href={`/blog/${post.uid}`} className="block mt-2">
                     <p className="text-xl font-semibold text-gray-900">

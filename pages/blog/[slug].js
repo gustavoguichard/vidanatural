@@ -5,11 +5,9 @@ import EcommerceLayout from 'layouts/ecommerce'
 import SEO from 'components/seo'
 import AuthorCard from 'components/author-card'
 import Breadcrumbs from 'components/breadcrumbs'
-import Hero from 'components/hero'
 import RichText from 'components/rich-text'
 import RelatedProducts from 'components/related-products'
 import PostTags from 'components/post-tags'
-import SinglePageLayout from 'components/single-page-layout'
 
 const SinglePostPage = ({
   products,
@@ -24,16 +22,24 @@ const SinglePostPage = ({
   return (
     <>
       <SEO title="Blog" description={excerpt} />
-      {hasFeatured ? null : (
-        <h3 className="mb-4 text-4xl font-bold tracking-tight">{data.title}</h3>
-      )}
-      <AuthorCard
-        author={author}
-        post={data.body}
-        date={date}
-        showAvatar
-        className={hasFeatured ? '-translate-y-6' : 'my-3'}
-      />
+      <div className="bg-white">
+        <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center">
+            <h2 className="text-base font-semibold tracking-wide text-center uppercase text-nature-600">
+              Blog
+            </h2>
+            <p className="mt-1 text-4xl font-extrabold text-center text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+              {data.title}
+            </p>
+            <AuthorCard
+              author={author}
+              post={data.body}
+              date={date}
+              showAvatar
+            />
+          </div>
+        </div>
+      </div>
       <Breadcrumbs
         className={hasFeatured ? 'my-2' : 'mt-6 mb-4'}
         links={[{ title: 'Blog', href: '/blog' }]}

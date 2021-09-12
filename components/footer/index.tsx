@@ -174,7 +174,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex flex-col items-center justify-between px-4 py-2 bg-gray-100 sm:flex-row sm:px-6">
-        <p className="flex items-center gap-2 text-sm">
+        <p className="flex items-center gap-2 text-sm text-gray-500">
           <LockClosedIcon className="inline-block w-4 h-4" /> Compra segura
         </p>
         <div className="flex items-center gap-2">
