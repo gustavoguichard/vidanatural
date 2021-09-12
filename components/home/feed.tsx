@@ -35,13 +35,13 @@ function Feed({ posts }: Props) {
               )}
               <div className="flex flex-col justify-between flex-1 p-6 bg-white">
                 <div className="flex-1">
-                  <p className="flex flex-wrap gap-1 text-sm font-medium text-nature-600">
+                  <div className="flex flex-wrap gap-1 text-sm font-medium text-nature-600">
                     {post.tags.map((tag) => (
-                      <Link key={`${post.id}-${tag}`} href={`/tag/${tag}`}>
-                        <Badge>{tag}</Badge>
-                      </Link>
+                      <Badge key={`${post.id}-${tag}`} href={`/tag/${tag}`}>
+                        {tag}
+                      </Badge>
                     ))}
-                  </p>
+                  </div>
                   <Link href={`/blog/${post.uid}`} className="block mt-2">
                     <p className="text-xl font-semibold text-gray-900">
                       {post.data.title}

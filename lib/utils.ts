@@ -14,6 +14,16 @@ const toCurrency = (n: number = 0) =>
     .format(~~n)
     .replace(/\$\s/, '$')
 
+const toDate = (d: string, short?: boolean) => {
+  const config = {
+    weekday: short ? undefined : 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  } as const
+  return new Date(d).toLocaleString('pt-br', config)
+}
+
 const isClient = typeof window === 'object'
 
 const getReadTime = (text: string) => {
@@ -26,4 +36,4 @@ const getReadTime = (text: string) => {
 const cx = (...args: unknown[]) =>
   compose(trim, join(' '), reject(isBoolean), reject(isNil), flatten)(args)
 
-export { cx, getReadTime, isClient, toCurrency }
+export { cx, getReadTime, isClient, toCurrency, toDate }

@@ -1,7 +1,5 @@
 import type { State } from 'types/global-state'
 
-const BLOG_PAGE_SIZE = 10
-
 const initialState = {
   cart: [],
   showCart: false,
@@ -18,10 +16,4 @@ const META_DESCRIPTION =
 const BLOG_DESCRIPTION =
   'Leia aqui artigos sobre cosmética natural, produtos orgânicos, veganos, artesanais e DIY (faça você mesmo).'
 
-export {
-  initialState,
-  SITE_TITLE,
-  META_DESCRIPTION,
-  BLOG_DESCRIPTION,
-  BLOG_PAGE_SIZE,
-}
+export { initialState, SITE_TITLE, META_DESCRIPTION, BLOG_DESCRIPTION }
