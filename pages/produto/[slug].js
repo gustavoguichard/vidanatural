@@ -12,7 +12,7 @@ import EcommerceLayout from 'layouts/ecommerce'
 import ErrorPage from 'pages/404'
 import ProductLayout from 'components/products/layout'
 import IncludedProducts from 'components/included-products'
-import RelatedProducts from 'components/related-products'
+import MoreProducts from 'components/more-products'
 import ProductSale from 'components/products/sale'
 import Skeleton from 'components/skeleton/product-sale'
 
@@ -60,9 +60,10 @@ const ProductPage = ({
         <IncludedProducts products={includedProducts} />
       </div>
       {get(product, 'isKit') || (
-        <div className="max-w-screen-xl px-6 m-auto">
-          <RelatedProducts products={relatedProducts} />
-        </div>
+        <MoreProducts
+          title="Produtos relacionados"
+          products={relatedProducts}
+        />
       )}
     </ProductLayout>
   ) : (

@@ -3,39 +3,8 @@ import { useRouter } from 'next/router'
 
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
-import { getCategoryTags } from 'lib/domain'
 
-import type { ProductTag } from 'types/vnda'
 import { useFormState } from 'react-use-form-state'
-
-function useTagsMenu() {
-  const [tags, setTags] = useState([] as ProductTag[])
-
-  const fetchTags = async () => {
-    const products = await api.vnda.clientFetch('products/list')
-    const parsed = getCategoryTags(products)
-    setTags(parsed as ProductTag[])
-  }
-
-  useEffect(() => {
-    fetchTags()
-  }, [])
-
-  return {
-    name: 'Loja',
-    path: '/produto',
-    links: [
-      {
-        name: 'Todos os produtos',
-        path: '/produtos',
-      },
-      ...tags.map((tag) => ({
-        name: tag.title,
-        path: `/produtos?filter=${tag.name}`,
-      })),
-    ],
-  }
-}
 
 function useCoupon() {
   const [, { notify, addCoupon }] = useGlobal()
@@ -89,4 +58,4 @@ function useNewsletterService() {
   return { handleSubmit, sending, emailField: email }
 }
 
-export { useTagsMenu, useNewsletterService, useCoupon }
+export { useNewsletterService, useCoupon }
