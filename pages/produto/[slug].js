@@ -67,11 +67,7 @@ const ProductPage = ({
       )}
     </ProductLayout>
   ) : (
-    <ErrorPage
-      href="/produtos"
-      title="Produto não encontrado"
-      linkText="Ver todos os produtos"
-    />
+    <ErrorPage />
   )
 }
 
