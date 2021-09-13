@@ -1,6 +1,5 @@
 import { cx } from 'lib/utils'
 
-import Chat from 'components/chat'
 import ProductCTA from 'components/products/cta'
 
 const MobileCTA = ({ product, visible }) => (
@@ -11,7 +10,6 @@ const MobileCTA = ({ product, visible }) => (
     )}
   >
     <ProductCTA product={product} hideQuantity />
-    <Chat bg="transparent" shadow={false} />
   </div>
 )
 
