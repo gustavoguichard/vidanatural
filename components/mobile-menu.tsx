@@ -2,7 +2,29 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 
-import { navigation } from './navigation'
+import { categories } from './navigation'
+
+const pageGroups = [
+  [
+    { name: 'Contato', href: '/entre-em-contato' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Sobre a VN', href: '/sobre-a-vida-natural' },
+    { name: 'Dúvidas frequentes', href: '/faq' },
+  ],
+  [
+    { name: 'Quem somos?', href: '/sobre-a-vida-natural#quem-somos' },
+    { name: 'Nossos ingredientes', href: '/sobre-a-vida-natural#ingredientes' },
+    { name: 'Depoimentos', href: '/eu-uso-cosmetica-consciente' },
+  ],
+  [
+    {
+      name: 'Política de Frete Grátis',
+      href: '/faq/quais-sao-as-politicas-de-frete-gratis-do-e-commerce-da-vida-natural',
+    },
+    { name: 'Trocas e devoluções', href: '/termos-e-condicoes' },
+    { name: 'Privacidade', href: '/termos-e-condicoes' },
+  ],
+]
 
 type Props = { open: boolean; setOpen: (b: boolean) => void }
 const MobileMenu = ({ open, setOpen }: Props) => {
@@ -47,7 +69,7 @@ const MobileMenu = ({ open, setOpen }: Props) => {
             </div>
 
             <div className="px-4 py-6 space-y-6 border-t border-gray-200">
-              {navigation.categories.map((category) => (
+              {categories.map((category) => (
                 <div key={category.name} className="flow-root">
                   <a
                     href={category.href}
@@ -58,18 +80,23 @@ const MobileMenu = ({ open, setOpen }: Props) => {
                 </div>
               ))}
             </div>
-            <div className="px-4 py-6 space-y-6 border-t border-gray-200">
-              {navigation.pages.map((page) => (
-                <div key={page.name} className="flow-root">
-                  <a
-                    href={page.href}
-                    className="block p-2 -m-2 font-medium text-gray-900"
-                  >
-                    {page.name}
-                  </a>
-                </div>
-              ))}
-            </div>
+            {pageGroups.map((pages, idx) => (
+              <div
+                key={`mobile-menu-sect-${idx}`}
+                className="px-4 py-6 space-y-6 border-t border-gray-200"
+              >
+                {pages.map((page, i) => (
+                  <div key={`${page.name}-${i}`} className="flow-root">
+                    <a
+                      href={page.href}
+                      className="block p-2 -m-2 font-medium text-gray-900"
+                    >
+                      {page.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </Transition.Child>
       </Dialog>

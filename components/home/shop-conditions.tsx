@@ -16,11 +16,11 @@ const ShopConditions = () => {
     },
   ]
   return (
-    <div className="bg-white sm:order-first">
+    <div className="bg-white lg:order-first">
       <div className="flex flex-col border-b border-gray-200 lg:border-0">
-        <nav aria-label="Offers" className="order-last lg:order-first">
-          <div className="mx-auto max-w-7xl lg:px-8">
-            <ul className="grid grid-cols-1 divide-y divide-gray-200 lg:grid-cols-3 lg:divide-y-0 lg:divide-x">
+        <nav aria-label="Offers">
+          <div className="mx-auto max-w-7xl md:px-8">
+            <ul className="grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
               {offers.map((offer) => (
                 <li
                   key={offer.name}

@@ -15,14 +15,24 @@ function Feed({ posts }: Props) {
             Do nosso Blog
           </h2>
           <p className="max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4">
-            Leia mais sobre como ter uma vida + natural.
+            Leia mais sobre como ter uma vida + natural.{' '}
+            <Link href="/blog" className="font-medium group text-nature-500">
+              Ver blog
+              <span
+                className="inline-block transition group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                {' '}
+                &rarr;
+              </span>
+            </Link>
           </p>
         </div>
-        <div className="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
+        <div className="grid max-w-lg gap-5 mx-auto mt-12 sm:grid-cols-2 lg:grid-cols-3 sm:max-w-none">
           {posts.map((post) => (
             <div
               key={post.uid}
-              className="flex flex-col overflow-hidden border rounded-lg"
+              className="flex flex-col overflow-hidden border rounded-lg last:hidden sm:last:flex lg:last:hidden"
             >
               {post.thumbUrl && (
                 <div className="flex-shrink-0">

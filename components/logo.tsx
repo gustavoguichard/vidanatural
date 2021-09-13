@@ -3,7 +3,7 @@ import Link from 'components/link'
 
 const Logo = () => {
   return (
-    <Link href="/">
+    <Link href="/" className="inline-block">
       <span className="sr-only">Vida Natural</span>
       <BrandSvg className="w-32 py-3 duration-700 opacity-100" />
     </Link>

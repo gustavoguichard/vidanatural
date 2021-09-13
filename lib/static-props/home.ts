@@ -27,7 +27,7 @@ async function getStaticProps() {
       (tag) => `blog_post.${tag}.`,
     ),
     fetchLinks: ['team_member.name', 'team_member.picture'],
-    pageSize: 3,
+    pageSize: 4,
   })
   const productsRes = await api.vnda.fetchFromAPI('products')
   const parsedProducts: ParsedProduct[] = await Promise.all(

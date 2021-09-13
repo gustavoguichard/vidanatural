@@ -48,22 +48,25 @@ const incentives = [
 ]
 
 const Incentives = () => {
-  const sorted: typeof incentives = compose(take(3), shuffle)(incentives)
+  const sorted: typeof incentives = compose(take(4), shuffle)(incentives)
   return (
     <div className="text-center bg-gray-50">
       <div className="py-6 mx-auto max-w-7xl sm:px-2 lg:px-4">
         <div className="max-w-2xl px-4 mx-auto lg:max-w-none">
-          <div className="grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-8 lg:grid-cols-3">
             {sorted.map((incentive) => (
-              <div key={incentive.name} className="sm:flex lg:block">
-                <div className="flow-root sm:flex-shrink-0">
+              <div
+                key={incentive.name}
+                className="flex flex-col items-center last:hidden sm:last:flex lg:last:hidden"
+              >
+                <div className="flow-root">
                   <Img
                     className="w-16 h-16 mx-auto"
                     src={incentive.imageSrc}
                     alt={incentive.name}
                   />
                 </div>
-                <div className="mt-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+                <div className="mt-4 lg:mt-6 lg:ml-0">
                   <h3 className="text-sm font-medium text-gray-900">
                     {incentive.name}
                   </h3>

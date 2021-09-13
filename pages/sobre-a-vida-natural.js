@@ -44,14 +44,14 @@ const AboutPage = ({ team, page }) => {
           </div>
         </div>
       </div>
-      <div className="bg-salmon-900">
+      <div className="bg-salmon-300">
         <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
             <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-              <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-3xl font-extrabold tracking-tight text-salmon-900 sm:text-4xl">
                 Quem somos
               </h2>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-salmon-900/80">
                 Antes de tudo amigos, família e boas relações
               </p>
             </div>

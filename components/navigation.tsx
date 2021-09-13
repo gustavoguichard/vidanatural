@@ -11,46 +11,45 @@ import MobileMenu from './mobile-menu'
 import useGlobal from 'lib/use-global'
 import Link from 'components/link'
 
-export const navigation = {
-  categories: [
-    {
-      name: 'Kits',
-      href: '/produtos?filter=kit',
-      featured: [],
-      collection: [],
-      categories: [],
-      brands: [],
-    },
-    {
-      name: 'Desodorantes',
-      href: '/produtos?filter=desodorante',
-      featured: [],
-      collection: [],
-      categories: [],
-      brands: [],
-    },
-    {
-      name: 'Hidratantes',
-      href: '/produtos?filter=hidratante',
-      featured: [],
-      collection: [],
-      categories: [],
-      brands: [],
-    },
-    {
-      name: 'Higiene',
-      href: '/produtos?filter=higiene',
-      featured: [],
-      collection: [],
-      categories: [],
-      brands: [],
-    },
-  ],
-  pages: [
-    { name: 'Sobre a VN', href: '/sobre-a-vida-natural' },
-    { name: 'Blog', href: '/blog' },
-  ],
-}
+const categories = [
+  {
+    name: 'Kits',
+    href: '/produtos?filter=kit',
+    featured: [],
+    collection: [],
+    categories: [],
+    brands: [],
+  },
+  {
+    name: 'Desodorantes',
+    href: '/produtos?filter=desodorante',
+    featured: [],
+    collection: [],
+    categories: [],
+    brands: [],
+  },
+  {
+    name: 'Hidratantes',
+    href: '/produtos?filter=hidratante',
+    featured: [],
+    collection: [],
+    categories: [],
+    brands: [],
+  },
+  {
+    name: 'Higiene',
+    href: '/produtos?filter=higiene',
+    featured: [],
+    collection: [],
+    categories: [],
+    brands: [],
+  },
+]
+
+const pages = [
+  { name: 'Sobre a VN', href: '/sobre-a-vida-natural' },
+  { name: 'Blog', href: '/blog' },
+]
 
 const Navigation = () => {
   const [open, setOpen] = useState(false)
@@ -68,17 +67,15 @@ const Navigation = () => {
                 </div>
                 <div className="hidden h-full lg:flex">
                   <div className="flex ml-6 space-x-4">
-                    {[...navigation.categories, ...navigation.pages].map(
-                      ({ href, name }) => (
-                        <Link
-                          key={name}
-                          href={href}
-                          className="relative z-10 flex items-center px-2 text-sm font-medium text-gray-700 transition-colors duration-200 ease-out border-b-2 border-transparent hover:text-gray-800"
-                        >
-                          {name}
-                        </Link>
-                      ),
-                    )}
+                    {[...categories, ...pages].map(({ href, name }) => (
+                      <Link
+                        key={name}
+                        href={href}
+                        className="relative z-10 flex items-center px-2 text-sm font-medium text-gray-700 transition-colors duration-200 ease-out border-b-2 border-transparent hover:text-gray-800"
+                      >
+                        {name}
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
@@ -104,7 +101,7 @@ const Navigation = () => {
                 </div>
 
                 {/* Logo (lg-) */}
-                <div className="lg:hidden">
+                <div className="flex lg:hidden">
                   <Logo />
                 </div>
 
@@ -168,4 +165,5 @@ const Navigation = () => {
   )
 }
 
+export { categories }
 export default Navigation
