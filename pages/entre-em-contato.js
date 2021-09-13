@@ -87,7 +87,7 @@ const ContactPage = () => {
                   <dt className="sr-only">Telefone</dt>
                   <dd className="flex">
                     <a
-                      className="flex-shrink-0 text-secondary-400"
+                      className="flex-shrink-0 text-green-400 hover:text-green-500"
                       href="https://wa.me/5548991039557"
                       title="Enviar mensagem de whatsapp"
                       rel="noopener noreferrer"

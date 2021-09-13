@@ -61,7 +61,7 @@ const ProductPage = ({
       </div>
       {get(product, 'isKit') || (
         <MoreProducts
-          title="Produtos relacionados"
+          title="Pessoas também compraram"
           products={relatedProducts}
         />
       )}

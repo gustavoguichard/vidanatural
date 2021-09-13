@@ -144,7 +144,7 @@ const SinglePostPage = ({
           </div>
         </div>
       </div>
-      <MoreProducts products={products} title="Produtos relacionados" />
+      <MoreProducts products={products} title="Pessoas também compraram" />
     </>
   )
 }
