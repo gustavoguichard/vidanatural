@@ -4,7 +4,7 @@ import Img from 'components/img'
 
 const Error500Page = () => {
   return (
-    <main className="relative min-h-[80vh] bg-top bg-cover sm:bg-top">
+    <main className="relative min-h-[90vh] bg-top bg-cover sm:bg-top">
       <div className="absolute inset-0 overflow-hidden">
         <Img
           src="/static/images/equipe-frente.jpg"
