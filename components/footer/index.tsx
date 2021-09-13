@@ -139,7 +139,7 @@ const Footer = () => {
               Quer descontos exclusivos?
             </h3>
             <p className="mt-4 text-base text-gray-300">
-              Assine nossa newsletter e receba ofertas no seu e-mail.
+              Assine nossa newsletter e receba um cupom de 15% de desconto.
             </p>
             <NewsForm />
           </div>

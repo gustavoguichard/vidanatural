@@ -68,7 +68,7 @@ const MobileMenu = ({ open, setOpen }: Props) => {
               </button>
             </div>
 
-            <div className="px-4 py-6 space-y-6 border-t border-gray-200">
+            <div className="px-4 py-6 mt-2 space-y-6 border-t border-gray-200">
               {categories.map((category) => (
                 <div key={category.name} className="flow-root">
                   <a

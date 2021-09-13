@@ -13,16 +13,26 @@ import { FaWhatsapp } from 'react-icons/fa'
 import EcommerceLayout from 'layouts/ecommerce'
 import SEO from 'components/seo'
 
+declare let window: Window & { grecaptcha: any }
+type FormFields = {
+  key: string
+  a_password: string
+  reply_to: string
+  name: string
+  email: string
+  phone?: string
+  message: string
+}
 const ContactPage = () => {
   const [sending, setSending] = useState(false)
   const [, { notify }] = useGlobal()
 
-  const [formState, { raw, text, email, textarea }] = useFormState({
+  const [formState, { raw, text, email, textarea }] = useFormState<FormFields>({
     key: 'vidanatural-nova-mensagem-pelo-site-da-vn',
     reply_to: '',
   })
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setSending(true)
     if (typeof window.grecaptcha !== 'undefined') {
@@ -159,8 +169,8 @@ const ContactPage = () => {
                     E-mail
                   </label>
                   <input
-                    id="email"
                     {...email('email')}
+                    id="email"
                     autoComplete="email"
                     className="block w-full px-4 py-3 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm"
                     placeholder="Seu e-mail"
@@ -183,8 +193,8 @@ const ContactPage = () => {
                     Mensagem
                   </label>
                   <textarea
-                    id="message"
                     {...textarea('message')}
+                    id="message"
                     rows={4}
                     className="block w-full px-4 py-3 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm"
                     placeholder="Sua mensagem"
