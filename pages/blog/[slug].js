@@ -107,7 +107,7 @@ const SinglePostPage = ({
                     className={cx(
                       featuredUrl
                         ? 'text-white hover:underline'
-                        : 'text-nature-500 hover:text-nature-600',
+                        : 'text-secondary-500 hover:text-secondary-600',
                     )}
                     href={author?.data?.instagram.url}
                     rel="noreferrer"
@@ -131,7 +131,7 @@ const SinglePostPage = ({
           featuredUrl && 'py-8',
         )}
       >
-        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-nature">
+        <div className="mx-auto mt-6 prose prose-lg text-gray-500 prose-secondary">
           <RichText render={data.body} />
           <div className="flex flex-wrap gap-1">
             {tags

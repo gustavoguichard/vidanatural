@@ -27,7 +27,7 @@ const NewsForm = () => {
       <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
         <button
           type="submit"
-          className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-nature-500 hover:bg-nature-600"
+          className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-secondary-500 hover:bg-secondary-600"
         >
           Inscrever-se
         </button>

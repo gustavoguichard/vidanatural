@@ -13,7 +13,7 @@ const MoreProducts = ({ products, title }: Props) => {
           </h2>
           <Link
             href="/produtos"
-            className="hidden text-sm font-medium group text-nature-600 hover:text-nature-500 md:block"
+            className="hidden text-sm font-medium group text-secondary-600 hover:text-secondary-500 md:block"
           >
             Comprar produtos
             <span
@@ -35,7 +35,7 @@ const MoreProducts = ({ products, title }: Props) => {
         <div className="mt-8 text-sm md:hidden">
           <Link
             href="/produtos"
-            className="font-medium group text-nature-600 hover:text-nature-500"
+            className="font-medium group text-secondary-600 hover:text-secondary-500"
           >
             Comprar produtos
             <span

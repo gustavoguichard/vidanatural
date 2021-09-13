@@ -5,7 +5,7 @@ const IntroVideo = () => {
     <div className="bg-gray-50">
       <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-base font-semibold tracking-wide uppercase text-nature-500">
+          <h2 className="text-base font-semibold tracking-wide uppercase text-secondary-500">
             Lila Ozorio, Fundadora
           </h2>
           <p className="mt-1 text-4xl font-bold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
@@ -15,7 +15,7 @@ const IntroVideo = () => {
             Conheça um pouco da nossa missão.{' '}
             <Link
               href="/sobre-a-vida-natural"
-              className="font-medium group text-nature-500"
+              className="font-medium group text-secondary-500"
             >
               Saiba mais
               <span

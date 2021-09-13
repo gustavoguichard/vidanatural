@@ -87,7 +87,7 @@ const ContactPage = () => {
                   <dt className="sr-only">Telefone</dt>
                   <dd className="flex">
                     <a
-                      className="flex-shrink-0 text-nature-400"
+                      className="flex-shrink-0 text-secondary-400"
                       href="https://wa.me/5548991039557"
                       title="Enviar mensagem de whatsapp"
                       rel="noopener noreferrer"
@@ -193,7 +193,7 @@ const ContactPage = () => {
                 <div>
                   <button
                     type="submit"
-                    className="inline-flex justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-salmon-600 hover:bg-salmon-700"
+                    className="inline-flex justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-500 hover:bg-primary-600"
                   >
                     Enviar
                   </button>
@@ -203,13 +203,13 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-salmon-400">
+      <div className="bg-primary-300">
         <div className="max-w-md px-4 py-16 mx-auto text-center sm:max-w-2xl sm:py-24 sm:px-6 lg:px-8 lg:py-32">
           <h2 className="text-3xl font-extrabold sm:text-4xl">
-            <span className="block text-white">
+            <span className="block text-primary-900/80">
               Quer revender nossos produtos?
             </span>
-            <span className="block text-salmon-900">Fale conosco.</span>
+            <span className="block text-primary-900">Fale conosco.</span>
           </h2>
           <a
             href="https://wa.me/5548991039557"

@@ -21,7 +21,7 @@ const Banner = ({ data: { image, title, subtitle, link } }: HomeBanner) => {
           {title}
         </h2>
         <p className="mt-3 text-xl text-white">{subtitle}</p>
-        <button className="block px-8 py-3 mt-8 text-base font-medium text-white border-2 rounded-md border-white/20 bg-salmon-600 hover:bg-salmon-700 sm:w-auto">
+        <button className="block px-8 py-3 mt-8 text-base font-medium text-white border-2 rounded-md border-white/20 bg-primary-600 hover:bg-primary-700 sm:w-auto">
           Comprar produtos
         </button>
       </div>

@@ -47,14 +47,14 @@ const ProductCard = ({ product }: Props) => {
       <div className="flex gap-1 mt-6">
         <Link
           href={`/produto/${product.slug}`}
-          className="relative flex items-center justify-center flex-1 flex-grow px-4 py-2 text-sm font-medium text-white transition border border-transparent rounded-md sm:px-8 bg-salmon-500 hover:bg-salmon-700"
+          className="relative flex items-center justify-center flex-1 flex-grow px-4 py-2 text-sm font-medium text-white transition border border-transparent rounded-md sm:px-8 bg-primary-500 hover:bg-primary-700"
         >
           Comprar<span className="sr-only">, {product.name}</span>
         </Link>
         <button
           type="button"
           onClick={onClick}
-          className="relative flex items-center p-2 text-lg font-semibold text-white transition rounded-md bg-nature-300 hover:bg-nature-500"
+          className="relative flex items-center p-2 text-lg font-semibold text-white transition rounded-md bg-secondary-300 hover:bg-secondary-500"
         >
           {adding ? (
             <Spinner

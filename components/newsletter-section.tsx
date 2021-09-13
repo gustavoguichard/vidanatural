@@ -6,7 +6,7 @@ import { cx } from 'lib/utils'
 function NewsletterSection() {
   const { handleSubmit, sending, emailField } = useNewsletterService()
   return (
-    <div className="bg-salmon-800">
+    <div className="bg-primary-800">
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center">
         <div className="lg:w-0 lg:flex-1">
           <h2
@@ -38,7 +38,7 @@ function NewsletterSection() {
                 type="submit"
                 disabled={sending}
                 className={cx(
-                  'flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white border border-transparent rounded-md bg-salmon-500 hover:bg-salmon-600',
+                  'flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white border border-transparent rounded-md bg-primary-500 hover:bg-primary-600',
                   sending && 'opacity-50 pointer-events-none',
                 )}
               >

@@ -10,7 +10,7 @@
   }
 
   *:focus {
-    @apply outline-none focus:ring ring-nature-400;
+    @apply outline-none focus:ring ring-secondary-400;
   }
 
   #__next {

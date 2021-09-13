@@ -89,7 +89,7 @@ const BlogPage = ({ posts }) => {
             )}
             <div className="flex flex-col justify-between flex-1 p-6 bg-white">
               <div className="flex-1">
-                <div className="flex flex-wrap gap-1 text-sm font-medium text-nature-600">
+                <div className="flex flex-wrap gap-1 text-sm font-medium text-secondary-600">
                   {post.tags.map((tag) => (
                     <Badge key={`${post.id}-${tag}`} href={`/tag/${tag}`}>
                       {tag}

@@ -18,7 +18,7 @@ module.exports = {
         yellow: colors.yellow,
         rose: colors.rose,
         cyan: colors.cyan,
-        salmon: {
+        primary: {
           100: '#f7e9e7',
           200: '#efd3ce',
           300: '#e8beb6',
@@ -29,7 +29,7 @@ module.exports = {
           800: '#563a35',
           900: '#2b1d1b',
         },
-        nature: {
+        secondary: {
           100: '#deebdb',
           200: '#bdd6b7',
           300: '#9bc293',

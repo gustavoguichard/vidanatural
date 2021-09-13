@@ -41,7 +41,7 @@ const Testimonials = ({ testimonials }: Props) => {
                   </div>
 
                   <svg
-                    className="hidden w-5 h-5 mx-1 text-nature-600 md:block"
+                    className="hidden w-5 h-5 mx-1 text-secondary-600 md:block"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >

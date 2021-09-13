@@ -16,7 +16,7 @@ function Feed({ posts }: Props) {
           </h2>
           <p className="max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4">
             Leia mais sobre como ter uma vida + natural.{' '}
-            <Link href="/blog" className="font-medium group text-nature-500">
+            <Link href="/blog" className="font-medium group text-secondary-500">
               Ver blog
               <span
                 className="inline-block transition group-hover:translate-x-1"
@@ -45,7 +45,7 @@ function Feed({ posts }: Props) {
               )}
               <div className="flex flex-col justify-between flex-1 p-6 bg-white">
                 <div className="flex-1">
-                  <div className="flex flex-wrap gap-1 text-sm font-medium text-nature-600">
+                  <div className="flex flex-wrap gap-1 text-sm font-medium text-secondary-600">
                     {post.tags.map((tag) => (
                       <Badge key={`${post.id}-${tag}`} href={`/tag/${tag}`}>
                         {tag}

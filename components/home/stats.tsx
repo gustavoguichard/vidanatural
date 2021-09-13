@@ -21,7 +21,7 @@ const Stats = () => {
                   <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                     Produtos vendidos
                   </dt>
-                  <dd className="order-1 text-5xl font-extrabold text-nature-500">
+                  <dd className="order-1 text-5xl font-extrabold text-secondary-500">
                     +100mil
                   </dd>
                 </div>
@@ -29,7 +29,7 @@ const Stats = () => {
                   <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                     Fundação
                   </dt>
-                  <dd className="order-1 text-5xl font-extrabold text-nature-500">
+                  <dd className="order-1 text-5xl font-extrabold text-secondary-500">
                     2013
                   </dd>
                 </div>
@@ -37,7 +37,7 @@ const Stats = () => {
                   <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                     Animais prejudicados
                   </dt>
-                  <dd className="order-1 text-5xl font-extrabold text-nature-500">
+                  <dd className="order-1 text-5xl font-extrabold text-secondary-500">
                     0
                   </dd>
                 </div>

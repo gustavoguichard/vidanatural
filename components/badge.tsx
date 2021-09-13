@@ -8,13 +8,13 @@ const Badge = ({ children, className, href }: Props) => {
     <Component
       href={href}
       className={cx(
-        'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-nature-100 text-nature-800 !no-underline',
-        href && 'hover:bg-nature-200 hover:ring-2 hover:ring-nature-300',
+        'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-secondary-100 text-secondary-800 !no-underline',
+        href && 'hover:bg-secondary-200 hover:ring-2 hover:ring-secondary-300',
         className,
       )}
     >
       <svg
-        className="mr-1.5 h-2 w-2 text-nature-400"
+        className="mr-1.5 h-2 w-2 text-secondary-400"
         fill="currentColor"
         viewBox="0 0 8 8"
       >

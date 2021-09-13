@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
 
 const SocialLinks = ({ facebook, instagram, linkedin, github }) => (
-  <ul role="list" className="flex space-x-5 text-salmon-500">
+  <ul role="list" className="flex space-x-5 text-primary-500">
     {linkedin?.url && (
       <li>
         <a
