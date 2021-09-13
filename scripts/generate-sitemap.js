@@ -102,20 +102,6 @@ async function generate() {
         priority: 0.4,
       })
     })
-
-    const members = await api.cms.getByTypeAndTags('team_member', {
-      fetch: ['team_member.picture', 'team_member.uid'],
-    })
-    members.forEach((item) => {
-      smStream.write({
-        url: `/equipe/${item.uid}`,
-        changefreq: 'monthly',
-        priority: 0.3,
-        img: {
-          url: item.data?.picture?.url,
-        },
-      })
-    })
   } catch (err) {
     console.error(err)
   } finally {
