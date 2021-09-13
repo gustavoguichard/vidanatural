@@ -1,25 +1,24 @@
-import CTAButton from 'components/cta-button'
 import FeaturedIngredients from 'components/featured-ingredients'
-import RichText from 'components/rich-text'
+import { RichText } from 'prismic-reactjs'
 
 const IllustratedIngredients = ({
   ingredients_description,
   ingredients_title,
   ingredients,
 }) => (
-  <div className="border-t-8 border-b-8 border-white" id="ingredientes">
-    <div className="flex flex-col items-center max-w-screen-xl px-10 mx-auto">
-      <div className="flex flex-col items-center py-16 md:w-10/12">
-        <div className="self-start md:self-auto md:text-center">
-          <h3 className="text-4xl font-bold tracking-tight">
-            {ingredients_title}
-          </h3>
-          <RichText className="mx-auto my-2 max-w-sceen-xs">
-            {ingredients_description}
-          </RichText>
+  <div id="ingredientes" className="bg-white">
+    <div className="px-4 py-12 mx-auto max-w-7xl sm:py-20 sm:px-6 lg:px-8">
+      <div className="text-center">
+        <h3 className="mt-1 text-2xl font-extrabold text-gray-900 sm:text-3xl sm:tracking-tight lg:text-4xl">
+          {ingredients_title}
+        </h3>
+        <div className="max-w-xl mx-auto mt-5 text-lg text-gray-500">
+          <RichText render={ingredients_description} />
         </div>
-        <FeaturedIngredients ingredients={ingredients} />
       </div>
+    </div>
+    <div className="flex flex-col items-center w-full max-w-5xl px-10 pb-8 mx-auto">
+      <FeaturedIngredients ingredients={ingredients} />
     </div>
   </div>
 )

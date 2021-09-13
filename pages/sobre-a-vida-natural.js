@@ -2,12 +2,9 @@ import { RichText as PrismicRichText } from 'prismic-reactjs'
 import staticProps from 'lib/static-props/sobre-a-vida-natural'
 
 import EcommerceLayout from 'layouts/ecommerce'
-import Hero from 'components/hero'
 import Img from 'components/img'
 import IllustratedIngredients from 'components/illustrated-ingredients'
 import SocialLinks from 'components/social-links'
-import RichText from 'components/rich-text'
-import SloganSvg from 'components/svg/slogan-faco'
 import SEO from 'components/seo'
 
 const AboutPage = ({ team, page }) => {
@@ -17,20 +14,36 @@ const AboutPage = ({ team, page }) => {
         title="Sobre a Vida Natural"
         description="Uma empresa  feita por amigos, unidos pelo propósito da transparência, que se importam com aquilo que colocamos todos os dias no nosso maior orgão de absorção - a pele."
       />
-      <Hero size="small" background="/static/images/banner.jpg">
-        <div className="max-w-screen-md px-16 py-6 my-12">
-          <SloganSvg className="h-24 max-w-full m-auto" />
-          <RichText className="m-4 text-lg">
-            {page.data.banner_description}
-          </RichText>
+
+      <div className="relative bg-white">
+        <div className="lg:absolute lg:inset-0">
+          <div className="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
+            <img
+              className="object-cover w-full h-56 lg:absolute lg:h-full"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80"
+              alt=""
+            />
+          </div>
         </div>
-      </Hero>
-      <div className="flex flex-col items-center">
-        <div className="px-10 sm:w-8/12">
-          <RichText>{page.data.content}</RichText>
+        <div className="relative px-4 pt-12 pb-16 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
+          <div className="lg:col-start-2 lg:pl-8">
+            <div className="mx-auto text-base max-w-prose lg:max-w-lg lg:ml-auto lg:mr-0">
+              <h2 className="font-semibold leading-6 tracking-wide uppercase text-nature-600">
+                Sobre a VN
+              </h2>
+              <h3 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                Cosmética Consciente
+              </h3>
+              <div className="mt-8 text-lg text-gray-500">
+                <PrismicRichText render={page.data.banner_description} />
+              </div>
+              <div className="mt-5 prose text-gray-500 prose-nature">
+                <PrismicRichText render={page.data.content} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
       <div className="bg-salmon-900">
         <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
@@ -81,7 +94,6 @@ const AboutPage = ({ team, page }) => {
           </div>
         </div>
       </div>
-
       <IllustratedIngredients {...page.data} />
     </>
   )

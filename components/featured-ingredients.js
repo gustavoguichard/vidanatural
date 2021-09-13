@@ -13,7 +13,7 @@ const FeaturedIngredients = ({ ingredients }) => (
           alt={ing.title}
           src={ing.image.url}
         />
-        <div className="relative z-10 py-1 rounded bg-gray-100/75">
+        <div className="relative z-10 py-1 rounded bg-white/10 backdrop-blur">
           <h4 className="text-lg font-semibold tracking-tight">{ing.title}</h4>
           <p className="text-xs">
             <InciLink {...ing} />
