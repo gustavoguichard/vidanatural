@@ -11,7 +11,7 @@ import Badge from 'components/badge'
 import Link from 'components/link'
 import Img from 'components/img'
 import { RichText } from 'prismic-reactjs'
-import RelatedProducts from 'components/related-products'
+import MoreProducts from 'components/more-products'
 
 const BackButton = () => (
   <nav className="flex items-center justify-between w-full px-4 mx-auto bg-white max-w-7xl sm:px-6 lg:px-8">
@@ -144,9 +144,7 @@ const SinglePostPage = ({
           </div>
         </div>
       </div>
-      <div className="mt-12">
-        <RelatedProducts products={products} maxPerPage={3} />
-      </div>
+      <MoreProducts products={products} title="Produtos relacionados" />
     </>
   )
 }

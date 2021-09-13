@@ -2,11 +2,8 @@ import Img from 'next/image'
 
 const Certifications = () => (
   <div className="bg-white">
-    <div className="px-4 pt-12 pb-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <p className="text-base font-semibold tracking-wider text-center text-gray-600 uppercase">
-        Imagens que representam nossos valores
-      </p>
-      <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+    <div className="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="grid grid-cols-2 gap-0.5 md:grid-cols-3">
         <div className="flex justify-center col-span-1 px-6 py-6 bg-gray-50">
           <Img
             width={65}
