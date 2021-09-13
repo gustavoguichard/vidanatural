@@ -2,9 +2,9 @@ import { VndaProduct } from 'types/vnda'
 import ProductCard from './product-card'
 import Link from 'components/link'
 
-type Props = { products: VndaProduct[]; title: string }
+type Props = { products?: VndaProduct[]; title: string }
 const MoreProducts = ({ products, title }: Props) => {
-  return products.length ? (
+  return products?.length ? (
     <div className="bg-white">
       <div className="max-w-2xl px-4 py-16 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="md:flex md:items-center md:justify-between">
