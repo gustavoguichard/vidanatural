@@ -34,7 +34,7 @@ const links = [
   },
 ]
 
-const ErrorPage = () => {
+const Error404Page = () => {
   return (
     <div className="bg-white">
       <main className="w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -118,5 +118,5 @@ const ErrorPage = () => {
   )
 }
 
-ErrorPage.getLayout = EcommerceLayout
-export default ErrorPage
+Error404Page.getLayout = EcommerceLayout
+export default Error404Page
