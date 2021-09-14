@@ -107,25 +107,18 @@ const BlogPage = ({ posts }) => {
               </div>
               <div className="flex items-center mt-6">
                 <div className="flex-shrink-0">
-                  <Link className="block" href={post.author?.permalink}>
-                    <span className="sr-only">{post.author?.data?.name}</span>
-                    {post.author?.thumbUrl && (
-                      <Img
-                        className="w-10 h-10 rounded-full"
-                        src={post.author.thumbUrl}
-                        alt={post.author.imageAlt}
-                      />
-                    )}
-                  </Link>
+                  <span className="sr-only">{post.author?.data?.name}</span>
+                  {post.author?.data?.picture?.url && (
+                    <Img
+                      className="w-10 h-10 rounded-full"
+                      src={post.author.data.picture.url}
+                      alt={post.author.data.picture.alt}
+                    />
+                  )}
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">
-                    <Link
-                      href={post.author?.permalink}
-                      className="hover:underline"
-                    >
-                      {post.author?.data?.name}
-                    </Link>
+                    {post.author?.data?.name}
                   </p>
                   <div className="flex space-x-1 text-sm text-gray-500">
                     {post.date && (

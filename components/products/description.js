@@ -9,13 +9,13 @@ const Description = ({ product }) => {
   const [isOpen, toggle] = useToggle()
   return (
     <div className="w-full border-t-8 border-white">
-      <div className="max-w-screen-xl mx-auto p-10" id="descricao">
-        <div className="text-gray-600 md:space-x-4 md:flex justify-center">
+      <div className="max-w-screen-xl p-10 mx-auto" id="descricao">
+        <div className="justify-center text-gray-600 md:space-x-4 md:flex">
           <div className="md:w-8/12">
             <h3 className="mb-2 text-2xl font-semibold">Informações</h3>
             <div
               className={cx(
-                'rich-text transition duration-500 overflow-hidden',
+                'prose prose-secondary transition duration-500 overflow-hidden',
                 isOpen || 'max-h-[300px]',
               )}
               dangerouslySetInnerHTML={{
@@ -24,7 +24,7 @@ const Description = ({ product }) => {
             />
             {isOpen || (
               <>
-                <div className="bg-gradient-to-t from-gray-50 h-20 -mt-20 mb-4 relative z-10 pointer-events-none" />
+                <div className="relative z-10 h-20 mb-4 -mt-20 pointer-events-none bg-gradient-to-t from-gray-50" />
                 <CTAButton mini onClick={toggle}>
                   Ler mais
                 </CTAButton>

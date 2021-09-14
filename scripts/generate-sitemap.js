@@ -23,7 +23,6 @@ const pages = {
   blog: ['daily', 0.9],
   'sobre-a-vida-natural': [],
   faq: [],
-  'eu-uso-cosmetica-consciente': [],
   'entre-em-contato': ['monthly', 0.4],
   'termos-e-condicoes': ['monthly', 0.3],
 }
@@ -75,20 +74,6 @@ async function generate() {
         url: `/blog/${item.uid}`,
         changefreq: 'daily',
         priority: 0.8,
-      })
-    })
-
-    const testimonials = await api.cms.getByTypeAndTags('testimonial', {
-      fetch: ['testimonial.picture', 'testimonial.uid'],
-    })
-    testimonials.forEach((item) => {
-      smStream.write({
-        url: `/eu-uso/${item.uid}`,
-        changefreq: 'monthly',
-        priority: 0.5,
-        img: {
-          url: item.data?.picture?.url,
-        },
       })
     })
 

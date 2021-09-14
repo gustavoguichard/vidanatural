@@ -28,7 +28,6 @@ const navigation = {
     { name: 'Sobre a VN', href: '/sobre-a-vida-natural' },
     { name: 'Blog', href: '/blog' },
     { name: 'Quem somos?', href: '/sobre-a-vida-natural#quem-somos' },
-    { name: 'Depoimentos', href: '/eu-uso-cosmetica-consciente' },
   ],
   legal: [
     {

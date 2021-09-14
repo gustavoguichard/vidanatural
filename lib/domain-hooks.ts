@@ -7,18 +7,18 @@ import useGlobal from 'lib/use-global'
 import { useFormState } from 'react-use-form-state'
 
 function useCoupon() {
-  const [, { notify, addCoupon }] = useGlobal()
+  const [, actions] = useGlobal()
   const router = useRouter()
   useEffect(() => {
-    if (router.query.ccc && typeof notify === 'function') {
-      notify({
+    if (router.query.ccc) {
+      actions.notify({
         id: 10,
         title: 'Cupom aceito!',
         htmlMessage: `<p>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</p>`,
         type: 'success',
         persist: true,
       })
-      typeof addCoupon === 'function' && addCoupon(router.query.ccc as string)
+      actions.addCoupon(router.query.ccc as string)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])

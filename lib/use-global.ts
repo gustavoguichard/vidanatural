@@ -99,9 +99,6 @@ export default createStore(
     closeSearch: (store: Store) => {
       store.setState({ searchOpen: false })
     },
-    subscribe: (store: Store) => {
-      store.setState({ subscribed: true })
-    },
     notify: (store: Store, notification: Partial<Notification>) => {
       store.setState({
         notifications: uniqBy(

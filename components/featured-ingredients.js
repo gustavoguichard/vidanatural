@@ -1,6 +1,6 @@
 import Img from 'components/img'
 import InciLink from 'components/inci-link'
-import RichText from 'components/rich-text'
+import { RichText } from 'prismic-reactjs'
 
 const FeaturedIngredients = ({ ingredients }) => (
   <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -19,7 +19,9 @@ const FeaturedIngredients = ({ ingredients }) => (
             <InciLink {...ing} />
           </p>
         </div>
-        <RichText className="my-2 text-gray-700">{ing.description}</RichText>
+        <div className="prose text-gray-500 prose-secondary">
+          <RichText render={ing.description} />
+        </div>
       </div>
     ))}
   </div>

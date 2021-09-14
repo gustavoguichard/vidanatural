@@ -34,14 +34,14 @@ const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
             </div>
             {product.description.featured && (
               <div
-                className="rich-text"
+                className="prose prose-secondary"
                 dangerouslySetInnerHTML={{
                   __html: product.description.featured,
                 }}
               />
             )}
             <div
-              className="my-4 text-gray-600 rich-text"
+              className="my-4 prose text-gray-600 prose-secondary"
               dangerouslySetInnerHTML={{
                 __html: product.description.presentation,
               }}

@@ -16,7 +16,6 @@ type State = {
   cart: Cart
   showCart: boolean
   updatingCard: boolean
-  subscribed: boolean
   freeShippingPrice: number
   updatingCart: boolean
   searchOpen: boolean

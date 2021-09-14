@@ -10,11 +10,8 @@ const pageGroups = [
     { name: 'Blog', href: '/blog' },
     { name: 'Sobre a VN', href: '/sobre-a-vida-natural' },
     { name: 'Dúvidas frequentes', href: '/faq' },
-  ],
-  [
     { name: 'Quem somos?', href: '/sobre-a-vida-natural#quem-somos' },
     { name: 'Nossos ingredientes', href: '/sobre-a-vida-natural#ingredientes' },
-    { name: 'Depoimentos', href: '/eu-uso-cosmetica-consciente' },
   ],
   [
     {

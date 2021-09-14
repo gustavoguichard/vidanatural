@@ -1,13 +1,15 @@
 import type { State } from 'types/global-state'
+import type { Cart } from 'types/vnda'
 
-const initialState = {
-  cart: {},
+const initialState: State = {
+  cart: {} as Cart,
   showCart: false,
   updatingCart: false,
   searchOpen: false,
   notifications: [],
   freeShippingPrice: 160,
-} as unknown as State
+  updatingCard: false,
+}
 
 // SEO Texts
 const SITE_TITLE = 'Vida Natural | Cosmética Consciente'

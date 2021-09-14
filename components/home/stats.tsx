@@ -22,7 +22,7 @@ const Stats = () => {
                     Produtos vendidos
                   </dt>
                   <dd className="order-1 text-5xl font-extrabold text-secondary-500">
-                    +100mil
+                    +50mil
                   </dd>
                 </div>
                 <div className="flex flex-col p-6 text-center border-t border-b border-gray-100 sm:border-0 sm:border-l sm:border-r">

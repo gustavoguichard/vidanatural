@@ -76,7 +76,10 @@ type TeamMember = {
     name: string
     role: string
     bio: RichTextBlock[]
-    picture?: object
+    picture?: {
+      url: string
+      alt: string
+    }
     instagram?: string
     facebook?: string
     linkeding?: string

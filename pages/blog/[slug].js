@@ -80,14 +80,14 @@ const SinglePostPage = ({
           <div className="flex items-center mt-6">
             <div className="flex-shrink-0">
               <span className="sr-only">{author?.data?.name}</span>
-              {author?.thumbUrl && (
+              {author?.data?.picture?.url && (
                 <Img
                   className={cx(
                     'w-10 h-10 rounded-full',
                     featuredUrl && 'ring ring-white',
                   )}
-                  src={author.thumbUrl}
-                  alt={author.imageAlt}
+                  src={author.data.picture.url}
+                  alt={author.data.picture.alt}
                 />
               )}
             </div>

@@ -59,13 +59,6 @@ export const isEmptyBody = (body?: RichTextBlock[]) => {
   return !body || getExcerpt(body) === ''
 }
 
-export const resolveLink = (link: string) => {
-  const url = new URL(link)
-  const isLocal = url.hostname.includes('vidanatural.eco.br')
-  const result = isLocal ? `${url.pathname}${url.search}` : url
-  return result
-}
-
 export const getCategoryTags = (products: ParsedProduct[], addSales = true) => {
   const isProductCategory = (cat: ProductTag) => cat.tag_type === 'product_cat'
   const allCategoryTags = flatMap(products, (product) =>

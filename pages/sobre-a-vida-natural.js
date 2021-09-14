@@ -44,7 +44,7 @@ const AboutPage = ({ team, page }) => {
           </div>
         </div>
       </div>
-      <div className="bg-primary-300">
+      <div className="bg-primary-300" id="quem-somos">
         <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
             <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">

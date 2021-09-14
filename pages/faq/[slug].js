@@ -4,8 +4,7 @@ import staticPaths from 'lib/static-paths/faq-uid'
 import EcommerceLayout from 'layouts/ecommerce'
 import SEO from 'components/seo'
 import DocumentDetails from 'components/document-details'
-import PostTags from 'components/post-tags'
-import RichText from 'components/rich-text'
+import { RichText } from 'prismic-reactjs'
 import SinglePageLayout from 'components/single-page-layout'
 
 const FaqPage = ({ item }) => {
@@ -18,8 +17,9 @@ const FaqPage = ({ item }) => {
       <div className="my-4">
         <DocumentDetails date={last_publication_date} post={data.answer} />
       </div>
-      <RichText>{data.answer}</RichText>
-      <PostTags tags={item.tags} />
+      <div className="prose text-gray-500 prose-secondary">
+        <RichText render={data.answer} />
+      </div>
     </SinglePageLayout>
   )
 }

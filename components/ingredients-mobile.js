@@ -1,6 +1,6 @@
 import InciLink from 'components/inci-link'
 import Pannel from 'components/pannel'
-import RichText from 'components/rich-text'
+import { RichText } from 'prismic-reactjs'
 
 const IngredientsMobile = ({ data }) =>
   data.map((item, i) => (
@@ -9,13 +9,13 @@ const IngredientsMobile = ({ data }) =>
       key={`item-${i}`}
       title={item.title || item.inci_title}
     >
-      <div>
+      <div className="pb-3">
         <strong>Inci:</strong> <InciLink {...item} />
         <br />
         <br />
         <strong>O que significa?</strong>
         <br />
-        {item.description ? <RichText>{item.description}</RichText> : '--'}
+        {item.description ? <RichText render={item.description} /> : '--'}
       </div>
     </Pannel>
   ))
