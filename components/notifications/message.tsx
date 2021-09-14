@@ -35,7 +35,7 @@ const Message = ({ notification }: Props) => {
       afterLeave={dismiss}
     >
       <div className="w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto ring-1 ring-black ring-opacity-5">
-        {persist || <Countdown active time={5} onFinish={onFinish} />}
+        {persist || <Countdown active time={6} onFinish={onFinish} />}
         <div className="p-4">
           <div className="flex items-start">
             <div className="flex-shrink-0">

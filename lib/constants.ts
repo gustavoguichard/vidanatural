@@ -1,7 +1,7 @@
 import type { State } from 'types/global-state'
 
 const initialState = {
-  cart: [],
+  cart: {},
   showCart: false,
   updatingCart: false,
   searchOpen: false,

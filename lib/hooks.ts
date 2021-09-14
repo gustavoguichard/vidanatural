@@ -1,7 +1,7 @@
 import { useCallback, useState, useRef, useEffect } from 'react'
 import throttle from 'lodash/throttle'
 
-export const useElScroll = (el?: HTMLElement, delay = 300) => {
+const useElScroll = (el?: HTMLElement, delay = 300) => {
   const getPositions = (element?: HTMLElement) => ({
     x: typeof element !== 'undefined' ? element.scrollLeft : 0,
     y: typeof element !== 'undefined' ? element.scrollTop : 0,
@@ -29,7 +29,13 @@ export const useElScroll = (el?: HTMLElement, delay = 300) => {
   return state
 }
 
-export const usePrevious = (value: unknown) => {
+function useDidMount(callback: Function) {
+  useEffect(() => {
+    callback()
+  }, [])
+}
+
+const usePrevious = (value: unknown) => {
   const ref = useRef<unknown>()
   useEffect(() => {
     ref.current = value
@@ -37,13 +43,13 @@ export const usePrevious = (value: unknown) => {
   return ref.current
 }
 
-export const useToggle = (initial = false): [boolean, () => void] => {
+const useToggle = (initial = false): [boolean, () => void] => {
   const [value, setValue] = useState(initial)
   const toggler = () => setValue(!value)
   return [value, toggler]
 }
 
-export function useInterval(callback: () => void, delay: null | number) {
+function useInterval(callback: () => void, delay: null | number) {
   const savedCallback = useRef(() => {})
 
   useEffect(() => {
@@ -61,3 +67,5 @@ export function useInterval(callback: () => void, delay: null | number) {
     return undefined
   }, [delay])
 }
+
+export { usePrevious, useToggle, useInterval, useDidMount, useElScroll }

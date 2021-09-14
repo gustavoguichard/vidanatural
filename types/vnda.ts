@@ -5,8 +5,48 @@ export interface FormKeys {
 }
 
 export interface Cart {
+  agent: null | unknown
+  billing_address_id: null | unknown
+  channel: string
+  code: string
+  coupon_code: null | string
+  discount: null | unknown
+  discount_price: number
   id: number
-  client_id?: number
+  client_id: number | null
+  items: Array<{
+    available_quantity: number
+    delivery_days: number
+    id: number
+    image_url: string
+    price: number
+    product_id: number
+    product_name: string
+    product_reference: string
+    product_type: string
+    product_url: string
+    quantity: number
+    subtotal: number
+    total: number
+    variant_name: string
+    variant_price: number
+    variant_sku: string
+  }>
+  items_count: number
+  rebate_discount: number
+  rebate_token: null | unknown
+  shipping_address_id: null | unknown
+  shipping_method: null | unknown
+  token: string
+  shipping_price: number
+  subtotal: number
+  subtotal_discount: number
+  total: number
+  total_discount: number
+  total_for_deposit: number
+  total_for_pix: number
+  total_for_slip: number
+  user_id: null
 }
 
 export interface VndaProduct {

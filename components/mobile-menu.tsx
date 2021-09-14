@@ -28,6 +28,8 @@ const pageGroups = [
 
 type Props = { open: boolean; setOpen: (b: boolean) => void }
 const MobileMenu = ({ open, setOpen }: Props) => {
+  const closeMenu = () => setOpen(false)
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -61,7 +63,7 @@ const MobileMenu = ({ open, setOpen }: Props) => {
               <button
                 type="button"
                 className="inline-flex items-center justify-center p-2 -m-2 text-gray-400 rounded-md"
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
               >
                 <span className="sr-only">Close menu</span>
                 <XIcon className="w-6 h-6" aria-hidden="true" />
@@ -72,6 +74,7 @@ const MobileMenu = ({ open, setOpen }: Props) => {
               {categories.map((category) => (
                 <div key={category.name} className="flow-root">
                   <a
+                    onClick={closeMenu}
                     href={category.href}
                     className="block p-2 -m-2 font-medium text-gray-900"
                   >
@@ -88,6 +91,7 @@ const MobileMenu = ({ open, setOpen }: Props) => {
                 {pages.map((page, i) => (
                   <div key={`${page.name}-${i}`} className="flow-root">
                     <a
+                      onClick={closeMenu}
                       href={page.href}
                       className="block p-2 -m-2 font-medium text-gray-900"
                     >

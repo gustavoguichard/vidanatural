@@ -1,3 +1,5 @@
+import type { Cart } from 'types/vnda'
+
 type VPos = 'top' | 'bottom'
 type HPos = 'left' | 'right'
 type Notification = {
@@ -11,7 +13,7 @@ type Notification = {
 }
 
 type State = {
-  cart: any[]
+  cart: Cart
   showCart: boolean
   updatingCard: boolean
   subscribed: boolean
