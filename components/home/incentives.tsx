@@ -8,42 +8,42 @@ const incentives = [
     imageSrc: '/static/icons/alta-eficiencia.png',
     tags: ['home', 'desodorante'],
     description:
-      "It's not actually free we just price it into the products. Someone's paying for it, and it's not us.",
+      'Além de seguro e ecológico, te dá o resultado que você precisa.',
   },
   {
     name: 'Fórmulas minimalistas',
     imageSrc: '/static/icons/formula-minimalista.png',
     tags: ['home', 'desodorante', 'higiene'],
     description:
-      "If it breaks in the first 10 years we'll replace it. After that you're on your own though.",
+      'O mínimo para o máximo, porque a simplicidade é encantadora e surpreendente.',
   },
   {
-    name: 'Seguro pro Planeta',
+    name: 'Seguro para o Planeta',
     imageSrc: '/static/icons/seguro-pro-planeta.png',
     tags: ['home', 'desodorante', 'higiene', 'hidratante'],
     description:
-      "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
+      'Porque esse nosso planeta é muito especial e é só um. Merece todo cuidado ❤️',
   },
   {
     name: 'Ingredientes seguros',
     imageSrc: '/static/icons/ingredientes-seguros.png',
     tags: ['home', 'desodorante', 'higiene', 'hidratante'],
     description:
-      "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
+      'Formulações livres de ingredientes questionáveis e polêmicos. Para nossa saúde, o melhor 😉',
   },
   {
     name: 'Feito à mão',
     imageSrc: '/static/icons/feito-a-mao.png',
     tags: ['home', 'desodorante', 'higiene', 'hidratante'],
     description:
-      "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
+      'Mãos com intenção, com cuidado, com carinho. Fazendo o que acreditamos.',
   },
   {
     name: 'Entregamos para todo o Brasil',
     imageSrc: '/static/icons/entregamos.png',
     tags: ['home'],
     description:
-      "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
+      'Se você está em terras brasileiras, a gente entrega para você.',
   },
 ]
 
