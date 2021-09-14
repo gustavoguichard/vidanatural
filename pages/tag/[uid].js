@@ -9,49 +9,35 @@ import staticPaths from 'lib/static-paths/tag-uid'
 import EcommerceLayout from 'layouts/ecommerce'
 import Banner from 'components/banner'
 import HomeFeed from 'components/home/feed'
+import MoreProducts from 'components/more-products'
 import SEO from 'components/seo'
-import ProductGrid from 'components/product-grid'
 import ProductFaq from 'components/products/faq'
-import Testimonials from 'components/testimonials'
 
-const TagPage = ({ banner, products, posts, testimonials, faqItems }) => {
+const TagPage = ({ banner, products, posts, faqItems }) => {
   const router = useRouter()
   const title = `Tag: ${startCase(router.query.uid)}`
-  const hero = banner ? <Banner {...banner} /> : null
   const emptyPage =
-    [banner, products, posts, testimonials, faqItems].every(isEmpty) &&
-    !router.isFallback
+    [banner, products, posts, faqItems].every(isEmpty) || router.isFallback
   return (
     <>
       <SEO title={title} />
-      {hero}
-      <div className="max-w-screen-xl p-10 m-auto">
-        {(router.isFallback || !isEmpty(posts)) && (
-          <>
-            <h3 className="m-8 text-3xl font-semibold tracking-tight text-center">
-              Posts no blog
-            </h3>
-            {posts?.length && <HomeFeed posts={posts} />}
-          </>
-        )}
-      </div>
-      <div className="max-w-screen-xl px-6 py-10 m-auto border-t-8 border-white">
-        {isEmpty(products) || (
-          <>
-            <h3 className="m-8 text-3xl font-semibold tracking-tight text-center">
-              Produtos relacionados
-            </h3>
-            <ProductGrid products={products} />
-          </>
-        )}
-        {emptyPage && (
-          <h2 className="mx-4 mb-4 text-4xl font-bold tracking-tight text-center">
-            Nenhum conteúdo para a {title}
-          </h2>
-        )}
-      </div>
+      {banner && <Banner {...banner} />}
+      {posts?.length && <HomeFeed posts={posts} />}
+      {products?.length && (
+        <MoreProducts title="Produtos relacionados" products={products} />
+      )}
+      {emptyPage && (
+        <div className="flex flex-col items-stretch w-full px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="flex items-center justify-center min-h-[70vh] p-12 text-center border-2 border-gray-300 border-dashed rounded-lg">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              {router.isFallback
+                ? 'Carregando...'
+                : `Nenhum conteúdo para a ${title}`}
+            </h2>
+          </div>
+        </div>
+      )}
       <ProductFaq items={faqItems} />
-      <Testimonials testimonials={testimonials} />
     </>
   )
 }
