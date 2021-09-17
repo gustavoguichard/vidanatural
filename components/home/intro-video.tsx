@@ -1,4 +1,5 @@
 import Link from 'components/link'
+import LiteYouTubeEmbed from 'react-lite-youtube-embed'
 
 const IntroVideo = () => {
   return (
@@ -28,14 +29,14 @@ const IntroVideo = () => {
             </Link>
           </p>
           <div className="max-w-3xl mx-auto mt-8 overflow-hidden rounded">
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                src="https://www.youtube.com/embed/pboUElmO33s?controls=0"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
+            <LiteYouTubeEmbed
+              announce="Assistir"
+              wrapperClass="yt-lite aspect-w-16 aspect-h-9 bg-center bg-cover"
+              poster="hqdefault"
+              playlist={false}
+              id="pboUElmO33s"
+              title="Bem vinda a Vida Natural"
+            />
           </div>
         </div>
       </div>

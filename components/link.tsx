@@ -9,14 +9,14 @@ type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> &
     activeClassName?: string
   }
 const Link = forwardRef<HTMLAnchorElement, Props>(
-  ({ activeClassName, className, href, ...props }, ref) => {
+  ({ activeClassName, prefetch, className, href, ...props }, ref) => {
     const router = useRouter()
     const classes = cx(className, router.pathname === href && activeClassName)
 
-    return href && href.startsWith('http') ? (
+    return !href || href.startsWith('http') ? (
       <a ref={ref} href={href} className={classes} {...props} />
     ) : (
-      <NextLink href={href!}>
+      <NextLink href={href} prefetch={prefetch}>
         <a ref={ref} className={classes} {...props} />
       </NextLink>
     )

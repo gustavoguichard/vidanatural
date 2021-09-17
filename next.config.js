@@ -50,7 +50,7 @@ module.exports = withBundleAnalyzer({
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.facebook.net *.googletagmanager.com *.clarity.ms *.google-analytics.com *.googleadservices.com *.doubleclick.net *.google.com *.gstatic.com;
-  child-src *.youtube.com *.google.com *.doubleclick.net *.facebook.com;
+  child-src *.youtube.com www.youtube-nocookie.com *.google.com *.doubleclick.net *.facebook.com;
   style-src 'self' 'unsafe-inline' rsms.me;
   img-src * blob: data:;
   media-src 'none';

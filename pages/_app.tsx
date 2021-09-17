@@ -33,7 +33,7 @@ const VidaNatural = ({ pageProps, Component }: AppProps) => {
       <Script
         id="gtm-script"
         type="text/javascript"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -43,12 +43,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }}
       />
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GADS_ID}`}
       />
       <Script
         id="data-layer-script"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         type="text/javascript"
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];
@@ -59,7 +59,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }}
       />
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         id="gtag-report-script"
         type="text/javascript"
         dangerouslySetInnerHTML={{
@@ -67,7 +67,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }}
       />
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         id="clarity-script"
         type="text/javascript"
         dangerouslySetInnerHTML={{
