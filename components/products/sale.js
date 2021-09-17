@@ -1,6 +1,5 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import isEmpty from 'lodash/isEmpty'
 
 import { getDiscount } from 'lib/domain'
 
@@ -12,13 +11,10 @@ import PriceTag from './price-tag'
 import ProductCTA from './cta'
 import MobileCTA from './mobile-cta'
 
-const ProductSale = ({ product, hasTestimonials, hasFaqItems, cmsData }) => {
+const ProductSale = ({ product, cmsData }) => {
   const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
   const [variant] = product.variants || [{}]
-  const hasInformation = !!product.description.information
-  const hasIngredinets = !(
-    isEmpty(cmsData.ingredients) && isEmpty(cmsData.ingredients_table)
-  )
+  const hasInformation = Boolean(product.description.information)
 
   return (
     <>

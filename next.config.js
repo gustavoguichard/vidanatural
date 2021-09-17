@@ -1,6 +1,10 @@
 const times = require('lodash/times')
 
-module.exports = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+module.exports = withBundleAnalyzer({
   async rewrites() {
     return [
       {
@@ -41,7 +45,7 @@ module.exports = {
 
     return config
   },
-}
+})
 
 const ContentSecurityPolicy = `
   default-src 'self';

@@ -3,7 +3,7 @@ import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
-import { identity } from 'lodash'
+import identity from 'lodash/fp/identity'
 
 import { initTracking, intersectionPolyfill } from 'lib/fx'
 import { useCoupon } from 'lib/domain-hooks'

@@ -1,7 +1,6 @@
 import type { Cart } from 'types/vnda'
 
-type VPos = 'top' | 'bottom'
-type HPos = 'left' | 'right'
+type NotificationAction = { label: string; onClick?: () => void }
 type Notification = {
   id: string | number
   type: 'info' | 'alert' | 'error' | 'success'
@@ -9,7 +8,10 @@ type Notification = {
   title?: string
   message?: string
   htmlMessage?: string
-  position?: `${VPos}-${HPos}`
+  position: `${'top' | 'bottom'}-${'left' | 'right'}` | 'center'
+  cancel?: NotificationAction
+  action?: NotificationAction
+  onClose?: () => void
 }
 
 type State = {

@@ -65,7 +65,10 @@ export interface VndaProduct {
   price: number
   on_sale: boolean
   sale_price: number
-  discount_rule?: object
+  discount_rule?: {
+    amount: number
+    type: string
+  }
   images: ProductImg[]
   variants: ProductVariant[]
 }

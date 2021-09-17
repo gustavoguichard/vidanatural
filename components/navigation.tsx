@@ -1,16 +1,14 @@
 import { useState } from 'react'
-import {
-  MenuIcon,
-  SearchIcon,
-  ShoppingCartIcon,
-  UserIcon,
-} from '@heroicons/react/outline'
+import MenuIcon from '@heroicons/react/outline/MenuIcon'
+import SearchIcon from '@heroicons/react/outline/SearchIcon'
+import ShoppingCartIcon from '@heroicons/react/outline/ShoppingCartIcon'
+import UserIcon from '@heroicons/react/outline/UserIcon'
 
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import useGlobal from 'lib/use-global'
 import Link from 'components/link'
-import { sumBy } from 'lodash'
+import sumBy from 'lodash/sumBy'
 import api from 'lib/api'
 import { useDidMount } from 'lib/hooks'
 import { cx } from 'lib/utils'

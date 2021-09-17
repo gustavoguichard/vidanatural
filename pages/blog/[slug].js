@@ -3,7 +3,7 @@ import staticPaths from 'lib/static-paths/blog-uid'
 
 import { calculatePostReadTime } from 'lib/domain'
 import { cx, toDate } from 'lib/utils'
-import { ArrowNarrowLeftIcon } from '@heroicons/react/solid'
+import ArrowNarrowLeftIcon from '@heroicons/react/solid/ArrowNarrowLeftIcon'
 
 import EcommerceLayout from 'layouts/ecommerce'
 import SEO from 'components/seo'

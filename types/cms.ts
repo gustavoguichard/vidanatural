@@ -60,7 +60,13 @@ type BlogPost = {
     title: string
     date?: Date
     body: RichTextBlock[]
-    header_image?: object
+    header_image?: {
+      url: string
+      alt?: string
+      thumb?: {
+        url: string
+      }
+    }
     author: TeamMember
   }
 }

@@ -3,31 +3,38 @@ import { useToggle } from 'lib/hooks'
 import useGlobal from 'lib/use-global'
 
 import { Transition } from '@headlessui/react'
-import {
-  CheckCircleIcon,
-  ExclamationIcon,
-  InformationCircleIcon,
-  XCircleIcon,
-} from '@heroicons/react/outline'
-import { XIcon } from '@heroicons/react/solid'
+import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
+import ExclamationIcon from '@heroicons/react/outline/ExclamationIcon'
+import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
+import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
+import XIcon from '@heroicons/react/solid/XIcon'
 import Countdown from 'components/countdown'
 
 import type { Notification } from 'types/global-state'
+import { cx } from 'lib/utils'
 
 type Props = { notification: Notification }
 const Message = ({ notification }: Props) => {
   const { id, type, persist, message, title, htmlMessage } = notification
+  const { position = 'top-right', onClose, action, cancel } = notification
   const [visible, onFinish] = useToggle(true)
   const [, { dismissNotification }] = useGlobal()
 
-  const dismiss = () => dismissNotification(id)
+  const dismiss = () => {
+    dismissNotification(id)
+    onClose?.()
+  }
 
   return (
     <Transition
       show={visible}
       as={React.Fragment}
       enter="transform ease-out duration-300 transition"
-      enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+      enterFrom={cx(
+        'sm:translate-y-0 translate-y-2 opacity-0',
+        position.includes('right') && 'sm:translate-x-2',
+        position.includes('left') && 'sm:-translate-x-2',
+      )}
       enterTo="translate-y-0 opacity-100 sm:translate-x-0"
       leave="transition ease-in duration-100"
       leaveFrom="opacity-100"
@@ -75,6 +82,42 @@ const Message = ({ notification }: Props) => {
                 />
               ) : (
                 <p className="text-sm text-gray-500">{message}</p>
+              )}
+              {(action || cancel) && (
+                <div className="flex -mb-2 -ml-2 space-x-3">
+                  {action && (
+                    <button
+                      onClick={() => {
+                        action.onClick?.()
+                        dismiss()
+                      }}
+                      type="button"
+                      className={cx(
+                        'p-2 text-sm font-medium bg-white rounded-md',
+                        type === 'info' && 'text-blue-600 hover:text-blue-500',
+                        type === 'alert' &&
+                          'text-orange-600 hover:text-orange-500',
+                        type === 'error' && 'text-red-600 hover:text-red-500',
+                        type === 'success' &&
+                          'text-green-600 hover:text-green-500',
+                      )}
+                    >
+                      {action.label}
+                    </button>
+                  )}
+                  {cancel && (
+                    <button
+                      onClick={() => {
+                        cancel.onClick?.()
+                        dismiss()
+                      }}
+                      type="button"
+                      className="p-2 text-sm font-medium text-gray-700 bg-white rounded-md hover:text-gray-500"
+                    >
+                      {cancel.label}
+                    </button>
+                  )}
+                </div>
               )}
             </div>
             <div className="flex flex-shrink-0 ml-4">

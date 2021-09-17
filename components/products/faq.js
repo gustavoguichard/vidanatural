@@ -1,16 +1,14 @@
-import get from 'lodash/get'
-
 import FaqItems from 'components/faq-items'
 
 const ProductFaq = ({ items }) =>
-  get(items, 'length') ? (
-    <div className="bg-white w-full">
+  items?.length ? (
+    <div className="w-full bg-white">
       <div
         id="faq"
-        className="max-w-screen-xl mx-auto pt-4 px-10 pb-8 flex justify-center"
+        className="flex justify-center max-w-screen-xl px-10 pt-4 pb-8 mx-auto"
       >
         <div className="md:w-9/12">
-          <h3 className="text-3xl font-bold mt-10 mb-6 text-center tracking-tight">
+          <h3 className="mt-10 mb-6 text-3xl font-bold tracking-tight text-center">
             Dúvidas frequentes
           </h3>
           <FaqItems items={items} />

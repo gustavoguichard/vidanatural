@@ -105,9 +105,10 @@ export default createStore(
           [
             ...store.state.notifications,
             {
+              type: 'info',
+              id: new Date().getTime(),
+              position: 'top-right',
               ...notification,
-              id: notification.id || new Date().getTime(),
-              type: notification.type || 'info',
             },
           ],
           'id',

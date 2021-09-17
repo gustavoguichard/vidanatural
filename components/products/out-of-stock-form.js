@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
-import { FiSend } from 'react-icons/fi'
+import PaperAirplaneIcon from '@heroicons/react/outline/PaperAirplaneIcon'
 
 import api from 'lib/api'
 
@@ -33,7 +33,7 @@ const OutOfStockForm = ({ product, innerRef }) => {
 
   if (showForm) {
     return sent && !hasError ? (
-      <p className="mt-2 p-3 bg-blue-100 border-blue-300 border-2 rounded text-blue-900">
+      <p className="p-3 mt-2 text-blue-900 bg-blue-100 border-2 border-blue-300 rounded">
         Gratos!
         <br />
         Você receberá uma mensagem em breve! 🌱
@@ -46,7 +46,7 @@ const OutOfStockForm = ({ product, innerRef }) => {
         className="mt-2"
         action="/webform"
       >
-        <p className="font-semibold text-sm px-4 mb-4">
+        <p className="px-4 mb-4 text-sm font-semibold">
           Deixe o seu e-mail abaixo e enviaremos uma mensagem assim que tivermos
           o produto
         </p>
@@ -69,7 +69,7 @@ const OutOfStockForm = ({ product, innerRef }) => {
                 onClick={handleSubmit}
                 aria-label="Enviar"
               >
-                <FiSend />
+                <PaperAirplaneIcon className="w-5 h-5" />
               </IconButton>
             )
           }

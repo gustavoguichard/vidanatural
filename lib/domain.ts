@@ -1,4 +1,3 @@
-import get from 'lodash/get'
 import map from 'lodash/map'
 import flatMap from 'lodash/flatMap'
 import uniqBy from 'lodash/uniqBy'
@@ -73,10 +72,10 @@ export const getCategoryTags = (products: ParsedProduct[], addSales = true) => {
 }
 
 export const getDiscount = (product: VndaProduct) => {
-  const isPercentage = get(product, 'discount_rule.type') === 'percentage'
+  const isPercentage = product.discount_rule?.type === 'percentage'
   return isPercentage
-    ? `${get(product, 'discount_rule.amount', 0)}%`
-    : `${toCurrency(get(product, 'discount_rule.amount', 0))}`
+    ? `${product.discount_rule?.amount ?? 0}%`
+    : `${toCurrency(product.discount_rule?.amount ?? 0)}`
 }
 
 export const getProductsByTag = (products: ParsedProduct[], tags: string[]) => {

@@ -1,5 +1,7 @@
 import Img from 'components/img'
-import { compose, shuffle, take } from 'lodash/fp'
+import compose from 'lodash/fp/compose'
+import shuffle from 'lodash/fp/shuffle'
+import take from 'lodash/fp/take'
 import { memo } from 'react'
 
 const incentives = [

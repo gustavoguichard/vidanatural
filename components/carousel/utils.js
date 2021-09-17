@@ -1,7 +1,5 @@
-import get from 'lodash/get'
-
 export const widthInPixels = (container) => {
-  const firstChild = get(container, 'children.0')
+  const firstChild = container?.children?.[0]
   if (container && firstChild) {
     const { width } = firstChild.getBoundingClientRect()
     const { width: containerWidth } = container.getBoundingClientRect()

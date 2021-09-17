@@ -44,11 +44,6 @@ const ProductsPage = ({ products, filters }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const links = selected
-    ? [{ title: 'Produtos', href: '/produtos' }]
-    : undefined
-  const currentFilter = filters.find((f) => f.name === selected)
-
   return (
     <div className="max-w-screen-xl px-6 m-auto mt-16">
       <SEO title="Conheça nossos produtos" />

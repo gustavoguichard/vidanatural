@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useRef } from 'react'
-import get from 'lodash/get'
 
 import api from 'lib/api'
 
@@ -10,7 +9,7 @@ import ProductTitle from 'components/products/title'
 
 const ImageGallery = ({ product }) => {
   const [index, setIndex] = useState(0)
-  const imagesLenght = get(product, 'images.length', 2)
+  const imagesLenght = product?.images?.length ?? 2
 
   const gallery = useRef()
 

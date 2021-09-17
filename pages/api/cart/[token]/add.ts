@@ -1,14 +1,14 @@
-import find from 'lodash/find'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import api from 'lib/api'
+import type { Cart } from 'types/vnda'
 
 async function CartAdd(req: NextApiRequest, res: NextApiResponse) {
-  const cartData = await api.vnda.fetch(`cart/${req.query.token}`)
+  const cartData: Cart = await api.vnda.fetch(`cart/${req.query.token}`)
   const { sku, quantity } = JSON.parse(req.body)
 
   const { items } = cartData
-  const item = find(items, ({ variant_sku }) => variant_sku === String(sku))
+  const item = items?.find(({ variant_sku }) => variant_sku === String(sku))
 
   const path = item ? `items/${item.id}` : 'items'
   const method = item ? 'PATCH' : 'POST'

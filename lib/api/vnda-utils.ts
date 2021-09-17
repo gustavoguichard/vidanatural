@@ -1,5 +1,5 @@
 import isObject from 'lodash/isObject'
-import compact from 'lodash/compact'
+import compact from 'lodash/fp/compact'
 
 const normalizeBody = (body: undefined | string | object, method: string) => {
   if (['HEAD', 'GET', 'DELETE'].includes(method)) return undefined

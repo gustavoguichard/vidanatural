@@ -1,7 +1,17 @@
 import { memo } from 'react'
-import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { LinkedinIcon } from 'components/svg/linkedin'
+import { InstagramIcon } from 'components/svg/instagram'
+import { FacebookIcon } from 'components/svg/facebook'
+import { GithubIcon } from 'components/svg/github'
 
-const SocialLinks = ({ facebook, instagram, linkedin, github }) => (
+type LinkObj = { url?: string }
+type Props = {
+  facebook: LinkObj
+  instagram: LinkObj
+  linkedin: LinkObj
+  github: LinkObj
+}
+const SocialLinks = ({ facebook, instagram, linkedin, github }: Props) => (
   <ul role="list" className="flex space-x-5 text-primary-500">
     {linkedin?.url && (
       <li>
@@ -11,7 +21,7 @@ const SocialLinks = ({ facebook, instagram, linkedin, github }) => (
           className="text-current hover:text-gray-300"
         >
           <span className="sr-only">LinkedIn</span>
-          <FaLinkedin
+          <LinkedinIcon
             className="w-5 h-5"
             aria-hidden="true"
             fill="currentColor"
@@ -27,7 +37,7 @@ const SocialLinks = ({ facebook, instagram, linkedin, github }) => (
           className="text-current hover:text-gray-300"
         >
           <span className="sr-only">Instagram</span>
-          <FaInstagram
+          <InstagramIcon
             className="w-5 h-5"
             aria-hidden="true"
             fill="currentColor"
@@ -43,7 +53,7 @@ const SocialLinks = ({ facebook, instagram, linkedin, github }) => (
           className="text-current hover:text-gray-300"
         >
           <span className="sr-only">Facebook</span>
-          <FaFacebook
+          <FacebookIcon
             className="w-5 h-5"
             aria-hidden="true"
             fill="currentColor"
@@ -59,7 +69,7 @@ const SocialLinks = ({ facebook, instagram, linkedin, github }) => (
           className="text-current hover:text-gray-300"
         >
           <span className="sr-only">GitHub</span>
-          <FaGithub
+          <GithubIcon
             className="w-5 h-5"
             aria-hidden="true"
             fill="currentColor"

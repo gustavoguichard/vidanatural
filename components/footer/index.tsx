@@ -1,4 +1,4 @@
-import { LockClosedIcon } from '@heroicons/react/outline'
+import LockClosedIcon from '@heroicons/react/outline/LockClosedIcon'
 import NewsForm from 'components/footer/news-form'
 import Link from 'components/link'
 import { FacebookIcon } from 'components/svg/facebook'

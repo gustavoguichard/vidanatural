@@ -1,5 +1,4 @@
 import { useState, useEffect, memo } from 'react'
-import get from 'lodash/get'
 
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
@@ -34,20 +33,20 @@ const Cart = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart.shipping_address_id, cart.subtotal])
 
-  const safeItems = get(cart, 'items', [])
+  const safeItems = cart?.items ?? []
   return (
     <Drawer
       open={showCart}
       onClose={actions.hideCart}
       onOpen={actions.openCart}
       anchor="right"
-      className="w-full sm:max-w-sm flex flex-col"
+      className="flex flex-col w-full sm:max-w-sm"
     >
       <CartLoading />
-      <div className="relative flex-grow flex flex-col max-h-full overflow-scroll overscroll-contain">
+      <div className="relative flex flex-col flex-grow max-h-full overflow-scroll overscroll-contain">
         <CartHeader actions={actions} items={safeItems} />
         <CartShipping cart={cart} items={safeItems} {...shipping} />
-        <div className="flex flex-wrap p-1 items-start bg-gray-50 flex-grow">
+        <div className="flex flex-wrap items-start flex-grow p-1 bg-gray-50">
           {!!safeItems.length || <CartEmpty />}
           {safeItems.map((cartItem) => (
             <CartItem actions={actions} key={cartItem.id} item={cartItem} />

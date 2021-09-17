@@ -1,13 +1,11 @@
 import words from 'lodash/words'
-import {
-  compose,
-  reject,
-  isNil,
-  isBoolean,
-  flatten,
-  join,
-  trim,
-} from 'lodash/fp'
+import compose from 'lodash/fp/compose'
+import reject from 'lodash/fp/reject'
+import isNil from 'lodash/fp/isNil'
+import isBoolean from 'lodash/fp/isBoolean'
+import flatten from 'lodash/fp/flatten'
+import join from 'lodash/fp/join'
+import trim from 'lodash/fp/trim'
 
 const toCurrency = (n: number = 0) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })

@@ -1,10 +1,8 @@
-import { ChevronRightIcon } from '@heroicons/react/solid'
-import {
-  BookmarkAltIcon,
-  BookOpenIcon,
-  RssIcon,
-  ViewListIcon,
-} from '@heroicons/react/outline'
+import ChevronRightIcon from '@heroicons/react/solid/ChevronRightIcon'
+import BookmarkAltIcon from '@heroicons/react/outline/BookmarkAltIcon'
+import BookOpenIcon from '@heroicons/react/outline/BookOpenIcon'
+import RssIcon from '@heroicons/react/outline/RssIcon'
+import ViewListIcon from '@heroicons/react/outline/ViewListIcon'
 
 import EcommerceLayout from 'layouts/ecommerce'
 import Link from 'components/link'

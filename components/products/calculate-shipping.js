@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useFormState } from 'react-use-form-state'
-import get from 'lodash/get'
-import { FiTruck } from 'react-icons/fi'
+import TruckIcon from '@heroicons/react/outline/TruckIcon'
 
 import api from 'lib/api'
 import { toCurrency } from 'lib/utils'
@@ -28,7 +27,7 @@ const CalculateShipping = ({ sku, quantity }) => {
     setNotFound(false)
     setResults(null)
 
-    const zip = get(formState, 'values.zip', '').replaceAll(/\D/g, '')
+    const zip = (formState?.values?.zip ?? '').replaceAll(/\D/g, '')
     if (zip.length >= 8) {
       const result = await api.vnda.endpoints.calculateShipping({
         sku,
@@ -54,7 +53,7 @@ const CalculateShipping = ({ sku, quantity }) => {
 
   return showForm ? (
     <form
-      className="mt-6 relative z-10"
+      className="relative z-10 mt-6"
       onSubmit={handleSubmit}
       action="/frete_produto"
     >
@@ -66,12 +65,12 @@ const CalculateShipping = ({ sku, quantity }) => {
         label="Qual o seu CEP?"
         button={
           <IconButton type="submit" onClick={handleSubmit} aria-label="Enviar">
-            <FiTruck />
+            <TruckIcon className="w-5 h-5" />
           </IconButton>
         }
       />
       {(sending || notFound || results) && !hasError && (
-        <div className="mt-4 py-3 px-4 bg-yellow-100 text-yellow-900 border-yellow-200 border-2 rounded">
+        <div className="px-4 py-3 mt-4 text-yellow-900 bg-yellow-100 border-2 border-yellow-200 rounded">
           {sending && <Spinner className="mx-auto text-yellow-900" />}
           {notFound && <p className="font-semibold">Endereço não encontrado</p>}
           {results && (
@@ -109,13 +108,13 @@ const CalculateShipping = ({ sku, quantity }) => {
   ) : (
     <a
       href="#"
-      className="mt-4 flex place-items-center text-sm font-semibold hover:underline relative z-10"
+      className="relative z-10 flex mt-4 text-sm font-semibold place-items-center hover:underline"
       onClick={(ev) => {
         ev.preventDefault()
         setShowForm(true)
       }}
     >
-      Calcular frete <FiTruck className="ml-1" />
+      Calcular frete <TruckIcon className="w-5 h-5 ml-1" />
     </a>
   )
 }

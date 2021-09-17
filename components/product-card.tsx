@@ -1,5 +1,5 @@
 import { cx, toCurrency } from 'lib/utils'
-import { ShoppingCartIcon } from '@heroicons/react/outline'
+import ShoppingCartIcon from '@heroicons/react/outline/ShoppingCartIcon'
 import Img from 'components/img'
 import type { VndaProduct } from 'types/vnda'
 import useGlobal from 'lib/use-global'

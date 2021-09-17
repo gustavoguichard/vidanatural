@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { compose, toLower, deburr } from 'lodash/fp'
-import { SearchIcon } from '@heroicons/react/solid'
+import compose from 'lodash/fp/compose'
+import deburr from 'lodash/fp/deburr'
+import toLower from 'lodash/fp/toLower'
+import SearchIcon from '@heroicons/react/solid/SearchIcon'
 import { getExcerpt, calculatePostReadTime } from 'lib/domain'
 import { toDate } from 'lib/utils'
 

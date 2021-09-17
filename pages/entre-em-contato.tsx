@@ -7,11 +7,11 @@ import api from 'lib/api'
 import { cx } from 'lib/utils'
 import analytics from 'lib/analytics'
 
-import { MailIcon } from '@heroicons/react/outline'
-import { FaWhatsapp } from 'react-icons/fa'
+import MailIcon from '@heroicons/react/outline/MailIcon'
 
 import EcommerceLayout from 'layouts/ecommerce'
 import SEO from 'components/seo'
+import { WhatsappIcon } from 'components/svg/whatsapp'
 
 declare let window: Window & { grecaptcha: any }
 type FormFields = {
@@ -103,7 +103,7 @@ const ContactPage = () => {
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      <FaWhatsapp className="w-6 h-6 " />
+                      <WhatsappIcon className="w-5 h-5 " />
                     </a>
                     <span className="ml-3">+55 (48) 99103-0557</span>
                   </dd>
@@ -229,7 +229,7 @@ const ContactPage = () => {
             className="inline-flex items-center justify-center w-full px-5 py-3 mt-8 text-base font-medium bg-white border border-transparent rounded-md shadow-md text-grape-600 hover:bg-grape-50 sm:w-auto"
           >
             <span>Entrar em contato</span>
-            <FaWhatsapp
+            <WhatsappIcon
               className="flex-shrink-0 w-5 h-5 ml-3 text-green-400"
               aria-hidden="true"
             />

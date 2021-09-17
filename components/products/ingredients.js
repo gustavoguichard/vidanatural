@@ -1,5 +1,4 @@
 import { memo } from 'react'
-import isEmpty from 'lodash/isEmpty'
 
 import FeaturedIngredients from 'components/featured-ingredients'
 import Ingredients from 'components/ingredients'
@@ -10,8 +9,8 @@ const ProductIngredients = ({
   ingredients,
   ingredients_table,
 }) => {
-  const hasIngredients = !isEmpty(ingredients)
-  const hasTable = !isEmpty(ingredients_table)
+  const hasIngredients = ingredients?.length > 0
+  const hasTable = ingredients_table?.length > 0
   return hasIngredients || hasTable ? (
     <div className="border-t-8 border-b-8 border-white" id="ingredientes">
       <div className="flex flex-col items-center max-w-screen-xl px-10 mx-auto">

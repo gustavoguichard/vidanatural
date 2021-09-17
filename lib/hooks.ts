@@ -32,6 +32,7 @@ const useElScroll = (el?: HTMLElement, delay = 300) => {
 function useDidMount(callback: Function) {
   useEffect(() => {
     callback()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 }
 
