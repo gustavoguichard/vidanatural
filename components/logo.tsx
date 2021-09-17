@@ -2,7 +2,7 @@ import Link from 'components/link'
 
 const Logo = () => {
   return (
-    <Link href="/" className="inline-block">
+    <Link href="/" className="inline-block" prefetch={false}>
       <span className="sr-only">Vida Natural</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"

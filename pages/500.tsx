@@ -2,12 +2,15 @@ import EcommerceLayout from 'layouts/ecommerce'
 import Link from 'components/link'
 import Img from 'components/img'
 
+import team from '../public/static/images/equipe-frente.jpg'
+
 const Error500Page = () => {
   return (
     <main className="relative min-h-[90vh] bg-top bg-cover sm:bg-top">
       <div className="absolute inset-0 overflow-hidden">
         <Img
-          src="/static/images/equipe-frente.jpg"
+          src={team}
+          placeholder="blur"
           alt="Banner"
           className="object-cover object-center w-full h-full"
         />

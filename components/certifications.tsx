@@ -1,4 +1,10 @@
 import Img from 'next/image'
+import anvisa from '../public/static/svgs/anvisa.svg'
+import eureciclo from '../public/static/svgs/eureciclo.svg'
+import parabenos from '../public/static/svgs/parabenos.svg'
+import artesanal from '../public/static/svgs/artesanal.svg'
+import fragrancias from '../public/static/svgs/fragrancias.svg'
+import crueltyFree from '../public/static/svgs/cruelty-free.svg'
 
 const Certifications = () => (
   <div className="bg-white">
@@ -10,7 +16,7 @@ const Certifications = () => (
             height={65}
             title="Certificados pela ANVISA"
             className="max-h-12"
-            src="/static/svgs/anvisa.svg"
+            src={anvisa}
             alt="Anvisa"
           />
         </div>
@@ -20,7 +26,7 @@ const Certifications = () => (
             height={65}
             title="Investimos na compensação ambiental das embalagens que produzimos"
             className="max-h-12"
-            src="/static/svgs/eureciclo.svg"
+            src={eureciclo}
             alt="Eu Reciclo"
           />
         </div>
@@ -30,7 +36,7 @@ const Certifications = () => (
             height={65}
             title="Livre de parabenos e outros absurdos sintéticos"
             className="max-h-12"
-            src="/static/svgs/parabenos.svg"
+            src={parabenos}
             alt="Sem parabenos"
           />
         </div>
@@ -40,7 +46,7 @@ const Certifications = () => (
             height={65}
             title="Produtos artesanais"
             className="max-h-12"
-            src="/static/svgs/artesanal.svg"
+            src={artesanal}
             alt="Artesanal"
           />
         </div>
@@ -50,7 +56,7 @@ const Certifications = () => (
             height={65}
             title="Livres de crueldade animal"
             className="max-h-12"
-            src="/static/svgs/cruelty-free.svg"
+            src={crueltyFree}
             alt="Livre de crueldade animal"
           />
         </div>
@@ -60,7 +66,7 @@ const Certifications = () => (
             height={65}
             title="Sem fragrâncias sintéticas"
             className="max-h-12"
-            src="/static/svgs/fragrancias.svg"
+            src={fragrancias}
             alt="Sem Fragrâncias sintéticas"
           />
         </div>

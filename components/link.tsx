@@ -1,12 +1,13 @@
 import { forwardRef } from 'react'
 import { useRouter } from 'next/router'
-import NextLink from 'next/link'
+import NextLink, { LinkProps } from 'next/link'
 
 import { cx } from 'lib/utils'
 
-type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  activeClassName?: string
-}
+type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  Pick<LinkProps, 'prefetch' | 'scroll'> & {
+    activeClassName?: string
+  }
 const Link = forwardRef<HTMLAnchorElement, Props>(
   ({ activeClassName, className, href, ...props }, ref) => {
     const router = useRouter()

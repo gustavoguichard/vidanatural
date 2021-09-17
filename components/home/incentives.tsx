@@ -4,45 +4,52 @@ import shuffle from 'lodash/fp/shuffle'
 import take from 'lodash/fp/take'
 import { memo } from 'react'
 
+import eficiency from '../../public/static/icons/alta-eficiencia.png'
+import formula from '../../public/static/icons/formula-minimalista.png'
+import safe from '../../public/static/icons/seguro-pro-planeta.png'
+import ingredients from '../../public/static/icons/ingredientes-seguros.png'
+import handmade from '../../public/static/icons/feito-a-mao.png'
+import shipping from '../../public/static/icons/entregamos.png'
+
 const incentives = [
   {
     name: 'Alta eficiência',
-    imageSrc: '/static/icons/alta-eficiencia.png',
+    imageSrc: eficiency,
     tags: ['home', 'desodorante'],
     description:
       'Além de seguro e ecológico, te dá o resultado que você precisa.',
   },
   {
     name: 'Fórmulas minimalistas',
-    imageSrc: '/static/icons/formula-minimalista.png',
+    imageSrc: formula,
     tags: ['home', 'desodorante', 'higiene'],
     description:
       'O mínimo para o máximo, porque a simplicidade é encantadora e surpreendente.',
   },
   {
     name: 'Seguro para o Planeta',
-    imageSrc: '/static/icons/seguro-pro-planeta.png',
+    imageSrc: safe,
     tags: ['home', 'desodorante', 'higiene', 'hidratante'],
     description:
       'Porque esse nosso planeta é muito especial e é só um. Merece todo cuidado ❤️',
   },
   {
     name: 'Ingredientes seguros',
-    imageSrc: '/static/icons/ingredientes-seguros.png',
+    imageSrc: ingredients,
     tags: ['home', 'desodorante', 'higiene', 'hidratante'],
     description:
       'Formulações livres de ingredientes questionáveis e polêmicos. Para nossa saúde, o melhor 😉',
   },
   {
     name: 'Feito à mão',
-    imageSrc: '/static/icons/feito-a-mao.png',
+    imageSrc: handmade,
     tags: ['home', 'desodorante', 'higiene', 'hidratante'],
     description:
       'Mãos com intenção, com cuidado, com carinho. Fazendo o que acreditamos.',
   },
   {
     name: 'Entregamos para todo o Brasil',
-    imageSrc: '/static/icons/entregamos.png',
+    imageSrc: shipping,
     tags: ['home'],
     description:
       'Se você está em terras brasileiras, a gente entrega para você.',
@@ -63,6 +70,7 @@ const Incentives = () => {
               >
                 <div className="flow-root">
                   <Img
+                    placeholder="blur"
                     className="w-16 h-16 mx-auto"
                     src={incentive.imageSrc}
                     alt={incentive.name}

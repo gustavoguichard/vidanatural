@@ -7,6 +7,8 @@ import IllustratedIngredients from 'components/illustrated-ingredients'
 import SocialLinks from 'components/social-links'
 import SEO from 'components/seo'
 
+import teamPic from '../public/static/images/equipe-costas.jpg'
+
 const AboutPage = ({ team, page }) => {
   return (
     <>
@@ -19,8 +21,9 @@ const AboutPage = ({ team, page }) => {
         <div className="lg:absolute lg:inset-0">
           <div className="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
             <Img
+              placeholder="blur"
               className="object-cover w-full h-56 lg:absolute lg:h-full"
-              src="/static/images/equipe-costas.jpg"
+              src={teamPic}
               alt="Equipe da Vida Natural"
             />
           </div>
