@@ -5,6 +5,7 @@ import parabenos from '../public/static/svgs/parabenos.svg'
 import artesanal from '../public/static/svgs/artesanal.svg'
 import fragrancias from '../public/static/svgs/fragrancias.svg'
 import crueltyFree from '../public/static/svgs/cruelty-free.svg'
+import { getBlurDataURL } from 'components/img'
 
 const Certifications = () => (
   <div className="bg-white">
@@ -12,6 +13,8 @@ const Certifications = () => (
       <div className="grid grid-cols-2 gap-0.5 md:grid-cols-3">
         <div className="flex justify-center col-span-1 px-6 py-6 bg-gray-50">
           <Img
+            placeholder="blur"
+            blurDataURL={getBlurDataURL(65)}
             width={65}
             height={65}
             title="Certificados pela ANVISA"
@@ -22,6 +25,8 @@ const Certifications = () => (
         </div>
         <div className="flex justify-center col-span-1 px-6 py-6 bg-gray-50">
           <Img
+            placeholder="blur"
+            blurDataURL={getBlurDataURL(65)}
             width={65}
             height={65}
             title="Investimos na compensação ambiental das embalagens que produzimos"
@@ -32,6 +37,8 @@ const Certifications = () => (
         </div>
         <div className="flex justify-center col-span-1 px-6 py-6 bg-gray-50">
           <Img
+            placeholder="blur"
+            blurDataURL={getBlurDataURL(65)}
             width={65}
             height={65}
             title="Livre de parabenos e outros absurdos sintéticos"
@@ -42,6 +49,8 @@ const Certifications = () => (
         </div>
         <div className="flex justify-center col-span-1 px-6 py-6 bg-gray-50">
           <Img
+            placeholder="blur"
+            blurDataURL={getBlurDataURL(65)}
             width={65}
             height={65}
             title="Produtos artesanais"
@@ -52,6 +61,8 @@ const Certifications = () => (
         </div>
         <div className="flex justify-center col-span-1 px-6 py-6 bg-gray-50">
           <Img
+            placeholder="blur"
+            blurDataURL={getBlurDataURL(65)}
             width={65}
             height={65}
             title="Livres de crueldade animal"
@@ -62,6 +73,8 @@ const Certifications = () => (
         </div>
         <div className="flex justify-center col-span-1 px-6 py-6 bg-gray-50">
           <Img
+            placeholder="blur"
+            blurDataURL={getBlurDataURL(65)}
             width={65}
             height={65}
             title="Sem fragrâncias sintéticas"
