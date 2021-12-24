@@ -62,7 +62,7 @@ const Page = ({ nfs }) => {
           </tbody>
         </table>
       ) : (
-        <div className="flex flex-col items-center max-w-full p-8 mx-auto mt-8 text-lg font-semibold text-center text-green-900 bg-green-200 border-2 border-green-400 rounded w-72">
+        <div className="flex flex-col items-center max-w-full p-8 mx-auto mt-8 text-lg font-semibold text-center border-2 rounded text-emerald-900 bg-emerald-200 border-emerald-400 w-72">
           <p>
             Feito <span className="text-xl">😉</span>
           </p>

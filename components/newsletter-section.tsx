@@ -33,7 +33,7 @@ function NewsletterSection() {
               className="w-full px-5 py-3 placeholder-gray-500 border border-transparent rounded-md sm:max-w-xs"
               placeholder="Digite seu e-mail"
             />
-            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:shrink-0">
               <button
                 type="submit"
                 disabled={sending}

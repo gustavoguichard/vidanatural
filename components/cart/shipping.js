@@ -23,7 +23,7 @@ const CartShipping = ({ cart, items, loading, methods }) => {
   const percentage = Math.min((cart.subtotal * 100) / needed, 100)
   const completed = percentage >= 100
 
-  const bg = completed ? 'bg-green-500' : 'bg-blue-400'
+  const bg = completed ? 'bg-emerald-500' : 'bg-blue-400'
 
   useEffect(() => {
     updateShippingPrice(needed)
@@ -36,7 +36,7 @@ const CartShipping = ({ cart, items, loading, methods }) => {
         loading ? 25 : 100
       }`}
     >
-      <p className="text-gray-600 text-xs py-2 font-semibold">
+      <p className="py-2 text-xs font-semibold text-gray-600">
         {completed ? (
           <span>
             <strong>Feito!</strong> Você tem direito à frete grátis!
@@ -45,7 +45,7 @@ const CartShipping = ({ cart, items, loading, methods }) => {
           `Compre mais ${toCurrency(valueNeeded)} para ganhar frete grátis.`
         )}
       </p>
-      <div className="bg-white w-full border rounded-lg p-px pr-1">
+      <div className="w-full p-px pr-1 bg-white border rounded-lg">
         <div
           className={`${bg} m-px h-1 rounded transition-all duration-300`}
           style={{ width: `${percentage}%` }}

@@ -61,7 +61,7 @@ const Error404Page = () => {
                   key={linkIdx}
                   className="relative flex items-start py-6 space-x-4"
                 >
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary-50">
                       <link.icon
                         className="w-6 h-6 text-secondary-700"
@@ -85,7 +85,7 @@ const Error404Page = () => {
                       {link.description}
                     </p>
                   </div>
-                  <div className="self-center flex-shrink-0">
+                  <div className="self-center shrink-0">
                     <ChevronRightIcon
                       className="w-5 h-5 text-gray-400"
                       aria-hidden="true"

@@ -3,7 +3,7 @@ import React from 'react'
 import { cx } from 'lib/utils'
 
 const NumericStepper = ({ current, onIncrease, onDecrease, fixed }) => {
-  const classes = cx('h-full hover:bg-gray-100 flex-grow', fixed && 'w-8')
+  const classes = cx('h-full hover:bg-gray-100 grow', fixed && 'w-8')
   return (
     <>
       <button type="button" className={classes} onClick={onDecrease}>

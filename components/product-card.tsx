@@ -47,7 +47,7 @@ const ProductCard = ({ product }: Props) => {
       <div className="flex gap-1 mt-6">
         <Link
           href={`/produto/${product.slug}`}
-          className="relative flex items-center justify-center flex-1 flex-grow px-4 py-2 text-sm font-medium text-white transition border border-transparent rounded-md sm:px-8 bg-primary-500 hover:bg-primary-700"
+          className="relative flex items-center justify-center flex-1 grow px-4 py-2 text-sm font-medium text-white transition border border-transparent rounded-md sm:px-8 bg-primary-500 hover:bg-primary-700"
         >
           Comprar<span className="sr-only">, {product.name}</span>
         </Link>
@@ -63,7 +63,7 @@ const ProductCard = ({ product }: Props) => {
             />
           ) : (
             <ShoppingCartIcon
-              className="flex-shrink-0 w-6 h-6 -mr-1"
+              className="shrink-0 w-6 h-6 -mr-1"
               aria-hidden="true"
             />
           )}

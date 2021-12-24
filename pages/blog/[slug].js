@@ -78,7 +78,7 @@ const SinglePostPage = ({
             {calculatePostReadTime(data.body)} de leitura
           </p>
           <div className="flex items-center mt-6">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <span className="sr-only">{author?.data?.name}</span>
               {author?.data?.picture?.url && (
                 <Img

@@ -31,7 +31,7 @@ const IntroVideo = () => {
           <div className="max-w-3xl mx-auto mt-8 overflow-hidden rounded">
             <LiteYouTubeEmbed
               announce="Assistir"
-              wrapperClass="yt-lite aspect-w-16 aspect-h-9 bg-center bg-cover"
+              wrapperClass="yt-lite aspect-video bg-center bg-cover"
               poster="hqdefault"
               playlist={false}
               id="pboUElmO33s"

@@ -24,7 +24,7 @@ const NewsForm = () => {
         className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-transparent rounded-md appearance-none"
         placeholder="Digite seu e-mail"
       />
-      <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+      <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:shrink-0">
         <button
           type="submit"
           className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-secondary-500 hover:bg-secondary-600"

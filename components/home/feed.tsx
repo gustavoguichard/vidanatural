@@ -35,7 +35,7 @@ function Feed({ posts }: Props) {
               className="flex flex-col overflow-hidden border rounded-lg last:hidden sm:last:flex lg:last:hidden"
             >
               {post.thumbUrl && (
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <Img
                     className="object-cover w-full h-48"
                     src={post.thumbUrl}
@@ -62,7 +62,7 @@ function Feed({ posts }: Props) {
                   </Link>
                 </div>
                 <div className="flex items-center mt-6">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <span className="sr-only">{post.author?.data?.name}</span>
                     {post.author?.data.picture?.url && (
                       <Img

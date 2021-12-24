@@ -28,7 +28,7 @@ const Testimonials = ({ testimonials }: Props) => {
             </div>
             <footer className="mt-8">
               <div className="md:flex md:items-center md:justify-center">
-                <div className="md:flex-shrink-0">
+                <div className="md:shrink-0">
                   <Img
                     className="w-10 h-10 mx-auto rounded-full"
                     src={data.picture['square'].url}

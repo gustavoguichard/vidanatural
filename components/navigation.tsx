@@ -159,7 +159,7 @@ const Navigation = () => {
                         className="relative flex items-center p-2 -m-2 group"
                       >
                         <ShoppingCartIcon
-                          className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
+                          className="w-6 h-6 text-gray-400 shrink-0 group-hover:text-gray-500"
                           aria-hidden="true"
                         />
                         <span

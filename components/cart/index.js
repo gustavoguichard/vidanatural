@@ -43,10 +43,10 @@ const Cart = () => {
       className="flex flex-col w-full sm:max-w-sm"
     >
       <CartLoading />
-      <div className="relative flex flex-col flex-grow max-h-full overflow-scroll overscroll-contain">
+      <div className="relative flex flex-col grow max-h-full overflow-scroll overscroll-contain">
         <CartHeader actions={actions} items={safeItems} />
         <CartShipping cart={cart} items={safeItems} {...shipping} />
-        <div className="flex flex-wrap items-start flex-grow p-1 bg-gray-50">
+        <div className="flex flex-wrap items-start grow p-1 bg-gray-50">
           {!!safeItems.length || <CartEmpty />}
           {safeItems.map((cartItem) => (
             <CartItem actions={actions} key={cartItem.id} item={cartItem} />

@@ -24,7 +24,7 @@ const Notifications = () => {
             <Message key={n.id} notification={n} />
           ))}
       </div>
-      <div className="flex-grow" />
+      <div className="grow" />
       <div className="relative flex flex-col-reverse items-center gap-4 sm:items-start sm:pr-6 sm:absolute sm:left-4 sm:bottom-4 sm:w-1/2">
         {notifications
           .filter(({ position }) => position === 'bottom-left')

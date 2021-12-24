@@ -1,10 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 
 module.exports = {
-  dark: 'media',
-  mode: 'jit',
-  purge: [
+  content: [
     './components/**/*.js',
     './components/**/*.tsx',
     './pages/**/*.js',
@@ -13,11 +10,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        teal: colors.teal,
-        orange: colors.orange,
-        yellow: colors.yellow,
-        rose: colors.rose,
-        cyan: colors.cyan,
         primary: {
           50: '#fff2f0',
           100: '#f7e9e7',
@@ -50,7 +42,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/line-clamp'),
   ],
 }

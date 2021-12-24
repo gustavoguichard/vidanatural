@@ -68,7 +68,7 @@ const CartItem = ({ item, actions }) => {
             )}
           </span>
         </p>
-        <div className="flex-grow overflow-hidden">
+        <div className="grow overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt={product_name}
@@ -77,7 +77,7 @@ const CartItem = ({ item, actions }) => {
           />
         </div>
         <div className="flex w-full mt-px text-xs">
-          <div className="flex flex-grow border-t border-r">
+          <div className="flex grow border-t border-r">
             <NumericStepper
               onIncrease={handleChange(1)}
               onDecrease={handleChange(-1)}

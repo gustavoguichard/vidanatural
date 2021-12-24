@@ -70,8 +70,8 @@ const CalculateShipping = ({ sku, quantity }) => {
         }
       />
       {(sending || notFound || results) && !hasError && (
-        <div className="px-4 py-3 mt-4 text-yellow-900 bg-yellow-100 border-2 border-yellow-200 rounded">
-          {sending && <Spinner className="mx-auto text-yellow-900" />}
+        <div className="px-4 py-3 mt-4 border-2 rounded text-amber-900 bg-amber-100 border-amber-200">
+          {sending && <Spinner className="mx-auto text-amber-900" />}
           {notFound && <p className="font-semibold">Endereço não encontrado</p>}
           {results && (
             <div>

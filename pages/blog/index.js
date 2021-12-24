@@ -44,7 +44,7 @@ const BlogPage = ({ posts }) => {
               Buscar
             </label>
             <div className="flex rounded-md shadow-sm">
-              <div className="relative flex-grow focus-within:z-10">
+              <div className="relative grow focus-within:z-10">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <SearchIcon
                     className="w-5 h-5 text-gray-400"
@@ -79,7 +79,7 @@ const BlogPage = ({ posts }) => {
             className="flex flex-col w-full overflow-hidden border rounded-lg sm:flex-row"
           >
             {post.thumbUrl && (
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <Link href={post.permalink}>
                   <Img
                     className="object-cover w-full h-56 sm:w-56 sm:h-full"
@@ -108,7 +108,7 @@ const BlogPage = ({ posts }) => {
                 </Link>
               </div>
               <div className="flex items-center mt-6">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <span className="sr-only">{post.author?.data?.name}</span>
                   {post.author?.data?.picture?.url && (
                     <Img

@@ -97,7 +97,7 @@ const ContactPage = () => {
                   <dt className="sr-only">Telefone</dt>
                   <dd className="flex">
                     <a
-                      className="flex-shrink-0 text-green-400 hover:text-green-500"
+                      className="shrink-0 text-emerald-400 hover:text-emerald-500"
                       href="https://wa.me/5548991039557"
                       title="Enviar mensagem de whatsapp"
                       rel="noopener noreferrer"
@@ -112,7 +112,7 @@ const ContactPage = () => {
                   <dt className="sr-only">E-mail</dt>
                   <dd className="flex">
                     <MailIcon
-                      className="flex-shrink-0 w-6 h-6 text-gray-400"
+                      className="shrink-0 w-6 h-6 text-gray-400"
                       aria-hidden="true"
                     />
                     <span className="ml-3">falecom@vidanatural.eco.br</span>
@@ -230,7 +230,7 @@ const ContactPage = () => {
           >
             <span>Entrar em contato</span>
             <WhatsappIcon
-              className="flex-shrink-0 w-5 h-5 ml-3 text-green-400"
+              className="shrink-0 w-5 h-5 ml-3 text-emerald-400"
               aria-hidden="true"
             />
           </a>

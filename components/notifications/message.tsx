@@ -29,7 +29,7 @@ const Message = ({ notification }: Props) => {
     <Transition
       show={visible}
       as={React.Fragment}
-      enter="transform ease-out duration-300 transition"
+      enter="ease-out duration-300 transition"
       enterFrom={cx(
         'sm:translate-y-0 translate-y-2 opacity-0',
         position.includes('right') && 'sm:translate-x-2',
@@ -45,7 +45,7 @@ const Message = ({ notification }: Props) => {
         {persist || <Countdown active time={6} onFinish={onFinish} />}
         <div className="p-4">
           <div className="flex items-start">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               {type === 'info' && (
                 <InformationCircleIcon
                   className="w-6 h-6 text-blue-400"
@@ -54,7 +54,7 @@ const Message = ({ notification }: Props) => {
               )}
               {type === 'success' && (
                 <CheckCircleIcon
-                  className="w-6 h-6 text-green-400"
+                  className="w-6 h-6 text-emerald-400"
                   aria-hidden="true"
                 />
               )}
@@ -99,7 +99,7 @@ const Message = ({ notification }: Props) => {
                           'text-orange-600 hover:text-orange-500',
                         type === 'error' && 'text-red-600 hover:text-red-500',
                         type === 'success' &&
-                          'text-green-600 hover:text-green-500',
+                          'text-emerald-600 hover:text-emerald-500',
                       )}
                     >
                       {action.label}
@@ -120,7 +120,7 @@ const Message = ({ notification }: Props) => {
                 </div>
               )}
             </div>
-            <div className="flex flex-shrink-0 ml-4">
+            <div className="flex shrink-0 ml-4">
               <button
                 className="inline-flex text-gray-400 bg-white rounded-md hover:text-gray-500"
                 onClick={() => onFinish()}

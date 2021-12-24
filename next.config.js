@@ -5,6 +5,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
+  experimental: {
+    // concurrentFeatures: true,
+    esmExternals: true,
+    // serverComponents: true,
+  },
+  swcMinify: true,
   async rewrites() {
     return [
       {
@@ -25,6 +31,7 @@ module.exports = withBundleAnalyzer({
     ]
   },
   images: {
+    // formats: ['image/avif', 'image/webp'],
     domains: [
       'images.prismic.io',
       ...['a', 'b', 'c'].flatMap((l) =>
@@ -32,7 +39,6 @@ module.exports = withBundleAnalyzer({
       ),
     ],
   },
-  experimental: { esmExternals: true },
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {
