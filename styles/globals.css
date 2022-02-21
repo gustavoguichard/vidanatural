@@ -32,41 +32,22 @@
     display: none;
   }
 
+  .yt-lite {
+    @apply aspect-video relative bg-center bg-cover cursor-pointer flex items-center justify-center;
+  }
   .yt-lite > .lty-playbtn {
-    width: 70px;
-    height: 46px;
-    background-color: #212121;
-    z-index: 1;
-    opacity: 0.8;
-    border-radius: 14%; /* TODO: Consider replacing this with YT's actual svg. Eh. */
-    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+    @apply w-[70px] aspect-[10/7] rounded-lg transition-all ease-[cubic-bezier(0,0,0.2,1)] z-10 bg-black/70 flex items-center justify-center absolute before:border-y-[11px] before:border-l-[19px] before:border-transparent before:border-l-white;
   }
   .yt-lite:hover > .lty-playbtn {
-    background-color: #f00;
-    opacity: 1;
+    @apply bg-red-500;
   }
-  /* play button triangle */
-  .yt-lite > .lty-playbtn:before {
-    content: '';
-    border-style: solid;
-    border-width: 11px 0 11px 19px;
-    border-color: transparent transparent transparent #fff;
-  }
-
-  .yt-lite > .lty-playbtn,
-  .yt-lite > .lty-playbtn:before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-  }
-
   .yt-lite.lyt-activated {
-    cursor: unset;
+    @apply cursor-auto;
   }
-  .yt-lite.lyt-activated::before,
   .yt-lite.lyt-activated > .lty-playbtn {
-    opacity: 0;
-    pointer-events: none;
+    @apply opacity-0 pointer-events-none;
+  }
+  .yt-lite iframe {
+    @apply w-full h-full;
   }
 }
