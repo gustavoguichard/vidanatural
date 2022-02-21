@@ -1,6 +1,6 @@
-import utils from 'lib/api/vnda-utils'
+import utils from './vnda-utils'
 
-import type { API2Response } from 'types/vnda'
+import type { API2Response } from '../../types/vnda'
 
 const fetcher = async (
   path: string,
@@ -30,7 +30,8 @@ const fetcher = async (
       return { error: data.error, status }
     }
     return { data, status }
-  } catch (error) {
+  } catch (err) {
+    const error = err as string
     return { error, status: 500 }
   }
 }
@@ -67,8 +68,10 @@ const serverFetchBFFApi = async (
   return processFetch(fullPath, method, body)
 }
 
-export default {
+const vndaApi = {
   fetchFromAPI: fetcher,
   fetch: serverFetchBFFApi,
   clientFetch: clientFetchBFFApi,
 }
+
+export default vndaApi

@@ -1,11 +1,11 @@
 import flatMap from 'lodash/flatMap'
 import values from 'lodash/values'
 
-import utils from 'lib/api/vnda-utils'
-import vnda from 'lib/api/vnda-api2'
-import parseProduct from 'lib/parsers/product'
+import utils from './vnda-utils'
+import vnda from './vnda-api2'
+import parseProduct from '../parsers/product'
 
-import type { FormKeys, VndaProduct, ParsedProduct } from 'types/vnda'
+import type { FormKeys, VndaProduct, ParsedProduct } from '../../types/vnda'
 
 const doRequest = async (url: string, method = 'GET') => {
   const requestParams = { headers: { Accept: 'application/json' }, method }
@@ -20,16 +20,16 @@ interface ShippingParams {
   quantity?: number
 }
 const calculateShipping = async ({ sku, quantity, zip }: ShippingParams) => {
-  const url = utils.getUrl('frete_produto', ({
+  const url = utils.getUrl('frete_produto', {
     sku,
     quantity,
     zip,
-  } as unknown) as URLSearchParams)
+  } as unknown as URLSearchParams)
   return doRequest(url, 'POST')
 }
 
 const textSearch = async (q: string) => {
-  const url = utils.getUrl('busca', ({ q } as unknown) as URLSearchParams)
+  const url = utils.getUrl('busca', { q } as unknown as URLSearchParams)
   return doRequest(url)
 }
 
@@ -40,10 +40,10 @@ const sendForm = async (values: FormKeys) => {
     return false
   }
 
-  const url = utils.getUrl('webform', ({
+  const url = utils.getUrl('webform', {
     key,
     ...otherValues,
-  } as unknown) as URLSearchParams)
+  } as unknown as URLSearchParams)
   const response = await fetch(url, {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
@@ -66,9 +66,11 @@ const populateProducts = async (
   })
 }
 
-export default {
+const vndaEndpoints = {
   calculateShipping,
   populateProducts,
   sendForm,
   textSearch,
 }
+
+export default vndaEndpoints

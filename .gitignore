@@ -5,7 +5,7 @@ coverage
 npm-debug.log
 
 # generated
-dist
+dist/
 out/
 .next/
 .vscode/
@@ -14,10 +14,13 @@ bundle/
 # hidden
 .env
 .env-config.js
-.eslintcache
+.env.local
 
 s3/
 
+.eslintcache
 .vercel
 yarn-error.log
-.env.local
+styles/app.css
+public/sitemap.xml
+public/feed.xml

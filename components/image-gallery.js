@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useRef } from 'react'
-import get from 'lodash/get'
 
 import api from 'lib/api'
 
@@ -9,7 +9,7 @@ import ProductTitle from 'components/products/title'
 
 const ImageGallery = ({ product }) => {
   const [index, setIndex] = useState(0)
-  const imagesLenght = get(product, 'images.length', 2)
+  const imagesLenght = product?.images?.length ?? 2
 
   const gallery = useRef()
 
@@ -26,10 +26,10 @@ const ImageGallery = ({ product }) => {
           onChange={({ current }) => setIndex(current - 1)}
         >
           {product.images.map((img, i) => (
-            <div className="flex justify-center relative" key={`img-${i}`}>
+            <div className="relative flex justify-center" key={`img-${i}`}>
               <DiscountTag product={product} />
               <img
-                className="max-w-full object-contain relative z-10"
+                className="relative z-10 object-contain max-w-full"
                 alt={product.name}
                 src={api.vnda.utils.getResizedImg(img.url, 600)}
               />
@@ -38,7 +38,7 @@ const ImageGallery = ({ product }) => {
         </Carousel>
       </div>
       {imagesLenght > 1 ? (
-        <div className="flex flex-wrap justify-center items-center lg:flex-col px-2 lg:px-0 lg:order-first mt-2 lg:mt-0">
+        <div className="flex flex-wrap items-center justify-center px-2 mt-2 lg:flex-col lg:px-0 lg:order-first lg:mt-0">
           {product.images.map((img, i) => (
             <img
               key={i}

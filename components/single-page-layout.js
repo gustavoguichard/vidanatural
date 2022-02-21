@@ -1,32 +1,13 @@
 import { cx } from 'lib/utils'
 
-import Layout from 'components/layout'
-
-const SinglePageLayout = ({
-  children,
-  variant,
-  gray,
-  hero,
-  className,
-  ...props
-}) => (
-  <Layout
-    variant={variant}
-    className={gray ? 'bg-gray-100' : 'bg-white'}
-    {...props}
-  >
-    {hero}
-    <div
-      className={cx(
-        'flex flex-col items-center max-w-screen-xl m-auto border-b-8 border-white',
-        hero ? 'p-10' : 'pt-32 px-10 pb-8',
-      )}
-    >
+const SinglePageLayout = ({ children, className, ...props }) => (
+  <div {...props}>
+    <div className="flex flex-col items-center max-w-screen-xl px-10 pt-32 pb-8 m-auto border-b-8 border-white">
       <div className={cx('flex flex-col w-full lg:w-8/12', className)}>
         {children}
       </div>
     </div>
-  </Layout>
+  </div>
 )
 
 export default SinglePageLayout

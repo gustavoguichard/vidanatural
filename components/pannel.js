@@ -1,4 +1,4 @@
-import { FiChevronDown } from 'react-icons/fi'
+import ChevronDownIcon from '@heroicons/react/solid/ChevronDownIcon'
 
 import { cx } from 'lib/utils'
 import { useToggle } from 'lib/hooks'
@@ -20,15 +20,15 @@ const Pannel = ({ onClick, className, children, title }) => {
     >
       <div
         onClick={handleClick}
-        className="flex p-4 justify-between cursor-pointer"
+        className="flex justify-between p-4 cursor-pointer"
       >
-        <span className="font-semibold text-gray-600 tracking-tight">
+        <span className="font-semibold tracking-tight text-gray-600">
           {title}
         </span>
-        <FiChevronDown
+        <ChevronDownIcon
           className={cx(
-            'transition duration-200 text-xl text-gray-400',
-            open && 'transform rotate-180',
+            'w-5 h-5 transition duration-200 text-xl text-gray-400',
+            open && 'rotate-180',
           )}
         />
       </div>

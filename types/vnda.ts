@@ -3,12 +3,6 @@ export interface FormKeys {
   key: string
   [key: string]: string | undefined
 }
-
-export interface Cart {
-  id: number
-  client_id?: number
-}
-
 export interface VndaProduct {
   id: number
   active: boolean
@@ -25,7 +19,10 @@ export interface VndaProduct {
   price: number
   on_sale: boolean
   sale_price: number
-  discount_rule?: object
+  discount_rule?: {
+    amount: number
+    type: string
+  }
   images: ProductImg[]
   variants: ProductVariant[]
 }
@@ -53,6 +50,7 @@ export interface ProductVariant {
   id: number
   sku: string
   name: string
+  price: number
   available: boolean
   available_quantity: number
   stock: number

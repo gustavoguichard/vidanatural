@@ -6,58 +6,41 @@ import startCase from 'lodash/startCase'
 import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'
 
-import Banner from 'components/banner'
-import Breadcrumbs from 'components/breadcrumbs'
-import FeedSlider from 'components/feed-slider'
-import Layout from 'components/layout'
-import ProductGrid from 'components/product-grid'
+import EcommerceLayout from 'layouts/ecommerce'
+import HomeFeed from 'components/home/feed'
+import MoreProducts from 'components/more-products'
+import SEO from 'components/seo'
 import ProductFaq from 'components/products/faq'
-import Testimonials from 'components/testimonials'
 
-const TagPage = ({ banner, products, posts, testimonials, faqItems }) => {
+const TagPage = ({ banner, products, posts, faqItems }) => {
   const router = useRouter()
   const title = `Tag: ${startCase(router.query.uid)}`
-  const hero = banner ? <Banner {...banner} /> : null
   const emptyPage =
-    [banner, products, posts, testimonials, faqItems].every(isEmpty) &&
-    !router.isFallback
+    [banner, products, posts, faqItems].every(isEmpty) || router.isFallback
   return (
-    <Layout title={title} variant="secondary" stickBar={!hero}>
-      {hero}
-      <div className="max-w-screen-xl m-auto p-10">
-        <div className="max-w-screen-lg m-auto text-center">
-          <Breadcrumbs>{title}</Breadcrumbs>
+    <>
+      <SEO title={title} />
+      {posts?.length && <HomeFeed posts={posts} />}
+      {products?.length && (
+        <MoreProducts title="Produtos relacionados" products={products} />
+      )}
+      {emptyPage && (
+        <div className="flex flex-col items-stretch w-full px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="flex items-center justify-center min-h-[70vh] p-12 text-center border-2 border-gray-300 border-dashed rounded-lg">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              {router.isFallback
+                ? 'Carregando...'
+                : `Nenhum conteúdo para a ${title}`}
+            </h2>
+          </div>
         </div>
-        {(router.isFallback || !isEmpty(posts)) && (
-          <>
-            <h3 className="text-3xl font-semibold tracking-tight m-8 text-center">
-              Posts no blog
-            </h3>
-            <FeedSlider posts={posts} />
-          </>
-        )}
-      </div>
-      <div className="max-w-screen-xl m-auto py-10 px-6 border-t-8 border-white">
-        {isEmpty(products) || (
-          <>
-            <h3 className="text-3xl font-semibold tracking-tight m-8 text-center">
-              Produtos relacionados
-            </h3>
-            <ProductGrid products={products} />
-          </>
-        )}
-        {emptyPage && (
-          <h2 className="text-4xl text-center font-bold tracking-tight mx-4 mb-4">
-            Nenhum conteúdo para a {title}
-          </h2>
-        )}
-      </div>
+      )}
       <ProductFaq items={faqItems} />
-      <Testimonials testimonials={testimonials} />
-    </Layout>
+    </>
   )
 }
 
+TagPage.getLayout = EcommerceLayout
 export const getStaticPaths = staticPaths
 export const getStaticProps = staticProps
 export default TagPage

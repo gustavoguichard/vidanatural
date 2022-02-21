@@ -12,10 +12,9 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
     fetchLinks: ['team_member.name', 'team_member.picture'],
   })
   const banners = results.filter((r) => r.type === 'home_banner')
-  const testimonials = results.filter((r) => r.type === 'testimonial')
-  const posts = (results.filter(
-    (r) => r.type === 'blog_post',
-  ) as BlogPost[]).map(parsePost)
+  const posts = (
+    results.filter((r) => r.type === 'blog_post') as BlogPost[]
+  ).map(parsePost)
   const faqItems = results.filter((r) => r.type === 'faq_item')
   const productsRes = await api.vnda.fetchFromAPI('products')
   const parsedProducts: ParsedProduct[] = await Promise.all(
@@ -25,8 +24,7 @@ const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   return {
     props: {
       products,
-      banner: banners.length ? banners[0] : null,
-      testimonials,
+      banner: banners?.[0] ?? null,
       posts,
       faqItems,
     },

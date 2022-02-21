@@ -1,17 +1,14 @@
-import get from 'lodash/get'
+import { getExcerpt } from '../domain'
 
-import { getExcerpt } from 'lib/domain'
-import parseMember from './team-member'
+import type { BlogPost } from 'types/cms'
+import type { RichTextBlock } from 'prismic-reactjs'
 
-import type { BlogPost, PostBody } from 'types/cms'
-
-export default (post: BlogPost) => {
+function parseBlogPost(post: BlogPost) {
   const { uid, first_publication_date, data } = post
   const { title, date, body, header_image } = data
-  const thumbUrl = get(header_image, 'thumb.url', null)
-  const featuredUrl = get(header_image, 'url', null)
-  const imgAlt = get(header_image, 'alt', title)
-  const author = parseMember(data.author)
+  const thumbUrl = header_image?.thumb?.url ?? null
+  const featuredUrl = header_image?.url ?? null
+  const imgAlt = header_image?.alt ?? title
   const permalink = `/blog/${uid}`
   return {
     ...post,
@@ -19,8 +16,10 @@ export default (post: BlogPost) => {
     featuredUrl,
     imgAlt,
     permalink,
-    author,
+    author: data.author,
     date: date || first_publication_date,
-    excerpt: getExcerpt(body as PostBody[]),
+    excerpt: getExcerpt(body as RichTextBlock[]),
   }
 }
+
+export default parseBlogPost

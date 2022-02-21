@@ -43,7 +43,7 @@ const Input = ({
             htmlFor={name}
             className={`absolute top-0 pointer-events-none text-${
               error ? errorColor : text
-            } text-lg bg-${bg} p-4 duration-150 origin-0 rounded`}
+            } text-lg bg-${bg} p-4 duration-150 origin-[0%] rounded`}
           >
             {label}
             {required ? ' *' : ''}

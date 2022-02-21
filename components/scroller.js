@@ -33,7 +33,7 @@ const Scroller = (
       {React.Children.map(children, (child) =>
         React.cloneElement(child, {
           ...child.props,
-          className: cx(child.props.className, flex && 'flex-shrink-0'),
+          className: cx(child.props.className, flex && 'shrink-0'),
           style: {
             ...child.props.style,
             scrollSnapAlign: 'start',

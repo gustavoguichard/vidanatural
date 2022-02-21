@@ -28,6 +28,7 @@ const SearchBar = () => {
   const searchCB = () => {
     hasQuery && doSearch(query, setResults, setFetching)
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(searchCB, [query])
 
   return (
@@ -37,13 +38,13 @@ const SearchBar = () => {
       leave="delay-200 transition-opacity ease-in duration-200"
       hidden="opacity-0"
       shown="opacity-100"
-      className="fixed z-50 inset-0 bg-black bg-opacity-10 backdrop-blur-sm transition-all duration-300"
+      className="fixed inset-0 z-50 transition-all duration-300 bg-black/30"
       onClick={closeSearch}
     >
       <Transition.Child
-        className="flex flex-col max-h-screen overflow-y-auto shadow-lg overflow-hidden relative rounded-b-lg"
-        enter="delay-200 transition-all ease-in-out duration-100 transform"
-        leave="transition-all ease-in-out duration-100 transform"
+        className="relative flex flex-col max-h-screen overflow-hidden overflow-y-auto rounded-b-lg shadow-lg"
+        enter="delay-200 transition-all ease-in-out duration-100"
+        leave="transition-all ease-in-out duration-100"
         hidden="-translate-y-full"
         shown="translate-y-0"
         afterEnter={() => field.current.focus()}
@@ -59,7 +60,7 @@ const SearchBar = () => {
             searchCB()
           }}
           action="/search"
-          className="relative flex justify-between items-center"
+          className="relative flex items-center justify-between"
         >
           <input
             type="search"
@@ -68,7 +69,7 @@ const SearchBar = () => {
             spellCheck="false"
             id="search-field"
             ref={field}
-            className="bg-white p-6 w-full"
+            className="w-full p-6 bg-white"
             placeholder="Buscar..."
             aria-label="search"
             onChange={(ev) => setQuery(ev.target.value)}
@@ -77,18 +78,18 @@ const SearchBar = () => {
             <Spinner
               color="text-black"
               size={8}
-              className="absolute pointer-events-none mr-3 right-0"
+              className="absolute right-0 mr-3 pointer-events-none"
             />
           )}
         </form>
         {(hasQuery || !!results.length) && (
-          <div className="divide-y divide-gray-200 bg-white">
+          <div className="bg-white divide-y divide-gray-200">
             {results.length ? (
               results.map((item) => (
                 <SearchItem key={item.id} onClick={closeSearch} {...item} />
               ))
             ) : (
-              <p className="p-5 font-semibold text-gray-700 text-sm">
+              <p className="p-5 text-sm font-semibold text-gray-700">
                 Nenhum resultado similar
               </p>
             )}

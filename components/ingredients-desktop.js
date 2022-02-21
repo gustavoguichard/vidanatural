@@ -1,22 +1,22 @@
 import InciLink from 'components/inci-link'
-import RichText from 'components/rich-text'
+import { RichText } from 'prismic-reactjs'
 
 const IngredientsDesktop = ({ data }) => (
-  <table className="my-6 text-sm hidden md:block shadow border-b border-gray-200 rounded-lg divide-y divide-gray-200">
+  <table className="hidden my-6 text-sm border-b border-gray-200 divide-y divide-gray-200 rounded-lg shadow md:block">
     <thead>
       <tr className="bg-gray-50">
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
           Nome
         </th>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
           INCI
         </th>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
           O que significa?
         </th>
       </tr>
     </thead>
-    <tbody className="bg-white text-gray-700 divide-gray-200">
+    <tbody className="text-gray-700 bg-white divide-gray-200">
       {data.map((item, i) => (
         <tr key={`tr-item-${i}`} className="align-top bg-gray-50 odd:bg-white">
           {item.title && (
@@ -26,11 +26,7 @@ const IngredientsDesktop = ({ data }) => (
             <InciLink {...item} />
           </td>
           <td className="px-6 py-4">
-            {item.description ? (
-              <RichText className="no-margin">{item.description}</RichText>
-            ) : (
-              '--'
-            )}
+            {item.description ? <RichText render={item.description} /> : '--'}
           </td>
         </tr>
       ))}

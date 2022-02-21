@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { FiChevronRight } from 'react-icons/fi'
+import ChevronRightIcon from '@heroicons/react/solid/ChevronRightIcon'
 
 import { cx } from 'lib/utils'
 
@@ -13,7 +13,7 @@ const CTAButton = (
     disableIcon,
     primary,
     outlined,
-    IconComponent = FiChevronRight,
+    IconComponent = ChevronRightIcon,
     className,
     external,
     ...props
@@ -28,7 +28,7 @@ const CTAButton = (
       ? 'border-2 border-current font-semibold'
       : 'hover:bg-opacity-75 hover:shadow-lg',
     primary && (outlined ? 'text-teal-300' : 'text-white bg-teal-600'),
-    primary || outlined || 'text-white bg-gray-900',
+    primary || outlined || 'text-white bg-primary-600',
   )
 
   const Component = href ? (external ? 'a' : Link) : 'button'
@@ -44,7 +44,7 @@ const CTAButton = (
       {disableIcon || (
         <IconComponent
           className={cx(
-            'transition-all duration-200 ml-1 group-hover:ml-2',
+            'w-5 h-5 transition-all duration-200 ml-1 group-hover:ml-2',
             mini || '-mb-px',
           )}
         />

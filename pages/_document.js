@@ -8,6 +8,7 @@ class VidaNatural extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#32333d" />
+          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="shortcut icon"
@@ -20,7 +21,7 @@ class VidaNatural extends Document {
             rel="alternate"
             type="application/rss+xml"
             title="Blog da Vida Natural"
-            href="https://vidanatural.eco.br/blog/feed/"
+            href="https://vidanatural.eco.br/feed.xml"
           />
           <link
             rel="sitemap"

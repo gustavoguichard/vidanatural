@@ -1,4 +1,6 @@
-export type DocumentType =
+import { RichTextBlock } from 'prismic-reactjs'
+
+type DocumentType =
   | 'blog_post'
   | 'team_member'
   | 'faq_item'
@@ -6,7 +8,7 @@ export type DocumentType =
   | 'home_banner'
   | 'product'
 
-export interface QueryOptions {
+type QueryOptions = {
   after?: string | string[]
   fetch?: string | string[]
   fetchLinks?: string | string[]
@@ -17,18 +19,18 @@ export interface QueryOptions {
   page?: number
 }
 
-export interface FaqItem {
+type FaqItem = {
   id: string
   uid: string
   tags: string[]
   first_publication_date?: string
   data: {
     title: string
-    answer: PostBody[]
+    answer: RichTextBlock[]
   }
 }
 
-export interface HomeBanner {
+type HomeBanner = {
   id: string
   uid: string
   tags: string[]
@@ -36,9 +38,9 @@ export interface HomeBanner {
   data: {
     title: string
     subtitle?: string
-    img: object
+    image: { url: string }
     order?: number
-    link: object
+    link: { url: string }
     button_text?: string
     vertical?: 'center' | 'top' | 'bottom'
     horizontal?: 'left' | 'center' | 'right'
@@ -46,29 +48,44 @@ export interface HomeBanner {
   }
 }
 
-export interface BlogPost {
+type BlogPost = {
   id: string
   uid: string
   tags: string[]
   first_publication_date?: string
+  thumbUrl?: string
+  author?: TeamMember
+  date?: Date
   data: {
     title: string
     date?: Date
-    body: PostBody[]
-    header_image?: object
+    body: RichTextBlock[]
+    header_image?: {
+      url: string
+      alt?: string
+      thumb?: {
+        url: string
+      }
+    }
     author: TeamMember
   }
 }
 
-export interface TeamMember {
+type TeamMember = {
   id: string
   uid: string
   tags: string[]
+  permalink: string
+  thumbUrl?: string
+  imageAlt?: string
   data: {
     name: string
     role: string
-    bio: PostBody[]
-    picture?: object
+    bio: RichTextBlock[]
+    picture?: {
+      url: string
+      alt: string
+    }
     instagram?: string
     facebook?: string
     linkeding?: string
@@ -76,7 +93,7 @@ export interface TeamMember {
   }
 }
 
-export interface Testimonial {
+type Testimonial = {
   id: string
   uid: string
   tags: string[]
@@ -84,14 +101,22 @@ export interface Testimonial {
     name: string
     role?: string
     location?: string
-    content: PostBody[]
-    short_content?: PostBody[]
-    picture: object
+    content: RichTextBlock[]
+    short_content?: RichTextBlock[]
+    picture: {
+      [s: string]: {
+        url: string
+      }
+    }
   }
 }
 
-export interface PostBody {
-  type: string
-  text: string
-  spans: object[]
+export type {
+  DocumentType,
+  QueryOptions,
+  FaqItem,
+  Testimonial,
+  TeamMember,
+  BlogPost,
+  HomeBanner,
 }

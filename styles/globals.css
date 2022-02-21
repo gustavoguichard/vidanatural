@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  html {
+    overflow-anchor: auto;
+    font-family: theme('fontFamily.sans');
+  }
+
+  *:focus {
+    @apply outline-none focus:ring ring-secondary-400;
+  }
+
+  #__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .outline input:focus-within ~ label,
+  .outline input:not(:placeholder-shown) ~ label,
+  .outline textarea:focus-within ~ label,
+  .outline textarea:not(:placeholder-shown) ~ label {
+    @apply scale-75 -translate-y-4 z-0 ml-3 px-1 py-0;
+  }
+}
+
+@layer components {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .yt-lite {
+    @apply aspect-video relative bg-center bg-cover cursor-pointer flex items-center justify-center;
+  }
+  .yt-lite > .lty-playbtn {
+    @apply w-[70px] aspect-[10/7] rounded-lg transition-all ease-[cubic-bezier(0,0,0.2,1)] z-10 bg-black/70 flex items-center justify-center absolute before:border-y-[11px] before:border-l-[19px] before:border-transparent before:border-l-white;
+  }
+  .yt-lite:hover > .lty-playbtn {
+    @apply bg-red-500;
+  }
+  .yt-lite.lyt-activated {
+    @apply cursor-auto;
+  }
+  .yt-lite.lyt-activated > .lty-playbtn {
+    @apply opacity-0 pointer-events-none;
+  }
+  .yt-lite iframe {
+    @apply w-full h-full;
+  }
+}

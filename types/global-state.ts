@@ -1,21 +1,24 @@
-export interface GlobalState {
-  [key: string]: any
+type NotificationAction = { label: string; onClick?: () => void }
+type Notification = {
+  id: string | number
+  type: 'info' | 'alert' | 'error' | 'success'
+  persist?: boolean
+  title?: string
+  message?: string
+  htmlMessage?: string
+  position: `${'top' | 'bottom'}-${'left' | 'right'}` | 'center'
+  cancel?: NotificationAction
+  action?: NotificationAction
+  onClose?: () => void
 }
 
-export interface Action {
-  (...args: any[]): any
+type State = {
+  showCart: boolean
+  updatingCard: boolean
+  freeShippingPrice: number
+  updatingCart: boolean
+  searchOpen: boolean
+  notifications: Notification[]
 }
 
-export interface Actions {
-  [key: string]: Action | Actions
-}
-
-export type Listener = [string | undefined, React.Dispatch<any>]
-
-export interface Store {
-  setState: Function
-  setGlobalState?: Function
-  actions?: Actions
-  state: GlobalState
-  listeners?: Listener[]
-}
+export type { Notification, State }

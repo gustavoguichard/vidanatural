@@ -2,7 +2,7 @@ import { SITE_TITLE, META_DESCRIPTION } from 'lib/constants'
 
 export const titleTemplate = `%s | ${SITE_TITLE}`
 
-export default {
+const config = {
   title: SITE_TITLE,
   description: META_DESCRIPTION,
   openGraph: {
@@ -26,3 +26,5 @@ export default {
     cardType: 'summary_large_image',
   },
 }
+
+export default config

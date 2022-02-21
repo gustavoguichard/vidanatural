@@ -1,20 +1,26 @@
 module.exports = {
-  verbose: true,
   collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}$',
+    '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],
-  setupFilesAfterEnv: ['./setupTests.js'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/', './test'],
-  moduleDirectories: ['node_modules', './'],
-  transform: {
-    '^.+\\.jsx?$': './node_modules/babel-jest',
-    '^.+\\.css$': './config/jest/cssTransform.js',
-    '^.+\\.tsx?$': './node_modules/ts-jest',
-  },
-  transformIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '^.+\\.(jpg|jpeg|png|gif|webp|svg)$': `<rootDir>/__mocks__/fileMock.js`,
+    '^@/pages/(.*)$': '<rootDir>/pages/$1',
+    '^@/layouts/(.*)$': '<rootDir>/layouts/$1',
+    '^@/components/(.*)$': '<rootDir>/components/$1',
+    '^@/lib/(.*)$': '<rootDir>/lib/$1',
   },
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+  },
+  transformIgnorePatterns: [
+    '/node_modules/',
+    '^.+\\.module\\.(css|sass|scss)$',
+  ],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 }

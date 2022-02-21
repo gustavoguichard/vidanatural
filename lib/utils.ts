@@ -1,35 +1,26 @@
 import words from 'lodash/words'
-import {
-  compose,
-  reject,
-  isNil,
-  isBoolean,
-  flatten,
-  join,
-  trim,
-} from 'lodash/fp'
-
-import accounting from 'accounting'
-
-accounting.settings = {
-  currency: {
-    symbol: 'R$',
-    format: '%s%v',
-    decimal: ',',
-    thousand: '.',
-    precision: 2,
-  },
-  number: {
-    precision: 0,
-    decimal: ',',
-    thousand: '.',
-  },
-}
+import compose from 'lodash/fp/compose'
+import reject from 'lodash/fp/reject'
+import isNil from 'lodash/fp/isNil'
+import isBoolean from 'lodash/fp/isBoolean'
+import flatten from 'lodash/fp/flatten'
+import join from 'lodash/fp/join'
+import trim from 'lodash/fp/trim'
 
 const toCurrency = (n: number = 0) =>
-  accounting.formatMoney(+n).replace(',00', '')
+  new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+    .format(~~n)
+    .replace(/\$\s/, '$')
 
-const isClient = typeof window === 'object'
+const toDate = (d: string, short?: boolean) => {
+  const config = {
+    weekday: short ? undefined : 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  } as const
+  return new Date(d).toLocaleString('pt-br', config)
+}
 
 const getReadTime = (text: string) => {
   const AVG_WORDS_PER_MINUTE = 265
@@ -41,4 +32,4 @@ const getReadTime = (text: string) => {
 const cx = (...args: unknown[]) =>
   compose(trim, join(' '), reject(isBoolean), reject(isNil), flatten)(args)
 
-export { cx, getReadTime, isClient, toCurrency }
+export { cx, getReadTime, toCurrency, toDate }

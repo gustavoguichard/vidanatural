@@ -1,15 +1,13 @@
-import get from 'lodash/get'
 import map from 'lodash/map'
-import truncate from 'lodash/truncate'
 import flatMap from 'lodash/flatMap'
 import uniqBy from 'lodash/uniqBy'
 
-import { getReadTime, toCurrency } from 'lib/utils'
+import { getReadTime, toCurrency } from './utils'
 
-import type { PostBody } from 'types/cms'
 import type { ParsedProduct, ProductTag, VndaProduct } from 'types/vnda'
+import { RichTextBlock } from 'prismic-reactjs'
 
-export const timeSince = (date: number) => {
+export const timeSince = (date: Date) => {
   const now = new Date()
   const then = new Date(date)
   const seconds = Math.floor((now.getTime() - then.getTime()) / 1000)
@@ -46,46 +44,34 @@ export const timeSince = (date: number) => {
   return `${total} ${total > 1 ? plural || label + 's' : label}`
 }
 
-export const calculatePostReadTime = (body: PostBody[]) => {
+export const calculatePostReadTime = (body: RichTextBlock[]) => {
   const paragraphs = body.filter((b) => b.type === 'paragraph')
   const text = map(paragraphs, 'text').join(' ')
   return `${getReadTime(text)} min`
 }
 
-export const getExcerpt = (body: PostBody[], length = 200) => {
-  const paragraph = body.find((b) => b.type === 'paragraph') || { text: '' }
-  return truncate(paragraph.text, { length })
+export const getExcerpt = (body: RichTextBlock[]) => {
+  return body.find((b) => b.type === 'paragraph' && b.text?.length)?.text || ''
 }
 
-export const isEmptyBody = (body?: PostBody[]) => {
+export const isEmptyBody = (body?: RichTextBlock[]) => {
   return !body || getExcerpt(body) === ''
 }
 
-export const resolveLink = (link: string) => {
-  const url = new URL(link)
-  const isLocal = url.hostname.includes('vidanatural.eco.br')
-  const result = isLocal ? `${url.pathname}${url.search}` : url
-  return result
-}
-
-export const getCategoryTags = (products: ParsedProduct[], addSales = true) => {
+export const getCategoryTags = (products: ParsedProduct[]) => {
   const isProductCategory = (cat: ProductTag) => cat.tag_type === 'product_cat'
   const allCategoryTags = flatMap(products, (product) =>
     (product.category_tags || []).filter(isProductCategory),
   )
   const withoutRepetition = uniqBy(allCategoryTags, 'name')
-  const prepend = addSales ? [{ name: 'promocoes', title: 'Promoções' }] : []
-  return [
-    ...prepend,
-    ...withoutRepetition.sort((cat) => (cat.name === 'kit' ? -1 : 1)),
-  ]
+  return withoutRepetition.sort((cat) => (cat.name === 'kit' ? -1 : 1))
 }
 
 export const getDiscount = (product: VndaProduct) => {
-  const isPercentage = get(product, 'discount_rule.type') === 'percentage'
+  const isPercentage = product.discount_rule?.type === 'percentage'
   return isPercentage
-    ? `${get(product, 'discount_rule.amount', 0)}%`
-    : `${toCurrency(get(product, 'discount_rule.amount', 0))}`
+    ? `${product.discount_rule?.amount ?? 0}%`
+    : `${toCurrency(product.discount_rule?.amount ?? 0)}`
 }
 
 export const getProductsByTag = (products: ParsedProduct[], tags: string[]) => {

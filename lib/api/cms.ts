@@ -1,7 +1,6 @@
 import Prismic from 'prismic-javascript'
-import get from 'lodash/get'
 
-import type { DocumentType, QueryOptions } from 'types/cms'
+import type { DocumentType, QueryOptions } from '../../types/cms'
 
 export const apiEndpoint = process.env.PRISMIC_API ?? ''
 export const accessToken = process.env.PRISMIC_TOKEN ?? ''
@@ -62,7 +61,7 @@ export const getByTypeAndTags = async (
   tags?: string[],
 ) => {
   const response = await getPaginated(type, options, tags)
-  return get(response, 'results', [])
+  return response?.results ?? []
 }
 
 export const allByTags = async (tags: string[], options?: QueryOptions) => {
@@ -70,5 +69,5 @@ export const allByTags = async (tags: string[], options?: QueryOptions) => {
     pageSize: 1000,
     ...options,
   })
-  return get(response, 'results', [])
+  return response?.results ?? []
 }

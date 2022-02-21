@@ -1,68 +1,42 @@
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
-import { getCategoryTags } from 'lib/domain'
-import { useTimeout } from 'lib/hooks'
 
-import type { ProductTag } from 'types/vnda'
+import { useFormState } from 'react-use-form-state'
 
-export const useTagsMenu = () => {
-  const [tags, setTags] = useState([] as ProductTag[])
-
-  const fetchTags = async () => {
-    const products = await api.vnda.clientFetch('products/list')
-    const parsed = getCategoryTags(products)
-    setTags(parsed as ProductTag[])
-  }
-
-  useEffect(() => {
-    fetchTags()
-  }, [])
-
-  return {
-    name: 'Loja',
-    path: '/produto',
-    links: [
-      {
-        name: 'Todos os produtos',
-        path: '/produtos',
-      },
-      ...tags.map((tag) => ({
-        name: tag.title,
-        path: `/produtos?filter=${tag.name}`,
-      })),
-    ],
-  }
-}
-
-export const useInitialBanner = () => {
+function useNewsletterService() {
+  const [sending, setSending] = useState(false)
   const [, { notify }] = useGlobal()
-  useTimeout(() => {
-    if (typeof notify === 'function') {
+  const [formState, { email }] = useFormState<{ email: string; key: string }>({
+    key: 'vidanatural-newsletter',
+  })
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault()
+    setSending(true)
+
+    const isSent = await api.vnda.endpoints.sendForm(formState.values)
+    if (isSent) {
+      formState.clear()
       notify({
-        htmlMessage: `<span class="text-center w-full">Frete grátis para todo o Brasil a partir de R$ 160,00.</span>`,
-        type: 'black',
-        center: true,
-        hideIcon: true,
+        title: 'Gratos!',
+        message: 'Você começará a receber nossas ofertas em breve! 🌱',
+        type: 'success',
+        position: 'bottom-right',
+      })
+    } else {
+      notify({
+        title: 'Erro',
+        message:
+          'Não foi possível adicionar este e-mail nesse momento. Por favor, tente mais novamente.',
+        type: 'error',
+        position: 'bottom-right',
       })
     }
-  }, 5000)
+    setSending(false)
+  }
+
+  return { handleSubmit, sending, emailField: email }
 }
 
-export const useCoupon = () => {
-  const [, { notify, addCoupon }] = useGlobal()
-  const router = useRouter()
-  useEffect(() => {
-    if (router.query.ccc && typeof notify === 'function') {
-      notify({
-        id: 10,
-        htmlMessage: `<span>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</span>`,
-        big: true,
-        type: 'alert',
-      })
-      typeof addCoupon === 'function' && addCoupon(router.query.ccc as string)
-    }
-  }, [router])
-}
+export { useNewsletterService }

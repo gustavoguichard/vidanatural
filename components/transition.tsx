@@ -3,10 +3,14 @@ import { Transition as HUITransition } from '@headlessui/react'
 import type { TransitionClasses } from '@headlessui/react'
 
 interface IProps extends TransitionClasses {
+  children?: React.ReactNode
+  appear?: boolean
   during?: string
   hidden?: string
   shown?: string
   show: boolean
+  afterLeave?: () => void
+  className?: string
 }
 
 function Transition({ during, hidden, shown, ...props }: IProps) {
