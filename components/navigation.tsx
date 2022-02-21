@@ -1,17 +1,11 @@
 import { useState } from 'react'
 import MenuIcon from '@heroicons/react/outline/MenuIcon'
 import SearchIcon from '@heroicons/react/outline/SearchIcon'
-import ShoppingCartIcon from '@heroicons/react/outline/ShoppingCartIcon'
-import UserIcon from '@heroicons/react/outline/UserIcon'
 
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import useGlobal from 'lib/use-global'
 import Link from 'components/link'
-import sumBy from 'lodash/sumBy'
-import api from 'lib/api'
-import { useDidMount } from 'lib/hooks'
-import { cx } from 'lib/utils'
 
 const categories = [
   {
@@ -55,12 +49,7 @@ const pages = [
 
 const Navigation = () => {
   const [open, setOpen] = useState(false)
-  const [{ cart }, actions] = useGlobal()
-  useDidMount(() => {
-    const token = api.vnda.utils.getLocalToken()
-    if (token) actions.listCart()
-  })
-  const cartItems = sumBy(cart?.items, 'quantity')
+  const [, actions] = useGlobal()
   return (
     <div className="sticky top-0 z-30 bg-white border-b border-gray-200">
       <MobileMenu open={open} setOpen={setOpen} />
@@ -124,58 +113,6 @@ const Navigation = () => {
                           <SearchIcon className="w-6 h-6" aria-hidden="true" />
                         </button>
                       </div>
-
-                      <div className="flex">
-                        <a
-                          href="#"
-                          onClick={(ev: React.MouseEvent) => {
-                            ev.preventDefault()
-                            actions.notify({
-                              title: 'Indisponível momentaneamente',
-                              message:
-                                'Estamos construindo a sua área, para qualquer dúvida sobre seus pedidos, entre em contato ou verifique os e-mails recebidos.',
-                              position: 'top-right',
-                            })
-                          }}
-                          className="p-2 -m-2 text-gray-400 hover:text-gray-500"
-                        >
-                          <span className="sr-only">Minha conta</span>
-                          <UserIcon className="w-6 h-6" aria-hidden="true" />
-                        </a>
-                      </div>
-                    </div>
-
-                    <span
-                      className="w-px h-6 mx-4 bg-gray-200 lg:mx-6"
-                      aria-hidden="true"
-                    />
-
-                    <div className="flow-root">
-                      <button
-                        onClick={(ev: React.MouseEvent) => {
-                          ev.preventDefault()
-                          actions.openCart()
-                        }}
-                        className="relative flex items-center p-2 -m-2 group"
-                      >
-                        <ShoppingCartIcon
-                          className="w-6 h-6 text-gray-400 shrink-0 group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                        <span
-                          className={cx(
-                            'ml-2 text-sm font-medium',
-                            cartItems
-                              ? 'text-secondary-500 group-hover:text-secondary-700'
-                              : 'text-gray-700 group-hover:text-gray-800',
-                          )}
-                        >
-                          {cartItems}
-                        </span>
-                        <span className="sr-only">
-                          produtos adicionados, ver carrinho
-                        </span>
-                      </button>
                     </div>
                   </div>
                 </div>

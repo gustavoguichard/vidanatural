@@ -1,7 +1,6 @@
 import api from 'lib/api'
 
 import Link from 'components/link'
-import PriceTag from 'components/products/price-tag'
 
 const SearchItem = ({ onClick, name, image_url, price, sale_price, url }) => (
   <Link
@@ -19,14 +18,6 @@ const SearchItem = ({ onClick, name, image_url, price, sale_price, url }) => (
     ) : null}
     <div>
       <p className="text-sm">{name}</p>
-      {sale_price && (
-        <PriceTag
-          variant="caption"
-          inline
-          lineBreak={false}
-          item={{ price, sale_price }}
-        />
-      )}
     </div>
   </Link>
 )

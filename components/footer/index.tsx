@@ -1,16 +1,7 @@
-import LockClosedIcon from '@heroicons/react/outline/LockClosedIcon'
 import NewsForm from 'components/footer/news-form'
 import Link from 'components/link'
 import { FacebookIcon } from 'components/svg/facebook'
 import { InstagramIcon } from 'components/svg/instagram'
-import { AmexIcon } from 'components/svg/payments/amex'
-import { BoletoIcon } from 'components/svg/payments/boleto'
-import { DinnersIcon } from 'components/svg/payments/dinners'
-import { EloIcon } from 'components/svg/payments/elo'
-import { HipercardIcon } from 'components/svg/payments/hipercard'
-import { MastercardIcon } from 'components/svg/payments/master'
-import { PixIcon } from 'components/svg/payments/pix'
-import { VisaIcon } from 'components/svg/payments/visa'
 
 const navigation = {
   products: [
@@ -28,14 +19,6 @@ const navigation = {
     { name: 'Sobre a VN', href: '/sobre-a-vida-natural' },
     { name: 'Blog', href: '/blog' },
     { name: 'Quem somos?', href: '/sobre-a-vida-natural#quem-somos' },
-  ],
-  legal: [
-    {
-      name: 'Política de Frete Grátis',
-      href: '/faq/quais-sao-as-politicas-de-frete-gratis-do-e-commerce-da-vida-natural',
-    },
-    { name: 'Trocas e devoluções', href: '/termos-e-condicoes' },
-    { name: 'Privacidade', href: '/termos-e-condicoes' },
   ],
   social: [
     {
@@ -58,87 +41,66 @@ const Footer = () => {
         Footer
       </h2>
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:py-16 lg:px-8">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
-                  Produtos
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {navigation.products.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
-                  Suporte
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {navigation.support.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="lg:grid lg:grid-cols-3 lg:gap-8">
+          <div className="col-span-2 lg:grid lg:grid-cols-3">
+            <div>
+              <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
+                Produtos
+              </h3>
+              <ul role="list" className="mt-4 space-y-4">
+                {navigation.products.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-base text-gray-300 hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
-                  A Empresa
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
-                  Regulamentos
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mt-12 lg:mt-0">
+              <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
+                Suporte
+              </h3>
+              <ul role="list" className="mt-4 space-y-4">
+                {navigation.support.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-base text-gray-300 hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-12 lg:mt-0">
+              <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
+                A Empresa
+              </h3>
+              <ul role="list" className="mt-4 space-y-4">
+                {navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-base text-gray-300 hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-          <div className="mt-8 xl:mt-0">
+          <div className="mt-8 lg:mt-0">
             <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
-              Quer descontos exclusivos?
+              Quer saber das nossas novidades?
             </h3>
             <p className="mt-4 text-base text-gray-300">
-              Assine nossa newsletter e receba um cupom de 15% de desconto.
+              Assine nossa newsletter.
             </p>
             <NewsForm />
           </div>
@@ -170,37 +132,6 @@ const Footer = () => {
             </a>{' '}
             <span aria-hidden="true">&middot;</span> CNPJ: 24.288.982/0001-27
           </p>
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-between px-4 py-2 bg-gray-100 sm:flex-row sm:px-6">
-        <p className="flex items-center gap-2 text-sm text-gray-500">
-          <LockClosedIcon className="inline-block w-4 h-4" /> Compra segura
-        </p>
-        <div className="flex items-center gap-2">
-          <span title="Pix">
-            <PixIcon className="w-6 h-6" />
-          </span>
-          <span title="Boleto">
-            <BoletoIcon className="w-6 h-6" />
-          </span>
-          <span title="Visa">
-            <VisaIcon className="w-8 h-8" />
-          </span>
-          <span title="MasterCard">
-            <MastercardIcon className="w-8 h-8" />
-          </span>
-          <span title="Dinners">
-            <DinnersIcon className="w-8 h-8" />
-          </span>
-          <span title="Elo">
-            <EloIcon className="w-8 h-8" />
-          </span>
-          <span title="American Express">
-            <AmexIcon className="w-8 h-8" />
-          </span>
-          <span title="Hipercard">
-            <HipercardIcon className="w-8 h-8" />
-          </span>
         </div>
       </div>
     </footer>

@@ -1,4 +1,3 @@
-import Cart from 'components/cart'
 import FlashMessage from 'components/home/flash-message'
 import Certifications from 'components/certifications'
 import Footer from 'components/footer'
@@ -17,7 +16,6 @@ const EcommerceLayout = (page: React.ReactNode) => {
         <Certifications />
         <Footer />
       </div>
-      <Cart />
       <Notifications />
     </>
   )

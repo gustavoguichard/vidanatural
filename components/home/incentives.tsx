@@ -9,7 +9,6 @@ import formula from '../../public/static/icons/formula-minimalista.png'
 import safe from '../../public/static/icons/seguro-pro-planeta.png'
 import ingredients from '../../public/static/icons/ingredientes-seguros.png'
 import handmade from '../../public/static/icons/feito-a-mao.png'
-import shipping from '../../public/static/icons/entregamos.png'
 
 const incentives = [
   {
@@ -47,13 +46,13 @@ const incentives = [
     description:
       'Mãos com intenção, com cuidado, com carinho. Fazendo o que acreditamos.',
   },
-  {
-    name: 'Entregamos para todo o Brasil',
-    imageSrc: shipping,
-    tags: ['home'],
-    description:
-      'Se você está em terras brasileiras, a gente entrega para você.',
-  },
+  // {
+  //   name: 'Entregamos para todo o Brasil',
+  //   imageSrc: shipping,
+  //   tags: ['home'],
+  //   description:
+  //     'Se você está em terras brasileiras, a gente entrega para você.',
+  // },
 ]
 
 const Incentives = () => {

@@ -58,17 +58,13 @@ export const isEmptyBody = (body?: RichTextBlock[]) => {
   return !body || getExcerpt(body) === ''
 }
 
-export const getCategoryTags = (products: ParsedProduct[], addSales = true) => {
+export const getCategoryTags = (products: ParsedProduct[]) => {
   const isProductCategory = (cat: ProductTag) => cat.tag_type === 'product_cat'
   const allCategoryTags = flatMap(products, (product) =>
     (product.category_tags || []).filter(isProductCategory),
   )
   const withoutRepetition = uniqBy(allCategoryTags, 'name')
-  const prepend = addSales ? [{ name: 'promocoes', title: 'Promoções' }] : []
-  return [
-    ...prepend,
-    ...withoutRepetition.sort((cat) => (cat.name === 'kit' ? -1 : 1)),
-  ]
+  return withoutRepetition.sort((cat) => (cat.name === 'kit' ? -1 : 1))
 }
 
 export const getDiscount = (product: VndaProduct) => {

@@ -5,8 +5,7 @@ import Head from 'next/head'
 import Script from 'next/script'
 import identity from 'lodash/fp/identity'
 
-import { initTracking, intersectionPolyfill } from 'lib/fx'
-import { useCoupon } from 'lib/domain-hooks'
+import { initTracking } from 'lib/fx'
 import SEO from 'lib/next-seo.config'
 
 import type { AppProps } from 'next/app'
@@ -15,7 +14,6 @@ import type { NextRouter } from 'next/router'
 import 'styles/app.css'
 
 const didMount = async (router: NextRouter) => {
-  await intersectionPolyfill()
   await initTracking(router)
 }
 
@@ -24,7 +22,6 @@ const VidaNatural = ({ pageProps, Component }: AppProps) => {
   useEffect(() => {
     router && didMount(router)
   }, [router])
-  useCoupon()
   const getLayout: (c: JSX.Element) => JSX.Element =
     (Component as any).getLayout || identity
 

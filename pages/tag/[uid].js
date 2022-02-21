@@ -7,7 +7,6 @@ import staticProps from 'lib/static-props/tag-uid'
 import staticPaths from 'lib/static-paths/tag-uid'
 
 import EcommerceLayout from 'layouts/ecommerce'
-import Banner from 'components/banner'
 import HomeFeed from 'components/home/feed'
 import MoreProducts from 'components/more-products'
 import SEO from 'components/seo'
@@ -21,7 +20,6 @@ const TagPage = ({ banner, products, posts, faqItems }) => {
   return (
     <>
       <SEO title={title} />
-      {banner && <Banner {...banner} />}
       {posts?.length && <HomeFeed posts={posts} />}
       {products?.length && (
         <MoreProducts title="Produtos relacionados" products={products} />

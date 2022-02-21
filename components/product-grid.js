@@ -2,14 +2,9 @@ import ProductCard from 'components/product-card'
 
 const ProductGrid = ({ products }) =>
   products?.length ? (
-    <div className="flex flex-wrap">
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-4">
       {products.map((product, index) => (
-        <div
-          key={index}
-          className="flex w-1/2 px-2 mb-4 sm:w-1/3 md:w-1/3 lg:w-1/4"
-        >
-          <ProductCard product={product} />
-        </div>
+        <ProductCard key={index + product.id} product={product} />
       ))}
     </div>
   ) : null

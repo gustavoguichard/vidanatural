@@ -1,24 +1,15 @@
 import React from 'react'
-import { useInView } from 'react-intersection-observer'
-
-import { getDiscount } from 'lib/domain'
 
 import ImageGallery from 'components/image-gallery'
 import Description from './description'
 import HighlightedTestimonial from './highlighted-testimonial'
 import ProductTitle from './title'
-import PriceTag from './price-tag'
-import ProductCTA from './cta'
-import MobileCTA from './mobile-cta'
 
-const ProductSale = ({ product, cmsData }) => {
-  const [ref, visible] = useInView({ threshold: 0, triggerOnce: false })
-  const [variant] = product.variants || [{}]
+const ProductSale = ({ product }) => {
   const hasInformation = Boolean(product.description.information)
 
   return (
     <>
-      {product.inStock && <MobileCTA visible={visible} product={product} />}
       <div className="max-w-screen-xl px-10 pt-16 pb-12 m-auto lg:pt-12">
         <div className="justify-center lg:space-x-8 lg:flex">
           <div className="lg:w-1/2">
@@ -42,17 +33,6 @@ const ProductSale = ({ product, cmsData }) => {
                 __html: product.description.presentation,
               }}
             />
-            <PriceTag big item={variant} />
-            {product.isKit && product.discount_rule && (
-              <p className="mb-1 text-xs">
-                Você economiza{' '}
-                <span className="text-sm font-semibold">
-                  {getDiscount(product)}
-                </span>{' '}
-                ao comprar estes produtos juntos.
-              </p>
-            )}
-            <ProductCTA ref={ref} product={product} />
           </div>
         </div>
       </div>

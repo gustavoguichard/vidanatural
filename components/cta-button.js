@@ -28,7 +28,7 @@ const CTAButton = (
       ? 'border-2 border-current font-semibold'
       : 'hover:bg-opacity-75 hover:shadow-lg',
     primary && (outlined ? 'text-teal-300' : 'text-white bg-teal-600'),
-    primary || outlined || 'text-white bg-gray-900',
+    primary || outlined || 'text-white bg-primary-600',
   )
 
   const Component = href ? (external ? 'a' : Link) : 'button'

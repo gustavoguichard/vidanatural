@@ -1,5 +1,3 @@
-import type { Cart } from 'types/vnda'
-
 type NotificationAction = { label: string; onClick?: () => void }
 type Notification = {
   id: string | number
@@ -15,7 +13,6 @@ type Notification = {
 }
 
 type State = {
-  cart: Cart
   showCart: boolean
   updatingCard: boolean
   freeShippingPrice: number

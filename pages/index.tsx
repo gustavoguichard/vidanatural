@@ -1,37 +1,26 @@
 import EcommerceLayout from 'layouts/ecommerce'
-import Banner from 'components/banner'
 import Feed from 'components/home/feed'
 import Testimonials from 'components/testimonials'
 import Incentives from 'components/home/incentives'
 import IntroVideo from 'components/home/intro-video'
-import ShopConditions from 'components/home/shop-conditions'
 import Stats from 'components/home/stats'
-import MoreProducts from 'components/more-products'
 
-import type { HomeBanner, BlogPost, Testimonial } from 'types/cms'
-import type { VndaProduct } from 'types/vnda'
+import type { BlogPost, Testimonial } from 'types/cms'
 import NewsletterSection from 'components/newsletter-section'
 
 type Props = {
-  banner: HomeBanner
   testimonials: Testimonial[]
   posts: BlogPost[]
-  products: VndaProduct[]
 }
-const Home = ({ banner, testimonials, posts, products }: Props) => {
+const Home = ({ testimonials, posts }: Props) => {
   return (
     <>
-      <div className="flex flex-col ">
-        <Banner {...banner} />
-        <ShopConditions />
-      </div>
-      <Incentives />
-      <MoreProducts title="Produtos mais populares" products={products} />
+      <Feed posts={posts} />
       <IntroVideo />
       <Stats />
       <Testimonials testimonials={testimonials} />
+      <Incentives />
       <NewsletterSection />
-      <Feed posts={posts} />
     </>
   )
 }

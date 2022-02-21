@@ -13,12 +13,11 @@ function NewsletterSection() {
             className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
             id="newsletter-headline"
           >
-            Ganhe 15% de desconto
+            Receba novidades
           </h2>
           <p className="max-w-3xl mt-3 text-lg leading-6 text-gray-300">
-            Assine nossa newsletter e receba nossas promoções em primeira mão
-            além de um cupom de 15% de desconto. Não se preocupe, nós não
-            enviamos muitos e-mails.
+            Assine nossa newsletter e receba nossas promoções em primeira mão.
+            Não se preocupe, nós não enviamos muitos e-mails.
           </p>
         </div>
         <div className="mt-8 lg:mt-0 lg:ml-8">

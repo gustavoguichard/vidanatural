@@ -45,7 +45,7 @@ const ProductsPage = ({ products, filters }) => {
   }, [])
 
   return (
-    <div className="max-w-screen-xl px-6 m-auto mt-16">
+    <div className="max-w-screen-xl w-full flex flex-col items-stretch px-6 m-auto mt-16">
       <SEO title="Conheça nossos produtos" />
       <div className="flex justify-center mx-2 mb-6">
         <Scroller flex>

@@ -13,14 +13,6 @@ const pageGroups = [
     { name: 'Quem somos?', href: '/sobre-a-vida-natural#quem-somos' },
     { name: 'Nossos ingredientes', href: '/sobre-a-vida-natural#ingredientes' },
   ],
-  [
-    {
-      name: 'Política de Frete Grátis',
-      href: '/faq/quais-sao-as-politicas-de-frete-gratis-do-e-commerce-da-vida-natural',
-    },
-    { name: 'Trocas e devoluções', href: '/termos-e-condicoes' },
-    { name: 'Privacidade', href: '/termos-e-condicoes' },
-  ],
 ]
 
 type Props = { open: boolean; setOpen: (b: boolean) => void }

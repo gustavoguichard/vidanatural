@@ -22,8 +22,6 @@ const toDate = (d: string, short?: boolean) => {
   return new Date(d).toLocaleString('pt-br', config)
 }
 
-const isClient = typeof window === 'object'
-
 const getReadTime = (text: string) => {
   const AVG_WORDS_PER_MINUTE = 265
   const totalWords = words(text)
@@ -34,4 +32,4 @@ const getReadTime = (text: string) => {
 const cx = (...args: unknown[]) =>
   compose(trim, join(' '), reject(isBoolean), reject(isNil), flatten)(args)
 
-export { cx, getReadTime, isClient, toCurrency, toDate }
+export { cx, getReadTime, toCurrency, toDate }
