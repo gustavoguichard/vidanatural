@@ -1,28 +1,9 @@
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 import api from 'lib/api'
 import useGlobal from 'lib/use-global'
 
 import { useFormState } from 'react-use-form-state'
-
-function useCoupon() {
-  const [, actions] = useGlobal()
-  const router = useRouter()
-  useEffect(() => {
-    if (router.query.ccc) {
-      actions.notify({
-        id: 10,
-        title: 'Cupom aceito!',
-        htmlMessage: `<p>Seu cupom <strong>${router.query.ccc}</strong> será aplicado na finalização da compra. Aproveite!</p>`,
-        type: 'success',
-        persist: true,
-      })
-      actions.addCoupon(router.query.ccc as string)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router])
-}
 
 function useNewsletterService() {
   const [sending, setSending] = useState(false)
@@ -58,4 +39,4 @@ function useNewsletterService() {
   return { handleSubmit, sending, emailField: email }
 }
 
-export { useNewsletterService, useCoupon }
+export { useNewsletterService }
